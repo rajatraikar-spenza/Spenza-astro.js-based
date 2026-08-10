@@ -1,0 +1,99 @@
+---
+// StopOverpaying.astro - Stop Overpaying for Connectivity section
+---
+
+<section class="overpaying-section" id="stop-overpaying">
+  <div class="overpaying-inner">
+    <div class="overpaying-content">
+      <h2 class="overpaying-title">Stop Overpaying for Connectivity</h2>
+      <p class="overpaying-desc">
+        Most businesses overpay for mobile, IoT, and roaming without knowing it. Spenza surfaces
+        the waste with AI usage reports and telecom expense management, then helps you cut it.
+        See your number in 60 seconds.
+      </p>
+      <a href="https://spenza.com/mvno-calculator/" class="btn btn-primary">Calculate now</a>
+    </div>
+    <div class="overpaying-visual">
+      <img
+        src="https://spenza.com/wp-content/uploads/2026/06/stop-overpaying-586x408-1-1.svg"
+        alt="Stop overpaying for connectivity"
+        loading="lazy"
+        class="overpaying-img"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .overpaying-section {
+    background: white;
+    padding: 96px 2rem;
+  }
+
+  .overpaying-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .overpaying-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .overpaying-desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: #FF4500;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #e03d00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 69, 0, 0.3);
+  }
+
+  .overpaying-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overpaying-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  @media (max-width: 900px) {
+    .overpaying-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .overpaying-visual {
+      order: -1;
+    }
+  }
+</style>

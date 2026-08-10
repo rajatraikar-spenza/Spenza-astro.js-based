@@ -1,0 +1,96 @@
+---
+// TrustedLeaders.astro - "Trusted by Industry Leaders" logo strip section
+---
+
+<section class="trusted" id="trusted-leaders">
+  <div class="trusted-inner">
+    <h2 class="trusted-heading">
+      <span class="highlight">Trusted</span> by Industry Leaders
+    </h2>
+    <div class="trusted-logos">
+      <div class="logo-item">
+        <img src="/images/trusted-leaders/image-scaled.png.webp" alt="WeLink" loading="lazy" />
+      </div>
+      <div class="logo-item">
+        <img src="/images/trusted-leaders/Angel-Watch.png.webp" alt="Angel Watch" loading="lazy" />
+      </div>
+      <div class="logo-item">
+        <img src="/images/trusted-leaders/butrle.png.webp" alt="Butlr" loading="lazy" />
+      </div>
+      <div class="logo-item">
+        <img src="/images/trusted-leaders/c131edf59974a4f1493d0c6acc4069103822aa3f.png.webp" alt="Eazybe" loading="lazy" />
+      </div>
+      <div class="logo-item">
+        <img src="/images/trusted-leaders/image-2.png.webp" alt="Partner" loading="lazy" />
+      </div>
+      <div class="logo-item">
+        <img src="/images/trusted-leaders/image-1-1.png.webp" alt="Partner" loading="lazy" />
+      </div>
+      <div class="logo-item">
+        <img src="/images/trusted-leaders/Lockup-Gradient-Black-180-x-60_ceezwf-1.png.webp" alt="Partner" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trusted {
+    background: #f5f5f7;
+    padding: 64px 2rem;
+  }
+
+  .trusted-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .trusted-heading {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 3rem;
+  }
+
+  .highlight {
+    color: #FF4500;
+  }
+
+  .trusted-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem 4rem;
+  }
+
+  .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .logo-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .logo-item img {
+    height: 40px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .trusted-logos {
+      gap: 2rem;
+    }
+    .logo-item img {
+      height: 30px;
+    }
+  }
+</style>

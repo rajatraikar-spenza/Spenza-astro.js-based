@@ -1,0 +1,93 @@
+---
+/**
+ * Layout for pages mirrored from WordPress.
+ *
+ * Loads the exact stylesheet set the live page loaded (order matters — the
+ * Elementor cascade depends on it), the extracted inline head CSS, and the
+ * mirrored Elementor header/footer templates. Elementor's jQuery runtime is
+ * replaced by /scripts/wp-shim.js.
+ */
+import wpStyles from '../data/wp-styles.json';
+import wpInlineStyles from '../data/wp-inline-styles.json';
+import wpPages from '../data/wp-pages.json';
+import wpScripts from '../data/wp-scripts.json';
+import headerHtml from '../partials/chrome/header.html?raw';
+import footerHtml from '../partials/chrome/footer.html?raw';
+import '../styles/wp-polish.css';
+
+interface Props {
+  /** Key into the mirrored data files — the page slug, or "index" for home. */
+  slug: string;
+  title?: string;
+  description?: string;
+}
+
+const { slug, title, description } = Astro.props;
+
+type PageMeta = { id?: string; title: string; description: string; bodyClass: string };
+
+const styles: string[] = (wpStyles as Record<string, string[]>)[slug] ?? [];
+const inlineStyle: string | undefined = (wpInlineStyles as Record<string, string>)[slug];
+const meta = (wpPages as Record<string, PageMeta>)[slug];
+
+// The site's own behaviour scripts (tabs, case-study cards, popups) plus any
+// structured data the page carried.
+const pageScripts = (wpScripts as Record<string, { script: string | null; jsonLd: string[] }>)[slug];
+
+// Astra/Elementor selectors depend on these, so mirror them verbatim.
+const bodyClass = ['wp-mirror', meta?.bodyClass ?? 'elementor-default elementor-kit-56']
+  .filter(Boolean)
+  .join(' ');
+
+const pageTitle = title ?? meta?.title ?? 'Spenza';
+const pageDescription = description ?? meta?.description ?? '';
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    {pageDescription && <meta name="description" content={pageDescription} />}
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={pageTitle} />
+    {pageDescription && <meta property="og:description" content={pageDescription} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {styles.map(href => <link rel="stylesheet" href={href} />)}
+    {inlineStyle && <link rel="stylesheet" href={inlineStyle} />}
+
+    {pageScripts?.jsonLd?.map(json => (
+      <script type="application/ld+json" set:html={json} />
+    ))}
+
+    <script src="/wp-assets/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js" defer></script>
+    <script src="/scripts/wp-shim.js" defer></script>
+    {pageScripts?.script && <script src={pageScripts.script} defer></script>}
+
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link screen-reader-text" href="#wp-main">Skip to content</a>
+
+    <Fragment set:html={headerHtml} />
+
+    <main id="wp-main">
+      <slot />
+    </main>
+
+    <Fragment set:html={footerHtml} />
+  </body>
+</html>

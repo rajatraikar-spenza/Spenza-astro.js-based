@@ -1,0 +1,390 @@
+---
+// Header.astro - Spenza site header with exact navigation from spenza.com
+---
+---
+
+<header class="header" id="site-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="/" class="header-logo" aria-label="Spenza Home">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4L36 36H4L20 4Z" fill="#FF4500"/>
+      </svg>
+      <span class="logo-text">SPENZA</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header-nav" aria-label="Main Navigation">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+
+        <li class="nav-item nav-item--dropdown">
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Product <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/uxhub/" class="dropdown-item">UX Hub</a>
+            <a href="/controlhub/" class="dropdown-item">Control Hub</a>
+            <a href="/telecomhub/" class="dropdown-item">Telecom Hub</a>
+          </div>
+        </li>
+
+        <li class="nav-item nav-item--dropdown">
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Solution <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/connected-devices/" class="dropdown-item">For Connected Devices</a>
+            <a href="/travel-esim/" class="dropdown-item">Travel eSIM</a>
+            <a href="/iot-solutions/" class="dropdown-item">For Internet of Things</a>
+            <a href="/finance-and-hr/" class="dropdown-item">Finance and HR Teams</a>
+            <a href="/mvne/" class="dropdown-item">For Connectivity Providers</a>
+            <a href="/ai-phone-number/" class="dropdown-item">Phone Service for AI Agents</a>
+          </div>
+        </li>
+
+        <li class="nav-item nav-item--dropdown">
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Resources <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/esim-compatibility-checker/" class="dropdown-item">eSIM Compatibility Checker</a>
+            <a href="/mvno-calculator" class="dropdown-item">MVNO Launch Cost Calculator</a>
+            <a href="/business-roaming-packs/" class="dropdown-item">Business Roaming Plans</a>
+            <a href="/faq/" class="dropdown-item">FAQ</a>
+            <a href="/unlimited-data-plans-pricing/" class="dropdown-item">US Mobile Plans</a>
+            <a href="/support/" class="dropdown-item">Support</a>
+          </div>
+        </li>
+
+        <li class="nav-item nav-item--dropdown">
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Blog <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/byod/byod/" class="dropdown-item">BYOD</a>
+            <a href="/esim/esim/" class="dropdown-item">eSIM</a>
+            <a href="/mvno/mvno/" class="dropdown-item">MVNO</a>
+            <a href="/category/spenza-product/" class="dropdown-item">Spenza Platform</a>
+            <a href="/telecom/telecom/" class="dropdown-item">Telecom</a>
+            <a href="/tem/tem/" class="dropdown-item">TEM</a>
+          </div>
+        </li>
+
+        <li class="nav-item nav-item--dropdown">
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Case Study <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-dropdown">
+            <a href="/telecom/angel-watch-iot-business-casestudy/" class="dropdown-item">Angel Watch</a>
+            <a href="/spenza-product/butlr-iot-spenza-casestudy/" class="dropdown-item">Butlr Story</a>
+            <a href="/spenza-product/proxy-reseller-growth-spenza/" class="dropdown-item">MSP-A Story</a>
+          </div>
+        </li>
+
+        <li class="nav-item"><a href="/about-us/" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <a href="https://web.spenza.com/auth/login" class="btn btn-outline" id="signin-btn">Sign Up / Login</a>
+      <a href="/contact-us/" class="btn btn-primary" id="contact-btn">Contact Us</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul class="mobile-nav-list">
+      <li><a href="/" class="mobile-nav-link">Home</a></li>
+      <li><a href="/uxhub/" class="mobile-nav-link">UX Hub</a></li>
+      <li><a href="/controlhub/" class="mobile-nav-link">Control Hub</a></li>
+      <li><a href="/telecomhub/" class="mobile-nav-link">Telecom Hub</a></li>
+      <li><a href="/connected-devices/" class="mobile-nav-link">For Connected Devices</a></li>
+      <li><a href="/travel-esim/" class="mobile-nav-link">Travel eSIM</a></li>
+      <li><a href="/iot-solutions/" class="mobile-nav-link">IoT Solutions</a></li>
+      <li><a href="/finance-and-hr/" class="mobile-nav-link">Finance and HR</a></li>
+      <li><a href="/mvne/" class="mobile-nav-link">Connectivity Providers</a></li>
+      <li><a href="/ai-phone-number/" class="mobile-nav-link">AI Phone Service</a></li>
+      <li><a href="/blog/" class="mobile-nav-link">Blog</a></li>
+      <li><a href="/about-us/" class="mobile-nav-link">About Us</a></li>
+      <li><a href="/contact-us/" class="mobile-nav-link">Contact Us</a></li>
+    </ul>
+    <div class="mobile-actions">
+      <a href="https://web.spenza.com/auth/login" class="btn btn-outline" style="width:100%;text-align:center;">Sign Up / Login</a>
+      <a href="/contact-us/" class="btn btn-primary" style="width:100%;text-align:center;">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
+  }
+
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #1a1a2e;
+    letter-spacing: -0.5px;
+  }
+
+  .header-nav {
+    flex: 1;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: #FF4500;
+    background: rgba(255,69,0,0.06);
+  }
+
+  /* Dropdown */
+  .nav-item--dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    min-width: 220px;
+    padding: 0.5rem;
+    z-index: 100;
+  }
+
+  .nav-item--dropdown:hover .nav-dropdown,
+  .nav-item--dropdown:focus-within .nav-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(255,69,0,0.06);
+    color: #FF4500;
+  }
+
+  /* Actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: #FF4500;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #e03d00;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    border: 1.5px solid #1a1a2e;
+    color: #1a1a2e;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    border-color: #FF4500;
+    color: #FF4500;
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .bar {
+    width: 100%;
+    height: 2px;
+    background: #1a1a2e;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    background: white;
+    padding: 1.5rem 2rem 2rem;
+    border-top: 1px solid #eee;
+    overflow-y: auto;
+    max-height: calc(100vh - 72px);
+  }
+
+  .mobile-menu.is-open {
+    display: block;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 0.875rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a2e;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.15s;
+  }
+
+  .mobile-nav-link:hover {
+    color: #FF4500;
+  }
+
+  .mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 1000px) {
+    .header-nav {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+    }
+    .btn-outline {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      menu.setAttribute('aria-hidden', String(!isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+  }
+
+  // Close mobile menu when clicking a link
+  menu?.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll shadow
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (header) {
+      header.style.boxShadow = window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+    }
+  });
+</script>

@@ -1,0 +1,137 @@
+---
+// SolutionsSection.astro - Connectivity Solutions for Every Business
+---
+
+<section class="solutions-section" id="solutions">
+  <div class="solutions-inner">
+    <h2 class="section-title">Connectivity Solutions for Every Business</h2>
+
+    <div class="solutions-grid">
+      <a href="/iot-solutions/" class="solution-card">
+        <div class="solution-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="#FF4500"/></svg>
+        </div>
+        <h3 class="solution-title">IoT Solutions</h3>
+        <p class="solution-desc">Manage connectivity, analytics, and billing in one place, optimize spend, and scale faster.</p>
+      </a>
+
+      <a href="/connected-devices/" class="solution-card">
+        <div class="solution-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#FF4500" stroke-width="2"/><path d="M12 18h.01" stroke="#FF4500" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="solution-title">Connected Devices</h3>
+        <p class="solution-desc">Link operators, manage plans for B2B/B2C clients, and deliver branded experiences.</p>
+      </a>
+
+      <a href="/ai-phone-number/" class="solution-card">
+        <div class="solution-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF4500" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="#FF4500" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="solution-title">Phone Service for AI Agents</h3>
+        <p class="solution-desc">List phone numbers for AI agents via APIs for SMS, voice calls, and streaming.</p>
+      </a>
+
+      <a href="/finance-and-hr/" class="solution-card">
+        <div class="solution-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="#FF4500" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="solution-title">Finance and HR Teams</h3>
+        <p class="solution-desc">Replace stipends with managed connectivity. Cut costs and manage plans centrally.</p>
+      </a>
+
+      <a href="/mvne/" class="solution-card">
+        <div class="solution-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#FF4500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="solution-title">Connectivity Providers</h3>
+        <p class="solution-desc">Launch new connectivity offerings, automate operations, and unlock new revenue streams.</p>
+      </a>
+
+      <a href="/travel-esim/" class="solution-card">
+        <div class="solution-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF4500" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#FF4500" stroke-width="2"/></svg>
+        </div>
+        <h3 class="solution-title">Travel eSIM</h3>
+        <p class="solution-desc">Reach travelers worldwide with digital eSIM plans and instant global activation.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solutions-section {
+    background: #f5f5f7;
+    padding: 96px 2rem;
+  }
+
+  .solutions-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 3rem;
+  }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .solution-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #eee;
+    text-decoration: none;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    display: block;
+  }
+
+  .solution-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .solution-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 69, 0, 0.08);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .solution-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+  }
+
+  .solution-desc {
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 580px) {
+    .solutions-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,8 @@
+---
+import WpLayout from '../layouts/WpLayout.astro';
+import content from '../partials/uxhub.html?raw';
+---
+
+<WpLayout slug="uxhub">
+  <Fragment set:html={content} />
+</WpLayout>

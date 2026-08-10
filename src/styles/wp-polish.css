@@ -1,0 +1,192 @@
+/**
+ * Subtle polish layer over the mirrored WordPress styles.
+ *
+ * Ground rules: never change layout, colour or type — only the quality of
+ * motion and rendering. Everything here is either a smoother easing curve, a
+ * rendering hint, or an accessibility fix that WordPress did not ship.
+ */
+
+/* Modern easing for the interactions Elementor animates linearly. */
+.wp-mirror {
+  --polish-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --polish-fast: 180ms;
+  --polish-base: 280ms;
+}
+
+/* Crisper text and smoother compositing on long Elementor pages. */
+.wp-mirror body,
+.wp-mirror {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.wp-mirror img {
+  image-rendering: auto;
+}
+
+/* Buttons and links: ease-out instead of Elementor's default linear ramp. */
+.wp-mirror .elementor-button,
+.wp-mirror .elementor-icon-box-wrapper .elementor-icon,
+.wp-mirror .elementor-icon-list-item a,
+.wp-mirror a.e-link {
+  transition:
+    background-color var(--polish-base) var(--polish-ease),
+    border-color var(--polish-base) var(--polish-ease),
+    color var(--polish-base) var(--polish-ease),
+    box-shadow var(--polish-base) var(--polish-ease),
+    transform var(--polish-base) var(--polish-ease);
+}
+
+/* A barely-there lift on primary buttons — reads as responsive, not bouncy. */
+.wp-mirror .elementor-button:hover {
+  transform: translateY(-1px);
+}
+
+.wp-mirror .elementor-button:active {
+  transform: translateY(0);
+  transition-duration: var(--polish-fast);
+}
+
+/*
+ * Sticky header. The Elementor container is configured with sticky: "top" but
+ * that only works under Elementor's runtime, so the header scrolled away.
+ * `position: sticky` keeps it pinned without the fixed-position spacer that
+ * Elementor injects — no layout shift.
+ */
+.wp-mirror .elementor-location-header.wp-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: box-shadow var(--polish-base) var(--polish-ease);
+}
+
+.wp-mirror .elementor-location-header.wp-header-scrolled {
+  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.06), 0 6px 20px rgba(17, 24, 39, 0.06);
+}
+
+/* The header background is opaque so content cannot show through when pinned. */
+.wp-mirror .elementor-location-header.wp-sticky-header > .elementor-element {
+  background-color: #fdf5f2;
+}
+
+/* The vector logo replaces a 268x136 raster; constrain by height so the wider
+   artwork does not blow out the header. */
+.wp-mirror .elementor-widget-theme-site-logo img {
+  height: 38px;
+  width: auto;
+  max-width: none;
+}
+
+/* Nested-menu panels fade/slide in rather than snapping open. */
+.wp-mirror .elementor-widget-n-menu .e-n-menu-content > .e-con.e-active {
+  animation: wp-menu-in var(--polish-base) var(--polish-ease) both;
+}
+
+@keyframes wp-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown chevrons rotate smoothly with the panel. */
+.wp-mirror .elementor-widget-n-menu .e-n-menu-dropdown-icon i {
+  transition: transform var(--polish-base) var(--polish-ease);
+}
+
+/* Carousels: ease the track instead of Swiper's default linear transition —
+   except continuously scrolling marquees, which must stay linear or they
+   stutter at every slide boundary. */
+.wp-mirror .swiper-wrapper {
+  transition-timing-function: var(--polish-ease);
+}
+
+.wp-mirror .wp-marquee .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* Accordion chevrons follow the panel easing set in the shim. */
+.wp-mirror .eael-accordion-header .fa,
+.wp-mirror .eael-accordion-header i {
+  transition: transform var(--polish-base) var(--polish-ease);
+}
+
+/*
+ * Buttons the shim flagged as unreadable (near-white label, no background —
+ * white-on-white). Restores the gradient the page CSS declares but never
+ * applies. Same defect exists on the live WordPress site.
+ */
+/* !important is deliberate: this layer exists to beat the page CSS that leaves
+   these buttons unpainted, and the losing declarations vary per widget id. */
+.wp-mirror .elementor-button.wp-btn-restored {
+  background-image: linear-gradient(180deg, #ff6e24 0%, #fd4500 100%) !important;
+  background-color: transparent !important;
+  border-color: rgba(0, 0, 0, 0.11);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.wp-mirror .elementor-button.wp-btn-restored:hover {
+  background-image: linear-gradient(180deg, #fd4500 0%, #dd4006 100%) !important;
+}
+
+/* Elementor ships no visible keyboard focus ring; add one that respects brand. */
+.wp-mirror :focus-visible {
+  outline: 2px solid var(--e-global-color-794f80c, #fd4500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip link — present in the markup but never styled by the theme. */
+.wp-mirror .skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100000;
+  padding: 12px 20px;
+  background: #fff;
+  color: #2c180d;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.wp-mirror .skip-link:focus {
+  left: 0;
+}
+
+/* Smooth in-page anchor scrolling for the #products / #solutions nav links. */
+@media (prefers-reduced-motion: no-preference) {
+  .wp-mirror {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Elementor entrance animations, retimed to be less abrupt. */
+@media (prefers-reduced-motion: no-preference) {
+  .wp-mirror .animated {
+    animation-duration: 700ms;
+    animation-timing-function: var(--polish-ease);
+    animation-fill-mode: both;
+  }
+}
+
+/* Honour the OS setting the WordPress build ignores entirely. */
+@media (prefers-reduced-motion: reduce) {
+  .wp-mirror *,
+  .wp-mirror *::before,
+  .wp-mirror *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .wp-mirror .elementor-invisible {
+    opacity: 1 !important;
+  }
+}

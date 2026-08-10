@@ -1,0 +1,8 @@
+---
+import WpLayout from '../layouts/WpLayout.astro';
+import content from '../partials/sub-processors.html?raw';
+---
+
+<WpLayout slug="sub-processors">
+  <Fragment set:html={content} />
+</WpLayout>

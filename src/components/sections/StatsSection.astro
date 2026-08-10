@@ -1,0 +1,151 @@
+---
+// StatsSection.astro - The Numbers Speak for Themselves
+---
+
+<section class="stats-section" id="stats">
+  <div class="stats-inner">
+    <h2 class="stats-heading">The Numbers Speak <span class="highlight">for Themselves</span></h2>
+
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-prefix">&lt;</div>
+        <div class="stat-number" data-count="7">7</div>
+        <div class="stat-suffix">Days</div>
+        <div class="stat-label">Time-to-Launch</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="40">40</div>
+        <div class="stat-suffix">%</div>
+        <div class="stat-label">Reduction in fixed costs</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-prefix">$</div>
+        <div class="stat-number" data-count="480">480</div>
+        <div class="stat-label">Saved annually per line</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-prefix">$</div>
+        <div class="stat-number" data-count="2400">2,400</div>
+        <div class="stat-label">Saved annually on operator expense</div>
+      </div>
+    </div>
+
+    <div class="stats-cta">
+      <a href="https://web.spenza.com/auth/signup" class="btn btn-outline">Explore Platform</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    background: #0f0f0f;
+    padding: 96px 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-section::before {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,69,0,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .stats-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats-heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 3.5rem;
+  }
+
+  .highlight {
+    color: #FF4500;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-prefix,
+  .stat-suffix {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FF4500;
+    line-height: 1;
+  }
+
+  .stat-number {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: #FF4500;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.75rem;
+    font-weight: 500;
+  }
+
+  .stats-cta {
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-outline {
+    border: 2px solid #FF4500;
+    color: #FF4500;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: #FF4500;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

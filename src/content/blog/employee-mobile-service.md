@@ -1,0 +1,16 @@
+---
+title: "Offering Mobile Service to Employees: Key Considerations "
+date: 2021-08-19T11:05:40
+image: "/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png"
+category: "Telecom"
+---
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1024" height="683" class="wp-image-4433" src="/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png" alt="" srcset="/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png 1024w, /wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png 300w, /wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+<p>What is your enterprise mobility policy?</p>
+<p>Growing companies face a number of challenges as they move from startup mode to a mid-sized business. Startups are notorious for having few policies and procedures and solely focusing on launching the product and bringing in those critical early customers. As you move out of the “everyone knows everyone” phase, putting in the right policies early will save longer-term headaches when your DIY procedures can’t support a large number of employees. </p>
+<p>A mobility policy, when properly implemented, can end up saving the company thousands by making clear what the business will and won’t support. While new top-of-the-line <a href="/blog/byod-policies-can-save/">mobile phones</a> can cost well over $1000, they are also very well built and can typically last a number of years, but I frequently hear stories from businesses without a formal mobile policy that their corporate phones suffer a rash of drops, damage and generally just disappear in the month following the launch of the latest iPhone. Funny how that happens. </p>
+<p>If you’ve never implemented a mobility policy from scratch it can be a daunting task, so we’ve pooled the collective experience of the iSimplexity management team to develop a general framework that you can use to get started building your company’s policy. A comprehensive mobility policy requires that the company look at over-using the service, device policy, porting-in and porting-out as well as roaming and international service. </p>
+<p>We’ve created two documents to help you develop your own mobility policy &#8211; a primer that provides a list of questions you should know the answers to before developing your policy along with implementation options; and a full mobility policy document template with wording you can use to create a custom policy for your company. Head to <a href="/mobility-policy/">Mobility policy page</a> to jumpstart your enterprise mobility management. </p>
+<p>With <a href="/">iSimplexity</a>, you can implement the corporate mobility policy. Refer to<a href="/telecom-expense-management-system-business-mobile-services-pricing/"> iSimplexity Telecom expense management SaaS</a> for more details</p>

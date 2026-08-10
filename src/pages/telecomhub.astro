@@ -1,0 +1,8 @@
+---
+import WpLayout from '../layouts/WpLayout.astro';
+import content from '../partials/telecomhub.html?raw';
+---
+
+<WpLayout slug="telecomhub">
+  <Fragment set:html={content} />
+</WpLayout>

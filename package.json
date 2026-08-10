@@ -1,0 +1,35 @@
+{
+  "name": "spenza-astro-js",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "wp:assets": "node scripts/wp-mirror-assets.mjs",
+    "wp:content": "node scripts/wp-extract-content.mjs",
+    "wp:inline-css": "node scripts/wp-extract-inline-css.mjs",
+    "wp:webp": "node scripts/wp-mirror-webp.mjs",
+    "wp:pages": "node scripts/wp-generate-pages.mjs",
+    "wp:scripts": "node scripts/wp-extract-scripts.mjs",
+    "wp:archives": "node scripts/wp-mirror-archives.mjs",
+    "wp:blog-media": "node scripts/wp-blog-media.mjs",
+    "wp:post-template": "node scripts/wp-post-template.mjs",
+    "wp:audit-links": "node scripts/wp-audit-links.mjs",
+    "wp:audit": "node scripts/wp-audit-assets.mjs",
+    "wp:resync": "npm run wp:assets && npm run wp:content && npm run wp:inline-css && npm run wp:webp && npm run wp:scripts && npm run wp:pages"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/mdx": "^7.0.5",
+    "astro": "^7.2.0",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "parse5": "^8.0.1"
+  }
+}

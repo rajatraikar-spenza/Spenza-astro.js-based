@@ -1,0 +1,8 @@
+---
+import WpLayout from '../layouts/WpLayout.astro';
+import content from '../partials/careers.html?raw';
+---
+
+<WpLayout slug="careers">
+  <Fragment set:html={content} />
+</WpLayout>

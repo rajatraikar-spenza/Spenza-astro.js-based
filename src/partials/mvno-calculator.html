@@ -1,0 +1,266 @@
+<div data-elementor-type="wp-page" data-elementor-id="20230" class="elementor elementor-20230" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-8b32b3b e-flex e-con-boxed e-con e-parent" data-id="8b32b3b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-a2fa98a e-con-full e-flex e-con e-child" data-id="a2fa98a" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-0cf259e elementor-widget elementor-widget-heading" data-id="0cf259e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">MVNO Financial Calculator</p>				</div>
+				</div>
+				<div class="elementor-element elementor-element-bce3988 elementor-widget__width-inherit elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading" data-id="bce3988" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default"><span class="hero-highlight"> Model Your MVNO </span>Before You Build It</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-9807302 elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading" data-id="9807302" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">Find out whether your MVNO will make money before you spend a dollar building it. Enter your launch assumptions to model subscriber growth, monthly revenue, operating costs, and the month you break even.</p>				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-30fc1d6 e-flex e-con-boxed e-con e-parent" data-id="30fc1d6" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1772eee elementor-widget__width-inherit elementor-widget elementor-widget-html" data-id="1772eee" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					
+
+<section class="mvno-calculator">
+  <div class="mvno-container">
+    <form id="mvnoCalculator" novalidate="">
+      <div class="calculator-grid">
+
+        <!-- ========================= Cost Structure ========================== -->
+        <fieldset>
+          <legend class="section-title">Cost Structure</legend>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="upfront">Upfront Costs ($)</label>
+              <input id="upfront" type="number" min="0" value="50000">
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="opex">Monthly Operating Expenses ($)</label>
+              <input id="opex" type="number" min="0" value="7000">
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="acpu">ACPU – Avg Cost Per User ($)</label>
+              <input id="acpu" type="number" min="0" value="30">
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="months">Projection Duration (Months)</label>
+              <input id="months" type="number" min="1" max="200" value="12">
+            </div>
+            <span class="field-error"></span>
+          </div>
+        </fieldset>
+
+        <!-- ========================= Revenue & Subscriber Metrics ========================== -->
+        <fieldset>
+          <legend class="section-title">Revenue &amp; Subscriber Metrics</legend>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="initial">Initial Subscriber Count</label>
+              <input id="initial" type="number" min="0" value="1000">
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="growth">Monthly Growth Rate (%)</label>
+              <input id="growth" type="number" min="0" step="0.1" value="10">
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="arpu">ARPU – Avg Revenue Per User ($)</label>
+              <input id="arpu" type="number" min="0" value="40">
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <label for="churn">Monthly Churn Rate (%)</label>
+              <input id="churn" type="number" min="0" step="0.1" value="2">
+            </div>
+            <span class="field-error"></span>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- ========================= Calculate Button ========================== -->
+      <div class="calculate-wrapper">
+        <button type="button" id="recalc" class="mvno-btn">Calculate Now</button>
+      </div>
+
+      <!-- ========================= Summary Cards ========================== -->
+      <section class="summary-grid">
+        <div class="summary-card">
+          <span class="summary-title">Final Subscriber Count</span>
+          <h3 id="m-finalSubs">0</h3>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-title">Final Revenue</span>
+          <h3 id="m-finalRev" class="orange-text">$0</h3>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-title">Break-even Month</span>
+          <h3 id="m-breakeven">—</h3>
+        </div>
+
+        <div class="summary-card">
+          <span class="summary-title">Cumulative Profit</span>
+          <h3 id="m-cumProfit" class="green-text">$0</h3>
+        </div>
+      </section>
+
+      <!-- ========================= Projections & Analysis ========================== -->
+      <section class="analysis-section">
+        <div class="analysis-header">
+          <div class="analysis-content">
+            <h2 class="analysis-title">Projections &amp; Analysis</h2>
+            <p class="analysis-description">
+              Financial projections for the next
+              <strong id="projectionLabel">0</strong>
+              months.
+            </p>
+          </div>
+
+          <button type="button" id="downloadReport" class="mvno-btn" disabled="">
+            Download Report
+          </button>
+        </div>
+
+        <!-- ========================= Projection Table ========================== -->
+        <div class="table-wrapper">
+          <table id="projTable">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Subscribers</th>
+                <th>Revenue</th>
+                <th>Costs</th>
+                <th>Monthly Profit</th>
+                <th>Cumulative Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="6">
+                  Enter all values above and click
+                  <strong>Calculate Now</strong>
+                  to generate your financial projections.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </form>
+
+    <!-- ========================= Report Modal ========================== -->
+   <div class="report-modal-content">
+
+  <button type="button" class="report-close" aria-label="Close">×</button>
+
+  <h2>Send Analysis Report</h2>
+
+  <label>Download as <span class="astric">*</span></label>
+
+  <div class="download-types">
+    <button type="button" id="dlCsv" class="mvno-btn download-type">CSV</button>
+    <button type="button" id="dlXlsx" class="mvno-btn download-type">Excel</button>
+    <button type="button" id="dlPdf" class="mvno-btn download-type active">PDF</button>
+  </div>
+
+  <!-- WordPress renders the shortcode's real form markup right here -->
+  
+                <div class="gf_browser_chrome gform_wrapper gform_legacy_markup_wrapper gform-theme--no-framework" data-form-theme="legacy" data-form-index="1" id="gform_wrapper_21"><div id="gf_21" class="gform_anchor" tabindex="-1"></div><form method="post" enctype="multipart/form-data" target="gform_ajax_frame_21" id="gform_21" action="/mvno-calculator/#gf_21" data-formid="21">
+                        <div class="gform-body gform_body"><ul id="gform_fields_21" class="gform_fields top_label form_sublabel_below description_below"><li id="field_21_1" class="gfield gfield--type-email gfield_contains_required field_sublabel_below gfield--no-description field_description_below gfield_visibility_visible" data-js-reload="field_21_1"><label class="gfield_label gform-field-label" for="input_21_1">Work email<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class="ginput_container ginput_container_email">
+                            <input name="input_1" id="input_21_1" type="text" value="" class="large" placeholder="you@company.com" aria-required="true" aria-invalid="false">
+                        </div></li><li id="field_21_2" class="gfield gfield--type-phone gfield_contains_required field_sublabel_below gfield--no-description field_description_below gfield_visibility_visible" data-js-reload="field_21_2"><label class="gfield_label gform-field-label" for="input_21_2">Your Phone<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class="ginput_container ginput_container_phone"><input name="input_2" id="input_21_2" type="text" value="" class="large" placeholder="Enter Your Phone Number" aria-required="true" aria-invalid="false"></div></li><li id="field_21_3" class="gfield gfield--type-honeypot gform_validation_container field_sublabel_below gfield--has-description field_description_below gfield_visibility_visible" data-js-reload="field_21_3"><label class="gfield_label gform-field-label" for="input_21_3">Comments</label><div class="ginput_container"><input name="input_3" id="input_21_3" type="text" value=""></div><div class="gfield_description" id="gfield_description_21_3">This field is for validation purposes and should be left unchanged.</div></li></ul></div>
+        <div class="gform_footer top_label"> <input type="submit" id="gform_submit_button_21" class="gform_button button" value="Download" onclick="if(window[&quot;gf_submitting_21&quot;]){return false;}  window[&quot;gf_submitting_21&quot;]=true;  " onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_21&quot;]){return false;} window[&quot;gf_submitting_21&quot;]=true;  jQuery(&quot;#gform_21&quot;).trigger(&quot;submit&quot;,[true]); }"> <input type="hidden" name="gform_ajax" value="form_id=21&amp;title=&amp;description=&amp;tabindex=0">
+            <input type="hidden" class="gform_hidden" name="is_submit_21" value="1">
+            <input type="hidden" class="gform_hidden" name="gform_submit" value="21">
+            
+            <input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
+            <input type="hidden" class="gform_hidden" name="state_21" value="WyJbXSIsIjcwMWM3MTZjZjIwZjQzZTczYzBmMGYwYzU1NWFhMTc0Il0=">
+            <input type="hidden" class="gform_hidden" name="gform_target_page_number_21" id="gform_target_page_number_21" value="0">
+            <input type="hidden" class="gform_hidden" name="gform_source_page_number_21" id="gform_source_page_number_21" value="1">
+            <input type="hidden" name="gform_field_values" value="">
+            
+        </div>
+                        <p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_2" name="ak_js" value="149">
+</p></form>
+                        </div>
+		                <iframe style="display:none;width:0px;height:0px;" src="about:blank" name="gform_ajax_frame_21" id="gform_ajax_frame_21" title="This iframe contains the logic required to handle Ajax powered Gravity Forms."></iframe>
+		                
+
+
+  <div class="report-modal-actions">
+    <button type="button" id="cancelReport" class="mvno-btn cancel-btn">Cancel</button>
+    <button type="button" id="customSubmitBtn" class="mvno-btn">Download</button>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-facc23c e-flex e-con-boxed e-con e-parent" data-id="facc23c" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-36bc1cf elementor-widget__width-inherit elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading" data-id="36bc1cf" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Take Your MVNO from<span class="highlighted-text"> Spreadsheet to Launch</span></h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-d04622e elementor-widget__width-inherit elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="d04622e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">Get the full projection report, then talk to the team about the platform that runs the operation behind it.</p>				</div>
+				</div>
+				<div class="elementor-element elementor-element-81525ff elementor-align-right elementor-widget__width-initial btn-animate get-started elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="81525ff" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">book your demo now</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-2d95090 elementor-align-left elementor-widget__width-initial elementor-mobile-align-justify elementor-widget elementor-widget-button" data-id="2d95090" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://spenza.com/contact-us/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Contact Us</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+				</div>
+				</div>

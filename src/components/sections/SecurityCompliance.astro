@@ -1,0 +1,200 @@
+---
+// SecurityCompliance.astro - Trusted. Secure. Compliant.
+---
+
+<section class="security-section" id="security-compliance">
+  <div class="security-inner">
+    <div class="security-content">
+      <div class="section-badge">Security &amp; Compliance</div>
+      <h2 class="security-title">Trusted. Secure. Compliant.</h2>
+      <ul class="security-list">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#FF4500" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#FF4500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          All data is encrypted in transit and at rest using industry-leading standards.
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#FF4500" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#FF4500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Information is collected through a privacy-first approach with strict access permissions.
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#FF4500" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#FF4500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          End-to-end connectivity management
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#FF4500" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#FF4500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Plans across 180+ countries
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#FF4500" fill-opacity="0.1"/><path d="M6 10l3 3 5-5" stroke="#FF4500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Optimize telecom operations
+        </li>
+      </ul>
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <div class="security-badges">
+      <div class="badge-row">
+        <div class="compliance-badge">
+          <img src="/images/sec-compliance/Cloud.png.webp" alt="Cloud" loading="lazy" />
+          <span>Cloud</span>
+        </div>
+        <div class="compliance-badge">
+          <img src="/images/sec-compliance/image-4.png.webp" alt="Stripe on Payments" loading="lazy" />
+          <span>Stripe on Payments</span>
+        </div>
+        <div class="compliance-badge">
+          <img src="/images/sec-compliance/image-5.png.webp" alt="Okta Uptime" loading="lazy" />
+          <span>Okta Uptime</span>
+        </div>
+      </div>
+      <div class="badge-row">
+        <div class="compliance-badge">
+          <img src="/images/sec-compliance/gdpr-1.png.webp" alt="GDPR" loading="lazy" />
+          <span>GDPR</span>
+        </div>
+        <div class="compliance-badge">
+          <img src="/images/sec-compliance/tax-1.png.webp" alt="Pre-Built Tax Integrations" loading="lazy" />
+          <span>Pre-Built Tax Integrations</span>
+        </div>
+        <div class="compliance-badge">
+          <img src="/images/sec-compliance/platform-1.png.webp" alt="Uptime" loading="lazy" />
+          <span>Uptime</span>
+        </div>
+        <div class="compliance-badge">
+          <img src="/images/sec-compliance/mongodb-1.png.webp" alt="MongoDB" loading="lazy" />
+          <span>MongoDB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .security-section {
+    background: white;
+    padding: 96px 2rem;
+  }
+
+  .security-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    border: 1.5px solid #FF4500;
+    color: #FF4500;
+    border-radius: 999px;
+    padding: 6px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .security-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 1.75rem;
+  }
+
+  .security-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .security-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .security-list li svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: #FF4500;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #e03d00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 69, 0, 0.3);
+  }
+
+  .security-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .compliance-badge {
+    background: #f9f9fb;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 0.875rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 100px;
+    flex: 1;
+    transition: box-shadow 0.2s;
+  }
+
+  .compliance-badge:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+
+  .compliance-badge img {
+    height: 36px;
+    width: auto;
+    max-width: 80px;
+    object-fit: contain;
+  }
+
+  .compliance-badge span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .security-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

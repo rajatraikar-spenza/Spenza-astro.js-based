@@ -1,0 +1,34 @@
+---
+/**
+ * Static stand-in for a WordPress 301.
+ *
+ * A static build cannot send a real redirect status, so this emits a canonical
+ * link (so search engines consolidate on the target) plus a meta refresh and a
+ * scripted replace. If the site moves to a host with redirect rules, port these
+ * to the platform config and delete the corresponding pages.
+ */
+interface Props {
+  /** Destination path, e.g. "/byod/byod-policies/". */
+  to: string;
+}
+
+const { to } = Astro.props;
+const absolute = new URL(to, Astro.site ?? Astro.url.origin).href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <link rel="canonical" href={absolute} />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content={`0; url=${to}`} />
+    <script is:inline define:vars={{ to }}>
+      window.location.replace(to);
+    </script>
+  </head>
+  <body>
+    <p>This page has moved to <a href={to}>{to}</a>.</p>
+  </body>
+</html>

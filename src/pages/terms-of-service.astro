@@ -1,0 +1,8 @@
+---
+import WpLayout from '../layouts/WpLayout.astro';
+import content from '../partials/terms-of-service.html?raw';
+---
+
+<WpLayout slug="terms-of-service">
+  <Fragment set:html={content} />
+</WpLayout>

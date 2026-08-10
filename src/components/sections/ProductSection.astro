@@ -1,0 +1,203 @@
+---
+// ProductSection.astro - Take Control of Your Telecom Operations
+---
+
+<section class="product-section" id="products">
+  <div class="product-inner">
+    <div class="section-badge">Product</div>
+    <h2 class="section-title">
+      Take Control of Your&nbsp;<span class="highlight">Telecom Operations</span><br />
+      Without the Complexity or Cost
+    </h2>
+
+    <div class="product-cards">
+      <!-- UX Hub -->
+      <div class="product-card">
+        <div class="product-card-image">
+          <img
+            src="https://spenza.com/wp-content/uploads/2026/06/image-scaled.png"
+            alt="UX Hub - Branded customer experience"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-card-content">
+          <h3 class="product-card-title">UX Hub</h3>
+          <p class="product-card-subtitle">Provide Exceptional Connectivity Experience</p>
+          <p class="product-card-desc">
+            Eliminate connectivity friction, generate branded user experiences, and create seamless
+            checkout flows while delivering lightning-fast support.
+          </p>
+          <a href="https://spenza.com/uxhub/" class="product-read-more">Read More</a>
+        </div>
+      </div>
+
+      <!-- Control Hub -->
+      <div class="product-card">
+        <div class="product-card-image">
+          <img
+            src="https://spenza.com/wp-content/uploads/2026/06/image-1-1.png"
+            alt="Control Hub - Analytics and expense management"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-card-content">
+          <h3 class="product-card-title">Control Hub</h3>
+          <p class="product-card-subtitle">Mobile Plans That Manage Themselves</p>
+          <p class="product-card-desc">
+            Unify and analyze connectivity data, monitor KPIs, optimize spend, and make smart
+            data-driven decisions with real-time actionable insights.
+          </p>
+          <a href="https://spenza.com/controlhub/" class="product-read-more">Read More</a>
+        </div>
+      </div>
+
+      <!-- Telecom Hub -->
+      <div class="product-card">
+        <div class="product-card-image">
+          <img
+            src="https://spenza.com/wp-content/uploads/2026/06/Product-Section-2-1.png"
+            alt="Telecom Hub - Multi-operator connectivity"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-card-content">
+          <h3 class="product-card-title">Telecom Hub</h3>
+          <p class="product-card-subtitle">Multi-Operator Connectivity Just for You</p>
+          <p class="product-card-desc">
+            Access pre-aggregated operators in one platform, switch SIMs globally, and easily pair
+            the right connectivity plans with various use cases.
+          </p>
+          <a href="https://spenza.com/telecomhub/" class="product-read-more">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-section {
+    background: #ffffff;
+    padding: 96px 2rem;
+  }
+
+  .product-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    border: 1.5px solid #FF4500;
+    color: #FF4500;
+    border-radius: 999px;
+    padding: 6px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.2;
+    margin-bottom: 4rem;
+  }
+
+  .highlight {
+    color: #FF4500;
+  }
+
+  .product-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .product-card {
+    background: #f9f9fb;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .product-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .product-card-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f0f0f5;
+  }
+
+  .product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-card-image img {
+    transform: scale(1.03);
+  }
+
+  .product-card-content {
+    padding: 1.5rem;
+  }
+
+  .product-card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 0.35rem;
+  }
+
+  .product-card-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FF4500;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-card-desc {
+    font-size: 0.9375rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .product-read-more {
+    display: inline-block;
+    background: #FF4500;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .product-read-more:hover {
+    background: #e03d00;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .product-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-section {
+      padding: 64px 1rem;
+    }
+  }
+</style>

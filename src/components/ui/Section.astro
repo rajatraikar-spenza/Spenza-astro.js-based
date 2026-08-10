@@ -1,0 +1,85 @@
+---
+import Container from './Container.astro';
+
+interface Props {
+  id?: string;
+  background?: 'white' | 'alt' | 'primary' | 'dark' | 'gradient';
+  padding?: 'none' | 'sm' | 'md' | 'lg';
+  narrow?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  background = 'white',
+  padding = 'lg',
+  narrow = false,
+  class: className = '',
+} = Astro.props;
+
+const classes = `section section--bg-${background} section--pad-${padding} ${className}`.trim();
+---
+
+<section id={id} class={classes}>
+  <Container narrow={narrow}>
+    <slot />
+  </Container>
+</section>
+
+<style>
+  .section {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Background options */
+  .section--bg-white {
+    background-color: var(--color-bg);
+  }
+
+  .section--bg-alt {
+    background-color: var(--color-bg-alt);
+  }
+
+  .section--bg-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+  }
+
+  .section--bg-dark {
+    background-color: var(--color-primary-light);
+    color: var(--color-text-inverse);
+  }
+
+  .section--bg-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Padding options */
+  .section--pad-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .section--pad-sm {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .section--pad-md {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .section--pad-lg {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  @media (max-width: 768px) {
+    .section--pad-lg {
+      padding-top: var(--space-10);
+      padding-bottom: var(--space-10);
+    }
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+/**
+ * Blog posts at their WordPress URLs: /<category-slug>/<post-slug>/.
+ *
+ * Wrapped in Astra's single-post markup so the mirrored theme CSS applies the
+ * same typography and spacing WordPress does.
+ */
+import { getCollection, render } from 'astro:content';
+import WpLayout from '../../layouts/WpLayout.astro';
+import { categorySlug } from '../../data/blog-categories';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(entry => ({
+    params: { category: categorySlug(entry.data.category), slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const category = entry.data.category ?? 'Telecom';
+const slug = categorySlug(category);
+const published = entry.data.date ? new Date(entry.data.date) : undefined;
+const publishedLabel = published?.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Strip the markdown's leading HTML so the excerpt is readable prose.
+const description = entry.body
+  ?.replace(/<[^>]+>/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim()
+  .slice(0, 160);
+---
+
+<WpLayout slug="__post__" title={`${entry.data.title} - Spenza`} description={description}>
+  <div id="content" class="site-content">
+    <div class="ast-container">
+      <div id="primary" class="content-area primary">
+        <div id="main" class="site-main">
+          <article
+            class={`post type-post status-publish format-standard hentry category-${slug} ast-article-single`}
+          >
+            <header class="entry-header ast-no-thumbnail">
+              <div class="ast-blog-featured-section post-thumb ast-blog-single-element">
+                {entry.data.image && (
+                  <img
+                    class="wp-post-image"
+                    src={entry.data.image}
+                    alt={entry.data.title}
+                    loading="eager"
+                    decoding="async"
+                  />
+                )}
+              </div>
+              <h1 class="entry-title">{entry.data.title}</h1>
+              <div class="entry-meta">
+                <span class="ast-taxonomy-container cat-links">
+                  <a href={`/category/${slug}/`} rel="category tag">{category}</a>
+                </span>
+                {publishedLabel && (
+                  <span class="posted-on">
+                    <time class="entry-date published" datetime={published?.toISOString()}>
+                      {publishedLabel}
+                    </time>
+                  </span>
+                )}
+              </div>
+            </header>
+
+            <div class="entry-content clear">
+              <Content />
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</WpLayout>

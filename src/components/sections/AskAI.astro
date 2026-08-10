@@ -1,0 +1,141 @@
+---
+// AskAI.astro - Still Weighing Your Options?
+---
+
+<section class="askai-section" id="ask-ai">
+  <div class="askai-inner">
+    <div class="section-badge">Ask the AI</div>
+    <h2 class="askai-title">
+      Still <span class="highlight">Weighing</span> Your Options?
+    </h2>
+    <p class="askai-desc">Ask an AI assistant to evaluate Spenza based on your business needs.</p>
+    <div class="askai-buttons">
+      <a
+        href="https://chatgpt.com/?prompt=Based+on+this+website%3A+https%3A%2F%2Fspenza.com%2F%2C+explain+why+Spenza+is+the+best+platform+for+my+business."
+        class="ai-btn ai-btn--chatgpt"
+        target="_blank"
+        rel="noopener"
+        id="ask-chatgpt-btn"
+      >
+        <svg width="20" height="20" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.313-2.repeating.964 10.06 10.06 0 0 0-9.587 6.963 9.967 9.967 0 0 0-6.664 4.834 10.079 10.079 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.313 2.963 10.078 10.078 0 0 0 9.594-6.971 9.967 9.967 0 0 0 6.664-4.834 10.079 10.079 0 0 0-1.243-11.813z" fill="white"/></svg>
+        Ask ChatGPT
+      </a>
+      <a
+        href="https://claude.ai/new?q=Based+on+this+website%3A+https%3A%2F%2Fspenza.com%2F%2C+explain+why+Spenza+is+the+best+platform+for+my+business."
+        class="ai-btn ai-btn--claude"
+        target="_blank"
+        rel="noopener"
+        id="ask-claude-btn"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="white" fill-opacity="0.3"/><path d="M8 16l4-8 4 8M9.5 13h5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        Ask Claude
+      </a>
+      <a
+        href="https://www.perplexity.ai/search/new?q=Based+on+this+website%3A+https%3A%2F%2Fspenza.com%2F%2C+explain+why+Spenza+is+the+best+platform+for+my+business."
+        class="ai-btn ai-btn--perplexity"
+        target="_blank"
+        rel="noopener"
+        id="ask-perplexity-btn"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Ask Perplexity
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .askai-section {
+    background: #fef5f2;
+    padding: 80px 2rem;
+  }
+
+  .askai-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    border: 1.5px solid #FF4500;
+    color: #FF4500;
+    border-radius: 999px;
+    padding: 6px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .askai-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: #FF4500;
+  }
+
+  .askai-desc {
+    font-size: 1.0625rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+  }
+
+  .askai-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .ai-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    color: white;
+  }
+
+  .ai-btn--chatgpt {
+    background: #10a37f;
+  }
+  .ai-btn--chatgpt:hover {
+    background: #0d8a6c;
+    transform: translateY(-2px);
+  }
+
+  .ai-btn--claude {
+    background: #c0692a;
+  }
+  .ai-btn--claude:hover {
+    background: #a85a25;
+    transform: translateY(-2px);
+  }
+
+  .ai-btn--perplexity {
+    background: #1a73e8;
+  }
+  .ai-btn--perplexity:hover {
+    background: #1557b0;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    .askai-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    .ai-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

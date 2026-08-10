@@ -1,0 +1,8 @@
+---
+import WpLayout from '../layouts/WpLayout.astro';
+import content from '../partials/privacy-policy.html?raw';
+---
+
+<WpLayout slug="privacy-policy">
+  <Fragment set:html={content} />
+</WpLayout>

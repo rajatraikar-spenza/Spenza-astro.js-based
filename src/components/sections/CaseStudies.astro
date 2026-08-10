@@ -1,0 +1,184 @@
+---
+// CaseStudies.astro - Powering Connectivity for Modern Businesses
+---
+
+<section class="casestudies-section" id="case-studies">
+  <div class="casestudies-inner">
+    <div class="section-badge">Case Studies</div>
+    <h2 class="section-title">
+      Powering Connectivity for <span class="highlight">Modern Businesses</span>
+    </h2>
+
+    <div class="casestudies-grid">
+      <!-- Angel Watch - featured large -->
+      <div class="case-card case-card--featured">
+        <div class="case-card-bg" style="background-image: url('https://spenza.com/wp-content/uploads/2026/06/client-background-1-1.png')"></div>
+        <div class="case-card-logos">
+          <img src="/images/trusted-leaders/Angel-Watch.png.webp" alt="Angel Watch" class="case-logo" />
+          <div class="case-spenza-logo">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><path d="M20 4L36 30H4L20 4Z" fill="#FF4500"/><rect x="10" y="22" width="20" height="6" rx="3" fill="white" fill-opacity="0.8"/></svg>
+            <span style="color:white;font-weight:800;font-size:1.1rem;letter-spacing:-0.5px;">SPENZA</span>
+          </div>
+        </div>
+        <div class="case-card-content">
+          <h3 class="case-title">Angel Watch</h3>
+          <p class="case-desc">Learn how Angel Watch scaled IoT connectivity, delivered a world-class customer experience, and reduced cost with Spenza</p>
+          <a href="/telecom/angel-watch-iot-business-casestudy/" class="btn btn-primary">See How</a>
+        </div>
+      </div>
+
+      <!-- Butlr -->
+      <div class="case-card">
+        <div class="case-card-bg" style="background-image: url('https://spenza.com/wp-content/uploads/2026/06/ac919e663b0ebd7973d805bc7598228174a7a048.png')"></div>
+        <div class="case-card-content">
+          <h3 class="case-title">Butlr Story</h3>
+          <p class="case-desc">Discover how Butlr lowered telecom costs and reduced time to market from 60 days to just 7 days with Spenza's connectivity platform.</p>
+          <a href="/spenza-product/butlr-iot-spenza-casestudy/" class="btn btn-primary">See How</a>
+        </div>
+      </div>
+
+      <!-- MSP-A -->
+      <div class="case-card">
+        <div class="case-card-bg" style="background-image: url('https://spenza.com/wp-content/uploads/2026/06/5358473bd3ca3571e1fb713b06c32f178a163818.png')"></div>
+        <div class="case-card-content">
+          <h3 class="case-title">MSP-A Story</h3>
+          <p class="case-desc">See how MSP-A achieved 3X faster growth using Spenza's reseller management platform. Streamlining connectivity, billing, and partner operations.</p>
+          <a href="/spenza-product/proxy-reseller-growth-spenza/" class="btn btn-primary">See How</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .casestudies-section {
+    background: #f5f5f7;
+    padding: 96px 2rem;
+  }
+
+  .casestudies-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    border: 1.5px solid #FF4500;
+    color: #FF4500;
+    border-radius: 999px;
+    padding: 6px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 3rem;
+  }
+
+  .highlight {
+    color: #FF4500;
+  }
+
+  .casestudies-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .case-card {
+    background: #1a1a2e;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .case-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.45;
+  }
+
+  .case-card-logos {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .case-logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(10);
+    object-fit: contain;
+  }
+
+  .case-spenza-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .case-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  }
+
+  .case-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.6rem;
+  }
+
+  .case-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: #FF4500;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #e03d00;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .casestudies-grid {
+      grid-template-columns: 1fr;
+    }
+    .case-card {
+      min-height: 280px;
+    }
+  }
+</style>
