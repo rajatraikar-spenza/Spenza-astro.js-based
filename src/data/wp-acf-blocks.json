@@ -1,4 +1,70 @@
 {
+  "subscriber-management-system-guide": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "An MVNO subscriber management system is the software that manages a subscriber from order to termination: the data model linking customers, subscriptions, SIMs and numbers; the provisioning chain that activates service in the HLR, HSS or UDM; the charging system that authorizes and deducts usage in real time; and the lifecycle logic that governs suspension, porting and termination.",
+    "twoCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"users-gear\", \"label\" : \"Users Gear\", \"unicode\" : \"f509\"}",
+        "title": "Subscriber Management Is More Than Billing",
+        "text": "It connects customers, subscriptions, SIMs, network identifiers, provisioning, charging, and service lifecycle across multiple systems."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+        "title": "Keep the Subscription Identity Stable",
+        "text": "MSISDN, IMSI, ICCID, and eSIM profiles can change. A stable internal subscription ID should tie these replaceable network resources together."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
+        "title": "Provisioning Must Be Asynchronous and Resilient",
+        "text": "Activation can fail or time out midway. Idempotency makes retries safe, while reconciliation catches mismatches between BSS and network state."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-line\", \"label\" : \"Chart Line\", \"unicode\" : \"f201\"}",
+        "title": "Real-Time Charging Controls Service",
+        "text": "Gy supports online charging in legacy/EPC architectures, while 5G uses the Nchf service-based charging interface. Quota sizing, expiry, and retry handling directly affect revenue protection."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+        "title": "MVNEs Reduce Telecom Infrastructure Complexity",
+        "text": "Instead of building every carrier integration, provisioning and charging workflow in-house, MVNOs can use an MVNE platform to orchestrate these capabilities and focus on their product and customer experience."
+      }
+    ]
+  },
+  "business-internet-failover": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Cellular internet backup gives a business a second, independent connection that takes over automatically when the primary ISP fails. Per site, expect a router plus a data plan, with typical single-site plans running tens of dollars monthly. At fleet scale the economics change: because backup data sits idle at most sites most of the time, pooled multi-carrier plans cost far less per site than fixed per-location plans.",
+    "twoCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"signal\", \"label\" : \"Signal\", \"unicode\" : \"f012\"}",
+        "title": "Cellular Failover Reduces Downtime",
+        "text": "Cellular backup automatically keeps critical business systems connected when the primary internet fails, helping reduce operational disruption and lost revenue."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-pie\", \"label\" : \"Chart Pie\", \"unicode\" : \"f200\"}",
+        "title": "Pool Data Across Locations",
+        "text": "Instead of paying for large backup plans at every site, businesses can pool cellular data across their fleet and size capacity around actual failover usage."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hexagon-nodes\", \"label\" : \"Hexagon Nodes\", \"unicode\" : \"e699\"}",
+        "title": "Multi-Carrier Means Better Resilience",
+        "text": "Using multiple cellular carriers reduces dependence on a single network and gives locations a better chance of staying connected during carrier-specific outages."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"clipboard-check\", \"label\" : \"Clipboard Check\", \"unicode\" : \"f46c\"}",
+        "title": "Choose the Right Failover Mode",
+        "text": "Automatic warm failover works well for many retail, QSR, and office environments. Mission-critical workloads may benefit from SD-WAN or bonded connectivity when preserving active sessions is important."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+        "title": "Spenza Makes Fleet Backup Simpler",
+        "text": "Spenza helps businesses manage multi-carrier cellular connectivity with pooled data, usage visibility, alerts, and centralized SIM management, making failover easier to scale across multiple locations."
+      }
+    ]
+  },
   "fleet-automotive-iot-connectivity-costs": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
     "tldrDescription": "Fleet and automotive IoT connectivity is the cellular service layer behind telematics, tracking and connected-vehicle features. It differs from general IoT connectivity in three ways: vehicles move across networks and borders, they run several services at once including regulated ones, and they stay in service long enough to outlive the networks they launched on.",
@@ -3538,7 +3604,7 @@
   },
   "business-mobile-cost-quality": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "Business mobile cost optimization is not simply about choosing the cheapest plans—it requires matching devices, connectivity, and service plans to employee needs while automating telecom management. A role-based strategy combined with TEM tooling can reduce mobile spending by 15–25% while improving service quality and productivity.",
     "twoCol": [
       {
         "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"filter-circle-dollar\", \"label\" : \"Filter Circle Dollar\", \"unicode\" : \"f662\"}",
@@ -4365,10 +4431,37 @@
     "oneCol": []
   },
   "iot-connectivity-strategies-2025": {
-    "tldrHeading": "",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Scaling IoT from a pilot to millions of devices requires connectivity strategies designed around future-proof hardware, global SIMs, centralized management, and cost control. The right architecture reduces network obsolescence, operational complexity, outages, and unpredictable connectivity costs.",
+    "twoCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"route\", \"label\" : \"Route\", \"unicode\" : \"f4d7\"}",
+        "title": "Future-Proof IoT Hardware",
+        "text": "Use long-lifecycle technologies such as LTE-M, NB-IoT, and 5G RedCap, alongside eSIM/eUICC, to reduce network-sunset risks and avoid costly hardware replacements as deployments scale."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+        "title": "Adopt a Global IoT SIM Strategy",
+        "text": "A single global IoT SIM can simplify deployments across 190+ countries by reducing SKUs, inventory, contracts, and logistics while multi-carrier connectivity adds network redundancy."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield\", \"label\" : \"Shield\", \"unicode\" : \"f132\"}",
+        "title": "Centralize IoT Connectivity Management",
+        "text": "A unified platform provides visibility into device usage, status, and location while APIs can automate SIM activation, profile assignment, data controls, and other connectivity operations across large fleets."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
+        "title": "Control Connectivity Costs at Scale",
+        "text": "Pooled data plans, real-time usage alerts, and automated suspension of abnormal devices help prevent overages and protect margins when connectivity costs are multiplied across millions of devices."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
+        "title": "Spenza Powers Scalable IoT Connectivity",
+        "text": "Spenza combines eSIM provisioning, multi-carrier connectivity across 190+ countries, centralized IoT connectivity management, APIs, analytics, and customizable billing to help businesses scale from pilot deployments to global IoT operations."
+      }
+    ]
   },
   "proxy-reseller-growth-spenza": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
@@ -4384,9 +4477,36 @@
   },
   "choosing-iot-device-connectivity-2025": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "Choosing the right IoT device connectivity depends on power consumption, coverage, data rate, latency, scalability, and cost. Wi-Fi, Bluetooth LE, Zigbee, LoRaWAN, NB-IoT, and 5G each serve different use cases, making connectivity selection a critical product and business decision.",
+    "twoCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"laptop-medical\", \"label\" : \"Laptop Medical\", \"unicode\" : \"f812\"}",
+        "title": "Match Connectivity to the Use Case",
+        "text": "Wearables, smart home devices, industrial sensors, and consumer electronics have different connectivity requirements. Evaluate power, range, latency, and data needs before selecting a technology."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wifi\", \"label\" : \"Wifi\", \"unicode\" : \"f1eb\"}",
+        "title": "Choose Between Wi-Fi, BLE, Zigbee, and LPWAN",
+        "text": "Wi-Fi suits high-bandwidth, powered devices, BLE works well for low-power wearables, Zigbee supports smart-home mesh networks, while LoRaWAN provides long-range, low-power connectivity for sensors."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"plane\", \"label\" : \"Plane\", \"unicode\" : \"f072\"}",
+        "title": "Use Cellular IoT for Scalable Deployments",
+        "text": "NB-IoT offers deep indoor coverage and low-cost connectivity for applications such as smart meters, while 5G provides high bandwidth and low latency for demanding use cases such as robotics, industrial automation, and connected vehicles."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+        "title": "Future-Proof IoT Connectivity with eSIM",
+        "text": "eSIM enables remote network-profile switching without physically replacing SIMs, helping connected products adapt to changing carriers, coverage requirements, and international markets."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-simple\", \"label\" : \"Chart Simple\", \"unicode\" : \"e473\"}",
+        "title": "Spenza Simplifies Multi-Technology IoT Connectivity",
+        "text": "Spenza provides a single API-first platform for managing different connectivity technologies, SIMs, eSIMs, provisioning, usage analytics, and billing, helping manufacturers scale IoT deployments without managing separate connectivity vendors."
+      }
+    ]
   },
   "launch-mvno-7-days": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
@@ -4680,9 +4800,36 @@
   },
   "how-mvnes-accelerate-mvno-launch": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "MVNEs simplify and accelerate MVNO launches by providing pre-integrated infrastructure, MNO relationships, BSS/OSS platforms, SIM/eSIM provisioning, and operational support. By removing major technical, financial, and regulatory barriers, an MVNE can help an MVNO reach market in weeks rather than months or years.",
+    "twoCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"rocket\", \"label\" : \"Rocket\", \"unicode\" : \"f135\"}",
+        "title": "Reduce MVNO Launch Complexity",
+        "text": "MVNEs remove major barriers such as high upfront infrastructure costs, complex network integration, lengthy MNO negotiations, operational workloads, and regulatory requirements."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-line\", \"label\" : \"Chart Line\", \"unicode\" : \"f201\"}",
+        "title": "Accelerate Time to Market",
+        "text": "Pre-integrated BSS/OSS platforms and pre-negotiated MNO agreements allow MVNOs to bypass much of the traditional technical and commercial setup, enabling faster deployment."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
+        "title": "Simplify Billing, SIM & Compliance",
+        "text": "MVNEs can manage billing, CRM, SIM/eSIM provisioning, regulatory compliance, value-added services, and reporting, allowing MVNOs to operate without building these systems independently."
+      },
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+        "title": "Choose an MVNE for Scalability",
+        "text": "When selecting an MVNE, evaluate its technology stack, MNO partnerships, coverage, scalability, support, pricing model, and track record to ensure it can support long-term growth."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
+        "title": "Spenza Accelerates MVNO Launches",
+        "text": "Spenza provides APIs, SaaS, white-label apps, a multi-operator marketplace, eSIM management, billing integrations, and centralized operations, helping businesses launch branded mobile services in days for lighter deployments."
+      }
+    ]
   },
   "taas-vs-traditional-telecom": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
