@@ -1,0 +1,59 @@
+---
+/**
+ * The blog index at /blog/, listing every post from the collection.
+ *
+ * Replaces a mirrored partial whose card list was frozen at capture time, so a
+ * newly published post never appeared here. The page chrome still comes from
+ * that partial — only the loop grid is regenerated.
+ *
+ * Paginated at /blog/page/2/, matching WordPress. A rest param is used because
+ * the paginated paths span more than one segment.
+ */
+import { getCollection } from 'astro:content';
+import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
+import shell from '../../partials/blog.html?raw';
+
+export async function getStaticPaths() {
+  // Declared inside: Astro extracts getStaticPaths into its own build chunk,
+  // where component-scope constants are not defined.
+  const PER_PAGE = 10;
+
+  const posts = (await getCollection('posts'))
+    .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
+
+  const totalPages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
+
+  return Array.from({ length: totalPages }, (_, i) => {
+    const page = i + 1;
+    return {
+      // Page 1 is `/blog/` itself, so its rest param is undefined.
+      params: { page: page === 1 ? undefined : `page/${page}` },
+      props: {
+        page,
+        totalPages,
+        posts: posts.slice(i * PER_PAGE, (i + 1) * PER_PAGE),
+        total: posts.length,
+      },
+    };
+  });
+}
+
+const { page, totalPages, posts, total } = Astro.props;
+
+const title = page === 1
+  ? 'Blog - Spenza'
+  : `Blog - Page ${page} - Spenza`;
+---
+
+<ArchiveLayout
+  shell={shell}
+  slug="blog"
+  posts={posts}
+  base="/blog/"
+  page={page}
+  totalPages={totalPages}
+  title={title}
+  loopGridId="a9c42f2"
+  cardTemplate="blog"
+  description={`${total} articles on MVNO, eSIM, IoT and telecom expense management from Spenza.`}
+/>

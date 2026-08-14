@@ -3,6 +3,7 @@
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import path from 'node:path';
+import { rewriteWpUrls } from './lib/config.mjs';
 
 const PROJECT = path.resolve(import.meta.dirname, '..');
 const CACHE = path.join(PROJECT, '.wp-cache');
@@ -10,12 +11,7 @@ const OUT = path.join(PROJECT, 'public', 'wp-assets', 'inline');
 
 const SKIP_IDS = ['admin-bar-inline-css', 'wp-emoji-styles-inline-css'];
 
-function rewriteUrls(css) {
-  return css
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\/uploads\//g, '/wp-content/uploads/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\//g, '/wp-assets/wp-content/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/?/g, '/');
-}
+const rewriteUrls = rewriteWpUrls;
 
 await fs.mkdir(OUT, { recursive: true });
 const files = (await fs.readdir(path.join(CACHE, 'pages'))).filter(f => f.endsWith('.html'));
@@ -49,8 +45,14 @@ for (const f of files) {
   process.stdout.write(`${slug.padEnd(52)} ${(css.length / 1024).toFixed(0)}KB  ${hash}\n`);
 }
 
-await fs.writeFile(
-  path.join(PROJECT, 'src', 'data', 'wp-inline-styles.json'),
-  JSON.stringify(perPage, null, 2), 'utf8'
-);
+// Merge rather than overwrite: wp-mirror-posts and wp-mirror-archives add their
+// own keys (post-*, archive-*, __post__), and re-running this script must not
+// drop them.
+const inlineFile = path.join(PROJECT, 'src', 'data', 'wp-inline-styles.json');
+let existingInline = {};
+try {
+  existingInline = JSON.parse(await fs.readFile(inlineFile, 'utf8'));
+} catch { /* first run */ }
+
+await fs.writeFile(inlineFile, JSON.stringify({ ...existingInline, ...perPage }, null, 2), 'utf8');
 process.stdout.write(`\nunique inline bundles: ${byHash.size}\n`);

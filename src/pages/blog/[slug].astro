@@ -3,16 +3,17 @@
  * Legacy path. WordPress 301s /blog/<slug>/ to the category-prefixed canonical
  * URL, so keep the path alive as a redirect rather than a second copy of the
  * post, which would compete with the canonical in search results.
+ *
+ * Driven by the mirror index so it cannot drift from the routes that exist.
  */
-import { getCollection } from 'astro:content';
 import Redirect from '../../components/Redirect.astro';
-import { postUrl } from '../../data/blog-categories';
+import wpPosts from '../../data/wp-posts.json';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map(entry => ({
-    params: { slug: entry.id },
-    props: { target: postUrl(entry.data.category, entry.id) },
+  const index = wpPosts as Record<string, { route: string }>;
+  return Object.entries(index).map(([slug, entry]) => ({
+    params: { slug },
+    props: { target: entry.route },
   }));
 }
 

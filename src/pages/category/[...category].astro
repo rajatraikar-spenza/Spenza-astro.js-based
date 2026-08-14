@@ -1,0 +1,87 @@
+---
+/**
+ * Category archives at /category/<slug>/, listing posts from the collection.
+ *
+ * Replaces seven hand-written pages that each rendered a mirrored partial —
+ * a frozen list, so a newly published post never appeared in its category.
+ * The chrome still comes from each category's own mirrored partial, so the
+ * per-category heading and intro copy are preserved.
+ *
+ * Paginated at /category/<slug>/page/2/, matching WordPress.
+ */
+import { getCollection } from 'astro:content';
+import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
+import { categoryLabel } from '../../data/blog-categories.ts';
+
+const shells = import.meta.glob<string>('../../partials/archives/archive-category-*.html', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+
+export async function getStaticPaths() {
+  // Declared here, not in module scope: Astro extracts getStaticPaths into its
+  // own build chunk, where component-scope constants are not defined.
+  const PER_PAGE = 10;
+
+  const posts = await getCollection('posts');
+
+  const byCategory = new Map<string, typeof posts>();
+  for (const p of posts) {
+    const list = byCategory.get(p.data.category) ?? [];
+    list.push(p);
+    byCategory.set(p.data.category, list);
+  }
+
+  const paths = [];
+  for (const [category, list] of byCategory) {
+    list.sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
+    const totalPages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+
+    for (let page = 1; page <= totalPages; page++) {
+      paths.push({
+        params: { category: page === 1 ? category : `${category}/page/${page}` },
+        props: {
+          category,
+          page,
+          totalPages,
+          posts: list.slice((page - 1) * PER_PAGE, page * PER_PAGE),
+          total: list.length,
+        },
+      });
+    }
+  }
+  return paths;
+}
+
+const { category, page, totalPages, posts, total } = Astro.props;
+
+const key = `archive-category-${category}`;
+const shell = shells[`../../partials/archives/${key}.html`];
+
+// Without the mirrored chrome there is no page to render. A category added in
+// WordPress after the last mirror run lands here, and should fail loudly rather
+// than emit a bare list with no header or navigation.
+if (!shell) {
+  throw new Error(
+    `No mirrored archive partial for category "${category}". ` +
+    `Run \`npm run wp:archives\` to capture it.`
+  );
+}
+
+const label = categoryLabel(category);
+const title = page === 1
+  ? `${label} Archives - Spenza`
+  : `${label} Archives - Page ${page} - Spenza`;
+---
+
+<ArchiveLayout
+  shell={shell}
+  slug={key}
+  posts={posts}
+  base={`/category/${category}/`}
+  page={page}
+  totalPages={totalPages}
+  title={title}
+  description={`${total} articles on ${label} from Spenza.`}
+/>

@@ -5,7 +5,9 @@ import fs from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
-const ORIGIN = 'https://preprod.spenza.com';
+import { rewriteWpUrls, wpMediaRe, WP_ORIGIN, WP_HOST } from './lib/config.mjs';
+
+const ORIGIN = WP_ORIGIN;
 const PROJECT = path.resolve(import.meta.dirname, '..');
 const CACHE = path.join(PROJECT, '.wp-cache');
 const BLOG_DIR = path.join(PROJECT, 'src/content/blog');
@@ -27,7 +29,7 @@ const files = (await fs.readdir(BLOG_DIR)).filter(f => f.endsWith('.md'));
 const media = new Set();
 for (const f of files) {
   const md = await fs.readFile(path.join(BLOG_DIR, f), 'utf8');
-  for (const m of md.matchAll(/https:\/\/preprod\.spenza\.com(\/wp-content\/uploads\/[^\s"'<>)\\]+)/g)) {
+  for (const m of md.matchAll(wpMediaRe())) {
     // Markdown carries HTML-encoded ampersands from the WordPress export.
     media.add(m[1].replace(/&#0?38;/g, '&').replace(/&amp;/g, '&').split('?')[0]);
   }
@@ -63,11 +65,7 @@ let rewritten = 0;
 for (const f of files) {
   const file = path.join(BLOG_DIR, f);
   const before = await fs.readFile(file, 'utf8');
-  const after = before
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\/uploads\//g, '/wp-content/uploads/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\//g, '/wp-assets/wp-content/')
-    .replace(/https?:\/\/preprod\.spenza\.com\//g, '/')
-    .replace(/https?:\/\/preprod\.spenza\.com(?![\w.])/g, '/');
+  const after = rewriteWpUrls(before);
   if (after !== before) {
     await fs.writeFile(file, after, 'utf8');
     rewritten++;

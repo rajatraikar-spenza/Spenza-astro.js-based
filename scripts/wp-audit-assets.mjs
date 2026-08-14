@@ -46,7 +46,10 @@ function routeFor(key) {
   if (key === '__post__') return null;
   if (key === 'index') return '/';
   // Archive entries record their own route; the key is not reversible.
-  return pages[key]?.route ?? `/${key}`;
+  // The fallback carries a trailing slash because that is the form the site
+  // serves (`trailingSlash: 'always'`) — without it the audit requests a URL
+  // that 404s and reports zero assets for a page that is actually fine.
+  return pages[key]?.route ?? `/${key}/`;
 }
 
 const report = [];

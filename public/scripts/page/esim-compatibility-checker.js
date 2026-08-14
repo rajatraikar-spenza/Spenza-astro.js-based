@@ -771,3 +771,96 @@ document.addEventListener("DOMContentLoaded", () => {
 } catch (e) {
   console.debug('[wp-page-script] snippet 5 skipped:', e && e.message);
 }
+
+/* --- snippet 6 --- */
+try {
+(function(){
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll(".eSim-card").forEach(card => {
+
+        // Create canvas
+        const canvas = document.createElement("canvas");
+        canvas.className = "brush-canvas";
+        card.prepend(canvas);
+
+        const ctx = canvas.getContext("2d");
+
+        function resize() {
+            canvas.width = card.clientWidth;
+            canvas.height = card.clientHeight;
+        }
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        // Gradient Colors
+        const colors = [
+            "#FF6E24",
+            "#FF6622",
+            "#FF5E1B",
+            "#FF5613",
+            "#FF4D0A",
+            "#FF4500"
+        ];
+
+        function drawBrush(x, y) {
+
+            // Slightly denser brush
+            for (let i = 0; i < 60; i++) {
+
+                const angle = Math.random() * Math.PI * 2;
+
+                // Brush spread (increase for bigger brush)
+                const distance = Math.random() * 12;
+
+                const px = x + Math.cos(angle) * distance;
+                const py = y + Math.sin(angle) * distance;
+
+                // Particle size
+                const size = Math.random() * 0.9 + 0.2;
+
+                ctx.beginPath();
+                ctx.arc(px, py, size, 0, Math.PI * 2);
+
+                ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+                ctx.globalAlpha = Math.random() * 0.35 + 0.10;
+
+                ctx.fill();
+            }
+        }
+
+        card.addEventListener("mousemove", (e) => {
+
+            const rect = card.getBoundingClientRect();
+
+            drawBrush(
+                e.clientX - rect.left,
+                e.clientY - rect.top
+            );
+
+        });
+
+        function fade() {
+
+            // Lower = longer trail
+            ctx.fillStyle = "rgba(255,255,255,0.015)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            requestAnimationFrame(fade);
+
+        }
+
+        fade();
+
+        card.addEventListener("mouseleave", () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+    });
+
+});;
+})();
+} catch (e) {
+  console.debug('[wp-page-script] snippet 6 skipped:', e && e.message);
+}

@@ -4,20 +4,63 @@ import fs from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
+import { extractInlineScripts, writeScriptBundle } from './lib/inline-scripts.mjs';
 
-const ORIGIN = 'https://preprod.spenza.com';
+import { rewriteWpUrls, wpMediaRe, WP_ORIGIN, WP_HOST } from './lib/config.mjs';
+
+const ORIGIN = WP_ORIGIN;
 const PROJECT = path.resolve(import.meta.dirname, '..');
 const CACHE = path.join(PROJECT, '.wp-cache');
 const OUT_ROOT = path.join(PROJECT, 'public', 'wp-assets');
 
-/** Archive paths, discovered by auditing internal links. */
-const ARCHIVES = [
+/** The seven blog categories. Their slugs are fixed by WordPress. */
+const CATEGORY_ARCHIVES = [
   '/category/telecom/', '/category/mvno/', '/category/esim/',
   '/category/spenza-product/', '/category/tem/', '/category/iot/',
   '/category/byod/',
-  '/author/vinay/',
-  '/2026/07/28/', '/2026/07/29/', '/2026/07/30/', '/2026/08/06/', '/2026/08/10/',
 ];
+
+/**
+ * Date and author archives are derived from the posts themselves rather than
+ * listed by hand: every post's `post-info` widget links its own date archive and
+ * its author archive, so a hand-maintained list goes stale the moment a post is
+ * published and leaves those links dead.
+ */
+async function discoverArchives() {
+  const wp = async p => {
+    const r = await fetch(ORIGIN + p, {
+      headers: { Cookie: cookieHeader, 'User-Agent': 'Mozilla/5.0 Chrome/131' },
+    });
+    if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`);
+    return r.json();
+  };
+
+  const posts = [];
+  for (let page = 1; ; page++) {
+    const batch = await wp(`/wp-json/wp/v2/posts?per_page=100&page=${page}&_fields=date,status`);
+    posts.push(...batch);
+    if (batch.length < 100) break;
+  }
+
+  const dates = new Set();
+  for (const p of posts) {
+    if (p.status && p.status !== 'publish') continue;
+    const [y, m, d] = p.date.slice(0, 10).split('-');
+    dates.add(`/${y}/${m}/${d}/`);
+  }
+
+  // The users endpoint needs a REST nonce that a cookie jar alone cannot supply,
+  // so take the authors from the author links the mirrored posts already carry.
+  const authors = new Set();
+  const postDir = path.join(PROJECT, 'src', 'partials', 'posts');
+  for (const file of await fs.readdir(postDir).catch(() => [])) {
+    if (!file.endsWith('.html')) continue;
+    const html = await fs.readFile(path.join(postDir, file), 'utf8');
+    for (const m of html.matchAll(/href="(\/author\/[^"/]+\/)"/g)) authors.add(m[1]);
+  }
+
+  return [...CATEGORY_ARCHIVES, ...[...authors].sort(), ...[...dates].sort()];
+}
 
 const EXCLUDE = [
   'admin-bar', 'dashicons', 'wordfence', 'gravatar-enhanced', 'zip-ai',
@@ -36,6 +79,9 @@ const cookieHeader = await (async () => {
     .filter(([k, v]) => k && v && !seen.has(k) && seen.add(k))
     .map(([k, v]) => `${k}=${v}`).join('; ');
 })();
+
+const ARCHIVES = await discoverArchives();
+process.stdout.write(`archives to mirror: ${ARCHIVES.length}\n\n`);
 
 function extractDivBlock(html, startRe) {
   const m = startRe.exec(html);
@@ -58,21 +104,12 @@ function stripDeadScripts(html) {
   );
 }
 
-function rewriteUrls(html) {
-  return html
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\/uploads\//g, '/wp-content/uploads/')
-    .replace(/\/\/preprod\.spenza\.com\/wp-content\/uploads\//g, '/wp-content/uploads/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\//g, '/wp-assets/wp-content/')
-    .replace(/\/\/preprod\.spenza\.com\/wp-content\//g, '/wp-assets/wp-content/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-includes\//g, '/wp-assets/wp-includes/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/?/g, '/')
-    .replace(/(\/wp-assets\/[^"'\s)]+?)\?ver=[^"'\s)]*/g, '$1');
-}
+const rewriteUrls = rewriteWpUrls;
 
 function localPathFor(url) {
   const u = new URL(url);
   let p = u.pathname.replace(/^\/+/, '');
-  if (u.hostname !== 'preprod.spenza.com') p = path.posix.join('_cdn', u.hostname, p);
+  if (u.hostname !== WP_HOST) p = path.posix.join('_cdn', u.hostname, p);
   return p;
 }
 
@@ -81,8 +118,10 @@ const readJson = async f => JSON.parse(await fs.readFile(path.join(dataDir, f), 
 const styles = await readJson('wp-styles.json');
 const inlineStyles = await readJson('wp-inline-styles.json');
 const pagesJson = await readJson('wp-pages.json');
+const scriptsJson = await readJson('wp-scripts.json');
 
 const partialDir = path.join(PROJECT, 'src', 'partials', 'archives');
+const scriptDir = path.join(PROJECT, 'public', 'scripts', 'page');
 await fs.mkdir(partialDir, { recursive: true });
 await fs.mkdir(path.join(OUT_ROOT, 'inline'), { recursive: true });
 
@@ -103,10 +142,11 @@ for (const route of ARCHIVES) {
     continue;
   }
 
-  const head = html.slice(0, html.indexOf('</head>'));
-
   // --- stylesheets ---
-  const hrefs = [...head.matchAll(/<link[^>]+rel=['"]stylesheet['"][^>]*>/g)]
+  // Whole document, in document order: Gravity Forms enqueues its stylesheets
+  // from the shortcode, so they land in the body — a head-only scan drops them
+  // and the subscribe form loses `hidden_label`, exposing its "Email(Required)".
+  const hrefs = [...html.matchAll(/<link[^>]+rel=['"]stylesheet['"][^>]*>/g)]
     .map(t => (t[0].match(/href=['"]([^'"]+)['"]/) || [])[1])
     .filter(Boolean).map(h => h.replace(/&#0?38;/g, '&'))
     .map(h => (h.startsWith('//') ? 'https:' + h : h))
@@ -151,7 +191,7 @@ for (const route of ARCHIVES) {
     extractDivBlock(html, /<div[^>]+id="content"[^>]+class="site-content"[^>]*>/);
   if (!content) { process.stdout.write(`!! no content block for ${route}\n`); continue; }
 
-  for (const m of content.matchAll(/https:\/\/preprod\.spenza\.com(\/wp-content\/uploads\/[^"'\s,)\\]+)/g)) {
+  for (const m of content.matchAll(wpMediaRe())) {
     mediaRefs.add(m[1].replace(/&#0?38;/g, '&').split('?')[0]);
   }
 
@@ -165,8 +205,15 @@ for (const route of ARCHIVES) {
     .filter(c => c && !['logged-in', 'admin-bar', 'no-customize-support', 'customize-support'].includes(c))
     .join(' ');
 
+  // --- footer scripts ---
+  // The archives carry the same WPCode/eael snippets the pages do — one of them
+  // relabels the subscribe button — and they live outside the content block.
+  const { scripts: pageScripts, jsonLd } = extractInlineScripts(html);
+  const scriptPath = await writeScriptBundle(scriptDir, key, pageScripts, 'npm run wp:archives');
+
   styles[key] = localHrefs;
   inlineStyles[key] = `/wp-assets/inline/inline-${hash}.css`;
+  scriptsJson[key] = { script: scriptPath, jsonLd };
   pagesJson[key] = {
     // Keep the route: the key alone cannot be de-slugged reliably
     // (archive-category-spenza-product is /category/spenza-product/).
@@ -192,7 +239,7 @@ import content from '${up}partials/archives/${key}.html?raw';
 `, 'utf8');
 
   generated.push(route);
-  process.stdout.write(`${route.padEnd(30)} css:${localHrefs.length} inline:${(css.length / 1024).toFixed(0)}KB\n`);
+  process.stdout.write(`${route.padEnd(30)} css:${localHrefs.length} inline:${(css.length / 1024).toFixed(0)}KB js:${pageScripts.length}\n`);
 }
 
 // --- download any media the archives introduced ---
@@ -218,4 +265,5 @@ process.stdout.write(`downloaded: ${ok}\n`);
 await fs.writeFile(path.join(dataDir, 'wp-styles.json'), JSON.stringify(styles, null, 2), 'utf8');
 await fs.writeFile(path.join(dataDir, 'wp-inline-styles.json'), JSON.stringify(inlineStyles, null, 2), 'utf8');
 await fs.writeFile(path.join(dataDir, 'wp-pages.json'), JSON.stringify(pagesJson, null, 2), 'utf8');
+await fs.writeFile(path.join(dataDir, 'wp-scripts.json'), JSON.stringify(scriptsJson, null, 2), 'utf8');
 process.stdout.write(`\ngenerated ${generated.length} archive routes\n`);

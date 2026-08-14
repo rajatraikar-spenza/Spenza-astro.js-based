@@ -5,7 +5,9 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { parse, serializeOuter } from 'parse5';
 
-const ORIGIN = 'https://preprod.spenza.com';
+import { rewriteWpUrls, wpMediaRe, WP_ORIGIN, WP_HOST } from './lib/config.mjs';
+
+const ORIGIN = WP_ORIGIN;
 const PROJECT = path.resolve(import.meta.dirname, '..');
 const CACHE = path.join(PROJECT, '.wp-cache');
 const PAGES_DIR = path.join(CACHE, 'pages');
@@ -81,21 +83,8 @@ function useVectorLogo(html) {
   );
 }
 
-/** Rewrite every preprod.spenza.com reference to its local equivalent. */
-function rewriteUrls(html) {
-  return html
-    // Media stays under /wp-content/uploads (already mirrored in public/).
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\/uploads\//g, '/wp-content/uploads/')
-    .replace(/\/\/preprod\.spenza\.com\/wp-content\/uploads\//g, '/wp-content/uploads/')
-    // Plugin/theme assets live under /wp-assets.
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\//g, '/wp-assets/wp-content/')
-    .replace(/\/\/preprod\.spenza\.com\/wp-content\//g, '/wp-assets/wp-content/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-includes\//g, '/wp-assets/wp-includes/')
-    // Everything else is an internal page link.
-    .replace(/https?:\/\/preprod\.spenza\.com\/?/g, '/')
-    // Drop cache-busting query strings on local assets.
-    .replace(/(\/wp-assets\/[^"'\s)]+?)\?ver=[^"'\s)]*/g, '$1');
-}
+/** Rewrite every absolute WordPress reference to its local equivalent. */
+const rewriteUrls = rewriteWpUrls;
 
 // ---- Collect media references and download whatever is missing ------------
 const files = (await fs.readdir(PAGES_DIR)).filter(f => f.endsWith('.html'));
@@ -106,7 +95,7 @@ for (const f of files) {
 
 const mediaRefs = new Set();
 for (const html of rawPages.values()) {
-  for (const m of html.matchAll(/https:\/\/preprod\.spenza\.com(\/wp-content\/uploads\/[^"'\s,)\\]+)/g)) {
+  for (const m of html.matchAll(wpMediaRe())) {
     mediaRefs.add(m[1].replace(/&#0?38;/g, '&').split('?')[0]);
   }
 }

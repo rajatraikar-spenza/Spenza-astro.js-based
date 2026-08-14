@@ -2,7 +2,9 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const ORIGIN = 'https://preprod.spenza.com';
+import { WP_ORIGIN, WP_HOST } from './lib/config.mjs';
+
+const ORIGIN = WP_ORIGIN;
 const PROJECT = path.resolve(import.meta.dirname, '..');
 const OUT_ROOT = path.join(PROJECT, 'public', 'wp-assets');
 const CACHE = path.join(PROJECT, '.wp-cache');
@@ -17,6 +19,10 @@ const SLUGS = [
   'mvno-calculator', 'network-operator-terms-of-service', 'privacy-policy',
   'sitemap', 'sub-processors', 'support', 'telecomhub', 'terms-of-service',
   'travel-esim', 'unlimited-data-plans-pricing', 'uxhub',
+  // Not linked from the site's own navigation, but the blog links all five —
+  // without them those posts point at 404s.
+  'demo', 'device-vendors-demo', 'enterprises-demo', 'mno',
+  'telecom-savings-calculator',
 ];
 
 // Admin-only / tracking assets that must not ship to the static site.
@@ -50,7 +56,7 @@ const isExcluded = u => EXCLUDE.some(x => u.includes(x));
 function localPathFor(url) {
   const u = new URL(url);
   let p = u.pathname.replace(/^\/+/, '');
-  if (u.hostname !== 'preprod.spenza.com') {
+  if (u.hostname !== WP_HOST) {
     p = path.posix.join('_cdn', u.hostname, p);
   }
   // Elementor/Astra append ?ver=; keep filename stable, ignore query.
@@ -165,11 +171,16 @@ const manifest = {};
 for (const [page, hrefs] of Object.entries(pageCss)) {
   manifest[page] = hrefs.map(h => fetched.get(h.split('#')[0])).filter(Boolean);
 }
-await fs.writeFile(
-  path.join(PROJECT, 'src', 'data', 'wp-styles.json'),
-  JSON.stringify(manifest, null, 2),
-  'utf8'
-);
+// Merge rather than overwrite: wp-mirror-posts and wp-mirror-archives add their
+// own keys (post-*, archive-*, __post__) to this file, and there are far more of
+// those than there are pages — re-running this script must not drop them.
+const stylesFile = path.join(PROJECT, 'src', 'data', 'wp-styles.json');
+let existingStyles = {};
+try {
+  existingStyles = JSON.parse(await fs.readFile(stylesFile, 'utf8'));
+} catch { /* first run */ }
+
+await fs.writeFile(stylesFile, JSON.stringify({ ...existingStyles, ...manifest }, null, 2), 'utf8');
 
 process.stdout.write(`\nassets written: ${[...fetched.values()].filter(Boolean).length}\n`);
 if (failures.length) {

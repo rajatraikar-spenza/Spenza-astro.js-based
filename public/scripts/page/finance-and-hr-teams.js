@@ -235,3 +235,129 @@ document.addEventListener("DOMContentLoaded", () => {
 } catch (e) {
   console.debug('[wp-page-script] snippet 4 skipped:', e && e.message);
 }
+
+/* --- snippet 5 --- */
+try {
+(function(){
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll(".spenza-icon-box").forEach(card => {
+
+        // Make sure the card clips the canvas
+        card.style.position = "relative";
+        card.style.overflow = "hidden";
+
+        // Create canvas
+        const canvas = document.createElement("canvas");
+        canvas.className = "brush-canvas";
+        card.prepend(canvas);
+
+        const ctx = canvas.getContext("2d");
+
+        function resize() {
+            const rect = card.getBoundingClientRect();
+
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+
+            canvas.style.width = "100%";
+            canvas.style.height = "100%";
+        }
+
+        resize();
+        window.addEventListener("resize", resize);
+
+        const colors = [
+            "#FFFFFF",
+            "rgba(255,255,255,1)",
+            "rgba(255,255,255,1)",
+            "rgba(255,255,255,1)",
+            "rgba(255,255,255,1)",
+            "rgba(255,255,255,1)"
+        ];
+
+        function drawBrush(x, y) {
+
+            // Prevent drawing outside the canvas
+            if (x < 0 || y < 0 || x > canvas.width || y > canvas.height) {
+                return;
+            }
+
+            for (let i = 0; i < 60; i++) {
+
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 12;
+
+                const px = x + Math.cos(angle) * distance;
+                const py = y + Math.sin(angle) * distance;
+
+                // Skip particles outside canvas
+                if (
+                    px < 0 ||
+                    py < 0 ||
+                    px > canvas.width ||
+                    py > canvas.height
+                ) {
+                    continue;
+                }
+
+                const size = Math.random() * 0.9 + 0.2;
+
+                ctx.beginPath();
+                ctx.arc(px, py, size, 0, Math.PI * 2);
+                ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+                ctx.globalAlpha = Math.random() * 0.35 + 0.1;
+                ctx.fill();
+            }
+
+            ctx.globalAlpha = 1;
+        }
+
+        let mouseInside = false;
+
+        card.addEventListener("mousemove", (e) => {
+
+            mouseInside = true;
+
+            const rect = card.getBoundingClientRect();
+
+            drawBrush(
+                e.clientX - rect.left,
+                e.clientY - rect.top
+            );
+
+        });
+
+        card.addEventListener("mouseenter", () => {
+            mouseInside = true;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            mouseInside = false;
+
+            // Smoothly clear when mouse leaves
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        function fade() {
+
+            if (mouseInside) {
+                ctx.save();
+                ctx.globalCompositeOperation = "destination-out";
+                ctx.fillStyle = "rgba(0,0,0,0.03)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.restore();
+            }
+
+            requestAnimationFrame(fade);
+        }
+
+        fade();
+
+    });
+
+});;
+})();
+} catch (e) {
+  console.debug('[wp-page-script] snippet 5 skipped:', e && e.message);
+}

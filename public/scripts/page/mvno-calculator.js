@@ -1364,3 +1364,63 @@ document.addEventListener("DOMContentLoaded", () => {
 } catch (e) {
   console.debug('[wp-page-script] snippet 5 skipped:', e && e.message);
 }
+
+/* --- snippet 6 --- */
+try {
+(function(){
+const reportModal = document.getElementById("reportModal");
+
+const openBtn = document.getElementById("downloadReport");
+
+const cancelBtn = document.getElementById("cancelReport");
+
+const closeBtn = document.querySelector(".report-close");
+
+
+openBtn.addEventListener("click", () => {
+
+    reportModal.classList.add("show");
+
+    document.body.classList.add("modal-open");
+
+});
+
+
+function closeModal() {
+
+    reportModal.classList.remove("show");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+cancelBtn.addEventListener("click", closeModal);
+
+closeBtn.addEventListener("click", closeModal);
+
+
+reportModal.addEventListener("click", function(e){
+
+    if(e.target===reportModal){
+
+        closeModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        closeModal();
+
+    }
+
+});;
+})();
+} catch (e) {
+  console.debug('[wp-page-script] snippet 6 skipped:', e && e.message);
+}

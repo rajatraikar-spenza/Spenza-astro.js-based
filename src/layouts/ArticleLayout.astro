@@ -1,0 +1,179 @@
+---
+/**
+ * A blog post rendered from WordPress data rather than a mirrored page.
+ *
+ * The chrome comes from `partials/post-shell.html` — the Elementor single-post
+ * template with its data-bearing widgets replaced by slots (see
+ * `scripts/wp-post-shell.mjs`). Filling that shell, rather than hand-authoring
+ * equivalent markup, is what makes a headless post render identically to its
+ * mirrored twin: the wrappers, element ids and body classes the mirrored CSS
+ * keys off are preserved exactly.
+ *
+ * Styling comes from the `__post__` bundle, which WordPress' own sample post
+ * produced and which the CSS optimiser purged against every post's markup.
+ */
+import type { CollectionEntry } from 'astro:content';
+import shellHtml from '../partials/post-shell.html?raw';
+import wpStyles from '../data/wp-styles.json';
+import wpInlineStyles from '../data/wp-inline-styles.json';
+import wpPages from '../data/wp-pages.json';
+import wpCssBundles from '../data/wp-css-bundles.json';
+import headerHtml from '../partials/chrome/header.html?raw';
+import footerHtml from '../partials/chrome/footer.html?raw';
+import { MEDIA_ORIGIN } from '../../scripts/lib/config.mjs';
+import { categoryLabel } from '../data/blog-categories.ts';
+import { renderTldrHeading, renderSummary, renderKeyPoints, renderSpenzaBlock } from '../lib/acf-blocks.ts';
+import { removeWidget } from '../../scripts/lib/widget-html.mjs';
+import { renderLoopGrid } from '../lib/loop-item.ts';
+import '../styles/wp-polish.css';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  related: CollectionEntry<'posts'>[];
+}
+
+const { post, related } = Astro.props;
+const d = post.data;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+
+// ---- CSS ------------------------------------------------------------------
+// `__post__` is the style set WordPress serves for a single post, captured by
+// wp:post-template and bundled by wp:optimize-css.
+const bundle: string[] | undefined = (wpCssBundles as Record<string, string[]>)['__post__'];
+const styles: string[] = bundle ?? (wpStyles as Record<string, string[]>)['__post__'] ?? [];
+const inlineStyle: string | undefined = bundle
+  ? undefined
+  : (wpInlineStyles as Record<string, string>)['__post__'];
+const bodyClass = [
+  'wp-mirror',
+  (wpPages as Record<string, { bodyClass?: string }>)['__post__']?.bodyClass ?? '',
+  `category-${d.category}`,
+].filter(Boolean).join(' ');
+
+// ---- slot content ---------------------------------------------------------
+const esc = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const label = categoryLabel(d.category) ?? d.category;
+
+/**
+ * Reproduces Essential Addons' breadcrumb markup exactly, including the
+ * separator icon and the `/category/<slug>/` link target.
+ *
+ * The category link matters: category archives live at `/category/<slug>/`, not
+ * `/<slug>/`. Linking to the latter 404s on every post — and because the
+ * mirrored CSS styles these generically, the wrong version still *looks*
+ * correct, so it will not be caught by eye.
+ */
+const sep =
+  '<span class="eael-breadcrumb-separator"><i aria-hidden="true" class="fas fa-angle-double-right"></i></span>';
+
+const breadcrumbs = `
+  <div class="eael-breadcrumbs">
+    <div class="eael-breadcrumbs__content"><a href="/">Home</a> ${sep} <a href="/category/${esc(d.category)}/">${esc(label)}</a> ${sep} <span class="eael-current">${esc(d.title)}</span></div>
+  </div>`;
+
+const title = `<h1 class="elementor-heading-title elementor-size-default">${esc(d.title)}</h1>`;
+
+// The excerpt arrives from WordPress as HTML (it is wrapped in <p>).
+const excerpt = d.excerpt || '';
+
+const featuredImage = d.featuredImage
+  ? `<img src="${esc(d.featuredImage.url)}" alt="${esc(d.featuredImage.alt || d.title)}"` +
+    (d.featuredImage.width ? ` width="${d.featuredImage.width}"` : '') +
+    (d.featuredImage.height ? ` height="${d.featuredImage.height}"` : '') +
+    // The hero image is the LCP element on every post, so it must not be lazy.
+    ` fetchpriority="high" decoding="async" />`
+  : '';
+
+// Rendered raw: post bodies embed bespoke <section> widgets carrying their own
+// inline <style> and <script>, which any sanitising pass would break.
+const content = d.content;
+
+const relatedPosts = renderLoopGrid(related.map(r => r.data));
+
+/**
+ * The three blocks the Elementor template renders from ACF, rebuilt here from
+ * the structured fields rather than injected as shortcode output — so the
+ * markup is ours and the existing purged CSS still styles it.
+ */
+const blocks = d.templateBlocks;
+const tldrHeading = renderTldrHeading(blocks);
+const summary = renderSummary(blocks);
+const keyPoints = renderKeyPoints(blocks);
+const spenzaBlock = renderSpenzaBlock(blocks);
+
+const SLOTS: Record<string, string> = {
+  breadcrumbs, title, excerpt, featuredImage, content, relatedPosts,
+  tldrHeading, summary, keyPoints, spenzaBlock,
+};
+
+let body = shellHtml;
+for (const [name, value] of Object.entries(SLOTS)) {
+  body = body.replace(`<!--SLOT:${name}-->`, () => value);
+}
+
+/**
+ * Drop the heading and summary widgets when the post has no TL;DR.
+ *
+ * WordPress omits them rather than rendering them empty, and they carry their
+ * own bottom margins — leaving the wrappers behind put a stray caption and a
+ * gap above the cards on the 114 posts with no summary text.
+ */
+for (const [id, value] of [['b8f4b5b', tldrHeading], ['c26dd48', summary]] as const) {
+  if (!value) body = removeWidget(body, id);
+}
+
+// Media in the shell came from the sample post; point it at the media host too.
+if (MEDIA_ORIGIN) {
+  body = body.replace(/(["'(\s])\/wp-content\/uploads\//g, `$1${MEDIA_ORIGIN}/wp-content/uploads/`);
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {/*
+      Yoast's complete head: title, meta, Open Graph, and the Article /
+      BreadcrumbList / Person / FAQPage schema graph. Injected verbatim so the
+      structured data the site already earns is preserved exactly rather than
+      re-derived — the loader has already repointed its URLs at this site.
+    */}
+    {d.seo.fullHead
+      ? <Fragment set:html={d.seo.fullHead} />
+      : (
+        <>
+          <title>{d.seo.title}</title>
+          {d.seo.description && <meta name="description" content={d.seo.description} />}
+          <link rel="canonical" href={canonical} />
+        </>
+      )}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {MEDIA_ORIGIN && <link rel="preconnect" href={MEDIA_ORIGIN} crossorigin />}
+
+    {styles.map(href => <link rel="stylesheet" href={href} />)}
+    {inlineStyle && <link rel="stylesheet" href={inlineStyle} />}
+
+    <script src="/wp-assets/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js" defer></script>
+    <script src="/scripts/wp-shim.js" defer></script>
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link screen-reader-text" href="#wp-main">Skip to content</a>
+
+    <Fragment set:html={headerHtml} />
+
+    <main id="wp-main">
+      <Fragment set:html={body} />
+    </main>
+
+    <Fragment set:html={footerHtml} />
+  </body>
+</html>

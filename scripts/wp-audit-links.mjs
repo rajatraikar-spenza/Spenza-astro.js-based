@@ -32,11 +32,24 @@ function collectLinks(html) {
   return [...out];
 }
 
+/**
+ * wp-pages.json is keyed by data key, not by route: "index" is "/", archive and
+ * post entries record their own nested path, and "__post__" is a shared style
+ * bundle rather than a page. Fetching `/${key}` for those just returns the 404
+ * page, which silently reports zero links — so resolve the real route.
+ */
+function routeFor(key) {
+  if (key === '__post__') return null;
+  if (key === 'index') return '/';
+  return pages[key]?.route ?? `/${key}`;
+}
+
 const broken = new Map();   // link -> Set(pages)
 let totalLinks = 0;
 
 for (const slug of Object.keys(pages)) {
-  const pageUrl = slug === 'index' ? '/' : `/${slug}`;
+  const pageUrl = routeFor(slug);
+  if (!pageUrl) continue;
   const html = await (await fetch(BASE + pageUrl)).text();
   const links = collectLinks(html);
   totalLinks += links.length;

@@ -235,3 +235,17 @@ document.addEventListener("DOMContentLoaded", () => {
 } catch (e) {
   console.debug('[wp-page-script] snippet 4 skipped:', e && e.message);
 }
+
+/* --- snippet 5 --- */
+try {
+(function(){
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.querySelector('input#gform_submit_button_19');
+    if(btn){
+        btn.value = 'Subscribe';
+    }
+});;
+})();
+} catch (e) {
+  console.debug('[wp-page-script] snippet 5 skipped:', e && e.message);
+}

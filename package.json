@@ -17,11 +17,21 @@
     "wp:pages": "node scripts/wp-generate-pages.mjs",
     "wp:scripts": "node scripts/wp-extract-scripts.mjs",
     "wp:archives": "node scripts/wp-mirror-archives.mjs",
+    "wp:posts": "node scripts/wp-mirror-posts.mjs",
+    "wp:redirects": "node scripts/wp-mirror-redirects.mjs",
     "wp:blog-media": "node scripts/wp-blog-media.mjs",
     "wp:post-template": "node scripts/wp-post-template.mjs",
     "wp:audit-links": "node scripts/wp-audit-links.mjs",
     "wp:audit": "node scripts/wp-audit-assets.mjs",
-    "wp:resync": "npm run wp:assets && npm run wp:content && npm run wp:inline-css && npm run wp:webp && npm run wp:scripts && npm run wp:pages"
+    "wp:resync": "npm run wp:assets && npm run wp:content && npm run wp:inline-css && npm run wp:webp && npm run wp:scripts && npm run wp:pages && npm run wp:optimize-css",
+    "wp:optimize-css": "node scripts/wp-optimize-css.mjs",
+    "wp:post-shell": "node scripts/wp-post-shell.mjs",
+    "wp:diff-headless": "node scripts/wp-diff-headless.mjs",
+    "wp:check-session": "node scripts/wp-check-session.mjs",
+    "wp:make-cookie": "node scripts/wp-make-cookie.mjs",
+    "wp:acf-snapshot": "node scripts/wp-acf-snapshot.mjs",
+    "wp:blog-media-sync": "node scripts/wp-blog-media-sync.mjs",
+    "wp:watch": "node scripts/wp-watch.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
@@ -30,6 +40,10 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "parse5": "^8.0.1"
+    "@astrojs/sitemap": "^3.7.3",
+    "lightningcss": "^1.33.0",
+    "parse5": "^8.0.1",
+    "postcss": "^8.5.26",
+    "purgecss": "^8.0.0"
   }
 }

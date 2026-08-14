@@ -1,0 +1,63 @@
+---
+/**
+ * Category archives and the blog index, listing posts from the collection.
+ *
+ * The surrounding page — heading, intro copy, category nav, search box — comes
+ * from the mirrored archive partial, so each category keeps its own wording.
+ * Only the loop-grid widget's contents are replaced, with cards built from the
+ * `posts` collection.
+ *
+ * That is the difference that matters: the mirrored grid is a frozen snapshot of
+ * whatever WordPress listed at capture time, so a newly published post never
+ * appeared in it. This one is generated at build from live data.
+ */
+import type { CollectionEntry } from 'astro:content';
+import WpLayout from './WpLayout.astro';
+import { replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
+import { postGrid, pagination, type CardTemplate } from '../lib/post-card.ts';
+
+interface Props {
+  /** Mirrored archive partial supplying the page chrome. */
+  shell: string;
+  /** Key into the wp-* data files, for stylesheets and body classes. */
+  slug: string;
+  posts: CollectionEntry<'posts'>[];
+  /** Pagination base path, e.g. `/category/telecom/`. */
+  base: string;
+  page?: number;
+  totalPages?: number;
+  title?: string;
+  description?: string;
+  /**
+   * Element id of the Elementor loop-grid widget to fill. Differs per template
+   * — the category archives use one, the blog index another.
+   */
+  loopGridId?: string;
+  /**
+   * Which Elementor loop-item template the cards must imitate. The archives use
+   * 20001 and the blog index 20003, and the mirrored CSS is scoped per
+   * template, so the wrong one leaves the cards entirely unstyled.
+   */
+  cardTemplate?: CardTemplate;
+}
+
+const {
+  shell, slug, posts, base, page = 1, totalPages = 1, title, description,
+  loopGridId = '68b5a8e', cardTemplate = 'category',
+} = Astro.props;
+
+const LOOP_GRID_ID = loopGridId;
+
+// Elementor renders its pagination inside the loop-grid widget, so replacing
+// that widget's contents drops the mirrored page links along with the frozen
+// card list — no separate stripping pass needed.
+const body = replaceWidgetInner(
+  shell,
+  LOOP_GRID_ID,
+  postGrid(posts, cardTemplate) + pagination(base, page, totalPages)
+);
+---
+
+<WpLayout slug={slug} title={title} description={description}>
+  <Fragment set:html={body} />
+</WpLayout>

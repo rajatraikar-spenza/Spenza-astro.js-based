@@ -26,3 +26,16 @@ export function categorySlug(category: string | undefined): string {
 export function postUrl(category: string | undefined, slug: string): string {
   return `/${categorySlug(category)}/${slug}/`;
 }
+
+/** slug -> display name, for breadcrumbs and category pills. */
+const LABELS: Record<string, string> = Object.fromEntries(
+  Object.entries(CATEGORY_SLUGS).map(([name, slug]) => [slug, name])
+);
+
+/**
+ * The display name for a category slug. Falls back to title-casing the slug so
+ * a category added in WordPress renders sensibly before anyone maps it here.
+ */
+export function categoryLabel(slug: string): string {
+  return LABELS[slug] ?? slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}

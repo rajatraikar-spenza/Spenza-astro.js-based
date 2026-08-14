@@ -1,0 +1,1282 @@
+{
+  "oss-full-form": {
+    "route": "/telecom/oss-full-form/",
+    "category": "telecom",
+    "key": "post-oss-full-form"
+  },
+  "bss-full-form": {
+    "route": "/telecom/bss-full-form/",
+    "category": "telecom",
+    "key": "post-bss-full-form"
+  },
+  "biggest-mvno-mistakes-how-to-avoid-2026": {
+    "route": "/mvno/biggest-mvno-mistakes-how-to-avoid-2026/",
+    "category": "mvno",
+    "key": "post-biggest-mvno-mistakes-how-to-avoid-2026"
+  },
+  "how-to-start-travel-esim-business": {
+    "route": "/esim/how-to-start-travel-esim-business/",
+    "category": "esim",
+    "key": "post-how-to-start-travel-esim-business"
+  },
+  "daito-case-study": {
+    "route": "/spenza-product/daito-case-study/",
+    "category": "spenza-product",
+    "key": "post-daito-case-study"
+  },
+  "mvno-launch-checklist": {
+    "route": "/mvno/mvno-launch-checklist/",
+    "category": "mvno",
+    "key": "post-mvno-launch-checklist"
+  },
+  "rocketphone-case-study": {
+    "route": "/spenza-product/rocketphone-case-study/",
+    "category": "spenza-product",
+    "key": "post-rocketphone-case-study"
+  },
+  "why-ai-agents-need-real-phone-numbers": {
+    "route": "/telecom/why-ai-agents-need-real-phone-numbers/",
+    "category": "telecom",
+    "key": "post-why-ai-agents-need-real-phone-numbers"
+  },
+  "non-voip-vs-voip-numbers": {
+    "route": "/telecom/non-voip-vs-voip-numbers/",
+    "category": "telecom",
+    "key": "post-non-voip-vs-voip-numbers"
+  },
+  "esim-for-oems": {
+    "route": "/esim/esim-for-oems/",
+    "category": "esim",
+    "key": "post-esim-for-oems"
+  },
+  "what-is-esim-orchestration": {
+    "route": "/esim/what-is-esim-orchestration/",
+    "category": "esim",
+    "key": "post-what-is-esim-orchestration"
+  },
+  "what-is-m2m-machine-to-machine-sims": {
+    "route": "/iot/what-is-m2m-machine-to-machine-sims/",
+    "category": "iot",
+    "key": "post-what-is-m2m-machine-to-machine-sims"
+  },
+  "the-next-mvno": {
+    "route": "/mvno/the-next-mvno/",
+    "category": "mvno",
+    "key": "post-the-next-mvno"
+  },
+  "consumer-iot-vs-industrial-iot-iiot-key-differences": {
+    "route": "/iot/consumer-iot-vs-industrial-iot-iiot-key-differences/",
+    "category": "iot",
+    "key": "post-consumer-iot-vs-industrial-iot-iiot-key-differences"
+  },
+  "skype-vs-zoom-vs-teams-comparison": {
+    "route": "/telecom/skype-vs-zoom-vs-teams-comparison/",
+    "category": "telecom",
+    "key": "post-skype-vs-zoom-vs-teams-comparison"
+  },
+  "esim-for-enterprises-business-enabler-2025": {
+    "route": "/esim/esim-for-enterprises-business-enabler-2025/",
+    "category": "esim",
+    "key": "post-esim-for-enterprises-business-enabler-2025"
+  },
+  "telecom-5g-standalone-vs-non-standalone": {
+    "route": "/telecom/telecom-5g-standalone-vs-non-standalone/",
+    "category": "telecom",
+    "key": "post-telecom-5g-standalone-vs-non-standalone"
+  },
+  "m2m-vs-iot-key-differences-explained": {
+    "route": "/iot/m2m-vs-iot-key-differences-explained/",
+    "category": "iot",
+    "key": "post-m2m-vs-iot-key-differences-explained"
+  },
+  "esim-only-mvnos-2025": {
+    "route": "/esim/esim-only-mvnos-2025/",
+    "category": "esim",
+    "key": "post-esim-only-mvnos-2025"
+  },
+  "iot-asset-tracking-connectivity-guide": {
+    "route": "/iot/iot-asset-tracking-connectivity-guide/",
+    "category": "iot",
+    "key": "post-iot-asset-tracking-connectivity-guide"
+  },
+  "fixed-wireless-access": {
+    "route": "/telecom/fixed-wireless-access/",
+    "category": "telecom",
+    "key": "post-fixed-wireless-access"
+  },
+  "mvno-revenue-models": {
+    "route": "/mvno/mvno-revenue-models/",
+    "category": "mvno",
+    "key": "post-mvno-revenue-models"
+  },
+  "mvno-mvno-launch-cost": {
+    "route": "/mvno/mvno-mvno-launch-cost/",
+    "category": "mvno",
+    "key": "post-mvno-mvno-launch-cost"
+  },
+  "global-iot-connectivity-2026": {
+    "route": "/iot/global-iot-connectivity-2026/",
+    "category": "iot",
+    "key": "post-global-iot-connectivity-2026"
+  },
+  "esim": {
+    "route": "/esim/esim/",
+    "category": "esim",
+    "key": "post-esim"
+  },
+  "mvno": {
+    "route": "/mvno/mvno/",
+    "category": "mvno",
+    "key": "post-mvno"
+  },
+  "what-are-mvnos": {
+    "route": "/mvno/what-are-mvnos/",
+    "category": "mvno",
+    "key": "post-what-are-mvnos"
+  },
+  "what-is-apn-iot-guide": {
+    "route": "/esim/what-is-apn-iot-guide/",
+    "category": "esim",
+    "key": "post-what-is-apn-iot-guide"
+  },
+  "esim-myths-debunked": {
+    "route": "/esim/esim-myths-debunked/",
+    "category": "esim",
+    "key": "post-esim-myths-debunked"
+  },
+  "what-is-imei-number": {
+    "route": "/telecom/what-is-imei-number/",
+    "category": "telecom",
+    "key": "post-what-is-imei-number"
+  },
+  "what-is-mvno": {
+    "route": "/telecom/what-is-mvno/",
+    "category": "telecom",
+    "key": "post-what-is-mvno"
+  },
+  "5g-vs-4g-speed-comparison": {
+    "route": "/telecom/5g-vs-4g-speed-comparison/",
+    "category": "telecom",
+    "key": "post-5g-vs-4g-speed-comparison"
+  },
+  "what-is-lte": {
+    "route": "/telecom/what-is-lte/",
+    "category": "telecom",
+    "key": "post-what-is-lte"
+  },
+  "mno-mvno-mvne-mvna-roles": {
+    "route": "/mvno/mno-mvno-mvne-mvna-roles/",
+    "category": "mvno",
+    "key": "post-mno-mvno-mvne-mvna-roles"
+  },
+  "iot-connectivity-comparison": {
+    "route": "/iot/iot-connectivity-comparison/",
+    "category": "iot",
+    "key": "post-iot-connectivity-comparison"
+  },
+  "cellular-identifiers-iccid-imsi-imei-eid-msisdn-tac-guide": {
+    "route": "/telecom/cellular-identifiers-iccid-imsi-imei-eid-msisdn-tac-guide/",
+    "category": "telecom",
+    "key": "post-cellular-identifiers-iccid-imsi-imei-eid-msisdn-tac-guide"
+  },
+  "sim-card-types-form-factors": {
+    "route": "/telecom/sim-card-types-form-factors/",
+    "category": "telecom",
+    "key": "post-sim-card-types-form-factors"
+  },
+  "iot-sensors-types-connectivity": {
+    "route": "/iot/iot-sensors-types-connectivity/",
+    "category": "iot",
+    "key": "post-iot-sensors-types-connectivity"
+  },
+  "iot-devices-buyers-guide": {
+    "route": "/iot/iot-devices-buyers-guide/",
+    "category": "iot",
+    "key": "post-iot-devices-buyers-guide"
+  },
+  "esim-vs-physical-sim-airport-decision": {
+    "route": "/esim/esim-vs-physical-sim-airport-decision/",
+    "category": "esim",
+    "key": "post-esim-vs-physical-sim-airport-decision"
+  },
+  "5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw": {
+    "route": "/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw/",
+    "category": "telecom",
+    "key": "post-5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw"
+  },
+  "white-label-mvno-launch-guide-2025": {
+    "route": "/mvno/white-label-mvno-launch-guide-2025/",
+    "category": "mvno",
+    "key": "post-white-label-mvno-launch-guide-2025"
+  },
+  "best-mvno": {
+    "route": "/mvno/best-mvno/",
+    "category": "mvno",
+    "key": "post-best-mvno"
+  },
+  "launch-mvno-us-guide": {
+    "route": "/mvno/launch-mvno-us-guide/",
+    "category": "mvno",
+    "key": "post-launch-mvno-us-guide"
+  },
+  "mvno-billing-platforms": {
+    "route": "/mvno/mvno-billing-platforms/",
+    "category": "mvno",
+    "key": "post-mvno-billing-platforms"
+  },
+  "google-fi-iphone": {
+    "route": "/mvno/google-fi-iphone/",
+    "category": "mvno",
+    "key": "post-google-fi-iphone"
+  },
+  "purchasing-spenza-marketplace-plans": {
+    "route": "/spenza-product/purchasing-spenza-marketplace-plans/",
+    "category": "spenza-product",
+    "key": "post-purchasing-spenza-marketplace-plans"
+  },
+  "mobile-data-plan-ipad": {
+    "route": "/telecom/mobile-data-plan-ipad/",
+    "category": "telecom",
+    "key": "post-mobile-data-plan-ipad"
+  },
+  "mvno-locked-phone-challenge-guide": {
+    "route": "/byod/mvno-locked-phone-challenge-guide/",
+    "category": "byod",
+    "key": "post-mvno-locked-phone-challenge-guide"
+  },
+  "mvno-pros-cons": {
+    "route": "/mvno/mvno-pros-cons/",
+    "category": "mvno",
+    "key": "post-mvno-pros-cons"
+  },
+  "mobile-esim-plans": {
+    "route": "/telecom/mobile-esim-plans/",
+    "category": "telecom",
+    "key": "post-mobile-esim-plans"
+  },
+  "unlock-operational-efficiency-with-spenza-iot-aggregation-platform": {
+    "route": "/spenza-product/unlock-operational-efficiency-with-spenza-iot-aggregation-platform/",
+    "category": "spenza-product",
+    "key": "post-unlock-operational-efficiency-with-spenza-iot-aggregation-platform"
+  },
+  "setting-up-your-spenza-account": {
+    "route": "/spenza-product/setting-up-your-spenza-account/",
+    "category": "spenza-product",
+    "key": "post-setting-up-your-spenza-account"
+  },
+  "reselling-mobile-plans-on-shopify-store": {
+    "route": "/spenza-product/reselling-mobile-plans-on-shopify-store/",
+    "category": "spenza-product",
+    "key": "post-reselling-mobile-plans-on-shopify-store"
+  },
+  "taas-billing-plan-bundling": {
+    "route": "/spenza-product/taas-billing-plan-bundling/",
+    "category": "spenza-product",
+    "key": "post-taas-billing-plan-bundling"
+  },
+  "nb-iot-vs-lte-m-vs-5g-redcap": {
+    "route": "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
+    "category": "esim",
+    "key": "post-nb-iot-vs-lte-m-vs-5g-redcap"
+  },
+  "spenza-global-connectivity-kids-smartwatch": {
+    "route": "/spenza-product/spenza-global-connectivity-kids-smartwatch/",
+    "category": "spenza-product",
+    "key": "post-spenza-global-connectivity-kids-smartwatch"
+  },
+  "create-branded-mobile-experience-for-enterprise-user": {
+    "route": "/spenza-product/create-branded-mobile-experience-for-enterprise-user/",
+    "category": "spenza-product",
+    "key": "post-create-branded-mobile-experience-for-enterprise-user"
+  },
+  "reliable-connectivity-elder-care-medical-alert-systems": {
+    "route": "/telecom/reliable-connectivity-elder-care-medical-alert-systems/",
+    "category": "telecom",
+    "key": "post-reliable-connectivity-elder-care-medical-alert-systems"
+  },
+  "future-enterprise-communication-ucaas-cpaas-ai-2025": {
+    "route": "/telecom/future-enterprise-communication-ucaas-cpaas-ai-2025/",
+    "category": "telecom",
+    "key": "post-future-enterprise-communication-ucaas-cpaas-ai-2025"
+  },
+  "iot-fleet-cost-management-2025": {
+    "route": "/telecom/iot-fleet-cost-management-2025/",
+    "category": "telecom",
+    "key": "post-iot-fleet-cost-management-2025"
+  },
+  "rent-tier-1-usa-dids-enterprise-guide": {
+    "route": "/telecom/rent-tier-1-usa-dids-enterprise-guide/",
+    "category": "telecom",
+    "key": "post-rent-tier-1-usa-dids-enterprise-guide"
+  },
+  "iot-sim-cards-guide": {
+    "route": "/esim/iot-sim-cards-guide/",
+    "category": "esim",
+    "key": "post-iot-sim-cards-guide"
+  },
+  "iot-connectivity-solutions": {
+    "route": "/esim/iot-connectivity-solutions/",
+    "category": "esim",
+    "key": "post-iot-connectivity-solutions"
+  },
+  "telematics-to-mvno-connectivity-strategy": {
+    "route": "/mvno/telematics-to-mvno-connectivity-strategy/",
+    "category": "mvno",
+    "key": "post-telematics-to-mvno-connectivity-strategy"
+  },
+  "top-mvno-go-to-market-strategies-2025": {
+    "route": "/mvno/top-mvno-go-to-market-strategies-2025/",
+    "category": "mvno",
+    "key": "post-top-mvno-go-to-market-strategies-2025"
+  },
+  "iot-mvno-esim": {
+    "route": "/mvno/iot-mvno-esim/",
+    "category": "mvno",
+    "key": "post-iot-mvno-esim"
+  },
+  "trail-camera-connectivity-oem-guide": {
+    "route": "/telecom/trail-camera-connectivity-oem-guide/",
+    "category": "telecom",
+    "key": "post-trail-camera-connectivity-oem-guide"
+  },
+  "how-to-top-up-your-spenza-account": {
+    "route": "/spenza-product/how-to-top-up-your-spenza-account/",
+    "category": "spenza-product",
+    "key": "post-how-to-top-up-your-spenza-account"
+  },
+  "angel-watch-iot-business-casestudy": {
+    "route": "/telecom/angel-watch-iot-business-casestudy/",
+    "category": "telecom",
+    "key": "post-angel-watch-iot-business-casestudy"
+  },
+  "esim-for-smart-devices-2025": {
+    "route": "/esim/esim-for-smart-devices-2025/",
+    "category": "esim",
+    "key": "post-esim-for-smart-devices-2025"
+  },
+  "mobile-connectivity-remote-hybrid-teams-2025": {
+    "route": "/telecom/mobile-connectivity-remote-hybrid-teams-2025/",
+    "category": "telecom",
+    "key": "post-mobile-connectivity-remote-hybrid-teams-2025"
+  },
+  "mvno-shopify-launch": {
+    "route": "/mvno/mvno-shopify-launch/",
+    "category": "mvno",
+    "key": "post-mvno-shopify-launch"
+  },
+  "iot-esim-trends": {
+    "route": "/esim/iot-esim-trends/",
+    "category": "esim",
+    "key": "post-iot-esim-trends"
+  },
+  "caab-healthcare": {
+    "route": "/telecom/caab-healthcare/",
+    "category": "telecom",
+    "key": "post-caab-healthcare"
+  },
+  "connectivity-as-a-benefit": {
+    "route": "/telecom/connectivity-as-a-benefit/",
+    "category": "telecom",
+    "key": "post-connectivity-as-a-benefit"
+  },
+  "single-carrier-iot-risks-2025": {
+    "route": "/telecom/single-carrier-iot-risks-2025/",
+    "category": "telecom",
+    "key": "post-single-carrier-iot-risks-2025"
+  },
+  "esim-5g-mvno-2025": {
+    "route": "/mvno/esim-5g-mvno-2025/",
+    "category": "mvno",
+    "key": "post-esim-5g-mvno-2025"
+  },
+  "iot-connectivity-cost-guide-2025": {
+    "route": "/telecom/iot-connectivity-cost-guide-2025/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-cost-guide-2025"
+  },
+  "telecom-compliance-audits": {
+    "route": "/tem/telecom-compliance-audits/",
+    "category": "tem",
+    "key": "post-telecom-compliance-audits"
+  },
+  "mvne-benefits": {
+    "route": "/mvno/mvne-benefits/",
+    "category": "mvno",
+    "key": "post-mvne-benefits"
+  },
+  "iot-connectivity-management-simplified": {
+    "route": "/telecom/iot-connectivity-management-simplified/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-management-simplified"
+  },
+  "smart-city-iot-connectivity-playbook-2026": {
+    "route": "/esim/smart-city-iot-connectivity-playbook-2026/",
+    "category": "esim",
+    "key": "post-smart-city-iot-connectivity-playbook-2026"
+  },
+  "questions-to-ask-mvne-2025": {
+    "route": "/mvno/questions-to-ask-mvne-2025/",
+    "category": "mvno",
+    "key": "post-questions-to-ask-mvne-2025"
+  },
+  "mvno-for-fintech-2025": {
+    "route": "/mvno/mvno-for-fintech-2025/",
+    "category": "mvno",
+    "key": "post-mvno-for-fintech-2025"
+  },
+  "optimize-iot-deployment-connectivity-management-platform": {
+    "route": "/esim/optimize-iot-deployment-connectivity-management-platform/",
+    "category": "esim",
+    "key": "post-optimize-iot-deployment-connectivity-management-platform"
+  },
+  "top-10-tips-launching-mvno-us-2025": {
+    "route": "/mvno/top-10-tips-launching-mvno-us-2025/",
+    "category": "mvno",
+    "key": "post-top-10-tips-launching-mvno-us-2025"
+  },
+  "travel-esim-solutions-monetize-devices": {
+    "route": "/esim/travel-esim-solutions-monetize-devices/",
+    "category": "esim",
+    "key": "post-travel-esim-solutions-monetize-devices"
+  },
+  "safe-kids-phone-watch-plans-2025": {
+    "route": "/mvno/safe-kids-phone-watch-plans-2025/",
+    "category": "mvno",
+    "key": "post-safe-kids-phone-watch-plans-2025"
+  },
+  "light-mvno-overview": {
+    "route": "/mvno/light-mvno-overview/",
+    "category": "mvno",
+    "key": "post-light-mvno-overview"
+  },
+  "leading-iot-connectivity-management-platforms": {
+    "route": "/esim/leading-iot-connectivity-management-platforms/",
+    "category": "esim",
+    "key": "post-leading-iot-connectivity-management-platforms"
+  },
+  "iot-data-plans-cost-optimization": {
+    "route": "/esim/iot-data-plans-cost-optimization/",
+    "category": "esim",
+    "key": "post-iot-data-plans-cost-optimization"
+  },
+  "mvno-types": {
+    "route": "/mvno/mvno-types/",
+    "category": "mvno",
+    "key": "post-mvno-types"
+  },
+  "oss-bss": {
+    "route": "/telecom/oss-bss/",
+    "category": "telecom",
+    "key": "post-oss-bss"
+  },
+  "iot-sim-management-guide": {
+    "route": "/esim/iot-sim-management-guide/",
+    "category": "esim",
+    "key": "post-iot-sim-management-guide"
+  },
+  "nb-iot-vs-lte-m-comparison": {
+    "route": "/esim/nb-iot-vs-lte-m-comparison/",
+    "category": "esim",
+    "key": "post-nb-iot-vs-lte-m-comparison"
+  },
+  "iot-connectivity-platforms": {
+    "route": "/esim/iot-connectivity-platforms/",
+    "category": "esim",
+    "key": "post-iot-connectivity-platforms"
+  },
+  "byod-in-2025-benefits-risks-and-best-practices": {
+    "route": "/byod/byod-in-2025-benefits-risks-and-best-practices/",
+    "category": "byod",
+    "key": "post-byod-in-2025-benefits-risks-and-best-practices"
+  },
+  "mvno-esim-implementation": {
+    "route": "/mvno/mvno-esim-implementation/",
+    "category": "mvno",
+    "key": "post-mvno-esim-implementation"
+  },
+  "esim-multi-network-auto-transport": {
+    "route": "/esim/esim-multi-network-auto-transport/",
+    "category": "esim",
+    "key": "post-esim-multi-network-auto-transport"
+  },
+  "unified-connectivity-management-iot": {
+    "route": "/esim/unified-connectivity-management-iot/",
+    "category": "esim",
+    "key": "post-unified-connectivity-management-iot"
+  },
+  "iot-esim-providers": {
+    "route": "/esim/iot-esim-providers/",
+    "category": "esim",
+    "key": "post-iot-esim-providers"
+  },
+  "sgp-22-vs-sgp-32-esim-standards-guide": {
+    "route": "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "category": "esim",
+    "key": "post-sgp-22-vs-sgp-32-esim-standards-guide"
+  },
+  "what-is-connectivity-management-platform-cmp": {
+    "route": "/telecom/what-is-connectivity-management-platform-cmp/",
+    "category": "telecom",
+    "key": "post-what-is-connectivity-management-platform-cmp"
+  },
+  "deploy-multi-network-esim-rsp-aggregation": {
+    "route": "/esim/deploy-multi-network-esim-rsp-aggregation/",
+    "category": "esim",
+    "key": "post-deploy-multi-network-esim-rsp-aggregation"
+  },
+  "oss-bss-checklist": {
+    "route": "/telecom/oss-bss-checklist/",
+    "category": "telecom",
+    "key": "post-oss-bss-checklist"
+  },
+  "2g-3g-sunset-iot-impact-migration": {
+    "route": "/esim/2g-3g-sunset-iot-impact-migration/",
+    "category": "esim",
+    "key": "post-2g-3g-sunset-iot-impact-migration"
+  },
+  "what-is-iot-roaming": {
+    "route": "/esim/what-is-iot-roaming/",
+    "category": "esim",
+    "key": "post-what-is-iot-roaming"
+  },
+  "multi-imsi-vs-euicc-guide-iot": {
+    "route": "/esim/multi-imsi-vs-euicc-guide-iot/",
+    "category": "esim",
+    "key": "post-multi-imsi-vs-euicc-guide-iot"
+  },
+  "top-iot-trends": {
+    "route": "/esim/top-iot-trends/",
+    "category": "esim",
+    "key": "post-top-iot-trends"
+  },
+  "what-is-iccid-number": {
+    "route": "/esim/what-is-iccid-number/",
+    "category": "esim",
+    "key": "post-what-is-iccid-number"
+  },
+  "best-iot-connectivity-management-platform": {
+    "route": "/esim/best-iot-connectivity-management-platform/",
+    "category": "esim",
+    "key": "post-best-iot-connectivity-management-platform"
+  },
+  "must-attend-iot-and-mvno-events-in-2026": {
+    "route": "/telecom/must-attend-iot-and-mvno-events-in-2026/",
+    "category": "telecom",
+    "key": "post-must-attend-iot-and-mvno-events-in-2026"
+  },
+  "a2p-messaging-satellite-cellular-hybrid": {
+    "route": "/telecom/a2p-messaging-satellite-cellular-hybrid/",
+    "category": "telecom",
+    "key": "post-a2p-messaging-satellite-cellular-hybrid"
+  },
+  "iot-connectivity-types-guide-2025": {
+    "route": "/telecom/iot-connectivity-types-guide-2025/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-types-guide-2025"
+  },
+  "dual-sim-esim": {
+    "route": "/esim/dual-sim-esim/",
+    "category": "esim",
+    "key": "post-dual-sim-esim"
+  },
+  "business-mobile-cost-quality": {
+    "route": "/tem/business-mobile-cost-quality/",
+    "category": "tem",
+    "key": "post-business-mobile-cost-quality"
+  },
+  "iot-connectivity-management-platform": {
+    "route": "/telecom/iot-connectivity-management-platform/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-management-platform"
+  },
+  "iot-connectivity-management-platform-features-2025": {
+    "route": "/telecom/iot-connectivity-management-platform-features-2025/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-management-platform-features-2025"
+  },
+  "satellite-vendors-becoming-connectivity-operators": {
+    "route": "/mvno/satellite-vendors-becoming-connectivity-operators/",
+    "category": "mvno",
+    "key": "post-satellite-vendors-becoming-connectivity-operators"
+  },
+  "what-is-remote-sim-provisioning-rsp-guide-2026": {
+    "route": "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "category": "esim",
+    "key": "post-what-is-remote-sim-provisioning-rsp-guide-2026"
+  },
+  "become-your-own-mvno-ai-ucaas": {
+    "route": "/mvno/become-your-own-mvno-ai-ucaas/",
+    "category": "mvno",
+    "key": "post-become-your-own-mvno-ai-ucaas"
+  },
+  "skype-retirement-2025-migration-strategy": {
+    "route": "/telecom/skype-retirement-2025-migration-strategy/",
+    "category": "telecom",
+    "key": "post-skype-retirement-2025-migration-strategy"
+  },
+  "monetize-baby-monitor-connectivity": {
+    "route": "/mvno/monetize-baby-monitor-connectivity/",
+    "category": "mvno",
+    "key": "post-monetize-baby-monitor-connectivity"
+  },
+  "iot-logistics-supply-chain-connectivity": {
+    "route": "/telecom/iot-logistics-supply-chain-connectivity/",
+    "category": "telecom",
+    "key": "post-iot-logistics-supply-chain-connectivity"
+  },
+  "smart-agriculture-iot-connectivity": {
+    "route": "/telecom/smart-agriculture-iot-connectivity/",
+    "category": "telecom",
+    "key": "post-smart-agriculture-iot-connectivity"
+  },
+  "what-is-6g-future-wireless-connectivity": {
+    "route": "/telecom/what-is-6g-future-wireless-connectivity/",
+    "category": "telecom",
+    "key": "post-what-is-6g-future-wireless-connectivity"
+  },
+  "what-is-remote-esim-provisioning": {
+    "route": "/esim/what-is-remote-esim-provisioning/",
+    "category": "esim",
+    "key": "post-what-is-remote-esim-provisioning"
+  },
+  "top-mvno-marketing-strategies": {
+    "route": "/mvno/top-mvno-marketing-strategies/",
+    "category": "mvno",
+    "key": "post-top-mvno-marketing-strategies"
+  },
+  "single-pane-of-glass-iot-connectivity-management": {
+    "route": "/telecom/single-pane-of-glass-iot-connectivity-management/",
+    "category": "telecom",
+    "key": "post-single-pane-of-glass-iot-connectivity-management"
+  },
+  "iot-connectivity-healthcare-remote-patient-monitoring": {
+    "route": "/telecom/iot-connectivity-healthcare-remote-patient-monitoring/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-healthcare-remote-patient-monitoring"
+  },
+  "mvno-for-gaming-sports-esports-monetization": {
+    "route": "/mvno/mvno-for-gaming-sports-esports-monetization/",
+    "category": "mvno",
+    "key": "post-mvno-for-gaming-sports-esports-monetization"
+  },
+  "fleet-management-integrated-connectivity-platform": {
+    "route": "/telecom/fleet-management-integrated-connectivity-platform/",
+    "category": "telecom",
+    "key": "post-fleet-management-integrated-connectivity-platform"
+  },
+  "esim-orchestration-global-iot": {
+    "route": "/esim/esim-orchestration-global-iot/",
+    "category": "esim",
+    "key": "post-esim-orchestration-global-iot"
+  },
+  "msp-reselling-connectivity-with-hardware": {
+    "route": "/telecom/msp-reselling-connectivity-with-hardware/",
+    "category": "telecom",
+    "key": "post-msp-reselling-connectivity-with-hardware"
+  },
+  "mvno-in-a-box-for-brands": {
+    "route": "/mvno/mvno-in-a-box-for-brands/",
+    "category": "mvno",
+    "key": "post-mvno-in-a-box-for-brands"
+  },
+  "mrbeast-celebrity-mvnos": {
+    "route": "/mvno/mrbeast-celebrity-mvnos/",
+    "category": "mvno",
+    "key": "post-mrbeast-celebrity-mvnos"
+  },
+  "telecom-msp-white-label-solutions-2025": {
+    "route": "/telecom/telecom-msp-white-label-solutions-2025/",
+    "category": "telecom",
+    "key": "post-telecom-msp-white-label-solutions-2025"
+  },
+  "mvno-opportunities-smart-cities-urban-iot": {
+    "route": "/mvno/mvno-opportunities-smart-cities-urban-iot/",
+    "category": "mvno",
+    "key": "post-mvno-opportunities-smart-cities-urban-iot"
+  },
+  "what-is-5g-redcap-iot-iiot-guide-2025": {
+    "route": "/telecom/what-is-5g-redcap-iot-iiot-guide-2025/",
+    "category": "telecom",
+    "key": "post-what-is-5g-redcap-iot-iiot-guide-2025"
+  },
+  "byod": {
+    "route": "/byod/byod/",
+    "category": "byod",
+    "key": "post-byod"
+  },
+  "tem": {
+    "route": "/tem/tem/",
+    "category": "tem",
+    "key": "post-tem"
+  },
+  "future-of-iot-connectivity-2025": {
+    "route": "/telecom/future-of-iot-connectivity-2025/",
+    "category": "telecom",
+    "key": "post-future-of-iot-connectivity-2025"
+  },
+  "sell-devices-esims-shopify-spenza": {
+    "route": "/spenza-product/sell-devices-esims-shopify-spenza/",
+    "category": "spenza-product",
+    "key": "post-sell-devices-esims-shopify-spenza"
+  },
+  "embedded-connectivity-reshaping-tech-2025": {
+    "route": "/esim/embedded-connectivity-reshaping-tech-2025/",
+    "category": "esim",
+    "key": "post-embedded-connectivity-reshaping-tech-2025"
+  },
+  "eliminate-carrier-lock-in-esim": {
+    "route": "/esim/eliminate-carrier-lock-in-esim/",
+    "category": "esim",
+    "key": "post-eliminate-carrier-lock-in-esim"
+  },
+  "iot-connectivity-strategies-2025": {
+    "route": "/telecom/iot-connectivity-strategies-2025/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-strategies-2025"
+  },
+  "proxy-reseller-growth-spenza": {
+    "route": "/spenza-product/proxy-reseller-growth-spenza/",
+    "category": "spenza-product",
+    "key": "post-proxy-reseller-growth-spenza"
+  },
+  "global-iot-sim-cards-2025": {
+    "route": "/telecom/global-iot-sim-cards-2025/",
+    "category": "telecom",
+    "key": "post-global-iot-sim-cards-2025"
+  },
+  "choosing-iot-device-connectivity-2025": {
+    "route": "/telecom/choosing-iot-device-connectivity-2025/",
+    "category": "telecom",
+    "key": "post-choosing-iot-device-connectivity-2025"
+  },
+  "launch-mvno-7-days": {
+    "route": "/mvno/launch-mvno-7-days/",
+    "category": "mvno",
+    "key": "post-launch-mvno-7-days"
+  },
+  "telecom": {
+    "route": "/telecom/telecom/",
+    "category": "telecom",
+    "key": "post-telecom"
+  },
+  "monetizing-connectivity-strategies-msps": {
+    "route": "/telecom/monetizing-connectivity-strategies-msps/",
+    "category": "telecom",
+    "key": "post-monetizing-connectivity-strategies-msps"
+  },
+  "mvno-market-trends": {
+    "route": "/mvno/mvno-market-trends/",
+    "category": "mvno",
+    "key": "post-mvno-market-trends"
+  },
+  "2025-mvno-guide-telecom-regulatory-success": {
+    "route": "/mvno/2025-mvno-guide-telecom-regulatory-success/",
+    "category": "mvno",
+    "key": "post-2025-mvno-guide-telecom-regulatory-success"
+  },
+  "mvno-alternatives": {
+    "route": "/mvno/mvno-alternatives/",
+    "category": "mvno",
+    "key": "post-mvno-alternatives"
+  },
+  "butlr-iot-spenza-casestudy": {
+    "route": "/spenza-product/butlr-iot-spenza-casestudy/",
+    "category": "spenza-product",
+    "key": "post-butlr-iot-spenza-casestudy"
+  },
+  "what-is-telecom-expense-management-tem": {
+    "route": "/tem/what-is-telecom-expense-management-tem/",
+    "category": "tem",
+    "key": "post-what-is-telecom-expense-management-tem"
+  },
+  "how-to-launch-mvno-non-telco-brand-2025": {
+    "route": "/mvno/how-to-launch-mvno-non-telco-brand-2025/",
+    "category": "mvno",
+    "key": "post-how-to-launch-mvno-non-telco-brand-2025"
+  },
+  "mvno-iot-connectivity": {
+    "route": "/mvno/mvno-iot-connectivity/",
+    "category": "mvno",
+    "key": "post-mvno-iot-connectivity"
+  },
+  "branded-esim-marketplace": {
+    "route": "/esim/branded-esim-marketplace/",
+    "category": "esim",
+    "key": "post-branded-esim-marketplace"
+  },
+  "esim-global-connectivity": {
+    "route": "/esim/esim-global-connectivity/",
+    "category": "esim",
+    "key": "post-esim-global-connectivity"
+  },
+  "mvno-launching-myths-vs-reality": {
+    "route": "/mvno/mvno-launching-myths-vs-reality/",
+    "category": "mvno",
+    "key": "post-mvno-launching-myths-vs-reality"
+  },
+  "launch-us-mvno-now": {
+    "route": "/mvno/launch-us-mvno-now/",
+    "category": "mvno",
+    "key": "post-launch-us-mvno-now"
+  },
+  "mvne-mvna-mno-to-launch-mvno": {
+    "route": "/mvno/mvne-mvna-mno-to-launch-mvno/",
+    "category": "mvno",
+    "key": "post-mvne-mvna-mno-to-launch-mvno"
+  },
+  "skype-alternatives": {
+    "route": "/telecom/skype-alternatives/",
+    "category": "telecom",
+    "key": "post-skype-alternatives"
+  },
+  "bss-providers-mvno-billing": {
+    "route": "/mvno/bss-providers-mvno-billing/",
+    "category": "mvno",
+    "key": "post-bss-providers-mvno-billing"
+  },
+  "resell-data-plans-shopify": {
+    "route": "/mvno/resell-data-plans-shopify/",
+    "category": "mvno",
+    "key": "post-resell-data-plans-shopify"
+  },
+  "how-to-set-up-mvno": {
+    "route": "/mvno/how-to-set-up-mvno/",
+    "category": "mvno",
+    "key": "post-how-to-set-up-mvno"
+  },
+  "what-is-mvne-strategy-services": {
+    "route": "/spenza-product/what-is-mvne-strategy-services/",
+    "category": "spenza-product",
+    "key": "post-what-is-mvne-strategy-services"
+  },
+  "iot-management-remote-esim-provisioning": {
+    "route": "/esim/iot-management-remote-esim-provisioning/",
+    "category": "esim",
+    "key": "post-iot-management-remote-esim-provisioning"
+  },
+  "global-iot-mvno-connectivity": {
+    "route": "/mvno/global-iot-mvno-connectivity/",
+    "category": "mvno",
+    "key": "post-global-iot-mvno-connectivity"
+  },
+  "iot-mvnos-vs-traditional": {
+    "route": "/mvno/iot-mvnos-vs-traditional/",
+    "category": "mvno",
+    "key": "post-iot-mvnos-vs-traditional"
+  },
+  "how-mvnes-accelerate-mvno-launch": {
+    "route": "/mvno/how-mvnes-accelerate-mvno-launch/",
+    "category": "mvno",
+    "key": "post-how-mvnes-accelerate-mvno-launch"
+  },
+  "taas-vs-traditional-telecom": {
+    "route": "/telecom/taas-vs-traditional-telecom/",
+    "category": "telecom",
+    "key": "post-taas-vs-traditional-telecom"
+  },
+  "mvno-network-selection": {
+    "route": "/mvno/mvno-network-selection/",
+    "category": "mvno",
+    "key": "post-mvno-network-selection"
+  },
+  "iot-mvno-industrial-automation": {
+    "route": "/mvno/iot-mvno-industrial-automation/",
+    "category": "mvno",
+    "key": "post-iot-mvno-industrial-automation"
+  },
+  "mvno-trends": {
+    "route": "/mvno/mvno-trends/",
+    "category": "mvno",
+    "key": "post-mvno-trends"
+  },
+  "mdm-cmp-integration": {
+    "route": "/telecom/mdm-cmp-integration/",
+    "category": "telecom",
+    "key": "post-mdm-cmp-integration"
+  },
+  "taas-revolutionizing-telecom-usa": {
+    "route": "/telecom/taas-revolutionizing-telecom-usa/",
+    "category": "telecom",
+    "key": "post-taas-revolutionizing-telecom-usa"
+  },
+  "global-mvno-expansion": {
+    "route": "/mvno/global-mvno-expansion/",
+    "category": "mvno",
+    "key": "post-global-mvno-expansion"
+  },
+  "what-is-telecom-as-a-service-taas": {
+    "route": "/telecom/what-is-telecom-as-a-service-taas/",
+    "category": "telecom",
+    "key": "post-what-is-telecom-as-a-service-taas"
+  },
+  "esim-enterprise-byod": {
+    "route": "/esim/esim-enterprise-byod/",
+    "category": "esim",
+    "key": "post-esim-enterprise-byod"
+  },
+  "choosing-iot-connectivity-plan": {
+    "route": "/telecom/choosing-iot-connectivity-plan/",
+    "category": "telecom",
+    "key": "post-choosing-iot-connectivity-plan"
+  },
+  "skype-shutdown-explained": {
+    "route": "/telecom/skype-shutdown-explained/",
+    "category": "telecom",
+    "key": "post-skype-shutdown-explained"
+  },
+  "brand-mvnos-revolutionizing-mobile": {
+    "route": "/mvno/brand-mvnos-revolutionizing-mobile/",
+    "category": "mvno",
+    "key": "post-brand-mvnos-revolutionizing-mobile"
+  },
+  "esim-mvno-disruption": {
+    "route": "/mvno/esim-mvno-disruption/",
+    "category": "mvno",
+    "key": "post-esim-mvno-disruption"
+  },
+  "isim-vs-esim": {
+    "route": "/esim/isim-vs-esim/",
+    "category": "esim",
+    "key": "post-isim-vs-esim"
+  },
+  "sgp-32-new-esim-standard": {
+    "route": "/esim/sgp-32-new-esim-standard/",
+    "category": "esim",
+    "key": "post-sgp-32-new-esim-standard"
+  },
+  "google-fi-5g-review": {
+    "route": "/mvno/google-fi-5g-review/",
+    "category": "mvno",
+    "key": "post-google-fi-5g-review"
+  },
+  "iot-esim-introduction": {
+    "route": "/esim/iot-esim-introduction/",
+    "category": "esim",
+    "key": "post-iot-esim-introduction"
+  },
+  "google-fi-2": {
+    "route": "/mvno/google-fi-2/",
+    "category": "mvno",
+    "key": "post-google-fi-2"
+  },
+  "port-skype-number": {
+    "route": "/telecom/port-skype-number/",
+    "category": "telecom",
+    "key": "post-port-skype-number"
+  },
+  "iot-esim-connectivity": {
+    "route": "/esim/iot-esim-connectivity/",
+    "category": "esim",
+    "key": "post-iot-esim-connectivity"
+  },
+  "iot-esim-pricing-models": {
+    "route": "/esim/iot-esim-pricing-models/",
+    "category": "esim",
+    "key": "post-iot-esim-pricing-models"
+  },
+  "sim-vs-esim-iot": {
+    "route": "/esim/sim-vs-esim-iot/",
+    "category": "esim",
+    "key": "post-sim-vs-esim-iot"
+  },
+  "telecom-audit-examples": {
+    "route": "/tem/telecom-audit-examples/",
+    "category": "tem",
+    "key": "post-telecom-audit-examples"
+  },
+  "telecom-expense-audit-checklist": {
+    "route": "/tem/telecom-expense-audit-checklist/",
+    "category": "tem",
+    "key": "post-telecom-expense-audit-checklist"
+  },
+  "mvne-provider-selection": {
+    "route": "/mvno/mvne-provider-selection/",
+    "category": "mvno",
+    "key": "post-mvne-provider-selection"
+  },
+  "telecom-expense-management-implementation": {
+    "route": "/tem/telecom-expense-management-implementation/",
+    "category": "tem",
+    "key": "post-telecom-expense-management-implementation"
+  },
+  "could-based-mvne": {
+    "route": "/telecom/could-based-mvne/",
+    "category": "telecom",
+    "key": "post-could-based-mvne"
+  },
+  "mvne-vs-mvna": {
+    "route": "/telecom/mvne-vs-mvna/",
+    "category": "telecom",
+    "key": "post-mvne-vs-mvna"
+  },
+  "mvne-explained": {
+    "route": "/mvno/mvne-explained/",
+    "category": "mvno",
+    "key": "post-mvne-explained"
+  },
+  "benefits-telecom-expense-management-tem": {
+    "route": "/tem/benefits-telecom-expense-management-tem/",
+    "category": "tem",
+    "key": "post-benefits-telecom-expense-management-tem"
+  },
+  "mvno-vs-mvne": {
+    "route": "/mvno/mvno-vs-mvne/",
+    "category": "mvno",
+    "key": "post-mvno-vs-mvne"
+  },
+  "white-label-telecom-reseller": {
+    "route": "/telecom/white-label-telecom-reseller/",
+    "category": "telecom",
+    "key": "post-white-label-telecom-reseller"
+  },
+  "white-label-telecom-benefits": {
+    "route": "/telecom/white-label-telecom-benefits/",
+    "category": "telecom",
+    "key": "post-white-label-telecom-benefits"
+  },
+  "white-label-telecom-reseller-guide": {
+    "route": "/telecom/white-label-telecom-reseller-guide/",
+    "category": "telecom",
+    "key": "post-white-label-telecom-reseller-guide"
+  },
+  "white-label-mvno": {
+    "route": "/mvno/white-label-mvno/",
+    "category": "mvno",
+    "key": "post-white-label-mvno"
+  },
+  "mvno-management-solution": {
+    "route": "/mvno/mvno-management-solution/",
+    "category": "mvno",
+    "key": "post-mvno-management-solution"
+  },
+  "white-label-voip-change": {
+    "route": "/telecom/white-label-voip-change/",
+    "category": "telecom",
+    "key": "post-white-label-voip-change"
+  },
+  "telecom-expense-management-api": {
+    "route": "/telecom/telecom-expense-management-api/",
+    "category": "telecom",
+    "key": "post-telecom-expense-management-api"
+  },
+  "mno-vs-mvnos": {
+    "route": "/mvno/mno-vs-mvnos/",
+    "category": "mvno",
+    "key": "post-mno-vs-mvnos"
+  },
+  "branded-reseller-mvno": {
+    "route": "/mvno/branded-reseller-mvno/",
+    "category": "mvno",
+    "key": "post-branded-reseller-mvno"
+  },
+  "full-mvno": {
+    "route": "/telecom/full-mvno/",
+    "category": "telecom",
+    "key": "post-full-mvno"
+  },
+  "wireless-expense-management-challenges": {
+    "route": "/tem/wireless-expense-management-challenges/",
+    "category": "tem",
+    "key": "post-wireless-expense-management-challenges"
+  },
+  "white-label-connectivity-solutions-for-msps": {
+    "route": "/telecom/white-label-connectivity-solutions-for-msps/",
+    "category": "telecom",
+    "key": "post-white-label-connectivity-solutions-for-msps"
+  },
+  "wireless-connectivity-management-enterprises": {
+    "route": "/tem/wireless-connectivity-management-enterprises/",
+    "category": "tem",
+    "key": "post-wireless-connectivity-management-enterprises"
+  },
+  "iot-connectivity": {
+    "route": "/telecom/iot-connectivity/",
+    "category": "telecom",
+    "key": "post-iot-connectivity"
+  },
+  "iot-regional-plan-flexibility": {
+    "route": "/telecom/iot-regional-plan-flexibility/",
+    "category": "telecom",
+    "key": "post-iot-regional-plan-flexibility"
+  },
+  "iot-device-management": {
+    "route": "/telecom/iot-device-management/",
+    "category": "telecom",
+    "key": "post-iot-device-management"
+  },
+  "impact-5g-enterprise": {
+    "route": "/telecom/impact-5g-enterprise/",
+    "category": "telecom",
+    "key": "post-impact-5g-enterprise"
+  },
+  "esim-for-travellers": {
+    "route": "/esim/esim-for-travellers/",
+    "category": "esim",
+    "key": "post-esim-for-travellers"
+  },
+  "caas-for-iot": {
+    "route": "/telecom/caas-for-iot/",
+    "category": "telecom",
+    "key": "post-caas-for-iot"
+  },
+  "esim-vs-traditional-sims": {
+    "route": "/esim/esim-vs-traditional-sims/",
+    "category": "esim",
+    "key": "post-esim-vs-traditional-sims"
+  },
+  "global-iot-network-management-simplified": {
+    "route": "/telecom/global-iot-network-management-simplified/",
+    "category": "telecom",
+    "key": "post-global-iot-network-management-simplified"
+  },
+  "iot-events": {
+    "route": "/telecom/iot-events/",
+    "category": "telecom",
+    "key": "post-iot-events"
+  },
+  "traditional-connectivity-plans": {
+    "route": "/tem/traditional-connectivity-plans/",
+    "category": "tem",
+    "key": "post-traditional-connectivity-plans"
+  },
+  "esim-transforming-iot-connectivity": {
+    "route": "/esim/esim-transforming-iot-connectivity/",
+    "category": "esim",
+    "key": "post-esim-transforming-iot-connectivity"
+  },
+  "iot-connectivity-trends": {
+    "route": "/telecom/iot-connectivity-trends/",
+    "category": "telecom",
+    "key": "post-iot-connectivity-trends"
+  },
+  "google-fi": {
+    "route": "/mvno/google-fi/",
+    "category": "mvno",
+    "key": "post-google-fi"
+  },
+  "mvno-differentiation": {
+    "route": "/mvno/mvno-differentiation/",
+    "category": "mvno",
+    "key": "post-mvno-differentiation"
+  },
+  "telecom-expense-management": {
+    "route": "/telecom/telecom-expense-management/",
+    "category": "telecom",
+    "key": "post-telecom-expense-management"
+  },
+  "mobile-plan-management-simplified": {
+    "route": "/telecom/mobile-plan-management-simplified/",
+    "category": "telecom",
+    "key": "post-mobile-plan-management-simplified"
+  },
+  "esim-data-plans": {
+    "route": "/telecom/esim-data-plans/",
+    "category": "telecom",
+    "key": "post-esim-data-plans"
+  },
+  "design-mvno-user-experience": {
+    "route": "/mvno/design-mvno-user-experience/",
+    "category": "mvno",
+    "key": "post-design-mvno-user-experience"
+  },
+  "spenza-business-continuity": {
+    "route": "/spenza-product/spenza-business-continuity/",
+    "category": "spenza-product",
+    "key": "post-spenza-business-continuity"
+  },
+  "launching-mvno": {
+    "route": "/mvno/launching-mvno/",
+    "category": "mvno",
+    "key": "post-launching-mvno"
+  },
+  "us-mvno-introduction": {
+    "route": "/mvno/us-mvno-introduction/",
+    "category": "mvno",
+    "key": "post-us-mvno-introduction"
+  },
+  "spenza-admin-dashboard-overview": {
+    "route": "/spenza-product/spenza-admin-dashboard-overview/",
+    "category": "spenza-product",
+    "key": "post-spenza-admin-dashboard-overview"
+  },
+  "spenza-super-admin-overview": {
+    "route": "/spenza-product/spenza-super-admin-overview/",
+    "category": "spenza-product",
+    "key": "post-spenza-super-admin-overview"
+  },
+  "pdf-parsing-for-telecom-invoices": {
+    "route": "/spenza-product/pdf-parsing-for-telecom-invoices/",
+    "category": "spenza-product",
+    "key": "post-pdf-parsing-for-telecom-invoices"
+  },
+  "purchase-plan": {
+    "route": "/spenza-product/purchase-plan/",
+    "category": "spenza-product",
+    "key": "post-purchase-plan"
+  },
+  "bulk-import-operations": {
+    "route": "/spenza-product/bulk-import-operations/",
+    "category": "spenza-product",
+    "key": "post-bulk-import-operations"
+  },
+  "integrated-connectivity-management": {
+    "route": "/telecom/integrated-connectivity-management/",
+    "category": "telecom",
+    "key": "post-integrated-connectivity-management"
+  },
+  "telecom-billing-mistakes": {
+    "route": "/tem/telecom-billing-mistakes/",
+    "category": "tem",
+    "key": "post-telecom-billing-mistakes"
+  },
+  "dual-esim-support-iphone-13": {
+    "route": "/telecom/dual-esim-support-iphone-13/",
+    "category": "telecom",
+    "key": "post-dual-esim-support-iphone-13"
+  },
+  "employee-mobile-service": {
+    "route": "/telecom/employee-mobile-service/",
+    "category": "telecom",
+    "key": "post-employee-mobile-service"
+  },
+  "wireless-telecom-expense-management": {
+    "route": "/telecom/wireless-telecom-expense-management/",
+    "category": "telecom",
+    "key": "post-wireless-telecom-expense-management"
+  },
+  "telecom-expense-management-tem-outsourcing": {
+    "route": "/tem/telecom-expense-management-tem-outsourcing/",
+    "category": "tem",
+    "key": "post-telecom-expense-management-tem-outsourcing"
+  },
+  "esim-covid-19": {
+    "route": "/esim/esim-covid-19/",
+    "category": "esim",
+    "key": "post-esim-covid-19"
+  },
+  "esim-transformation": {
+    "route": "/esim/esim-transformation/",
+    "category": "esim",
+    "key": "post-esim-transformation"
+  },
+  "hidden-mobile-service-costs": {
+    "route": "/tem/hidden-mobile-service-costs/",
+    "category": "tem",
+    "key": "post-hidden-mobile-service-costs"
+  },
+  "byod-planning": {
+    "route": "/byod/byod-planning/",
+    "category": "byod",
+    "key": "post-byod-planning"
+  },
+  "why-is-mobile-roaming-expensive": {
+    "route": "/telecom/why-is-mobile-roaming-expensive/",
+    "category": "telecom",
+    "key": "post-why-is-mobile-roaming-expensive"
+  },
+  "byod-policies": {
+    "route": "/byod/byod-policies/",
+    "category": "byod",
+    "key": "post-byod-policies"
+  }
+}

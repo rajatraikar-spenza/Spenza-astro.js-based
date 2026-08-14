@@ -5,7 +5,9 @@ import fs from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
-const ORIGIN = 'https://preprod.spenza.com';
+import { WP_ORIGIN, WP_HOST } from './lib/config.mjs';
+
+const ORIGIN = WP_ORIGIN;
 const PROJECT = path.resolve(import.meta.dirname, '..');
 const CACHE = path.join(PROJECT, '.wp-cache');
 

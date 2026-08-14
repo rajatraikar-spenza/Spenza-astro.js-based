@@ -1,83 +1,83 @@
 ---
 /**
- * Blog posts at their WordPress URLs: /<category-slug>/<post-slug>/.
+ * Blog posts and case studies at their WordPress URLs: /<category>/<slug>/.
  *
- * Wrapped in Astra's single-post markup so the mirrored theme CSS applies the
- * same typography and spacing WordPress does.
+ * Routes come from the `posts` collection, which the WPGraphQL loader fills at
+ * build time — so a post published in WordPress gets a page on the next build,
+ * with no mirror run and no cookie. That is the whole point of the migration.
+ *
+ * The mirrored partials remain as a per-post fallback (`MIRROR_ONLY`), and the
+ * headless path fills the same Elementor template shell, so both renderings
+ * produce the same URL with the same chrome.
  */
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import WpLayout from '../../layouts/WpLayout.astro';
-import { categorySlug } from '../../data/blog-categories';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import wpPosts from '../../data/wp-posts.json';
+import { isHeadless } from '../../data/headless-slugs.ts';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map(entry => ({
-    params: { category: categorySlug(entry.data.category), slug: entry.id },
-    props: { entry },
-  }));
-}
+type PostEntry = { route: string; category: string; key: string };
 
-const { entry } = Astro.props;
-const { Content } = await render(entry);
-
-const category = entry.data.category ?? 'Telecom';
-const slug = categorySlug(category);
-const published = entry.data.date ? new Date(entry.data.date) : undefined;
-const publishedLabel = published?.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+const partials = import.meta.glob<string>('../../partials/posts/*.html', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
 });
 
-// Strip the markdown's leading HTML so the excerpt is readable prose.
-const description = entry.body
-  ?.replace(/<[^>]+>/g, ' ')
-  .replace(/\s+/g, ' ')
-  .trim()
-  .slice(0, 160);
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const mirrored = wpPosts as Record<string, PostEntry>;
+
+  /**
+   * The three newest posts site-wide, minus the one being rendered.
+   *
+   * Deliberately *not* filtered by category. The loop grid in the Elementor
+   * template runs an unfiltered recent-posts query, which the mirrored captures
+   * confirm: a post in every one of the seven categories shows the same three
+   * newest articles, and the newest post of all shows the next three down.
+   */
+  const newest = [...posts].sort(
+    (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+  );
+  const relatedFor = (slug: string) =>
+    newest.filter(p => p.data.slug !== slug).slice(0, 3);
+
+  return posts.map(post => {
+    const { slug, category } = post.data;
+    const headless = isHeadless(slug);
+    return {
+      // WordPress' own permalink decides the category segment; the loader reads
+      // it from the post's uri rather than inferring it from the taxonomy.
+      params: { category, slug },
+      props: {
+        slug,
+        post: headless ? post : undefined,
+        entry: mirrored[slug],
+        related: headless ? relatedFor(slug) : [],
+      },
+    };
+  });
+}
+
+const { slug, post, entry, related } = Astro.props;
+
+const content = post ? null : partials[`../../partials/posts/${slug}.html`];
+
+// A post excluded from the headless path but never mirrored has nothing to
+// render — that happens when a slug is added to MIRROR_ONLY after being
+// published, and it should fail the build rather than emit an empty page.
+if (!post && !content) {
+  throw new Error(
+    `"${slug}" is in MIRROR_ONLY but has no mirrored partial. ` +
+    `Remove it from MIRROR_ONLY, or run \`npm run wp:posts\` to capture it.`
+  );
+}
 ---
 
-<WpLayout slug="__post__" title={`${entry.data.title} - Spenza`} description={description}>
-  <div id="content" class="site-content">
-    <div class="ast-container">
-      <div id="primary" class="content-area primary">
-        <div id="main" class="site-main">
-          <article
-            class={`post type-post status-publish format-standard hentry category-${slug} ast-article-single`}
-          >
-            <header class="entry-header ast-no-thumbnail">
-              <div class="ast-blog-featured-section post-thumb ast-blog-single-element">
-                {entry.data.image && (
-                  <img
-                    class="wp-post-image"
-                    src={entry.data.image}
-                    alt={entry.data.title}
-                    loading="eager"
-                    decoding="async"
-                  />
-                )}
-              </div>
-              <h1 class="entry-title">{entry.data.title}</h1>
-              <div class="entry-meta">
-                <span class="ast-taxonomy-container cat-links">
-                  <a href={`/category/${slug}/`} rel="category tag">{category}</a>
-                </span>
-                {publishedLabel && (
-                  <span class="posted-on">
-                    <time class="entry-date published" datetime={published?.toISOString()}>
-                      {publishedLabel}
-                    </time>
-                  </span>
-                )}
-              </div>
-            </header>
-
-            <div class="entry-content clear">
-              <Content />
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-</WpLayout>
+{post
+  ? <ArticleLayout post={post} related={related} />
+  : (
+    <WpLayout slug={entry?.key ?? '__post__'}>
+      <Fragment set:html={content!} />
+    </WpLayout>
+  )}

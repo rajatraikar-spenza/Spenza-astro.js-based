@@ -126,5 +126,1835 @@
     "jsonLd": [
       "{\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What is UXHub by Spenza?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<p>Modern customer portal for MVNOs replacing outdated billing interfaces with branded experiences. Reduces support costs, boosts engagement, drives revenue through upsells. Full customization, zero white-label restrictions, no coding required.<\\/p>\"}},{\"@type\":\"Question\",\"name\":\"How Is UXHub different from standard connectivity solutions?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<p>Most prioritize network infrastructure; we prioritize customer experience. Manage subscriber portals, analytics, and engagement while you control pricing, features, and branding. Seamless integration with existing billing systems.<\\/p>\"}},{\"@type\":\"Question\",\"name\":\"How easy is It to use?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<p>Zero coding. Subscribers get intuitive portals to view plans, track usage, and upgrade in minutes. Operations teams use simple dashboards to configure plans, manage operators, and monitor analytics.<\\/p>\"}},{\"@type\":\"Question\",\"name\":\"How do I get started with UXHub?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<div class=\\\"qMYqUG_convSearchResultHighlightRoot\\\"><div class=\\\"\\\" data-turn-id-container=\\\"request-WEB:4cd50acc-8c1c-4075-aa48-1091721f9be5-6\\\" data-is-intersecting=\\\"true\\\"><section class=\\\"text-token-text-primary w-full focus:outline-none has-data-writing-block:pointer-events-none [&amp;:has([data-writing-block])&gt;*]:pointer-events-auto R6Vx5W_threadScrollVars scroll-mb-[calc(var(--scroll-root-safe-area-inset-bottom,0px)+var(--thread-response-height))] scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]\\\" dir=\\\"auto\\\" data-turn-id=\\\"request-WEB:4cd50acc-8c1c-4075-aa48-1091721f9be5-6\\\" data-turn-id-container=\\\"request-WEB:4cd50acc-8c1c-4075-aa48-1091721f9be5-6\\\" data-testid=\\\"conversation-turn-14\\\" data-scroll-anchor=\\\"false\\\" data-turn=\\\"assistant\\\"><div class=\\\"text-base my-auto mx-auto pb-10 [--thread-content-margin:var(--thread-content-margin-xs,calc(var(--spacing)*4))] @w-sm\\/main:[--thread-content-margin:var(--thread-content-margin-sm,calc(var(--spacing)*6))] @w-lg\\/main:[--thread-content-margin:var(--thread-content-margin-lg,calc(var(--spacing)*16))] px-(--thread-content-margin)\\\"><div class=\\\"[--thread-content-max-width:40rem] @w-lg\\/main:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group\\/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn\\\" data-conversation-screenshot-content=\\\"\\\"><div class=\\\"flex max-w-full flex-col gap-4 grow\\\"><div class=\\\"min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal outline-none keyboard-focused:focus-ring [.text-message+&amp;]:mt-1\\\" dir=\\\"auto\\\" tabindex=\\\"0\\\" data-message-author-role=\\\"assistant\\\" data-message-id=\\\"3d6eb8a2-ed1a-41fa-aa04-388d88172973\\\" data-turn-start-message=\\\"true\\\" data-message-model-slug=\\\"gpt-5-3-mini\\\"><div class=\\\"flex w-full flex-col gap-1 empty:hidden\\\"><div class=\\\"markdown prose dark:prose-invert wrap-break-word w-full dark markdown-new-styling\\\"><p data-start=\\\"36\\\" data-end=\\\"141\\\" data-is-last-node=\\\"\\\" data-is-only-node=\\\"\\\">Simply book a demo and explore UXHub through a guided walkthrough tailored to your connectivity use case.<\\/p><\\/div><\\/div><\\/div><\\/div><\\/div><\\/div><\\/section><\\/div><\\/div>\"}},{\"@type\":\"Question\",\"name\":\"What is UXHub by Spenza?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<p>Modern customer portal for MVNOs replacing outdated billing interfaces with branded experiences. Reduces support costs, boosts engagement, drives revenue through upsells. Full customization, zero white-label restrictions, no coding required.<\\/p>\"}},{\"@type\":\"Question\",\"name\":\"How Is UXHub different from standard connectivity solutions?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<p>Most prioritize network infrastructure; we prioritize customer experience. Manage subscriber portals, analytics, and engagement while you control pricing, features, and branding. Seamless integration with existing billing systems.<\\/p>\"}},{\"@type\":\"Question\",\"name\":\"How easy is It to use?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<p>Zero coding. Subscribers get intuitive portals to view plans, track usage, and upgrade in minutes. Operations teams use simple dashboards to configure plans, manage operators, and monitor analytics.<\\/p>\"}},{\"@type\":\"Question\",\"name\":\"How do I get started with UXHub?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"<div class=\\\"qMYqUG_convSearchResultHighlightRoot\\\"><div class=\\\"\\\" data-turn-id-container=\\\"request-WEB:4cd50acc-8c1c-4075-aa48-1091721f9be5-6\\\" data-is-intersecting=\\\"true\\\"><section class=\\\"text-token-text-primary w-full focus:outline-none has-data-writing-block:pointer-events-none [&amp;:has([data-writing-block])&gt;*]:pointer-events-auto R6Vx5W_threadScrollVars scroll-mb-[calc(var(--scroll-root-safe-area-inset-bottom,0px)+var(--thread-response-height))] scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]\\\" dir=\\\"auto\\\" data-turn-id=\\\"request-WEB:4cd50acc-8c1c-4075-aa48-1091721f9be5-6\\\" data-turn-id-container=\\\"request-WEB:4cd50acc-8c1c-4075-aa48-1091721f9be5-6\\\" data-testid=\\\"conversation-turn-14\\\" data-scroll-anchor=\\\"false\\\" data-turn=\\\"assistant\\\"><div class=\\\"text-base my-auto mx-auto pb-10 [--thread-content-margin:var(--thread-content-margin-xs,calc(var(--spacing)*4))] @w-sm\\/main:[--thread-content-margin:var(--thread-content-margin-sm,calc(var(--spacing)*6))] @w-lg\\/main:[--thread-content-margin:var(--thread-content-margin-lg,calc(var(--spacing)*16))] px-(--thread-content-margin)\\\"><div class=\\\"[--thread-content-max-width:40rem] @w-lg\\/main:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group\\/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn\\\" data-conversation-screenshot-content=\\\"\\\"><div class=\\\"flex max-w-full flex-col gap-4 grow\\\"><div class=\\\"min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal outline-none keyboard-focused:focus-ring [.text-message+&amp;]:mt-1\\\" dir=\\\"auto\\\" tabindex=\\\"0\\\" data-message-author-role=\\\"assistant\\\" data-message-id=\\\"3d6eb8a2-ed1a-41fa-aa04-388d88172973\\\" data-turn-start-message=\\\"true\\\" data-message-model-slug=\\\"gpt-5-3-mini\\\"><div class=\\\"flex w-full flex-col gap-1 empty:hidden\\\"><div class=\\\"markdown prose dark:prose-invert wrap-break-word w-full dark markdown-new-styling\\\"><p data-start=\\\"36\\\" data-end=\\\"141\\\" data-is-last-node=\\\"\\\" data-is-only-node=\\\"\\\">Simply book a demo and explore UXHub through a guided walkthrough tailored to your connectivity use case.<\\/p><\\/div><\\/div><\\/div><\\/div><\\/div><\\/div><\\/section><\\/div><\\/div>\"}}]}"
     ]
+  },
+  "archive-category-telecom": {
+    "script": "/scripts/page/archive-category-telecom.js",
+    "jsonLd": []
+  },
+  "archive-category-mvno": {
+    "script": "/scripts/page/archive-category-mvno.js",
+    "jsonLd": []
+  },
+  "archive-category-esim": {
+    "script": "/scripts/page/archive-category-esim.js",
+    "jsonLd": []
+  },
+  "archive-category-spenza-product": {
+    "script": "/scripts/page/archive-category-spenza-product.js",
+    "jsonLd": []
+  },
+  "archive-category-tem": {
+    "script": "/scripts/page/archive-category-tem.js",
+    "jsonLd": []
+  },
+  "archive-category-iot": {
+    "script": "/scripts/page/archive-category-iot.js",
+    "jsonLd": []
+  },
+  "archive-category-byod": {
+    "script": "/scripts/page/archive-category-byod.js",
+    "jsonLd": []
+  },
+  "archive-author-vinay": {
+    "script": "/scripts/page/archive-author-vinay.js",
+    "jsonLd": []
+  },
+  "archive-2026-07-28": {
+    "script": "/scripts/page/archive-2026-07-28.js",
+    "jsonLd": []
+  },
+  "archive-2026-07-29": {
+    "script": "/scripts/page/archive-2026-07-29.js",
+    "jsonLd": []
+  },
+  "archive-2026-07-30": {
+    "script": "/scripts/page/archive-2026-07-30.js",
+    "jsonLd": []
+  },
+  "archive-2026-08-06": {
+    "script": "/scripts/page/archive-2026-08-06.js",
+    "jsonLd": []
+  },
+  "archive-2026-08-10": {
+    "script": "/scripts/page/archive-2026-08-10.js",
+    "jsonLd": []
+  },
+  "post-oss-full-form": {
+    "script": "/scripts/page/post-oss-full-form.js",
+    "jsonLd": []
+  },
+  "post-bss-full-form": {
+    "script": "/scripts/page/post-bss-full-form.js",
+    "jsonLd": []
+  },
+  "post-biggest-mvno-mistakes-how-to-avoid-2026": {
+    "script": "/scripts/page/post-biggest-mvno-mistakes-how-to-avoid-2026.js",
+    "jsonLd": []
+  },
+  "post-how-to-start-travel-esim-business": {
+    "script": "/scripts/page/post-how-to-start-travel-esim-business.js",
+    "jsonLd": []
+  },
+  "post-daito-case-study": {
+    "script": "/scripts/page/post-daito-case-study.js",
+    "jsonLd": []
+  },
+  "post-mvno-launch-checklist": {
+    "script": "/scripts/page/post-mvno-launch-checklist.js",
+    "jsonLd": []
+  },
+  "post-rocketphone-case-study": {
+    "script": "/scripts/page/post-rocketphone-case-study.js",
+    "jsonLd": []
+  },
+  "post-why-ai-agents-need-real-phone-numbers": {
+    "script": "/scripts/page/post-why-ai-agents-need-real-phone-numbers.js",
+    "jsonLd": []
+  },
+  "post-non-voip-vs-voip-numbers": {
+    "script": "/scripts/page/post-non-voip-vs-voip-numbers.js",
+    "jsonLd": []
+  },
+  "post-esim-for-oems": {
+    "script": "/scripts/page/post-esim-for-oems.js",
+    "jsonLd": []
+  },
+  "post-what-is-esim-orchestration": {
+    "script": "/scripts/page/post-what-is-esim-orchestration.js",
+    "jsonLd": []
+  },
+  "post-what-is-m2m-machine-to-machine-sims": {
+    "script": "/scripts/page/post-what-is-m2m-machine-to-machine-sims.js",
+    "jsonLd": []
+  },
+  "post-the-next-mvno": {
+    "script": "/scripts/page/post-the-next-mvno.js",
+    "jsonLd": []
+  },
+  "post-consumer-iot-vs-industrial-iot-iiot-key-differences": {
+    "script": "/scripts/page/post-consumer-iot-vs-industrial-iot-iiot-key-differences.js",
+    "jsonLd": []
+  },
+  "post-skype-vs-zoom-vs-teams-comparison": {
+    "script": "/scripts/page/post-skype-vs-zoom-vs-teams-comparison.js",
+    "jsonLd": []
+  },
+  "post-esim-for-enterprises-business-enabler-2025": {
+    "script": "/scripts/page/post-esim-for-enterprises-business-enabler-2025.js",
+    "jsonLd": []
+  },
+  "post-telecom-5g-standalone-vs-non-standalone": {
+    "script": "/scripts/page/post-telecom-5g-standalone-vs-non-standalone.js",
+    "jsonLd": []
+  },
+  "post-m2m-vs-iot-key-differences-explained": {
+    "script": "/scripts/page/post-m2m-vs-iot-key-differences-explained.js",
+    "jsonLd": []
+  },
+  "post-esim-only-mvnos-2025": {
+    "script": "/scripts/page/post-esim-only-mvnos-2025.js",
+    "jsonLd": []
+  },
+  "post-iot-asset-tracking-connectivity-guide": {
+    "script": "/scripts/page/post-iot-asset-tracking-connectivity-guide.js",
+    "jsonLd": []
+  },
+  "post-fixed-wireless-access": {
+    "script": "/scripts/page/post-fixed-wireless-access.js",
+    "jsonLd": []
+  },
+  "post-mvno-revenue-models": {
+    "script": "/scripts/page/post-mvno-revenue-models.js",
+    "jsonLd": []
+  },
+  "post-mvno-mvno-launch-cost": {
+    "script": "/scripts/page/post-mvno-mvno-launch-cost.js",
+    "jsonLd": []
+  },
+  "post-global-iot-connectivity-2026": {
+    "script": "/scripts/page/post-global-iot-connectivity-2026.js",
+    "jsonLd": []
+  },
+  "post-esim": {
+    "script": "/scripts/page/post-esim.js",
+    "jsonLd": []
+  },
+  "post-mvno": {
+    "script": "/scripts/page/post-mvno.js",
+    "jsonLd": []
+  },
+  "post-what-are-mvnos": {
+    "script": "/scripts/page/post-what-are-mvnos.js",
+    "jsonLd": []
+  },
+  "post-what-is-apn-iot-guide": {
+    "script": "/scripts/page/post-what-is-apn-iot-guide.js",
+    "jsonLd": []
+  },
+  "post-esim-myths-debunked": {
+    "script": "/scripts/page/post-esim-myths-debunked.js",
+    "jsonLd": []
+  },
+  "post-what-is-imei-number": {
+    "script": "/scripts/page/post-what-is-imei-number.js",
+    "jsonLd": []
+  },
+  "post-what-is-mvno": {
+    "script": "/scripts/page/post-what-is-mvno.js",
+    "jsonLd": []
+  },
+  "post-5g-vs-4g-speed-comparison": {
+    "script": "/scripts/page/post-5g-vs-4g-speed-comparison.js",
+    "jsonLd": []
+  },
+  "post-what-is-lte": {
+    "script": "/scripts/page/post-what-is-lte.js",
+    "jsonLd": []
+  },
+  "post-mno-mvno-mvne-mvna-roles": {
+    "script": "/scripts/page/post-mno-mvno-mvne-mvna-roles.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-comparison": {
+    "script": "/scripts/page/post-iot-connectivity-comparison.js",
+    "jsonLd": []
+  },
+  "post-cellular-identifiers-iccid-imsi-imei-eid-msisdn-tac-guide": {
+    "script": "/scripts/page/post-cellular-identifiers-iccid-imsi-imei-eid-msisdn-tac-guide.js",
+    "jsonLd": [
+      "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"SoftwareApplication\",\n  \"name\": \"Spenza Cellular Identifier Tools\",\n  \"applicationCategory\": \"UtilitiesApplication\",\n  \"operatingSystem\": \"Any (web browser)\",\n  \"description\": \"Free client-side tool to parse and validate cellular identifiers: ICCID parser with Luhn check, IMEI / TAC decoder, and IMSI MCC/MNC breakdown.\",\n  \"offers\": { \"@type\": \"Offer\", \"price\": \"0\", \"priceCurrency\": \"USD\" },\n  \"publisher\": { \"@type\": \"Organization\", \"name\": \"Spenza\", \"url\": \"https://spenza.com\" }\n}"
+    ]
+  },
+  "post-sim-card-types-form-factors": {
+    "script": "/scripts/page/post-sim-card-types-form-factors.js",
+    "jsonLd": []
+  },
+  "post-iot-sensors-types-connectivity": {
+    "script": "/scripts/page/post-iot-sensors-types-connectivity.js",
+    "jsonLd": []
+  },
+  "post-iot-devices-buyers-guide": {
+    "script": "/scripts/page/post-iot-devices-buyers-guide.js",
+    "jsonLd": []
+  },
+  "post-esim-vs-physical-sim-airport-decision": {
+    "script": "/scripts/page/post-esim-vs-physical-sim-airport-decision.js",
+    "jsonLd": []
+  },
+  "post-5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw": {
+    "script": "/scripts/page/post-5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw.js",
+    "jsonLd": []
+  },
+  "post-white-label-mvno-launch-guide-2025": {
+    "script": "/scripts/page/post-white-label-mvno-launch-guide-2025.js",
+    "jsonLd": []
+  },
+  "post-best-mvno": {
+    "script": "/scripts/page/post-best-mvno.js",
+    "jsonLd": []
+  },
+  "post-launch-mvno-us-guide": {
+    "script": "/scripts/page/post-launch-mvno-us-guide.js",
+    "jsonLd": []
+  },
+  "post-mvno-billing-platforms": {
+    "script": "/scripts/page/post-mvno-billing-platforms.js",
+    "jsonLd": []
+  },
+  "post-google-fi-iphone": {
+    "script": "/scripts/page/post-google-fi-iphone.js",
+    "jsonLd": []
+  },
+  "post-purchasing-spenza-marketplace-plans": {
+    "script": "/scripts/page/post-purchasing-spenza-marketplace-plans.js",
+    "jsonLd": []
+  },
+  "post-mobile-data-plan-ipad": {
+    "script": "/scripts/page/post-mobile-data-plan-ipad.js",
+    "jsonLd": []
+  },
+  "post-mvno-locked-phone-challenge-guide": {
+    "script": "/scripts/page/post-mvno-locked-phone-challenge-guide.js",
+    "jsonLd": []
+  },
+  "post-mvno-pros-cons": {
+    "script": "/scripts/page/post-mvno-pros-cons.js",
+    "jsonLd": []
+  },
+  "post-mobile-esim-plans": {
+    "script": "/scripts/page/post-mobile-esim-plans.js",
+    "jsonLd": []
+  },
+  "post-unlock-operational-efficiency-with-spenza-iot-aggregation-platform": {
+    "script": "/scripts/page/post-unlock-operational-efficiency-with-spenza-iot-aggregation-platform.js",
+    "jsonLd": []
+  },
+  "post-setting-up-your-spenza-account": {
+    "script": "/scripts/page/post-setting-up-your-spenza-account.js",
+    "jsonLd": []
+  },
+  "post-reselling-mobile-plans-on-shopify-store": {
+    "script": "/scripts/page/post-reselling-mobile-plans-on-shopify-store.js",
+    "jsonLd": []
+  },
+  "post-taas-billing-plan-bundling": {
+    "script": "/scripts/page/post-taas-billing-plan-bundling.js",
+    "jsonLd": []
+  },
+  "post-nb-iot-vs-lte-m-vs-5g-redcap": {
+    "script": "/scripts/page/post-nb-iot-vs-lte-m-vs-5g-redcap.js",
+    "jsonLd": []
+  },
+  "post-spenza-global-connectivity-kids-smartwatch": {
+    "script": "/scripts/page/post-spenza-global-connectivity-kids-smartwatch.js",
+    "jsonLd": []
+  },
+  "post-create-branded-mobile-experience-for-enterprise-user": {
+    "script": "/scripts/page/post-create-branded-mobile-experience-for-enterprise-user.js",
+    "jsonLd": []
+  },
+  "post-reliable-connectivity-elder-care-medical-alert-systems": {
+    "script": "/scripts/page/post-reliable-connectivity-elder-care-medical-alert-systems.js",
+    "jsonLd": []
+  },
+  "post-future-enterprise-communication-ucaas-cpaas-ai-2025": {
+    "script": "/scripts/page/post-future-enterprise-communication-ucaas-cpaas-ai-2025.js",
+    "jsonLd": []
+  },
+  "post-iot-fleet-cost-management-2025": {
+    "script": "/scripts/page/post-iot-fleet-cost-management-2025.js",
+    "jsonLd": []
+  },
+  "post-rent-tier-1-usa-dids-enterprise-guide": {
+    "script": "/scripts/page/post-rent-tier-1-usa-dids-enterprise-guide.js",
+    "jsonLd": []
+  },
+  "post-iot-sim-cards-guide": {
+    "script": "/scripts/page/post-iot-sim-cards-guide.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-solutions": {
+    "script": "/scripts/page/post-iot-connectivity-solutions.js",
+    "jsonLd": []
+  },
+  "post-telematics-to-mvno-connectivity-strategy": {
+    "script": "/scripts/page/post-telematics-to-mvno-connectivity-strategy.js",
+    "jsonLd": []
+  },
+  "post-top-mvno-go-to-market-strategies-2025": {
+    "script": "/scripts/page/post-top-mvno-go-to-market-strategies-2025.js",
+    "jsonLd": []
+  },
+  "post-iot-mvno-esim": {
+    "script": "/scripts/page/post-iot-mvno-esim.js",
+    "jsonLd": []
+  },
+  "post-trail-camera-connectivity-oem-guide": {
+    "script": "/scripts/page/post-trail-camera-connectivity-oem-guide.js",
+    "jsonLd": []
+  },
+  "post-how-to-top-up-your-spenza-account": {
+    "script": "/scripts/page/post-how-to-top-up-your-spenza-account.js",
+    "jsonLd": []
+  },
+  "post-angel-watch-iot-business-casestudy": {
+    "script": "/scripts/page/post-angel-watch-iot-business-casestudy.js",
+    "jsonLd": []
+  },
+  "post-esim-for-smart-devices-2025": {
+    "script": "/scripts/page/post-esim-for-smart-devices-2025.js",
+    "jsonLd": []
+  },
+  "post-mobile-connectivity-remote-hybrid-teams-2025": {
+    "script": "/scripts/page/post-mobile-connectivity-remote-hybrid-teams-2025.js",
+    "jsonLd": []
+  },
+  "post-mvno-shopify-launch": {
+    "script": "/scripts/page/post-mvno-shopify-launch.js",
+    "jsonLd": []
+  },
+  "post-iot-esim-trends": {
+    "script": "/scripts/page/post-iot-esim-trends.js",
+    "jsonLd": []
+  },
+  "post-caab-healthcare": {
+    "script": "/scripts/page/post-caab-healthcare.js",
+    "jsonLd": []
+  },
+  "post-connectivity-as-a-benefit": {
+    "script": "/scripts/page/post-connectivity-as-a-benefit.js",
+    "jsonLd": []
+  },
+  "post-single-carrier-iot-risks-2025": {
+    "script": "/scripts/page/post-single-carrier-iot-risks-2025.js",
+    "jsonLd": []
+  },
+  "post-esim-5g-mvno-2025": {
+    "script": "/scripts/page/post-esim-5g-mvno-2025.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-cost-guide-2025": {
+    "script": "/scripts/page/post-iot-connectivity-cost-guide-2025.js",
+    "jsonLd": []
+  },
+  "post-telecom-compliance-audits": {
+    "script": "/scripts/page/post-telecom-compliance-audits.js",
+    "jsonLd": []
+  },
+  "post-mvne-benefits": {
+    "script": "/scripts/page/post-mvne-benefits.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-management-simplified": {
+    "script": "/scripts/page/post-iot-connectivity-management-simplified.js",
+    "jsonLd": []
+  },
+  "post-smart-city-iot-connectivity-playbook-2026": {
+    "script": "/scripts/page/post-smart-city-iot-connectivity-playbook-2026.js",
+    "jsonLd": []
+  },
+  "post-questions-to-ask-mvne-2025": {
+    "script": "/scripts/page/post-questions-to-ask-mvne-2025.js",
+    "jsonLd": []
+  },
+  "post-mvno-for-fintech-2025": {
+    "script": "/scripts/page/post-mvno-for-fintech-2025.js",
+    "jsonLd": []
+  },
+  "post-optimize-iot-deployment-connectivity-management-platform": {
+    "script": "/scripts/page/post-optimize-iot-deployment-connectivity-management-platform.js",
+    "jsonLd": []
+  },
+  "post-top-10-tips-launching-mvno-us-2025": {
+    "script": "/scripts/page/post-top-10-tips-launching-mvno-us-2025.js",
+    "jsonLd": []
+  },
+  "post-travel-esim-solutions-monetize-devices": {
+    "script": "/scripts/page/post-travel-esim-solutions-monetize-devices.js",
+    "jsonLd": []
+  },
+  "post-safe-kids-phone-watch-plans-2025": {
+    "script": "/scripts/page/post-safe-kids-phone-watch-plans-2025.js",
+    "jsonLd": []
+  },
+  "post-light-mvno-overview": {
+    "script": "/scripts/page/post-light-mvno-overview.js",
+    "jsonLd": []
+  },
+  "post-leading-iot-connectivity-management-platforms": {
+    "script": "/scripts/page/post-leading-iot-connectivity-management-platforms.js",
+    "jsonLd": []
+  },
+  "post-iot-data-plans-cost-optimization": {
+    "script": "/scripts/page/post-iot-data-plans-cost-optimization.js",
+    "jsonLd": []
+  },
+  "post-mvno-types": {
+    "script": "/scripts/page/post-mvno-types.js",
+    "jsonLd": []
+  },
+  "post-oss-bss": {
+    "script": "/scripts/page/post-oss-bss.js",
+    "jsonLd": []
+  },
+  "post-iot-sim-management-guide": {
+    "script": "/scripts/page/post-iot-sim-management-guide.js",
+    "jsonLd": []
+  },
+  "post-nb-iot-vs-lte-m-comparison": {
+    "script": "/scripts/page/post-nb-iot-vs-lte-m-comparison.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-platforms": {
+    "script": "/scripts/page/post-iot-connectivity-platforms.js",
+    "jsonLd": []
+  },
+  "post-byod-in-2025-benefits-risks-and-best-practices": {
+    "script": "/scripts/page/post-byod-in-2025-benefits-risks-and-best-practices.js",
+    "jsonLd": []
+  },
+  "post-mvno-esim-implementation": {
+    "script": "/scripts/page/post-mvno-esim-implementation.js",
+    "jsonLd": []
+  },
+  "post-esim-multi-network-auto-transport": {
+    "script": "/scripts/page/post-esim-multi-network-auto-transport.js",
+    "jsonLd": []
+  },
+  "post-unified-connectivity-management-iot": {
+    "script": "/scripts/page/post-unified-connectivity-management-iot.js",
+    "jsonLd": []
+  },
+  "post-iot-esim-providers": {
+    "script": "/scripts/page/post-iot-esim-providers.js",
+    "jsonLd": []
+  },
+  "post-sgp-22-vs-sgp-32-esim-standards-guide": {
+    "script": "/scripts/page/post-sgp-22-vs-sgp-32-esim-standards-guide.js",
+    "jsonLd": []
+  },
+  "post-what-is-connectivity-management-platform-cmp": {
+    "script": "/scripts/page/post-what-is-connectivity-management-platform-cmp.js",
+    "jsonLd": []
+  },
+  "post-deploy-multi-network-esim-rsp-aggregation": {
+    "script": "/scripts/page/post-deploy-multi-network-esim-rsp-aggregation.js",
+    "jsonLd": []
+  },
+  "post-oss-bss-checklist": {
+    "script": "/scripts/page/post-oss-bss-checklist.js",
+    "jsonLd": []
+  },
+  "post-2g-3g-sunset-iot-impact-migration": {
+    "script": "/scripts/page/post-2g-3g-sunset-iot-impact-migration.js",
+    "jsonLd": []
+  },
+  "post-what-is-iot-roaming": {
+    "script": "/scripts/page/post-what-is-iot-roaming.js",
+    "jsonLd": []
+  },
+  "post-multi-imsi-vs-euicc-guide-iot": {
+    "script": "/scripts/page/post-multi-imsi-vs-euicc-guide-iot.js",
+    "jsonLd": []
+  },
+  "post-top-iot-trends": {
+    "script": "/scripts/page/post-top-iot-trends.js",
+    "jsonLd": []
+  },
+  "post-what-is-iccid-number": {
+    "script": "/scripts/page/post-what-is-iccid-number.js",
+    "jsonLd": []
+  },
+  "post-best-iot-connectivity-management-platform": {
+    "script": "/scripts/page/post-best-iot-connectivity-management-platform.js",
+    "jsonLd": []
+  },
+  "post-must-attend-iot-and-mvno-events-in-2026": {
+    "script": "/scripts/page/post-must-attend-iot-and-mvno-events-in-2026.js",
+    "jsonLd": []
+  },
+  "post-a2p-messaging-satellite-cellular-hybrid": {
+    "script": "/scripts/page/post-a2p-messaging-satellite-cellular-hybrid.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-types-guide-2025": {
+    "script": "/scripts/page/post-iot-connectivity-types-guide-2025.js",
+    "jsonLd": []
+  },
+  "post-dual-sim-esim": {
+    "script": "/scripts/page/post-dual-sim-esim.js",
+    "jsonLd": []
+  },
+  "post-business-mobile-cost-quality": {
+    "script": "/scripts/page/post-business-mobile-cost-quality.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-management-platform": {
+    "script": "/scripts/page/post-iot-connectivity-management-platform.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-management-platform-features-2025": {
+    "script": "/scripts/page/post-iot-connectivity-management-platform-features-2025.js",
+    "jsonLd": []
+  },
+  "post-satellite-vendors-becoming-connectivity-operators": {
+    "script": "/scripts/page/post-satellite-vendors-becoming-connectivity-operators.js",
+    "jsonLd": []
+  },
+  "post-what-is-remote-sim-provisioning-rsp-guide-2026": {
+    "script": "/scripts/page/post-what-is-remote-sim-provisioning-rsp-guide-2026.js",
+    "jsonLd": []
+  },
+  "post-become-your-own-mvno-ai-ucaas": {
+    "script": "/scripts/page/post-become-your-own-mvno-ai-ucaas.js",
+    "jsonLd": []
+  },
+  "post-skype-retirement-2025-migration-strategy": {
+    "script": "/scripts/page/post-skype-retirement-2025-migration-strategy.js",
+    "jsonLd": []
+  },
+  "post-monetize-baby-monitor-connectivity": {
+    "script": "/scripts/page/post-monetize-baby-monitor-connectivity.js",
+    "jsonLd": []
+  },
+  "post-iot-logistics-supply-chain-connectivity": {
+    "script": "/scripts/page/post-iot-logistics-supply-chain-connectivity.js",
+    "jsonLd": []
+  },
+  "post-smart-agriculture-iot-connectivity": {
+    "script": "/scripts/page/post-smart-agriculture-iot-connectivity.js",
+    "jsonLd": []
+  },
+  "post-what-is-6g-future-wireless-connectivity": {
+    "script": "/scripts/page/post-what-is-6g-future-wireless-connectivity.js",
+    "jsonLd": []
+  },
+  "post-what-is-remote-esim-provisioning": {
+    "script": "/scripts/page/post-what-is-remote-esim-provisioning.js",
+    "jsonLd": []
+  },
+  "post-top-mvno-marketing-strategies": {
+    "script": "/scripts/page/post-top-mvno-marketing-strategies.js",
+    "jsonLd": []
+  },
+  "post-single-pane-of-glass-iot-connectivity-management": {
+    "script": "/scripts/page/post-single-pane-of-glass-iot-connectivity-management.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-healthcare-remote-patient-monitoring": {
+    "script": "/scripts/page/post-iot-connectivity-healthcare-remote-patient-monitoring.js",
+    "jsonLd": []
+  },
+  "post-mvno-for-gaming-sports-esports-monetization": {
+    "script": "/scripts/page/post-mvno-for-gaming-sports-esports-monetization.js",
+    "jsonLd": []
+  },
+  "post-fleet-management-integrated-connectivity-platform": {
+    "script": "/scripts/page/post-fleet-management-integrated-connectivity-platform.js",
+    "jsonLd": []
+  },
+  "post-esim-orchestration-global-iot": {
+    "script": "/scripts/page/post-esim-orchestration-global-iot.js",
+    "jsonLd": []
+  },
+  "post-msp-reselling-connectivity-with-hardware": {
+    "script": "/scripts/page/post-msp-reselling-connectivity-with-hardware.js",
+    "jsonLd": []
+  },
+  "post-mvno-in-a-box-for-brands": {
+    "script": "/scripts/page/post-mvno-in-a-box-for-brands.js",
+    "jsonLd": []
+  },
+  "post-mrbeast-celebrity-mvnos": {
+    "script": "/scripts/page/post-mrbeast-celebrity-mvnos.js",
+    "jsonLd": []
+  },
+  "post-telecom-msp-white-label-solutions-2025": {
+    "script": "/scripts/page/post-telecom-msp-white-label-solutions-2025.js",
+    "jsonLd": []
+  },
+  "post-mvno-opportunities-smart-cities-urban-iot": {
+    "script": "/scripts/page/post-mvno-opportunities-smart-cities-urban-iot.js",
+    "jsonLd": []
+  },
+  "post-what-is-5g-redcap-iot-iiot-guide-2025": {
+    "script": "/scripts/page/post-what-is-5g-redcap-iot-iiot-guide-2025.js",
+    "jsonLd": []
+  },
+  "post-byod": {
+    "script": "/scripts/page/post-byod.js",
+    "jsonLd": []
+  },
+  "post-tem": {
+    "script": "/scripts/page/post-tem.js",
+    "jsonLd": []
+  },
+  "post-future-of-iot-connectivity-2025": {
+    "script": "/scripts/page/post-future-of-iot-connectivity-2025.js",
+    "jsonLd": []
+  },
+  "post-sell-devices-esims-shopify-spenza": {
+    "script": "/scripts/page/post-sell-devices-esims-shopify-spenza.js",
+    "jsonLd": []
+  },
+  "post-embedded-connectivity-reshaping-tech-2025": {
+    "script": "/scripts/page/post-embedded-connectivity-reshaping-tech-2025.js",
+    "jsonLd": []
+  },
+  "post-eliminate-carrier-lock-in-esim": {
+    "script": "/scripts/page/post-eliminate-carrier-lock-in-esim.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-strategies-2025": {
+    "script": "/scripts/page/post-iot-connectivity-strategies-2025.js",
+    "jsonLd": []
+  },
+  "post-proxy-reseller-growth-spenza": {
+    "script": "/scripts/page/post-proxy-reseller-growth-spenza.js",
+    "jsonLd": []
+  },
+  "post-global-iot-sim-cards-2025": {
+    "script": "/scripts/page/post-global-iot-sim-cards-2025.js",
+    "jsonLd": []
+  },
+  "post-choosing-iot-device-connectivity-2025": {
+    "script": "/scripts/page/post-choosing-iot-device-connectivity-2025.js",
+    "jsonLd": []
+  },
+  "post-launch-mvno-7-days": {
+    "script": "/scripts/page/post-launch-mvno-7-days.js",
+    "jsonLd": []
+  },
+  "post-telecom": {
+    "script": "/scripts/page/post-telecom.js",
+    "jsonLd": []
+  },
+  "post-monetizing-connectivity-strategies-msps": {
+    "script": "/scripts/page/post-monetizing-connectivity-strategies-msps.js",
+    "jsonLd": []
+  },
+  "post-mvno-market-trends": {
+    "script": "/scripts/page/post-mvno-market-trends.js",
+    "jsonLd": []
+  },
+  "post-2025-mvno-guide-telecom-regulatory-success": {
+    "script": "/scripts/page/post-2025-mvno-guide-telecom-regulatory-success.js",
+    "jsonLd": []
+  },
+  "post-butlr-iot-spenza-casestudy": {
+    "script": "/scripts/page/post-butlr-iot-spenza-casestudy.js",
+    "jsonLd": []
+  },
+  "post-what-is-telecom-expense-management-tem": {
+    "script": "/scripts/page/post-what-is-telecom-expense-management-tem.js",
+    "jsonLd": []
+  },
+  "post-how-to-launch-mvno-non-telco-brand-2025": {
+    "script": "/scripts/page/post-how-to-launch-mvno-non-telco-brand-2025.js",
+    "jsonLd": []
+  },
+  "post-mvno-iot-connectivity": {
+    "script": "/scripts/page/post-mvno-iot-connectivity.js",
+    "jsonLd": []
+  },
+  "post-branded-esim-marketplace": {
+    "script": "/scripts/page/post-branded-esim-marketplace.js",
+    "jsonLd": []
+  },
+  "post-esim-global-connectivity": {
+    "script": "/scripts/page/post-esim-global-connectivity.js",
+    "jsonLd": []
+  },
+  "post-mvno-launching-myths-vs-reality": {
+    "script": "/scripts/page/post-mvno-launching-myths-vs-reality.js",
+    "jsonLd": []
+  },
+  "post-launch-us-mvno-now": {
+    "script": "/scripts/page/post-launch-us-mvno-now.js",
+    "jsonLd": []
+  },
+  "post-mvne-mvna-mno-to-launch-mvno": {
+    "script": "/scripts/page/post-mvne-mvna-mno-to-launch-mvno.js",
+    "jsonLd": []
+  },
+  "post-skype-alternatives": {
+    "script": "/scripts/page/post-skype-alternatives.js",
+    "jsonLd": []
+  },
+  "post-bss-providers-mvno-billing": {
+    "script": "/scripts/page/post-bss-providers-mvno-billing.js",
+    "jsonLd": []
+  },
+  "post-resell-data-plans-shopify": {
+    "script": "/scripts/page/post-resell-data-plans-shopify.js",
+    "jsonLd": []
+  },
+  "post-how-to-set-up-mvno": {
+    "script": "/scripts/page/post-how-to-set-up-mvno.js",
+    "jsonLd": []
+  },
+  "post-what-is-mvne-strategy-services": {
+    "script": "/scripts/page/post-what-is-mvne-strategy-services.js",
+    "jsonLd": []
+  },
+  "post-iot-management-remote-esim-provisioning": {
+    "script": "/scripts/page/post-iot-management-remote-esim-provisioning.js",
+    "jsonLd": []
+  },
+  "post-global-iot-mvno-connectivity": {
+    "script": "/scripts/page/post-global-iot-mvno-connectivity.js",
+    "jsonLd": []
+  },
+  "post-iot-mvnos-vs-traditional": {
+    "script": "/scripts/page/post-iot-mvnos-vs-traditional.js",
+    "jsonLd": []
+  },
+  "post-how-mvnes-accelerate-mvno-launch": {
+    "script": "/scripts/page/post-how-mvnes-accelerate-mvno-launch.js",
+    "jsonLd": []
+  },
+  "post-taas-vs-traditional-telecom": {
+    "script": "/scripts/page/post-taas-vs-traditional-telecom.js",
+    "jsonLd": []
+  },
+  "post-mvno-network-selection": {
+    "script": "/scripts/page/post-mvno-network-selection.js",
+    "jsonLd": []
+  },
+  "post-iot-mvno-industrial-automation": {
+    "script": "/scripts/page/post-iot-mvno-industrial-automation.js",
+    "jsonLd": []
+  },
+  "post-mvno-trends": {
+    "script": "/scripts/page/post-mvno-trends.js",
+    "jsonLd": []
+  },
+  "post-mdm-cmp-integration": {
+    "script": "/scripts/page/post-mdm-cmp-integration.js",
+    "jsonLd": []
+  },
+  "post-taas-revolutionizing-telecom-usa": {
+    "script": "/scripts/page/post-taas-revolutionizing-telecom-usa.js",
+    "jsonLd": []
+  },
+  "post-global-mvno-expansion": {
+    "script": "/scripts/page/post-global-mvno-expansion.js",
+    "jsonLd": []
+  },
+  "post-what-is-telecom-as-a-service-taas": {
+    "script": "/scripts/page/post-what-is-telecom-as-a-service-taas.js",
+    "jsonLd": []
+  },
+  "post-esim-enterprise-byod": {
+    "script": "/scripts/page/post-esim-enterprise-byod.js",
+    "jsonLd": []
+  },
+  "post-choosing-iot-connectivity-plan": {
+    "script": "/scripts/page/post-choosing-iot-connectivity-plan.js",
+    "jsonLd": []
+  },
+  "post-skype-shutdown-explained": {
+    "script": "/scripts/page/post-skype-shutdown-explained.js",
+    "jsonLd": []
+  },
+  "post-brand-mvnos-revolutionizing-mobile": {
+    "script": "/scripts/page/post-brand-mvnos-revolutionizing-mobile.js",
+    "jsonLd": []
+  },
+  "post-esim-mvno-disruption": {
+    "script": "/scripts/page/post-esim-mvno-disruption.js",
+    "jsonLd": []
+  },
+  "post-isim-vs-esim": {
+    "script": "/scripts/page/post-isim-vs-esim.js",
+    "jsonLd": []
+  },
+  "post-sgp-32-new-esim-standard": {
+    "script": "/scripts/page/post-sgp-32-new-esim-standard.js",
+    "jsonLd": []
+  },
+  "post-google-fi-5g-review": {
+    "script": "/scripts/page/post-google-fi-5g-review.js",
+    "jsonLd": []
+  },
+  "post-iot-esim-introduction": {
+    "script": "/scripts/page/post-iot-esim-introduction.js",
+    "jsonLd": []
+  },
+  "post-google-fi-2": {
+    "script": "/scripts/page/post-google-fi-2.js",
+    "jsonLd": []
+  },
+  "post-port-skype-number": {
+    "script": "/scripts/page/post-port-skype-number.js",
+    "jsonLd": []
+  },
+  "post-iot-esim-connectivity": {
+    "script": "/scripts/page/post-iot-esim-connectivity.js",
+    "jsonLd": []
+  },
+  "post-iot-esim-pricing-models": {
+    "script": "/scripts/page/post-iot-esim-pricing-models.js",
+    "jsonLd": []
+  },
+  "post-sim-vs-esim-iot": {
+    "script": "/scripts/page/post-sim-vs-esim-iot.js",
+    "jsonLd": []
+  },
+  "post-telecom-audit-examples": {
+    "script": "/scripts/page/post-telecom-audit-examples.js",
+    "jsonLd": []
+  },
+  "post-telecom-expense-audit-checklist": {
+    "script": "/scripts/page/post-telecom-expense-audit-checklist.js",
+    "jsonLd": []
+  },
+  "post-mvne-provider-selection": {
+    "script": "/scripts/page/post-mvne-provider-selection.js",
+    "jsonLd": []
+  },
+  "post-telecom-expense-management-implementation": {
+    "script": "/scripts/page/post-telecom-expense-management-implementation.js",
+    "jsonLd": []
+  },
+  "post-could-based-mvne": {
+    "script": "/scripts/page/post-could-based-mvne.js",
+    "jsonLd": []
+  },
+  "post-mvne-vs-mvna": {
+    "script": "/scripts/page/post-mvne-vs-mvna.js",
+    "jsonLd": []
+  },
+  "post-mvne-explained": {
+    "script": "/scripts/page/post-mvne-explained.js",
+    "jsonLd": []
+  },
+  "post-benefits-telecom-expense-management-tem": {
+    "script": "/scripts/page/post-benefits-telecom-expense-management-tem.js",
+    "jsonLd": []
+  },
+  "post-mvno-vs-mvne": {
+    "script": "/scripts/page/post-mvno-vs-mvne.js",
+    "jsonLd": []
+  },
+  "post-white-label-telecom-reseller": {
+    "script": "/scripts/page/post-white-label-telecom-reseller.js",
+    "jsonLd": []
+  },
+  "post-white-label-telecom-benefits": {
+    "script": "/scripts/page/post-white-label-telecom-benefits.js",
+    "jsonLd": []
+  },
+  "post-white-label-telecom-reseller-guide": {
+    "script": "/scripts/page/post-white-label-telecom-reseller-guide.js",
+    "jsonLd": []
+  },
+  "post-white-label-mvno": {
+    "script": "/scripts/page/post-white-label-mvno.js",
+    "jsonLd": []
+  },
+  "post-mvno-management-solution": {
+    "script": "/scripts/page/post-mvno-management-solution.js",
+    "jsonLd": []
+  },
+  "post-white-label-voip-change": {
+    "script": "/scripts/page/post-white-label-voip-change.js",
+    "jsonLd": []
+  },
+  "post-telecom-expense-management-api": {
+    "script": "/scripts/page/post-telecom-expense-management-api.js",
+    "jsonLd": []
+  },
+  "post-mno-vs-mvnos": {
+    "script": "/scripts/page/post-mno-vs-mvnos.js",
+    "jsonLd": []
+  },
+  "post-branded-reseller-mvno": {
+    "script": "/scripts/page/post-branded-reseller-mvno.js",
+    "jsonLd": []
+  },
+  "post-full-mvno": {
+    "script": "/scripts/page/post-full-mvno.js",
+    "jsonLd": []
+  },
+  "post-wireless-expense-management-challenges": {
+    "script": "/scripts/page/post-wireless-expense-management-challenges.js",
+    "jsonLd": []
+  },
+  "post-white-label-connectivity-solutions-for-msps": {
+    "script": "/scripts/page/post-white-label-connectivity-solutions-for-msps.js",
+    "jsonLd": []
+  },
+  "post-wireless-connectivity-management-enterprises": {
+    "script": "/scripts/page/post-wireless-connectivity-management-enterprises.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity": {
+    "script": "/scripts/page/post-iot-connectivity.js",
+    "jsonLd": []
+  },
+  "post-iot-regional-plan-flexibility": {
+    "script": "/scripts/page/post-iot-regional-plan-flexibility.js",
+    "jsonLd": []
+  },
+  "post-iot-device-management": {
+    "script": "/scripts/page/post-iot-device-management.js",
+    "jsonLd": []
+  },
+  "post-impact-5g-enterprise": {
+    "script": "/scripts/page/post-impact-5g-enterprise.js",
+    "jsonLd": []
+  },
+  "post-esim-for-travellers": {
+    "script": "/scripts/page/post-esim-for-travellers.js",
+    "jsonLd": []
+  },
+  "post-caas-for-iot": {
+    "script": "/scripts/page/post-caas-for-iot.js",
+    "jsonLd": []
+  },
+  "post-esim-vs-traditional-sims": {
+    "script": "/scripts/page/post-esim-vs-traditional-sims.js",
+    "jsonLd": []
+  },
+  "post-global-iot-network-management-simplified": {
+    "script": "/scripts/page/post-global-iot-network-management-simplified.js",
+    "jsonLd": []
+  },
+  "post-iot-events": {
+    "script": "/scripts/page/post-iot-events.js",
+    "jsonLd": []
+  },
+  "post-traditional-connectivity-plans": {
+    "script": "/scripts/page/post-traditional-connectivity-plans.js",
+    "jsonLd": []
+  },
+  "post-esim-transforming-iot-connectivity": {
+    "script": "/scripts/page/post-esim-transforming-iot-connectivity.js",
+    "jsonLd": []
+  },
+  "post-iot-connectivity-trends": {
+    "script": "/scripts/page/post-iot-connectivity-trends.js",
+    "jsonLd": []
+  },
+  "post-google-fi": {
+    "script": "/scripts/page/post-google-fi.js",
+    "jsonLd": []
+  },
+  "post-mvno-differentiation": {
+    "script": "/scripts/page/post-mvno-differentiation.js",
+    "jsonLd": []
+  },
+  "post-telecom-expense-management": {
+    "script": "/scripts/page/post-telecom-expense-management.js",
+    "jsonLd": []
+  },
+  "post-mobile-plan-management-simplified": {
+    "script": "/scripts/page/post-mobile-plan-management-simplified.js",
+    "jsonLd": []
+  },
+  "post-esim-data-plans": {
+    "script": "/scripts/page/post-esim-data-plans.js",
+    "jsonLd": []
+  },
+  "post-design-mvno-user-experience": {
+    "script": "/scripts/page/post-design-mvno-user-experience.js",
+    "jsonLd": []
+  },
+  "post-spenza-business-continuity": {
+    "script": "/scripts/page/post-spenza-business-continuity.js",
+    "jsonLd": []
+  },
+  "post-launching-mvno": {
+    "script": "/scripts/page/post-launching-mvno.js",
+    "jsonLd": []
+  },
+  "post-us-mvno-introduction": {
+    "script": "/scripts/page/post-us-mvno-introduction.js",
+    "jsonLd": []
+  },
+  "post-spenza-admin-dashboard-overview": {
+    "script": "/scripts/page/post-spenza-admin-dashboard-overview.js",
+    "jsonLd": []
+  },
+  "post-spenza-super-admin-overview": {
+    "script": "/scripts/page/post-spenza-super-admin-overview.js",
+    "jsonLd": []
+  },
+  "post-pdf-parsing-for-telecom-invoices": {
+    "script": "/scripts/page/post-pdf-parsing-for-telecom-invoices.js",
+    "jsonLd": []
+  },
+  "post-purchase-plan": {
+    "script": "/scripts/page/post-purchase-plan.js",
+    "jsonLd": []
+  },
+  "post-bulk-import-operations": {
+    "script": "/scripts/page/post-bulk-import-operations.js",
+    "jsonLd": []
+  },
+  "post-integrated-connectivity-management": {
+    "script": "/scripts/page/post-integrated-connectivity-management.js",
+    "jsonLd": []
+  },
+  "post-telecom-billing-mistakes": {
+    "script": "/scripts/page/post-telecom-billing-mistakes.js",
+    "jsonLd": []
+  },
+  "post-dual-esim-support-iphone-13": {
+    "script": "/scripts/page/post-dual-esim-support-iphone-13.js",
+    "jsonLd": []
+  },
+  "post-employee-mobile-service": {
+    "script": "/scripts/page/post-employee-mobile-service.js",
+    "jsonLd": []
+  },
+  "post-wireless-telecom-expense-management": {
+    "script": "/scripts/page/post-wireless-telecom-expense-management.js",
+    "jsonLd": []
+  },
+  "post-telecom-expense-management-tem-outsourcing": {
+    "script": "/scripts/page/post-telecom-expense-management-tem-outsourcing.js",
+    "jsonLd": []
+  },
+  "post-esim-covid-19": {
+    "script": "/scripts/page/post-esim-covid-19.js",
+    "jsonLd": []
+  },
+  "post-esim-transformation": {
+    "script": "/scripts/page/post-esim-transformation.js",
+    "jsonLd": []
+  },
+  "post-hidden-mobile-service-costs": {
+    "script": "/scripts/page/post-hidden-mobile-service-costs.js",
+    "jsonLd": []
+  },
+  "post-byod-planning": {
+    "script": "/scripts/page/post-byod-planning.js",
+    "jsonLd": []
+  },
+  "post-why-is-mobile-roaming-expensive": {
+    "script": "/scripts/page/post-why-is-mobile-roaming-expensive.js",
+    "jsonLd": []
+  },
+  "post-byod-policies": {
+    "script": "/scripts/page/post-byod-policies.js",
+    "jsonLd": []
+  },
+  "post-mvno-alternatives": {
+    "script": "/scripts/page/post-mvno-alternatives.js",
+    "jsonLd": []
+  },
+  "archive-author-isimplexity": {
+    "script": "/scripts/page/archive-author-isimplexity.js",
+    "jsonLd": []
+  },
+  "archive-author-sivasai": {
+    "script": "/scripts/page/archive-author-sivasai.js",
+    "jsonLd": []
+  },
+  "archive-2021-04-12": {
+    "script": "/scripts/page/archive-2021-04-12.js",
+    "jsonLd": []
+  },
+  "archive-2021-04-13": {
+    "script": "/scripts/page/archive-2021-04-13.js",
+    "jsonLd": []
+  },
+  "archive-2021-04-28": {
+    "script": "/scripts/page/archive-2021-04-28.js",
+    "jsonLd": []
+  },
+  "archive-2021-05-18": {
+    "script": "/scripts/page/archive-2021-05-18.js",
+    "jsonLd": []
+  },
+  "archive-2021-08-19": {
+    "script": "/scripts/page/archive-2021-08-19.js",
+    "jsonLd": []
+  },
+  "archive-2021-09-21": {
+    "script": "/scripts/page/archive-2021-09-21.js",
+    "jsonLd": []
+  },
+  "archive-2022-12-12": {
+    "script": "/scripts/page/archive-2022-12-12.js",
+    "jsonLd": []
+  },
+  "archive-2023-11-15": {
+    "script": "/scripts/page/archive-2023-11-15.js",
+    "jsonLd": []
+  },
+  "archive-2024-05-27": {
+    "script": "/scripts/page/archive-2024-05-27.js",
+    "jsonLd": []
+  },
+  "archive-2024-06-07": {
+    "script": "/scripts/page/archive-2024-06-07.js",
+    "jsonLd": []
+  },
+  "archive-2024-06-15": {
+    "script": "/scripts/page/archive-2024-06-15.js",
+    "jsonLd": []
+  },
+  "archive-2024-06-24": {
+    "script": "/scripts/page/archive-2024-06-24.js",
+    "jsonLd": []
+  },
+  "archive-2024-07-09": {
+    "script": "/scripts/page/archive-2024-07-09.js",
+    "jsonLd": []
+  },
+  "archive-2024-07-10": {
+    "script": "/scripts/page/archive-2024-07-10.js",
+    "jsonLd": []
+  },
+  "archive-2024-07-25": {
+    "script": "/scripts/page/archive-2024-07-25.js",
+    "jsonLd": []
+  },
+  "archive-2024-09-23": {
+    "script": "/scripts/page/archive-2024-09-23.js",
+    "jsonLd": []
+  },
+  "archive-2024-09-24": {
+    "script": "/scripts/page/archive-2024-09-24.js",
+    "jsonLd": []
+  },
+  "archive-2024-10-09": {
+    "script": "/scripts/page/archive-2024-10-09.js",
+    "jsonLd": []
+  },
+  "archive-2024-10-29": {
+    "script": "/scripts/page/archive-2024-10-29.js",
+    "jsonLd": []
+  },
+  "archive-2024-11-27": {
+    "script": "/scripts/page/archive-2024-11-27.js",
+    "jsonLd": []
+  },
+  "archive-2024-12-02": {
+    "script": "/scripts/page/archive-2024-12-02.js",
+    "jsonLd": []
+  },
+  "archive-2024-12-05": {
+    "script": "/scripts/page/archive-2024-12-05.js",
+    "jsonLd": []
+  },
+  "archive-2024-12-09": {
+    "script": "/scripts/page/archive-2024-12-09.js",
+    "jsonLd": []
+  },
+  "archive-2024-12-13": {
+    "script": "/scripts/page/archive-2024-12-13.js",
+    "jsonLd": []
+  },
+  "archive-2024-12-16": {
+    "script": "/scripts/page/archive-2024-12-16.js",
+    "jsonLd": []
+  },
+  "archive-2024-12-24": {
+    "script": "/scripts/page/archive-2024-12-24.js",
+    "jsonLd": []
+  },
+  "archive-2024-12-31": {
+    "script": "/scripts/page/archive-2024-12-31.js",
+    "jsonLd": []
+  },
+  "archive-2025-01-03": {
+    "script": "/scripts/page/archive-2025-01-03.js",
+    "jsonLd": []
+  },
+  "archive-2025-01-10": {
+    "script": "/scripts/page/archive-2025-01-10.js",
+    "jsonLd": []
+  },
+  "archive-2025-01-14": {
+    "script": "/scripts/page/archive-2025-01-14.js",
+    "jsonLd": []
+  },
+  "archive-2025-01-21": {
+    "script": "/scripts/page/archive-2025-01-21.js",
+    "jsonLd": []
+  },
+  "archive-2025-01-24": {
+    "script": "/scripts/page/archive-2025-01-24.js",
+    "jsonLd": []
+  },
+  "archive-2025-01-27": {
+    "script": "/scripts/page/archive-2025-01-27.js",
+    "jsonLd": []
+  },
+  "archive-2025-02-05": {
+    "script": "/scripts/page/archive-2025-02-05.js",
+    "jsonLd": []
+  },
+  "archive-2025-02-14": {
+    "script": "/scripts/page/archive-2025-02-14.js",
+    "jsonLd": []
+  },
+  "archive-2025-02-19": {
+    "script": "/scripts/page/archive-2025-02-19.js",
+    "jsonLd": []
+  },
+  "archive-2025-02-20": {
+    "script": "/scripts/page/archive-2025-02-20.js",
+    "jsonLd": []
+  },
+  "archive-2025-02-21": {
+    "script": "/scripts/page/archive-2025-02-21.js",
+    "jsonLd": []
+  },
+  "archive-2025-02-26": {
+    "script": "/scripts/page/archive-2025-02-26.js",
+    "jsonLd": []
+  },
+  "archive-2025-03-06": {
+    "script": "/scripts/page/archive-2025-03-06.js",
+    "jsonLd": []
+  },
+  "archive-2025-03-07": {
+    "script": "/scripts/page/archive-2025-03-07.js",
+    "jsonLd": []
+  },
+  "archive-2025-03-13": {
+    "script": "/scripts/page/archive-2025-03-13.js",
+    "jsonLd": []
+  },
+  "archive-2025-03-20": {
+    "script": "/scripts/page/archive-2025-03-20.js",
+    "jsonLd": []
+  },
+  "archive-2025-03-27": {
+    "script": "/scripts/page/archive-2025-03-27.js",
+    "jsonLd": []
+  },
+  "archive-2025-04-04": {
+    "script": "/scripts/page/archive-2025-04-04.js",
+    "jsonLd": []
+  },
+  "archive-2025-04-10": {
+    "script": "/scripts/page/archive-2025-04-10.js",
+    "jsonLd": []
+  },
+  "archive-2025-04-11": {
+    "script": "/scripts/page/archive-2025-04-11.js",
+    "jsonLd": []
+  },
+  "archive-2025-04-18": {
+    "script": "/scripts/page/archive-2025-04-18.js",
+    "jsonLd": []
+  },
+  "archive-2025-04-24": {
+    "script": "/scripts/page/archive-2025-04-24.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-01": {
+    "script": "/scripts/page/archive-2025-05-01.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-02": {
+    "script": "/scripts/page/archive-2025-05-02.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-05": {
+    "script": "/scripts/page/archive-2025-05-05.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-08": {
+    "script": "/scripts/page/archive-2025-05-08.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-09": {
+    "script": "/scripts/page/archive-2025-05-09.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-15": {
+    "script": "/scripts/page/archive-2025-05-15.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-16": {
+    "script": "/scripts/page/archive-2025-05-16.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-22": {
+    "script": "/scripts/page/archive-2025-05-22.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-25": {
+    "script": "/scripts/page/archive-2025-05-25.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-28": {
+    "script": "/scripts/page/archive-2025-05-28.js",
+    "jsonLd": []
+  },
+  "archive-2025-05-29": {
+    "script": "/scripts/page/archive-2025-05-29.js",
+    "jsonLd": []
+  },
+  "archive-2025-06-05": {
+    "script": "/scripts/page/archive-2025-06-05.js",
+    "jsonLd": []
+  },
+  "archive-2025-06-06": {
+    "script": "/scripts/page/archive-2025-06-06.js",
+    "jsonLd": []
+  },
+  "archive-2025-06-12": {
+    "script": "/scripts/page/archive-2025-06-12.js",
+    "jsonLd": []
+  },
+  "archive-2025-06-13": {
+    "script": "/scripts/page/archive-2025-06-13.js",
+    "jsonLd": []
+  },
+  "archive-2025-06-20": {
+    "script": "/scripts/page/archive-2025-06-20.js",
+    "jsonLd": []
+  },
+  "archive-2025-07-11": {
+    "script": "/scripts/page/archive-2025-07-11.js",
+    "jsonLd": []
+  },
+  "archive-2025-07-25": {
+    "script": "/scripts/page/archive-2025-07-25.js",
+    "jsonLd": []
+  },
+  "archive-2025-07-30": {
+    "script": "/scripts/page/archive-2025-07-30.js",
+    "jsonLd": []
+  },
+  "archive-2025-08-01": {
+    "script": "/scripts/page/archive-2025-08-01.js",
+    "jsonLd": []
+  },
+  "archive-2025-08-07": {
+    "script": "/scripts/page/archive-2025-08-07.js",
+    "jsonLd": []
+  },
+  "archive-2025-08-08": {
+    "script": "/scripts/page/archive-2025-08-08.js",
+    "jsonLd": []
+  },
+  "archive-2025-08-14": {
+    "script": "/scripts/page/archive-2025-08-14.js",
+    "jsonLd": []
+  },
+  "archive-2025-08-21": {
+    "script": "/scripts/page/archive-2025-08-21.js",
+    "jsonLd": []
+  },
+  "archive-2025-08-22": {
+    "script": "/scripts/page/archive-2025-08-22.js",
+    "jsonLd": []
+  },
+  "archive-2025-08-28": {
+    "script": "/scripts/page/archive-2025-08-28.js",
+    "jsonLd": []
+  },
+  "archive-2025-09-04": {
+    "script": "/scripts/page/archive-2025-09-04.js",
+    "jsonLd": []
+  },
+  "archive-2025-09-12": {
+    "script": "/scripts/page/archive-2025-09-12.js",
+    "jsonLd": []
+  },
+  "archive-2025-09-26": {
+    "script": "/scripts/page/archive-2025-09-26.js",
+    "jsonLd": []
+  },
+  "archive-2025-10-03": {
+    "script": "/scripts/page/archive-2025-10-03.js",
+    "jsonLd": []
+  },
+  "archive-2025-10-10": {
+    "script": "/scripts/page/archive-2025-10-10.js",
+    "jsonLd": []
+  },
+  "archive-2025-10-17": {
+    "script": "/scripts/page/archive-2025-10-17.js",
+    "jsonLd": []
+  },
+  "archive-2025-10-24": {
+    "script": "/scripts/page/archive-2025-10-24.js",
+    "jsonLd": []
+  },
+  "archive-2025-10-31": {
+    "script": "/scripts/page/archive-2025-10-31.js",
+    "jsonLd": []
+  },
+  "archive-2025-11-07": {
+    "script": "/scripts/page/archive-2025-11-07.js",
+    "jsonLd": []
+  },
+  "archive-2025-11-14": {
+    "script": "/scripts/page/archive-2025-11-14.js",
+    "jsonLd": []
+  },
+  "archive-2025-11-17": {
+    "script": "/scripts/page/archive-2025-11-17.js",
+    "jsonLd": []
+  },
+  "archive-2025-11-21": {
+    "script": "/scripts/page/archive-2025-11-21.js",
+    "jsonLd": []
+  },
+  "archive-2025-11-28": {
+    "script": "/scripts/page/archive-2025-11-28.js",
+    "jsonLd": []
+  },
+  "archive-2025-12-05": {
+    "script": "/scripts/page/archive-2025-12-05.js",
+    "jsonLd": []
+  },
+  "archive-2025-12-19": {
+    "script": "/scripts/page/archive-2025-12-19.js",
+    "jsonLd": []
+  },
+  "archive-2025-12-24": {
+    "script": "/scripts/page/archive-2025-12-24.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-01": {
+    "script": "/scripts/page/archive-2026-01-01.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-02": {
+    "script": "/scripts/page/archive-2026-01-02.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-05": {
+    "script": "/scripts/page/archive-2026-01-05.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-06": {
+    "script": "/scripts/page/archive-2026-01-06.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-07": {
+    "script": "/scripts/page/archive-2026-01-07.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-08": {
+    "script": "/scripts/page/archive-2026-01-08.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-09": {
+    "script": "/scripts/page/archive-2026-01-09.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-15": {
+    "script": "/scripts/page/archive-2026-01-15.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-23": {
+    "script": "/scripts/page/archive-2026-01-23.js",
+    "jsonLd": []
+  },
+  "archive-2026-01-30": {
+    "script": "/scripts/page/archive-2026-01-30.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-06": {
+    "script": "/scripts/page/archive-2026-02-06.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-12": {
+    "script": "/scripts/page/archive-2026-02-12.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-13": {
+    "script": "/scripts/page/archive-2026-02-13.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-14": {
+    "script": "/scripts/page/archive-2026-02-14.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-17": {
+    "script": "/scripts/page/archive-2026-02-17.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-19": {
+    "script": "/scripts/page/archive-2026-02-19.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-20": {
+    "script": "/scripts/page/archive-2026-02-20.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-25": {
+    "script": "/scripts/page/archive-2026-02-25.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-26": {
+    "script": "/scripts/page/archive-2026-02-26.js",
+    "jsonLd": []
+  },
+  "archive-2026-02-27": {
+    "script": "/scripts/page/archive-2026-02-27.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-01": {
+    "script": "/scripts/page/archive-2026-03-01.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-02": {
+    "script": "/scripts/page/archive-2026-03-02.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-03": {
+    "script": "/scripts/page/archive-2026-03-03.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-04": {
+    "script": "/scripts/page/archive-2026-03-04.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-05": {
+    "script": "/scripts/page/archive-2026-03-05.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-06": {
+    "script": "/scripts/page/archive-2026-03-06.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-07": {
+    "script": "/scripts/page/archive-2026-03-07.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-08": {
+    "script": "/scripts/page/archive-2026-03-08.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-09": {
+    "script": "/scripts/page/archive-2026-03-09.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-10": {
+    "script": "/scripts/page/archive-2026-03-10.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-11": {
+    "script": "/scripts/page/archive-2026-03-11.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-12": {
+    "script": "/scripts/page/archive-2026-03-12.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-13": {
+    "script": "/scripts/page/archive-2026-03-13.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-14": {
+    "script": "/scripts/page/archive-2026-03-14.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-15": {
+    "script": "/scripts/page/archive-2026-03-15.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-16": {
+    "script": "/scripts/page/archive-2026-03-16.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-18": {
+    "script": "/scripts/page/archive-2026-03-18.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-19": {
+    "script": "/scripts/page/archive-2026-03-19.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-20": {
+    "script": "/scripts/page/archive-2026-03-20.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-21": {
+    "script": "/scripts/page/archive-2026-03-21.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-22": {
+    "script": "/scripts/page/archive-2026-03-22.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-23": {
+    "script": "/scripts/page/archive-2026-03-23.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-24": {
+    "script": "/scripts/page/archive-2026-03-24.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-25": {
+    "script": "/scripts/page/archive-2026-03-25.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-26": {
+    "script": "/scripts/page/archive-2026-03-26.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-27": {
+    "script": "/scripts/page/archive-2026-03-27.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-28": {
+    "script": "/scripts/page/archive-2026-03-28.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-29": {
+    "script": "/scripts/page/archive-2026-03-29.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-30": {
+    "script": "/scripts/page/archive-2026-03-30.js",
+    "jsonLd": []
+  },
+  "archive-2026-03-31": {
+    "script": "/scripts/page/archive-2026-03-31.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-01": {
+    "script": "/scripts/page/archive-2026-04-01.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-02": {
+    "script": "/scripts/page/archive-2026-04-02.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-03": {
+    "script": "/scripts/page/archive-2026-04-03.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-04": {
+    "script": "/scripts/page/archive-2026-04-04.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-05": {
+    "script": "/scripts/page/archive-2026-04-05.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-06": {
+    "script": "/scripts/page/archive-2026-04-06.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-07": {
+    "script": "/scripts/page/archive-2026-04-07.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-08": {
+    "script": "/scripts/page/archive-2026-04-08.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-09": {
+    "script": "/scripts/page/archive-2026-04-09.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-10": {
+    "script": "/scripts/page/archive-2026-04-10.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-11": {
+    "script": "/scripts/page/archive-2026-04-11.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-16": {
+    "script": "/scripts/page/archive-2026-04-16.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-17": {
+    "script": "/scripts/page/archive-2026-04-17.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-22": {
+    "script": "/scripts/page/archive-2026-04-22.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-23": {
+    "script": "/scripts/page/archive-2026-04-23.js",
+    "jsonLd": []
+  },
+  "archive-2026-04-24": {
+    "script": "/scripts/page/archive-2026-04-24.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-02": {
+    "script": "/scripts/page/archive-2026-05-02.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-04": {
+    "script": "/scripts/page/archive-2026-05-04.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-07": {
+    "script": "/scripts/page/archive-2026-05-07.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-08": {
+    "script": "/scripts/page/archive-2026-05-08.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-14": {
+    "script": "/scripts/page/archive-2026-05-14.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-22": {
+    "script": "/scripts/page/archive-2026-05-22.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-25": {
+    "script": "/scripts/page/archive-2026-05-25.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-28": {
+    "script": "/scripts/page/archive-2026-05-28.js",
+    "jsonLd": []
+  },
+  "archive-2026-05-29": {
+    "script": "/scripts/page/archive-2026-05-29.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-01": {
+    "script": "/scripts/page/archive-2026-06-01.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-04": {
+    "script": "/scripts/page/archive-2026-06-04.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-05": {
+    "script": "/scripts/page/archive-2026-06-05.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-11": {
+    "script": "/scripts/page/archive-2026-06-11.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-12": {
+    "script": "/scripts/page/archive-2026-06-12.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-18": {
+    "script": "/scripts/page/archive-2026-06-18.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-19": {
+    "script": "/scripts/page/archive-2026-06-19.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-20": {
+    "script": "/scripts/page/archive-2026-06-20.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-25": {
+    "script": "/scripts/page/archive-2026-06-25.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-28": {
+    "script": "/scripts/page/archive-2026-06-28.js",
+    "jsonLd": []
+  },
+  "archive-2026-07-03": {
+    "script": "/scripts/page/archive-2026-07-03.js",
+    "jsonLd": []
+  },
+  "archive-2026-07-09": {
+    "script": "/scripts/page/archive-2026-07-09.js",
+    "jsonLd": []
+  },
+  "archive-2026-07-10": {
+    "script": "/scripts/page/archive-2026-07-10.js",
+    "jsonLd": []
+  },
+  "archive-2026-07-17": {
+    "script": "/scripts/page/archive-2026-07-17.js",
+    "jsonLd": []
+  },
+  "archive-2026-06-06": {
+    "script": "/scripts/page/archive-2026-06-06.js",
+    "jsonLd": []
+  },
+  "demo": {
+    "script": "/scripts/page/demo.js",
+    "jsonLd": []
+  },
+  "device-vendors-demo": {
+    "script": "/scripts/page/device-vendors-demo.js",
+    "jsonLd": []
+  },
+  "enterprises-demo": {
+    "script": "/scripts/page/enterprises-demo.js",
+    "jsonLd": []
+  },
+  "mno": {
+    "script": "/scripts/page/mno.js",
+    "jsonLd": []
+  },
+  "telecom-savings-calculator": {
+    "script": "/scripts/page/telecom-savings-calculator.js",
+    "jsonLd": []
   }
 }

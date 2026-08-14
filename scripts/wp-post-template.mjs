@@ -6,7 +6,9 @@ import { existsSync } from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
 
-const ORIGIN = 'https://preprod.spenza.com';
+import { rewriteWpUrls, WP_ORIGIN, WP_HOST } from './lib/config.mjs';
+
+const ORIGIN = WP_ORIGIN;
 const PROJECT = path.resolve(import.meta.dirname, '..');
 const CACHE = path.join(PROJECT, '.wp-cache');
 const OUT_ROOT = path.join(PROJECT, 'public', 'wp-assets');
@@ -33,16 +35,11 @@ const cookieHeader = await (async () => {
 function localPathFor(url) {
   const u = new URL(url);
   let p = u.pathname.replace(/^\/+/, '');
-  if (u.hostname !== 'preprod.spenza.com') p = path.posix.join('_cdn', u.hostname, p);
+  if (u.hostname !== WP_HOST) p = path.posix.join('_cdn', u.hostname, p);
   return p;
 }
 
-function rewriteCssUrls(css) {
-  return css
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\/uploads\//g, '/wp-content/uploads/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/wp-content\//g, '/wp-assets/wp-content/')
-    .replace(/https?:\/\/preprod\.spenza\.com\/?/g, '/');
-}
+const rewriteCssUrls = rewriteWpUrls;
 
 const html = await fs.readFile(SAMPLE, 'utf8');
 const head = html.slice(0, html.indexOf('</head>'));
