@@ -16,6 +16,7 @@
  * hard-coded here exactly as `wp:post-shell` treats the ids in the page shell.
  */
 import { existsSync } from 'node:fs';
+import { hasMedia } from './media-manifest.ts';
 import path from 'node:path';
 import { MEDIA_ORIGIN } from '../../scripts/lib/config.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
@@ -99,7 +100,7 @@ function excerptText(html: string): string {
 }
 
 /**
- * Whether a site-absolute media URL has a file behind it in this repo.
+ * Whether a site-absolute media URL has a file behind it.
  *
  * WordPress names every intermediate size it generated, but the mirror only
  * holds what `wp:webp` and the media pass actually fetched — a post published
@@ -111,7 +112,7 @@ function onDisk(url: string): boolean {
   const local = MEDIA_ORIGIN && url.startsWith(MEDIA_ORIGIN)
     ? url.slice(MEDIA_ORIGIN.length)
     : url;
-  return local.startsWith('/') && existsSync(path.join(ROOT, 'public', local));
+  return local.startsWith('/') && hasMedia(local);
 }
 
 /** The candidate list, minus anything the mirror does not have. */
@@ -136,10 +137,10 @@ function webpFor(url: string): string | null {
   if (!m) return null;
 
   const variant = `/wp-assets/wp-content/webp-express/webp-images/uploads/${m[1]}.webp`;
-  // Existence is checked against the repo, which is always where the files are.
-  // What is *emitted* has to follow the media host, or the `<source>` points at
-  // an origin that stops carrying media the moment the split happens.
-  if (!existsSync(path.join(ROOT, 'public', variant))) return null;
+  // Existence comes from the manifest, not the filesystem: the media is served
+  // from S3 and no longer committed. What is *emitted* has to follow the media
+  // host, or the `<source>` points at an origin that no longer carries media.
+  if (!hasMedia(variant)) return null;
   return MEDIA_ORIGIN ? `${MEDIA_ORIGIN}${variant}` : variant;
 }
 

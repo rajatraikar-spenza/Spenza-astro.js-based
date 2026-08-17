@@ -26,3 +26,16 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Mirrored media — served from S3 behind media.spenza.com, not from here.
+#
+# 11,209 files and 2.2GB. It was committed by the original mirror run, before a
+# media host existed, and GitHub rejects a push that large (the pack hits their
+# 2GB limit). Nothing needs the bytes: the build drops them from dist/ when
+# MEDIA_ORIGIN is set, and the only thing that read them was a filename check,
+# which now uses src/data/wp-media-manifest.json instead.
+#
+# Restore a working copy with `npm run wp:blog-media-sync`, or from the bucket:
+#   aws s3 sync s3://spenza-media/wp-content ./public/wp-content
+public/wp-content/
+public/wp-assets/wp-content/webp-express/
