@@ -1,24 +1,40 @@
-// Watch WordPress and rebuild when content changes.
+// Watch WordPress and update the site when content changes.
 //
 // This is the publish-to-live loop, driven by a poll instead of a webhook. The
 // change-detection is the same either way: the index query returns every
 // published post's slug and `modified`, and any difference from the last check
-// means a rebuild is due.
+// means the site is stale.
 //
 // It exists so the loop can be demonstrated — and used day to day — without a
 // public URL for WordPress to call. Once the site is hosted, the deploy hook
 // replaces the polling and nothing else changes.
 //
+// Two ways to apply a change, picked automatically:
+//
+//   dev server running   POST /_wp-refresh, which re-runs the loader inside the
+//                        live server (see lib/wp-refresh-integration.mjs). A few
+//                        seconds, and the open browser tab shows it.
+//   otherwise            `npm run build`, refreshing dist/ for `astro preview`.
+//
+// The distinction matters: a build writes dist/ and does nothing for a running
+// dev server, and running both at once makes two processes fight over
+// .astro/data-store.json — which on Windows surfaces as an EPERM rename.
+//
 // Usage:
-//   npm run wp:watch                 # poll every 60s, rebuild on change
+//   npm run wp:watch                 # poll every 60s
 //   INTERVAL=15 npm run wp:watch     # poll faster, for a live demo
 //   npm run wp:watch -- --once       # check once and exit
+//   npm run wp:watch -- --build      # always build, even if dev is running
 import { spawn } from 'node:child_process';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { wpPaginate } from './lib/wp-graphql.mjs';
 import { PROJECT, WP_ORIGIN } from './lib/config.mjs';
+import { REFRESH_PATH } from './lib/wp-refresh-integration.mjs';
 
 const INTERVAL = Math.max(5, Number(process.env.INTERVAL) || 60) * 1000;
 const ONCE = process.argv.includes('--once');
+const FORCE_BUILD = process.argv.includes('--build');
 
 const stamp = () => new Date().toTimeString().slice(0, 8);
 const log = msg => process.stdout.write(`[${stamp()}] ${msg}\n`);
@@ -42,6 +58,45 @@ function diff(before, after) {
     .filter(([s, m]) => before.has(s) && before.get(s) !== m)
     .map(([s]) => s);
   return { added, removed, edited, any: added.length + removed.length + edited.length > 0 };
+}
+
+/**
+ * The running dev server's URL, or null.
+ *
+ * `astro dev` records its port in .astro/dev.json, but the file outlives a
+ * crashed server, so the URL is probed before it is trusted.
+ */
+async function devServer() {
+  if (FORCE_BUILD) return null;
+  let url;
+  try {
+    const raw = await fs.readFile(path.join(PROJECT, '.astro', 'dev.json'), 'utf8');
+    url = JSON.parse(raw).url;
+  } catch {
+    return null;
+  }
+  if (!url) return null;
+
+  try {
+    // HEAD is enough to prove someone is listening; the endpoint answers 405.
+    await fetch(new URL(REFRESH_PATH, url), { method: 'HEAD', signal: AbortSignal.timeout(3000) });
+    return url;
+  } catch {
+    return null;
+  }
+}
+
+/** Re-run the loader inside the live dev server. */
+async function refreshDev(url) {
+  const started = Date.now();
+  const res = await fetch(new URL(REFRESH_PATH, url), {
+    method: 'POST',
+    // The loader refetches every changed post, so allow for a slow WordPress.
+    signal: AbortSignal.timeout(180_000),
+  });
+  const secs = ((Date.now() - started) / 1000).toFixed(1);
+  if (!res.ok) throw new Error(`${res.status} after ${secs}s`);
+  log(`dev server updated in ${secs}s — reload the page to see it`);
 }
 
 function runBuild() {
@@ -69,6 +124,13 @@ log(`watching ${WP_ORIGIN} every ${INTERVAL / 1000}s — Ctrl+C to stop`);
 let previous = await snapshot();
 log(`baseline: ${previous.size} published posts`);
 
+{
+  const dev = await devServer();
+  log(dev
+    ? `dev server at ${dev} — changes go straight into it, no build`
+    : 'no dev server — changes trigger a full build into dist/');
+}
+
 if (ONCE) {
   log('--once given, exiting without watching');
 } else {
@@ -92,11 +154,24 @@ if (ONCE) {
     if (d.edited.length) parts.push(`${d.edited.length} edited (${d.edited.slice(0, 3).join(', ')})`);
     if (d.removed.length) parts.push(`${d.removed.length} removed (${d.removed.join(', ')})`);
     log(`change detected: ${parts.join('; ')}`);
-    log('rebuilding…');
 
-    // Adopt the new state before building, so a build failure does not make the
-    // same change fire again on every tick.
+    // Re-checked every time, not cached at startup: the dev server can be
+    // started or stopped while this keeps running.
+    const dev = await devServer();
+    log(dev ? 'refreshing dev server…' : 'rebuilding…');
+
+    // Adopt the new state first, so a failure does not make the same change
+    // fire again on every tick.
     previous = current;
-    await runBuild();
+
+    if (!dev) {
+      await runBuild();
+    } else {
+      try {
+        await refreshDev(dev);
+      } catch (e) {
+        log(`REFRESH FAILED (${e.message}) — will retry on next change`);
+      }
+    }
   }
 }

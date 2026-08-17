@@ -29,7 +29,7 @@ import path from 'node:path';
 import { PurgeCSS } from 'purgecss';
 import postcss from 'postcss';
 import { transform } from 'lightningcss';
-import { PROJECT } from './lib/config.mjs';
+import { PROJECT, canonicalMediaPath } from './lib/config.mjs';
 
 const PUB = path.join(PROJECT, 'public');
 const DATA = path.join(PROJECT, 'src', 'data');
@@ -101,6 +101,34 @@ function dropInvalidPseudoRules(css) {
  * inline style attribute, which no CSS-side usage analysis can see, so removing
  * a face because no *rule* references it would drop fonts that are really used.
  */
+let fontDisplayFixes = 0;
+
+/**
+ * Families where `font-display:block` is the right answer.
+ *
+ * For an icon font, `block` is correct: the fallback for a missing glyph is a
+ * wrong character or a tofu box, so showing nothing briefly is better. For text
+ * it is a straight LCP regression — up to three seconds of invisible copy when
+ * the fallback would have been perfectly readable.
+ *
+ * As it stands this changes nothing, and that is the useful result: all 669
+ * `block` declarations belong to Font Awesome or Gravity Forms icons, so the
+ * site has no invisible-text problem to fix. It stays as a guard, because the
+ * next theme update that ships a text face with `block` should not quietly cost
+ * three seconds of blank headings.
+ */
+const ICON_FAMILIES = /font-family:\s*["']?(?:.*?(?:font\s*awesome|eicons|uicons|flaticon|slick|gform-icons|elementskit|wpforms|icomoon|dashicons|themify).*?)["']?\s*[;}]/i;
+
+/** Give text faces `swap`, leave icon faces alone. */
+function fixFontDisplay(css) {
+  return css.replace(/@font-face\s*\{[^{}]*\}/g, block => {
+    if (!/font-display:\s*block/i.test(block)) return block;
+    if (ICON_FAMILIES.test(block)) return block;
+    fontDisplayFixes++;
+    return block.replace(/font-display:\s*block/gi, 'font-display:swap');
+  });
+}
+
 function dedupeFontFaces(css) {
   const seen = new Set();
   let dropped = 0;
@@ -111,6 +139,121 @@ function dedupeFontFaces(css) {
     return m;
   });
   return { css: out, kept: seen.size, dropped };
+}
+
+let urlRebases = 0, urlCanonical = 0, urlUndoubled = 0;
+
+/**
+ * Collapse `/p//p/rest` back to `/p/rest`.
+ *
+ * The asset mirror rewrote a handful of already-rewritten urls a second time,
+ * leaving the resolved prefix stuck to the front of the finished path — all 24
+ * of them in astra-child's `blocks.css`, which is where General Sans, the
+ * site's own display face, is declared. The doubled form 404s.
+ *
+ * Deliberately narrow: it fires only when the tail is itself an absolute path
+ * that begins with the head, which is the signature of the doubling. A plain
+ * `/wp-assets//foo.css` typo wants the slashes collapsed, not the head thrown
+ * away, so it is left alone rather than guessed at.
+ */
+function undouble(p) {
+  const i = p.indexOf('//', 1);
+  if (i === -1) return p;
+  const head = p.slice(0, i);
+  const tail = p.slice(i + 1);
+  if (!tail.startsWith(`${head}/`)) return p;
+  urlUndoubled++;
+  return tail;
+}
+
+/**
+ * Values already resolvable as written: a scheme (`data:`, `https:`), a
+ * protocol-relative `//host`, a root-absolute path, or a same-document
+ * fragment — `url(#orbit1)` referencing an inline SVG filter.
+ */
+const ALREADY_RESOLVED = /^(?:[a-zA-Z][a-zA-Z0-9+.-]*:|\/\/|\/|#)/;
+
+/**
+ * One `url()` token: double-quoted, single-quoted, or bare. The bare form
+ * cannot legally contain a quote, a paren or whitespace, so stopping at any of
+ * them is what CSS itself does.
+ */
+const URL_TOKEN = /url\(\s*(?:"([^"]*)"|'([^']*)'|([^'")\s]*))\s*\)/g;
+
+/**
+ * Make every `url()` resolvable from the bundle's own location.
+ *
+ * Bundles are written to `/wp-assets/_opt/`, so a relative reference that was
+ * correct in its source file resolves against the wrong directory once
+ * concatenated. Font Awesome's `url(../webfonts/fa-solid-900.woff2)` became
+ * `/wp-assets/webfonts/…`, which does not exist — so the icon fonts 404'd on
+ * every page built from one of those 14 stylesheet lists, and nothing caught it
+ * because `wp:audit` reads markup and never parses CSS. Rebasing against the
+ * source file's own directory restores the path the browser was meant to fetch.
+ *
+ * Media paths are canonicalised here but deliberately not pointed at the media
+ * host. Bundles are committed and content-addressed, so baking an origin into
+ * them would make a generated artefact environment-specific — a build with no
+ * media host configured would then serve URLs for a host it knows nothing
+ * about. The origin is applied to the built CSS instead, at `astro:build:done`,
+ * alongside the identical pass over the site's scripts.
+ *
+ * Anything this cannot improve is returned as the exact text that was matched,
+ * so a token whose boundaries were mis-parsed — an oddly-quoted data URI, say —
+ * is passed through byte-for-byte rather than corrupted.
+ */
+function rewriteUrls(css, href) {
+  const dir = path.posix.dirname(href);
+  return css.replace(URL_TOKEN, (whole, dq, sq, bare) => {
+    const raw = dq ?? sq ?? bare ?? '';
+    if (!raw) return whole;
+
+    let value = raw;
+    if (!ALREADY_RESOLVED.test(value)) {
+      // Split the query/fragment off first: `../fonts/eicons.eot#iefix` has to
+      // keep its fragment, and a `..` inside a query string is not a path step.
+      const [, p, tail = ''] = /^([^?#]*)([?#][\s\S]*)?$/.exec(value);
+      value = path.posix.resolve(dir, p) + tail;
+      urlRebases++;
+    } else if (value.startsWith('/')) {
+      value = undouble(value);
+    }
+
+    const canonical = canonicalMediaPath(value);
+    if (canonical !== value) { urlCanonical++; value = canonical; }
+
+    if (value === raw) return whole;
+    const q = dq !== undefined ? '"' : sq !== undefined ? "'" : '';
+    return `url(${q}${value}${q})`;
+  });
+}
+
+let googleImportsInlined = 0;
+
+/**
+ * Replace `@import` of a Google Fonts stylesheet with the mirrored CSS itself.
+ *
+ * Two of these live in the site's inline CSS and so end up here. Rewriting the
+ * URL to the local copy would already remove the third-party hop, but an
+ * `@import` is still a serial, render-blocking request discovered only after
+ * the bundle parses. Pasting the rules in costs nothing — they are `@font-face`
+ * blocks, position-independent, and `dedupeFontFaces` collapses the repeats
+ * that concatenation would otherwise stack up.
+ *
+ * The mirrored CSS references its woff2 by absolute path, so the url rebasing
+ * above leaves it alone.
+ */
+function inlineGoogleFonts(css) {
+  return css.replace(
+    /@import\s+(?:url\(\s*)?["']?(https:\/\/fonts\.googleapis\.com\/css2\?[^"')\s]+)["']?\s*\)?[^;]*;/g,
+    (whole, raw) => {
+      const key = raw.replace(/&#0?38;/g, '&').replace(/&amp;/g, '&');
+      const local = GOOGLE_FONT_CSS.get(key);
+      if (!local) return whole;
+      googleImportsInlined++;
+      return local;
+    }
+  );
 }
 
 /**
@@ -154,6 +297,19 @@ const SAFELIST = {
 };
 
 // ---- inputs -------------------------------------------------------------
+/**
+ * The mirrored Google Fonts stylesheets, keyed by the Google URL they replace.
+ * Written by `npm run wp:fonts`; empty until that has been run.
+ */
+const GOOGLE_FONT_CSS = new Map();
+{
+  const map = JSON.parse(await fs.readFile(path.join(DATA, 'wp-google-fonts.json'), 'utf8'));
+  for (const [url, local] of Object.entries(map)) {
+    const body = await readIf(path.join(PUB, local));
+    if (body) GOOGLE_FONT_CSS.set(url, body);
+  }
+}
+
 const styles = await readJson('wp-styles.json');
 const inlineStyles = await readJson('wp-inline-styles.json');
 const pages = await readJson('wp-pages.json');
@@ -242,7 +398,10 @@ async function buildBundle(hrefs, content, js, label) {
   for (const href of hrefs) {
     const css = await readIf(path.join(PUB, href));
     if (css === null) continue;
-    parts.push(`/* ${href} */\n${hoistImports(sanitizeCss(css), imports)}`);
+    // Rebase before hoisting, so a relative `@import url(…)` is absolute by the
+    // time it is lifted out of the file that gave it its meaning.
+    const resolved = inlineGoogleFonts(rewriteUrls(sanitizeCss(css), href));
+    parts.push(`/* ${href} */\n${hoistImports(resolved, imports)}`);
   }
   if (!parts.length) return null;
   const raw = [...imports, ...parts].join('\n');
@@ -260,7 +419,7 @@ async function buildBundle(hrefs, content, js, label) {
       fontFace: false,
     });
 
-    const once = dedupeFontFaces(dropInvalidPseudoRules(purged.css));
+    const once = dedupeFontFaces(fixFontDisplay(dropInvalidPseudoRules(purged.css)));
     faceDrops += once.dropped;
 
     min = transform({
@@ -330,6 +489,21 @@ await fs.writeFile(
 );
 
 const files = new Set(Object.values(bundles).flat());
+
+/**
+ * Drop bundles no page references any more.
+ *
+ * Output is content-addressed, so every run that changes the CSS writes new
+ * files and leaves the previous generation behind. Left alone they accumulate
+ * and ship — the run that fixed the relative-`url()` bug would otherwise have
+ * deployed 21 superseded bundles still carrying it, which is exactly the sort
+ * of stale artefact a content-addressed scheme is supposed to make impossible.
+ */
+const orphans = (await fs.readdir(OUT_DIR))
+  .filter(f => !files.has(`/wp-assets/_opt/${f}`));
+await Promise.all(orphans.map(f => fs.rm(path.join(OUT_DIR, f))));
+if (orphans.length) process.stdout.write(`pruned ${orphans.length} superseded bundles\n`);
+
 const onDisk = (await fs.readdir(OUT_DIR))
   .reduce(async (a, f) => (await a) + (await fs.stat(path.join(OUT_DIR, f))).size, Promise.resolve(0));
 
@@ -343,6 +517,12 @@ process.stdout.write(
   `(-${(100 - (outTotal / rawTotal) * 100).toFixed(1)}%), ${faceDrops} duplicate @font-face dropped\n` +
   `invalid rules dropped: ${invalidRuleDrops}
 ` +
+  `google-fonts @imports inlined: ${googleImportsInlined}
+` +
+  `font-display block -> swap on text faces: ${fontDisplayFixes}
+` +
+  `url() rebased to absolute: ${urlRebases}, undoubled: ${urlUndoubled}, ` +
+  `canonicalised: ${urlCanonical}\n` +
   `per-page inline tier: ${(inlineRaw / m / 1024).toFixed(0)}KB -> ${(inlineOut / m / 1024).toFixed(0)}KB average\n`
 );
 if (skipped.length) {

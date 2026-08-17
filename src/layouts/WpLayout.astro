@@ -79,9 +79,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
     {pageDescription && <meta property="og:description" content={pageDescription} />}
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    {MEDIA_ORIGIN && <link rel="preconnect" href={MEDIA_ORIGIN} crossorigin />}
+    {/*
+      No preconnect to fonts.googleapis.com / fonts.gstatic.com: `npm run wp:fonts`
+      mirrors those stylesheets and their woff2 into /wp-assets/_fonts/, so
+      nothing on the page reaches Google. A preconnect to a host the page never
+      contacts costs a speculative DNS lookup and TLS handshake for nothing.
+    */}
+    {/*
+      Deliberately without `crossorigin`: it opens the connection in CORS mode,
+      and a plain `<img>` or `<video>` request — which is all this origin serves
+      — cannot reuse one, so the hint would warm a connection nothing then uses.
+    */}
+    {MEDIA_ORIGIN && <link rel="preconnect" href={MEDIA_ORIGIN} />}
 
     {styles.map(href => <link rel="stylesheet" href={href} />)}
     {inlineStyle && <link rel="stylesheet" href={inlineStyle} />}

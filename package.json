@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "wp:assets": "node scripts/wp-mirror-assets.mjs",
@@ -31,19 +31,21 @@
     "wp:make-cookie": "node scripts/wp-make-cookie.mjs",
     "wp:acf-snapshot": "node scripts/wp-acf-snapshot.mjs",
     "wp:blog-media-sync": "node scripts/wp-blog-media-sync.mjs",
-    "wp:watch": "node scripts/wp-watch.mjs"
+    "wp:watch": "node scripts/wp-watch.mjs",
+    "wp:verify-dist": "node scripts/wp-verify-dist.mjs",
+    "wp:fonts": "node scripts/wp-selfhost-fonts.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.10",
     "@astrojs/mdx": "^7.0.5",
-    "astro": "^7.2.0",
-    "typescript": "^6.0.3"
+    "astro": "^7.2.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@astrojs/sitemap": "^3.7.3",
     "lightningcss": "^1.33.0",
     "parse5": "^8.0.1",
     "postcss": "^8.5.26",
-    "purgecss": "^8.0.0"
+    "purgecss": "^8.0.0",
+    "typescript": "^6.0.3"
   }
 }

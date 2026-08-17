@@ -13,7 +13,7 @@
 // A rebuild where nothing was published therefore costs three requests, which is
 // what makes a publish-webhook rebuild cheap enough to run on every save.
 import { wpQuery, wpPaginate } from '../../scripts/lib/wp-graphql.mjs';
-import { WP_HOST, SITE_URL, MEDIA_ORIGIN } from '../../scripts/lib/config.mjs';
+import { WP_HOST, SITE_URL, MEDIA_ORIGIN, WEBP_PATH } from '../../scripts/lib/config.mjs';
 import { normalizeLinks } from '../../scripts/lib/normalize-links.mjs';
 
 /**
@@ -31,15 +31,25 @@ const BATCH = 10;
  * so raising it re-fetches everything — the alternative is a store full of
  * records that predate a field and a build that fails far from the cause.
  */
-const SCHEMA_VERSION = 8;
+const SCHEMA_VERSION = 9;
 
 const H = WP_HOST.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const MEDIA_RE = new RegExp(`https?://${H}/wp-content/uploads/`, 'g');
 /**
- * Everything under wp-content that is *not* an upload — WebP Express variants,
- * plugin and theme assets. The mirror files these under /wp-assets/, so a post
- * body referencing them needs the same mapping or the links 404.
+ * The WebP Express variants, matched ahead of the generic wp-content rule.
+ *
+ * These are media — they are the files a modern browser actually downloads for
+ * every image in a post — but they live outside `uploads`, so the generic rule
+ * below would file them under /wp-assets/ and strand them on the origin while
+ * the originals moved to the media host.
+ */
+const WEBP_RE = new RegExp(`https?://${H}/wp-content/webp-express/`, 'g');
+const WEBP_RE_ESC = new RegExp(`https?:\\\\/\\\\/${H}\\\\/wp-content\\\\/webp-express\\\\/`, 'g');
+/**
+ * Everything else under wp-content that is *not* an upload — plugin and theme
+ * assets. The mirror files these under /wp-assets/, so a post body referencing
+ * them needs the same mapping or the links 404.
  */
 const WP_CONTENT_RE = new RegExp(`https?://${H}/wp-content/`, 'g');
 const WP_CONTENT_RE_ESC = new RegExp(`https?:\\\\/\\\\/${H}\\\\/wp-content\\\\/`, 'g');
@@ -66,6 +76,12 @@ const MEDIA_TARGET = MEDIA_ORIGIN
   : '/wp-content/uploads/';
 
 /**
+ * Without a media host this is exactly what the generic wp-content rule would
+ * have produced, so adding the rule above changes nothing until one is set.
+ */
+const WEBP_TARGET = MEDIA_ORIGIN ? `${MEDIA_ORIGIN}${WEBP_PATH}` : WEBP_PATH;
+
+/**
  * Point WordPress' absolute URLs at the public site, for post *body* HTML.
  *
  * Media goes to the media host when one is configured; every other WordPress
@@ -74,12 +90,15 @@ const MEDIA_TARGET = MEDIA_ORIGIN
  */
 function rewrite(html) {
   if (!html) return html;
-  // Order matters: uploads, then the rest of wp-content, then everything else.
+  // Order matters: uploads, then the WebP variants, then the rest of
+  // wp-content, then everything else. Each rule is a prefix of the next.
   const out = html
     .replace(MEDIA_RE, MEDIA_TARGET)
+    .replace(WEBP_RE, WEBP_TARGET)
     .replace(WP_CONTENT_RE, '/wp-assets/wp-content/')
     .replace(LINK_RE, '/')
     .replace(MEDIA_RE_ESC, () => ESC(MEDIA_TARGET))
+    .replace(WEBP_RE_ESC, () => ESC(WEBP_TARGET))
     .replace(WP_CONTENT_RE_ESC, () => ESC('/wp-assets/wp-content/'))
     .replace(LINK_RE_ESC, () => ESC('/'));
   return normalizeLinks(out);
@@ -95,10 +114,13 @@ function rewrite(html) {
 function rewriteHead(head) {
   if (!head) return head;
   const media = MEDIA_ORIGIN ? MEDIA_TARGET : `${SITE_URL}/wp-content/uploads/`;
+  const webp = MEDIA_ORIGIN ? `${MEDIA_ORIGIN}${WEBP_PATH}` : `${SITE_URL}${WEBP_PATH}`;
   return head
     .replace(MEDIA_RE, media)
+    .replace(WEBP_RE, webp)
     .replace(LINK_RE, `${SITE_URL}/`)
     .replace(MEDIA_RE_ESC, () => ESC(media))
+    .replace(WEBP_RE_ESC, () => ESC(webp))
     .replace(LINK_RE_ESC, () => ESC(`${SITE_URL}/`));
 }
 
@@ -269,9 +291,16 @@ export function wpPosts() {
        * changes it without touching any post's `modified`, so keying on the
        * timestamp alone meant a refreshed snapshot was silently ignored and the
        * build reused records built from the old one.
+       *
+       * `MEDIA_ORIGIN` and `SITE_URL` are inputs for the same reason — `rewrite`
+       * bakes the media host into every image URL and `rewriteHead` bakes the
+       * site origin into every canonical and schema `@id`. Without them here,
+       * turning on a media host reused records whose images still pointed at
+       * the origin, and the failure was invisible: the build succeeded, the
+       * pages rendered, and 264 thumbnails on the blog index quietly 404'd.
        */
       const digestOf = p => generateDigest(
-        `${SCHEMA_VERSION}:${p.slug}:${p.modified}:` +
+        `${SCHEMA_VERSION}:${p.slug}:${p.modified}:${MEDIA_ORIGIN}:${SITE_URL}:` +
         JSON.stringify(ACF_SNAPSHOT[p.slug] ?? null)
       );
 

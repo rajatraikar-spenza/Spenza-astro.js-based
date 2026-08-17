@@ -1,0 +1,98 @@
+---
+/**
+ * Not found.
+ *
+ * Every static host serves `dist/404.html` for an unmatched path. Without this
+ * file they fall back to their own generic error page — no header, no nav, and
+ * no way back into the site from a stale inbound link, of which a fifteen-year
+ * WordPress history has plenty.
+ *
+ * It borrows `sub-processors`' stylesheet set rather than declaring its own.
+ * `WpLayout` keys its CSS off a page slug from the generated data files, and
+ * those are rebuilt from WordPress on every mirror run, so a hand-added `404`
+ * key would not survive one. Of the 42 shared bundles this is the smallest at
+ * 408KB, and it belongs to a plain prose page — so it carries the chrome and
+ * body copy styling this page needs and very little else.
+ */
+import WpLayout from '../layouts/WpLayout.astro';
+
+const STYLE_SOURCE = 'sub-processors';
+
+/** Where someone who landed here most plausibly meant to go. */
+const DESTINATIONS = [
+  { href: '/', label: 'Home' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/telecom-expense-management/', label: 'Telecom expense management' },
+  { href: '/contact-us/', label: 'Contact us' },
+];
+---
+
+<WpLayout
+  slug={STYLE_SOURCE}
+  title="Page not found — Spenza"
+  description="That page doesn't exist or has moved."
+>
+  <section class="wp-404">
+    <p class="wp-404__code">404</p>
+    <h1 class="wp-404__title">That page has moved, or never existed.</h1>
+    <p class="wp-404__body">
+      Check the address, or pick up from one of these instead.
+    </p>
+    <ul class="wp-404__links">
+      {DESTINATIONS.map(d => (
+        <li><a href={d.href}>{d.label}</a></li>
+      ))}
+    </ul>
+  </section>
+</WpLayout>
+
+<style>
+  /*
+   * Scoped rather than reusing Elementor's classes: this page has no mirrored
+   * counterpart to copy, and hand-picking widget classes would tie it to markup
+   * the marketing team can change from inside Elementor.
+   */
+  .wp-404 {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 7rem;
+    text-align: center;
+  }
+
+  .wp-404__code {
+    margin: 0 0 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #6b7280;
+  }
+
+  .wp-404__title {
+    margin: 0 0 1rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .wp-404__body {
+    margin: 0 0 2.5rem;
+    color: #4b5563;
+    font-size: 1.0625rem;
+  }
+
+  .wp-404__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .wp-404__links a {
+    color: #144c94;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+</style>

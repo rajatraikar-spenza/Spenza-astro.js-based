@@ -11,11 +11,19 @@
  *
  * Astro gives named-parameter routes priority over rest parameters, so this
  * never shadows a real page.
+ *
+ * Superseded by the `_redirects` file the build writes, which gets these served
+ * as real 301s. Set `HOST_REDIRECTS=1` once the host is confirmed to honour it
+ * and these stand-ins stop being emitted; until then both exist, and the worst
+ * case is the meta refresh that was already shipping.
  */
 import Redirect from '../components/Redirect.astro';
 import wpRedirects from '../data/wp-redirects.json';
+import { HOST_REDIRECTS } from '../../scripts/lib/config.mjs';
 
 export async function getStaticPaths() {
+  if (HOST_REDIRECTS) return [];
+
   // WordPress serves both `/contact` and `/contact/`; as a rest param they are
   // the same route, and emitting it twice is a build error.
   const byPath = new Map<string, string>();

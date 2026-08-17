@@ -17,6 +17,8 @@ shim, and a thin polish layer smooths the motion.
 | `npm run wp:audit` | Verify every asset each mirrored page references resolves |
 | `npm run wp:audit-links` | Verify every internal link resolves |
 | `npm run wp:optimize-css` | Rebuild the purged CSS bundles (see below) |
+| `npm run wp:verify-dist` | Verify every asset the build references exists |
+| `npm run wp:fonts` | Mirror the Google Fonts the markup still requests |
 
 ## Architecture
 

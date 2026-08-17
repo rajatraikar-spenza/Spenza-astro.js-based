@@ -18,9 +18,11 @@ import wpStyles from '../data/wp-styles.json';
 import wpInlineStyles from '../data/wp-inline-styles.json';
 import wpPages from '../data/wp-pages.json';
 import wpCssBundles from '../data/wp-css-bundles.json';
+import wpScripts from '../data/wp-scripts.json';
 import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
-import { MEDIA_ORIGIN } from '../../scripts/lib/config.mjs';
+import { MEDIA_ORIGIN, toMediaOrigin } from '../../scripts/lib/config.mjs';
+import { applyHtmlPerf } from '../../scripts/lib/html-perf.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
 import { renderTldrHeading, renderSummary, renderKeyPoints, renderSpenzaBlock } from '../lib/acf-blocks.ts';
 import { removeWidget } from '../../scripts/lib/widget-html.mjs';
@@ -50,6 +52,19 @@ const bodyClass = [
   (wpPages as Record<string, { bodyClass?: string }>)['__post__']?.bodyClass ?? '',
   `category-${d.category}`,
 ].filter(Boolean).join(' ');
+
+/**
+ * The footer scripts WordPress runs on every post — mobile submenus, the
+ * newsletter popup, the author-avatar swap, the icon-box card effects — minus
+ * anything belonging to one post's body. Captured by wp:post-template alongside
+ * the styles above.
+ *
+ * Each post's *own* inline scripts are not here and do not need to be: they
+ * arrive inside `content` and, because the page is server-rendered rather than
+ * assembled with innerHTML, the browser executes them from the initial HTML.
+ */
+const postScript: string | null =
+  (wpScripts as Record<string, { script: string | null }>)['__post__']?.script ?? null;
 
 // ---- slot content ---------------------------------------------------------
 const esc = (s: string) =>
@@ -125,10 +140,28 @@ for (const [id, value] of [['b8f4b5b', tldrHeading], ['c26dd48', summary]] as co
   if (!value) body = removeWidget(body, id);
 }
 
+/**
+ * The subscribe form's submit label.
+ *
+ * Gravity Forms renders form 19 with "Book a Free Demo" on every page; a WPCode
+ * footer snippet rewrites it to "Subscribe" once loaded. That snippet is in the
+ * `__post__` bundle now, so this is belt and braces — but it is the half that
+ * runs before paint, and it is what spares the reader the flash of the wrong
+ * label that the live site shows.
+ */
+body = body.replace(
+  /(<input[^>]*\bid=(['"])gform_submit_button_19\2[^>]*\bvalue=(['"]))Book a Free Demo\3/,
+  '$1Subscribe$3'
+);
+
 // Media in the shell came from the sample post; point it at the media host too.
-if (MEDIA_ORIGIN) {
-  body = body.replace(/(["'(\s])\/wp-content\/uploads\//g, `$1${MEDIA_ORIGIN}/wp-content/uploads/`);
-}
+// Covers the WebP variants as well as the originals — see `toMediaOrigin`.
+//
+// `applyHtmlPerf` matters more here than it looks: post bodies never pass
+// through the Vite plugin that rewrites the mirrored partials, and it is the
+// posts that carry the two 30MB product videos and every YouTube embed on the
+// site. Without this the heaviest pages are exactly the ones left unoptimised.
+body = toMediaOrigin(applyHtmlPerf(body));
 ---
 
 <!DOCTYPE html>
@@ -155,15 +188,21 @@ if (MEDIA_ORIGIN) {
         </>
       )}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    {MEDIA_ORIGIN && <link rel="preconnect" href={MEDIA_ORIGIN} crossorigin />}
+    {/*
+      No preconnect to fonts.googleapis.com / fonts.gstatic.com: `npm run wp:fonts`
+      mirrors those stylesheets and their woff2 into /wp-assets/_fonts/, so
+      nothing on the page reaches Google. A preconnect to a host the page never
+      contacts costs a speculative DNS lookup and TLS handshake for nothing.
+    */}
+    {/* Deliberately without `crossorigin` — see the note in WpLayout. */}
+    {MEDIA_ORIGIN && <link rel="preconnect" href={MEDIA_ORIGIN} />}
 
     {styles.map(href => <link rel="stylesheet" href={href} />)}
     {inlineStyle && <link rel="stylesheet" href={inlineStyle} />}
 
     <script src="/wp-assets/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js" defer></script>
     <script src="/scripts/wp-shim.js" defer></script>
+    {postScript && <script src={postScript} defer></script>}
   </head>
   <body class={bodyClass}>
     <a class="skip-link screen-reader-text" href="#wp-main">Skip to content</a>

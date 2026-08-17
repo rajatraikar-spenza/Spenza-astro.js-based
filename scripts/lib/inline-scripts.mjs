@@ -19,6 +19,11 @@ const DENY = [
   /elementorAdminBarConfig|astraAddon|var astra =|zip_ai_react|leadin_wordpress/,
   /gravatarEnhancedHovercards|gform_theme_config|wpNotesArgs|EAELImageMaskingConfig/,
   /var localize =/, /hbspt|hs-script/, /clarity|hotjar|fbq\(/,
+  // Spectra emits one bootstrap per page for the blocks in that page's body,
+  // calling into a frontend runtime that is not mirrored. It is a guaranteed
+  // ReferenceError, and thrown from a `load` listener, where the per-snippet
+  // try/catch below cannot reach it.
+  /\bUAGB\w*\.init\b/,
 ];
 
 /**

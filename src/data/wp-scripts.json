@@ -1956,5 +1956,9 @@
   "telecom-savings-calculator": {
     "script": "/scripts/page/telecom-savings-calculator.js",
     "jsonLd": []
+  },
+  "__post__": {
+    "script": "/scripts/page/__post__.js",
+    "jsonLd": []
   }
 }

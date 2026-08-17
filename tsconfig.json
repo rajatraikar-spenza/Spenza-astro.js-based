@@ -1,5 +1,16 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": [
+    "dist",
+    // Generated, not authored. `public/scripts/page/*.js` is WordPress' own
+    // inline JavaScript extracted verbatim by `wp:scripts`, and `wp-shim.js`
+    // reimplements Elementor's runtime against untyped globals. Type-checking
+    // either reports on code the mirror will overwrite on its next run, which
+    // buries real errors in `src/` under hundreds of unfixable warnings.
+    "public/scripts",
+    // Mirrored Elementor/Astra assets — third-party, minified, not ours.
+    "public/wp-assets",
+    "public/wp-content"
+  ]
 }

@@ -605,29 +605,15 @@
    * occupies its box but paints nothing — on the blog and archive filter bars that
    * reads as a blank white panel beside the category links.
    *
-   * Reveal it, and take over the clear button, which Elementor toggles from the
-   * same handler. The live-results dropdown is an authenticated WP AJAX endpoint
-   * and cannot be mirrored, so the form is left to submit normally.
+   * Reveal it. The live-results dropdown is an authenticated WP AJAX endpoint and
+   * cannot be mirrored, so the form is left to submit normally.
+   *
+   * Elementor's clear button is not wired up: it is hidden in `wp-polish.css`
+   * instead, so the only control in the field is the magnifier.
    */
   function initSearch() {
     document.querySelectorAll('.elementor-widget-search .e-search').forEach(widget => {
       widget.classList.remove('hidden');
-
-      const input = widget.querySelector('.e-search-input');
-      const clear = widget.querySelector('.e-search-form .fa-times');
-      if (!input || !clear) return;
-
-      // Elementor keys the clear button off the input being non-empty. The
-      // mirrored markup was captured mid-session, so it can arrive either way.
-      const syncClear = () => clear.classList.toggle('hidden', !input.value);
-      syncClear();
-
-      on(input, 'input', syncClear);
-      on(clear, 'click', () => {
-        input.value = '';
-        syncClear();
-        input.focus();
-      });
     });
   }
 
@@ -736,9 +722,16 @@
    * Detect it from computed styles (the affected buttons share no distinguishing
    * class with the healthy ones) and restore the brand gradient the page CSS
    * was trying to apply.
+   *
+   * Buttons awaiting `initContainerLazyload` are skipped: their background image
+   * is suppressed by Elementor's lazy-load rule, so measuring them now would
+   * misread a not-yet-painted gradient as no gradient and tag them for good.
+   * The observer calls back into here once the container is marked loaded.
    */
-  function fixInvisibleButtons() {
-    document.querySelectorAll('.elementor-button').forEach(btn => {
+  function fixInvisibleButtons(root = document) {
+    root.querySelectorAll('.elementor-button').forEach(btn => {
+      if (btn.closest('.e-con.e-parent:not(.e-lazyloaded):not(.e-no-lazyload)')) return;
+
       const cs = getComputedStyle(btn);
       const hasOwnBackground =
         cs.backgroundImage !== 'none' || !isTransparent(cs.backgroundColor);
@@ -791,6 +784,93 @@
     return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
   }
 
+  /* ------------------------------------------------------- background lazy */
+
+  /**
+   * Elementor's background lazy-load, which the mirrored CSS relies on.
+   *
+   * Elementor ships a rule that blanks the background of every top-level
+   * container from the fourth onwards until its runtime marks it loaded:
+   *
+   *   .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+   *   .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) *
+   *     { background-image: none !important }
+   *
+   * Note the descendant `*`: without the `e-lazyloaded` class nothing below
+   * those containers can paint a background image either. On posts that meant
+   * the TL;DR panel lost its gradient and "Related <span>Articles</span>" — a
+   * gradient clipped to the text — rendered transparent, i.e. invisible.
+   *
+   * `!important` beats every author rule, so the class is the only fix.
+   */
+  function initContainerLazyload() {
+    const containers = document.querySelectorAll('.e-con.e-parent:not(.e-no-lazyload)');
+    const load = el => {
+      el.classList.add('e-lazyloaded');
+      // Its buttons can be measured now that their backgrounds can paint.
+      fixInvisibleButtons(el);
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      containers.forEach(load);
+      return;
+    }
+
+    // Elementor's own margin: start painting a little before the container
+    // scrolls in, so the background is never seen appearing.
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        load(entry.target);
+        obs.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px 400px 0px' });
+
+    containers.forEach(el => io.observe(el));
+  }
+
+  /* ---------------------------------------------------------------- video */
+
+  /**
+   * Start autoplaying videos when they scroll into view, not on page load.
+   *
+   * Elementor emits `<video autoplay muted>` for its background videos, which
+   * makes the browser fetch the file during initial load — 2.1MB competing with
+   * the LCP image on five landing pages, for something usually below the fold.
+   * The build rewrites `autoplay` to `data-wp-autoplay` so nothing starts on its
+   * own, and this begins playback at the point it would first be seen.
+   *
+   * `play()` returns a promise that rejects when a browser declines to autoplay.
+   * That is a normal outcome, not an error, so it is swallowed: the video simply
+   * stays on its first frame, which is what it would have done anyway.
+   */
+  function initAutoplayVideos() {
+    const videos = document.querySelectorAll('video[data-wp-autoplay]');
+    if (!videos.length) return;
+
+    const start = el => {
+      el.preload = 'auto';
+      el.muted = true;           // Required, or the play() promise rejects.
+      const played = el.play();
+      if (played && typeof played.catch === 'function') played.catch(() => {});
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach(start);
+      return;
+    }
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        start(entry.target);
+        obs.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px 200px 0px' });
+
+    videos.forEach(el => io.observe(el));
+  }
+
   /* --------------------------------------------------------------- reveal */
 
   /**
@@ -838,6 +918,8 @@
     initFaqBlocks();
     initTableOfContents();
     initSearch();
+    initContainerLazyload();
+    initAutoplayVideos();
     initReveal();
     fixInvisibleButtons();
     // Swiper is loaded with `defer`, so it may land after DOMContentLoaded.

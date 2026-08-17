@@ -73,11 +73,23 @@ Post *content* now comes from WordPress via WPGraphQL, not the mirror:
 - **Known gap:** three widgets (`summary`, `keyPoints`, `spenzaBlock`) are
   rendered by a shortcode reading a field WPGraphQL does not expose, so they
   render empty. Slots exist and will fill once that field is registered.
-- Headless posts render at `/preview/post/<slug>/` for parity comparison. The
-  live `/<category>/<slug>/` routes still serve the mirrored partials — they are
-  the rollback. Compare with `npm run wp:diff-headless` after a build.
+- **Every post is headless now.** `HEADLESS_ALL = true` in
+  `src/data/headless-slugs.ts` and `/<category>/<slug>/` renders through
+  `ArticleLayout`. The rollback is per-post: add a slug to `MIRROR_ONLY` and it
+  falls back to its mirrored partial, provided that partial still exists.
+- Post bodies never pass through `partial-rewrites-plugin.mjs` — they come from
+  the loader, not from `src/partials/`. Anything that rewrites markup must go in
+  `scripts/lib/html-perf.mjs`, which both paths call. Putting it in only one
+  covers about half the site, and not the half you would guess: the 30MB product
+  videos and every YouTube embed are in posts.
+- `MEDIA_ORIGIN` is part of the loader's cache digest, along with `SITE_URL`.
+  Anything else baked into a stored record must be added there too, or a changed
+  environment silently reuses records rewritten for the old one.
 - After any change to the pipeline, run:
   `npm run build && npm run wp:audit && npm run wp:audit-links`
+  then `npm run wp:verify-dist` — the audits crawl a preview server and check
+  what pages link to; only `wp:verify-dist` catches a reference that resolves
+  locally today and 404s once media stops being deployed.
 - `.wp-cache/` holds a live WordPress session cookie. It is gitignored — never
   commit it. WordPress expires it after 48h unless the login used "Remember Me"
   (then 14 days). A stale cookie does not fail loudly — the scripts mirror login
@@ -90,3 +102,33 @@ Post *content* now comes from WordPress via WPGraphQL, not the mirror:
   file is the route index and is rebuilt from scratch, so a partial run would
   delete blog routes. After one, restore with `ONLY_MISSING=1 npm run wp:posts`,
   which reindexes from the partials on disk without refetching.
+
+## Deployment
+
+The build is environment-driven. Nothing about it is host-specific except the
+two files it writes into `dist/`.
+
+| Variable | Effect |
+| :------- | :----- |
+| `SITE_URL` | Canonicals, Open Graph, sitemap. Defaults to production. |
+| `WP_ORIGIN` | Where post content is fetched from. Defaults to preprod. |
+| `MEDIA_ORIGIN` | Serves media, and drops 2.2GB from `dist`. |
+| `NOINDEX=1` | `Disallow: /` plus `X-Robots-Tag`. Set on every preview. |
+| `HOST_REDIRECTS=1` | Stop emitting the 86 HTML redirect stand-ins. |
+
+- `NOINDEX` is opt-*out* on purpose. A staging site that slips into the index is
+  fixable; a production site that ships `Disallow: /` deletes itself from Google
+  and gives no signal. The build warns when `SITE_URL` is overridden and
+  `NOINDEX` is not set, which is the shape of a preview deploy that forgot.
+- `astro:build:done` writes `_redirects` and `_headers` (Cloudflare Pages and
+  Netlify share the format; Vercel wants the same rules in `vercel.json`),
+  prunes stylesheets nothing links to, and drops the media trees when
+  `MEDIA_ORIGIN` is set. See `scripts/lib/host-files-integration.mjs`.
+- Media lives in S3 behind `media.spenza.com`. `scripts/aws-media-host.sh`
+  builds and verifies that stack; run it with no arguments for the steps.
+- **New posts publish new images.** They are not in the bucket and the build
+  will not warn you. Run `npm run wp:blog-media-sync`, then `aws s3 sync … 
+  --size-only`, then build. Wire the first two into the deploy job.
+- `npm run wp:fonts` mirrors any Google Fonts the markup still requests. It
+  scans `dist` as well as the repo, because a font requested only by a post body
+  does not exist on disk until a build has run — so it is build, scan, build.

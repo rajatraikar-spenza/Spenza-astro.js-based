@@ -136,7 +136,11 @@ function webpFor(url: string): string | null {
   if (!m) return null;
 
   const variant = `/wp-assets/wp-content/webp-express/webp-images/uploads/${m[1]}.webp`;
-  return existsSync(path.join(ROOT, 'public', variant)) ? variant : null;
+  // Existence is checked against the repo, which is always where the files are.
+  // What is *emitted* has to follow the media host, or the `<source>` points at
+  // an origin that stops carrying media the moment the split happens.
+  if (!existsSync(path.join(ROOT, 'public', variant))) return null;
+  return MEDIA_ORIGIN ? `${MEDIA_ORIGIN}${variant}` : variant;
 }
 
 /** The same mapping applied across a candidate list. */
