@@ -144,6 +144,9 @@ changes no other step.
   header/footer and the archives are captured HTML that needs `npm run wp:resync`
   with a logged-in session, which cannot run unattended. An editor changing the
   homepage in Elementor will not see it appear.
+- The content store is `node_modules/.astro/data-store.json`, not `.astro/` —
+  that holds generated types only. Caching the wrong path looks like it works
+  and silently refetches all 259 posts every run.
 - `wp:media-sync-s3` diffs against the bucket, not `public/` — a CI runner has
   no media, so the local diff would re-download 2.2GB every run. It also fetches
   each new image's WebP twin and rewrites the manifest from the bucket.
