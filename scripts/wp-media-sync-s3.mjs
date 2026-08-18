@@ -64,13 +64,36 @@ const inBucket = new Set([
 out(`  ${inBucket.size.toLocaleString()} objects\n\n`);
 
 // ---- what the posts actually reference ------------------------------------
-out('reading posts from WordPress…\n');
-const index = await wpPaginate(
-  cursor => `{posts(first:100${cursor ? `,after:"${cursor}"` : ''},` +
-    `where:{status:PUBLISH}){pageInfo{hasNextPage endCursor} nodes{slug}}}`,
-  d => d.posts,
-  { pageSize: 100 }
-);
+//
+// WordPress being unreachable is not a reason to fail a deploy. The bucket
+// already holds every image the last successful run knew about, and the build
+// can proceed from its cached content store, so an outage here costs new
+// media - which the next good run picks up - rather than blocking an
+// unrelated change from shipping.
+//
+// Only a connection-level failure is treated that way. A malformed response
+// or a rejected query is a real fault and still throws.
+function unreachable(err) {
+  return /fetch failed|ENOTFOUND|ECONNREFUSED|ECONNRESET|ETIMEDOUT|EAI_AGAIN|timed out|aborted/i
+    .test(err?.message ?? '');
+}
+
+out('reading posts from WordPress\n');
+let index;
+try {
+  index = await wpPaginate(
+    cursor => `{posts(first:100${cursor ? `,after:"${cursor}"` : ''},` +
+      `where:{status:PUBLISH}){pageInfo{hasNextPage endCursor} nodes{slug}}}`,
+    d => d.posts,
+    { pageSize: 100 }
+  );
+} catch (err) {
+  if (!unreachable(err)) throw err;
+  out(`\nWordPress is unreachable from here: ${err.message}\n` +
+      `Skipping the media sync. The bucket keeps what it already has, and the\n` +
+      `next run that can reach WordPress picks up anything new.\n`);
+  process.exit(0);
+}
 
 const refs = new Set();
 for (let i = 0; i < index.length; i += BATCH) {
