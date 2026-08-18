@@ -9,6 +9,7 @@
 // Written from src/data/wp-redirects.json so the table has one source. Run by
 // scripts/aws-site-host.sh; the output is not committed.
 import fs from 'node:fs/promises';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { PROJECT } from './lib/config.mjs';
 
@@ -41,7 +42,24 @@ if (!existsSync(path.join(DIST, 'index.html'))) {
   );
   process.exit(1);
 }
-const isPage = key => existsSync(path.join(DIST, key, 'index.html'));
+/**
+ * A real page, as opposed to one of the redirect stand-ins.
+ *
+ * `[...wpRedirect].astro` emits a meta-refresh page per old URL unless
+ * HOST_REDIRECTS is set, so a build made without it contains an `index.html`
+ * for every redirect source. Testing existence alone then marks all 96 as
+ * pages and drops the entire table — the function shipped with zero rules and
+ * nothing said so.
+ *
+ * Reading the file distinguishes them: a stand-in carries the refresh meta and
+ * nothing else does.
+ */
+const isPage = key => {
+  const file = path.join(DIST, key, 'index.html');
+  if (!existsSync(file)) return false;
+  const html = readFileSync(file, 'utf8');
+  return !/<meta http-equiv="refresh"/i.test(html);
+};
 
 const table = {};
 let selfReferential = 0, shadowing = 0;

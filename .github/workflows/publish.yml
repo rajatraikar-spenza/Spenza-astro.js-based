@@ -138,6 +138,17 @@ jobs:
         if: steps.changed.outputs.skip != 'true'
         run: npm run wp:verify-dist -- "$MEDIA_ORIGIN"
 
+      # The redirect table lives in the CloudFront Function, not in the bucket,
+      # so a deploy alone never updates it. Eight redirects sat 404ing after
+      # wp:redirects added them because nothing republished the function.
+      #
+      # Runs after the build because the generator filters the table against the
+      # pages that were actually emitted, and idempotent: an unchanged function
+      # republishes to the same behaviour.
+      - name: Publish the router function
+        if: steps.changed.outputs.skip != 'true'
+        run: bash scripts/aws-site-host.sh function
+
       # Skips itself when the build hashes identical to what is already live,
       # which is the common case on a schedule.
       - name: Deploy
