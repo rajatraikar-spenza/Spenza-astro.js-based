@@ -23,6 +23,17 @@ import { normalizeLinks } from '../../scripts/lib/normalize-links.mjs';
  */
 import ACF_SNAPSHOT from '../data/wp-acf-blocks.json' with { type: 'json' };
 
+/**
+ * Author avatars and bios, recovered from the mirrored markup by
+ * `npm run wp:authors`.
+ *
+ * WPGraphQL answers `author.avatar` with null for an anonymous request even
+ * though WordPress writes a gravatar into every archive it renders — the field
+ * is gated, not absent. Without this every card showed a name with no picture,
+ * because `post-card` only emits the image when it has a URL.
+ */
+import AUTHORS from '../data/wp-authors.json' with { type: 'json' };
+
 /** Posts fetched per content request. 10 returns ~560KB in ~4.5s. */
 const BATCH = 10;
 
@@ -31,7 +42,7 @@ const BATCH = 10;
  * so raising it re-fetches everything — the alternative is a store full of
  * records that predate a field and a build that fails far from the cause.
  */
-const SCHEMA_VERSION = 10;
+const SCHEMA_VERSION = 11;
 
 const H = WP_HOST.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -190,8 +201,13 @@ function toEntry(node, routeFor) {
       ? {
           name: node.author.node.name,
           slug: node.author.node.slug,
-          bio: node.author.node.description || undefined,
-          avatar: node.author.node.avatar?.url || undefined,
+          // The API wins where it answers; the mirror fills what it withholds.
+          bio: node.author.node.description
+            || AUTHORS[node.author.node.slug]?.description
+            || undefined,
+          avatar: node.author.node.avatar?.url
+            || AUTHORS[node.author.node.slug]?.avatar
+            || undefined,
         }
       : undefined,
     featuredImage: node.featuredImage?.node

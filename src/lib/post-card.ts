@@ -32,12 +32,15 @@
 import type { CollectionEntry } from 'astro:content';
 import { categoryLabel } from '../data/blog-categories.ts';
 
+export { decodeEntities } from '../../scripts/lib/html-entities.mjs';
+import { decodeEntities } from '../../scripts/lib/html-entities.mjs';
+
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 /** Excerpts arrive as HTML from WordPress; cards want a short plain string. */
 function plain(html: string, max = 160): string {
-  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const text = decodeEntities(html.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
   if (text.length <= max) return text;
   return text.slice(0, text.lastIndexOf(' ', max)).trimEnd() + '…';
 }

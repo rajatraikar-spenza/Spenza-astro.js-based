@@ -10,6 +10,7 @@
 // schema graph are only meaningful as absolute URLs; making them root-relative
 // the way body links are would quietly break canonicalisation across the site.
 import { WP_HOST, SITE_URL, MEDIA_ORIGIN, WEBP_PATH } from './config.mjs';
+import { decodeEntities } from './html-entities.mjs';
 
 const H = WP_HOST.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -81,8 +82,14 @@ export function withoutTitle(head) {
   return (head || '').replace(/<title>[\s\S]*?<\/title>\s*/i, '');
 }
 
-/** Yoast's `<title>`, so the layout can emit it in its usual place. */
+/**
+ * Yoast's `<title>`, so the layout can emit it in its usual place.
+ *
+ * Decoded on the way out: the layout interpolates this into `<title>{...}</title>`
+ * and Astro escapes expressions, so returning the raw `Analytics &amp; Expense`
+ * produced `&amp;amp;` and a reader saw the entity.
+ */
 export function titleFrom(head) {
   const m = /<title>([\s\S]*?)<\/title>/i.exec(head || '');
-  return m ? m[1].trim() : null;
+  return m ? decodeEntities(m[1].trim()) : null;
 }
