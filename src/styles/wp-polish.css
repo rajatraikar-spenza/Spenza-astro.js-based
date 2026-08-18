@@ -759,8 +759,15 @@ body.wp-mirror.e-off-canvas__no-scroll {
     min-width: 0 !important;
   }
 
+  /*
+   * The button fills its footer rather than hugging its label. The footer is a
+   * flex item that keeps a share of the row whatever the button does, so a
+   * shrink-to-fit button left ~73px of dead footer past the pill's right edge —
+   * the whole control then sat flush left in a centred container and read as
+   * badly aligned.
+   */
   .wp-mirror .eSim input[id^='gform_submit_button_'] {
-    width: auto !important;
+    width: 100% !important;
     height: 100%;
     padding: 10px 14px !important;
     font-size: 14px !important;

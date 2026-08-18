@@ -24,9 +24,18 @@ interface Props {
   slug: string;
   title?: string;
   description?: string;
+  /**
+   * Whether this route is a real, indexable page.
+   *
+   * The 404 page borrows another page's slug for its stylesheet set, which also
+   * handed it that page's Yoast head — so `dist/404.html` declared itself
+   * canonical for `/sub-processors/`. A 404 claiming to be a real page is worse
+   * than a 404 with no metadata at all.
+   */
+  indexable?: boolean;
 }
 
-const { slug, title, description } = Astro.props;
+const { slug, title, description, indexable = true } = Astro.props;
 
 type PageMeta = { id?: string; title: string; description: string; bodyClass: string };
 
@@ -72,7 +81,7 @@ const bodyClass = ['wp-mirror', meta?.bodyClass ?? 'elementor-default elementor-
  * The fallback stays: a page with no capture keeps the original tags rather
  * than losing its description and canonical entirely.
  */
-const captured = (wpSeo as Record<string, string>)[slug];
+const captured = indexable ? (wpSeo as Record<string, string>)[slug] : undefined;
 const seoHead: string | undefined = captured ? rewriteHead(captured) : undefined;
 
 const pageTitle = title ?? titleFrom(seoHead) ?? meta?.title ?? 'Spenza';
@@ -111,8 +120,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
         </>
       )}
 
-    {/* Yoast emits index,follow; a non-production build must override it. */}
-    {NOINDEX && <meta name="robots" content="noindex, nofollow" />}
+    {/* Yoast emits index,follow; a staging build and a 404 must override it. */}
+    {(NOINDEX || !indexable) && <meta name="robots" content="noindex, nofollow" />}
 
     {/*
       No preconnect to fonts.googleapis.com / fonts.gstatic.com: `npm run wp:fonts`

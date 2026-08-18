@@ -58,9 +58,18 @@ const pages = JSON.parse(await fs.readFile(path.join(DATA, 'wp-pages.json'), 'ut
  * stale capture; archives have no cached HTML to read. Both are skipped rather
  * than half-filled.
  */
-const routes = (await fs.readdir(path.join(PROJECT, 'src', 'pages')))
-  .filter(f => f.endsWith('.astro') && !f.startsWith('['))
-  .map(f => f.replace(/\.astro$/, ''));
+const PAGES_DIR = path.join(PROJECT, 'src', 'pages');
+const routes = [];
+for (const f of await fs.readdir(PAGES_DIR)) {
+  if (!f.endsWith('.astro') || f.startsWith('[')) continue;
+  // Some routes are redirect stubs rendering `<Redirect to=... />`. They carry
+  // no content of their own and emit a noindex head pointing at their target,
+  // so capturing Yoast metadata for them would only be dead weight.
+  const src = await fs.readFile(path.join(PAGES_DIR, f), 'utf8');
+  if (/<Redirect/.test(src)) continue;
+  if (f === '404.astro') continue;   // deliberately not indexable
+  routes.push(f.replace(/\.astro$/, ''));
+}
 
 const cookie = await cookieHeader();
 const seo = {};
