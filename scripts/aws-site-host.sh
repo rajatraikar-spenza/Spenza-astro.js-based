@@ -252,9 +252,32 @@ step_cdn() {
 
 step_deploy() {
   require_perms s3
-  bucket_exists || die "bucket ${BUCKET} does not exist — run 'bucket' first"
-  [ -d "$DIST_DIR" ] || die "$DIST_DIR not found — run a build first"
+  bucket_exists || die "bucket ${BUCKET} does not exist - run 'bucket' first"
+  [ -d "$DIST_DIR" ] || die "$DIST_DIR not found - run a build first"
   [ -f "$DIST_DIR/index.html" ] || die "$DIST_DIR has no index.html"
+
+  # Is this build actually different from the one already deployed?
+  #
+  # `aws s3 sync` compares size and modification time, and every build rewrites
+  # every file — so it reports the whole site as changed even when the bytes are
+  # identical, and a half-hourly cron would then invalidate 1,440 times a month
+  # against a free tier of 1,000. `--size-only` would fix the noise and
+  # introduce a worse bug: an edit that happens to preserve a file's length
+  # would never be uploaded.
+  #
+  # Builds are byte-reproducible, so a content hash answers it exactly. The
+  # previous hash lives in the bucket, which is the only thing both a laptop
+  # and a CI runner can agree on.
+  local hash prev
+  hash="$(find "$DIST_DIR" -type f -print0 | sort -z \
+    | xargs -0 sha256sum | sha256sum | cut -d" " -f1)"
+  prev="$(aws s3 cp "s3://${BUCKET}/.deploy-hash" - 2>/dev/null || true)"
+
+  if [ "$hash" = "$prev" ] && [ -z "${FORCE_DEPLOY:-}" ]; then
+    say "Build is identical to what is deployed, nothing to do"
+    info "${hash:0:16}"
+    return 0
+  fi
 
   aws configure set default.s3.max_concurrent_requests 32
 
@@ -274,19 +297,21 @@ step_deploy() {
     --cache-control "public, max-age=2592000"
 
   # Last, and with --delete, so a page that no longer exists stops being served.
-  # HTML only: the earlier passes must not delete assets an old page still uses
-  # while a stale HTML copy is cached at an edge.
+  # HTML only: the earlier passes must not delete an asset an old page still
+  # uses while a stale copy of that page is cached at an edge.
   say "HTML"
   aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --only-show-errors --delete \
     --exclude "*" --include "*.html" --include "*.xml" --include "robots.txt" \
     --cache-control "public, max-age=0, must-revalidate"
 
+  printf %s "$hash" | aws s3 cp - "s3://${BUCKET}/.deploy-hash" \
+    --cache-control "no-store" --only-show-errors
+
   local dist; dist="$(dist_id)"
-  if [ -n "$dist" ]; then
-    say "Invalidating HTML at the edge"
-    aws cloudfront create-invalidation --distribution-id "$dist" \
-      --paths '/*' --query 'Invalidation.Id' --output text | sed 's/^/    /'
-  fi
+  [ -n "$dist" ] || return 0
+  say "Invalidating HTML at the edge"
+  aws cloudfront create-invalidation --distribution-id "$dist" \
+    --paths '/*' --query 'Invalidation.Id' --output text | sed 's/^/    /'
 }
 
 step_alias() {

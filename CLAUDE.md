@@ -132,3 +132,26 @@ two files it writes into `dist/`.
 - `npm run wp:fonts` mirrors any Google Fonts the markup still requests. It
   scans `dist` as well as the repo, because a font requested only by a post body
   does not exist on disk until a build has run — so it is build, scan, build.
+
+## Publishing
+
+`.github/workflows/publish.yml` rebuilds from WordPress and deploys, every 30
+minutes and on demand. A poll rather than a webhook because it needs nothing
+installed on preprod; swapping `schedule` for `repository_dispatch` later
+changes no other step.
+
+- **Only blog posts are headless.** The 38 mirrored marketing pages, the
+  header/footer and the archives are captured HTML that needs `npm run wp:resync`
+  with a logged-in session, which cannot run unattended. An editor changing the
+  homepage in Elementor will not see it appear.
+- `wp:media-sync-s3` diffs against the bucket, not `public/` — a CI runner has
+  no media, so the local diff would re-download 2.2GB every run. It also fetches
+  each new image's WebP twin and rewrites the manifest from the bucket.
+- The deploy short-circuits on a content hash stored at `s3://spenza-site/
+  .deploy-hash`. Builds are byte-reproducible, so an unchanged site costs no S3
+  writes and no invalidation — `aws s3 sync` alone would report everything as
+  changed, because it compares mtime and every build rewrites every file.
+- Secrets: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, scoped to
+  `.github/ci-iam-policy.json`. Environment is set through repo *variables*
+  (`SITE_URL`, `NOINDEX`, …) so staging and production differ by configuration
+  rather than by a code change.

@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Comment": "Least privilege for .github/workflows/publish.yml. Deliberately cannot create or delete buckets, distributions, functions or policies - CI publishes content, it does not provision infrastructure. Use scripts/aws-site-host.sh policy for that, from a human's credentials.",
+  "Statement": [
+    {
+      "Sid": "ListBothBuckets",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetBucketLocation"],
+      "Resource": [
+        "arn:aws:s3:::spenza-site",
+        "arn:aws:s3:::spenza-media"
+      ]
+    },
+    {
+      "Sid": "PublishSiteObjects",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:GetObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::spenza-site/*"
+    },
+    {
+      "Sid": "AddMediaButNeverRemoveIt",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:GetObject"],
+      "Resource": "arn:aws:s3:::spenza-media/*"
+    },
+    {
+      "Sid": "InvalidateTheEdge",
+      "Effect": "Allow",
+      "Action": ["cloudfront:CreateInvalidation", "cloudfront:GetDistribution", "cloudfront:ListDistributions"],
+      "Resource": "*"
+    }
+  ]
+}

@@ -34,7 +34,8 @@
     "wp:watch": "node scripts/wp-watch.mjs",
     "wp:verify-dist": "node scripts/wp-verify-dist.mjs",
     "wp:fonts": "node scripts/wp-selfhost-fonts.mjs",
-    "wp:media-manifest": "node scripts/wp-media-manifest.mjs"
+    "wp:media-manifest": "node scripts/wp-media-manifest.mjs",
+    "wp:media-sync-s3": "node scripts/wp-media-sync-s3.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
