@@ -1,0 +1,127 @@
+# Rebuild the site from WordPress and deploy it, on a schedule.
+#
+# The site is static HTML in S3, so nothing a WordPress editor does reaches a
+# reader until a build runs. This is that build. It is a poll rather than a
+# webhook because it needs nothing installed on preprod — a webhook is strictly
+# better and can replace the `schedule` trigger below without changing any step.
+#
+# What it does NOT pick up: the 38 mirrored marketing pages, the header/footer,
+# and the archives. Those are captured HTML on disk and need `npm run wp:resync`
+# with a logged-in WordPress session, which cannot run unattended. Only blog
+# posts are headless.
+name: Publish
+
+on:
+  schedule:
+    # Every 30 minutes. GitHub runs these on a best-effort basis and can be
+    # several minutes late under load, which is fine for content this is.
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Deploy even if WordPress reports no changes'
+        type: boolean
+        default: false
+
+# One publish at a time. Two overlapping runs would race on the S3 sync, and
+# the later one could deploy an older build.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write        # only to commit a refreshed media manifest
+  id-token: write        # for OIDC, if the role below is ever configured
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      WP_ORIGIN:      ${{ vars.WP_ORIGIN      || 'https://preprod.spenza.com' }}
+      SITE_URL:       ${{ vars.SITE_URL       || 'https://d3t3v0en3w3l29.cloudfront.net' }}
+      MEDIA_ORIGIN:   ${{ vars.MEDIA_ORIGIN   || 'https://media.spenza.com' }}
+      HOST_REDIRECTS: '1'
+      # Staging is not indexable. Remove this variable to publish for real —
+      # see NOINDEX in scripts/lib/config.mjs for why it is opt-out.
+      NOINDEX:        ${{ vars.NOINDEX        || '1' }}
+      MEDIA_BUCKET:   ${{ vars.MEDIA_BUCKET   || 'spenza-media' }}
+      SITE_BUCKET:    ${{ vars.SITE_BUCKET    || 'spenza-site' }}
+      AWS_REGION:     us-east-1
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: npm
+
+      - run: npm ci
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # The loader is incremental, but its store is gitignored, so without this
+      # every run refetches all 259 posts from preprod — 1.5 minutes and 26
+      # queries, every 30 minutes, forever. With it, an unchanged site costs one
+      # index query and 3 seconds.
+      #
+      # The path is `node_modules/.astro`, not `.astro`. Astro keeps the content
+      # store under node_modules; `.astro/` holds only generated types. Caching
+      # the wrong one looks like it works and silently refetches everything.
+      #
+      # This step must stay AFTER `npm ci`, which deletes node_modules outright
+      # and would take the restored store with it.
+      - name: Cache the content store
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.astro
+          key: astro-store-${{ hashFiles('src/loaders/wp-posts.mjs') }}-${{ env.MEDIA_ORIGIN }}-${{ env.SITE_URL }}-${{ github.run_id }}
+          restore-keys: |
+            astro-store-${{ hashFiles('src/loaders/wp-posts.mjs') }}-${{ env.MEDIA_ORIGIN }}-${{ env.SITE_URL }}-
+
+      # New posts bring new images, which are on WordPress and not in the
+      # bucket. Without this the build succeeds and the post renders with a
+      # broken hero — the failure is silent, which is what makes it worth a
+      # dedicated step. Diffs against the bucket, so a fresh runner does not
+      # re-download 2.2GB.
+      - name: Sync new media to S3
+        run: npm run wp:media-sync-s3
+
+      - name: Build
+        run: npm run build
+
+      # Catches a reference that resolves locally but 404s once media is served
+      # from elsewhere — the class of bug the two crawl-based audits cannot see.
+      - name: Verify the build is self-consistent
+        run: npm run wp:verify-dist -- "$MEDIA_ORIGIN"
+
+      # Skips itself when the build hashes identical to what is already live,
+      # which is the common case on a schedule.
+      - name: Deploy
+        env:
+          FORCE_DEPLOY: ${{ inputs.force && '1' || '' }}
+        run: bash scripts/aws-site-host.sh deploy
+
+      - name: Smoke-test what was deployed
+        run: bash scripts/aws-site-host.sh verify
+
+      # The manifest is regenerated from the bucket above. Committing it back
+      # keeps a local `npm run build` — which has no bucket access — able to
+      # offer srcset and WebP for images added since the last commit.
+      - name: Commit the media manifest if it changed
+        run: |
+          if git diff --quiet -- src/data/wp-media-manifest.json; then
+            echo "manifest unchanged"
+            exit 0
+          fi
+          git config user.name  "spenza-publish[bot]"
+          git config user.email "spenza-publish[bot]@users.noreply.github.com"
+          git add src/data/wp-media-manifest.json
+          git commit -m "Refresh media manifest from the bucket [skip ci]"
+          git push
