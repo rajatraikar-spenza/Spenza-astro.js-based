@@ -1,8 +1,46 @@
 ---
+/**
+ * The home page: mirrored Elementor markup, with the post carousel rebuilt.
+ *
+ * "Latest Telecom Industry Insights" was frozen at whatever was newest when the
+ * mirror last ran — on the one section of the site whose job is to show what is
+ * newest. Its twelve slides are now rendered from the collection, so a post
+ * published in WordPress appears there on the next build.
+ *
+ * Everything else on the page stays exactly as mirrored.
+ */
 import WpLayout from '../layouts/WpLayout.astro';
 import content from '../partials/index.html?raw';
+import { getCollection } from 'astro:content';
+import { replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
+import { renderHomeCarousel, HOME_CAROUSEL_ID } from '../lib/home-carousel.ts';
+
+/** Matches the twelve the mirrored carousel carried. */
+const SLIDES = 12;
+
+const posts = await getCollection('posts');
+const newest = [...posts]
+  .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime())
+  .slice(0, SLIDES)
+  .map(p => p.data);
+
+/**
+ * Which day archives this build contains, so a slide's date only links one that
+ * exists. Globbed rather than probed on disk: this module is bundled, where a
+ * path relative to the source tree no longer resolves.
+ */
+const dayArchives = new Set(
+  Object.keys(import.meta.glob('../pages/[0-9][0-9][0-9][0-9]/*/*.astro'))
+    .map(f => f.replace(/^\.\.\/pages/, '').replace(/\.astro$/, '/'))
+);
+
+const body = replaceWidgetInner(
+  content,
+  HOME_CAROUSEL_ID,
+  renderHomeCarousel(newest, dayArchives)
+);
 ---
 
 <WpLayout slug="index">
-  <Fragment set:html={content} />
+  <Fragment set:html={body} />
 </WpLayout>

@@ -157,7 +157,7 @@ function webpSrcSet(candidates: string[]): string | null {
 }
 
 /** `theme-post-featured-image`, matching WordPress' own attachment markup. */
-function featuredImage(post: LoopPost): string {
+export function featuredImage(post: LoopPost): string {
   const img = post.featuredImage;
   if (!img) return '';
 
@@ -193,7 +193,7 @@ function featuredImage(post: LoopPost): string {
 }
 
 /** The arrow glyph Elementor renders inside the card's "Read More" button. */
-const ARROW_ICON =
+export const ARROW_ICON =
   '<svg class="ekit-svg-icon icon-arrow-right-circle" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">' +
   '<path d="M25.948 6.052c-2.871-2.871-6.688-4.452-10.748-4.452s-7.877 1.581-10.748 4.452-4.452 6.688-4.452 10.748 ' +
   '1.581 7.877 4.452 10.748 6.688 4.452 10.748 4.452 7.877-1.581 10.748-4.452 4.452-6.688 4.452-10.748-1.581-7.877-4.452-10.748z' +
