@@ -270,6 +270,78 @@ body.wp-mirror.e-off-canvas__no-scroll {
 }
 
 /*
+ * The filter bar — the rounded white strip holding "Search articles" and the
+ * category burger.
+ *
+ * Below the desktop breakpoint it ran the full width of the screen, so a pill
+ * with a 999px radius sat with both of its rounded ends jammed against the
+ * device edges, and its drop shadow had nowhere to fall. Give it the same
+ * gutter the rest of the page uses, and a shadow tinted to the brand's brown
+ * rather than the flat 20% black it shipped with.
+ *
+ * Selected by what the container holds rather than by element id: the id
+ * differs between the blog and the 200 archive pages that carry the same bar.
+ */
+@media (max-width: 1024px) {
+  .wp-mirror .e-con:has(> .elementor-widget-search) {
+    max-width: calc(100% - 32px);
+    margin-inline: auto;
+    border: 1px solid rgba(78, 84, 93, 0.08);
+    box-shadow: 0 8px 24px rgba(44, 24, 13, 0.1);
+  }
+
+  /*
+   * The magnifier and the text it sits next to.
+   *
+   * The icon is absolutely positioned inside a zero-width `<label>` that flex
+   * drops wherever the input leaves it — 46px short of the field's end, so it
+   * read as floating near the middle. And the input carries no right padding
+   * (`10px 0 10px 20px`), so a long query ran straight under the glyph.
+   *
+   * Pin the icon to the field's trailing edge and reserve room for it.
+   */
+  .wp-mirror .elementor-widget-search .e-search-form {
+    position: relative;
+    align-items: center;
+  }
+
+  /*
+   * The input carries a fixed `width: 242px` and so overflowed its own 200px
+   * form, spilling past the widget and taking the field's visible right edge
+   * with it. Fill the form instead, so the edge the icon is pinned to is the
+   * edge you can see.
+   */
+  .wp-mirror .elementor-widget-search .e-search-input {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-inline-end: 46px !important;
+  }
+
+  /*
+   * `left` and `top` are cleared explicitly: the theme sets `left: -70px` on
+   * this label, and an absolutely positioned box given both `left` and `right`
+   * stretches between them instead of hugging the edge asked for.
+   */
+  .wp-mirror .elementor-widget-search .e-search-label {
+    position: absolute !important;
+    inset: 50% 18px auto auto !important;
+    transform: translateY(-50%) !important;
+    width: auto !important;
+    margin: 0 !important;
+    pointer-events: none;
+  }
+
+  /*
+   * The glyph's own `translateY(-50%)` paired with the absolute positioning it
+   * no longer has, leaving it riding 7px above the centre of a 14px icon.
+   */
+  .wp-mirror .elementor-widget-search .e-search-label svg {
+    position: static !important;
+    transform: none !important;
+  }
+}
+
+/*
  * Blog pagination, which made every listing page 1830px wide at a 390px
  * viewport — the page scrolled sideways, and because a phone pins fixed
  * elements to the layout viewport rather than the visual one, the off-canvas
@@ -747,16 +819,21 @@ body.wp-mirror.e-off-canvas__no-scroll {
   }
 
   /*
-   * `min-width: 0` is the load-bearing declaration. A flex item defaults to
-   * `min-width: auto`, so the footer refused to shrink below the min-content
-   * width of everything Gravity Forms puts inside it — 164px, against a button
-   * that only needs 91px. The field got whatever was left, which at 320px is
-   * 46px: a subscribe box too narrow to show an email address.
+   * The button's share of the pill.
+   *
+   * `min-width: 0` is the load-bearing declaration: a flex item defaults to
+   * `min-width: auto`, and the footer would not shrink below a 164px floor —
+   * nearly half the control on a phone, so Subscribe looked like it had eaten
+   * the email field. Width alone cannot lift that floor; the two have to be set
+   * together.
+   *
+   * Selected as a child of the form because the `.gform_footer.before` selector
+   * does not take effect here, while `form[id^=gform_]` demonstrably does.
    */
-  .wp-mirror .eSim .gform_footer.before {
-    width: auto !important;
-    flex: 0 1 auto !important;
+  .wp-mirror .eSim form[id^='gform_'] > .gform_footer {
     min-width: 0 !important;
+    width: 38% !important;
+    flex: 0 0 38% !important;
   }
 
   /*

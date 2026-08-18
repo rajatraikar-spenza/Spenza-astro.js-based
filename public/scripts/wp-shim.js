@@ -280,6 +280,29 @@
     dropdown.style.width = `${Math.round(Math.min(width, limitRight - left))}px`;
   }
 
+  /* -------------------------------------------------------- subscribe form */
+
+  /**
+   * The subscribe form is drawn as one pill: an email field joined to a
+   * Subscribe button. On a phone the button took nearly half of it, so the
+   * field could not show a whole address.
+   *
+   * The button's share is set by its `.gform_footer`, a flex item that will not
+   * shrink below a 164px floor. Clearing that floor needs `min-width: 0`, and
+   * the declaration has no effect from the stylesheet on this one element —
+   * verified sitting in the served CSS, inside a media block that demonstrably
+   * applies (its neighbouring declarations land), matching the element, and
+   * still losing. Set on the element it holds, which is why it is here.
+   *
+   * The width itself stays in CSS; this only lifts the floor that was pinning
+   * it.
+   */
+  function initSubscribeForms() {
+    document.querySelectorAll('.eSim .gform_footer').forEach(footer => {
+      footer.style.setProperty('min-width', '0', 'important');
+    });
+  }
+
   /* ------------------------------------------------------------ off-canvas */
 
   /**
@@ -1330,6 +1353,7 @@
     initStickyHeader();
     initNestedMenus();
     initClassicMenus();
+    initSubscribeForms();
     initOffCanvas();
     initCounters();
     initTabs();
