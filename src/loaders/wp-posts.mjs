@@ -282,13 +282,39 @@ export function wpPosts() {
       // `uri` comes along here because WordPress' permalink is what decides the
       // route, and a post in two categories still has only one. Reading it is
       // cheap and removes the guesswork.
-      const index = await wpPaginate(
-        cursor => `{posts(first:100${cursor ? `,after:"${cursor}"` : ''},` +
-          `where:{status:PUBLISH}){pageInfo{hasNextPage endCursor} nodes{slug modified uri}}}`,
-        d => d.posts,
-        { pageSize: 100 }
-      );
+      let index;
+      try {
+        index = await wpPaginate(
+          cursor => `{posts(first:100${cursor ? `,after:"${cursor}"` : ''},` +
+            `where:{status:PUBLISH}){pageInfo{hasNextPage endCursor} nodes{slug modified uri}}}`,
+          d => d.posts,
+          { pageSize: 100 }
+        );
+      } catch (err) {
+        /**
+         * WordPress being unreachable is weather, not a broken build.
+         *
+         * The store already holds every post from the last good run, so the
+         * site can be rebuilt and deployed exactly as it stands. Failing here
+         * instead would mean an unrelated change - a CSS fix, a new page -
+         * cannot ship while the CMS is having a bad afternoon.
+         *
+         * A cold store is different: there is nothing to fall back to, and a
+         * blog with no posts is not a site worth deploying. Same for any
+         * failure that is not connection-level, which is a real fault.
+         */
+        const connection =
+          /fetch failed|ENOTFOUND|ECONNREFUSED|ECONNRESET|ETIMEDOUT|EAI_AGAIN|timed out|aborted/i
+            .test(err?.message ?? '');
+        const kept = store.keys().length;
+        if (!connection || !kept) throw err;
 
+        logger.warn(
+          `WordPress is unreachable (${err.message}). Keeping the ${kept} posts ` +
+          'already in the store - this build ships the last known content.'
+        );
+        return;
+      }
       if (!index.length) {
         throw new Error('WordPress returned zero published posts — refusing to empty the collection');
       }
