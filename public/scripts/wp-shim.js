@@ -164,6 +164,122 @@
     });
   }
 
+  /* --------------------------------------------------------- classic menus */
+
+  /**
+   * Elementor's *classic* nav-menu widget — a different widget from the nested
+   * menu above, and the one behind the blog's category filter bar ("All, BYOD,
+   * eSIM, IoT, MVNO…").
+   *
+   * It ships two copies of the list: a horizontal one for desktop and a
+   * dropdown for narrow screens, with a burger between them. Elementor's
+   * runtime is what puts `elementor-active` on that burger; without it the
+   * dropdown stayed clamped at `max-height: 0` forever, so on a phone the
+   * filter bar was a hamburger that did nothing and there was no way to reach
+   * a category at all. 202 mirrored pages carry one.
+   *
+   * The class contract is the widget's own, so the mirrored CSS animates it:
+   *
+   *   .elementor-menu-toggle:not(.elementor-active) + .elementor-nav-menu__container
+   *     { max-height: 0; transform: scaleY(0) }
+   *   .elementor-menu-toggle.elementor-active + .elementor-nav-menu__container
+   *     { max-height: var(--menu-height); transform: scaleY(1) }
+   */
+  function initClassicMenus() {
+    document.querySelectorAll('.elementor-widget-nav-menu').forEach(widget => {
+      const toggle = widget.querySelector('.elementor-menu-toggle');
+      const dropdown = widget.querySelector('.elementor-nav-menu--dropdown');
+      if (!toggle || !dropdown) return;
+
+      const setOpen = open => {
+        toggle.classList.toggle('elementor-active', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        dropdown.setAttribute('aria-hidden', String(!open));
+        // The dropdown copy ships with its links taken out of the tab order,
+        // which is correct only while it is shut.
+        dropdown.querySelectorAll('a').forEach(a => a.setAttribute('tabindex', open ? '0' : '-1'));
+
+        if (!open) return;
+        // `max-height` animates from the measured content height. Elementor's
+        // fallback is 100vh, which on a short list makes the transition run
+        // mostly through empty space.
+        dropdown.style.setProperty('--menu-height', `${dropdown.scrollHeight}px`);
+        positionDropdown(widget, dropdown);
+      };
+
+      const isOpen = () => toggle.classList.contains('elementor-active');
+
+      on(toggle, 'click', e => {
+        e.preventDefault();
+        setOpen(!isOpen());
+      });
+
+      // The toggle is a div with `role="button"`, so it produces no synthetic
+      // click of its own from the keyboard.
+      on(toggle, 'keydown', e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        setOpen(!isOpen());
+      });
+
+      on(document, 'click', e => {
+        if (isOpen() && !widget.contains(e.target)) setOpen(false);
+      });
+
+      on(document, 'keydown', e => {
+        if (e.key === 'Escape' && isOpen()) setOpen(false);
+      });
+
+      // Past the widget's breakpoint the horizontal copy takes over and the
+      // burger is hidden, so an open dropdown would be orphaned on screen.
+      on(window, 'resize', debounce(() => {
+        if (!isOpen()) return;
+        if (getComputedStyle(toggle).display === 'none') setOpen(false);
+        else positionDropdown(widget, dropdown);
+      }, 150));
+
+      setOpen(false);
+    });
+  }
+
+  /** Widest a drill-down panel gets before it stops reading as a menu. */
+  const DROPDOWN_MAX_WIDTH = 260;
+
+  /**
+   * `elementor-nav-menu--stretch` makes the dropdown `position: absolute` and
+   * leaves Elementor's runtime to give it a position. Unset, an absolutely
+   * positioned box shrinks to fit its widest item — a ragged panel hanging off
+   * whatever edge the burger happens to sit on.
+   *
+   * Elementor's own answer is to span the whole container, which is right for
+   * the desktop bar it was designed for but not for a phone: eight categories
+   * across a full-bleed 390px strip read as a section of the page rather than
+   * as a menu belonging to the button that opened it.
+   *
+   * So: a panel of at most `DROPDOWN_MAX_WIDTH`, hung from the burger's right
+   * edge and clamped inside the container's padding box.
+   */
+  function positionDropdown(widget, dropdown) {
+    if (!widget.classList.contains('elementor-nav-menu--stretch')) return;
+
+    const anchor = dropdown.offsetParent || widget;
+    const container = widget.closest('.e-con, .elementor-container, .elementor-section') || widget;
+    const style = getComputedStyle(container);
+    const box = container.getBoundingClientRect();
+
+    // The container's padding box is as far as the panel may go either way.
+    const limitLeft = box.left + (parseFloat(style.paddingLeft) || 0);
+    const limitRight = box.right - (parseFloat(style.paddingRight) || 0);
+
+    const width = Math.min(DROPDOWN_MAX_WIDTH, limitRight - limitLeft);
+    const right = Math.min(widget.getBoundingClientRect().right, limitRight);
+    const left = Math.max(limitLeft, right - width);
+
+    const from = anchor.getBoundingClientRect();
+    dropdown.style.left = `${Math.round(left - from.left)}px`;
+    dropdown.style.width = `${Math.round(Math.min(width, limitRight - left))}px`;
+  }
+
   /* ------------------------------------------------------------ off-canvas */
 
   /**
@@ -1213,6 +1329,7 @@
   ready(() => {
     initStickyHeader();
     initNestedMenus();
+    initClassicMenus();
     initOffCanvas();
     initCounters();
     initTabs();

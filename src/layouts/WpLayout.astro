@@ -12,9 +12,11 @@ import wpInlineStyles from '../data/wp-inline-styles.json';
 import wpPages from '../data/wp-pages.json';
 import wpScripts from '../data/wp-scripts.json';
 import wpCssBundles from '../data/wp-css-bundles.json';
+import wpSeo from '../data/wp-seo.json';
 import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
-import { MEDIA_ORIGIN } from '../../scripts/lib/config.mjs';
+import { MEDIA_ORIGIN, NOINDEX } from '../../scripts/lib/config.mjs';
+import { rewriteHead, withoutTitle, titleFrom } from '../../scripts/lib/wp-head.mjs';
 import '../styles/wp-polish.css';
 
 interface Props {
@@ -55,7 +57,25 @@ const bodyClass = ['wp-mirror', meta?.bodyClass ?? 'elementor-default elementor-
   .filter(Boolean)
   .join(' ');
 
-const pageTitle = title ?? meta?.title ?? 'Spenza';
+/**
+ * Yoast's own `<head>`, captured by `npm run wp:seo` and repointed at this site.
+ *
+ * Emitted verbatim for the same reason ArticleLayout does it for posts: what
+ * WordPress serves is the reference, and rebuilding it by hand loses the parts
+ * that are easy to forget — og:image and its dimensions, og:locale,
+ * og:site_name, Twitter's data labels, and the whole JSON-LD graph. Those were
+ * all missing from the hand-built tags below, on every marketing page.
+ *
+ * Stored as WordPress emitted it and repointed here, not at capture time —
+ * otherwise the canonical is fixed to whichever SITE_URL generated the file.
+ *
+ * The fallback stays: a page with no capture keeps the original tags rather
+ * than losing its description and canonical entirely.
+ */
+const captured = (wpSeo as Record<string, string>)[slug];
+const seoHead: string | undefined = captured ? rewriteHead(captured) : undefined;
+
+const pageTitle = title ?? titleFrom(seoHead) ?? meta?.title ?? 'Spenza';
 const pageDescription = description ?? meta?.description ?? '';
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
 ---
@@ -70,14 +90,29 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>
-    {pageDescription && <meta name="description" content={pageDescription} />}
-    <link rel="canonical" href={canonical} />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={pageTitle} />
-    {pageDescription && <meta property="og:description" content={pageDescription} />}
-    <meta name="twitter:card" content="summary_large_image" />
+    {/*
+      Yoast's block carries the description, canonical, Open Graph, Twitter and
+      JSON-LD. Its <title> is stripped so it cannot compete with the one above —
+      a duplicate title is worse than a missing tag, because which one wins is
+      undefined.
+    */}
+    {seoHead
+      ? <Fragment set:html={withoutTitle(seoHead)} />
+      : (
+        <>
+          {pageDescription && <meta name="description" content={pageDescription} />}
+          <link rel="canonical" href={canonical} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={canonical} />
+          <meta property="og:title" content={pageTitle} />
+          {pageDescription && <meta property="og:description" content={pageDescription} />}
+          <meta name="twitter:card" content="summary_large_image" />
+        </>
+      )}
+
+    {/* Yoast emits index,follow; a non-production build must override it. */}
+    {NOINDEX && <meta name="robots" content="noindex, nofollow" />}
 
     {/*
       No preconnect to fonts.googleapis.com / fonts.gstatic.com: `npm run wp:fonts`

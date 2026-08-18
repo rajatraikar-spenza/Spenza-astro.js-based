@@ -112,10 +112,18 @@
  * that distance lands on a frame indistinguishable from the start, so the loop
  * has no seam and needs no JavaScript per frame.
  *
- * Layout is forced back to `ltr`: Elementor marks the right-travelling strip
- * `dir="rtl"`, which would grow the track off the left edge of its container.
- * The direction of travel comes from `animation-direction` instead.
+ * Layout is forced back to `ltr` on the strip *and* its track. Elementor marks
+ * the right-travelling one `dir="rtl"`, and in an RTL containing block a
+ * `max-content` track is laid out from the right edge leftwards — so the whole
+ * 1512px of logos sat off the left of a 412px window and the strip rendered
+ * empty. Setting `direction` on the track alone is not enough: that governs
+ * flow inside the box, not where the box itself is placed. The direction of
+ * travel comes from `animation-direction` instead.
  */
+.wp-mirror .wp-marquee {
+  direction: ltr;
+}
+
 .wp-mirror .wp-marquee .swiper-wrapper {
   direction: ltr;
   width: max-content;
@@ -191,6 +199,99 @@
  */
 body.wp-mirror.e-off-canvas__no-scroll {
   overflow: hidden;
+}
+
+/*
+ * The classic nav-menu's open state — the blog and archive category filter.
+ *
+ * Elementor's own rule for this was purged from every bundle for the same
+ * reason as the off-canvas exit: `elementor-active` is set at runtime, so no
+ * markup scan finds it. Re-running the optimiser restores it now that the shim
+ * names the class, but the whole dropdown hangs on this one declaration — with
+ * it missing the burger is inert and a phone has no way to reach a category —
+ * so it is stated here too rather than left to survive a future purge.
+ */
+.wp-mirror .elementor-nav-menu--toggle .elementor-menu-toggle.elementor-active + .elementor-nav-menu__container {
+  max-height: var(--menu-height, 100vh) !important;
+  overflow-y: auto;
+  transform: scaleY(1) !important;
+}
+
+/* Its other half: the burger glyph gives way to the close glyph when open. */
+.wp-mirror .elementor-menu-toggle.elementor-active .elementor-menu-toggle__icon--open {
+  display: none;
+}
+
+/*
+ * The category dropdown itself, on the blog and archive filter bars.
+ *
+ * As mirrored it is a square-cornered white slab whose selected row is a
+ * full-bleed bar of dark slate — a colour that appears nowhere else on the
+ * site — and it sits flush against the page with no edge of its own. Give it
+ * the shape and palette the rest of the site uses: a rounded card, and the
+ * brand orange on a tint of itself for the current category.
+ */
+.wp-mirror nav.elementor-nav-menu--dropdown {
+  border: 1px solid rgba(78, 84, 93, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(44, 24, 13, 0.14);
+  overflow: hidden;
+}
+
+.wp-mirror nav.elementor-nav-menu--dropdown .elementor-nav-menu {
+  padding: 8px;
+}
+
+.wp-mirror nav.elementor-nav-menu--dropdown .elementor-item {
+  padding: 11px 14px !important;
+  border-radius: 10px;
+  font-size: 15px !important;
+  font-weight: 500;
+  color: #4e545d !important;
+  background-color: transparent !important;
+  transition:
+    background-color var(--polish-fast) var(--polish-ease),
+    color var(--polish-fast) var(--polish-ease);
+}
+
+/* The category you are looking at, in brand orange on a wash of the same. */
+.wp-mirror nav.elementor-nav-menu--dropdown .elementor-item.elementor-item-active {
+  background-color: rgba(253, 69, 0, 0.1) !important;
+  color: var(--e-global-color-794f80c, #fd4500) !important;
+  font-weight: 600;
+}
+
+/* The header's own peach for the pressed row — no new colour introduced. */
+.wp-mirror nav.elementor-nav-menu--dropdown .elementor-item:hover,
+.wp-mirror nav.elementor-nav-menu--dropdown .elementor-item:focus-visible,
+.wp-mirror nav.elementor-nav-menu--dropdown .elementor-item:active {
+  background-color: #fdf5f2 !important;
+  color: #2c180d !important;
+}
+
+/*
+ * Blog pagination, which made every listing page 1830px wide at a 390px
+ * viewport — the page scrolled sideways, and because a phone pins fixed
+ * elements to the layout viewport rather than the visual one, the off-canvas
+ * menu's close button went with it and could only be reached by scrolling
+ * right.
+ *
+ * The cause is that Elementor emits the 27 page links with no whitespace
+ * between them (`</span><a ...>`), so a row of inline boxes has nowhere to
+ * break. Flex wrapping breaks where whitespace cannot.
+ */
+.wp-mirror nav.elementor-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 15px;
+}
+
+/* The per-item margin was the old spacing mechanism; `gap` replaces it, and
+   leaving both would push the last row off centre. */
+.wp-mirror nav.elementor-pagination .page-numbers {
+  margin: 0 !important;
 }
 
 /*
@@ -335,9 +436,19 @@ body.wp-mirror.e-off-canvas__no-scroll {
   width: 40px !important;
 }
 
+/*
+ * Centred by flex, not by padding. The widget is an inline-block with a 6px
+ * pad around a block-level `<svg>`, which only ever looked centred because
+ * 6 + 12 + 6 happened to equal the 24px box Elementor drew. Resizing the chip
+ * left the glyph pinned to the top-left corner of the content box.
+ */
 .wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-icon.elementor-absolute .elementor-icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   width: 40px !important;
   height: 40px !important;
+  padding: 0 !important;
   background-color: rgba(44, 24, 13, 0.07) !important;
   transition: background-color var(--polish-base) var(--polish-ease);
 }
@@ -604,6 +715,56 @@ body.wp-mirror.e-off-canvas__no-scroll {
 
   body.wp-mirror .elementor-location-footer .elementor-element-7c94530 .elementor-icon-list-item {
     break-inside: avoid;
+  }
+}
+
+/*
+ * The subscribe form, which is drawn as one pill split into an email half and
+ * a Subscribe half.
+ *
+ * Below 576px a WPCode snippet shrinks the button to `font-size: 10px` and
+ * `padding: 11px 10px` but leaves the input at 14px/10px-20px. The two halves
+ * of the pill then disagree by 8px of height, and because the form centres its
+ * children the button floats 4px below the input's top edge and 4px above its
+ * bottom — a visibly broken join, with the label too small to read.
+ *
+ * Match the halves and let them size to the row instead of to fixed
+ * percentages, so the field takes whatever the button does not need.
+ */
+@media (max-width: 576px) {
+  /*
+   * `align-items` is fought over by an id-level rule in the WPCode snippet
+   * (`form#gform_19{align-items:center}`), which outranks any class selector.
+   */
+  .wp-mirror .eSim form[id^='gform_'] {
+    align-items: stretch !important;
+  }
+
+  .wp-mirror .eSim .gform-body.gform_body {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  /*
+   * `min-width: 0` is the load-bearing declaration. A flex item defaults to
+   * `min-width: auto`, so the footer refused to shrink below the min-content
+   * width of everything Gravity Forms puts inside it — 164px, against a button
+   * that only needs 91px. The field got whatever was left, which at 320px is
+   * 46px: a subscribe box too narrow to show an email address.
+   */
+  .wp-mirror .eSim .gform_footer.before {
+    width: auto !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .wp-mirror .eSim input[id^='gform_submit_button_'] {
+    width: auto !important;
+    height: 100%;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    white-space: nowrap;
   }
 }
 
