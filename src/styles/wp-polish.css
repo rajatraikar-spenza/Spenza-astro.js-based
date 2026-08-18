@@ -282,62 +282,69 @@ body.wp-mirror.e-off-canvas__no-scroll {
  * Selected by what the container holds rather than by element id: the id
  * differs between the blog and the 200 archive pages that carry the same bar.
  */
+/*
+ * The search field: the magnifier and the text beside it.
+ *
+ * Not scoped to a breakpoint, because the markup that causes it is not. The
+ * icon is absolutely positioned inside a zero-width `<label>` that flex drops
+ * wherever the input leaves it — 46px short of the field's end, so it reads as
+ * floating near the middle. The input carries no trailing padding
+ * (`10px 0 10px 20px`), so a long query runs straight under the glyph. Both are
+ * true at every width; scoping the fix to mobile left the desktop field
+ * overlapping exactly as before.
+ */
+.wp-mirror .elementor-widget-search .e-search-form {
+  position: relative;
+  align-items: center;
+}
+
+/*
+ * The input carries a fixed `width: 242px` and so overflows its own 200px form,
+ * spilling past the widget and taking the field's visible right edge with it.
+ * Fill the form instead, so the edge the icon is pinned to is the edge you can
+ * see.
+ */
+.wp-mirror .elementor-widget-search .e-search-input {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding-inline-end: 46px !important;
+}
+
+/*
+ * `left` and `top` are cleared explicitly: the theme sets `left: -70px` on this
+ * label, and an absolutely positioned box given both `left` and `right`
+ * stretches between them instead of hugging the edge asked for.
+ */
+.wp-mirror .elementor-widget-search .e-search-label {
+  position: absolute !important;
+  inset: 50% 18px auto auto !important;
+  transform: translateY(-50%) !important;
+  width: auto !important;
+  margin: 0 !important;
+  pointer-events: none;
+}
+
+/*
+ * The glyph's own `translateY(-50%)` paired with absolute positioning it no
+ * longer has, leaving it riding 7px above the centre of a 14px icon.
+ */
+.wp-mirror .elementor-widget-search .e-search-label svg {
+  position: static !important;
+  transform: none !important;
+}
+
+/*
+ * The filter bar itself is a genuinely narrow-viewport problem: below the
+ * desktop breakpoint it ran the full width of the screen, so a pill with a
+ * 999px radius sat with both rounded ends jammed against the device edges and
+ * its shadow had nowhere to fall.
+ */
 @media (max-width: 1024px) {
   .wp-mirror .e-con:has(> .elementor-widget-search) {
     max-width: calc(100% - 32px);
     margin-inline: auto;
     border: 1px solid rgba(78, 84, 93, 0.08);
     box-shadow: 0 8px 24px rgba(44, 24, 13, 0.1);
-  }
-
-  /*
-   * The magnifier and the text it sits next to.
-   *
-   * The icon is absolutely positioned inside a zero-width `<label>` that flex
-   * drops wherever the input leaves it — 46px short of the field's end, so it
-   * read as floating near the middle. And the input carries no right padding
-   * (`10px 0 10px 20px`), so a long query ran straight under the glyph.
-   *
-   * Pin the icon to the field's trailing edge and reserve room for it.
-   */
-  .wp-mirror .elementor-widget-search .e-search-form {
-    position: relative;
-    align-items: center;
-  }
-
-  /*
-   * The input carries a fixed `width: 242px` and so overflowed its own 200px
-   * form, spilling past the widget and taking the field's visible right edge
-   * with it. Fill the form instead, so the edge the icon is pinned to is the
-   * edge you can see.
-   */
-  .wp-mirror .elementor-widget-search .e-search-input {
-    width: 100% !important;
-    min-width: 0 !important;
-    padding-inline-end: 46px !important;
-  }
-
-  /*
-   * `left` and `top` are cleared explicitly: the theme sets `left: -70px` on
-   * this label, and an absolutely positioned box given both `left` and `right`
-   * stretches between them instead of hugging the edge asked for.
-   */
-  .wp-mirror .elementor-widget-search .e-search-label {
-    position: absolute !important;
-    inset: 50% 18px auto auto !important;
-    transform: translateY(-50%) !important;
-    width: auto !important;
-    margin: 0 !important;
-    pointer-events: none;
-  }
-
-  /*
-   * The glyph's own `translateY(-50%)` paired with the absolute positioning it
-   * no longer has, leaving it riding 7px above the centre of a 14px icon.
-   */
-  .wp-mirror .elementor-widget-search .e-search-label svg {
-    position: static !important;
-    transform: none !important;
   }
 }
 

@@ -41,9 +41,21 @@ const API_DOCS_ITEM = `<li class="elementor-icon-list-item">
 									</li>
 								`;
 
+/**
+ * "US Mobile Plans", dropped from Resources.
+ *
+ * Removed rather than substituted, because Support sits directly after it in
+ * both the desktop panel and the mobile drawer — so deleting the row lets
+ * Support move up into it, which is the placement asked for. The page itself
+ * stays reachable at its own URL.
+ */
+const RESOURCES_US_PLANS_ITEM = resourcesItem('/unlimited-data-plans-pricing/');
+
 /** Resources loses Business Roaming Plans and gains the docs link in its slot. */
 function editResourcesMenu(html) {
-  return html.replace(RESOURCES_ROAMING_ITEM, () => API_DOCS_ITEM);
+  return html
+    .replace(RESOURCES_ROAMING_ITEM, () => API_DOCS_ITEM)
+    .replace(RESOURCES_US_PLANS_ITEM, '');
 }
 
 /**
