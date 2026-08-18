@@ -31,7 +31,7 @@ const BATCH = 10;
  * so raising it re-fetches everything — the alternative is a store full of
  * records that predate a field and a build that fails far from the cause.
  */
-const SCHEMA_VERSION = 9;
+const SCHEMA_VERSION = 10;
 
 const H = WP_HOST.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -133,16 +133,17 @@ function rewriteHead(head) {
  * it and every post renders those three slots empty — the one remaining parity
  * gap against the mirror.
  *
- * To close it, set this to the field selection, e.g. for ACF via the
- * WPGraphQL for ACF plugin:
+ * Closed: `wordpress/mu-plugins/spenza-graphql-acf.php` is installed on the
+ * WordPress side and exposes these four fields on every post, so the blocks now
+ * come from WordPress rather than from the snapshot.
  *
- *   `postExtras{summary keyPoints spenzaBlock}`
- *
- * or, for meta registered with `show_in_graphql`, the camelCase field names
- * directly. Then map them in `toEntry` below — nothing else needs to change,
- * because the schema and the layout slots already exist.
+ * `blocksFor` still falls back to `wp-acf-blocks.json` per field, which is what
+ * makes this safe to query: if the mu-plugin is ever removed the field vanishes
+ * from the schema, the query below has to be emptied again, and until it is the
+ * snapshot keeps every post rendering.
  */
-const TEMPLATE_BLOCK_FIELDS = '';
+const TEMPLATE_BLOCK_FIELDS =
+  'postExtras{tldrHeading tldrDescription twoCol{icon title text} oneCol{icon title text}}';
 
 const POST_FIELDS = `
   databaseId slug title date modified

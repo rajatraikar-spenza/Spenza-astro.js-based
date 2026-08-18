@@ -14,6 +14,7 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const TABLET_BREAKPOINT = 1024;
+  const MOBILE_BREAKPOINT = 767;
 
   const on = (el, ev, fn, opts) => el && el.addEventListener(ev, fn, opts);
   const ready = fn =>
@@ -163,6 +164,145 @@
     });
   }
 
+  /* ------------------------------------------------------------ off-canvas */
+
+  /**
+   * Elementor Pro's off-canvas panel — which on this site *is* the mobile
+   * navigation. The nested menu above is hidden below the tablet breakpoint;
+   * everything narrower gets a hamburger that opens this panel instead.
+   *
+   * The hamburger is an icon widget whose href is one of Elementor's
+   * `#elementor-action:` links: a base64 payload naming the widget to open.
+   * Only Elementor's runtime knows how to read those, so on the mirror the
+   * hamburger pointed at a fragment that does not exist. Tapping it did
+   * nothing, on every page, which left phones with no navigation at all.
+   *
+   * The class contract below is the widget's own, so the mirrored CSS does the
+   * work: `aria-hidden` drives visibility, `animated` plus an animate.css name
+   * plays the entrance, `animated-reverse-wrapper` plays the exit, and
+   * `e-off-canvas__no-scroll` locks the page behind the panel.
+   */
+  function initOffCanvas() {
+    const open = new Set();
+    const opener = new WeakMap();
+
+    const find = id => {
+      const el = document.getElementById(`off-canvas-${id}`);
+      return el?.closest('.elementor-widget-off-canvas') ? el : null;
+    };
+
+    const entranceOf = panel => {
+      const settings = safeJson(panel.closest('[data-settings]')?.dataset.settings) || {};
+      // The panel only ever shows at tablet width and below, so the tablet
+      // override is the one that applies.
+      return settings.entrance_animation_tablet || settings.entrance_animation || 'none';
+    };
+
+    const show = panel => {
+      if (open.has(panel)) return;
+      open.add(panel);
+
+      opener.set(panel, document.activeElement);
+      panel.removeAttribute('inert');
+      panel.setAttribute('aria-hidden', 'false');
+
+      const main = panel.querySelector('.e-off-canvas__main');
+      if (main) {
+        const entrance = reduceMotion ? 'none' : entranceOf(panel);
+        main.classList.remove('animated-reverse-wrapper');
+        main.classList.add('animated', entrance);
+        // Remembered so the exit can take exactly this class back off again.
+        panel.dataset.shimEntrance = entrance;
+      }
+      document.body.classList.add('e-off-canvas__no-scroll');
+
+      // Focus the first control so keyboard and screen-reader users land
+      // inside the panel; `inert` on everything else is Elementor's own trap.
+      panel.querySelector('a[href], button:not([disabled])')?.focus({ preventScroll: true });
+    };
+
+    const hide = panel => {
+      if (!open.has(panel)) return;
+      open.delete(panel);
+
+      const main = panel.querySelector('.e-off-canvas__main');
+      const settle = () => {
+        panel.setAttribute('aria-hidden', 'true');
+        panel.setAttribute('inert', '');
+        if (main) {
+          main.classList.remove('animated', 'animated-reverse-wrapper');
+          if (panel.dataset.shimEntrance) main.classList.remove(panel.dataset.shimEntrance);
+        }
+        if (!open.size) document.body.classList.remove('e-off-canvas__no-scroll');
+        // Return focus to whatever opened the panel, or the page would drop
+        // the keyboard user back at the top of the document.
+        const trigger = opener.get(panel);
+        if (trigger?.isConnected) trigger.focus({ preventScroll: true });
+      };
+
+      if (!main || reduceMotion) return settle();
+      main.classList.add('animated-reverse-wrapper');
+      setTimeout(settle, offCanvasDuration(panel));
+    };
+
+    // Elementor's action links, in both directions.
+    on(document, 'click', event => {
+      const link = event.target.closest?.('a[href*="elementor-action"]');
+      if (!link) return;
+      const action = parseElementorAction(link.getAttribute('href'));
+      if (action?.name !== 'off_canvas') return;
+
+      const panel = action.settings?.id && find(action.settings.id);
+      if (!panel) return;
+
+      event.preventDefault();
+      action.mode === 'close' ? hide(panel) : show(panel);
+    });
+
+    // The overlay is the panel's own dismiss target.
+    document.querySelectorAll('.e-off-canvas__overlay').forEach(overlay => {
+      on(overlay, 'click', () => {
+        const panel = overlay.closest('.e-off-canvas');
+        if (panel) hide(panel);
+      });
+    });
+
+    on(document, 'keydown', event => {
+      if (event.key === 'Escape') [...open].forEach(hide);
+    });
+
+    // Growing past the breakpoint hides the hamburger, so an open panel would
+    // be left covering a desktop layout with no way to dismiss it.
+    on(window, 'resize', debounce(() => {
+      if (window.innerWidth > TABLET_BREAKPOINT) [...open].forEach(hide);
+    }, 150));
+  }
+
+  /**
+   * `#elementor-action%3Aaction%3Doff_canvas%3Aopen%26settings%3D<base64>`
+   * decodes to `#elementor-action:action=off_canvas:open&settings=<base64>`,
+   * and the payload is `{"id":"2c89149","displayMode":"open"}`.
+   */
+  function parseElementorAction(href) {
+    let decoded;
+    try { decoded = decodeURIComponent(href || ''); } catch { return null; }
+
+    const match = /^#elementor-action:action=([\w-]+)(?::([\w-]+))?&settings=(.*)$/.exec(decoded);
+    if (!match) return null;
+
+    let settings = null;
+    try { settings = JSON.parse(atob(match[3])); } catch { /* payload is not ours to read */ }
+    return { name: match[1], mode: match[2] || settings?.displayMode || 'open', settings };
+  }
+
+  /** The widget's animation duration, so the exit is not cut short. */
+  function offCanvasDuration(panel) {
+    const raw = getComputedStyle(panel).getPropertyValue('--e-off-canvas-animation-duration').trim();
+    const value = parseFloat(raw);
+    if (!Number.isFinite(value)) return 400;
+    return raw.endsWith('ms') ? value : value * 1000;
+  }
+
   /* ------------------------------------------------------------- counters */
 
   /** Animate `.elementor-counter` numbers when they scroll into view. */
@@ -215,18 +355,27 @@
 
   /** Initialise every mirrored Elementor carousel with the bundled Swiper. */
   function initCarousels() {
-    if (typeof window.Swiper !== 'function') return;
-
     document.querySelectorAll('.swiper, .elementor-image-carousel-wrapper').forEach(node => {
-      if (node.dataset.shimSwiper === 'true') return;
+      if (node.dataset.shimSwiper === 'true' || node.dataset.shimMarquee === 'true') return;
       if (!node.querySelector('.swiper-wrapper')) return;
-      node.dataset.shimSwiper = 'true';
 
       const widget = node.closest('[data-settings]');
       let cfg = {};
       try {
         cfg = JSON.parse(widget?.dataset.settings || '{}');
       } catch { /* widget has no usable settings; fall back to defaults */ }
+
+      // Autoplay with no delay is Elementor's continuously scrolling logo
+      // strip, not a slideshow. It is driven by CSS rather than Swiper — see
+      // `setupMarquee` for why.
+      if (cfg.autoplay === 'yes' && autoplayDelay(cfg) === 0) {
+        node.dataset.shimMarquee = 'true';
+        setupMarquee(node, cfg);
+        return;
+      }
+
+      if (typeof window.Swiper !== 'function') return;
+      node.dataset.shimSwiper = 'true';
 
       const perView = parseInt(cfg.slides_to_show, 10) || 3;
       const perViewTablet = parseInt(cfg.slides_to_show_tablet, 10) || Math.min(perView, 3);
@@ -248,26 +397,27 @@
       };
 
       if (cfg.autoplay === 'yes' && !reduceMotion) {
-        // Elementor uses autoplay_speed 0 (or omits it) for the continuously
-        // scrolling logo strips — the slide never rests, `speed` alone paces it.
-        // `Number(x) || fallback` must not be used here: 0 is falsy, and
-        // collapsing it to a delay makes the marquee sit still, then jump.
-        const raw = cfg.autoplay_speed;
-        const delay = raw === undefined || raw === null || raw === '' ? 0 : Number(raw);
-
+        /*
+         * Never `disableOnInteraction`, whatever the widget asks for.
+         *
+         * Elementor's `pause_on_interaction` maps onto that Swiper option, but
+         * Swiper reads it far more broadly than the label suggests: in that
+         * mode its mouseenter handler calls `autoplay.stop()` rather than
+         * `pause()`, and mouseleave deliberately does nothing. One hover — or,
+         * on touch, one emulated mouseenter from the first tap — killed the
+         * carousel for the life of the page.
+         *
+         * Swiper's own `pauseOnMouseEnter` is no use either: `pause()` only
+         * defers the next slide until the current transition ends, then
+         * resumes on its own even while the pointer is still inside. So hover
+         * is handled below with an explicit stop/start pair, which round-trips
+         * cleanly.
+         */
         options.autoplay = {
-          delay: Number.isFinite(delay) ? delay : 0,
-          disableOnInteraction: cfg.pause_on_interaction === 'yes',
-          pauseOnMouseEnter: cfg.pause_on_hover === 'yes',
+          delay: autoplayDelay(cfg),
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
         };
-
-        // A zero-delay marquee must ease linearly or it visibly stutters at
-        // each slide boundary.
-        if (options.autoplay.delay === 0) {
-          options.speed = Number(cfg.speed) || 5000;
-          options.allowTouchMove = false;
-          node.classList.add('wp-marquee');
-        }
       }
       // Widgets disagree on how they flag controls: the image carousel uses
       // `navigation: arrows|dots|both`, the loop carousel uses `arrows: yes`.
@@ -293,10 +443,161 @@
       options.grabCursor = true;
       options.a11y = { enabled: true };
 
+      let swiper;
       try {
-        new window.Swiper(node, options);
+        swiper = new window.Swiper(node, options);
       } catch { /* a malformed carousel should not take down the page */ }
+
+      if (swiper && options.autoplay && cfg.pause_on_hover === 'yes') {
+        on(node, 'mouseenter', () => swiper.autoplay?.stop());
+        on(node, 'mouseleave', () => swiper.autoplay?.start());
+      }
     });
+  }
+
+  /**
+   * Elementor writes `autoplay_speed: 0` — or omits it — for the continuously
+   * scrolling logo strips, meaning "the slide never rests". `Number(x) ||
+   * fallback` must not be used here: 0 is falsy, and collapsing it to a delay
+   * makes the strip sit still, then jump.
+   */
+  function autoplayDelay(cfg) {
+    const raw = cfg.autoplay_speed;
+    if (raw === undefined || raw === null || raw === '') return 0;
+    const delay = Number(raw);
+    return Number.isFinite(delay) ? delay : 0;
+  }
+
+  /* ------------------------------------------------------------- marquees */
+
+  /**
+   * The continuously scrolling logo strips: "Trusted by Industry Leaders" and
+   * the security-and-compliance badges on six other pages.
+   *
+   * These were Swiper carousels with a zero autoplay delay, and they carry
+   * `pause_on_interaction: yes` — so they hit the stop-on-hover trap described
+   * in `initCarousels` and never restarted. Stepping slide by slide was also
+   * the wrong mechanism for a marquee: Swiper's loop rewind is a visible hitch
+   * at each pass, and it cannot be paused reversibly.
+   *
+   * A CSS animation fixes both. It runs on the compositor, scrolls at a
+   * constant velocity instead of per-slide, and `animation-play-state` makes
+   * hover-pause exactly reversible — so a phone, which never leaves a hover
+   * state, simply never stops.
+   *
+   * The track is rebuilt as two identical passes and translated by exactly one
+   * pass, which lands on a frame indistinguishable from the start; that is
+   * what makes the loop seamless.
+   */
+  function setupMarquee(node, cfg) {
+    const track = node.querySelector('.swiper-wrapper');
+    if (!track) return;
+
+    const template = [...track.querySelectorAll(':scope > .swiper-slide')].map(el => {
+      const clone = el.cloneNode(true);
+      // Swiper's own loop duplicates, if a previous pass left any.
+      clone.classList.remove('swiper-slide-duplicate', 'swiper-slide-active');
+      clone.removeAttribute('style');
+      return clone;
+    });
+    if (!template.length) return;
+
+    node.classList.add('wp-marquee');
+    if (cfg.pause_on_hover === 'yes') node.dataset.marqueePause = 'hover';
+    // Elementor sets `dir="rtl"` on the strips that travel left to right.
+    // Layout is forced back to `ltr` in CSS so the track always grows to the
+    // right; the direction of travel comes from the animation instead.
+    if (node.getAttribute('dir') === 'rtl') {
+      track.style.setProperty('--wp-marquee-direction', 'reverse');
+    }
+
+    const build = () => {
+      const viewport = node.clientWidth;
+      if (!viewport) return;
+
+      const per = Math.max(1, slidesPerView(cfg));
+      const gap = slideSpacing(cfg);
+      const step = Math.max(1, (viewport - gap * (per - 1)) / per) + gap;
+
+      // One pass has to be at least a viewport wide, or translating by it
+      // would expose the gap past the end of the second pass.
+      const repeats = Math.max(1, Math.ceil(viewport / (step * template.length)));
+      const pass = [];
+      for (let i = 0; i < repeats; i++) template.forEach(el => pass.push(el.cloneNode(true)));
+
+      const slides = pass.concat(
+        pass.map(el => {
+          const copy = el.cloneNode(true);
+          // The second pass is the same logos again; a screen reader should
+          // read them once, and they must not be tab stops.
+          copy.setAttribute('aria-hidden', 'true');
+          copy.querySelectorAll('a').forEach(a => a.setAttribute('tabindex', '-1'));
+          return copy;
+        })
+      );
+
+      slides.forEach(el => {
+        el.style.width = `${step - gap}px`;
+        el.style.marginInlineEnd = `${gap}px`;
+      });
+      track.replaceChildren(...slides);
+
+      // Elementor's `speed` is how long one slide takes to travel its own
+      // width, so a pass of n slides takes n * speed — constant velocity
+      // whatever the viewport.
+      track.style.setProperty('--wp-marquee-distance', `${Math.round(step * pass.length)}px`);
+      track.style.setProperty(
+        '--wp-marquee-duration',
+        `${Math.round((Number(cfg.speed) || 5000) * pass.length)}ms`
+      );
+    };
+
+    // Width is the only input that matters, and rebuilding changes the track's
+    // height but not the node's width, so this cannot feed itself.
+    let lastWidth = 0;
+    const rebuild = () => {
+      const width = node.clientWidth;
+      if (!width || width === lastWidth) return;
+      lastWidth = width;
+      build();
+    };
+
+    if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(node);
+    else on(window, 'resize', debounce(rebuild, 150));
+    rebuild();
+  }
+
+  /** Elementor's responsive value chain: mobile falls back to tablet, tablet to desktop. */
+  function responsive(cfg, key, parse) {
+    const width = window.innerWidth;
+    const keys = width <= MOBILE_BREAKPOINT
+      ? [`${key}_mobile`, `${key}_tablet`, key]
+      : width <= TABLET_BREAKPOINT
+        ? [`${key}_tablet`, key]
+        : [key];
+    for (const name of keys) {
+      const value = parse(cfg[name]);
+      if (value !== null) return value;
+    }
+    return null;
+  }
+
+  function slidesPerView(cfg) {
+    const count = responsive(cfg, 'slides_to_show', raw => {
+      const n = parseInt(raw, 10);
+      return Number.isFinite(n) && n > 0 ? n : null;
+    });
+    return count ?? 3;
+  }
+
+  function slideSpacing(cfg) {
+    const gap = responsive(cfg, 'image_spacing_custom', raw => {
+      // Elementor stores an unset responsive override as `{ size: "" }`.
+      if (raw?.size === undefined || raw.size === '') return null;
+      const n = Number(raw.size);
+      return Number.isFinite(n) ? n : null;
+    });
+    return gap ?? 20;
   }
 
   /* ------------------------------------------------------- tabs/accordions */
@@ -912,6 +1213,7 @@
   ready(() => {
     initStickyHeader();
     initNestedMenus();
+    initOffCanvas();
     initCounters();
     initTabs();
     initAccordions();

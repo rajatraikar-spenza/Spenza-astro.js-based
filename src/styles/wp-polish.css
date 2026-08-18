@@ -99,15 +99,310 @@
   transition: transform var(--polish-base) var(--polish-ease);
 }
 
-/* Carousels: ease the track instead of Swiper's default linear transition —
-   except continuously scrolling marquees, which must stay linear or they
-   stutter at every slide boundary. */
+/* Carousels: ease the track instead of Swiper's default linear transition. */
 .wp-mirror .swiper-wrapper {
   transition-timing-function: var(--polish-ease);
 }
 
+/*
+ * Continuously scrolling logo strips.
+ *
+ * Driven by `setupMarquee` in the shim, which rebuilds the track as two
+ * identical passes and publishes the width of one pass. Translating by exactly
+ * that distance lands on a frame indistinguishable from the start, so the loop
+ * has no seam and needs no JavaScript per frame.
+ *
+ * Layout is forced back to `ltr`: Elementor marks the right-travelling strip
+ * `dir="rtl"`, which would grow the track off the left edge of its container.
+ * The direction of travel comes from `animation-direction` instead.
+ */
 .wp-mirror .wp-marquee .swiper-wrapper {
-  transition-timing-function: linear !important;
+  direction: ltr;
+  width: max-content;
+  transform: none;
+  transition: none;
+  animation: wp-marquee-scroll var(--wp-marquee-duration, 30s) linear infinite;
+  animation-direction: var(--wp-marquee-direction, normal);
+}
+
+@keyframes wp-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(var(--wp-marquee-distance, 0px) * -1), 0, 0);
+  }
+}
+
+/*
+ * Hover-pause, which is what the widget asks for and what Swiper could not
+ * deliver reversibly. `animation-play-state` resumes from exactly where it
+ * stopped, and a touch device — which never enters a hover state — simply
+ * never pauses.
+ */
+@media (hover: hover) {
+  .wp-mirror .wp-marquee[data-marquee-pause='hover']:hover .swiper-wrapper,
+  .wp-mirror .wp-marquee[data-marquee-pause='hover']:focus-within .swiper-wrapper {
+    animation-play-state: paused;
+  }
+}
+
+/*
+ * Off-canvas mobile navigation. The widget's stock animation duration is 1.5s,
+ * which reads as broken on a menu; everything else in this layer opens in
+ * under a third of a second.
+ */
+.wp-mirror .elementor-widget-off-canvas {
+  --e-off-canvas-animation-duration: 320ms;
+}
+
+/*
+ * The exit, which leaves the way it came in (see the entrance below).
+ *
+ * Elementor's `animated-reverse-wrapper` rule is the one class in this widget
+ * that nothing in the static markup references, so the CSS purge drops it from
+ * all 487 pages — the entrance survives, the exit does not. Define it here,
+ * where nothing is purged.
+ *
+ * `.animated` is carried in the selector only to outweigh the entrance rule,
+ * which the panel still matches while it is closing.
+ */
+.wp-mirror .elementor-widget-off-canvas .e-off-canvas__main.animated.animated-reverse-wrapper {
+  animation: wp-off-canvas-out var(--e-off-canvas-animation-duration, 320ms) var(--polish-ease) both;
+}
+
+@keyframes wp-off-canvas-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/*
+ * Scroll lock. The widget's own rule survives the purge today, but it is the
+ * difference between a menu and a page that scrolls behind one, so it is not
+ * left to depend on that.
+ */
+body.wp-mirror.e-off-canvas__no-scroll {
+  overflow: hidden;
+}
+
+/*
+ * The panel comes in from the right.
+ *
+ * WordPress configures `slideInLeft`, which sends a full-width panel across the
+ * screen away from the hamburger that opened it. Overriding the animation name
+ * here rather than the class in the shim keeps the shim faithful to the widget
+ * settings and leaves every motion decision in this layer, which is where the
+ * exit already lives.
+ */
+.wp-mirror .elementor-widget-off-canvas .e-off-canvas__main.animated:not(.none) {
+  animation-name: wp-off-canvas-in;
+}
+
+@keyframes wp-off-canvas-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*
+ * Nav rows arrive just behind the panel, a beat apart. Short enough to finish
+ * before a thumb could reach the first item, and the whole thing is off under
+ * `prefers-reduced-motion`.
+ *
+ * `.sub-menu-mob` is excluded deliberately: the drill-down screens are siblings
+ * of the rows and are positioned by a transform of their own, which this
+ * animation would overwrite and strand them on screen.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .wp-mirror .e-off-canvas[aria-hidden='false'] .mobile-menu > .elementor-element:not(.sub-menu-mob) {
+    animation: wp-off-canvas-row 360ms var(--polish-ease) both;
+  }
+
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(1) { animation-delay: 40ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(2) { animation-delay: 70ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(3) { animation-delay: 100ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(4) { animation-delay: 130ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(5) { animation-delay: 160ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(6) { animation-delay: 190ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(7) { animation-delay: 220ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(8) { animation-delay: 250ms; }
+  .wp-mirror .e-off-canvas .mobile-menu > .elementor-element:nth-child(n + 9) { animation-delay: 280ms; }
+}
+
+@keyframes wp-off-canvas-row {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * The panel's own layout.
+ *
+ * As mirrored, every row carried a 1.6px brand-orange underline — seven of them
+ * stacked under seven labels, which read as a table of rules rather than a menu.
+ * The dividers become neutral hairlines, the rows become full-width targets with
+ * the chevron muted until pressed, and the close control moves onto the logo's
+ * baseline instead of floating above it.
+ */
+.wp-mirror .e-off-canvas .mobile-menu {
+  padding: 22px 20px 32px !important;
+  gap: 0 !important;
+}
+
+/* Logo and close share a header band, ruled off from the nav below it. */
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-theme-site-logo {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid rgba(78, 84, 93, 0.14);
+}
+
+.wp-mirror .e-off-canvas .mob-btn {
+  width: 100% !important;
+}
+
+.wp-mirror .e-off-canvas .mob-btn .elementor-button {
+  display: flex !important;
+  align-items: center;
+  width: 100% !important;
+  padding: 15px 4px !important;
+  border-bottom: 1px solid rgba(78, 84, 93, 0.12) !important;
+  border-radius: 0 !important;
+  font-size: 16px !important;
+  transition: color var(--polish-fast) var(--polish-ease);
+}
+
+.wp-mirror .e-off-canvas .mob-btn .elementor-button-content-wrapper {
+  width: 100%;
+  align-items: center;
+}
+
+.wp-mirror .e-off-canvas .mob-btn .elementor-button-icon {
+  font-size: 12px !important;
+  color: rgba(78, 84, 93, 0.45) !important;
+  transition:
+    color var(--polish-fast) var(--polish-ease),
+    transform var(--polish-fast) var(--polish-ease);
+}
+
+/* Touch has no hover, so the press state is what confirms the tap landed. */
+.wp-mirror .e-off-canvas .mob-btn .elementor-button:active {
+  color: var(--e-global-color-794f80c, #fd4500) !important;
+}
+
+.wp-mirror .e-off-canvas .mob-btn .elementor-button:active .elementor-button-icon {
+  color: var(--e-global-color-794f80c, #fd4500) !important;
+  transform: translateX(3px);
+}
+
+/* "< Back" reads as one control; space-between had flung the two apart. */
+.wp-mirror .e-off-canvas [class*='-back-btn'] .elementor-button-content-wrapper {
+  justify-content: flex-start !important;
+  gap: 12px !important;
+}
+
+.wp-mirror .e-off-canvas [class*='-back-btn'] .elementor-button:active .elementor-button-icon {
+  transform: translateX(-3px);
+}
+
+/*
+ * Close control: a soft neutral chip on the logo's centre line, at a size a
+ * thumb can actually hit — the mirrored version was a 24px disc of solid brand
+ * orange sitting above the wordmark, the loudest thing in the panel.
+ */
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-icon.elementor-absolute {
+  top: 21px !important;
+  right: 16px !important;
+  left: auto !important;
+  width: 40px !important;
+}
+
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-icon.elementor-absolute .elementor-icon {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: rgba(44, 24, 13, 0.07) !important;
+  transition: background-color var(--polish-base) var(--polish-ease);
+}
+
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-icon.elementor-absolute .elementor-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+  fill: #2c180d !important;
+  transition: fill var(--polish-base) var(--polish-ease);
+}
+
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-icon.elementor-absolute .elementor-icon:active {
+  background-color: rgba(253, 69, 0, 0.12) !important;
+}
+
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-icon.elementor-absolute .elementor-icon:active svg {
+  fill: var(--e-global-color-794f80c, #fd4500) !important;
+}
+
+/* The two calls to action sit clear of the last nav row, and of each other. */
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-button:not(.mob-btn) {
+  margin-top: 12px !important;
+}
+
+.wp-mirror .e-off-canvas .mobile-menu > .mob-btn + .elementor-widget-button:not(.mob-btn) {
+  margin-top: 28px !important;
+}
+
+.wp-mirror .e-off-canvas .mobile-menu > .elementor-widget-button:not(.mob-btn) .elementor-button {
+  padding: 14px 24px !important;
+  font-size: 15px !important;
+}
+
+/* Drill-down screens: same gutters, same row rhythm, same easing. */
+.wp-mirror .e-off-canvas .sub-menu-mob {
+  padding: 22px 20px 32px !important;
+  gap: 0 !important;
+  transition: transform var(--polish-base) var(--polish-ease) !important;
+}
+
+.wp-mirror .e-off-canvas .sub-mega-menu .elementor-icon-list-item {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.wp-mirror .e-off-canvas .sub-mega-menu .elementor-icon-list-item > a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 4px;
+  border-bottom: 1px solid rgba(78, 84, 93, 0.12);
+}
+
+.wp-mirror .e-off-canvas .sub-mega-menu .elementor-icon-list-text {
+  font-size: 16px !important;
+}
+
+/*
+ * The Solutions screen lists icon boxes rather than plain links. Its rows are
+ * column flex containers, so alignment is left to the widget — only the gutter
+ * and the divider are set here, to match the rows on every other screen.
+ */
+.wp-mirror .e-off-canvas .solution-sub {
+  padding: 13px 4px !important;
+  border-bottom: 1px solid rgba(78, 84, 93, 0.12) !important;
 }
 
 /* Accordion chevrons follow the panel easing set in the shim. */
@@ -154,6 +449,162 @@
  */
 .wp-mirror .e-search-form .fa-times {
   display: none;
+}
+
+/*
+ * Mobile footer.
+ *
+ * Elementor stacks all six footer containers full width below its tablet
+ * breakpoint, at type sizes chosen for a 1280px row. The result was a 1470px
+ * column of near-uniform 16px text with no hierarchy: the "Location" label
+ * looked the same weight as the address under it, the three link columns read
+ * as one undifferentiated list, and the whole thing took four screens to
+ * scroll past.
+ *
+ * Only alignment and type scale change here — every colour is the one the
+ * mirrored CSS already sets.
+ */
+@media (max-width: 767px) {
+  /* A little more breathing room at the edges than the 15px Elementor sets. */
+  body.wp-mirror .elementor-location-footer .elementor-element-90f9cf8 {
+    --padding-left: 20px;
+    --padding-right: 20px;
+    --padding-bottom: 40px;
+  }
+
+  body.wp-mirror .elementor-location-footer .elementor-element-90f9cf8 > .e-con-inner {
+    gap: 28px 20px;
+  }
+
+  /* The brand block stays one full-width column. */
+  body.wp-mirror .elementor-location-footer .elementor-element-edc7d4e,
+  body.wp-mirror .elementor-location-footer .elementor-element-6e4071c,
+  body.wp-mirror .elementor-location-footer .elementor-element-8f71325 {
+    --width: 100%;
+  }
+
+  body.wp-mirror .elementor-location-footer .elementor-element-6e4071c {
+    --gap: 16px 0px;
+    --row-gap: 16px;
+  }
+
+  /* The strapline is supporting copy, not a heading — let it read as such. */
+  body.wp-mirror .elementor-location-footer .elementor-element-bbd4765 .elementor-heading-title {
+    font-size: 15px !important;
+    line-height: 24px !important;
+  }
+
+  /*
+   * "Location" was the same 16px as the address it labels, so the block read as
+   * one run-on paragraph. A small caps label gives the pair an obvious
+   * hierarchy without touching either colour.
+   */
+  body.wp-mirror .elementor-location-footer .elementor-element-7d74881 .elementor-heading-title {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  body.wp-mirror .elementor-location-footer .elementor-element-346b702 .elementor-heading-title {
+    font-size: 14px !important;
+    line-height: 22px !important;
+  }
+
+  /* Link columns: smaller headings, tighter list rhythm. */
+  body.wp-mirror .elementor-location-footer h4.elementor-heading-title {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+
+  body.wp-mirror
+    .elementor-location-footer
+    .elementor-icon-list-item
+    > .elementor-icon-list-text,
+  body.wp-mirror .elementor-location-footer .elementor-icon-list-item > a {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+
+  body.wp-mirror
+    .elementor-location-footer
+    .elementor-icon-list-items:not(.elementor-inline-items)
+    .elementor-icon-list-item:not(:last-child) {
+    padding-block-end: 5px !important;
+  }
+
+  body.wp-mirror
+    .elementor-location-footer
+    .elementor-icon-list-items:not(.elementor-inline-items)
+    .elementor-icon-list-item:not(:first-child) {
+    margin-block-start: 5px !important;
+  }
+
+  body.wp-mirror .elementor-location-footer .elementor-element-99df768,
+  body.wp-mirror .elementor-location-footer .elementor-element-71981a6,
+  body.wp-mirror .elementor-location-footer .elementor-element-3c4aab4 {
+    --gap: 10px 0px;
+    --row-gap: 10px;
+  }
+
+  /*
+   * Bottom bar. Elementor pushes the copyright last with an order hack, so the
+   * legal links sit above it; centre both and let the links wrap as a row
+   * rather than stacking.
+   */
+  body.wp-mirror .elementor-location-footer .elementor-element-8f71325 {
+    --gap: 12px 0px;
+    --row-gap: 12px;
+    align-items: center;
+    margin-block-start: 4px;
+  }
+
+  body.wp-mirror
+    .elementor-location-footer
+    .elementor-element-a22a6db
+    .elementor-icon-list-items.elementor-inline-items {
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  body.wp-mirror .elementor-location-footer .elementor-element-58a3a4d .elementor-heading-title {
+    font-size: 13px !important;
+    line-height: 20px !important;
+  }
+}
+
+/*
+ * Two link columns rather than three stacked blocks. Solutions and Resources
+ * pair up, Company takes the row below — 250px shorter than the stack, and the
+ * eye gets a grid to scan instead of one long ribbon.
+ *
+ * Held back below 360px, where a half-width column is narrow enough that the
+ * longest link ("MVNO Launch Cost Calculator") would break over three lines.
+ */
+@media (min-width: 360px) and (max-width: 767px) {
+  body.wp-mirror .elementor-location-footer .elementor-element-99df768,
+  body.wp-mirror .elementor-location-footer .elementor-element-71981a6 {
+    --width: calc(50% - 10px);
+  }
+
+  /*
+   * Company is the odd column out and would sit alone against an empty right
+   * half. Given the full width, its six short entries split into the same two
+   * tracks as the row above, so the block reads as a grid rather than a stub.
+   */
+  body.wp-mirror .elementor-location-footer .elementor-element-3c4aab4 {
+    --width: 100%;
+  }
+
+  body.wp-mirror .elementor-location-footer .elementor-element-7c94530 .elementor-icon-list-items {
+    columns: 2;
+    column-gap: 20px;
+  }
+
+  body.wp-mirror .elementor-location-footer .elementor-element-7c94530 .elementor-icon-list-item {
+    break-inside: avoid;
+  }
 }
 
 /* Elementor ships no visible keyboard focus ring; add one that respects brand. */
