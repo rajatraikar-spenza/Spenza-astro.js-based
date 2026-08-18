@@ -11,10 +11,23 @@
 # posts are headless.
 name: Publish
 
+# Name the run after whatever caused it, so the Actions list reads as a
+# publishing log rather than a column of identical rows.
+run-name: >-
+  Publish${{ github.event.client_payload.reason && format(' - {0}', github.event.client_payload.reason) || '' }}
+
 on:
+  # Fired by wordpress/mu-plugins/spenza-deploy-hook.php the moment a post or
+  # case study is published, edited, unpublished, trashed or deleted. The
+  # schedule below stays as a backstop: if the hook fails, is throttled, or
+  # WordPress cannot reach GitHub, the change is still picked up within 30
+  # minutes rather than waiting for someone to notice.
+  repository_dispatch:
+    types: [wordpress-content]
+
   schedule:
-    # Every 30 minutes. GitHub runs these on a best-effort basis and can be
-    # several minutes late under load, which is fine for content this is.
+    # Every 30 minutes. Best-effort, and can be several minutes late under
+    # load — which is why the webhook above exists for anything time-sensitive.
     - cron: '*/30 * * * *'
   workflow_dispatch:
     inputs:
