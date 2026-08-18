@@ -98,31 +98,63 @@ jobs:
           restore-keys: |
             astro-store-${{ hashFiles('src/loaders/wp-posts.mjs') }}-${{ env.MEDIA_ORIGIN }}-${{ env.SITE_URL }}-
 
+      # A scheduled run that finds nothing new used to cost ~32 GraphQL
+      # requests anyway — the media sync re-read every post looking for images
+      # and the loader ran its index pass. Every 30 minutes, that volume is
+      # what got the runners temporarily banned by the host's firewall.
+      #
+      # This asks one question instead: what is the newest `modified` stamp?
+      # Only `schedule` is gated on the answer. A manual run is a human asking
+      # for a deploy, usually because the code changed rather than the content,
+      # and a repository_dispatch is WordPress saying something already has.
+      - name: Has anything changed?
+        id: changed
+        if: github.event_name == 'schedule'
+        run: |
+          set +e
+          npm run --silent wp:changed
+          case $? in
+            10) echo "skip=true"  >> "$GITHUB_OUTPUT" ;;
+             0) echo "skip=false" >> "$GITHUB_OUTPUT" ;;
+             *) echo "skip=false" >> "$GITHUB_OUTPUT" ;;
+          esac
+
       # New posts bring new images, which are on WordPress and not in the
       # bucket. Without this the build succeeds and the post renders with a
       # broken hero — the failure is silent, which is what makes it worth a
       # dedicated step. Diffs against the bucket, so a fresh runner does not
       # re-download 2.2GB.
       - name: Sync new media to S3
+        if: steps.changed.outputs.skip != 'true'
         run: npm run wp:media-sync-s3
 
       - name: Build
+        if: steps.changed.outputs.skip != 'true'
         run: npm run build
 
       # Catches a reference that resolves locally but 404s once media is served
       # from elsewhere — the class of bug the two crawl-based audits cannot see.
       - name: Verify the build is self-consistent
+        if: steps.changed.outputs.skip != 'true'
         run: npm run wp:verify-dist -- "$MEDIA_ORIGIN"
 
       # Skips itself when the build hashes identical to what is already live,
       # which is the common case on a schedule.
       - name: Deploy
+        if: steps.changed.outputs.skip != 'true'
         env:
           FORCE_DEPLOY: ${{ inputs.force && '1' || '' }}
         run: bash scripts/aws-site-host.sh deploy
 
       - name: Smoke-test what was deployed
+        if: steps.changed.outputs.skip != 'true'
         run: bash scripts/aws-site-host.sh verify
+
+      # Recorded only after everything above succeeded, so a failed run does not
+      # mark this content as published and let the next schedule skip it.
+      - name: Record what was published
+        if: steps.changed.outputs.skip != 'true'
+        run: npm run --silent wp:changed -- --commit
 
       # The manifest is regenerated from the bucket above. Committing it back
       # keeps a local `npm run build` — which has no bucket access — able to

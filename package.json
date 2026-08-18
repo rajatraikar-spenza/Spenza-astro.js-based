@@ -37,7 +37,8 @@
     "wp:media-manifest": "node scripts/wp-media-manifest.mjs",
     "wp:media-sync-s3": "node scripts/wp-media-sync-s3.mjs",
     "wp:seo": "node scripts/wp-extract-seo.mjs",
-    "wp:authors": "node scripts/wp-extract-authors.mjs"
+    "wp:authors": "node scripts/wp-extract-authors.mjs",
+    "wp:changed": "node scripts/wp-changed.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
