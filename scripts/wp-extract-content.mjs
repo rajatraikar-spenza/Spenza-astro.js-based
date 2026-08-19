@@ -1,11 +1,32 @@
 // Extract Elementor header/footer/content from the mirrored pages, download any
 // missing media, and rewrite every preprod URL to a local one.
+//
+// THIS SCRIPT IS RETIRED. It ran once, to import the site. WordPress is a
+// headless CMS for blog posts and case studies now, and every other page —
+// marketing, header, footer, calculators — is owned by this repo and edited
+// here. Running this again would overwrite `src/partials/**` with whatever
+// preprod currently serves and silently discard every change made since the
+// import: the UI fixes, the accessibility work, the performance work, all of it.
+//
+// Kept because it documents how the partials were produced. If you genuinely
+// need to re-import a page, set REIMPORT=1 and expect to reapply everything by
+// hand afterwards.
 import fs from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { parse, serializeOuter } from 'parse5';
 
 import { rewriteWpUrls, wpMediaRe, WP_ORIGIN, WP_HOST } from './lib/config.mjs';
+
+if (!process.env.REIMPORT) {
+  process.stderr.write(
+    'wp:content is retired — it would overwrite src/partials/** from WordPress\n' +
+    'and discard every change made since the import. Marketing pages, the header\n' +
+    'and footer and the calculators are this repo\'s now; edit them here.\n' +
+    'If you really mean to re-import, run with REIMPORT=1.\n'
+  );
+  process.exit(1);
+}
 
 const ORIGIN = WP_ORIGIN;
 const PROJECT = path.resolve(import.meta.dirname, '..');

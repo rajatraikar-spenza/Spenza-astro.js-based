@@ -105,12 +105,25 @@ a redirect only when its target is a page this site actually serves.
 
 ## Re-syncing from WordPress
 
-The pipeline is reproducible. It reads `.wp-cache/cookies.txt` (a logged-in
-WordPress session — `.wp-cache/` is gitignored and must never be committed).
+**Only blog posts and case studies still come from WordPress.** It is a headless
+CMS for those two content types; the marketing pages, the header and footer, the
+calculators and the styling are owned by this repo and edited here. The import
+that produced `src/partials/**` ran once and is finished — `wp:resync` and
+`wp:content` are retired and refuse to run, because re-importing would overwrite
+those files with whatever preprod serves today and discard everything since.
+
+What still runs against WordPress:
 
 ```sh
-npm run wp:resync        # assets → content → inline CSS → WebP → scripts → pages
 npm run wp:posts         # every blog post and case study
+npm run wp:media-sync-s3 # the images those posts reference
+```
+
+The rest of the import pipeline is kept for reference only. It reads
+`.wp-cache/cookies.txt` (a logged-in WordPress session — `.wp-cache/` is
+gitignored and must never be committed).
+
+```sh
 npm run wp:archives      # category / author / date archives
 npm run wp:webp          # WebP Express variants for whatever the above added
 npm run wp:redirects     # WordPress' 301s (needs a preview server, see below)

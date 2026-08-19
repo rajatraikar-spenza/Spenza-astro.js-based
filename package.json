@@ -23,7 +23,7 @@
     "wp:post-template": "node scripts/wp-post-template.mjs",
     "wp:audit-links": "node scripts/wp-audit-links.mjs",
     "wp:audit": "node scripts/wp-audit-assets.mjs",
-    "wp:resync": "npm run wp:assets && npm run wp:content && npm run wp:inline-css && npm run wp:webp && npm run wp:scripts && npm run wp:pages && npm run wp:optimize-css",
+    "wp:resync": "node -e \"console.error('wp:resync is retired: the mirror was a one-time import. WordPress is a headless CMS for blog posts and case studies only; every other page is this repo\\'s and is edited here. See CLAUDE.md, \\'Who owns what\\'.'); process.exit(1)\"",
     "wp:optimize-css": "node scripts/wp-optimize-css.mjs",
     "wp:post-shell": "node scripts/wp-post-shell.mjs",
     "wp:diff-headless": "node scripts/wp-diff-headless.mjs",

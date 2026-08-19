@@ -5,10 +5,10 @@
 # webhook because it needs nothing installed on preprod — a webhook is strictly
 # better and can replace the `schedule` trigger below without changing any step.
 #
-# What it does NOT pick up: the 38 mirrored marketing pages, the header/footer,
-# and the archives. Those are captured HTML on disk and need `npm run wp:resync`
-# with a logged-in WordPress session, which cannot run unattended. Only blog
-# posts are headless.
+# What it does NOT pick up: the marketing pages, the header/footer and the
+# archives. Those are not WordPress' any more — they live in this repo and are
+# changed by committing to it, which is what triggers this workflow anyway.
+# WordPress is a headless CMS for blog posts and case studies, and nothing else.
 name: Publish
 
 # Name the run after whatever caused it, so the Actions list reads as a
