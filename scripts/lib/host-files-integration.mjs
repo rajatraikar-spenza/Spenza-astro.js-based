@@ -195,6 +195,197 @@ async function pruneUnreferencedCss(out, logger) {
 }
 
 /**
+ * Move base64 images out of the HTML and into files.
+ *
+ * Elementor exports some illustrations as inline `<svg>` with the raster inside
+ * them as a `data:` URI. On the home page that is seven images and 417KB of the
+ * 1.55MB document — one of them a 1254x1254 PNG on its own — and base64 is the
+ * worst possible place for it: it cannot be cached, cannot be lazy-loaded,
+ * cannot be fetched in parallel, and compresses badly because the bytes are
+ * already compressed. It is pure blocking weight in front of first paint, which
+ * is exactly what Lighthouse measured on mobile: a 542KB document and an LCP of
+ * 7.1s on a page whose LCP element is a heading.
+ *
+ * Extracted to a content-addressed file so it caches forever, and referenced by
+ * URL. The bytes are re-encoded only if the encoder produces a smaller file
+ * that is still the same format — an `<image>` inside an SVG is not a
+ * `<picture>` and has no fallback, so this is not the place to change formats.
+ *
+ * The threshold keeps small inline icons where they are: below a couple of KB
+ * an extra request costs more than the bytes save.
+ */
+const INLINE_IMAGE_MIN = 2048;
+
+async function extractInlineImages(out, logger) {
+  const html = (await walk(out)).filter(f => f.endsWith('.html'));
+  if (!html.length) return;
+
+  const { createHash } = await import('node:crypto');
+  let sharp;
+  try {
+    ({ default: sharp } = await import('sharp'));
+  } catch {
+    // Astro ships sharp for its image service; if that ever changes, extraction
+    // still works, just without the recompression pass.
+  }
+
+  const dir = path.join(out, 'images', 'inline');
+  /** data URI -> public path, so one image shared by ten pages is written once. */
+  const seen = new Map();
+  let files = 0, saved = 0, pages = 0;
+
+  const DATA_URI = /data:image\/(png|jpeg|jpg|gif|webp|avif);base64,([A-Za-z0-9+/=]+)/g;
+
+  for (const file of html) {
+    const text = await fs.readFile(file, 'utf8');
+    if (!text.includes(';base64,')) continue;
+
+    let touched = false;
+    const next = await replaceAsync(text, DATA_URI, async (uri, type, b64) => {
+      if (uri.length < INLINE_IMAGE_MIN) return uri;
+
+      let url = seen.get(uri);
+      if (!url) {
+        let buf = Buffer.from(b64, 'base64');
+        const ext = type === 'jpg' ? 'jpeg' : type;
+        // PNG only: re-encoding a JPEG loses detail every time it runs, and
+        // this pass exists to move bytes, not to change what they show.
+        if (sharp && ext === 'png') buf = await shrinkPng(buf, sharp);
+        const name = `${createHash('sha256').update(buf).digest('hex').slice(0, 12)}.${ext === 'jpeg' ? 'jpg' : ext}`;
+        await fs.mkdir(dir, { recursive: true });
+        await fs.writeFile(path.join(dir, name), buf);
+        url = `/images/inline/${name}`;
+        seen.set(uri, url);
+        files++;
+        saved += uri.length - buf.length;
+      }
+      touched = true;
+      return url;
+    });
+
+    if (!touched) continue;
+    await fs.writeFile(file, next, 'utf8');
+    pages++;
+  }
+
+  if (files) {
+    logger.info(
+      `extracted ${files} inline images to /images/inline, ` +
+      `${(saved / 1048576).toFixed(1)}MB out of ${pages} documents`
+    );
+  }
+}
+
+/**
+ * The smallest honest PNG: re-deflated, or palette-reduced when that provably
+ * changes nothing anyone can see.
+ *
+ * The 1254x1254 robot on the home page is two flat colours over transparency
+ * stored as 24-bit RGBA — 294KB where a palette holds it in 33KB, identically.
+ * A photograph put through the same encoder bands visibly, so the palette
+ * version is only accepted after being compared against the original: flat
+ * artwork comes back with a mean channel error near zero, a photograph does
+ * not. The threshold is well below the ~2/255 at which a difference starts to
+ * be perceptible on a gradient.
+ */
+async function shrinkPng(buf, sharp) {
+  const candidates = [buf];
+
+  try {
+    candidates.push(await sharp(buf)
+      .png({ compressionLevel: 9, effort: 10, palette: false })
+      .toBuffer());
+  } catch { /* the original stays in the running */ }
+
+  try {
+    const paletted = await sharp(buf).png({ palette: true, quality: 80, effort: 10 }).toBuffer();
+    if (await meanChannelError(buf, paletted, sharp) < 0.5) candidates.push(paletted);
+  } catch { /* likewise */ }
+
+  return candidates.reduce((a, b) => (b.length < a.length ? b : a));
+}
+
+/** Mean absolute per-channel difference between two encodings, 0-255. */
+async function meanChannelError(a, b, sharp) {
+  const to = img => sharp(img)
+    .resize({ width: 400, height: 400, fit: 'fill' })
+    .ensureAlpha()
+    .raw()
+    .toBuffer();
+  const [ra, rb] = await Promise.all([to(a), to(b)]);
+  if (ra.length !== rb.length) return Infinity;
+  let sum = 0;
+  for (let i = 0; i < ra.length; i++) sum += Math.abs(ra[i] - rb[i]);
+  return sum / ra.length;
+}
+
+/** `String.replace` with an async replacer, which the platform still lacks. */
+async function replaceAsync(text, re, fn) {
+  const jobs = [];
+  text.replace(re, (...args) => { jobs.push(fn(...args)); return ''; });
+  const values = await Promise.all(jobs);
+  let i = 0;
+  return text.replace(re, () => values[i++]);
+}
+
+/**
+ * Serve every font from this origin, and let text paint before it arrives.
+ *
+ * `wp:fonts` mirrors the stylesheets the *markup* asks for, but Elementor and
+ * Astra carry their own `@font-face` blocks inside the theme CSS, and those name
+ * fonts.gstatic.com directly. So two families were still fetched from Google on
+ * every page — a third-party DNS lookup and TLS handshake in front of first
+ * paint, on a site that otherwise contacts nobody. The woff2 they point at are
+ * already mirrored under `_fonts/`, filed by Google's own basename, so this is
+ * a rename rather than a download.
+ *
+ * `font-display` is the other half. Without it a face blocks text for up to
+ * three seconds while it loads, which Lighthouse costed at 1,150ms on a post —
+ * and it is the icon fonts, 371KB of Font Awesome and eicons, that take longest.
+ * `swap` paints in the fallback immediately and swaps when the face lands.
+ */
+async function fixFontLoading(out, logger) {
+  const css = (await walk(out)).filter(f => f.endsWith('.css'));
+  const fontsDir = path.join(out, 'wp-assets', '_fonts');
+  const mirrored = new Set(await fs.readdir(fontsDir).catch(() => []));
+
+  const GSTATIC = /https:\/\/fonts\.gstatic\.com\/[^"')\s]+?\/([A-Za-z0-9_-]+\.woff2?)/g;
+  const FACE = /@font-face\s*\{[^}]*\}/g;
+
+  let repointed = 0, displayed = 0, touched = 0;
+
+  for (const file of css) {
+    const before = await fs.readFile(file, 'utf8');
+    let after = before.replace(GSTATIC, (url, name) => {
+      if (!mirrored.has(name)) return url;   // Not mirrored: leave it working.
+      repointed++;
+      return `/wp-assets/_fonts/${name}`;
+    });
+
+    after = after.replace(FACE, block => {
+      if (/font-display\s*:/.test(block)) return block;
+      displayed++;
+      // The separator matters: the minifier drops the last semicolon in a
+      // block, so appending without one glues the new property onto the end of
+      // `unicode-range` and CSS then discards *both* — which would silently
+      // undo the subsetting and pull down every language's woff2.
+      return block.replace(/;?\s*\}$/, ';font-display:swap}');
+    });
+
+    if (after === before) continue;
+    await fs.writeFile(file, after, 'utf8');
+    touched++;
+  }
+
+  if (touched) {
+    logger.info(
+      `fonts: repointed ${repointed} URLs at this origin and added font-display ` +
+      `to ${displayed} faces across ${touched} stylesheets`
+    );
+  }
+}
+
+/**
  * Point media URLs inside the built CSS and JS at the media host.
  *
  * Markup gets this at import time, where the rewrite can run on the partial
@@ -299,7 +490,12 @@ export function hostFiles() {
           );
         }
 
+        await extractInlineImages(out, logger);
         await pruneUnreferencedCss(out, logger);
+        // After the prune, so it does not rewrite 932 stylesheets that are
+        // about to be deleted, and before the media rewrite, which reads the
+        // finished CSS.
+        await fixFontLoading(out, logger);
         await rewriteAssetMedia(out, logger);
         // Last: everything above reads the output, and this removes part of it.
         await dropMediaTrees(out, logger);
