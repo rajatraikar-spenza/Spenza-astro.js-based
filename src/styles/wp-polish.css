@@ -35,6 +35,17 @@
     content-visibility: auto;
     contain-intrinsic-size: auto 600px;
   }
+
+  /*
+   * Except whichever one holds the post hero. On an article that is the third
+   * container — breadcrumbs, then title, then the image — and it is the LCP
+   * element, so deferring it undoes the whole point: measured as 4.9s to 8.0s
+   * on a post. Written as an override rather than a `:not()` so that a browser
+   * without `:has()` still gets the rule above.
+   */
+  .wp-mirror main > .elementor > .e-con.e-parent:has(.elementor-widget-theme-post-featured-image) {
+    content-visibility: visible;
+  }
 }
 
 /* Modern easing for the interactions Elementor animates linearly. */
