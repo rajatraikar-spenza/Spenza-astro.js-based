@@ -98,12 +98,24 @@ try {
 const refs = new Set();
 for (let i = 0; i < index.length; i += BATCH) {
   const names = index.slice(i, i + BATCH).map(p => JSON.stringify(p.slug)).join(',');
+  /**
+   * `srcSet` matters as much as `sourceUrl` here.
+   *
+   * A featured image was only ever referenced at full size, so the bucket held
+   * one 1280x720 PNG and none of the resized variants WordPress made from it.
+   * `loop-item.ts` filters its candidate list against this manifest and drops
+   * anything missing, so every card and every carousel slide fell back to the
+   * original: 431KB of PNG to fill a 360px-wide slot. Images inside post bodies
+   * never had the problem, because the rendered HTML carries their `srcset` and
+   * the scan below already picked those URLs up.
+   */
   const data = await wpQuery(
     `{posts(first:${BATCH},where:{nameIn:[${names}],status:PUBLISH}){nodes{` +
-    `content featuredImage{node{sourceUrl}}}}}`
+    `content featuredImage{node{sourceUrl srcSet}}}}}`
   );
   for (const node of data.posts?.nodes ?? []) {
-    const blob = (node.content ?? '') + ' ' + (node.featuredImage?.node?.sourceUrl ?? '');
+    const media = node.featuredImage?.node;
+    const blob = [node.content ?? '', media?.sourceUrl ?? '', media?.srcSet ?? ''].join(' ');
     for (const m of blob.replace(/\\\//g, '/').matchAll(UPLOAD_RE)) {
       refs.add(decodeURIComponent(m[0]).split('?')[0]);
     }
@@ -136,6 +148,28 @@ async function transfer(url, key, contentType) {
   return true;
 }
 
+/** Where WebP Express files a variant, as a bucket key. */
+const webpKey = key =>
+  `${WEBP_PATH.slice(1)}webp-images/uploads/${key.replace('wp-content/uploads/', '')}.webp`;
+
+/** Only raster uploads have a twin; SVG, PDF and video do not. */
+const hasTwin = rel => /\.(?:png|jpe?g|gif)$/i.test(rel);
+
+/**
+ * Fetch the WebP twin for one upload, unless the bucket already has it.
+ *
+ * A miss is normal and not an error — the page just serves the original
+ * without a `<picture>`.
+ */
+async function syncWebp(rel) {
+  if (!hasTwin(rel)) return;
+  const variant = webpKey(rel.slice(1));
+  if (inBucket.has(variant)) return;
+  const webpUrl = `${WP_ORIGIN}/wp-content/webp-express/webp-images/uploads/` +
+    encodeURI(rel.replace('/wp-content/uploads/', '')) + '.webp';
+  if (await transfer(webpUrl, variant, 'image/webp')) webpUploaded++;
+}
+
 for (let i = 0; i < missing.length; i += CONCURRENCY) {
   await Promise.all(missing.slice(i, i + CONCURRENCY).map(async rel => {
     const key = rel.slice(1);
@@ -145,14 +179,7 @@ for (let i = 0; i < missing.length; i += CONCURRENCY) {
         return;
       }
       uploaded++;
-
-      // The WebP twin, if WordPress made one. A miss is normal and not an
-      // error — the page just serves the original without a <picture>.
-      const variant = `${WEBP_PATH.slice(1)}webp-images/uploads/${key.replace('wp-content/uploads/', '')}.webp`;
-      if (inBucket.has(variant)) return;
-      const webpUrl = `${WP_ORIGIN}/wp-content/webp-express/webp-images/uploads/` +
-        encodeURI(rel.replace('/wp-content/uploads/', '')) + '.webp';
-      if (await transfer(webpUrl, variant, 'image/webp')) webpUploaded++;
+      await syncWebp(rel);
     } catch (e) {
       failed.push(`${rel} (${e.message})`);
     }
@@ -160,6 +187,27 @@ for (let i = 0; i < missing.length; i += CONCURRENCY) {
   if (missing.length) out(`  uploaded ${uploaded}/${missing.length}\r`);
 }
 if (missing.length) out('\n');
+
+/**
+ * Twins for the originals that were already here.
+ *
+ * The pass above only reached images it had just uploaded, so anything that
+ * landed in the bucket before this script started fetching twins never got one
+ * — and `webpFor()` refuses to emit a `<source>` it cannot prove exists, so
+ * those images shipped as PNG forever. Costs nothing once warm: a twin already
+ * in the bucket is skipped without a request.
+ */
+const twinless = [...refs].filter(rel => hasTwin(rel) && !inBucket.has(webpKey(rel.slice(1))));
+if (twinless.length) {
+  out(`${twinless.length} images have no WebP twin in the bucket\n`);
+  for (let i = 0; i < twinless.length; i += CONCURRENCY) {
+    await Promise.all(twinless.slice(i, i + CONCURRENCY).map(async rel => {
+      try { await syncWebp(rel); } catch (e) { failed.push(`${rel}.webp (${e.message})`); }
+    }));
+    out(`  fetched ${webpUploaded}/${twinless.length}\r`);
+  }
+  out('\n');
+}
 
 await fs.rm(TMP, { recursive: true, force: true });
 
