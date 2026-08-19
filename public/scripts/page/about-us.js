@@ -265,59 +265,137 @@ document.addEventListener("DOMContentLoaded", () => {
 /* --- snippet 6 --- */
 try {
 (function(){
+/* The "Our Journey" timeline: hold one screen still and slide the drawing
+   across it. The stage is held by `position: sticky` (see wp-polish.css), so
+   the only thing left to do here is move the drawing — no pinning classes to
+   toggle, and nothing that forces the page to lay out again mid-scroll. */
 (function(){
-  const wrap = document.getElementById('timeline-section');
-  const svg  = wrap && wrap.querySelector('svg');
-  if(!wrap || !svg) return;
+  const wrap  = document.getElementById('timeline-section');
+  const stage = wrap && wrap.querySelector('.e-con-inner');
+  /* Two drawings ship in this section, a wide one and a tall one for phones.
+     The effect belongs to the wide one; the other is display:none up here. */
+  const svg   = wrap && wrap.querySelector('.animate-timeline:not(.elementor-hidden-desktop) svg');
+  if(!wrap || !stage || !svg) return;
 
-  const dashes = svg.querySelectorAll('[stroke-dasharray]');
   const MQ = window.matchMedia('(min-width:768px)');
+  const clamp01 = n => n < 0 ? 0 : n > 1 ? 1 : n;
+
+  /* How far down the window the stage is stuck — the height of the sticky
+     header. Measured, because it is also where the scroll starts counting. */
+  let stageTop = 0;
+
+  /* Where each dashed stem sits along the drawing, as a fraction of its width.
+     Document order is not left to right — the 2023 stem is authored last — so
+     drawing them by index drew them out of order. Both numbers come from the
+     viewBox, which no amount of scrolling or resizing changes. */
+  const vbWidth = (svg.viewBox && svg.viewBox.baseVal.width) || 0;
+  const stems = Array.prototype.map.call(
+    svg.querySelectorAll('[stroke-dasharray]'),
+    el => {
+      const box = el.getBBox();
+      return {
+        el,
+        at:  vbWidth ? (box.x + box.width / 2) / vbWidth : 0,
+        len: el.getTotalLength ? el.getTotalLength() : 100,
+      };
+    }
+  );
 
   function reset(){
-    wrap.classList.remove('is-pinned','is-pinned-bottom');
+    wrap.style.height = '';
+    wrap.style.removeProperty('--stage-top');
     svg.style.transform = '';
-    dashes.forEach(el => { el.style.strokeDashoffset = ''; });
+    stems.forEach(s => { s.el.style.strokeDashoffset = ''; });
+  }
+
+  /* Make the section as tall as the drawing needs and no taller: one screen to
+     stand in, plus a little over a pixel of scroll for every pixel the drawing
+     has to travel. The mirrored CSS asked for four screens no matter what the
+     drawing measured, so on a short window most of that scroll was spent on a
+     drawing that had already finished moving. */
+  function measure(){
+    if(!MQ.matches){ reset(); return; }
+
+    /* The site header is sticky, so a stage stuck to the top of the window
+       would spend the whole section with its first line behind it. Start
+       below it instead — the header keeps its height as the page scrolls, so
+       one measurement holds. */
+    const header = document.querySelector('.elementor-location-header');
+    stageTop = header ? Math.round(header.getBoundingClientRect().height) : 0;
+    wrap.style.setProperty('--stage-top', stageTop + 'px');
+
+    const over = Math.max(0, svg.getBoundingClientRect().width - stage.clientWidth);
+    wrap.style.height = (stage.offsetHeight + over * 1.3) + 'px';
   }
 
   function update(){
     if(!MQ.matches){ reset(); return; }
 
-    const wrapTop = wrap.offsetTop;
-    const wrapH   = wrap.offsetHeight;
-    const vh      = window.innerHeight;
-    const scrollY = window.scrollY || window.pageYOffset;
-
-    const start = wrapTop;
-    const end   = wrapTop + wrapH - vh;
-
-    if(scrollY < start){
-      wrap.classList.remove('is-pinned','is-pinned-bottom');
-    } else if(scrollY >= start && scrollY <= end){
-      wrap.classList.add('is-pinned');
-      wrap.classList.remove('is-pinned-bottom');
-    } else {
-      wrap.classList.remove('is-pinned');
-      wrap.classList.add('is-pinned-bottom');
+    /* The stage stays stuck for exactly as long as the section is taller than
+       it, which is the whole of the scroll this effect gets. On a window wide
+       enough to hold the whole drawing there is nothing to travel, so it just
+       sits there, drawn. (Not reset(): that would hand the section back its
+       four screens of scroll and give it nothing to do with them.) */
+    const travel = wrap.offsetHeight - stage.offsetHeight;
+    if(travel <= 0){
+      svg.style.transform = '';
+      stems.forEach(s => { s.el.style.strokeDashoffset = '0'; });
+      return;
     }
+    /* Counted from the moment the stage sticks, which is when the top of the
+       section reaches the bottom of the header — not the top of the window.
+       Out by those few dozen pixels, the drawing was still moving after the
+       stage had started to leave. */
+    const progress = clamp01((stageTop - wrap.getBoundingClientRect().top) / travel);
 
-    let progress = (scrollY - start) / (end - start);
-    progress = Math.max(0, Math.min(1, progress));
+    const stageW   = stage.clientWidth;
+    const drawW    = svg.getBoundingClientRect().width;
+    const maxShift = Math.max(0, drawW - stageW);
+    svg.style.transform = `translate3d(${-maxShift * progress}px, 0, 0)`;
 
-    const maxShift = svg.getBoundingClientRect().width - window.innerWidth;
-    svg.style.transform = `translateX(${-maxShift * progress}px)`;
-
-    dashes.forEach((el, i) => {
-      const len = el.getTotalLength ? el.getTotalLength() : 100;
-      const p = Math.max(0, Math.min(1, (progress * dashes.length) - i));
-      el.style.strokeDashoffset = len * (1 - p);
+    /* Each stem draws its dots over the stretch of scroll just after it comes
+       in from the right, so they arrive with the year they belong to rather
+       than all at once. The stretch is shortened for the stems that come in
+       late, because the drawing stops moving before they reach the middle and
+       a stem left half drawn is worse than a fast one. */
+    stems.forEach(s => {
+      const entry = maxShift ? clamp01((s.at * drawW - stageW * 0.95) / maxShift) : 0;
+      const span  = Math.max(0.08, Math.min(0.22, 1 - entry));
+      const p     = clamp01((progress - entry) / span);
+      s.el.style.strokeDashoffset = s.len * (1 - p);
     });
   }
 
+  /* One pass per frame at most, and a remeasure only on the frames that asked
+     for one — a window drag fires resize far faster than it can be answered. */
   let ticking = false;
-  window.addEventListener('scroll', () => {
-    if(!ticking){ requestAnimationFrame(()=>{ update(); ticking=false; }); ticking = true; }
-  }, {passive:true});
-  window.addEventListener('resize', update);
+  let pendingMeasure = false;
+
+  function frame(){
+    ticking = false;
+    if(pendingMeasure){ pendingMeasure = false; measure(); }
+    update();
+  }
+
+  function schedule(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(frame);
+  }
+
+  function remeasure(){ pendingMeasure = true; schedule(); }
+
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', remeasure);
+  if(MQ.addEventListener) MQ.addEventListener('change', remeasure);
+  /* The drawing is sized in vh, so its width is only final once the fonts and
+     the rest of the page have settled; measure again when the load event says
+     they have. */
+  window.addEventListener('load', remeasure);
+
+  /* The first pass runs now rather than a frame from now, so the drawing is
+     in place before the section is ever painted. */
+  measure();
   update();
 })();
 

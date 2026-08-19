@@ -1276,3 +1276,79 @@ body.wp-mirror.e-off-canvas__no-scroll {
     animation: none;
   }
 }
+
+/* ------------------------------------------------------- about: our journey */
+
+/*
+ * The "Our Journey" timeline, and why this one changes layout.
+ *
+ * The section is four screens of scroll during which a 4404px-wide drawing is
+ * meant to be held still and slid to the left. The mirrored CSS tries to hold
+ * it with a 150vh panel that a script switches to `position: fixed`, and every
+ * part of that misses:
+ *
+ * - Elementor's own `.e-con.e-flex > .e-con-inner { flex-grow: 1 }` beats the
+ *   `height: 150vh` the panel is given, so until the script pins anything the
+ *   panel is the full four screens tall and the drawing, centred in it, sits
+ *   two screens below the fold. That is the blank window you scroll through.
+ * - Pinned, the panel is still half a screen taller than the window, so the
+ *   drawing starts 40% of the way down and runs off the bottom.
+ * - The panel centres its contents on both axes, so the drawing is centred
+ *   too: the scroll begins halfway along the timeline and 2020 is never shown.
+ * - And taking a 2500px panel in and out of the flow on a scroll frame is a
+ *   relayout of the whole document, for an effect that only moves a picture.
+ *
+ * `position: sticky` is the mechanism the effect wanted: one window held for
+ * the length of the section, no class to toggle, nothing to relayout. The
+ * mirror's four screens stay in the stylesheet as the no-script fallback — a
+ * held window and a drawing that does not move, rather than a blank one — and
+ * the script replaces that height with the distance the drawing has to travel.
+ */
+@media (min-width: 768px) {
+  .wp-mirror #timeline-section > .e-con-inner {
+    position: sticky;
+    /* Below the sticky header, whose height the script measures — at top: 0
+       the heading spends the section behind it. */
+    top: var(--stage-top, 0px);
+    /* Without this the flex-grow above stretches it past the window again. */
+    flex: none;
+    height: calc(100vh - var(--stage-top, 0px));
+    width: 100%;
+    max-width: none;
+    /* Elementor's 60px of vertical padding, halved: the window is a fixed
+       budget here and the drawing is what should get the room. */
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Full width, and starting at the left edge: the drawing leaves the screen
+     to the right, which is the direction it travels back from. */
+  .wp-mirror #timeline-section .animate-timeline {
+    width: 100%;
+  }
+
+  .wp-mirror #timeline-section .animate-timeline > .elementor-widget-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* Sized so the three lines of heading above it always share the same window:
+     at the 70vh it used to be, drawing and headings together were taller than
+     a laptop screen and the drawing lost its bottom edge. */
+  .wp-mirror #timeline-section .animate-timeline svg {
+    /* A flex item, so without this it shrinks to the width of the screen
+       instead of overflowing it — and there is nothing left to scroll. */
+    flex: none;
+    /* Whatever the headings and padding leave, so the drawing is as large as
+       the window allows and still overflows it by enough to be worth sliding. */
+    height: clamp(180px, calc(100vh - var(--stage-top, 0px) - 250px), 700px);
+    width: auto;
+    max-width: none;
+    will-change: transform;
+  }
+}
