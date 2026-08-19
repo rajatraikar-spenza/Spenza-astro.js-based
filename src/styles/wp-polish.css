@@ -10,6 +10,33 @@
  * phone, so those few rules do change layout. Each says why.
  */
 
+/*
+ * Stop laying out the parts of the page nobody is looking at yet.
+ *
+ * These pages are long: the home page is 4,272 elements and 34 inline SVGs, and
+ * on a throttled phone the browser spent 1.8s in style and layout and another
+ * 0.4s painting — all of it before first paint, and 93% of the LCP was render
+ * delay rather than anything on the network. Halving the bytes did not move it,
+ * because bytes were never what was slow.
+ *
+ * `content-visibility: auto` lets the browser skip style, layout and paint for a
+ * section until it approaches the viewport, and `contain-intrinsic-size` gives
+ * it a placeholder height in the meantime so the scrollbar is roughly right.
+ * The `auto` keyword makes it remember each section's real height once measured,
+ * so a section is only ever estimated once.
+ *
+ * Scoped to the top-level Elementor containers, and never the first two: the
+ * hero holds the LCP element on most pages and must not be deferred by even a
+ * frame. Nothing is hidden from find-in-page, anchors or the accessibility tree
+ * — the browser renders a skipped section on demand when any of those reach it.
+ */
+@supports (content-visibility: auto) {
+  .wp-mirror main > .elementor > .e-con.e-parent:nth-child(n + 3) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+}
+
 /* Modern easing for the interactions Elementor animates linearly. */
 .wp-mirror {
   --polish-ease: cubic-bezier(0.22, 1, 0.36, 1);
