@@ -4,6 +4,10 @@
  * Ground rules: never change layout, colour or type — only the quality of
  * motion and rendering. Everything here is either a smoother easing curve, a
  * rendering hint, or an accessibility fix that WordPress did not ship.
+ *
+ * The header section below is the documented exception: the mirror cannot run
+ * Elementor's sticky runtime and its header sizing is not what we want on a
+ * phone, so those few rules do change layout. Each says why.
  */
 
 /* Modern easing for the interactions Elementor animates linearly. */
@@ -76,6 +80,32 @@
   height: 38px;
   width: auto;
   max-width: none;
+}
+
+/*
+ * A shorter header on phones.
+ *
+ * Elementor gives the header container 20px of padding above and below at every
+ * breakpoint. On a phone the row is 97px tall — 40px of that padding wrapped
+ * around a 57px menu-toggle box whose glyph is barely half its height — so the
+ * bar eats an eighth of a 844px viewport before any content shows.
+ *
+ * Halving the padding takes it to 77px, a fifth shorter, and it is the only
+ * dimension touched: the 38px logo and the 50px toggle keep their sizes, so
+ * nothing about the tap target or the brand mark changes. Written as Elementor's
+ * own custom properties rather than as `padding`, because that is the mechanism
+ * `.e-con` reads — overriding the shorthand would fight the cascade instead of
+ * feeding it.
+ *
+ * Scoped to Elementor's own mobile breakpoint. Tablets (768–1024px) show the
+ * same collapsed header and are deliberately left alone; widen the query if that
+ * one should shrink too.
+ */
+@media (max-width: 767px) {
+  .wp-mirror .elementor-17806 .elementor-element.elementor-element-d197e1b {
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+  }
 }
 
 /* Nested-menu panels fade/slide in rather than snapping open. */
