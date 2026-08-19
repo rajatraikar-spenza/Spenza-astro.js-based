@@ -35,7 +35,34 @@ const DENY = [
  */
 const isWpDataBlock = id => /-js-(extra|before|after|translations)$/.test(id);
 
-const rewriteUrls = rewriteWpUrls;
+/**
+ * WebP Express variants named by a script, back to the original upload.
+ *
+ * The WPCode snippet that swaps the author avatar for a branded image names it
+ * by its WebP Express path, and names it *root-relative* — so `rewriteWpUrls`,
+ * which only rewrites absolute WordPress URLs, left it untouched. Nothing else
+ * did either: that tree is mirrored by `wp:webp`, which fetches only the
+ * variants referenced from markup, and this one is referenced from a script. So
+ * the avatar 404'd on all 257 pages that carry the snippet — the gravatar in
+ * the HTML painted, then this replaced it with a dead URL and the alt text
+ * ("Picture of Spenza") was all that was left.
+ *
+ * Mapped to the original upload rather than to the mirrored spelling of the
+ * variant, because the original is the path that works everywhere: it is in
+ * `public/`, it is in the media manifest so the bucket has it, and it is one of
+ * the two prefixes `toMediaOrigin` repoints when a media host is configured.
+ * The variant is none of those three.
+ *
+ * The lookbehind keeps this off `/wp-assets/wp-content/webp-express/`, which is
+ * where mirrored variants really live and where the file does exist.
+ */
+const webpVariantToOriginal = s =>
+  s.replace(
+    /(?<!\/wp-assets)\/wp-content\/webp-express\/webp-images(\/uploads\/[^"'\s)]+?)\.webp/g,
+    '/wp-content$1'
+  );
+
+const rewriteUrls = s => webpVariantToOriginal(rewriteWpUrls(s));
 
 /** Split a mirrored document's body into custom scripts and JSON-LD blocks. */
 export function extractInlineScripts(html) {

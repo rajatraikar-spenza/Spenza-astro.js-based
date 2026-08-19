@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const authorImages = {
         "/author/isimplexity/": {
-            src: "/wp-content/webp-express/webp-images/uploads/2025/10/Spenza-favicon.jpg.webp",
+            src: "/wp-content/uploads/2025/10/Spenza-favicon.jpg",
             alt: "Picture of Spenza"
         },
         "/author/vinay/": {
