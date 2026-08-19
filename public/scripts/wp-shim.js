@@ -1376,6 +1376,178 @@
     return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
   }
 
+
+  /* --------------------------------------------------------------- selects */
+
+  /**
+   * A themed dropdown around the form's native `<select>`.
+   *
+   * The list a `<select>` opens is drawn by the operating system: it cannot be
+   * given the site's type, its rounded corners or its orange, so the control
+   * always looked borrowed from somewhere else. This puts a listbox of our own
+   * in front of it.
+   *
+   * The `<select>` itself stays in the DOM and stays the thing that submits —
+   * every choice is written back to it and a `change` event dispatched, so
+   * Gravity Forms and its validation see exactly what they saw before. It is
+   * taken out of the tab order and hidden from assistive technology, because
+   * the button and listbox in front of it carry the same role, state and
+   * keyboard behaviour: arrows and Home/End to move, Enter to choose, Escape to
+   * close, and type-ahead on first letters.
+   *
+   * Nothing runs on a page with no select on it, which is nearly all of them.
+   */
+  function initSelects() {
+    document.querySelectorAll('select.gfield_select').forEach(enhanceSelect);
+  }
+
+  function enhanceSelect(select) {
+    if (select.dataset.wpSelect === 'ready' || select.multiple) return;
+    select.dataset.wpSelect = 'ready';
+
+    const options = [...select.options];
+    if (!options.length) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'wp-select';
+    select.parentNode.insertBefore(wrap, select);
+    wrap.appendChild(select);
+
+    select.setAttribute('tabindex', '-1');
+    select.setAttribute('aria-hidden', 'true');
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'wp-select__button';
+    button.setAttribute('aria-haspopup', 'listbox');
+    button.setAttribute('aria-expanded', 'false');
+    // The visible label the field already has, so the button announces the same
+    // question the sighted user is answering.
+    const labelled = select.id && document.querySelector('label[for="' + CSS.escape(select.id) + '"]');
+    if (labelled) {
+      if (!labelled.id) labelled.id = select.id + '-label';
+      button.setAttribute('aria-labelledby', labelled.id);
+    }
+
+    const value = document.createElement('span');
+    value.className = 'wp-select__value';
+    button.appendChild(value);
+    wrap.appendChild(button);
+
+    const list = document.createElement('ul');
+    list.className = 'wp-select__list';
+    list.setAttribute('role', 'listbox');
+    list.hidden = true;
+    if (labelled && labelled.id) list.setAttribute('aria-labelledby', labelled.id);
+
+    const items = options.map((option, i) => {
+      const li = document.createElement('li');
+      li.className = 'wp-select__option';
+      li.setAttribute('role', 'option');
+      li.id = (select.id || 'wp-select') + '-opt-' + i;
+      li.dataset.value = option.value;
+      li.textContent = option.text;
+      list.appendChild(li);
+      return li;
+    });
+    wrap.appendChild(list);
+
+    let active = Math.max(0, select.selectedIndex);
+
+    const isPlaceholder = () => select.value === '';
+
+    function paint() {
+      value.textContent = options[select.selectedIndex]?.text ?? '';
+      wrap.classList.toggle('wp-select--empty', isPlaceholder());
+      items.forEach((li, i) => {
+        const chosen = i === select.selectedIndex;
+        li.setAttribute('aria-selected', String(chosen));
+        li.classList.toggle('is-selected', chosen);
+        li.classList.toggle('is-active', i === active);
+      });
+    }
+
+    function open() {
+      if (!list.hidden) return;
+      active = Math.max(0, select.selectedIndex);
+      list.hidden = false;
+      button.setAttribute('aria-expanded', 'true');
+      paint();
+      items[active]?.scrollIntoView({ block: 'nearest' });
+      list.setAttribute('aria-activedescendant', items[active]?.id ?? '');
+    }
+
+    function close(refocus) {
+      if (list.hidden) return;
+      list.hidden = true;
+      button.setAttribute('aria-expanded', 'false');
+      if (refocus) button.focus();
+    }
+
+    function choose(i) {
+      if (i < 0 || i >= options.length) return;
+      select.selectedIndex = i;
+      // What Gravity Forms and any conditional logic listen for.
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+      active = i;
+      paint();
+      close(true);
+    }
+
+    function move(delta) {
+      active = Math.min(options.length - 1, Math.max(0, active + delta));
+      paint();
+      items[active].scrollIntoView({ block: 'nearest' });
+      list.setAttribute('aria-activedescendant', items[active].id);
+    }
+
+    on(button, 'click', () => (list.hidden ? open() : close(false)));
+
+    on(button, 'keydown', e => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open();
+        list.focus();
+      }
+    });
+
+    list.tabIndex = -1;
+
+    on(list, 'keydown', e => {
+      switch (e.key) {
+        case 'ArrowDown': e.preventDefault(); move(1); break;
+        case 'ArrowUp': e.preventDefault(); move(-1); break;
+        case 'Home': e.preventDefault(); active = 0; paint(); break;
+        case 'End': e.preventDefault(); active = options.length - 1; paint(); break;
+        case 'Enter':
+        case ' ': e.preventDefault(); choose(active); break;
+        case 'Escape': e.preventDefault(); close(true); break;
+        case 'Tab': close(false); break;
+        default:
+          if (e.key.length === 1) {
+            const from = active + 1;
+            const found = options.findIndex((o, i) =>
+              i >= from && o.text.toLowerCase().startsWith(e.key.toLowerCase()));
+            const wrapped = found >= 0 ? found : options.findIndex(o =>
+              o.text.toLowerCase().startsWith(e.key.toLowerCase()));
+            if (wrapped >= 0) { active = wrapped; paint(); items[active].scrollIntoView({ block: 'nearest' }); }
+          }
+      }
+    });
+
+    items.forEach((li, i) => {
+      on(li, 'click', () => choose(i));
+      on(li, 'mousemove', () => { if (active !== i) { active = i; paint(); } });
+    });
+
+    on(document, 'click', e => { if (!wrap.contains(e.target)) close(false); });
+
+    // The form can reset or be filled programmatically; keep the face in step.
+    on(select, 'change', paint);
+
+    paint();
+  }
+
   ready(() => {
     initStickyHeader();
     initNestedMenus();
@@ -1388,6 +1560,7 @@
     initFaqBlocks();
     initTableOfContents();
     initSearch();
+    initSelects();
     initContainerLazyload();
     initAutoplayVideos();
     initReveal();

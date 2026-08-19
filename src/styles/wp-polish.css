@@ -1103,3 +1103,176 @@ body.wp-mirror.e-off-canvas__no-scroll {
   color: #282828;
   background-color: #fff;
 }
+
+/*
+ * The themed dropdown the shim builds around the native `<select>`.
+ *
+ * The `<select>` is still there and still what submits — it is only taken out
+ * of sight and out of the tab order, never `display: none`, so the browser and
+ * Gravity Forms can still focus it to report a validation error.
+ *
+ * The button reproduces the box the text inputs use, so the field looks
+ * identical whether or not the script has run: the same border, radius and
+ * 47.6px height, with the chevron the CSS above already draws.
+ */
+.wp-mirror .wp-select {
+  position: relative;
+}
+
+.wp-mirror .wp-select > select.gfield_select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wp-mirror .wp-select__button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 47.6px;
+  padding: 8px 44px 8px 14px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23ff4500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px 9px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  color: #282828;
+  font-family: Inter, Manrope, sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color var(--polish-base) var(--polish-ease),
+    box-shadow var(--polish-base) var(--polish-ease);
+}
+
+/* Nothing chosen yet: a prompt, not disabled text. */
+.wp-mirror .wp-select--empty .wp-select__button {
+  color: #6b6b6b;
+}
+
+/*
+ * One line, as a native select shows it. A long option wrapping to two lines
+ * would make this field taller than the ones above it, which is the rhythm the
+ * form is built on.
+ */
+.wp-mirror .wp-select__value {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.wp-mirror .wp-select__button:hover {
+  border-color: #ff6e24;
+}
+
+.wp-mirror .wp-select__button:focus-visible,
+.wp-mirror .wp-select__button[aria-expanded='true'] {
+  outline: none;
+  border-color: #ff4500;
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.15);
+}
+
+/* The chevron turns over when the list is open, as the menus' do. */
+.wp-mirror .wp-select__button[aria-expanded='true'] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 8l6-6 6 6' fill='none' stroke='%23ff4500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.wp-mirror .wp-select__list {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #eee0d8;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12), 0 2px 6px rgba(17, 24, 39, 0.06);
+  animation: wp-select-in 160ms var(--polish-ease) both;
+}
+
+@keyframes wp-select-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wp-mirror .wp-select__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  /* Comfortably past the 44px touch target on a phone. */
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #282828;
+  font-family: Inter, Manrope, sans-serif;
+  font-size: 15px;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+/* Keyboard and pointer share one highlight, so both read the same way. */
+.wp-mirror .wp-select__option.is-active {
+  background-color: #fff2ec;
+}
+
+.wp-mirror .wp-select__option.is-selected {
+  background-color: #fff2ec;
+  color: #ff4500;
+  font-weight: 600;
+}
+
+.wp-mirror .wp-select__option.is-selected::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 14px;
+  height: 11px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='11' viewBox='0 0 14 11'%3E%3Cpath d='M1 5.5l4 4 8-8' fill='none' stroke='%23ff4500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/*
+ * The first entry is the prompt, not a choice — so it stays grey and never
+ * wears the tick, even while it is technically what is selected.
+ */
+.wp-mirror .wp-select__option:first-child,
+.wp-mirror .wp-select__option:first-child.is-selected {
+  color: #6b6b6b;
+  font-weight: 400;
+}
+
+.wp-mirror .wp-select__option:first-child.is-selected {
+  background-color: transparent;
+}
+
+.wp-mirror .wp-select__option:first-child.is-active {
+  background-color: #f6f6f6;
+}
+
+.wp-mirror .wp-select__option:first-child.is-selected::after {
+  content: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wp-mirror .wp-select__list {
+    animation: none;
+  }
+}
