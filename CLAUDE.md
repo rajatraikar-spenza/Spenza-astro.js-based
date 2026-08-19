@@ -46,6 +46,11 @@ See README.md for the full architecture. Key rules when working on it:
   `public/scripts/page/<slug>.js`. Elementor's jQuery runtime is replaced by
   `public/scripts/wp-shim.js`.
 - Blog posts live at `/<category>/<slug>/`, matching WordPress. Do not move them.
+- Day archives at `/YYYY/MM/DD/` are mirrored where `wp:archives` captured them
+  and generated from the collection where it did not, by
+  `src/pages/[year]/[month]/[day].astro` — a captured page always wins. That is
+  what lets a post's date always be a link; before it, a post published since
+  the last mirror run rendered its date as plain text.
 
 ## Headless blog (in progress)
 

@@ -143,18 +143,6 @@ for (const [name, value] of Object.entries(SLOTS)) {
  * the widget's contents by element id survives it. The ids belong to the
  * template, not the post, which is what makes one shell serve all 259.
  */
-/**
- * Which day archives this build actually contains.
- *
- * Globbed rather than probed with `existsSync`: this module is bundled into the
- * build output, where a filesystem path relative to the source tree no longer
- * resolves and every check would quietly answer false.
- */
-const dayArchives = new Set(
-  Object.keys(import.meta.glob('../pages/[0-9][0-9][0-9][0-9]/*/*.astro'))
-    .map(f => f.replace(/^\.\.\/pages/, '').replace(/\.astro$/, '/'))
-);
-
 const AUTHOR_BOX_ID = 'd07ae4e';
 const POST_INFO_ID = 'ed87dda';
 
@@ -197,15 +185,15 @@ const dayHref = `/${pubDate.getFullYear()}/${pad2(pubDate.getMonth() + 1)}/${pad
 const dateText = pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
 /**
- * The date links its day archive only when this build has one.
+ * The date always links its day archive, as WordPress does.
  *
- * Day archives are mirrored pages, one file per captured date, so a post
- * published since the last `wp:archives` run has none — and this row appears on
- * every article, which would turn one missing archive into a site-wide 404.
- * Elementor drops the anchor when the date is unlinked, so the markup stays one
- * of its own variants.
+ * It used to link only when the mirror happened to carry that day, because a
+ * day archive was a captured page and a post published since the last
+ * `wp:archives` run had none — so on recent posts the date rendered as plain
+ * text while older posts had a link. `pages/[year]/[month]/[day].astro` now
+ * generates an archive for any day the mirror lacks, and it reads the same
+ * collection this post came from, so the target is guaranteed to exist.
  */
-const dayArchiveExists = dayArchives.has(dayHref);
 const dateInner =
   '<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">' +
   `<time>${dateText}</time></span>`;
@@ -218,7 +206,7 @@ const postInfoHtml =
           `<a href="/category/${esc(d.category)}/" class="elementor-post-info__terms-list-item">${esc(label)}</a>` +
         '</span></span></li>' +
     '<li class="elementor-icon-list-item elementor-repeater-item-093b699 elementor-inline-item" itemprop="datePublished">' +
-      (dayArchiveExists ? `<a href="${dayHref}">${dateInner}</a>` : dateInner) +
+      `<a href="${dayHref}">${dateInner}</a>` +
     '</li>' +
     '<li class="elementor-icon-list-item elementor-repeater-item-c455ccf elementor-inline-item">' +
       '<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-custom">' +

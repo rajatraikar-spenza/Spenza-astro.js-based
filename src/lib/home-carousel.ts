@@ -50,7 +50,7 @@ function widget(id: string, classes: string, type: string, inner: string): strin
   );
 }
 
-function slide(post: LoopPost, dayArchives: ReadonlySet<string>): string {
+function slide(post: LoopPost): string {
   const href = `/${post.category}/${post.slug}/`;
   const label = categoryLabel(post.category) ?? post.category;
   const d = post.publishedDate;
@@ -83,13 +83,13 @@ function slide(post: LoopPost, dayArchives: ReadonlySet<string>): string {
   );
 
   /**
-   * The date links its day archive only when this build contains one.
+   * The date always links its day archive, as WordPress does.
    *
-   * Day archives are mirrored pages, one per captured date, so a post published
-   * since the last `wp:archives` run has none. This carousel is on the home
-   * page, which makes a missing archive a 404 in the site's most visible
-   * section. Elementor drops the anchor when the date is unlinked, so the
-   * markup stays one of its own variants.
+   * It used to link only when the mirror happened to carry that day — this
+   * carousel is on the home page, which would make a missing archive a 404 in
+   * the site's most visible section. `pages/[year]/[month]/[day].astro` now
+   * generates an archive for any day the mirror lacks, from the same collection
+   * these slides are built from, so the target always exists.
    */
   const dateInner =
     `<span class="elementor-icon-list-icon">` +
@@ -103,7 +103,7 @@ function slide(post: LoopPost, dayArchives: ReadonlySet<string>): string {
     'post-info.default',
     `<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">` +
       `<li class="elementor-icon-list-item elementor-repeater-item-cbff068 elementor-inline-item" itemprop="datePublished">` +
-        (dayArchives.has(dayHref) ? `<a href="${dayHref}">${dateInner}</a>` : dateInner) +
+        `<a href="${dayHref}">${dateInner}</a>` +
       `</li></ul>`
   );
 
@@ -150,14 +150,11 @@ function slide(post: LoopPost, dayArchives: ReadonlySet<string>): string {
  * The full contents of the loop-carousel widget: the Swiper track and the two
  * navigation buttons, which live inside the widget rather than beside it.
  */
-export function renderHomeCarousel(
-  posts: LoopPost[],
-  dayArchives: ReadonlySet<string> = new Set()
-): string {
+export function renderHomeCarousel(posts: LoopPost[]): string {
   return (
     `<div class="swiper elementor-loop-container elementor-grid" dir="ltr">` +
       `<div class="swiper-wrapper" aria-live="polite">` +
-        posts.map(p => slide(p, dayArchives)).join('') +
+        posts.map(slide).join('') +
       `</div></div>` +
     `<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0" aria-label="Previous">` +
       `<i aria-hidden="true" class="eicon-chevron-left"></i></div>` +

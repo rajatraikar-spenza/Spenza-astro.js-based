@@ -24,21 +24,7 @@ const newest = [...posts]
   .slice(0, SLIDES)
   .map(p => p.data);
 
-/**
- * Which day archives this build contains, so a slide's date only links one that
- * exists. Globbed rather than probed on disk: this module is bundled, where a
- * path relative to the source tree no longer resolves.
- */
-const dayArchives = new Set(
-  Object.keys(import.meta.glob('../pages/[0-9][0-9][0-9][0-9]/*/*.astro'))
-    .map(f => f.replace(/^\.\.\/pages/, '').replace(/\.astro$/, '/'))
-);
-
-const body = replaceWidgetInner(
-  content,
-  HOME_CAROUSEL_ID,
-  renderHomeCarousel(newest, dayArchives)
-);
+const body = replaceWidgetInner(content, HOME_CAROUSEL_ID, renderHomeCarousel(newest));
 ---
 
 <WpLayout slug="index">

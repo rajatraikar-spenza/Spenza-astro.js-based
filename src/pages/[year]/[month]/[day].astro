@@ -1,0 +1,99 @@
+---
+/**
+ * Day archives at /YYYY/MM/DD/, for the days the mirror does not carry.
+ *
+ * WordPress serves one of these for every day it published on, and the date in
+ * a post's meta row links it. The mirror only holds the days captured by the
+ * last `npm run wp:archives` run, so every post published since then had a date
+ * pointing at a page that did not exist — which `ArticleLayout` handled by
+ * dropping the link and rendering the date as plain text. Correct, but it left
+ * the date on recent posts looking and behaving unlike the date on older ones.
+ *
+ * This fills the gap from the collection instead. The chrome comes from the
+ * newest mirrored day archive — they are all the same blog-index template, with
+ * only the post list differing — and the loop grid is filled with the posts
+ * published that day. Days the mirror does carry are skipped here, so a
+ * captured page always wins over a generated one.
+ */
+import { getCollection } from 'astro:content';
+import ArchiveLayout from '../../../layouts/ArchiveLayout.astro';
+
+/** The mirrored day archives, any one of which supplies the page chrome. */
+const shells = import.meta.glob<string>('../../../partials/archives/archive-[0-9]*.html', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+
+export async function getStaticPaths() {
+  // Declared here, not in module scope: Astro extracts getStaticPaths into its
+  // own build chunk, where component-scope constants are not defined.
+  const pad = (n: number) => String(n).padStart(2, '0');
+
+  /**
+   * The days the mirror already has a page for, as `YYYY/MM/DD`.
+   *
+   * Globbed rather than probed with `existsSync`: this module is bundled, where
+   * a path relative to the source tree no longer resolves and every check would
+   * quietly answer false — generating a second page for a day that already has
+   * one, and colliding with it in the output.
+   */
+  const mirrored = new Set(
+    Object.keys(import.meta.glob('../../[0-9][0-9][0-9][0-9]/*/*.astro'))
+      .map(f => f.replace(/^(\.\.\/)+/, '').replace(/\.astro$/, ''))
+  );
+
+  const posts = await getCollection('posts');
+
+  const byDay = new Map<string, typeof posts>();
+  for (const p of posts) {
+    const d = p.data.publishedDate;
+    const key = `${d.getFullYear()}/${pad(d.getMonth() + 1)}/${pad(d.getDate())}`;
+    if (mirrored.has(key)) continue;
+    const list = byDay.get(key) ?? [];
+    list.push(p);
+    byDay.set(key, list);
+  }
+
+  return [...byDay].map(([key, list]) => {
+    const [year, month, day] = key.split('/');
+    list.sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
+    return { params: { year, month, day }, props: { posts: list } };
+  });
+}
+
+const { posts } = Astro.props;
+const { year, month, day } = Astro.params;
+
+/**
+ * Any mirrored day archive will do for the chrome, but take the newest: it is
+ * the one whose heading copy and category nav were captured most recently.
+ * Its slug is also what selects the stylesheet set and the `archive date` body
+ * class, both of which are shared by every date archive.
+ */
+const newest = Object.keys(shells).sort().at(-1);
+
+// Without the mirrored chrome there is no page to render, and a bare list with
+// no header or navigation would be worse than a build failure.
+if (!newest) {
+  throw new Error(
+    'No mirrored day archive to use as chrome for the generated date archives. ' +
+    'Run `npm run wp:archives` to capture one.'
+  );
+}
+
+const slug = newest.replace(/^.*\//, '').replace(/\.html$/, '');
+
+// UTC throughout: the parts came from a date that was already formatted in the
+// build's timezone, so re-parsing them as local time could shift the day.
+const label = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day)))
+  .toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+<ArchiveLayout
+  shell={shells[newest]}
+  slug={slug}
+  posts={posts}
+  base={`/${year}/${month}/${day}/`}
+  title={`${label} - Spenza`}
+/>
