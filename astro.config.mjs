@@ -65,6 +65,16 @@ export default defineConfig({
    */
   experimental: { clientPrerender: true },
 
+  build: {
+    /**
+     * `wp-polish.css` is the only stylesheet Astro itself emits, and at 3KB
+     * compressed it costs more as a request than as bytes: a fourth
+     * render-blocking round trip on a page that already waits for three. The
+     * default only inlines below 4KB uncompressed, which it misses.
+     */
+    inlineStylesheets: 'always',
+  },
+
   vite: {
     plugins: [partialRewrites()],
     build: {

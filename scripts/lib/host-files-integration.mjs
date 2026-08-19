@@ -329,6 +329,80 @@ async function replaceAsync(text, re, fn) {
 }
 
 /**
+ * Turn a stylesheet's `@import` into a `<link>` beside it.
+ *
+ * The optimiser's bundle opens with `@import "…/font-awesome/all.min.css"`, and
+ * an `@import` is the one way to load CSS that cannot be discovered in advance:
+ * the browser has to fetch the bundle, parse it, and only then learn about the
+ * second file — two serial round trips in front of the first paint, on the
+ * connection that is already the critical path. Lighthouse costed that one
+ * import at 949ms of render-blocking on mobile.
+ *
+ * Hoisting it into the markup makes the two downloads parallel and changes
+ * nothing about the cascade: `@import` has to precede every rule in its
+ * stylesheet, so a link immediately before that stylesheet's own link occupies
+ * exactly the same position in the order.
+ *
+ * Runs before the prune, which decides what is reachable by reading these
+ * links, so the hoisted file stays as reachable as it was through the import.
+ */
+async function hoistCssImports(out, logger) {
+  const all = await walk(out);
+  const sheets = all.filter(f => f.endsWith('.css'));
+
+  // Only leading imports: one that follows a rule is not hoistable, because
+  // CSS would have ignored it anyway and the cascade position is not the same.
+  const LEADING_IMPORT = /^\s*@import\s+(?:url\(\s*)?["']([^"')]+)["']\s*\)?\s*;/;
+
+  /** public path of a bundle -> the stylesheets it used to import, in order. */
+  const hoisted = new Map();
+
+  for (const file of sheets) {
+    let text = await fs.readFile(file, 'utf8');
+    const imports = [];
+    let m;
+    while ((m = LEADING_IMPORT.exec(text))) {
+      // Anything but a plain same-origin path is left where it is: media
+      // queries and supports conditions on an import change what it applies to.
+      if (!m[1].startsWith('/')) break;
+      imports.push(m[1]);
+      text = text.slice(m[0].length);
+    }
+    if (!imports.length) continue;
+
+    await fs.writeFile(file, text, 'utf8');
+    hoisted.set('/' + path.relative(out, file).split(path.sep).join('/'), imports);
+  }
+
+  if (!hoisted.size) return;
+
+  let pages = 0, links = 0;
+  for (const file of all.filter(f => f.endsWith('.html'))) {
+    const before = await fs.readFile(file, 'utf8');
+    let after = before;
+
+    for (const [bundle, imports] of hoisted) {
+      const tag = new RegExp(`<link\\b[^>]*\\bhref=["']${bundle.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}["'][^>]*>`);
+      const found = tag.exec(after);
+      if (!found) continue;
+      const add = imports
+        .filter(href => !after.includes(`href="${href}"`))
+        .map(href => `<link rel="stylesheet" href="${href}">`)
+        .join('');
+      if (!add) continue;
+      after = after.slice(0, found.index) + add + after.slice(found.index);
+      links += imports.length;
+    }
+
+    if (after === before) continue;
+    await fs.writeFile(file, after, 'utf8');
+    pages++;
+  }
+
+  logger.info(`hoisted ${hoisted.size} @import chains into ${links} links across ${pages} pages`);
+}
+
+/**
  * Serve every font from this origin, and let text paint before it arrives.
  *
  * `wp:fonts` mirrors the stylesheets the *markup* asks for, but Elementor and
@@ -491,6 +565,7 @@ export function hostFiles() {
         }
 
         await extractInlineImages(out, logger);
+        await hoistCssImports(out, logger);
         await pruneUnreferencedCss(out, logger);
         // After the prune, so it does not rewrite 932 stylesheets that are
         // about to be deleted, and before the media rewrite, which reads the
