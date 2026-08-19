@@ -156,8 +156,14 @@ function webpSrcSet(candidates: string[]): string | null {
   return out.length ? out.join(', ') : null;
 }
 
-/** `theme-post-featured-image`, matching WordPress' own attachment markup. */
-export function featuredImage(post: LoopPost): string {
+/**
+ * `theme-post-featured-image`, matching WordPress' own attachment markup.
+ *
+ * `priority` is for the one place this image is the LCP element — the hero of
+ * the post itself, where it must not be deprioritised behind the dozen card
+ * thumbnails further down the same page.
+ */
+export function featuredImage(post: LoopPost, opts: { priority?: boolean } = {}): string {
   const img = post.featuredImage;
   if (!img) return '';
 
@@ -184,6 +190,7 @@ export function featuredImage(post: LoopPost): string {
     `alt="${alt}"`,
     srcSet ? `srcset="${esc(srcSet)}"` : '',
     srcSet && sizes ? `sizes="${sizes}"` : '',
+    opts.priority ? 'fetchpriority="high" decoding="async"' : '',
   ].filter(Boolean).join(' ');
 
   const tag = `<img ${attrs} />`;

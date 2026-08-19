@@ -26,7 +26,7 @@ import { applyHtmlPerf } from '../../scripts/lib/html-perf.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
 import { renderTldrHeading, renderSummary, renderKeyPoints, renderSpenzaBlock } from '../lib/acf-blocks.ts';
 import { removeWidget, replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
-import { renderLoopGrid } from '../lib/loop-item.ts';
+import { renderLoopGrid, featuredImage as renderFeaturedImage, type LoopPost } from '../lib/loop-item.ts';
 import { decodeEntities } from '../lib/post-card.ts';
 import '../styles/wp-polish.css';
 
@@ -95,13 +95,17 @@ const title = `<h1 class="elementor-heading-title elementor-size-default">${esc(
 // The excerpt arrives from WordPress as HTML (it is wrapped in <p>).
 const excerpt = d.excerpt || '';
 
-const featuredImage = d.featuredImage
-  ? `<img src="${esc(d.featuredImage.url)}" alt="${esc(d.featuredImage.alt || d.title)}"` +
-    (d.featuredImage.width ? ` width="${d.featuredImage.width}"` : '') +
-    (d.featuredImage.height ? ` height="${d.featuredImage.height}"` : '') +
-    // The hero image is the LCP element on every post, so it must not be lazy.
-    ` fetchpriority="high" decoding="async" />`
-  : '';
+/**
+ * The hero, through the same builder the cards use.
+ *
+ * It was a bare `<img>` pointing at the full-size upload, which on this post
+ * meant a 232KB PNG as the LCP element — no `srcset`, so a phone downloaded the
+ * desktop original, and no WebP `<source>`, though the mirror carries the twin.
+ * `featuredImage()` already offers both, and only when the manifest proves the
+ * file exists. `priority` keeps the `fetchpriority="high"` the hero needs and
+ * the lack of `loading="lazy"`, which is what this markup was for.
+ */
+const featuredImage = renderFeaturedImage(d as LoopPost, { priority: true });
 
 // Rendered raw: post bodies embed bespoke <section> widgets carrying their own
 // inline <style> and <script>, which any sanitising pass would break.

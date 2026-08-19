@@ -8,6 +8,8 @@
 // in posts, so a fix applied only to partials misses precisely the heaviest
 // pages. Hence one module, imported by both.
 import googleFonts from '../../src/data/wp-google-fonts.json' with { type: 'json' };
+import mediaManifest from '../../src/data/wp-media-manifest.json' with { type: 'json' };
+import { WEBP_PATH } from './config.mjs';
 
 /**
  * Defer third-party embeds until they are scrolled to.
@@ -76,6 +78,66 @@ export function selfHostFonts(html) {
 }
 
 /**
+ * Offer the WebP twin of every image in the body copy.
+ *
+ * The cards and the hero go through `loop-item.ts`, which has done this for a
+ * while; the images *inside* a post never did, because they arrive as rendered
+ * WordPress HTML rather than as data. On one article that is 915KB of PNG
+ * Lighthouse would rather have as WebP — and the post pages are the ones with
+ * the images, so this is where the weight actually is.
+ *
+ * The rules are the ones `webpFor()` follows. Only offer a `<source>` the
+ * manifest can prove exists, because a `<source>` that 404s shows a broken
+ * image rather than falling through to the `<img>`; and rewrite a `srcset`
+ * only when every candidate has a twin, since a partial list mis-serves sizes.
+ * Images already inside a `<picture>` are left alone.
+ */
+const MEDIA_FILES = new Set(mediaManifest);
+
+/** `/wp-content/uploads/x.png` -> its WebP Express twin, if the mirror has it. */
+function webpTwin(url) {
+  const m = url.split('?')[0].match(/^\/wp-content\/uploads\/(.+\.(?:png|jpe?g|gif))$/i);
+  if (!m) return null;
+  const variant = `${WEBP_PATH}webp-images/uploads/${m[1]}.webp`;
+  return MEDIA_FILES.has(variant) ? variant : null;
+}
+
+/** The same across a `srcset`, all-or-nothing. */
+function webpSrcSet(srcset) {
+  const out = [];
+  for (const candidate of srcset.split(',')) {
+    const [url, ...rest] = candidate.trim().split(/\s+/);
+    if (!url) continue;
+    const twin = webpTwin(url);
+    if (!twin) return null;
+    out.push([twin, ...rest].join(' '));
+  }
+  return out.length ? out.join(', ') : null;
+}
+
+export function offerWebp(html) {
+  if (!html.includes('/wp-content/uploads/')) return html;
+
+  // `<picture>` blocks are skipped whole, so an existing <source> is never
+  // duplicated and the `<img>` inside one is never wrapped a second time.
+  const parts = html.split(/(<picture[\s\S]*?<\/picture>)/g);
+
+  return parts.map((part, i) => {
+    if (i % 2) return part;
+    return part.replace(/<img\b[^>]*>/g, tag => {
+      const src = /\ssrc=["']([^"']+)["']/.exec(tag)?.[1];
+      if (!src) return tag;
+      const srcset = /\ssrcset=["']([^"']+)["']/.exec(tag)?.[1];
+      const webp = srcset ? webpSrcSet(srcset) : (webpTwin(src) ?? null);
+      if (!webp) return tag;
+      const sizes = /\ssizes=["']([^"']+)["']/.exec(tag)?.[1];
+      return `<picture><source srcset="${webp}"${sizes ? ` sizes="${sizes}"` : ''} ` +
+        `type="image/webp">${tag}</picture>`;
+    });
+  }).join('');
+}
+
+/**
  * Give the chrome's controls an accessible name.
  *
  * Four links on every page of the site had none at all: the logo in the header
@@ -127,5 +189,5 @@ export function labelBareControls(html) {
 
 /** All of the above, in the order the rest of the pipeline expects. */
 export function applyHtmlPerf(html) {
-  return labelBareControls(selfHostFonts(lazyIframes(deferVideos(html))));
+  return offerWebp(labelBareControls(selfHostFonts(lazyIframes(deferVideos(html)))));
 }
