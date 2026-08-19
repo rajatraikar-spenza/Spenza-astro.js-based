@@ -46,6 +46,24 @@
   .wp-mirror main > .elementor > .e-con.e-parent:has(.elementor-widget-theme-post-featured-image) {
     content-visibility: visible;
   }
+
+  /*
+   * And except whichever one holds a modal.
+   *
+   * `content-visibility: auto` skips a subtree's rendering entirely, and
+   * `position: fixed` does not escape that — a fixed child of a skipped
+   * container is simply not painted. The home page keeps its lead-capture
+   * modal in the markup of a section near the foot of the page, so once that
+   * section was deferred the modal stopped appearing: the button set
+   * `display: flex` on it, the style applied, and nothing was drawn. It looked
+   * exactly like a dead button.
+   *
+   * Anything that renders over the page has to stay live regardless of where
+   * its markup happens to sit.
+   */
+  .wp-mirror main > .elementor > .e-con.e-parent:has(.popup-overlay) {
+    content-visibility: visible;
+  }
 }
 
 /* Modern easing for the interactions Elementor animates linearly. */
@@ -981,5 +999,43 @@ body.wp-mirror.e-off-canvas__no-scroll {
 
   .wp-mirror .elementor-invisible {
     opacity: 1 !important;
+  }
+}
+
+/* ------------------------------------------------------------------ contact */
+
+/*
+ * The contact form on a phone.
+ *
+ * Two things, both only below Elementor's mobile breakpoint.
+ *
+ * The submit button had `padding: 10px 0` — no horizontal padding at all — so
+ * at 16px the pill was exactly as wide as the words inside it and "Request My
+ * Demo" ran into the rounded ends. Smaller type and real padding give it room.
+ *
+ * And the form panel sits on a card whose background image is a Spenza
+ * photograph, which the opaque white panel covered completely except for a
+ * 15px strip down each side. Letting a little of it through is the point of
+ * having it. A translucent background rather than `opacity`, so the labels and
+ * the input text stay fully opaque and legible.
+ */
+/*
+ * `wp-mirror` and `page-id-10586` are both classes on <body>, so they compound
+ * — a descendant combinator between them matches nothing.
+ */
+@media (max-width: 767px) {
+  .wp-mirror.page-id-10586 input#gform_submit_button_20 {
+    width: auto;
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  /*
+   * Matching Elementor's own selector shape, because the rule this overrides
+   * is `.elementor-10586 .elementor-element.elementor-element-5d7869d:not(…)`
+   * — four classes, which a shorter selector loses to however late it loads.
+   */
+  .wp-mirror.page-id-10586 .elementor-10586 .elementor-element.elementor-element-5d7869d {
+    background-color: rgba(255, 255, 255, 0.88);
   }
 }
