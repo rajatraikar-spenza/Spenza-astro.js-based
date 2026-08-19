@@ -914,12 +914,9 @@ const liveInputs = [
 
 const debouncedCalculate = debounce(calculate, 400);
 
-liveInputs.forEach(input=>{
-
-    // "input" fires on every keystroke/change - gives live updating results
-    input.addEventListener("input", debouncedCalculate);
-
-});
+/* Live recalculation removed by scripts/lib/inline-scripts.mjs: the
+   projections update when "Calculate Now" is clicked, not on every
+   keystroke. The button below already calls calculate() directly. */
 
 /* =========================================================
    Event Listeners - Calculate Button (still works instantly)

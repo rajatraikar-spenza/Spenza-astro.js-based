@@ -64,6 +64,42 @@ const webpVariantToOriginal = s =>
 
 const rewriteUrls = s => webpVariantToOriginal(rewriteWpUrls(s));
 
+/**
+ * Deliberate changes to how the site's own scripts behave.
+ *
+ * Same reasoning as the mega-menu edits in `partial-rewrites-plugin.mjs`:
+ * WordPress is where the snippet came from, this repo is what gets deployed,
+ * and an edit made here survives the next mirror run where an edit to the
+ * generated bundle would not.
+ *
+ * Each rule is anchored to a distinctive fragment of the snippet it edits, so a
+ * snippet that has been rewritten upstream stops matching — and shows up as the
+ * behaviour coming back — rather than being edited into something wrong.
+ */
+
+/**
+ * The MVNO launch-cost calculator recalculated on every keystroke.
+ *
+ * It wires all eight inputs to a debounced `calculate()`, so the projections,
+ * the table and the break-even month all moved while you were still typing a
+ * figure — and the "Calculate Now" button had nothing left to do. The button
+ * already calls `calculate()` directly and the page still runs it once on load,
+ * so dropping the input listeners is the whole change: the form fills in, and
+ * the results update when the reader says so.
+ *
+ * `[^{}]*` on both sides keeps the match inside the one callback, which has no
+ * nested braces of its own.
+ */
+const CALCULATOR_LIVE_INPUTS =
+  /liveInputs\.forEach\(\s*input\s*=>\s*\{[^{}]*input\.addEventListener\(\s*(["'])input\1\s*,\s*debouncedCalculate\s*\)\s*;[^{}]*\}\s*\)\s*;/;
+
+const CALCULATOR_ON_DEMAND =
+  '/* Live recalculation removed by scripts/lib/inline-scripts.mjs: the\n' +
+  '   projections update when "Calculate Now" is clicked, not on every\n' +
+  '   keystroke. The button below already calls calculate() directly. */';
+
+const applySiteEdits = s => s.replace(CALCULATOR_LIVE_INPUTS, CALCULATOR_ON_DEMAND);
+
 /** Split a mirrored document's body into custom scripts and JSON-LD blocks. */
 export function extractInlineScripts(html) {
   const body = html.slice(html.indexOf('<body'));
@@ -87,7 +123,7 @@ export function extractInlineScripts(html) {
     if (type && !/^(text\/javascript|application\/javascript|module)$/.test(type)) continue;
     if (DENY.some(re => re.test(code))) continue;
 
-    scripts.push(rewriteUrls(code));
+    scripts.push(applySiteEdits(rewriteUrls(code)));
   }
 
   return { scripts, jsonLd };
