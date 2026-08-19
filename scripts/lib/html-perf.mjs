@@ -187,7 +187,49 @@ export function labelBareControls(html) {
   return out;
 }
 
+/**
+ * Say what a "Read More" button reads more about.
+ *
+ * The generated cards carry the article title now, but the mirrored pages have
+ * their own — three on the home page alone, each the call to action of a
+ * product section, each announced to a crawler and a screen reader as two words
+ * that could mean anything. It is the last SEO audit the site fails.
+ *
+ * The section's heading is what the button means, and in Elementor's markup it
+ * is reliably the last heading before it. Deliberately narrow: only a button
+ * whose visible text is *exactly* one of the vague phrases, and only when a
+ * heading is close enough behind it to be the same section. Anything else is
+ * left alone rather than guessed at.
+ */
+const VAGUE_LABEL = /^(read more|learn more|find out more|click here|more)$/i;
+const BUTTON = /<a\b[^>]*\bclass="[^"]*elementor-button[^"]*"[^>]*>[\s\S]{0,500}?<\/a>/g;
+const HEADING = /<h[1-6][^>]*>([\s\S]{3,90}?)<\/h[1-6]>/g;
+
+export function describeVagueLinks(html) {
+  return html.replace(BUTTON, (tag, offset) => {
+    const text = tag.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!VAGUE_LABEL.test(text)) return tag;
+
+    // The nearest heading behind it, within one Elementor section's worth of
+    // markup. `lastIndexOf` on a windowed slice, so this stays linear.
+    const window = html.slice(Math.max(0, offset - 2500), offset);
+    let heading = null;
+    for (const m of window.matchAll(HEADING)) {
+      const label = m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      if (label) heading = label;
+    }
+    if (!heading) return tag;
+
+    return tag.replace(
+      /<\/a>$/,
+      `<span class="elementor-screen-only"> about ${heading}</span></a>`
+    );
+  });
+}
+
 /** All of the above, in the order the rest of the pipeline expects. */
 export function applyHtmlPerf(html) {
-  return offerWebp(labelBareControls(selfHostFonts(lazyIframes(deferVideos(html)))));
+  return offerWebp(describeVagueLinks(labelBareControls(
+    selfHostFonts(lazyIframes(deferVideos(html)))
+  )));
 }
