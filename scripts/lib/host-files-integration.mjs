@@ -329,7 +329,7 @@ async function replaceAsync(text, re, fn) {
 }
 
 /**
- * Turn a stylesheet's `@import` into a `<link>` beside it.
+ * Start a stylesheet's `@import` downloading with the stylesheet itself.
  *
  * The optimiser's bundle opens with `@import "…/font-awesome/all.min.css"`, and
  * an `@import` is the one way to load CSS that cannot be discovered in advance:
@@ -338,59 +338,55 @@ async function replaceAsync(text, re, fn) {
  * connection that is already the critical path. Lighthouse costed that one
  * import at 949ms of render-blocking on mobile.
  *
- * Hoisting it into the markup makes the two downloads parallel and changes
- * nothing about the cascade: `@import` has to precede every rule in its
- * stylesheet, so a link immediately before that stylesheet's own link occupies
- * exactly the same position in the order.
+ * A `preload` fixes the round trip and nothing else. Promoting the import to a
+ * real `<link rel="stylesheet">` was the first attempt and it made articles
+ * slower — a second sheet ahead of the bundle in a bandwidth-limited simulation
+ * pushed FCP from 1.7s to 3.9s — because the browser fetches stylesheets in
+ * document order and the bundle is the one the page is actually waiting on.
+ * Preloading keeps the bundle first and the import merely warm: by the time the
+ * parser reaches the `@import`, the response is already in the cache.
  *
- * Runs before the prune, which decides what is reachable by reading these
- * links, so the hoisted file stays as reachable as it was through the import.
+ * Runs before the prune, which decides what is reachable by reading the markup,
+ * so the imported file stays as reachable as it was.
  */
 async function hoistCssImports(out, logger) {
   const all = await walk(out);
   const sheets = all.filter(f => f.endsWith('.css'));
 
-  // Only leading imports: one that follows a rule is not hoistable, because
-  // CSS would have ignored it anyway and the cascade position is not the same.
-  const LEADING_IMPORT = /^\s*@import\s+(?:url\(\s*)?["']([^"')]+)["']\s*\)?\s*;/;
+  // Only leading imports: one that follows a rule would have been ignored by
+  // CSS anyway, and a preload for it would warm a file the page never uses.
+  const LEADING_IMPORT = /@import\s+(?:url\(\s*)?["'](\/[^"')]+)["']\s*\)?\s*;/g;
 
-  /** public path of a bundle -> the stylesheets it used to import, in order. */
-  const hoisted = new Map();
+  /** public path of a stylesheet -> what it imports, in order. */
+  const imported = new Map();
 
   for (const file of sheets) {
-    let text = await fs.readFile(file, 'utf8');
-    const imports = [];
-    let m;
-    while ((m = LEADING_IMPORT.exec(text))) {
-      // Anything but a plain same-origin path is left where it is: media
-      // queries and supports conditions on an import change what it applies to.
-      if (!m[1].startsWith('/')) break;
-      imports.push(m[1]);
-      text = text.slice(m[0].length);
-    }
+    const text = await fs.readFile(file, 'utf8');
+    const head = text.slice(0, 2000);          // imports are at the top or nowhere
+    const imports = [...head.matchAll(LEADING_IMPORT)].map(m => m[1]);
     if (!imports.length) continue;
-
-    await fs.writeFile(file, text, 'utf8');
-    hoisted.set('/' + path.relative(out, file).split(path.sep).join('/'), imports);
+    imported.set('/' + path.relative(out, file).split(path.sep).join('/'), imports);
   }
 
-  if (!hoisted.size) return;
+  if (!imported.size) return;
 
   let pages = 0, links = 0;
   for (const file of all.filter(f => f.endsWith('.html'))) {
     const before = await fs.readFile(file, 'utf8');
     let after = before;
 
-    for (const [bundle, imports] of hoisted) {
-      const tag = new RegExp(`<link\\b[^>]*\\bhref=["']${bundle.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}["'][^>]*>`);
-      const found = tag.exec(after);
-      if (!found) continue;
+    for (const [sheet, imports] of imported) {
+      if (!after.includes(`href="${sheet}"`)) continue;
       const add = imports
-        .filter(href => !after.includes(`href="${href}"`))
-        .map(href => `<link rel="stylesheet" href="${href}">`)
+        .filter(href => !after.includes(`rel="preload" as="style" href="${href}"`))
+        .map(href => `<link rel="preload" as="style" href="${href}">`)
         .join('');
       if (!add) continue;
-      after = after.slice(0, found.index) + add + after.slice(found.index);
+      // Ahead of the first stylesheet link, so the preload is issued with the
+      // rest of the head rather than after them.
+      const at = after.indexOf('<link rel="stylesheet"');
+      if (at < 0) continue;
+      after = after.slice(0, at) + add + after.slice(at);
       links += imports.length;
     }
 
@@ -399,7 +395,7 @@ async function hoistCssImports(out, logger) {
     pages++;
   }
 
-  logger.info(`hoisted ${hoisted.size} @import chains into ${links} links across ${pages} pages`);
+  logger.info(`preloaded ${links} @import targets across ${pages} pages`);
 }
 
 /**
