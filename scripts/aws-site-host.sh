@@ -299,10 +299,18 @@ step_deploy() {
   # Last, and with --delete, so a page that no longer exists stops being served.
   # HTML only: the earlier passes must not delete an asset an old page still
   # uses while a stale copy of that page is cached at an edge.
+  #
+  # `s-maxage` is what makes the edge useful. Without it the only directive
+  # CloudFront saw was `max-age=0`, so it revalidated against S3 on every single
+  # request and every reader paid an origin round trip: 650-750ms of TTFB on a
+  # static file, which Lighthouse attributes straight to FCP and LCP. The shared
+  # cache can hold HTML indefinitely because a deploy ends by invalidating `/*`,
+  # so the edge is never the reason a change is invisible. Browsers keep
+  # `max-age=0, must-revalidate` and still check on every navigation.
   say "HTML"
   aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --only-show-errors --delete \
     --exclude "*" --include "*.html" --include "*.xml" --include "robots.txt" \
-    --cache-control "public, max-age=0, must-revalidate"
+    --cache-control "public, max-age=0, s-maxage=31536000, must-revalidate"
 
   printf %s "$hash" | aws s3 cp - "s3://${BUCKET}/.deploy-hash" \
     --cache-control "no-store" --only-show-errors
