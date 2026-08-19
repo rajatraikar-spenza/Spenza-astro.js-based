@@ -1039,3 +1039,67 @@ body.wp-mirror.e-off-canvas__no-scroll {
     background-color: rgba(255, 255, 255, 0.88);
   }
 }
+
+/*
+ * The "Which solution are you interested in?" dropdown, and every other
+ * Gravity Forms select with it.
+ *
+ * It was the one control on the form that looked unfinished: 36px tall next to
+ * 47.6px inputs, grey where they are white, 14px Inter where they are 15px,
+ * text at 26% opacity that read as disabled rather than as a prompt, and the
+ * operating system's own arrow glued to the right edge. Beside four polished
+ * fields it looked like something that had been forgotten.
+ *
+ * Now it is the same box as the inputs beside it — 15px over a 30px line and
+ * 8px of padding comes to their exact 47.6px — with the site's orange chevron
+ * in place of the platform one, and a focus ring in the same orange. The prompt
+ * stays grey until a real option is chosen, then the text goes dark, which is
+ * the difference between "nothing picked yet" and "disabled".
+ *
+ * `!important` because the rule being overridden is
+ * `.page-id-10586 div#gform_fields_20 select#input_20_10` — two IDs, which no
+ * selector built from classes can outrank, and it is repeated in 488 of the
+ * per-page inline stylesheets, so editing it at the source is not the smaller
+ * change. Kept to the four properties that rule actually sets.
+ */
+.wp-mirror .gform_wrapper select.gfield_select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 8px 44px 8px 14px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23ff4500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px 9px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #282828 !important;
+  font-family: Inter, Manrope, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 30px !important;
+  transition:
+    border-color var(--polish-base) var(--polish-ease),
+    box-shadow var(--polish-base) var(--polish-ease);
+}
+
+/* Nothing chosen yet: a prompt, not disabled text. */
+.wp-mirror .gform_wrapper select.gfield_select:has(option[value=""]:checked) {
+  color: #6b6b6b !important;
+}
+
+.wp-mirror .gform_wrapper select.gfield_select:hover {
+  border-color: #ff6e24 !important;
+}
+
+.wp-mirror .gform_wrapper select.gfield_select:focus {
+  outline: none;
+  border-color: #ff4500 !important;
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.15);
+}
+
+/* The open list is drawn by the platform; the little that can be reached. */
+.wp-mirror .gform_wrapper select.gfield_select option {
+  color: #282828;
+  background-color: #fff;
+}
