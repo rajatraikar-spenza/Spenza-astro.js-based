@@ -109,19 +109,26 @@ function slide(post: LoopPost): string {
 
   /**
    * Twelve links reading "Read More" and nothing else, which is what a crawler
-   * and a screen reader both see. The visible label stays — it is the design —
-   * and the accessible name says which article it opens.
+   * and a screen reader both see.
+   *
+   * The rest of the sentence goes in a visually hidden span rather than an
+   * `aria-label`: the label would fix the accessible name but leave the link
+   * text itself undescriptive, which is the half search engines read — and it
+   * is what Lighthouse counts. `elementor-screen-only` is Elementor's own
+   * class, already in the stylesheet this page loads, and it takes the text out
+   * of the flow entirely so the button looks untouched.
    */
   const button = widget(
     T.button,
     'arrow-btn elementor-widget elementor-widget-button',
     'button.default',
     `<div class="elementor-button-wrapper">` +
-      `<a class="elementor-button elementor-button-link elementor-size-sm" href="${href}" ` +
-      `aria-label="Read more: ${esc(decodeEntities(post.title))}">` +
+      `<a class="elementor-button elementor-button-link elementor-size-sm" href="${href}">` +
         `<span class="elementor-button-content-wrapper">` +
           `<span class="elementor-button-icon">${ARROW_ICON}</span>` +
-          `<span class="elementor-button-text">Read More</span>` +
+          `<span class="elementor-button-text">Read More` +
+            `<span class="elementor-screen-only"> about ${esc(decodeEntities(post.title))}</span>` +
+          `</span>` +
         `</span></a></div>`
   );
 

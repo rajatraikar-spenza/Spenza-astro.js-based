@@ -264,11 +264,11 @@ ${excerptText(post.excerpt)}				</div>
 <div class="elementor-element elementor-element-cd7884c elementor-align-left elementor-widget elementor-widget-button" data-id="cd7884c" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
 <div class="elementor-widget-container">
 <div class="elementor-button-wrapper">
-<a class="elementor-button elementor-button-link elementor-size-sm" href="${href}" aria-label="Read more: ${esc(post.title)}">
+<a class="elementor-button elementor-button-link elementor-size-sm" href="${href}">
 <span class="elementor-button-content-wrapper">
 <span class="elementor-button-icon">
 ${ARROW_ICON}			</span>
-<span class="elementor-button-text">Read More</span>
+<span class="elementor-button-text">Read More<span class="elementor-screen-only"> about ${esc(post.title)}</span></span>
 </span>
 </a>
 </div>
