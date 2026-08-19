@@ -17,6 +17,20 @@
   const MOBILE_BREAKPOINT = 767;
 
   const on = (el, ev, fn, opts) => el && el.addEventListener(ev, fn, opts);
+
+  /**
+   * The viewport width, read once and kept.
+   *
+   * Asking the window for its width is a layout-forcing read: doing it after anything
+   * has touched the DOM makes the browser stop and recompute layout before it
+   * answers. The menu and the responsive-config lookup below ask on every call,
+   * once per widget per property, and Lighthouse attributed 162ms of forced
+   * synchronous layout to that one line — on the main thread, during load,
+   * which is exactly where it hurts. Nothing here needs a fresher answer than
+   * the last resize.
+   */
+  let viewportWidth = window.innerWidth;
+  on(window, 'resize', () => { viewportWidth = window.innerWidth; }, { passive: true });
   const ready = fn =>
     document.readyState === 'loading'
       ? document.addEventListener('DOMContentLoaded', fn, { once: true })
@@ -37,7 +51,7 @@
       const toggle = widget.querySelector('.e-n-menu-toggle');
       const wrapper = widget.querySelector('.e-n-menu-wrapper');
       const items = [...widget.querySelectorAll('.e-n-menu-item')];
-      const isMobile = () => window.innerWidth <= TABLET_BREAKPOINT;
+      const isMobile = () => viewportWidth <= TABLET_BREAKPOINT;
 
       const panelsOf = item => {
         const btn = item.querySelector('.e-n-menu-dropdown-icon');
@@ -413,7 +427,7 @@
     // Growing past the breakpoint hides the hamburger, so an open panel would
     // be left covering a desktop layout with no way to dismiss it.
     on(window, 'resize', debounce(() => {
-      if (window.innerWidth > TABLET_BREAKPOINT) [...open].forEach(hide);
+      if (viewportWidth > TABLET_BREAKPOINT) [...open].forEach(hide);
     }, 150));
   }
 
@@ -708,7 +722,7 @@
 
   /** Elementor's responsive value chain: mobile falls back to tablet, tablet to desktop. */
   function responsive(cfg, key, parse) {
-    const width = window.innerWidth;
+    const width = viewportWidth;
     const keys = width <= MOBILE_BREAKPOINT
       ? [`${key}_mobile`, `${key}_tablet`, key]
       : width <= TABLET_BREAKPOINT
@@ -1146,7 +1160,7 @@
     const margin = 16;
 
     let offset = titleRect.left - trackLeft;
-    const maxOffset = window.innerWidth - margin - innerWidth - trackLeft;
+    const maxOffset = viewportWidth - margin - innerWidth - trackLeft;
     offset = Math.max(margin - trackLeft, Math.min(offset, maxOffset));
 
     inner.style.marginInlineStart = `${Math.round(offset)}px`;
@@ -1168,7 +1182,18 @@
    * misread a not-yet-painted gradient as no gradient and tag them for good.
    * The observer calls back into here once the container is marked loaded.
    */
+  /**
+   * Reads first, writes after.
+   *
+   * `getComputedStyle` is only cheap while nothing has invalidated style, and
+   * adding a class in the same loop invalidates it for every button still to
+   * come — so a page with a few dozen buttons recomputed style a few dozen
+   * times. Collecting the matches and applying them in a second pass costs one
+   * recalculation instead.
+   */
   function fixInvisibleButtons(root = document) {
+    const restore = [];
+
     root.querySelectorAll('.elementor-button').forEach(btn => {
       if (btn.closest('.e-con.e-parent:not(.e-lazyloaded):not(.e-no-lazyload)')) return;
 
@@ -1182,8 +1207,10 @@
       const bg = effectiveBackground(btn);
       if (contrast(fg, bg) >= 2) return;
 
-      btn.classList.add('wp-btn-restored');
+      restore.push(btn);
     });
+
+    for (const btn of restore) btn.classList.add('wp-btn-restored');
   }
 
   function parseRgb(value) {
