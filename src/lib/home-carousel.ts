@@ -107,12 +107,18 @@ function slide(post: LoopPost): string {
       `</li></ul>`
   );
 
+  /**
+   * Twelve links reading "Read More" and nothing else, which is what a crawler
+   * and a screen reader both see. The visible label stays — it is the design —
+   * and the accessible name says which article it opens.
+   */
   const button = widget(
     T.button,
     'arrow-btn elementor-widget elementor-widget-button',
     'button.default',
     `<div class="elementor-button-wrapper">` +
-      `<a class="elementor-button elementor-button-link elementor-size-sm" href="${href}">` +
+      `<a class="elementor-button elementor-button-link elementor-size-sm" href="${href}" ` +
+      `aria-label="Read more: ${esc(decodeEntities(post.title))}">` +
         `<span class="elementor-button-content-wrapper">` +
           `<span class="elementor-button-icon">${ARROW_ICON}</span>` +
           `<span class="elementor-button-text">Read More</span>` +
