@@ -237,25 +237,73 @@ export function postGrid(
 }
 
 /**
+ * How many page links WordPress keeps around the ends and around the current
+ * page. These are `paginate_links`' defaults, which is what Elementor asks for:
+ * the mirrored `/blog/` listed `Previous 1 2 3 … 26 Next`, and reproducing the
+ * window means reproducing the two numbers behind it.
+ */
+const END_SIZE = 1;
+const MID_SIZE = 2;
+
+/**
  * Numbered pagination in Elementor's markup.
  *
  * Page 1 is the bare path so `/blog/` and `/category/x/` stay canonical; later
- * pages append `page/N/`, matching what WordPress served.
+ * pages append `page/N/`, matching what WordPress served. The hrefs are the one
+ * deliberate difference from the mirror, which paginates with Elementor's
+ * `?e-page-<widget>=N` query parameter — that needs its AJAX runtime, and a
+ * static build has real URLs to link instead.
+ *
+ * Everything else follows `paginate_links` exactly, including the parts that
+ * look like oversights: the window collapses to `…` rather than printing every
+ * page (26 numbers wrapped to five rows on a phone), each number carries a
+ * screen-reader-only "Page", and an unavailable Previous/Next stays in the flow
+ * as an inert `<span>` instead of disappearing — which is what keeps the row
+ * from reflowing as you move through it.
  */
 export function pagination(base: string, page: number, totalPages: number): string {
   if (totalPages <= 1) return '';
   const href = (n: number) => (n === 1 ? base : `${base}page/${n}/`);
+  const label = (n: number) => `<span class="elementor-screen-only">Page</span>${n}`;
   const parts: string[] = [];
 
-  if (page > 1) parts.push(`<a class="page-numbers prev" href="${href(page - 1)}">Previous</a>`);
-  for (let n = 1; n <= totalPages; n++) {
-    parts.push(
-      n === page
-        ? `<span aria-current="page" class="page-numbers current">${n}</span>`
-        : `<a class="page-numbers" href="${href(n)}">${n}</a>`
-    );
-  }
-  if (page < totalPages) parts.push(`<a class="page-numbers next" href="${href(page + 1)}">Next</a>`);
+  parts.push(
+    page > 1
+      ? `<a class="page-numbers prev" href="${href(page - 1)}">Previous</a>`
+      : '<span class="page-numbers prev">Previous</span>'
+  );
 
-  return `<nav class="elementor-pagination" aria-label="Blog pagination">${parts.join('')}</nav>`;
+  /**
+   * True once a number has been printed, so the next gap prints one `…` and
+   * not one per page skipped. WordPress tracks it with exactly this flag.
+   */
+  let dots = false;
+
+  for (let n = 1; n <= totalPages; n++) {
+    if (n === page) {
+      parts.push(`<span aria-current="page" class="page-numbers current">${label(n)}</span>`);
+      dots = true;
+      continue;
+    }
+    const inWindow =
+      n <= END_SIZE ||
+      (n >= page - MID_SIZE && n <= page + MID_SIZE) ||
+      n > totalPages - END_SIZE;
+
+    if (inWindow) {
+      parts.push(`<a class="page-numbers" href="${href(n)}">${label(n)}</a>`);
+      dots = true;
+    } else if (dots) {
+      parts.push('<span class="page-numbers dots">&hellip;</span>');
+      dots = false;
+    }
+  }
+
+  parts.push(
+    page < totalPages
+      ? `<a class="page-numbers next" href="${href(page + 1)}">Next</a>`
+      : '<span class="page-numbers next">Next</span>'
+  );
+
+  return `<nav class="elementor-pagination" aria-label="Pagination">${parts.join('')}</nav>`;
 }
