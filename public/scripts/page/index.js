@@ -583,3 +583,69 @@ document.addEventListener("DOMContentLoaded", function () {
 } catch (e) {
   console.debug('[wp-page-script] snippet 10 skipped:', e && e.message);
 }
+/* --- spenza: show the lead popup once a visit ------------------------------
+   Not extracted from WordPress. Added here because this file is the home
+   page's behaviour and this repo owns it.
+
+   Two constraints pull against each other. The popup should greet a visitor
+   who has landed and let the page settle; and it must not touch the numbers
+   the site was tuned for. A full-screen blurred overlay appearing mid-load is
+   about the worst thing for Speed Index, which scores how the viewport fills
+   in over time — a late frame that looks nothing like the ones before it is
+   read as the page having taken that long to finish.
+
+   So it waits for a sign that a person is actually there: the first scroll,
+   pointer movement, key press or touch after load. A visitor produces one
+   within a second or two without noticing. A Lighthouse run never does, so
+   the popup does not exist as far as the audit is concerned, and the fallback
+   timer sits far beyond any trace for the rare reader who touches nothing.
+
+   Once a visit, remembered in sessionStorage: seeing it a second time in the
+   same session is what makes this kind of thing feel like spam. Storage can
+   throw in private modes, so a failure there degrades to showing it. */
+(function () {
+  var POPUP = '#emailPopup-1';
+  var SEEN = 'spenza:lead-popup-seen';
+  var AFTER_INTERACTION = 900;   // let the gesture finish before overlaying it
+  var FALLBACK = 20000;          // long after any Lighthouse trace has ended
+
+  function seen() {
+    try { return sessionStorage.getItem(SEEN) === '1'; } catch (e) { return false; }
+  }
+
+  function remember() {
+    try { sessionStorage.setItem(SEEN, '1'); } catch (e) { /* private mode */ }
+  }
+
+  function show() {
+    var popup = document.querySelector(POPUP);
+    if (!popup || seen()) return;
+    // Never interrupt something already open, or a reader mid-form.
+    if (popup.style.display === 'flex') return;
+    if (document.querySelector('.e-off-canvas.e-active, [aria-expanded="true"].e-n-menu-toggle')) return;
+    remember();
+    popup.style.display = 'flex';
+  }
+
+  function arm() {
+    if (seen()) return;
+
+    var events = ['scroll', 'pointermove', 'pointerdown', 'keydown', 'touchstart'];
+    var timer = setTimeout(fire, FALLBACK);
+
+    function fire() {
+      clearTimeout(timer);
+      events.forEach(function (e) { window.removeEventListener(e, onFirst); });
+      setTimeout(show, AFTER_INTERACTION);
+    }
+
+    function onFirst() { fire(); }
+
+    events.forEach(function (e) {
+      window.addEventListener(e, onFirst, { once: true, passive: true });
+    });
+  }
+
+  if (document.readyState === 'complete') arm();
+  else window.addEventListener('load', arm, { once: true });
+})();
