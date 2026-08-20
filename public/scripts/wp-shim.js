@@ -1548,6 +1548,48 @@
     paint();
   }
 
+
+  /* ----------------------------------------------------------- lead modal */
+
+  /**
+   * The "Subscribe Now" button on a post.
+   *
+   * A post carries the same `.get-started` widget the marketing pages use and
+   * the same lead-capture modal — the identical Gravity form, the identical
+   * "Get Started with Spenza" copy — but under `#emailPopup` rather than
+   * `#emailPopup-1`, and with nothing bound to the button. The modal was only
+   * ever reachable by scrolling a quarter of the way down the article, which
+   * opens it unasked; pressing the button that exists to ask for it did
+   * nothing at all.
+   *
+   * Only the unbound case is handled here. Where `#emailPopup-1` is present
+   * the page's own extracted script already binds `.get-started`, and binding
+   * it a second time would be two handlers racing to set the same property.
+   *
+   * Opening by hand deliberately ignores the two guards the scroll trigger
+   * respects — `popupOpened`, and the `popupSubmitted` flag in sessionStorage.
+   * Those exist to stop the modal appearing uninvited twice, which is not a
+   * reason to refuse someone who just pressed the button.
+   *
+   * Closing stays with the markup that owns it: the button's own
+   * `onclick="closePopup()"` and the overlay's click-outside listener, both
+   * defined alongside the modal in the post template.
+   */
+  function initSubscribeButtons() {
+    if (document.querySelector('#emailPopup-1')) return;
+
+    const overlay = document.querySelector('#emailPopup');
+    if (!overlay) return;
+
+    document.querySelectorAll('.get-started').forEach(widget => {
+      const button = widget.querySelector('a.elementor-button') || widget;
+      on(button, 'click', e => {
+        e.preventDefault();
+        overlay.style.display = 'flex';
+      });
+    });
+  }
+
   ready(() => {
     initStickyHeader();
     initNestedMenus();
@@ -1561,6 +1603,7 @@
     initTableOfContents();
     initSearch();
     initSelects();
+    initSubscribeButtons();
     initContainerLazyload();
     initAutoplayVideos();
     initReveal();

@@ -52,11 +52,15 @@
    *
    * `content-visibility: auto` skips a subtree's rendering entirely, and
    * `position: fixed` does not escape that — a fixed child of a skipped
-   * container is simply not painted. The home page keeps its lead-capture
-   * modal in the markup of a section near the foot of the page, so once that
-   * section was deferred the modal stopped appearing: the button set
-   * `display: flex` on it, the style applied, and nothing was drawn. It looked
-   * exactly like a dead button.
+   * container is simply not painted. The home page used to keep its
+   * lead-capture modal in the markup of a section near the foot of the page,
+   * so once that section was deferred the modal stopped appearing: the button
+   * set `display: flex` on it, the style applied, and nothing was drawn. It
+   * looked exactly like a dead button.
+   *
+   * That modal now renders from WpLayout, outside `main`, and is out of reach
+   * of this rule. The single-post template still carries its own inline, which
+   * is what the exception protects today.
    *
    * Anything that renders over the page has to stay live regardless of where
    * its markup happens to sit.

@@ -15,6 +15,7 @@ import wpCssBundles from '../data/wp-css-bundles.json';
 import wpSeo from '../data/wp-seo.json';
 import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
+import demoPopupHtml from '../partials/chrome/demo-popup.html?raw';
 import { MEDIA_ORIGIN, NOINDEX } from '../../scripts/lib/config.mjs';
 import { rewriteHead, withoutTitle, titleFrom } from '../../scripts/lib/wp-head.mjs';
 import '../styles/wp-polish.css';
@@ -60,6 +61,25 @@ const inlineStyle: string | undefined = bundle
 // The site's own behaviour scripts (tabs, case-study cards, popups) plus any
 // structured data the page carried.
 const pageScripts = (wpScripts as Record<string, { script: string | null; jsonLd: string[] }>)[slug];
+
+/**
+ * Whether this page has a button that opens the lead-capture modal.
+ *
+ * Read from the page's own markup rather than kept as a list of slugs, because
+ * a list is a thing to forget: the modal lived on the home page, and the
+ * fourteen other pages carrying the same `.get-started` widgets got a button
+ * that did nothing — for exactly as long as nobody noticed. Adding the widget
+ * to another page now brings the modal with it.
+ *
+ * Eager because the answer is needed while rendering, and cheap because Vite
+ * has already parsed these partials: each page imports its own.
+ */
+const partials = import.meta.glob('../partials/*.html', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+const hasDemoButton = (partials[`../partials/${slug}.html`] ?? '').includes('get-started');
 
 // Astra/Elementor selectors depend on these, so mirror them verbatim.
 const bodyClass = ['wp-mirror', meta?.bodyClass ?? 'elementor-default elementor-kit-56']
@@ -159,5 +179,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
     </main>
 
     <Fragment set:html={footerHtml} />
+
+    {/*
+      Outside `main` on purpose: the containers in there carry
+      `content-visibility: auto`, and a `position: fixed` child of a skipped
+      subtree is not painted — which is indistinguishable from a dead button.
+    */}
+    {hasDemoButton && <Fragment set:html={demoPopupHtml} />}
   </body>
 </html>

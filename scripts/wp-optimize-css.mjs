@@ -317,6 +317,7 @@ const scripts = await readJson('wp-scripts.json');
 
 const header = (await readIf(path.join(PARTIALS, 'chrome', 'header.html'))) ?? '';
 const footer = (await readIf(path.join(PARTIALS, 'chrome', 'footer.html'))) ?? '';
+const demoPopup = (await readIf(path.join(PARTIALS, 'chrome', 'demo-popup.html'))) ?? '';
 const shim = (await readIf(path.join(PUB, 'scripts', 'wp-shim.js'))) ?? '';
 
 /** Where a page key's markup lives. Keys are set by the mirroring scripts. */
@@ -358,8 +359,15 @@ for (const key of Object.keys(styles)) {
 
   // Body classes live on <body>, not in the partial, and Astra/Elementor key
   // real styling off them. <html> too, so `html { }` rules are not purged.
+  // WpLayout renders the lead-capture modal for any page with a
+  // `.get-started` button, so its markup is part of what the page contains even
+  // though no partial holds it. Purging without it strips the modal's styling
+  // from every page but the one that used to carry the markup inline — which is
+  // the bug this file would otherwise reintroduce.
+  const popup = markup.includes('get-started') ? demoPopup : '';
+
   const content =
-    `<html><body class="${pages[key]?.bodyClass ?? ''}">${markup}${header}${footer}</body></html>`;
+    `<html><body class="${pages[key]?.bodyClass ?? ''}">${markup}${header}${footer}${popup}</body></html>`;
 
   let js = shim;
   const sp = scripts[key]?.script;
