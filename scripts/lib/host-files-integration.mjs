@@ -15,6 +15,7 @@
 //
 // The `_redirects` and `_headers` formats are shared by Cloudflare Pages and
 // Netlify. Vercel wants the same rules expressed in `vercel.json`.
+import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -469,6 +470,70 @@ async function fixFontLoading(out, logger) {
  * bundles, and five `background-image` declarations. All six would have become
  * 404s the moment the media trees stopped being deployed.
  */
+/**
+ * Stamp the site's own scripts with a digest of what they contain.
+ *
+ * `/scripts/*` is served with a month's `max-age` and its names are ours, not
+ * content hashes, so a reader who has been here before keeps running whatever
+ * `wp-shim.js` they were given last time — for thirty days, through refreshes,
+ * through new tabs, and through a CloudFront invalidation, because the stale
+ * copy is on their machine and nothing asks the network about it. The themed
+ * `<select>` shipped and no returning reader saw it; that is the shape of the
+ * bug, and it applies equally to every fix that lands in this directory.
+ *
+ * The HTML is `max-age=0, must-revalidate`, so a changed `src` reaches everyone
+ * on their next page load. Appending the digest makes the URL change exactly
+ * when the bytes do: no bump to remember, and an unchanged script keeps its
+ * name and stays cached. The query string is enough — browsers key their cache
+ * on the full URL — and it holds whether or not the CDN forwards it, since the
+ * origin serves the same file either way.
+ *
+ * Only `/scripts/` is covered. The vendored `/wp-assets/` JS is WordPress' and
+ * does not change; if that ever stops being true, widen the pattern rather than
+ * bumping something by hand.
+ */
+async function versionScripts(out, logger) {
+  const pages = (await walk(out)).filter(f => f.endsWith('.html'));
+  if (!pages.length) return;
+
+  const digests = new Map();
+  const digestFor = async url => {
+    if (digests.has(url)) return digests.get(url);
+    let hash = null;
+    try {
+      const buf = await fs.readFile(path.join(out, url.slice(1)));
+      hash = createHash('sha256').update(buf).digest('hex').slice(0, 8);
+    } catch {
+      // Referenced but not built. Leaving the URL alone keeps the 404 honest
+      // rather than dressing it up with a version it does not have.
+    }
+    digests.set(url, hash);
+    return hash;
+  };
+
+  // Already-versioned URLs are excluded by the `[^"?#]` class, so the pass is
+  // idempotent and a rebuild over a dirty `dist` cannot stack query strings.
+  const re = /(<script\b[^>]*\ssrc=")(\/scripts\/[^"?#]+\.js)(")/g;
+  let stamped = 0;
+  let touched = 0;
+
+  for (const file of pages) {
+    const html = await fs.readFile(file, 'utf8');
+    const next = await replaceAsync(html, re, async (whole, head, url, tail) => {
+      const hash = await digestFor(url);
+      if (!hash) return whole;
+      stamped++;
+      return `${head}${url}?v=${hash}${tail}`;
+    });
+    if (next !== html) {
+      await fs.writeFile(file, next, 'utf8');
+      touched++;
+    }
+  }
+
+  logger.info(`scripts: versioned ${stamped} references across ${touched} pages`);
+}
+
 async function rewriteAssetMedia(out, logger) {
   if (!MEDIA_ORIGIN) return;
   const files = (await walk(out)).filter(f => f.endsWith('.js') || f.endsWith('.css'));
@@ -568,6 +633,7 @@ export function hostFiles() {
         // finished CSS.
         await fixFontLoading(out, logger);
         await rewriteAssetMedia(out, logger);
+        await versionScripts(out, logger);
         // Last: everything above reads the output, and this removes part of it.
         await dropMediaTrees(out, logger);
       },

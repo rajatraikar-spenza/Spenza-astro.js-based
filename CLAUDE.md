@@ -152,8 +152,15 @@ two files it writes into `dist/`.
   `NOINDEX` is not set, which is the shape of a preview deploy that forgot.
 - `astro:build:done` writes `_redirects` and `_headers` (Cloudflare Pages and
   Netlify share the format; Vercel wants the same rules in `vercel.json`),
-  prunes stylesheets nothing links to, and drops the media trees when
-  `MEDIA_ORIGIN` is set. See `scripts/lib/host-files-integration.mjs`.
+  prunes stylesheets nothing links to, stamps every `/scripts/*.js` reference
+  with a digest of the file, and drops the media trees when `MEDIA_ORIGIN` is
+  set. See `scripts/lib/host-files-integration.mjs`.
+- **Anything served from a stable URL with a long `max-age` needs versioning.**
+  `/scripts/*` is a month; the build now appends `?v=<digest>` to every script
+  `src` so a fix reaches returning readers on their next page load. Files
+  referenced by hand from a layout — the favicons — carry a manual `?v=` and
+  have to be bumped when their bytes change. Without it a change ships, the CDN
+  serves it, and nobody who has been here before ever asks for it.
 - Media lives in S3 behind `media.spenza.com`. `scripts/aws-media-host.sh`
   builds and verifies that stack; run it with no arguments for the steps.
 - **New posts publish new images.** They are not in the bucket and the build
