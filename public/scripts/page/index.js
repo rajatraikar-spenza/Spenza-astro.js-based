@@ -587,18 +587,24 @@ document.addEventListener("DOMContentLoaded", function () {
    Not extracted from WordPress. Added here because this file is the home
    page's behaviour and this repo owns it.
 
-   Two constraints pull against each other. The popup should greet a visitor
-   who has landed and let the page settle; and it must not touch the numbers
-   the site was tuned for. A full-screen blurred overlay appearing mid-load is
-   about the worst thing for Speed Index, which scores how the viewport fills
-   in over time — a late frame that looks nothing like the ones before it is
-   read as the page having taken that long to finish.
+   It opens ten seconds after the visitor arrives — measured from navigation
+   start, not from this script running, so a slow load does not push it out to
+   twelve or fifteen. That is a deliberate product decision and it replaced a
+   different one, which is worth recording because the trade-off has teeth.
 
-   So it waits for a sign that a person is actually there: the first scroll,
-   pointer movement, key press or touch after load. A visitor produces one
-   within a second or two without noticing. A Lighthouse run never does, so
-   the popup does not exist as far as the audit is concerned, and the fallback
-   timer sits far beyond any trace for the rare reader who touches nothing.
+   The previous version waited for a sign that a person was actually there:
+   the first scroll, pointer movement, key press or touch. That was not about
+   politeness, it was about the numbers. A full-screen blurred overlay
+   appearing mid-load is close to the worst thing possible for Speed Index,
+   which scores how the viewport fills in over time — a late frame that looks
+   nothing like the ones before it reads as the page having taken that long to
+   finish. A Lighthouse run never scrolls or moves a pointer, so gating on
+   interaction kept the popup out of the audit entirely.
+
+   A fixed ten-second timer has no such exemption: a Lighthouse run that is
+   still tracing at ten seconds will capture the overlay and score it. If the
+   performance numbers drop after this, this is why, and the fix is to raise
+   the delay past the trace rather than to reinstate the gate.
 
    Once a visit, remembered in sessionStorage: seeing it a second time in the
    same session is what makes this kind of thing feel like spam. Storage can
@@ -606,8 +612,7 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var POPUP = '#emailPopup-1';
   var SEEN = 'spenza:lead-popup-seen';
-  var AFTER_INTERACTION = 900;   // let the gesture finish before overlaying it
-  var FALLBACK = 20000;          // long after any Lighthouse trace has ended
+  var DELAY = 10000;             // from navigation start, not from load
 
   function seen() {
     try { return sessionStorage.getItem(SEEN) === '1'; } catch (e) { return false; }
@@ -629,23 +634,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function arm() {
     if (seen()) return;
-
-    var events = ['scroll', 'pointermove', 'pointerdown', 'keydown', 'touchstart'];
-    var timer = setTimeout(fire, FALLBACK);
-
-    function fire() {
-      clearTimeout(timer);
-      events.forEach(function (e) { window.removeEventListener(e, onFirst); });
-      setTimeout(show, AFTER_INTERACTION);
-    }
-
-    function onFirst() { fire(); }
-
-    events.forEach(function (e) {
-      window.addEventListener(e, onFirst, { once: true, passive: true });
-    });
+    // `performance.now()` is milliseconds since navigation start, so whatever
+    // the load spent is already counted: the popup lands ten seconds after the
+    // visitor arrived rather than ten seconds after this line ran.
+    var remaining = DELAY - performance.now();
+    setTimeout(show, remaining > 0 ? remaining : 0);
   }
 
-  if (document.readyState === 'complete') arm();
-  else window.addEventListener('load', arm, { once: true });
+  arm();
 })();
