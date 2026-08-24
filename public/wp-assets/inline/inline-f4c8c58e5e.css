@@ -149,7 +149,7 @@ height : 100% !important;
 .hero .orbitIcon,
   .hero g#center-icon,
   .hero g#icon7 {
-    transition: all 2s ease-in-out;
+    transition: transform 0.45s ease-in-out;
     transform-box: fill-box;
     transform-origin: center;
     transform: scale(1);
@@ -170,7 +170,7 @@ height : 100% !important;
   .orbitIcon {
     transform-box: fill-box;
     transform-origin: center;
-    transition: offset-distance 0.6s ease, transform 0.4s ease;
+    transition: transform 0.45s ease-in-out;
   }
   /*
    * The eight hero icons used to be pinned to the SVG orbit curves with
@@ -191,6 +191,21 @@ height : 100% !important;
    * whether a browser resolves the reference. `offset-distance` is left in
    * place: it is inert without a path, and the hover rules that scale these
    * icons are untouched.
+     *
+   * Two consequences of dropping the path, both fixed here:
+   *
+   * `offset-rotate` defaults to `auto`, so a motion path also spun each icon to
+   * face along its tangent. Icons 3 and 4 carried `rotate(165deg)` and
+   * `rotate(195deg)` to work against roughly 180deg of that spin. With the path
+   * gone the compensation had nothing to cancel and both rendered upside down,
+   * so they now carry what they always meant: -15deg and 15deg, a slight tilt
+   * matching their neighbours.
+   *
+   * And the transition said `all`, which drags `offset-path`, `offset-distance`
+   * and `transform-box` along with it -- a non-animatable property in an `all`
+   * list is handled inconsistently between engines, and the hover scale
+   * animated in neither. It names `transform` explicitly now. Change the 0.45s
+   * on the two `.orbitIcon` rules below to retime it.
    */
   g#icon1 {
     offset-distance: 23% !important;
@@ -211,22 +226,22 @@ height : 100% !important;
   g#icon3 {
     offset-distance: 58% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(165deg);
+    transform: rotate(-15deg);
   }
   svg:hover g#icon3 {
     offset-distance: 61% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(165deg) scale(2) !important;
+    transform: rotate(-15deg) scale(2) !important;
   }
   g#icon4 {
     offset-distance: 44% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(195deg);
+    transform: rotate(15deg);
   }
   svg:hover g#icon4 {
     offset-distance: 39% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(195deg) scale(2) !important;
+    transform: rotate(15deg) scale(2) !important;
   }
   g#icon5 {
     offset-distance: 53% !important;
@@ -452,7 +467,7 @@ svg.svg-phone {
   transform: translateX(30px);
 }
 g.message-display {
-    transition: all 2s ease-in-out;
+    transition: transform 0.45s ease-in-out;
 }
 .solution-container:hover g.message-display {
     transform: translateY(-50px);

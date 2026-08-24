@@ -149,7 +149,7 @@ height : 100% !important;
 .hero .orbitIcon,
   .hero g#center-icon,
   .hero g#icon7 {
-    transition: all 2s ease-in-out;
+    transition: transform 0.45s ease-in-out;
     transform-box: fill-box;
     transform-origin: center;
     transform: scale(1);
@@ -170,7 +170,7 @@ height : 100% !important;
   .orbitIcon {
     transform-box: fill-box;
     transform-origin: center;
-    transition: offset-distance 0.6s ease, transform 0.4s ease;
+    transition: transform 0.45s ease-in-out;
   }
   g#icon1 {
     offset-distance: 23% !important;
@@ -191,22 +191,22 @@ height : 100% !important;
   g#icon3 {
     offset-distance: 58% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(165deg);
+    transform: rotate(-15deg);
   }
   svg:hover g#icon3 {
     offset-distance: 61% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(165deg) scale(2) !important;
+    transform: rotate(-15deg) scale(2) !important;
   }
   g#icon4 {
     offset-distance: 44% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(195deg);
+    transform: rotate(15deg);
   }
   svg:hover g#icon4 {
     offset-distance: 39% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(195deg) scale(2) !important;
+    transform: rotate(15deg) scale(2) !important;
   }
   g#icon5 {
     offset-distance: 53% !important;
@@ -432,7 +432,7 @@ svg.svg-phone {
   transform: translateX(30px);
 }
 g.message-display {
-    transition: all 2s ease-in-out;
+    transition: transform 0.45s ease-in-out;
 }
 .solution-container:hover g.message-display {
     transform: translateY(-50px);
