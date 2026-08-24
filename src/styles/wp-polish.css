@@ -135,27 +135,25 @@
 }
 
 /*
- * The vector logo replaces a 268x136 raster; constrain by height so the wider
- * artwork does not blow out the header.
+ * The site logo is sized inline, on the img itself, in
+ * `partials/chrome/header.html` and `footer.html` -- not here. Two reasons, and
+ * both were found the hard way.
  *
- * `width` is `!important` because Elementor emits a per-element `width: 95px`
- * for both logo widgets, and its selector -- `.elementor-17806
- * .elementor-element.elementor-element-e654825 img` -- outweighs this one.
- * Combined with the 38px height that produced a 2.5 aspect box holding 2.951
- * artwork, so the header logo shipped squashed by 15% and the footer, which
- * still pointed at the old 1.971 raster, stretched by 27%. That is what made
- * the footer look wrong while the header looked merely fine.
+ * This file is imported by `WpLayout` and not by `ArticleLayout`, so nothing in
+ * it reaches a post or a case study. A rule here that *relaxes* a constraint --
+ * `width: auto !important` over Elementor's `width: 95px` -- therefore removes
+ * the only bound the logo has on every page this file does not reach, and it
+ * rendered at its natural 1685x571 across all 260 posts.
  *
- * With width free both logos render 112x38 at their true proportions, and
- * `object-fit: contain` guarantees no distortion if either box is ever pinned
- * to a size that does not match the artwork.
+ * And the constraint has to be `width`, never `height`. `wp:optimize-css`
+ * purges per page, and it keeps Elementor's `.size-full{height:auto!important}`
+ * in the post bundles while dropping it from the marketing ones. So a height
+ * pinned here is honoured on the home page and silently overruled on a post --
+ * the same declaration, two different outcomes, decided by the purger.
+ *
+ * Width inline, height left to follow the intrinsic ratio, is stable under
+ * both. See the comment on those img tags.
  */
-.wp-mirror .elementor-widget-theme-site-logo img {
-  height: 38px;
-  width: auto !important;
-  max-width: none;
-  object-fit: contain;
-}
 
 /*
  * A shorter header on phones.
