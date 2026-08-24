@@ -1,6 +1,11 @@
 ---
 import WpLayout from '../layouts/WpLayout.astro';
 import content from '../partials/about-us.html?raw';
+/*
+  Layout and visual pass over this page's mirrored Elementor markup, scoped to
+  `body.page-id-11226` and imported here so it ships on no other route.
+*/
+import '../styles/about-us.css';
 ---
 
 <WpLayout slug="about-us">

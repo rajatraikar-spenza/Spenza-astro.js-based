@@ -133,6 +133,64 @@ Post *content* now comes from WordPress via WPGraphQL, not the mirror:
   delete blog routes. After one, restore with `ONLY_MISSING=1 npm run wp:posts`,
   which reindexes from the partials on disk without refetching.
 
+## Lead capture (forms)
+
+Six submittable forms survive the mirror, all of them Gravity Forms on
+WordPress, all keyed by their Gravity Forms id:
+
+| id | What | Where | HubSpot form |
+| :- | :--- | :---- | :----------- |
+| 19 | Book A Free Demo | 14 marketing pages, every post, every day archive | `#gform_19` |
+| 15 | Get Started popup | `chrome/demo-popup.html`, plus the post template | `#gform_15` |
+| 20 | Contact Us | `contact-us`, `support` | `#gform_20` |
+| 5  | Mobility policy download | `mobility-policy` | `#gform_5` |
+| 21 | MVNO calculator report | `mvno-calculator` | `#gform_21` |
+| 16 | Download PDF popup | inside one post's body, from WordPress | `#gform_16` |
+
+`.e-search-form` (202 of them) is site search, and `#mvnoCalculator` never
+submits — neither is a lead form.
+
+- They post straight to HubSpot from the browser, via
+  `public/scripts/hubspot-forms.js`. Static hosting has nowhere else to send
+  them: `action` points at a page that no longer runs PHP and `target` is a
+  hidden iframe, so before this every one of them swallowed the lead silently.
+- **Not** HubSpot's tracking script. `js-eu1.hs-scripts.com` is ~180KB, and its
+  "collected forms" feature is what produced the field losses below.
+- The portal is on **EU1**. Submissions go to `api-eu1.hsforms.com`; the US
+  host answers 404 for an EU portal. The management API is `api.hubapi.com`
+  either way, which is why only the runtime carries a region.
+- **The targets are the existing collected forms**, not new ones — the records
+  HubSpot built by scraping these same pages, which is why they are named after
+  CSS selectors. A lead therefore lands where its ~395 predecessors did.
+- **A collected form's field list is an allowlist, and it rejects by staying
+  quiet.** Send a field outside it and the API answers `200 OK`, the contact is
+  created, and the field is absent. Confirmed by submitting surname, mobile and
+  a dropdown answer to `#gform_20` and reading the contact back: email,
+  firstname, company, nothing else. So a `200` proves delivery of nothing, and
+  `npm run hs:check` is the only way to know the two lists still agree. Run it
+  after touching either side; with a `forms`-scoped token it compares field by
+  field, without one it checks the guids resolve.
+- That list cannot be widened — HubSpot owns it and only extends it when its
+  tracking script sees a new input. So **form 20 loses mobile, surname and
+  "Which solution are you interested in?", and form 5 loses company and
+  headcount**. Each is recorded in an `unsent` array on its entry. The other
+  four lose nothing. Buying those fields back means moving that form onto a
+  real HubSpot form, and nothing else does.
+- Form 20's dropdown is the expensive loss: on WordPress it picks which of six
+  replies the visitor gets. It has never reached HubSpot, before this or after.
+- Anything the script adds to the page at runtime must be styled in
+  `wp-polish.css`, never with Gravity Forms' own classes. `.validation_message`
+  and friends only appear in markup WordPress renders *after* a submit, so no
+  mirrored page contains one and `wp:optimize-css` purges their rules out of
+  every bundle.
+- Form 21 is the odd one: the calculator owes the user a file, and its page
+  script waits for Gravity Forms' `gform_confirmation_loaded` before starting
+  the download. That is a jQuery event, and nothing here ships jQuery, so the
+  runtime dispatches it natively with the form id on `detail`. The export
+  libraries it needs (jsPDF, autotable, SheetJS) are vendored under
+  `public/vendor/` and fetched per format on demand — WordPress loads all
+  1.28MB of them on every view of that page.
+
 ## Deployment
 
 The build is environment-driven. Nothing about it is host-specific except the

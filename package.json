@@ -38,7 +38,8 @@
     "wp:media-sync-s3": "node scripts/wp-media-sync-s3.mjs",
     "wp:seo": "node scripts/wp-extract-seo.mjs",
     "wp:authors": "node scripts/wp-extract-authors.mjs",
-    "wp:changed": "node scripts/wp-changed.mjs"
+    "wp:changed": "node scripts/wp-changed.mjs",
+    "hs:check": "node scripts/hs-check-forms.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",

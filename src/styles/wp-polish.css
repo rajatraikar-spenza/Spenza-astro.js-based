@@ -1356,3 +1356,83 @@ body.wp-mirror.e-off-canvas__no-scroll {
     will-change: transform;
   }
 }
+
+/*
+ * Lead-capture form states, for `/scripts/hubspot-forms.js`.
+ *
+ * Gravity Forms has its own classes for all three of these —
+ * `.validation_message`, `.gform_confirmation_message`, `.gform_validation_errors`
+ * — and they are unusable here. They only ever appear in markup WordPress
+ * renders *after* a submit, so no mirrored page contains one, so
+ * `wp:optimize-css` purges their rules out of every bundle it builds. Styling
+ * them would mean safelisting classes whose look we would then have to keep in
+ * step with a plugin we no longer run.
+ *
+ * These are ours instead, defined in the one stylesheet Astro emits and
+ * purgecss never sees. Deliberately plain: the forms sit on six different page
+ * designs, so anything opinionated is wrong on five of them.
+ */
+.wp-mirror .hs-field-error {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #c02b0a;
+}
+
+.wp-mirror input.hs-invalid,
+.wp-mirror select.hs-invalid {
+  border-color: #c02b0a !important;
+}
+
+.wp-mirror .hs-form-error {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid #c02b0a;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #c02b0a;
+  background: #fdf3f1;
+}
+
+.wp-mirror .hs-form-error a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/*
+ * The confirmation replaces the whole form wrapper, so it inherits whatever
+ * width and alignment the form had. Only the text needs saying — except on the
+ * two gated downloads, where the confirmation *is* the delivery and its links
+ * have to read as buttons. `.download_pdf` is the mirrored class those links
+ * already carry on WordPress, restated here because the same purge removes it.
+ */
+.wp-mirror .hs-confirmation {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.wp-mirror .hs-confirmation > :first-child { margin-top: 0; }
+.wp-mirror .hs-confirmation > :last-child { margin-bottom: 0; }
+
+.wp-mirror .hs-confirmation .form_title {
+  margin: 0 0 12px;
+}
+
+.wp-mirror .hs-confirmation a.download_pdf {
+  /* WordPress' own values, from the inline stylesheet these pages still load —
+     only `display` is added, so the padding makes a box rather than overlapping
+     the line above it. */
+  background: #144c94;
+  padding: 10px 30px;
+  color: #fff;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color .2s ease-out;
+}
+
+.wp-mirror .hs-confirmation a.download_pdf:hover,
+.wp-mirror .hs-confirmation a.download_pdf:focus-visible {
+  background: #e81224;
+}

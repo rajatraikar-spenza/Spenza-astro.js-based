@@ -293,6 +293,9 @@ body = toMediaOrigin(applyHtmlPerf(body));
 
     <script src="/wp-assets/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js" defer></script>
     <script src="/scripts/wp-shim.js" defer></script>
+    {/* The post template carries the demo bar and the popup; one post also
+        gates a PDF behind a third form that arrives inside the body HTML. */}
+    <script src="/scripts/hubspot-forms.js" defer></script>
     {postScript && <script src={postScript} defer></script>}
   </head>
   <body class={bodyClass}>

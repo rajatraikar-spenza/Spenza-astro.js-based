@@ -165,6 +165,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
 
     <script src="/wp-assets/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js" defer></script>
     <script src="/scripts/wp-shim.js" defer></script>
+    {/*
+      Lead capture. Loaded everywhere rather than only on the pages with a form,
+      because the demo modal is chrome and follows any `.get-started` button —
+      the same staleness that left that button dead for fourteen pages. Costs
+      nothing until a form is submitted.
+    */}
+    <script src="/scripts/hubspot-forms.js" defer></script>
     {pageScripts?.script && <script src={pageScripts.script} defer></script>}
 
     <slot name="head" />

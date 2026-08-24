@@ -652,7 +652,9 @@ function downloadExcel(){
 
     if(typeof XLSX === "undefined"){
 
-        alert("SheetJS library is not loaded.");
+        // Never a blocking alert(): a modal dialog here freezes the tab, and
+        // this runs straight off a successful form submission. See loadLib().
+        reportDownloadFailure("Excel");
 
         return;
 
@@ -700,7 +702,7 @@ function downloadPDF(){
 
     if(typeof window.jspdf === "undefined"){
 
-        alert("jsPDF library is not loaded.");
+        reportDownloadFailure("PDF");
 
         return;
 
@@ -1052,9 +1054,19 @@ document.addEventListener("keydown", function(e){
 });
 
 /* =========================================================
-   Multi-select Download Type Buttons
-   (user can pick CSV, Excel, PDF - any one or several)
+   Download Type Buttons
+   (one format at a time - CSV, Excel or PDF)
 ========================================================= */
+
+/*
+   These used to be a multi-select: every click toggled its own button and
+   left the others alone, so picking PDF and then Excel lit both and handed
+   the visitor two files for one submission. Nothing in the markup said the
+   set was additive - three pill buttons under a "Download as" label read as
+   a radio group - so the second pick looked like a broken deselect rather
+   than a second choice. One selection, always exactly one, is what the UI
+   was already promising.
+*/
 
 let selectedDownloads = new Set(["pdf"]); // matches the "active" class on PDF button in the HTML by default
 
@@ -1068,31 +1080,160 @@ function typeFromButton(btn){
 
 }
 
-document.querySelectorAll(".download-type").forEach(btn=>{
+const downloadTypeButtons = document.querySelectorAll(".download-type");
+
+downloadTypeButtons.forEach(btn=>{
+
+    // A radio group, not a set of independent toggles. Announcing it as one
+    // keeps a screen reader's reading of these buttons matching what a
+    // sighted visitor sees the highlight do.
+    btn.setAttribute("aria-pressed", btn.classList.contains("active") ? "true" : "false");
 
     btn.addEventListener("click", function(){
 
         const type = typeFromButton(this);
 
-        if(selectedDownloads.has(type)){
+        // Already the choice: clicking it again must not clear it, because
+        // there is no valid empty state here - the visitor is owed a file.
+        if(selectedDownloads.has(type)) return;
 
-            selectedDownloads.delete(type);
+        selectedDownloads = new Set([type]);
 
-            this.classList.remove("active");
+        downloadTypeButtons.forEach(other=>{
 
-        }else{
+            const isChosen = other === this;
 
-            selectedDownloads.add(type);
+            other.classList.toggle("active", isChosen);
 
-            this.classList.add("active");
+            other.setAttribute("aria-pressed", isChosen ? "true" : "false");
 
-        }
+        });
+
+        // Start fetching what this format needs now rather than after the
+        // form comes back, so the file is usually ready the moment it is
+        // owed. Picking a format is the earliest honest signal of intent.
+        ensureLibs([type]);
 
     });
 
 });
 
-function runSelectedDownloads(){
+/* =========================================================
+   Export Libraries, On Demand
+========================================================= */
+
+/*
+   WordPress loads jsPDF, its autotable plugin and SheetJS from cdnjs on
+   every view of this page - 1.28MB of blocking script for three buttons
+   most visitors never press. The mirror dropped those tags, so nothing
+   defined XLSX or window.jspdf and every download fell through to an
+   alert() instead. A blocking dialog is the worst possible failure here:
+   it fires straight off a successful form submission and freezes the tab.
+
+   Self-hosted under /vendor/ and fetched per format, the first time that
+   format is wanted. CSV needs nothing and stays instant; Excel pulls the
+   881KB SheetJS only if Excel is actually chosen.
+
+   The version is in each filename because these are referenced from JS,
+   not from the markup, so the build's script-digest stamper never sees
+   them - and /vendor/ is served with a long max-age. Upgrading a library
+   means a new filename, which is the only thing that reaches a returning
+   visitor's cache.
+*/
+
+const LIBS = {
+    xlsx: ["/vendor/xlsx-0.18.5.full.min.js"],
+    // autotable patches jsPDF's prototype, so order matters.
+    pdf: ["/vendor/jspdf-2.5.1.umd.min.js", "/vendor/jspdf-autotable-3.8.2.min.js"]
+};
+
+const libCache = new Map();
+
+function loadScript(src){
+
+    if(!libCache.has(src)){
+
+        libCache.set(src, new Promise((resolve, reject)=>{
+
+            const el = document.createElement("script");
+
+            el.src = src;
+
+            // A script element created in JS defaults to async, and async
+            // means "run whenever it arrives". autotable patches jsPDF's
+            // prototype, so arriving first leaves doc.autoTable undefined and
+            // the PDF dies half-written with no download and no message.
+            // async = false restores document order for injected scripts:
+            // still downloaded in parallel, executed in the order added.
+            el.async = false;
+
+            el.onload = resolve;
+
+            // Drop the rejected promise from the cache so a download attempted
+            // after a dropped connection can try again rather than inheriting
+            // the first failure forever.
+            el.onerror = () => { libCache.delete(src); reject(new Error(src)); };
+
+            document.head.appendChild(el);
+
+        }));
+
+    }
+
+    return libCache.get(src);
+
+}
+
+function ensureLibs(types){
+
+    const wanted = types.flatMap(type => LIBS[type] || []);
+
+    return Promise.all(wanted.map(loadScript)).catch(err => {
+
+        console.error("[mvno-calculator] export library failed to load:", err);
+
+    });
+
+}
+
+/*
+   Shown in place of the alert() the download functions used to raise. The
+   lead has already reached HubSpot by this point, so the report is the
+   only thing outstanding and someone can still send it by hand.
+*/
+let downloadFailed = false;
+
+function reportDownloadFailure(format){
+
+    downloadFailed = true;
+
+    console.error("[mvno-calculator] " + format + " library unavailable.");
+
+    const modal = document.querySelector(".report-modal-content");
+
+    if(!modal) return;
+
+    let note = modal.querySelector(".hs-form-error");
+
+    if(!note){
+
+        note = document.createElement("p");
+
+        note.className = "hs-form-error";
+
+        note.setAttribute("role", "alert");
+
+        modal.prepend(note);
+
+    }
+
+    note.textContent =
+        "Your details are saved, but the " + format + " could not be generated. " +
+        "Please try again, or email sales@spenza.com and we will send the report.";
+
+}
+
+async function runSelectedDownloads(){
 
     // Fallback: if the user submits without picking any format, default to PDF
     if(selectedDownloads.size === 0){
@@ -1101,15 +1242,36 @@ function runSelectedDownloads(){
 
     }
 
+    // Await once for every selected format, so the modal is not closed out
+    // from under a download that has not started yet.
+    downloadFailed = false;
+
+    await ensureLibs([...selectedDownloads]);
+
+    // One format failing must not take the others down with it, and must not
+    // leave this promise rejected: the caller closes the modal on its result,
+    // so a throw here would strand the modal open with no explanation.
     selectedDownloads.forEach(type=>{
 
-        if(type === "csv") downloadCSV();
+        try{
 
-        else if(type === "xlsx") downloadExcel();
+            if(type === "csv") downloadCSV();
 
-        else downloadPDF();
+            else if(type === "xlsx") downloadExcel();
+
+            else downloadPDF();
+
+        }catch(err){
+
+            console.error("[mvno-calculator] " + type + " export threw:", err);
+
+            reportDownloadFailure(type.toUpperCase());
+
+        }
 
     });
+
+    return !downloadFailed;
 
 }
 
@@ -1125,36 +1287,34 @@ function runSelectedDownloads(){
 */
 
 /*
-   IMPORTANT: Gravity Forms fires "gform_confirmation_loaded" as a
-   jQuery custom event (via jQuery(document).trigger(...)), NOT a
-   native browser event. jQuery only notifies handlers registered
-   through its own event system for custom event names like this,
-   so document.addEventListener("gform_confirmation_loaded", ...)
-   will never actually fire. We must listen with jQuery itself.
+   On WordPress that event is a jQuery custom event, dispatched with
+   jQuery(document).trigger(...), which only jQuery's own event system
+   delivers - so the listener had to be registered through jQuery too,
+   and was, inside an `if (window.jQuery)`.
+
+   This site ships no jQuery: wp-shim.js replaced Elementor's runtime and
+   nothing put it back. So that branch never ran, the else branch was
+   empty, and picking a format and pressing "Send & Download" captured the
+   lead and then silently handed the user no file at all.
+
+   /scripts/hubspot-forms.js announces a successful submission as a native
+   CustomEvent instead, carrying the form id on `detail`. The jQuery
+   listener is gone rather than kept alongside it: nothing dispatches the
+   jQuery event any more, so it could only ever have fired twice or not at
+   all, and both are worse than one.
 */
 
-if(window.jQuery){
+document.addEventListener("gform_confirmation_loaded", async function(event){
 
-    jQuery(document).on("gform_confirmation_loaded", function(event, formId){
+    if(String(event.detail && event.detail.formId) !== "21") return;
 
-        // formId comes through as a number or string depending on
-        // GF version - compare loosely, or remove the check entirely
-        // if this is the only Gravity Form on the page.
-        if(String(formId) === "21"){
+    // Only close once the file is on its way. If a library could not be
+    // fetched, the modal stays open carrying the message that says so — the
+    // lead is already captured, and closing would hide the one part that
+    // still needs the visitor to do something.
+    if(await runSelectedDownloads()) closeModal();
 
-            runSelectedDownloads();
-
-            closeModal();
-
-        }
-
-    });
-
-}else{
-
-    
-
-}
+});
 
 /* =========================================================
    Trigger Real Gravity Forms Submit via Custom Button

@@ -1,0 +1,949 @@
+/**
+ * About Us — layout and visual pass over the mirrored Elementor markup.
+ *
+ * Imported by `src/pages/about-us.astro`, so it ships only on this route.
+ *
+ * Why a stylesheet rather than new markup: every rule Elementor generated for
+ * this page is keyed to an element id (`.elementor-element-db3d6e9`), and the
+ * purged bundles in `wp-assets/` are built from the markup that exists. Rewrite
+ * the containers and you lose the type scale, the colours and the header/footer
+ * fit along with the layout you meant to change. Restyling in place keeps all of
+ * that and touches only what was wrong.
+ *
+ * What was wrong, section by section:
+ *
+ *   - The founder block drew its "card" as a PNG of a white rounded rectangle
+ *     (`Vector-14.png`) with two absolutely positioned text containers floating
+ *     over a 2560x869 banner. Nothing lined up: the banner escaped the card on
+ *     the right, the copy sat in dead space below it, and the whole thing left a
+ *     ~200px hole under "Meet our founder".
+ *   - Mission/vision/approach rendered as three 64px grey watermark words next
+ *     to 24px headings — the least important text on the page set four times
+ *     larger than the most.
+ *   - Phones were served the journey as a 469KB SVG: the six milestones redrawn
+ *     vertically, every word of every label an outlined vector path. It was the
+ *     single heaviest thing on the page and none of it was text.
+ *   - `Column.png` is a 1440x64 crop of a photograph stretched full-width. It
+ *     reads as a rendering artefact, not a divider.
+ *   - The six culture values and the twelve team members were text and images on
+ *     bare background — no card, no border, no separation.
+ *   - The testimonials are a looping carousel with no arrows and no dots, so the
+ *     third quote was unreachable by anything but waiting.
+ *
+ * Specificity note: Elementor's own rules are three classes deep
+ * (`.elementor-11226 .elementor-element.elementor-element-xxxxx`), so overriding
+ * one from here needs either `!important` or a deeper selector. `!important` is
+ * used deliberately and only where an Elementor element rule sets the same
+ * property — it is not a shortcut around ordinary cascade.
+ */
+
+body.page-id-11226 {
+  /* Lifted from the live site so this page cannot drift from the others. */
+  --sp-orange: #ff6900;
+  --sp-orange-deep: #ff4500;
+  --sp-grad: linear-gradient(90deg, #ff6e24, #ff4500);
+  --sp-ink: #111827;
+  --sp-body: #4e545d;
+  --sp-warm: #fff7f4;
+  --sp-line: rgba(255, 105, 0, 0.16);
+  --sp-card-shadow: 0 14px 40px rgba(17, 24, 39, 0.07);
+  --sp-card-shadow-hover: 0 22px 56px rgba(255, 69, 0, 0.14);
+  --sp-radius: 22px;
+}
+
+/* ---------------------------------------------------------------------------
+   Section rhythm
+
+   Every top-level container carried 60px of its own padding plus whatever the
+   absolutely positioned children left behind, which is where the page's uneven
+   gaps came from. One value, applied once, is easier to reason about than nine.
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 main > .elementor > .e-con.e-parent > .e-con-inner {
+  padding-block: 72px;
+}
+
+/* ---------------------------------------------------------------------------
+   1. Founder
+
+   Becomes one real two-column card: photo left, copy right, both filling the
+   same height. The PNG that used to stand in for the card is hidden, and the
+   two absolutely positioned text containers are returned to normal flow.
+
+   Elementor ships a desktop copy of this block and a mobile copy, each hidden
+   from the other by its own `elementor-hidden-*` class. Both get the same
+   treatment and grid auto-placement puts whichever one is visible in column 2.
+   --------------------------------------------------------------------------- */
+
+/* The card *is* this section's `.e-con-inner`, so the shared rhythm rule above
+   would put its 72px inside the card — and that rule is the more specific of
+   the two, hence `!important` rather than source order. Margin here instead. */
+body.page-id-11226 .elementor-element-bb23b32 > .e-con-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: stretch;
+  gap: 0;
+  padding-block: 0 !important;
+  margin-block: 72px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+  border-radius: 28px;
+  box-shadow: var(--sp-card-shadow);
+}
+
+/* The banner is 2.95:1. Cropped to a card column it needs an anchor, and the
+   founder stands about an eighth of the way in from the left edge. */
+body.page-id-11226 .elementor-element-6e37067,
+body.page-id-11226 .elementor-element-6e37067 > .elementor-widget-container,
+body.page-id-11226 .elementor-element-6e37067 picture {
+  display: block;
+  height: 100%;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* `height` and `display` carry `!important` because Elementor's image widget
+   asserts `height: auto` and `display: inline-block` on every `img` it renders,
+   and either one leaves the photo short of the card it is meant to fill. */
+body.page-id-11226 .elementor-element-6e37067 img {
+  display: block !important;
+  width: 100%;
+  height: 100% !important;
+  min-height: 430px;
+  object-fit: cover;
+  object-position: 13% 42%;
+  border-radius: 0 !important;
+}
+
+/* `693dcef` (desktop) and `c3d6584` (mobile) were both positioned absolute with
+   a background of their own. Neither is needed once the grid holds the layout. */
+body.page-id-11226 .elementor-element-693dcef,
+body.page-id-11226 .elementor-element-c3d6584,
+body.page-id-11226 .elementor-element-462a1fd,
+body.page-id-11226 .elementor-element-22bfa96 {
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  height: auto !important;
+  transform: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* The mobile copy carries `margin-top: -120px`, which is how the fake white
+   card used to ride up over the photo. In a grid that is a row overlapping the
+   row above it: the heading printed straight across the founder's chest. */
+body.page-id-11226 .elementor-element-693dcef,
+body.page-id-11226 .elementor-element-c3d6584 {
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  padding: 44px 48px !important;
+}
+
+body.page-id-11226 .elementor-element-462a1fd,
+body.page-id-11226 .elementor-element-22bfa96 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 !important;
+}
+
+/* Every widget inside the copy column was width-constrained and centred by
+   Elementor to fit around the fake card's shape. */
+body.page-id-11226 .elementor-element-462a1fd > .elementor-element,
+body.page-id-11226 .elementor-element-22bfa96 > .elementor-element {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+}
+
+/* The white-rounded-rectangle PNGs that used to fake the card. */
+body.page-id-11226 .elementor-element-2083aec,
+body.page-id-11226 .elementor-element-0248033 {
+  display: none !important;
+}
+
+body.page-id-11226 .elementor-element-6d3ef7f h2,
+body.page-id-11226 .elementor-element-bd8f87b h2 {
+  font-size: 38px !important;
+  line-height: 1.18 !important;
+  font-weight: 800 !important;
+  color: var(--sp-ink) !important;
+  text-align: left !important;
+  margin-bottom: 14px !important;
+  /* Two even lines rather than five words and an orphan. */
+  text-wrap: balance;
+}
+
+/* Name and role read as one two-line credit, not two headings. */
+body.page-id-11226 .elementor-element-cfc73e8 h3,
+body.page-id-11226 .elementor-element-66c693a h3 {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: var(--sp-ink) !important;
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+body.page-id-11226 .elementor-element-8ccbb37 h3,
+body.page-id-11226 .elementor-element-8b1aba7 h3 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sp-orange-deep) !important;
+  text-align: left !important;
+  margin: 0 0 16px !important;
+}
+
+body.page-id-11226 .elementor-element-0b41f76 p,
+body.page-id-11226 .elementor-element-576247e p {
+  font-size: 16.5px !important;
+  line-height: 1.65 !important;
+  color: var(--sp-body) !important;
+  text-align: left !important;
+  margin: 0 0 24px !important;
+}
+
+/* "Meet our founder" was a bare orange link centred in empty space. */
+body.page-id-11226 .elementor-element-2b9417a,
+body.page-id-11226 .elementor-element-0435b9a {
+  text-align: left !important;
+}
+
+body.page-id-11226 .elementor-element-2b9417a .elementor-button,
+body.page-id-11226 .elementor-element-0435b9a .elementor-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px !important;
+  border-radius: 999px !important;
+  background: var(--sp-grad) !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 10px 24px rgba(255, 69, 0, 0.24);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+body.page-id-11226 .elementor-element-2b9417a .elementor-button:hover,
+body.page-id-11226 .elementor-element-0435b9a .elementor-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(255, 69, 0, 0.3);
+}
+
+/* ---------------------------------------------------------------------------
+   2. Approach / mission / vision
+
+   Three stacked rows of watermark-plus-bullets become three equal cards. The
+   watermark word survives as the card's eyebrow, which is the job it was always
+   doing — it was only ever mis-sized.
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 .elementor-element-e55955d > .e-con-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+body.page-id-11226 .our-values {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  width: auto !important;
+  padding: 32px 30px !important;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+  border-radius: var(--sp-radius);
+  box-shadow: var(--sp-card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.page-id-11226 .our-values:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sp-card-shadow-hover);
+}
+
+/* The 64px, 26%-opacity grey word. `.heading-section` is the class the mirror
+   put on this widget, and the one the hover rule below keys off. */
+body.page-id-11226 .our-values > .heading-section h2 {
+  display: inline-block;
+  width: auto !important;
+  margin: 0 0 18px !important;
+  padding: 7px 15px;
+  border: 1px solid var(--sp-orange);
+  border-radius: 999px;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.08em;
+  /* The three source labels are "We Simplify", "our mission" and "Our Vision".
+     Upper-casing them is what makes the trio read as one set. */
+  text-transform: uppercase !important;
+  color: var(--sp-orange-deep) !important;
+  opacity: 1 !important;
+  background: #fff;
+  white-space: nowrap;
+}
+
+body.page-id-11226 .our-values > .heading-section {
+  width: auto !important;
+  align-self: flex-start;
+}
+
+/*
+   The mirror ships `.our-values:hover .heading-section h2 { background: <orange
+   gradient>; background-clip: text; -webkit-text-fill-color: transparent }` —
+   meant to gradient-fill the big grey word on hover. Against a pill it is a
+   disappearing act: the pill's own white background is what gets clipped to the
+   glyphs, and `text-fill-color: transparent` removes what colour was left, so
+   the label vanished the moment the pointer touched the card.
+
+   Same intent, applied to the shape that is actually there: the pill fills with
+   the gradient and its text goes white.
+*/
+body.page-id-11226 .our-values:hover > .heading-section h2 {
+  background: var(--sp-grad) !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+body.page-id-11226 .our-values > .e-con {
+  width: auto !important;
+  flex: 1;
+  gap: 0 !important;
+}
+
+/* "How We Solve Connectivity" and friends — the actual headings.
+   Matched through `> .e-con >` rather than as descendants: the watermark widget
+   is also a `.elementor-widget-heading` inside `.our-values`, so an unscoped
+   `:nth-of-type(1)` claims it too and the eyebrow silently inherits the heading
+   size. */
+body.page-id-11226 .our-values > .e-con > .elementor-widget-heading:nth-child(1) .elementor-heading-title {
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  color: var(--sp-ink) !important;
+  margin: 0 0 10px !important;
+}
+
+/* The orange promise line under each heading. Orange at 16px next to an
+   almost-black 21px heading fought it for attention; grey lets it support. */
+body.page-id-11226 .our-values > .e-con > .elementor-widget-heading:nth-child(2) .elementor-heading-title {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  color: var(--sp-body) !important;
+  margin: 0 0 18px !important;
+}
+
+body.page-id-11226 .our-values .elementor-icon-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.page-id-11226 .our-values .elementor-icon-list-item {
+  align-items: flex-start !important;
+  gap: 10px;
+}
+
+/* Elementor's list marker is a bullet glyph in the same grey as the text. A
+   check in the brand orange says "we do this" rather than "here is an item". */
+body.page-id-11226 .our-values .elementor-icon-list-icon {
+  display: none !important;
+}
+
+/* One inlined SVG — an orange disc with a white tick — rather than a masked
+   gradient. Same picture, but nothing about it depends on `mask-composite`. */
+body.page-id-11226 .our-values .elementor-icon-list-item::before {
+  content: "";
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
+  margin-top: 2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23FF5A12'/%3E%3Cpath d='M17.2 9.2l-6.3 6.4-3.4-3.4' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+body.page-id-11226 .our-values .elementor-icon-list-text {
+  font-size: 15.5px !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  color: var(--sp-body) !important;
+  padding: 0 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   3. Journey
+
+   Desktop and tablet keep the scroll-driven marquee: `.e-con-inner` is stuck by
+   `position: sticky` (wp-polish.css, >=768px only) while snippet 6 of
+   `public/scripts/page/about-us.js` slides the 4404-unit drawing across it and
+   draws each dashed stem as its year arrives. Nothing here touches it — the
+   script measures the drawing every frame, so overriding its width or wrapping
+   it in a scroll container would fight a live measurement.
+
+   Phones used to get a second drawing: the same milestones redrawn vertically as
+   a 324x3936 SVG, 469KB of it, with every word of every label as outlined vector
+   paths. It cost more than the rest of the page put together, it could not be
+   selected, searched, translated or read aloud, and it scrolled for four
+   screens. The milestones are now six list items — `.sp-journey` in
+   `src/partials/about-us.html` — which is where that content should always have
+   been: a few hundred bytes of text a phone can render, find and speak.
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 .sp-journey {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0 0 0 46px;
+  position: relative;
+}
+
+/* The rail. It fades out toward the bottom rather than stopping dead, so the
+   last milestone reads as "and this is where we are" instead of as a list that
+   ran out of room. */
+body.page-id-11226 .sp-journey::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 12px;
+  bottom: 24px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    #ff6e24 0%,
+    #ff4500 55%,
+    rgba(255, 105, 0, 0.16) 100%
+  );
+}
+
+body.page-id-11226 .sp-journey__step {
+  position: relative;
+  margin: 0 0 14px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+  border-radius: 18px;
+  box-shadow: var(--sp-card-shadow);
+}
+
+body.page-id-11226 .sp-journey__step:last-child {
+  margin-bottom: 0;
+}
+
+/* The node, sat on the rail. The white ring is what makes the rail look like it
+   passes behind the dot rather than stopping at it. */
+body.page-id-11226 .sp-journey__step::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 22px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--sp-grad);
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px rgba(255, 105, 0, 0.18);
+}
+
+/* Ties the node to its card, so the eye reads one step rather than a column of
+   dots beside a column of boxes. */
+body.page-id-11226 .sp-journey__step::after {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 29px;
+  width: 18px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 105, 0, 0.55), var(--sp-line));
+}
+
+body.page-id-11226 .sp-journey__year {
+  margin: 0 0 5px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  background: var(--sp-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+body.page-id-11226 .sp-journey__title {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--sp-ink);
+}
+
+body.page-id-11226 .sp-journey__body {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--sp-body);
+}
+
+/* 2026 is now. Given a warmer border and a wider halo so the list ends on the
+   present rather than on another entry. */
+body.page-id-11226 .sp-journey__step:last-child {
+  border-color: rgba(255, 105, 0, 0.42);
+  box-shadow: 0 14px 40px rgba(255, 69, 0, 0.1);
+}
+
+body.page-id-11226 .sp-journey__step:last-child::before {
+  box-shadow: 0 0 0 4px #fff, 0 0 0 9px rgba(255, 105, 0, 0.22);
+}
+
+/* ---------------------------------------------------------------------------
+   4. The Column.png band
+
+   A 1440x64 slice of a photograph, drawn at native size across the full width.
+   Nothing about it survives being looked at, and there is no divider the page
+   needs that a section boundary is not already providing.
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 .elementor-element-b19db9c {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+   5. Culture and values
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 .elementor-element-47e8498 > .e-con-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* The heading and its standfirst span the grid rather than sitting in a cell. */
+body.page-id-11226 .elementor-element-30a217e,
+body.page-id-11226 .elementor-element-c01dd92 {
+  grid-column: 1 / -1;
+  width: auto !important;
+  text-align: center;
+}
+
+body.page-id-11226 .elementor-element-c01dd92 {
+  margin-bottom: 12px !important;
+}
+
+/* Counted by `div:nth-of-type` and not `:nth-child`: each card's first child
+   is the `<canvas>` that paints its brush-stroke hover, so the number widget is
+   child two and every ordinal below would be off by one. */
+body.page-id-11226 .eSim-card {
+  position: relative;
+  overflow: hidden;
+  width: auto !important;
+  padding: 30px 28px !important;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+  border-radius: var(--sp-radius);
+  box-shadow: var(--sp-card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.page-id-11226 .eSim-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sp-card-shadow-hover);
+}
+
+/* The 01–06 counters. Gradient text ties them to the CTAs without adding
+   another weight to the type scale. */
+body.page-id-11226 .eSim-card > div:nth-of-type(1) .elementor-heading-title {
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  margin: 0 0 14px !important;
+  background: var(--sp-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
+}
+
+body.page-id-11226 .eSim-card > div:nth-of-type(2) .elementor-heading-title {
+  font-size: 18.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  color: var(--sp-ink) !important;
+  margin: 0 0 8px !important;
+}
+
+body.page-id-11226 .eSim-card > div:nth-of-type(3) .elementor-heading-title {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: var(--sp-body) !important;
+  margin: 0 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   6. Team
+
+   Twelve people and one recruitment card, on a four-up grid. The avatars are
+   illustrations on transparent backgrounds, so each gets a warm panel behind it
+   — otherwise they float on the page with nothing holding them.
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 .elementor-element-4e9d299 > .e-con-inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body.page-id-11226 .elementor-element-e5beade,
+body.page-id-11226 .elementor-element-5b0c9f2 {
+  grid-column: 1 / -1;
+  width: auto !important;
+  text-align: center;
+}
+
+body.page-id-11226 .elementor-element-5b0c9f2 {
+  margin-bottom: 12px !important;
+}
+
+body.page-id-11226 .elementor-element-4e9d299 > .e-con-inner > .e-con {
+  width: auto !important;
+  overflow: hidden;
+  padding: 0 !important;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+  border-radius: var(--sp-radius);
+  box-shadow: var(--sp-card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.page-id-11226 .elementor-element-4e9d299 > .e-con-inner > .e-con:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sp-card-shadow-hover);
+}
+
+body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-image {
+  width: 100% !important;
+  margin: 0 !important;
+  background: var(--sp-warm);
+}
+
+/* `<picture>` is inline by default, and an inline box leaves a baseline gap
+   under the image — a 20px strip of the panel below every avatar. */
+body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-image picture {
+  display: block;
+}
+
+body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 0 !important;
+}
+
+body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-heading h3 {
+  margin: 0 !important;
+  padding: 16px 12px 18px;
+  font-size: 16.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  color: var(--sp-ink) !important;
+  text-align: center !important;
+}
+
+/* The "You can be here!" card. Its image slot was a placeholder graphic with a
+   transparency checkerboard baked into the pixels, which is what the page was
+   drawing. A dashed panel says "vacancy" without needing an asset at all. */
+body.page-id-11226 .elementor-element-bfdfa79 {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
+  aspect-ratio: 1 / 1;
+  margin: 12px 12px 0 !important;
+  padding: 16px !important;
+  background: var(--sp-warm) !important;
+  background-image: none !important;
+  border: 2px dashed rgba(255, 105, 0, 0.4);
+  border-radius: 16px;
+}
+
+body.page-id-11226 .elementor-element-bfdfa79 img,
+body.page-id-11226 .elementor-element-bfdfa79 picture {
+  display: none !important;
+}
+
+body.page-id-11226 .elementor-element-67b767e {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+body.page-id-11226 .elementor-element-67b767e .elementor-button {
+  padding: 12px 20px !important;
+  border-radius: 999px !important;
+  background: var(--sp-grad) !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  white-space: normal;
+}
+
+body.page-id-11226 .elementor-element-85ca2a5 {
+  /* The recruitment card has no image widget, so the shared image rule above
+     cannot give it its top panel — it gets its own margins instead. */
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ---------------------------------------------------------------------------
+   7. Stats band
+
+   Already the strongest section on the page. It only needed its counters to
+   stop touching the labels and its rounded corners to match everything else.
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 .elementor-element-d349eb8 > .e-con-inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: center;
+  padding-block: 48px !important;
+}
+
+body.page-id-11226 .elementor-element-d349eb8 > .e-con-inner > .e-con {
+  width: auto !important;
+}
+
+/*
+   The orange glows at either end are two absolutely positioned images, 206px
+   tall, pinned to `top: 0`. Any band taller than 206px therefore ended in a
+   strip of plain black — 72px of it once the section rhythm above applied, which
+   is the band in the report: stats, then a dead black shelf.
+
+   The art stretches to the band rather than the band being cut down to the art,
+   because the band's height belongs to its content. These are soft radial blurs,
+   so there is nothing in them a vertical stretch can distort.
+*/
+body.page-id-11226 .elementor-element-8cc0e50,
+body.page-id-11226 .elementor-element-092e6d2 {
+  top: 0 !important;
+  bottom: 0 !important;
+  height: 100%;
+}
+
+body.page-id-11226 .elementor-element-8cc0e50 .elementor-widget-container,
+body.page-id-11226 .elementor-element-092e6d2 .elementor-widget-container,
+body.page-id-11226 .elementor-element-8cc0e50 picture,
+body.page-id-11226 .elementor-element-092e6d2 picture {
+  display: block;
+  height: 100%;
+}
+
+/*
+   Width is set explicitly rather than left to `auto`. With `auto`, filling a
+   taller band widens the glow to match — harmless at 1520px, but on a 375px
+   phone the band stacks 2x2, grows to ~260px tall, and two 246px-wide glows
+   swallow the whole thing in orange. Clamped, the accent stays an accent at
+   every width and only its height follows the band.
+*/
+body.page-id-11226 .elementor-element-8cc0e50 img,
+body.page-id-11226 .elementor-element-092e6d2 img {
+  display: block !important;
+  height: 100% !important;
+  width: clamp(110px, 14vw, 220px);
+  max-width: none;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------------------------------
+   8. Testimonials
+
+   Three quotes in a looping carousel with neither arrows nor pagination: two
+   were visible, the third arrived only if you waited, and there was no way to
+   ask for it. Three short quotes fit side by side, so the carousel is not
+   earning the interaction it fails to offer.
+   --------------------------------------------------------------------------- */
+
+body.page-id-11226 .elementor-element-4839565 .e-n-carousel {
+  overflow: visible;
+  cursor: default !important;
+}
+
+body.page-id-11226 .elementor-element-4839565 .swiper-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  /* Swiper keeps writing an inline translate3d for its autoplay; the loop is
+     harmless once the transform is refused, and cheaper than tearing the widget
+     out of the markup. */
+  transform: none !important;
+  transition: none !important;
+  cursor: default !important;
+}
+
+/* `loop: true` clones the slides. Hiding the clones leaves exactly the three
+   real ones, in source order. */
+body.page-id-11226 .elementor-element-4839565 .swiper-slide-duplicate {
+  display: none !important;
+}
+
+body.page-id-11226 .elementor-element-4839565 .swiper-slide {
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+body.page-id-11226 .elementor-element-4839565 .swiper-slide > .e-con > .e-con-inner {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+body.page-id-11226 .elementor-element-4839565 .swiper-slide .e-con-inner > .e-con {
+  width: auto !important;
+  height: 100%;
+  padding: 30px 28px !important;
+  background: #fff;
+  border: 1px solid var(--sp-line);
+  border-radius: var(--sp-radius);
+  box-shadow: var(--sp-card-shadow);
+}
+
+body.page-id-11226 .elementor-element-4839565 .swiper-slide .elementor-widget-image {
+  margin: 0 0 14px !important;
+}
+
+body.page-id-11226 .elementor-element-4839565 .swiper-slide .elementor-widget-image img {
+  width: 34px;
+  height: auto;
+}
+
+body.page-id-11226 .elementor-element-4839565 .swiper-slide h2 {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  color: var(--sp-ink) !important;
+  margin: 0 0 18px !important;
+}
+
+/* The attributions were grey-on-white at the same weight as the quote. */
+body.page-id-11226 .elementor-element-4839565 .swiper-slide p {
+  margin: 0 !important;
+  padding-top: 14px;
+  border-top: 1px solid var(--sp-line);
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--sp-orange-deep) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   9. Tablet and phone
+
+   The grids above are the only thing that needs unwinding — Elementor's own
+   breakpoints still handle type and the hidden/shown block pairs.
+   --------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  body.page-id-11226 .elementor-element-e55955d > .e-con-inner,
+  body.page-id-11226 .elementor-element-47e8498 > .e-con-inner,
+  body.page-id-11226 .elementor-element-4839565 .swiper-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.page-id-11226 .elementor-element-4e9d299 > .e-con-inner,
+  body.page-id-11226 .elementor-element-d349eb8 > .e-con-inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.page-id-11226 .elementor-element-bb23b32 > .e-con-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.page-id-11226 .elementor-element-6e37067 img {
+    min-height: 300px;
+    max-height: 340px;
+  }
+
+  body.page-id-11226 .elementor-element-6d3ef7f h2,
+  body.page-id-11226 .elementor-element-bd8f87b h2 {
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body.page-id-11226 main > .elementor > .e-con.e-parent > .e-con-inner {
+    padding-block: 48px;
+  }
+
+  body.page-id-11226 .elementor-element-e55955d > .e-con-inner,
+  body.page-id-11226 .elementor-element-47e8498 > .e-con-inner,
+  body.page-id-11226 .elementor-element-4839565 .swiper-wrapper {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.page-id-11226 .elementor-element-4e9d299 > .e-con-inner,
+  body.page-id-11226 .elementor-element-d349eb8 > .e-con-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.page-id-11226 .elementor-element-693dcef,
+  body.page-id-11226 .elementor-element-c3d6584 {
+    padding: 28px 24px !important;
+  }
+
+  /* Matches the rhythm rule's phone value — the founder card spaces itself with
+     margin, so it does not pick that up on its own. */
+  body.page-id-11226 .elementor-element-bb23b32 > .e-con-inner {
+    margin-block: 48px;
+  }
+
+  /* 30px took three lines in a 286px column. */
+  body.page-id-11226 .elementor-element-6d3ef7f h2,
+  body.page-id-11226 .elementor-element-bd8f87b h2 {
+    font-size: 26px !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   10. Guard: Elementor's visibility utilities must outrank everything above
+
+   Several rules in this file set `display` on containers that Elementor ships
+   in desktop/mobile pairs — the founder block and the journey timeline both
+   have one of each, and each hides itself with `elementor-hidden-*`. Setting
+   `display: flex` on such a container is enough to un-hide it, which is how the
+   founder card first rendered twice on desktop.
+
+   Re-asserted last, at this file's own scope, so the pairs keep working no
+   matter what is added above. Breakpoints are Elementor's own.
+   --------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  body.page-id-11226 .elementor .elementor-hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body.page-id-11226 .elementor .elementor-hidden-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  body.page-id-11226 .elementor .elementor-hidden-desktop {
+    display: none !important;
+  }
+}
