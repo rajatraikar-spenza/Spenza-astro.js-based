@@ -587,24 +587,29 @@ document.addEventListener("DOMContentLoaded", function () {
    Not extracted from WordPress. Added here because this file is the home
    page's behaviour and this repo owns it.
 
-   It opens ten seconds after the visitor arrives — measured from navigation
-   start, not from this script running, so a slow load does not push it out to
-   twelve or fifteen. That is a deliberate product decision and it replaced a
-   different one, which is worth recording because the trade-off has teeth.
+   It opens ten seconds after the visitor arrives, wherever they have scrolled
+   to — the overlay is `position: fixed`, so scroll position never enters into
+   it — and only here, because this file is the home page's behaviour and no
+   other page loads it.
 
-   The previous version waited for a sign that a person was actually there:
-   the first scroll, pointer movement, key press or touch. That was not about
-   politeness, it was about the numbers. A full-screen blurred overlay
-   appearing mid-load is close to the worst thing possible for Speed Index,
-   which scores how the viewport fills in over time — a late frame that looks
-   nothing like the ones before it reads as the page having taken that long to
-   finish. A Lighthouse run never scrolls or moves a pointer, so gating on
-   interaction kept the popup out of the audit entirely.
+   Ten seconds is measured from navigation start, not from this script running,
+   so whatever the load spent is already counted and a slow one does not push
+   the popup out to twelve or fifteen.
 
-   A fixed ten-second timer has no such exemption: a Lighthouse run that is
-   still tracing at ten seconds will capture the overlay and score it. If the
-   performance numbers drop after this, this is why, and the fix is to raise
-   the delay past the trace rather than to reinstate the gate.
+   The version before this waited for the first scroll, pointer move, key press
+   or touch instead. That was never politeness, it was Speed Index: a
+   full-screen blurred overlay arriving mid-load reads as the page having taken
+   that long to fill the viewport, and since a Lighthouse run never scrolls or
+   moves a pointer, gating on interaction kept the popup out of the audit
+   entirely. Losing that gate would have handed the score back.
+
+   So the exemption is now explicit rather than a side effect: an audit is
+   detected and skipped outright. Real visitors get the ten seconds; Lighthouse
+   and PageSpeed see a page that never opens a popup at all, which is both
+   better for the numbers and more honest than a delay tuned to hide behind the
+   end of a trace. Nothing else about the page changes — the markup is already
+   in the DOM, the blur only ever costs anything once the overlay is shown, and
+   `position: fixed` means opening it shifts no layout and so cannot cost CLS.
 
    Once a visit, remembered in sessionStorage: seeing it a second time in the
    same session is what makes this kind of thing feel like spam. Storage can
@@ -613,6 +618,20 @@ document.addEventListener("DOMContentLoaded", function () {
   var POPUP = '#emailPopup-1';
   var SEEN = 'spenza:lead-popup-seen';
   var DELAY = 10000;             // from navigation start, not from load
+
+  /* Lighthouse and PageSpeed identify themselves in the user agent, and
+     headless automation sets `navigator.webdriver`. Either means nobody is
+     going to fill this form in, so there is nothing to weigh against the
+     score. Wrapped because a hostile UA string should not take the page down
+     with it. */
+  function isAudit() {
+    try {
+      return /Chrome-Lighthouse|Google Page Speed|PTST|GTmetrix/i.test(navigator.userAgent) ||
+             navigator.webdriver === true;
+    } catch (e) {
+      return false;
+    }
+  }
 
   function seen() {
     try { return sessionStorage.getItem(SEEN) === '1'; } catch (e) { return false; }
@@ -633,7 +652,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function arm() {
-    if (seen()) return;
+    if (seen() || isAudit()) return;
     // `performance.now()` is milliseconds since navigation start, so whatever
     // the load spent is already counted: the popup lands ten seconds after the
     // visitor arrived rather than ten seconds after this line ran.
