@@ -149,17 +149,15 @@ height : 100% !important;
 .hero .orbitIcon,
   .hero g#center-icon,
   .hero g#icon7 {
-    transition: transform 0.45s ease-in-out;
     transform-box: fill-box;
     transform-origin: center;
-    transform: scale(1);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translate(0, 0) rotate(var(--tilt, 0deg)) scale(1);
   }
   .hero:hover .orbitIcon,
   .hero:hover g#center-icon,
   .hero:hover g#icon7 {
-    transform-box: fill-box;
-    transform-origin: center;
-    transform: scale(2);
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--tilt, 0deg)) scale(2);
   }
   .svg-animate svg {
     height: 340px !important;
@@ -175,6 +173,9 @@ height : 100% !important;
   g#icon1 {
     offset-distance: 23% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: -14.0px;
+    --dy: 0.0px;
   }
   svg:hover g#icon1 {
     offset-distance: 10% !important;
@@ -183,6 +184,9 @@ height : 100% !important;
   g#icon2 {
     offset-distance: 45% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: -13.9px;
+    --dy: -1.4px;
   }
   svg:hover g#icon2 {
     offset-distance: 42% !important;
@@ -191,56 +195,65 @@ height : 100% !important;
   g#icon3 {
     offset-distance: 58% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-15deg);
+    --tilt: -15deg;
+    --dx: -13.6px;
+    --dy: -3.2px;
   }
   svg:hover g#icon3 {
     offset-distance: 61% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-15deg) scale(2) !important;
   }
   g#icon4 {
     offset-distance: 44% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg);
+    --tilt: 15deg;
+    --dx: 13.6px;
+    --dy: -3.1px;
   }
   svg:hover g#icon4 {
     offset-distance: 39% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg) scale(2) !important;
   }
   g#icon5 {
     offset-distance: 53% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg);
+    --tilt: 15deg;
+    --dx: 13.9px;
+    --dy: -1.4px;
   }
   svg:hover g#icon5 {
     offset-distance: 57% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg) scale(2) !important;
   }
   g#icon6 {
     offset-distance: 5% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-5deg);
+    --tilt: -5deg;
+    --dx: 14.0px;
+    --dy: 1.1px;
   }
   svg:hover g#icon6 {
     offset-distance: 9% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-5deg) scale(2) !important;
   }
 
   g#icon7 {
     offset-distance: 45% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: -13.7px;
+    --dy: 2.8px;
   }
   svg:hover g#icon7 {
     offset-distance: 40% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: scale(2);
   }
   g#icon8 {
     offset-distance: 55% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: 13.8px;
+    --dy: 2.6px;
   }
   svg:hover g#icon8 {
     offset-distance: 60% !important;

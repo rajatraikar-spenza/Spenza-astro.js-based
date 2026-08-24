@@ -149,17 +149,15 @@ height : 100% !important;
 .hero .orbitIcon,
   .hero g#center-icon,
   .hero g#icon7 {
-    transition: transform 0.45s ease-in-out;
     transform-box: fill-box;
     transform-origin: center;
-    transform: scale(1);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translate(0, 0) rotate(var(--tilt, 0deg)) scale(1);
   }
   .hero:hover .orbitIcon,
   .hero:hover g#center-icon,
   .hero:hover g#icon7 {
-    transform-box: fill-box;
-    transform-origin: center;
-    transform: scale(2);
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--tilt, 0deg)) scale(2);
   }
   .svg-animate svg {
     height: 340px !important;
@@ -206,10 +204,30 @@ height : 100% !important;
    * list is handled inconsistently between engines, and the hover scale
    * animated in neither. It names `transform` explicitly now. Change the 0.45s
    * on the two `.orbitIcon` rules below to retime it.
+     *
+   * The hover was then rebuilt, because the transition was not the only thing
+   * wrong with it. Icons 3-7 took their hover from `svg:hover` at ID
+   * specificity with `!important`, while 1, 2 and 8 took theirs from
+   * `.hero:hover` at class specificity -- two different triggers over two
+   * different areas. And `svg:hover` is unreliable: an <svg> root hit-tests on
+   * painted geometry, so the pointer can sit inside the graphic over a
+   * transparent patch with `#heroSvg:hover` false while `.hero:hover` is true,
+   * scaling some icons and not others.
+   *
+   * So both states now come from one trigger (`.hero:hover`), at one
+   * specificity, with no `!important` anywhere. Per-icon values moved into
+   * custom properties the shared rules read: `--tilt` is the tilt each icon
+   * already had, `--dx`/`--dy` a 14-unit drift away from the hub at
+   * (640, 698.5), measured off the rendered SVG. That drift is what makes the
+   * hover read as movement rather than a jump -- the nearest honest stand-in
+   * for the slide along the orbit that the original CSS wanted and never got.
    */
   g#icon1 {
     offset-distance: 23% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: -14.0px;
+    --dy: 0.0px;
   }
   svg:hover g#icon1 {
     offset-distance: 10% !important;
@@ -218,6 +236,9 @@ height : 100% !important;
   g#icon2 {
     offset-distance: 45% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: -13.9px;
+    --dy: -1.4px;
   }
   svg:hover g#icon2 {
     offset-distance: 42% !important;
@@ -226,56 +247,65 @@ height : 100% !important;
   g#icon3 {
     offset-distance: 58% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-15deg);
+    --tilt: -15deg;
+    --dx: -13.6px;
+    --dy: -3.2px;
   }
   svg:hover g#icon3 {
     offset-distance: 61% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-15deg) scale(2) !important;
   }
   g#icon4 {
     offset-distance: 44% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg);
+    --tilt: 15deg;
+    --dx: 13.6px;
+    --dy: -3.1px;
   }
   svg:hover g#icon4 {
     offset-distance: 39% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg) scale(2) !important;
   }
   g#icon5 {
     offset-distance: 53% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg);
+    --tilt: 15deg;
+    --dx: 13.9px;
+    --dy: -1.4px;
   }
   svg:hover g#icon5 {
     offset-distance: 57% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(15deg) scale(2) !important;
   }
   g#icon6 {
     offset-distance: 5% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-5deg);
+    --tilt: -5deg;
+    --dx: 14.0px;
+    --dy: 1.1px;
   }
   svg:hover g#icon6 {
     offset-distance: 9% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: rotate(-5deg) scale(2) !important;
   }
 
   g#icon7 {
     offset-distance: 45% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: -13.7px;
+    --dy: 2.8px;
   }
   svg:hover g#icon7 {
     offset-distance: 40% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
-    transform: scale(2);
   }
   g#icon8 {
     offset-distance: 55% !important;
     offset-path: none; /* see note above: the orbits do not describe where these icons belong */
+    --tilt: 0deg;
+    --dx: 13.8px;
+    --dy: 2.6px;
   }
   svg:hover g#icon8 {
     offset-distance: 60% !important;
