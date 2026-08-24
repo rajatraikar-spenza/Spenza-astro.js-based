@@ -611,12 +611,15 @@ document.addEventListener("DOMContentLoaded", function () {
    in the DOM, the blur only ever costs anything once the overlay is shown, and
    `position: fixed` means opening it shifts no layout and so cannot cost CLS.
 
-   Once a visit, remembered in sessionStorage: seeing it a second time in the
-   same session is what makes this kind of thing feel like spam. Storage can
-   throw in private modes, so a failure there degrades to showing it. */
+   Every page load, deliberately. It used to show once a visit, remembered in
+   sessionStorage, on the reasoning that meeting the same overlay twice in one
+   session is what makes this kind of thing feel like spam. That was overruled:
+   the popup is the lead capture and a reader who reloads or comes back to the
+   home page should meet it again. If it ever needs to be dialled back, the
+   thing to restore is a sessionStorage flag set in `show()` and checked in
+   `arm()` — not a longer delay. */
 (function () {
   var POPUP = '#emailPopup-1';
-  var SEEN = 'spenza:lead-popup-seen';
   var DELAY = 10000;             // from navigation start, not from load
 
   /* Lighthouse and PageSpeed identify themselves in the user agent, and
@@ -633,26 +636,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function seen() {
-    try { return sessionStorage.getItem(SEEN) === '1'; } catch (e) { return false; }
-  }
-
-  function remember() {
-    try { sessionStorage.setItem(SEEN, '1'); } catch (e) { /* private mode */ }
-  }
-
   function show() {
     var popup = document.querySelector(POPUP);
-    if (!popup || seen()) return;
+    if (!popup) return;
     // Never interrupt something already open, or a reader mid-form.
     if (popup.style.display === 'flex') return;
     if (document.querySelector('.e-off-canvas.e-active, [aria-expanded="true"].e-n-menu-toggle')) return;
-    remember();
     popup.style.display = 'flex';
   }
 
   function arm() {
-    if (seen() || isAudit()) return;
+    if (isAudit()) return;
     // `performance.now()` is milliseconds since navigation start, so whatever
     // the load spent is already counted: the popup lands ten seconds after the
     // visitor arrived rather than ten seconds after this line ran.
