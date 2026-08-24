@@ -174,93 +174,77 @@ height : 100% !important;
   }
   g#icon1 {
     offset-distance: 23% !important;
-    offset-path: path("M -80 698.5 L 1360 698.5");
-    offset-path: url(#centerLine);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
   }
   svg:hover g#icon1 {
     offset-distance: 10% !important;
-    offset-path: path("M -80 698.5 L 1360 698.5");
-    offset-path: url(#centerLine);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
   }
   g#icon2 {
     offset-distance: 45% !important;
-    offset-path: path("M640 -712.499C266.443 -712.499 -71.726 -634.161 -316.486 -507.529C-561.271 -380.885 -712.5 -206.016 -712.5 -12.9989C-712.499 180.018 -561.271 354.887 -316.486 481.531C-71.7255 608.162 266.443 686.5 640.001 686.5C1013.56 686.499 1351.73 608.162 1596.49 481.53C1841.27 354.886 1992.5 180.017 1992.5 -13C1992.5 -206.017 1841.27 -380.886 1596.49 -507.53C1351.73 -634.161 1013.56 -712.5 640 -712.499Z");
-    offset-path: url(#orbit4);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
   }
   svg:hover g#icon2 {
     offset-distance: 42% !important;
-    offset-path: path("M640 -712.499C266.443 -712.499 -71.726 -634.161 -316.486 -507.529C-561.271 -380.885 -712.5 -206.016 -712.5 -12.9989C-712.499 180.018 -561.271 354.887 -316.486 481.531C-71.7255 608.162 266.443 686.5 640.001 686.5C1013.56 686.499 1351.73 608.162 1596.49 481.53C1841.27 354.886 1992.5 180.017 1992.5 -13C1992.5 -206.017 1841.27 -380.886 1596.49 -507.53C1351.73 -634.161 1013.56 -712.5 640 -712.499Z");
-    offset-path: url(#orbit4);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
   }
   g#icon3 {
     offset-distance: 58% !important;
-    offset-path: path("M640 -727.5C895.885 -727.5 1127.53 -649.18 1295.19 -522.576C1462.85 -395.973 1566.5 -221.108 1566.5 -28C1566.5 165.108 1462.85 339.973 1295.19 466.576C1127.53 593.18 895.885 671.5 640 671.5C384.115 671.5 152.473 593.18 -15.1865 466.576C-182.846 339.973 -286.5 165.108 -286.5 -28C-286.5 -221.108 -182.846 -395.973 -15.1865 -522.576C152.473 -649.18 384.115 -727.5 640 -727.5Z");
-    offset-path: url(#orbit1);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(165deg);
   }
   svg:hover g#icon3 {
     offset-distance: 61% !important;
-    offset-path: path("M640 -727.5C895.885 -727.5 1127.53 -649.18 1295.19 -522.576C1462.85 -395.973 1566.5 -221.108 1566.5 -28C1566.5 165.108 1462.85 339.973 1295.19 466.576C1127.53 593.18 895.885 671.5 640 671.5C384.115 671.5 152.473 593.18 -15.1865 466.576C-182.846 339.973 -286.5 165.108 -286.5 -28C-286.5 -221.108 -182.846 -395.973 -15.1865 -522.576C152.473 -649.18 384.115 -727.5 640 -727.5Z");
-    offset-path: url(#orbit1);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(165deg) scale(2) !important;
   }
   g#icon4 {
     offset-distance: 44% !important;
-    offset-path: path("M640 -727.5C895.885 -727.5 1127.53 -649.18 1295.19 -522.576C1462.85 -395.973 1566.5 -221.108 1566.5 -28C1566.5 165.108 1462.85 339.973 1295.19 466.576C1127.53 593.18 895.885 671.5 640 671.5C384.115 671.5 152.473 593.18 -15.1865 466.576C-182.846 339.973 -286.5 165.108 -286.5 -28C-286.5 -221.108 -182.846 -395.973 -15.1865 -522.576C152.473 -649.18 384.115 -727.5 640 -727.5Z");
-    offset-path: url(#orbit1);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(195deg);
   }
   svg:hover g#icon4 {
     offset-distance: 39% !important;
-    offset-path: path("M640 -727.5C895.885 -727.5 1127.53 -649.18 1295.19 -522.576C1462.85 -395.973 1566.5 -221.108 1566.5 -28C1566.5 165.108 1462.85 339.973 1295.19 466.576C1127.53 593.18 895.885 671.5 640 671.5C384.115 671.5 152.473 593.18 -15.1865 466.576C-182.846 339.973 -286.5 165.108 -286.5 -28C-286.5 -221.108 -182.846 -395.973 -15.1865 -522.576C152.473 -649.18 384.115 -727.5 640 -727.5Z");
-    offset-path: url(#orbit1);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(195deg) scale(2) !important;
   }
   g#icon5 {
     offset-distance: 53% !important;
-    offset-path: path("M640 -712.499C266.443 -712.499 -71.726 -634.161 -316.486 -507.529C-561.271 -380.885 -712.5 -206.016 -712.5 -12.9989C-712.499 180.018 -561.271 354.887 -316.486 481.531C-71.7255 608.162 266.443 686.5 640.001 686.5C1013.56 686.499 1351.73 608.162 1596.49 481.53C1841.27 354.886 1992.5 180.017 1992.5 -13C1992.5 -206.017 1841.27 -380.886 1596.49 -507.53C1351.73 -634.161 1013.56 -712.5 640 -712.499Z");
-    offset-path: url(#orbit4);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(15deg);
   }
   svg:hover g#icon5 {
     offset-distance: 57% !important;
-    offset-path: path("M640 -712.499C266.443 -712.499 -71.726 -634.161 -316.486 -507.529C-561.271 -380.885 -712.5 -206.016 -712.5 -12.9989C-712.499 180.018 -561.271 354.887 -316.486 481.531C-71.7255 608.162 266.443 686.5 640.001 686.5C1013.56 686.499 1351.73 608.162 1596.49 481.53C1841.27 354.886 1992.5 180.017 1992.5 -13C1992.5 -206.017 1841.27 -380.886 1596.49 -507.53C1351.73 -634.161 1013.56 -712.5 640 -712.499Z");
-    offset-path: url(#orbit4);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(15deg) scale(2) !important;
   }
   g#icon6 {
     offset-distance: 5% !important;
-    offset-path: path("M640 702.5C1013.56 702.5 1351.73 780.839 1596.49 907.47C1841.27 1034.11 1992.5 1208.98 1992.5 1402C1992.5 1595.02 1841.27 1769.89 1596.49 1896.53C1351.73 2023.16 1013.56 2101.5 640 2101.5C266.442 2101.5 -71.7254 2023.16 -316.486 1896.53C-561.271 1769.89 -712.5 1595.02 -712.5 1402C-712.5 1208.98 -561.271 1034.11 -316.485 907.47C-71.7251 780.839 266.443 702.5 640 702.5Z");
-    offset-path: url(#orbit3);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(-5deg);
   }
   svg:hover g#icon6 {
     offset-distance: 9% !important;
-    offset-path: path("M640 702.5C1013.56 702.5 1351.73 780.839 1596.49 907.47C1841.27 1034.11 1992.5 1208.98 1992.5 1402C1992.5 1595.02 1841.27 1769.89 1596.49 1896.53C1351.73 2023.16 1013.56 2101.5 640 2101.5C266.442 2101.5 -71.7254 2023.16 -316.486 1896.53C-561.271 1769.89 -712.5 1595.02 -712.5 1402C-712.5 1208.98 -561.271 1034.11 -316.485 907.47C-71.7251 780.839 266.443 702.5 640 702.5Z");
-    offset-path: url(#orbit3);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: rotate(-5deg) scale(2) !important;
   }
 
   g#icon7 {
     offset-distance: 45% !important;
-    offset-path: path("M640 2121.5C384.115 2121.5 152.473 2043.18 -15.1865 1916.58C-182.846 1789.97 -286.5 1615.11 -286.5 1422C-286.5 1228.89 -182.846 1054.03 -15.1864 927.424C152.473 800.82 384.115 722.5 640 722.5C895.885 722.5 1127.53 800.82 1295.19 927.424C1462.85 1054.03 1566.5 1228.89 1566.5 1422C1566.5 1615.11 1462.85 1789.97 1295.19 1916.58C1127.53 2043.18 895.885 2121.5 640 2121.5Z");
-    offset-path: url(#orbit2);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
   }
   svg:hover g#icon7 {
     offset-distance: 40% !important;
-    offset-path: path("M640 2121.5C384.115 2121.5 152.473 2043.18 -15.1865 1916.58C-182.846 1789.97 -286.5 1615.11 -286.5 1422C-286.5 1228.89 -182.846 1054.03 -15.1864 927.424C152.473 800.82 384.115 722.5 640 722.5C895.885 722.5 1127.53 800.82 1295.19 927.424C1462.85 1054.03 1566.5 1228.89 1566.5 1422C1566.5 1615.11 1462.85 1789.97 1295.19 1916.58C1127.53 2043.18 895.885 2121.5 640 2121.5Z");
-    offset-path: url(#orbit2);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
     transform: scale(2);
   }
   g#icon8 {
     offset-distance: 55% !important;
-    offset-path: path("M640 2121.5C384.115 2121.5 152.473 2043.18 -15.1865 1916.58C-182.846 1789.97 -286.5 1615.11 -286.5 1422C-286.5 1228.89 -182.846 1054.03 -15.1864 927.424C152.473 800.82 384.115 722.5 640 722.5C895.885 722.5 1127.53 800.82 1295.19 927.424C1462.85 1054.03 1566.5 1228.89 1566.5 1422C1566.5 1615.11 1462.85 1789.97 1295.19 1916.58C1127.53 2043.18 895.885 2121.5 640 2121.5Z");
-    offset-path: url(#orbit2);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
   }
   svg:hover g#icon8 {
     offset-distance: 60% !important;
-    offset-path: path("M640 2121.5C384.115 2121.5 152.473 2043.18 -15.1865 1916.58C-182.846 1789.97 -286.5 1615.11 -286.5 1422C-286.5 1228.89 -182.846 1054.03 -15.1864 927.424C152.473 800.82 384.115 722.5 640 722.5C895.885 722.5 1127.53 800.82 1295.19 927.424C1462.85 1054.03 1566.5 1228.89 1566.5 1422C1566.5 1615.11 1462.85 1789.97 1295.19 1916.58C1127.53 2043.18 895.885 2121.5 640 2121.5Z");
-    offset-path: url(#orbit2);
+    offset-path: none; /* see note above: the orbits do not describe where these icons belong */
   }
   svg:hover #centerIcon {
     transform: scale(1.3);
