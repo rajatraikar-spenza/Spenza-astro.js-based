@@ -14,6 +14,7 @@ import WpLayout from '../layouts/WpLayout.astro';
 import content from '../partials/index.html?raw';
 import { getCollection } from 'astro:content';
 import { replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
+import { toMediaOrigin } from '../../scripts/lib/config.mjs';
 import { renderHomeCarousel, HOME_CAROUSEL_ID } from '../lib/home-carousel.ts';
 
 /** Matches the twelve the mirrored carousel carried. */
@@ -34,30 +35,55 @@ const newest = [...posts]
  * the new image outlasts a re-mirror, and reverting is deleting this block.
  *
  * The wrapper, its classes and its animation stay as mirrored — only the
- * `<picture>` inside changes — so the purged CSS still styles it. The image
- * lives in `public/images/` rather than under `wp-content/uploads/`: that tree
- * is the WordPress mirror, and the build drops it from `dist` entirely once
- * `MEDIA_ORIGIN` is set, expecting the media host to serve it. A file this
- * repo owns has to ship with the site.
+ * `<picture>` inside changes — so the purged CSS still styles it.
+ *
+ * The screenshot lives on the media host, under `wp-content/uploads/`, and is
+ * uploaded to the bucket alongside every other image the site serves. An
+ * earlier version of this block kept it in `public/images/` instead, reasoning
+ * that a file this repo owns should ship with the site; serving it from the
+ * media host is the deliberate change, so the page fetches all of its imagery
+ * from one origin and this one is not an exception to reason about later. The
+ * WebP twins sit under `WEBP_PATH` exactly where the mirror files every other
+ * variant, so `toMediaOrigin()` repoints both trees without a special case.
+ *
+ * Sizes match the ladder WordPress generates: 300, 768, 1024 and 1536 wide
+ * plus the 1668px original.
  */
 const DASHBOARD_IMAGE_ID = '1440bae';
 
+const DASH_PNG = '/wp-content/uploads/2026/08/connectivity-dashboard';
+const DASH_WEBP =
+  '/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/connectivity-dashboard';
+const DASH_SIZES = '(max-width: 1024px) 100vw, 1024px';
+const DASH_LADDER = [[300, 170], [768, 434], [1024, 579], [1536, 868]];
+
+const srcset = (base: string, suffix: string) =>
+  DASH_LADDER.map(([w, h]) => `${base}-${w}x${h}${suffix} ${w}w`)
+    .concat(`${base}${suffix} 1668w`)
+    .join(', ');
+
 const dashboardImage =
   '<picture>' +
-    '<source srcset="' +
-      '/images/home-dashboard-768.webp 768w, ' +
-      '/images/home-dashboard-1024.webp 1024w, ' +
-      '/images/home-dashboard-1536.webp 1536w, ' +
-      '/images/home-dashboard-2048.webp 2048w" ' +
-      'sizes="(max-width: 1024px) 100vw, 1024px" type="image/webp">' +
+    `<source srcset="${srcset(DASH_WEBP, '.png.webp')}" ` +
+      `sizes="${DASH_SIZES}" type="image/webp">` +
     '<img loading="lazy" decoding="async" width="1024" height="579" ' +
-      'src="/images/home-dashboard-1024.png" class="attachment-large size-large" ' +
+      `src="${DASH_PNG}-1024x579.png" class="attachment-large size-large" ` +
+      `srcset="${srcset(DASH_PNG, '.png')}" sizes="${DASH_SIZES}" ` +
       'alt="The Spenza dashboard: a subscription\'s plan, status and phone number ' +
       'above 90-day charts of its data, voice and SMS usage">' +
   '</picture>';
 
+/*
+ * `toMediaOrigin` by hand, because this markup never meets it otherwise.
+ *
+ * The partial is rewritten on import by `partial-rewrites-plugin`, but anything
+ * injected here is injected afterwards, so its `/wp-content/uploads/` paths stay
+ * root-relative. That is silent in a local build — the files are in `public/` —
+ * and fatal in a deployed one, where `MEDIA_ORIGIN` drops those trees from
+ * `dist` and the browser 404s on every size in the srcset.
+ */
 let body = replaceWidgetInner(content, HOME_CAROUSEL_ID, renderHomeCarousel(newest));
-body = replaceWidgetInner(body, DASHBOARD_IMAGE_ID, dashboardImage);
+body = replaceWidgetInner(body, DASHBOARD_IMAGE_ID, toMediaOrigin(dashboardImage));
 ---
 
 <WpLayout slug="index">
