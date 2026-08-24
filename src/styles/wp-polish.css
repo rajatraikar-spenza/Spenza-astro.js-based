@@ -134,12 +134,27 @@
   background-color: #fdf5f2;
 }
 
-/* The vector logo replaces a 268x136 raster; constrain by height so the wider
-   artwork does not blow out the header. */
+/*
+ * The vector logo replaces a 268x136 raster; constrain by height so the wider
+ * artwork does not blow out the header.
+ *
+ * `width` is `!important` because Elementor emits a per-element `width: 95px`
+ * for both logo widgets, and its selector -- `.elementor-17806
+ * .elementor-element.elementor-element-e654825 img` -- outweighs this one.
+ * Combined with the 38px height that produced a 2.5 aspect box holding 2.951
+ * artwork, so the header logo shipped squashed by 15% and the footer, which
+ * still pointed at the old 1.971 raster, stretched by 27%. That is what made
+ * the footer look wrong while the header looked merely fine.
+ *
+ * With width free both logos render 112x38 at their true proportions, and
+ * `object-fit: contain` guarantees no distortion if either box is ever pinned
+ * to a size that does not match the artwork.
+ */
 .wp-mirror .elementor-widget-theme-site-logo img {
   height: 38px;
-  width: auto;
+  width: auto !important;
   max-width: none;
+  object-fit: contain;
 }
 
 /*
