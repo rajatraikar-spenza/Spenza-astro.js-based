@@ -23,8 +23,8 @@
   var consent = window.spenzaConsent;
   if (!consent) return;
 
-  var TEXT = 'We use cookies to see how visitors use this site, so we can make it better. ' +
-             'Analytics stay switched off unless you accept.';
+  var TEXT = 'We use cookies to understand how visitors use this site. Analytics stay ' +
+             'off unless you accept — see our ';
   var PRIVACY = '/privacy-policy/';
 
   var banner = null;
@@ -66,7 +66,7 @@
     banner.setAttribute('aria-label', 'Cookie consent');
 
     var text = el('p', 'spz-consent__text');
-    text.appendChild(document.createTextNode(TEXT + ' '));
+    text.appendChild(document.createTextNode(TEXT));
     var link = el('a', null, 'Privacy Policy');
     link.href = PRIVACY;
     text.appendChild(link);

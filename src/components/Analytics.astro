@@ -138,50 +138,59 @@ const gate = `(function (w, d) {
   the same on all three.
 */}
 <style is:global>
+  /*
+   * A full-bleed bar across the foot of the page, in the brand orange.
+   *
+   * Flat, square and edge to edge on purpose: the earlier floating card read as
+   * a third-party widget dropped on the site, and the whole point of a consent
+   * notice is that it is the site talking. Nothing here is decorative — the bar
+   * is `position: fixed`, so it paints over the page rather than moving it, and
+   * cannot cost a layout shift.
+   */
   .spz-consent {
     position: fixed;
     z-index: 2147483000;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    margin: 0 auto;
-    max-width: 720px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px 20px;
-    padding: 18px 20px;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    justify-content: center;
+    gap: 12px 28px;
+    padding: 13px 24px;
+    background: #ff4500;
+    color: #fff;
     font-family: "Manrope", "Lexend Deca", system-ui, sans-serif;
-    color: #2c180d;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .spz-consent {
-      animation: spz-consent-in 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-  }
-
-  @keyframes spz-consent-in {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: none; }
-  }
+  /*
+   * No entrance animation, deliberately.
+   *
+   * A slide-in has to start the bar somewhere other than where it belongs, and
+   * anything that leaves it parked there is a consent notice nobody can see:
+   * a background tab throttles animations, and the bar sat exactly its own
+   * height below the fold until the tab was focused. Measured, not guessed.
+   * There is no fill-mode that fixes it, because "stuck at 0%" is inside the
+   * animation's own active phase. So the bar has one position and always has
+   * been in it.
+   */
 
   .spz-consent__text {
-    flex: 1 1 300px;
-    /* A flex item's `min-width: auto` floor is the longest word; without this
-       the text refuses to wrap and pushes the buttons off the card. */
-    min-width: 0;
+    /* No `flex: 1` and no width cap — the row is centred, so the sentence takes
+       exactly the width it needs and the buttons sit beside it rather than
+       being pushed to the far edge of a 1900px screen. A cap here only ever
+       forced a wrap that the viewport had room for. */
     margin: 0;
-    font-size: 14px;
-    line-height: 1.55;
   }
 
   .spz-consent__text a {
     color: inherit;
+    font-weight: 700;
     text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .spz-consent__actions {
@@ -191,47 +200,65 @@ const gate = `(function (w, d) {
   }
 
   .spz-consent__btn {
-    /* Same size, same weight, same reach. A "reject" that is harder to find
-       than "accept" is not a choice, and regulators have said so repeatedly.
-       A zero basis rather than `auto` so the two are measured from nothing and
-       come out identical: from `auto` they are sized from their own labels and
-       "Accept" ends up a few pixels wider than "Reject" for no better reason
-       than being a longer word. */
+    /* Same size, same weight, same reach, side by side. A "reject" that is
+       harder to find than "accept" is not a choice, and regulators have said so
+       repeatedly — so the two differ in fill and in nothing else.
+       A zero basis rather than `auto` so both are measured from nothing and come
+       out identical: from `auto` they are sized from their own labels and
+       "Accept" ends up a few pixels wider for being a longer word. */
     flex: 1 1 0;
-    min-width: 104px;
-    padding: 11px 22px;
-    border-radius: 999px;
-    border: 1px solid transparent;
+    min-width: 118px;
+    padding: 11px 24px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
     font: inherit;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     line-height: 1.2;
+    /* Uppercased in CSS, not in the markup: a screen reader announcing "A C C
+       E P T" one letter at a time is a real failure mode of capitalised
+       labels. */
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
     cursor: pointer;
-    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+    transition: background-color 180ms ease, color 180ms ease;
   }
 
   .spz-consent__btn--accept {
-    background: linear-gradient(180deg, #ff6e24 0%, #ff4500 100%);
-    color: #fff;
-  }
-
-  .spz-consent__btn--accept:hover {
-    filter: brightness(1.06);
-  }
-
-  .spz-consent__btn--reject {
     background: #fff;
-    border-color: #d9d4d1;
     color: #2c180d;
   }
 
-  .spz-consent__btn--reject:hover {
+  .spz-consent__btn--accept:hover {
+    background: #2c180d;
+    color: #fff;
     border-color: #2c180d;
   }
 
+  .spz-consent__btn--reject:hover {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
   .spz-consent__btn:focus-visible {
-    outline: 2px solid #fd4500;
-    outline-offset: 2px;
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+
+  /* Narrow enough that the sentence and the buttons cannot share a line: give
+     the text the full width and centre the pair beneath it. */
+  @media (max-width: 860px) {
+    .spz-consent {
+      gap: 12px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .spz-consent__text {
+      flex: 1 1 100%;
+    }
   }
 
   /* The reopen control, added to the footer's legal row by consent.js. It has
@@ -250,15 +277,9 @@ const gate = `(function (w, d) {
     text-decoration: underline;
   }
 
-  @media (max-width: 600px) {
-    .spz-consent {
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      padding: 16px;
-      gap: 14px;
-    }
-
+  /* Narrow enough that two 118px buttons and the gutters no longer sit
+     comfortably side by side in the middle: let the pair span the bar. */
+  @media (max-width: 520px) {
     .spz-consent__actions {
       flex: 1 1 100%;
     }
