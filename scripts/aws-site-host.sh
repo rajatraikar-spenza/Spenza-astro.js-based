@@ -367,7 +367,9 @@ step_verify() {
   check "blog post"         "/telecom/what-is-mvno/"         200
   check "wp 301"            "/blog/top-telecom-billing-mistakes/" 301
   check "robots.txt"        "/robots.txt"                    200
-  check "sitemap"           "/sitemap-index.xml"             200
+  check "sitemap"           "/sitemap.xml"                   200
+  check "sitemap index"     "/sitemap-index.xml"             200
+  check "llms.txt"          "/llms.txt"                      200
   check "404"               "/this-does-not-exist/"          404
 
   # A real bundle, taken from the build rather than hardcoded — the names are
