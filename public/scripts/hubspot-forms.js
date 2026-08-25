@@ -226,6 +226,9 @@
 
   /* ---------------------------------------------------------- field state */
 
+  /** Each invalid input's message, which is not always its next sibling. */
+  const notes = new WeakMap();
+
   /**
    * Error text under a field.
    *
@@ -234,6 +237,13 @@
    * `wp:optimize-css` purges its styling out of every bundle. Anything this
    * script adds has to be styled by `wp-polish.css`, which Astro emits and
    * purgecss never sees.
+   *
+   * It goes under the field, except on the one-line `.eSim` pill — there the
+   * field and the button are two halves of one control that the form centres
+   * against each other, so anything inserted into the field's half makes that
+   * half taller and slides the button down out of the pill. On those the note
+   * is appended to the form, which wraps it onto a line of its own beneath the
+   * whole control and leaves the pill's geometry alone.
    */
   function markInvalid(input, message) {
     clearInvalid(input);
@@ -243,12 +253,19 @@
     const note = document.createElement('p');
     note.className = 'hs-field-error';
     note.textContent = message;
-    input.insertAdjacentElement('afterend', note);
+
+    const pill = input.closest('.eSim form[id^="gform_"]');
+    if (pill) pill.append(note);
+    else input.insertAdjacentElement('afterend', note);
+
+    notes.set(input, note);
   }
 
   function clearInvalid(input) {
     input.classList.remove('hs-invalid');
     input.setAttribute('aria-invalid', 'false');
+    notes.get(input)?.remove();
+    notes.delete(input);
     input.parentElement?.querySelector(':scope > .hs-field-error')?.remove();
   }
 

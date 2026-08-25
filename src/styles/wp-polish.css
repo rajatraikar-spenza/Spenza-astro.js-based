@@ -904,61 +904,149 @@ body.wp-mirror.e-off-canvas__no-scroll {
  * The subscribe form, which is drawn as one pill split into an email half and
  * a Subscribe half.
  *
- * Below 576px a WPCode snippet shrinks the button to `font-size: 10px` and
- * `padding: 11px 10px` but leaves the input at 14px/10px-20px. The two halves
- * of the pill then disagree by 8px of height, and because the form centres its
- * children the button floats 4px below the input's top edge and 4px above its
- * bottom — a visibly broken join, with the label too small to read.
+ * A WPCode snippet sizes the halves as fixed percentages of the row (70/30,
+ * 60/40 on a phone) and centres them against each other. Both decisions break:
  *
- * Match the halves and let them size to the row instead of to fixed
- * percentages, so the field takes whatever the button does not need.
+ * - A percentage share has no relationship to how wide the label actually is.
+ *   "Book a Free Demo" does not fit 40% of a 390px phone, so the label was
+ *   clipped mid-word and the orange half spilled past the pill's right edge.
+ * - Centring means the two halves only line up while they are the same height.
+ *   The moment `/scripts/hubspot-forms.js` puts "Email is required." under the
+ *   field, the email half grows and the button slides down out of the pill —
+ *   the displacement this block exists to stop.
+ *
+ * So: size the button to its label, give the field whatever is left, stretch
+ * both to the row so they cannot disagree about height, and let the form wrap
+ * the message onto a line of its own beneath the whole control. The pill then
+ * has one geometry, and a failed submit does not change it. The message is
+ * appended to the form rather than to the field for exactly that reason — see
+ * `errorTarget()` in `hubspot-forms.js`.
+ *
+ * Every override here is `!important` because the snippet selects through ids
+ * (`form#gform_19`, `input#gform_submit_button_19`), which outrank any
+ * class-level selector this stylesheet can write.
+ */
+.wp-mirror .eSim form[id^='gform_'] {
+  align-items: stretch !important;
+  /* Only the error message wraps: the field below shrinks rather than pushing
+     the button down a line. */
+  flex-wrap: wrap !important;
+}
+
+.wp-mirror .eSim .gform-body.gform_body {
+  /* Flex the whole way down, so the row's height reaches the input: the field
+     list, the field and the input each need a parent with a definite height
+     before `height: 100%` means anything, and without the chain the input kept
+     its own 40px against the button's 44px. */
+  display: flex !important;
+  width: auto !important;
+  /* A zero basis, not `auto`. Flex breaks lines against an item's *unshrunk*
+     size, so with `auto` the field's intrinsic width — a good 250px, whatever
+     the phone is — is what the line is measured against, and the button was
+     bumped onto a second row before any shrinking could save it. From zero the
+     field simply takes what the button leaves. */
+  flex: 1 1 0% !important;
+  /* And a flex item's `min-width: auto` floor is that same intrinsic width,
+     which is what stopped the field giving way to the button. */
+  min-width: 0 !important;
+}
+
+.wp-mirror .eSim .gform_fields {
+  min-width: 0 !important;
+  flex: 1 1 0% !important;
+}
+
+.wp-mirror .eSim .gfield {
+  min-width: 0 !important;
+}
+
+.wp-mirror .eSim .gfield {
+  flex: 1 1 auto !important;
+}
+
+/* Both halves are stretched to the row, so the controls inside them fill it. */
+.wp-mirror .eSim .ginput_container {
+  height: 100%;
+}
+
+.wp-mirror .eSim .ginput_container input[id^='input_'] {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/*
+ * The button's half is as wide as the button, no wider — so nothing is clipped
+ * and no dead footer hangs off the pill's right edge.
+ *
+ * `min-width: 0` is load-bearing for the same reason as above; `wp-shim.js`
+ * also sets it inline, because on this one element the declaration does not
+ * take from the stylesheet.
+ */
+.wp-mirror .eSim form[id^='gform_'] > .gform_footer {
+  width: auto !important;
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+}
+
+.wp-mirror .eSim input[id^='gform_submit_button_'] {
+  height: 100% !important;
+  white-space: nowrap;
+}
+
+/*
+ * Sizing to the label alone makes a short one ("Subscribe") look like an
+ * afterthought stuck on the end of a 640px pill. A floor restores roughly the
+ * share the percentages gave it, and is only safe where the pill is wide
+ * enough to spare it — which is the whole reason the percentages had to go.
+ */
+@media (min-width: 768px) {
+  .wp-mirror .eSim input[id^='gform_submit_button_'] {
+    min-width: 160px;
+  }
+}
+
+/*
+ * The message, on its own line under the pill. Left-aligned against the field
+ * whatever the container's `text-align` is — three of these pills sit in
+ * centred hero sections.
+ */
+.wp-mirror .eSim form[id^='gform_'] > .hs-field-error {
+  flex: 0 0 100%;
+  width: 100%;
+  text-align: left;
+}
+
+/*
+ * A phone has no room for the desktop label metrics: at 14px with 20px of side
+ * padding the button takes half of a 360px screen. Trim it until the field can
+ * still show a whole address, and keep the two halves' vertical padding equal
+ * so the join stays invisible.
  */
 @media (max-width: 576px) {
-  /*
-   * `align-items` is fought over by an id-level rule in the WPCode snippet
-   * (`form#gform_19{align-items:center}`), which outranks any class selector.
-   */
-  .wp-mirror .eSim form[id^='gform_'] {
-    align-items: stretch !important;
-  }
-
-  .wp-mirror .eSim .gform-body.gform_body {
-    width: auto !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-  }
-
-  /*
-   * The button's share of the pill.
-   *
-   * `min-width: 0` is the load-bearing declaration: a flex item defaults to
-   * `min-width: auto`, and the footer would not shrink below a 164px floor —
-   * nearly half the control on a phone, so Subscribe looked like it had eaten
-   * the email field. Width alone cannot lift that floor; the two have to be set
-   * together.
-   *
-   * Selected as a child of the form because the `.gform_footer.before` selector
-   * does not take effect here, while `form[id^=gform_]` demonstrably does.
-   */
-  .wp-mirror .eSim form[id^='gform_'] > .gform_footer {
-    min-width: 0 !important;
-    width: 38% !important;
-    flex: 0 0 38% !important;
-  }
-
-  /*
-   * The button fills its footer rather than hugging its label. The footer is a
-   * flex item that keeps a share of the row whatever the button does, so a
-   * shrink-to-fit button left ~73px of dead footer past the pill's right edge —
-   * the whole control then sat flush left in a centred container and read as
-   * badly aligned.
-   */
   .wp-mirror .eSim input[id^='gform_submit_button_'] {
-    width: 100% !important;
-    height: 100%;
     padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+
+  .wp-mirror .eSim .ginput_container input[id^='input_'] {
+    padding: 10px 16px !important;
     font-size: 14px !important;
-    white-space: nowrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .wp-mirror .eSim input[id^='gform_submit_button_'] {
+    padding: 10px 11px !important;
+    font-size: 12px !important;
+  }
+
+  .wp-mirror .eSim .ginput_container input[id^='input_'] {
+    padding: 10px 12px !important;
+    font-size: 13px !important;
+  }
+
+  .wp-mirror .eSim .ginput_container input[id^='input_']::placeholder {
+    font-size: 13px !important;
   }
 }
 
@@ -1448,4 +1536,133 @@ body.wp-mirror.e-off-canvas__no-scroll {
 .wp-mirror .hs-confirmation a.download_pdf:hover,
 .wp-mirror .hs-confirmation a.download_pdf:focus-visible {
   background: #e81224;
+}
+
+/*
+ * eSIM compatibility checker — the results panel outgrowing its column.
+ *
+ * `.compatible-box` is given `height: 100%` next to `max-height: 320px`. The
+ * 100% resolves against a grid item whose own height was measured with the box
+ * at its content size, so the box ends up taller than the column that holds it
+ * and hangs 90px out of the bottom. Side by side that is invisible — there is
+ * nothing under the left column to hit. Stacked on a phone there is: the box
+ * lands on top of "General compatible devices:" and its first two entries.
+ *
+ * Make the column a flex column and let the box take what is left of it, which
+ * is what `height: 100%` was reaching for. `max-height` still caps it and the
+ * list still scrolls inside.
+ */
+.wp-mirror .compatible-left {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.wp-mirror .compatible-box {
+  height: auto;
+  flex: 1 1 auto;
+  min-height: 200px;
+  /* `scroll` in the mirrored rule, so the track showed on desktop even with
+     six entries and nothing to scroll. */
+  overflow-y: auto;
+}
+
+/*
+ * Elementor Pro's container sticky, reimplemented — see `initStickyContainers`
+ * in `wp-shim.js`, which adds the class and measures the offset.
+ *
+ * `align-self` is what makes it work at all. The one container that carries
+ * the setting is the post sidebar, a flex item beside the article, and a flex
+ * item stretches to its row: it was already as tall as the article and had
+ * nowhere to travel. Shrink it to its contents and it has the whole length of
+ * the article to stick through.
+ */
+.wp-mirror .wp-sticky-con {
+  position: sticky;
+  top: var(--wp-sticky-top, 24px);
+  align-self: flex-start;
+  /* Long enough on a short post to overflow the viewport, in which case the
+     column scrolls rather than pinning its own foot off-screen. */
+  max-height: calc(100vh - var(--wp-sticky-top, 24px) - 24px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/*
+ * The contents list's active entry, which `trackReading()` in `wp-shim.js`
+ * marks with Elementor's own class as the reader moves through the article.
+ *
+ * Restated rather than left to the widget's stylesheet. Elementor's rules for
+ * this state survive the purge, but they lose on specificity to two rules that
+ * always match: the widget's own `.elementor-20168 .elementor-element-2ac3fa6
+ * .elementor-toc__list-item { font-weight: 400 }` outranks
+ * `.elementor-toc__list-item.elementor-item-active` outright, and the resting
+ * colour ties with the active colour and wins on source order in the purged
+ * bundle. Marked entries came out grey and unweighted — the class was set,
+ * and nothing looked any different.
+ *
+ * The values are Elementor's, read from the same custom properties the widget
+ * defines, so what the marketing team sets in the widget is still what shows.
+ */
+.wp-mirror .elementor-toc__list-item.elementor-item-active {
+  font-weight: 700 !important;
+}
+
+.wp-mirror .elementor-toc__list-item-text.elementor-item-active {
+  color: var(--item-text-active-color, #000) !important;
+}
+
+/* The colour steps rather than snapping as the reader crosses a heading. */
+.wp-mirror .elementor-toc__list-item,
+.wp-mirror .elementor-toc__list-item-text {
+  transition: color 200ms var(--polish-ease), font-weight 200ms var(--polish-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wp-mirror .elementor-toc__list-item,
+  .wp-mirror .elementor-toc__list-item-text {
+    transition: none;
+  }
+}
+
+/*
+ * Related Articles, and every other loop grid.
+ *
+ * Elementor lays these out as `grid-template-columns: repeat(3, 1fr)`, and a
+ * `1fr` track is floored at the item's min-content width. The item is a card
+ * built from the same `.e-con-boxed` machinery as a page section, so it
+ * carries the page's own `--content-width: min(100%, 1140px)`; asked for its
+ * min-content width it answers 1140px plus the section padding. Three tracks
+ * of 1320px in a 1280px row, so the grid ran 4141px wide, the last two cards
+ * sat off the side of the page, and the section below was dragged up into the
+ * article.
+ *
+ * Clearing the floor is the whole fix: the tracks then split the row and the
+ * card's `width: 100%` does what it always meant to.
+ */
+.wp-mirror .elementor-loop-container > * {
+  min-width: 0;
+}
+
+/*
+ * The Solution mega-menu panel.
+ *
+ * The panel is sized by `--content-width`, and the mirror captured it at
+ * 600px. At that width "Connectivity Revenue Optimization" does not fit its
+ * 48% column: the title wraps to two lines, pushing its description down and
+ * making the middle row taller than the two around it, so the six items stop
+ * reading as a grid. spenza.com has since been set to 650px, which is the one
+ * value in the whole header stylesheet that still differs from production —
+ * everything else in `post-17806.css` matches declaration for declaration.
+ *
+ * Restated here rather than in the mirrored file because the header is served
+ * from the purged bundles `wp:optimize-css` builds, and this stylesheet is the
+ * one Astro emits and purgecss never sees.
+ */
+.wp-mirror .elementor-element.elementor-element-3c12b36,
+.wp-mirror .elementor-element.elementor-element-9c7f3a8 {
+  /* `!important` because the mirrored rule selects through the kit id
+     (`.elementor-17806 .elementor-element.elementor-element-9c7f3a8`) and
+     outranks anything this stylesheet can write. */
+  --content-width: 650px !important;
 }

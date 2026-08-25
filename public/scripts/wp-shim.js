@@ -928,6 +928,17 @@
      * instant scroll actually moves the page, so tween it ourselves rather than
      * hand the reader an abrupt jump.
      */
+    /*
+     * Scrolling this page does not always announce itself. `window.scrollTo`
+     * moves it — verified — and fires no `scroll` event at all, which is of a
+     * piece with the theme's `overflow: hidden auto` body swallowing
+     * `scrollIntoView` below. A wheel does fire one, so the highlight follows a
+     * reader; a jump from the list would have left it on the section they came
+     * from. Nudge the trackers by hand wherever this file scrolls the page.
+     */
+    const spies = [];
+    const resync = () => spies.forEach(fn => fn());
+
     let scrolling;
     const scrollToHeading = heading => {
       const to = Math.max(0, heading.getBoundingClientRect().top + window.scrollY - offset);
@@ -939,6 +950,7 @@
       // half-way and land the reader somewhere arbitrary when they come back.
       if (reduceMotion || document.hidden || !distance) {
         window.scrollTo({ top: to, behavior: 'instant' });
+        resync();
         return;
       }
 
@@ -949,6 +961,7 @@
         // easeInOutCubic — settles without overshooting on long jumps.
         const eased = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
         window.scrollTo({ top: from + distance * eased, behavior: 'instant' });
+        resync();
         if (t < 1) scrolling = requestAnimationFrame(step);
       };
       scrolling = requestAnimationFrame(step);
@@ -1012,6 +1025,7 @@
       });
 
       body.replaceChildren(list);
+      spies.push(trackReading(body, headings));
     });
 
     // A hash in the URL was resolved before the generated anchors existed, so
@@ -1019,6 +1033,97 @@
     const hash = location.hash.slice(1);
     const target = hash && document.getElementById(decodeURIComponent(hash));
     if (target) requestAnimationFrame(() => scrollToHeading(target));
+  }
+
+  /**
+   * Scroll-spy for the sidebar list.
+   *
+   * The widget CSS already carries the two active states —
+   * `.elementor-toc__list-item.elementor-item-active` is bold and
+   * `.elementor-toc__list-item-text.elementor-item-active` is `#000` against a
+   * `#bdbdbd` rest state — because Elementor's own runtime sets them. We do not
+   * ship that runtime, so on the mirror every entry stayed grey and the reader
+   * had no way to tell which section they were in.
+   *
+   * "In a section" means: the last heading whose top has passed under the
+   * sticky header. Read on scroll rather than through an IntersectionObserver,
+   * because a section taller than the viewport intersects nothing at its
+   * midpoint and an observer would leave the list blank for the length of it.
+   *
+   * Entries the site hides are skipped. A page-wide heading scan sweeps up the
+   * "Related Articles" and subscribe headings after the article, and the theme
+   * deals with that by hiding the last three items outright
+   * (`.elementor-toc__list-item:nth-last-child(-n+3)`). Highlighting one of
+   * those would mean highlighting nothing visible, and would drop the
+   * highlight off the last real section as soon as the reader reached the
+   * footer.
+   */
+  function trackReading(body, headings) {
+    const items = [...body.querySelectorAll('.elementor-toc__list-item')];
+    const header = document.querySelector('.elementor-location-header');
+
+    let active = -1;
+    let queued = false;
+
+    const update = () => {
+      queued = false;
+
+      // Measured per pass: the header shrinks on scroll on some breakpoints.
+      const line = Math.round(header?.getBoundingClientRect().height || 0) + 32;
+
+      let next = -1;
+      headings.forEach((heading, index) => {
+        // `offsetParent` is null for the hidden trailing entries.
+        if (!items[index]?.offsetParent) return;
+        if (heading.getBoundingClientRect().top <= line) next = index;
+      });
+
+      if (next === active) return;
+
+      items[active]?.classList.remove('elementor-item-active');
+      items[active]?.querySelector('.elementor-toc__list-item-text')
+        ?.classList.remove('elementor-item-active');
+
+      active = next;
+
+      const item = items[active];
+      if (!item) return;
+
+      item.classList.add('elementor-item-active');
+      item.querySelector('.elementor-toc__list-item-text')
+        ?.classList.add('elementor-item-active');
+      keepVisible(body, item);
+    };
+
+    const schedule = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    };
+
+    on(window, 'scroll', schedule, { passive: true });
+    on(window, 'resize', schedule);
+    update();
+
+    // `update`, not `schedule`: the caller is either already inside a frame or
+    // has just moved the page in one go, and a hidden tab runs no frames at
+    // all — a jump made in a background tab would otherwise be forgotten by
+    // the time the reader came back to it.
+    return update;
+  }
+
+  /**
+   * The list is a 245px window onto a list that is usually taller, so an
+   * entry can go active while scrolled out of sight. Nudge the window by the
+   * shortfall only — `scrollIntoView` would recentre it and drag the whole
+   * list under the reader on every section change.
+   */
+  function keepVisible(body, item) {
+    const view = body.getBoundingClientRect();
+    const box = item.getBoundingClientRect();
+
+    if (box.top < view.top) body.scrollTop -= view.top - box.top;
+    else if (box.bottom > view.bottom) body.scrollTop += box.bottom - view.bottom;
   }
 
   function safeMatches(el, selector) {
@@ -1099,6 +1204,46 @@
       ([entry]) => header.classList.toggle('wp-header-scrolled', !entry.isIntersecting),
       { threshold: 0 }
     ).observe(sentinel);
+  }
+
+  /**
+   * Elementor Pro's `sticky: "top"` on a container, for every container that
+   * is not the header — on a post that is the sidebar holding the contents
+   * list, the share buttons and Subscribe Now, which stayed put and scrolled
+   * away while the article ran on for another eight screens.
+   *
+   * The settings are the widget's own: `sticky_offset` is the gap to leave
+   * above it, and `sticky_on` names the devices it applies to, which is why
+   * this reads the list rather than assuming desktop.
+   *
+   * `align-self: flex-start` is the load-bearing part, and lives in
+   * `wp-polish.css` with the rest of the rule: the sidebar is a flex item, a
+   * flex item stretches to its row by default, and an element already as tall
+   * as its container has nowhere to stick to.
+   */
+  function initStickyContainers() {
+    // Elementor's breakpoints. A device is "on" from its own floor upwards, so
+    // the narrowest one named decides where the behaviour starts.
+    const floors = { mobile: 0, mobile_extra: 0, tablet: 768, tablet_extra: 768, laptop: 1025, desktop: 1025, widescreen: 1025 };
+
+    document.querySelectorAll('.e-con[data-settings]').forEach(el => {
+      if (el.closest('.elementor-location-header')) return;
+
+      const settings = safeJson(el.getAttribute('data-settings'));
+      if (settings?.sticky !== 'top') return;
+
+      const devices = settings.sticky_on?.length ? settings.sticky_on : ['desktop', 'tablet', 'mobile'];
+      const from = Math.min(...devices.map(d => floors[d] ?? 0));
+
+      const header = document.querySelector('.elementor-location-header');
+      const clearance = Math.round(header?.getBoundingClientRect().height || 0) + 24;
+      el.style.setProperty('--wp-sticky-top', `${Math.max(settings.sticky_offset || 0, clearance)}px`);
+
+      const wide = window.matchMedia(`(min-width: ${from}px)`);
+      const apply = () => el.classList.toggle('wp-sticky-con', wide.matches);
+      apply();
+      wide.addEventListener('change', apply);
+    });
   }
 
   /* ---------------------------------------------------- dropdown position */
@@ -1592,6 +1737,7 @@
 
   ready(() => {
     initStickyHeader();
+    initStickyContainers();
     initNestedMenus();
     initClassicMenus();
     initSubscribeForms();
