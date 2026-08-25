@@ -219,9 +219,6 @@ Microsoft Clarity, and nothing else. It loads only after the visitor accepts.
 - `CONSENT_VERSION` in the component is stored with the answer. Bump it when
   what is being consented to changes, and everyone is asked again rather than
   having consent carried forward to something they never saw.
-- The lead popup is held back while the question is open
-  (`body.spz-consent-open .popup-overlay`). Its ten-second timer lives in 200-odd
-  per-page scripts, so this has to be true from the outside.
 - No stored answer means ask — including when storage throws in private mode.
   It never infers a consent nobody gave.
 

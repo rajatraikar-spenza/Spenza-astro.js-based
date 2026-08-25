@@ -13,6 +13,7 @@ import wpRedirects from './src/data/wp-redirects.json' with { type: 'json' };
 import { partialRewrites } from './scripts/lib/partial-rewrites-plugin.mjs';
 import { wpRefresh } from './scripts/lib/wp-refresh-integration.mjs';
 import { hostFiles } from './scripts/lib/host-files-integration.mjs';
+import { sitemapAlias } from './scripts/lib/sitemap-alias-integration.mjs';
 
 /**
  * Every path this site answers with a redirect rather than a page.
@@ -108,6 +109,13 @@ export default defineConfig({
         );
       },
     }),
+
+    /**
+     * `/sitemap.xml`, which the integration above does not emit. Registered
+     * last on purpose: it copies that integration's output, and `build:done`
+     * hooks run in the order the integrations are listed.
+     */
+    sitemapAlias(),
   ],
 
   /**

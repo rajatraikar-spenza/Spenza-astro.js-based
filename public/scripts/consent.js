@@ -48,7 +48,6 @@
     if (!banner) return;
     banner.remove();
     banner = null;
-    document.body.classList.remove('spz-consent-open');
   }
 
   function answer(grant) {
@@ -98,7 +97,6 @@
      * whatever the visitor was doing would be its own small rudeness.
      */
     document.body.insertBefore(banner, document.body.firstChild);
-    document.body.classList.add('spz-consent-open');
   }
 
   /**

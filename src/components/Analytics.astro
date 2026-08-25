@@ -284,16 +284,4 @@ const gate = `(function (w, d) {
       flex: 1 1 100%;
     }
   }
-
-  /*
-   * The lead-capture modal opens ten seconds after arrival, from a per-page
-   * script, and would land on top of an unanswered cookie question — two
-   * overlays competing, with the one the visitor is legally owed underneath.
-   * Hold it back until the question is answered. A class rather than a change
-   * to `arm()`, because that timer is copied into 200-odd page scripts and this
-   * needs to be true in all of them.
-   */
-  body.spz-consent-open .popup-overlay {
-    display: none !important;
-  }
 </style>

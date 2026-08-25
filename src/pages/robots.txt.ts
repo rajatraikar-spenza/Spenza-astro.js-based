@@ -35,7 +35,7 @@ Allow: /
 
 # A machine-readable index of this site: /llms.txt
 
-Sitemap: ${SITE_URL}/sitemap-index.xml
+Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
 /**
