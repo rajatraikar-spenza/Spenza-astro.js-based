@@ -53,12 +53,17 @@ jobs:
 
     env:
       WP_ORIGIN:      ${{ vars.WP_ORIGIN      || 'https://preprod.spenza.com' }}
-      SITE_URL:       ${{ vars.SITE_URL       || 'https://d3t3v0en3w3l29.cloudfront.net' }}
+      SITE_URL:       ${{ vars.SITE_URL       || 'https://www.spenza.com' }}
       MEDIA_ORIGIN:   ${{ vars.MEDIA_ORIGIN   || 'https://media.spenza.com' }}
       HOST_REDIRECTS: '1'
-      # Staging is not indexable. Remove this variable to publish for real —
-      # see NOINDEX in scripts/lib/config.mjs for why it is opt-out.
-      NOINDEX:        ${{ vars.NOINDEX        || '1' }}
+      # Empty by default, so this workflow publishes an indexable production
+      # site. It used to default to '1' from when the only thing it deployed
+      # was staging, and that outlived the staging-only phase: the bucket
+      # became www.spenza.com and every build kept shipping `Disallow: /` and a
+      # noindex meta to the live site. Set the NOINDEX repo variable to 1 on any
+      # environment that must stay out of the index — see scripts/lib/config.mjs
+      # for why this is opt-out rather than opt-in.
+      NOINDEX:        ${{ vars.NOINDEX }}
       MEDIA_BUCKET:   ${{ vars.MEDIA_BUCKET   || 'spenza-media' }}
       SITE_BUCKET:    ${{ vars.SITE_BUCKET    || 'spenza-site' }}
       AWS_REGION:     us-east-1

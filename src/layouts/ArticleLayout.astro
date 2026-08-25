@@ -21,6 +21,7 @@ import wpCssBundles from '../data/wp-css-bundles.json';
 import wpScripts from '../data/wp-scripts.json';
 import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
+import Analytics from '../components/Analytics.astro';
 import { MEDIA_ORIGIN, toMediaOrigin } from '../../scripts/lib/config.mjs';
 import { applyHtmlPerf } from '../../scripts/lib/html-perf.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
@@ -262,6 +263,12 @@ body = toMediaOrigin(applyHtmlPerf(body));
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+
+    {/*
+      Analytics, as high in the head as it can go: the tag times a session from
+      when it runs, so anything below it is time the recording does not have.
+    */}
+    <Analytics />
 
     {/*
       Yoast's complete head: title, meta, Open Graph, and the Article /

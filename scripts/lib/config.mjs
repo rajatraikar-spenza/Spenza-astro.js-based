@@ -33,8 +33,18 @@ export const WP_HOST = new URL(WP_ORIGIN).hostname;
  */
 export const MEDIA_ORIGIN = (process.env.MEDIA_ORIGIN || '').replace(/\/+$/, '');
 
-/** Canonical origin of the public site — drives canonicals and the sitemap. */
-export const SITE_URL = (process.env.SITE_URL || 'https://spenza.com').replace(/\/+$/, '');
+/**
+ * Canonical origin of the public site — drives canonicals and the sitemap.
+ *
+ * `www`, and not the apex. The certificate CloudFront serves covers
+ * `www.spenza.com`; `https://spenza.com` fails its TLS handshake outright, so
+ * the apex is not a URL anything can be canonicalised to. Pointing canonicals
+ * at a host that cannot be fetched is worse than pointing them at the wrong
+ * page — there is nothing there for a crawler to land on.
+ */
+const PROD_SITE_URL = 'https://www.spenza.com';
+
+export const SITE_URL = (process.env.SITE_URL || PROD_SITE_URL).replace(/\/+$/, '');
 
 /**
  * Keep this build out of search results.
@@ -51,8 +61,38 @@ export const SITE_URL = (process.env.SITE_URL || 'https://spenza.com').replace(/
  */
 export const NOINDEX = /^(1|true|yes|on)$/i.test(process.env.NOINDEX || '');
 
-/** True when SITE_URL was left at its default, i.e. this is a production build. */
-export const IS_DEFAULT_SITE = !process.env.SITE_URL;
+/**
+ * True when this build carries production's canonical origin.
+ *
+ * Compared by value rather than by "was the variable set at all", because
+ * naming production explicitly is exactly what a CI environment does — and
+ * under the old test that made every real deploy look like a preview that
+ * forgot `NOINDEX`, which is the one warning that must stay meaningful.
+ */
+export const IS_DEFAULT_SITE = SITE_URL === PROD_SITE_URL;
+
+/**
+ * Microsoft Clarity project id — the only environment-specific part of the
+ * tag. The host in the snippet is the vendor's and is not ours to vary.
+ *
+ * Env-driven for the same reason `SITE_URL` is: this build is deployed to more
+ * than one place, and staging sessions landing in the same Clarity project as
+ * real ones would make every heatmap and funnel a little bit wrong with no
+ * way to tell afterwards which was which. Set it empty on a build that should
+ * not be recorded and no tag is emitted at all.
+ *
+ * Defaulted rather than required, so a developer who has never heard of
+ * Clarity still builds the site the deploy builds.
+ */
+export const CLARITY_PROJECT_ID = (process.env.CLARITY_PROJECT_ID ?? 'y7rcw4tkeq').trim();
+
+if (CLARITY_PROJECT_ID && !/^[a-z0-9]+$/i.test(CLARITY_PROJECT_ID)) {
+  throw new Error(
+    `CLARITY_PROJECT_ID must be alphanumeric, got ${JSON.stringify(CLARITY_PROJECT_ID)}. ` +
+    `It is interpolated into an inline <script>; anything else is either a typo ` +
+    `or an injection, and both are better caught here than shipped to every page.`
+  );
+}
 
 /**
  * Let the host serve WordPress' 301s, and stop emitting the HTML stand-ins.

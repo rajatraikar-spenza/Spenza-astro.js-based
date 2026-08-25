@@ -1,0 +1,278 @@
+---
+/**
+ * Microsoft Clarity, behind a consent gate.
+ *
+ * Clarity records sessions and writes first-party cookies, which under
+ * ePrivacy/GDPR is the kind of storage that needs consent *before* it happens,
+ * not a notice afterwards. So nothing here contacts clarity.ms until someone
+ * has said yes: no tag, no preconnect, no DNS lookup. The gate below is the
+ * only thing that runs on a first visit, and it is inline because a returning
+ * visitor who already accepted should start their session in the same tick the
+ * parser reaches this, not one deferred script later.
+ *
+ * The banner itself is `/scripts/consent.js` — UI, and only needed when there
+ * is a decision outstanding, so it is deferred and cached like the site's other
+ * scripts. It talks to the gate through `window.spenzaConsent`.
+ *
+ * `is:inline` is load-bearing. Astro's default is to treat a `<script>` in a
+ * component as a module to hoist, bundle and rewrite — which would move this
+ * into `/_astro/`, defer it behind the bundle, and turn a first-party inline
+ * gate into a third request.
+ *
+ * Rendered in `<head>` by all three layouts, so this is the whole site: the
+ * mirrored marketing pages and archives (`WpLayout`), every post
+ * (`ArticleLayout`), and the rebuild preview (`BaseLayout`).
+ */
+import { CLARITY_PROJECT_ID } from '../../scripts/lib/config.mjs';
+
+/**
+ * Bump when what is being consented to changes — a new tool, a new purpose.
+ * Stored alongside the answer, and an answer to an older question is treated
+ * as no answer, so the banner asks again rather than carrying consent forward
+ * to something the visitor never saw.
+ */
+const CONSENT_VERSION = 1;
+
+// `JSON.stringify` rather than plain interpolation: the value reaches an inline
+// script, and config.mjs already rejects anything that is not alphanumeric, but
+// the two guards cost nothing and the failure mode without them is a script tag
+// on every page of the site.
+const gate = `(function (w, d) {
+  var KEY = 'spenza-cookie-consent';
+  var VERSION = ${CONSENT_VERSION};
+  var ID = ${JSON.stringify(CLARITY_PROJECT_ID)};
+  var started = false;
+
+  function read() {
+    try {
+      var raw = w.localStorage.getItem(KEY);
+      if (!raw) return null;
+      var saved = JSON.parse(raw);
+      // An answer to an older version of the question is not an answer.
+      return saved && saved.v === VERSION ? saved.state : null;
+    } catch (e) {
+      // Private mode, or storage disabled. No stored answer means the banner
+      // asks, every time, which is the right way to fail: it never invents a
+      // consent nobody gave.
+      return null;
+    }
+  }
+
+  function write(state) {
+    try {
+      w.localStorage.setItem(KEY, JSON.stringify({
+        v: VERSION, state: state, at: new Date().toISOString()
+      }));
+    } catch (e) {}
+  }
+
+  /* Clarity's own snippet, unchanged apart from the id. */
+  function start() {
+    if (started || !ID) return;
+    started = true;
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(w, d, "clarity", "script", ID);
+  }
+
+  /*
+   * Withdrawal has to undo something, not just stop doing more of it. The
+   * script cannot be unloaded once it is running, so the cookies it set are
+   * cleared and the page is reloaded — after which the gate is closed and
+   * nothing starts. Only Clarity's first-party storage is reachable from here;
+   * what it holds on its own domain is Microsoft's to expire.
+   */
+  function forget() {
+    var names = ['_clck', '_clsk', 'CLID'];
+    var host = d.location.hostname;
+    var domains = [null, host, '.' + host, '.' + host.split('.').slice(-2).join('.')];
+    for (var i = 0; i < names.length; i++) {
+      for (var j = 0; j < domains.length; j++) {
+        d.cookie = names[i] + '=; Max-Age=0; Path=/' +
+          (domains[j] ? '; Domain=' + domains[j] : '');
+      }
+    }
+    try {
+      for (var k = w.localStorage.length - 1; k >= 0; k--) {
+        var key = w.localStorage.key(k);
+        if (/^_?cl(ck|sk)|^clarity/i.test(key)) w.localStorage.removeItem(key);
+      }
+    } catch (e) {}
+  }
+
+  w.spenzaConsent = {
+    /** 'granted', 'denied', or null when the question is still open. */
+    state: read,
+    grant: function () {
+      write('granted');
+      start();
+    },
+    deny: function () {
+      write('denied');
+      if (started) {
+        forget();
+        d.location.reload();
+      }
+    }
+  };
+
+  if (read() === 'granted') start();
+})(window, document);`;
+---
+
+{CLARITY_PROJECT_ID && (
+  <>
+    <script is:inline type="text/javascript" set:html={gate} />
+    <script src="/scripts/consent.js" defer></script>
+  </>
+)}
+
+{/*
+  Global rather than scoped: the banner is built by `/scripts/consent.js` at
+  runtime, and Astro's scoping hash is applied to markup it compiles, so a
+  scoped selector would match nothing that exists. Kept here rather than in
+  `wp-polish.css` because that stylesheet is the mirror's polish layer and is
+  not loaded by `BaseLayout`, while this component is — the banner has to look
+  the same on all three.
+*/}
+<style is:global>
+  .spz-consent {
+    position: fixed;
+    z-index: 2147483000;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    margin: 0 auto;
+    max-width: 720px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    font-family: "Manrope", "Lexend Deca", system-ui, sans-serif;
+    color: #2c180d;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .spz-consent {
+      animation: spz-consent-in 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  }
+
+  @keyframes spz-consent-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .spz-consent__text {
+    flex: 1 1 300px;
+    /* A flex item's `min-width: auto` floor is the longest word; without this
+       the text refuses to wrap and pushes the buttons off the card. */
+    min-width: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .spz-consent__text a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .spz-consent__actions {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+  }
+
+  .spz-consent__btn {
+    /* Same size, same weight, same reach. A "reject" that is harder to find
+       than "accept" is not a choice, and regulators have said so repeatedly.
+       A zero basis rather than `auto` so the two are measured from nothing and
+       come out identical: from `auto` they are sized from their own labels and
+       "Accept" ends up a few pixels wider than "Reject" for no better reason
+       than being a longer word. */
+    flex: 1 1 0;
+    min-width: 104px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+
+  .spz-consent__btn--accept {
+    background: linear-gradient(180deg, #ff6e24 0%, #ff4500 100%);
+    color: #fff;
+  }
+
+  .spz-consent__btn--accept:hover {
+    filter: brightness(1.06);
+  }
+
+  .spz-consent__btn--reject {
+    background: #fff;
+    border-color: #d9d4d1;
+    color: #2c180d;
+  }
+
+  .spz-consent__btn--reject:hover {
+    border-color: #2c180d;
+  }
+
+  .spz-consent__btn:focus-visible {
+    outline: 2px solid #fd4500;
+    outline-offset: 2px;
+  }
+
+  /* The reopen control, added to the footer's legal row by consent.js. It has
+     to read as one of that row's links, which are `<a>`; this is a `<button>`
+     because it opens a dialog rather than going anywhere. */
+  .spz-consent-reopen {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .spz-consent-reopen:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .spz-consent {
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      padding: 16px;
+      gap: 14px;
+    }
+
+    .spz-consent__actions {
+      flex: 1 1 100%;
+    }
+  }
+
+  /*
+   * The lead-capture modal opens ten seconds after arrival, from a per-page
+   * script, and would land on top of an unanswered cookie question — two
+   * overlays competing, with the one the visitor is legally owed underneath.
+   * Hold it back until the question is answered. A class rather than a change
+   * to `arm()`, because that timer is copied into 200-odd page scripts and this
+   * needs to be true in all of them.
+   */
+  body.spz-consent-open .popup-overlay {
+    display: none !important;
+  }
+</style>

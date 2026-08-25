@@ -191,6 +191,40 @@ submits — neither is a lead form.
   `public/vendor/` and fetched per format on demand — WordPress loads all
   1.28MB of them on every view of that page.
 
+## Analytics and consent
+
+Microsoft Clarity, and nothing else. It loads only after the visitor accepts.
+
+- `src/components/Analytics.astro` is the whole feature: an inline gate that
+  owns the decision, its storage and Clarity's own snippet, plus the banner's
+  CSS. Rendered by all three layouts, which is every page except the 367
+  redirect stand-ins — those bounce in milliseconds, and tagging them would log
+  a phantom zero-second session for each and split the real one that follows.
+- **Nothing reaches clarity.ms before consent** — no tag, no preconnect, no DNS
+  lookup. That is the requirement, not the banner; a notice over a tracker that
+  is already running is what the rules exist to stop.
+- The gate must stay inline. A returning visitor who accepted should start
+  their session in the tick the parser reaches it, and Astro's default is to
+  hoist a component `<script>` into a bundle — hence `is:inline`.
+- `public/scripts/consent.js` is UI only, deferred, and talks to the gate
+  through `window.spenzaConsent`. It builds the banner rather than shipping it
+  in markup, because a banner whose buttons do nothing without JS is worse than
+  no banner: it implies a choice was recorded.
+- Accept and Reject are the same size and Reject comes first, in the DOM as
+  well as on screen. `flex: 1 1 0` on both, not `auto`, or "Accept" comes out a
+  few pixels wider for being a longer word.
+- Withdrawal has to undo something. Rejecting after accepting clears Clarity's
+  first-party cookies and localStorage and reloads, because a running tag
+  cannot be unloaded.
+- `CONSENT_VERSION` in the component is stored with the answer. Bump it when
+  what is being consented to changes, and everyone is asked again rather than
+  having consent carried forward to something they never saw.
+- The lead popup is held back while the question is open
+  (`body.spz-consent-open .popup-overlay`). Its ten-second timer lives in 200-odd
+  per-page scripts, so this has to be true from the outside.
+- No stored answer means ask — including when storage throws in private mode.
+  It never infers a consent nobody gave.
+
 ## Deployment
 
 The build is environment-driven. Nothing about it is host-specific except the
@@ -203,6 +237,7 @@ two files it writes into `dist/`.
 | `MEDIA_ORIGIN` | Serves media, and drops 2.2GB from `dist`. |
 | `NOINDEX=1` | `Disallow: /` plus `X-Robots-Tag`. Set on every preview. |
 | `HOST_REDIRECTS=1` | Stop emitting the 86 HTML redirect stand-ins. |
+| `CLARITY_PROJECT_ID` | Microsoft Clarity tag. Empty ships no analytics. |
 
 - `NOINDEX` is opt-*out* on purpose. A staging site that slips into the index is
   fixable; a production site that ships `Disallow: /` deletes itself from Google

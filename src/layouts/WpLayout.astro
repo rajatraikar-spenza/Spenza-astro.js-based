@@ -16,6 +16,7 @@ import wpSeo from '../data/wp-seo.json';
 import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
 import demoPopupHtml from '../partials/chrome/demo-popup.html?raw';
+import Analytics from '../components/Analytics.astro';
 import { MEDIA_ORIGIN, NOINDEX } from '../../scripts/lib/config.mjs';
 import { rewriteHead, withoutTitle, titleFrom } from '../../scripts/lib/wp-head.mjs';
 import '../styles/wp-polish.css';
@@ -117,6 +118,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
     <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta name="generator" content={Astro.generator} />
+
+    {/*
+      Analytics, as high in the head as it can go: the tag times a session from
+      when it runs, so anything below it is time the recording does not have.
+    */}
+    <Analytics />
 
     <title>{pageTitle}</title>
 
