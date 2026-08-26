@@ -25,6 +25,30 @@ export const WP_ORIGIN = (process.env.WP_ORIGIN || 'https://preprod.spenza.com')
 export const WP_HOST = new URL(WP_ORIGIN).hostname;
 
 /**
+ * Where the six lead forms replay their submission, so that Gravity Forms
+ * sends the notification emails it has always sent.
+ *
+ * The confirmation the submitter gets and the alert the sales team gets are
+ * both Gravity Forms notifications, configured on WordPress — thirteen of them
+ * across the six forms, and form 20 alone carries seven, one admin alert plus
+ * six client replies chosen by the "Which solution are you interested in?"
+ * dropdown. HubSpot never sent any of them and cannot: the six targets are
+ * *collected* forms, which have no follow-up email and no notification list.
+ * So the static site posting to HubSpot alone captures the lead and sends no
+ * mail, which is exactly the symptom.
+ *
+ * Setting this makes the browser replay each submission to WordPress as well,
+ * unchanged, so Gravity Forms stores the entry and mails everyone it used to.
+ *
+ * Empty by default, and deliberately not defaulted to `WP_ORIGIN`: turning
+ * this on publishes that hostname to every visitor and opens it to whatever
+ * posts at it, which is a decision about infrastructure rather than about the
+ * build. Set it to the WordPress origin — the same host as `WP_ORIGIN` — once
+ * that host answers anonymous form POSTs.
+ */
+export const WP_FORMS_ORIGIN = (process.env.WP_FORMS_ORIGIN || '').replace(/\/+$/, '');
+
+/**
  * Where blog/case-study media is served from in the built site.
  *
  * Empty means "serve from this repo", which is the state until

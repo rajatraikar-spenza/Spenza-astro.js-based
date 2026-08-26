@@ -156,6 +156,28 @@ submits — neither is a lead form.
   hidden iframe, so before this every one of them swallowed the lead silently.
 - **Not** HubSpot's tracking script. `js-eu1.hs-scripts.com` is ~180KB, and its
   "collected forms" feature is what produced the field losses below.
+- **The confirmation and sales-alert emails are Gravity Forms', not HubSpot's.**
+  WordPress holds 13 active notifications across the six forms — an "Admin
+  Notification" each, plus a client reply sent to the form's own email field
+  and BCC'd to sales@, vinay@, siva.sai@ and kumar.jyanav@spenza.com. Form 20
+  has seven on its own: one admin alert and six client replies chosen by the
+  `input_10` dropdown. HubSpot cannot send these and never did — a *collected*
+  form has no follow-up email and no notification list to configure — so a
+  build that posts only to HubSpot captures every lead and mails nobody. That
+  is the whole of the "form works, no email arrives" symptom; nothing is
+  misconfigured on the HubSpot side, and nothing there can fix it.
+- `WP_FORMS_ORIGIN` turns those emails back on: the browser replays the
+  submission to WordPress unchanged (whole `FormData`, so `gform_submit`,
+  `is_submit_<id>` and the `state_<id>` token all survive) and Gravity Forms
+  does the rest. Empty by default. Fire-and-forget by necessity — WordPress
+  sends no CORS headers, so the response is opaque and this can only report
+  that it *sent*. `ak_js` is restamped with `Date.now()`, because the mirror
+  froze one page's Akismet timestamp into the markup and a submission Akismet
+  scores as spam is stored as spam and notifies no one.
+- Before setting it, the WordPress host must answer **anonymous POSTs**.
+  Preprod currently serves Hostinger Tools' "Coming Soon" page to logged-out
+  visitors and `/wp-json/` answers 401, so Gravity Forms never runs. Mail
+  itself goes out through Easy WP SMTP, which is working.
 - The portal is on **EU1**. Submissions go to `api-eu1.hsforms.com`; the US
   host answers 404 for an EU portal. The management API is `api.hubapi.com`
   either way, which is why only the runtime carries a region.

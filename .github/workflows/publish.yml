@@ -55,6 +55,10 @@ jobs:
       WP_ORIGIN:      ${{ vars.WP_ORIGIN      || 'https://preprod.spenza.com' }}
       SITE_URL:       ${{ vars.SITE_URL       || 'https://www.spenza.com' }}
       MEDIA_ORIGIN:   ${{ vars.MEDIA_ORIGIN   || 'https://media.spenza.com' }}
+      # Where a lead form replays its submission so Gravity Forms sends the
+      # confirmation and the sales alert. No default: leaving it unset ships
+      # the behaviour this repo had before, which is HubSpot only and no mail.
+      WP_FORMS_ORIGIN: ${{ vars.WP_FORMS_ORIGIN }}
       HOST_REDIRECTS: '1'
       # Empty by default, so this workflow publishes an indexable production
       # site. It used to default to '1' from when the only thing it deployed

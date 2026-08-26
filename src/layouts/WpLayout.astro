@@ -17,7 +17,7 @@ import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
 import demoPopupHtml from '../partials/chrome/demo-popup.html?raw';
 import Analytics from '../components/Analytics.astro';
-import { MEDIA_ORIGIN, NOINDEX } from '../../scripts/lib/config.mjs';
+import { MEDIA_ORIGIN, NOINDEX, WP_FORMS_ORIGIN } from '../../scripts/lib/config.mjs';
 import { rewriteHead, withoutTitle, titleFrom } from '../../scripts/lib/wp-head.mjs';
 import '../styles/wp-polish.css';
 
@@ -177,8 +177,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
       because the demo modal is chrome and follows any `.get-started` button —
       the same staleness that left that button dead for fourteen pages. Costs
       nothing until a form is submitted.
+
+      `data-wp-forms-origin` is where a submission is replayed so Gravity Forms
+      sends the confirmation and the sales alert it has always sent — see
+      `WP_FORMS_ORIGIN` in scripts/lib/config.mjs. Empty when unset, and the
+      script then behaves exactly as it did before: HubSpot only, no mail.
     */}
-    <script src="/scripts/hubspot-forms.js" defer></script>
+    <script src="/scripts/hubspot-forms.js" data-wp-forms-origin={WP_FORMS_ORIGIN} defer></script>
     {pageScripts?.script && <script src={pageScripts.script} defer></script>}
 
     <slot name="head" />

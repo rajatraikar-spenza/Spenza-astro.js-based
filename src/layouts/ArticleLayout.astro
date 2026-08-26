@@ -22,7 +22,7 @@ import wpScripts from '../data/wp-scripts.json';
 import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
 import Analytics from '../components/Analytics.astro';
-import { MEDIA_ORIGIN, toMediaOrigin } from '../../scripts/lib/config.mjs';
+import { MEDIA_ORIGIN, toMediaOrigin, WP_FORMS_ORIGIN } from '../../scripts/lib/config.mjs';
 import { applyHtmlPerf } from '../../scripts/lib/html-perf.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
 import { renderTldrHeading, renderSummary, renderKeyPoints, renderSpenzaBlock } from '../lib/acf-blocks.ts';
@@ -340,8 +340,10 @@ body = toMediaOrigin(applyHtmlPerf(body));
     <script src="/wp-assets/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js" defer></script>
     <script src="/scripts/wp-shim.js" defer></script>
     {/* The post template carries the demo bar and the popup; one post also
-        gates a PDF behind a third form that arrives inside the body HTML. */}
-    <script src="/scripts/hubspot-forms.js" defer></script>
+        gates a PDF behind a third form that arrives inside the body HTML.
+        `data-wp-forms-origin` is what lets Gravity Forms send its
+        notifications again — see `WP_FORMS_ORIGIN` in scripts/lib/config.mjs. */}
+    <script src="/scripts/hubspot-forms.js" data-wp-forms-origin={WP_FORMS_ORIGIN} defer></script>
     {/* The reading-progress bar, and the scroll depth that opens the popup. */}
     <script src="/scripts/reading-progress.js" defer></script>
     {postScript && <script src={postScript} defer></script>}

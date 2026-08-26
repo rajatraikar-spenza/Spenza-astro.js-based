@@ -57,6 +57,20 @@
   const PORTAL_ID = '25414858';
   const REGION = 'eu1';
 
+  /**
+   * Where to replay the submission so Gravity Forms sends its notifications.
+   *
+   * Read off this script's own tag rather than hardcoded, because origins in
+   * this repo are environment-driven and no script is allowed to name a host.
+   * The layouts stamp it from `WP_FORMS_ORIGIN`; empty means "do not replay",
+   * which is the behaviour this file had before and is still the default.
+   *
+   * Captured here, at the top of the IIFE, because `document.currentScript` is
+   * only this element while the script is executing.
+   */
+  const WP_ORIGIN = (document.currentScript?.dataset.wpFormsOrigin || '')
+    .replace(/\/+$/, '');
+
   const ENDPOINT = `https://api-${REGION}.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/`;
 
   /** Shown when the network fails, so a lead has somewhere else to go. */
@@ -388,6 +402,85 @@
     }));
   }
 
+  /* ------------------------------------------------------- gravity forms */
+
+  /**
+   * Replay the submission to WordPress, so Gravity Forms mails everyone.
+   *
+   * This is the half of the old behaviour that HubSpot never had. On WordPress
+   * these forms POST to PHP, and Gravity Forms answers with notifications: an
+   * "Admin Notification" telling the team a lead arrived, and a client reply
+   * thanking the submitter, sent to the address in the form's own email field
+   * and BCC'd to sales. Form 20 has six of those client replies and picks
+   * between them on the solution dropdown; thirteen notifications exist across
+   * the six forms in total. None of them is a HubSpot feature — a collected
+   * form has no follow-up email to configure — so once the site stopped
+   * posting to WordPress, every one of those emails stopped with it.
+   *
+   * So post the form again, unchanged. `FormData` takes the whole thing as the
+   * page renders it, which is what keeps this faithful: `is_submit_<id>`,
+   * `gform_submit`, the `state_<id>` token and the page-number fields are all
+   * mirrored markup, and Gravity Forms needs every one of them to recognise
+   * the request as a submission of that form.
+   *
+   * Fire-and-forget, for a reason that cannot be engineered away: WordPress
+   * sends no CORS headers, so a cross-origin response is unreadable by design.
+   * `no-cors` keeps the request a "simple" one — no preflight to be refused —
+   * and the bytes on the wire are the bytes a real form post sends. What comes
+   * back is opaque, so this can report that it *sent*, never that it *worked*.
+   * The visitor's confirmation therefore stays tied to HubSpot's answer, which
+   * is the one we can actually read.
+   */
+  const notified = new WeakSet();
+
+  function notifyWordPress(form, id) {
+    if (!WP_ORIGIN || notified.has(form)) return;
+    notified.add(form);
+
+    // The mirrored `action` is the page this form was captured on, and may
+    // carry the `#gf_19` fragment Gravity Forms appends. A fragment is not
+    // sent with a request, but it has no business in a URL we build by hand.
+    const action = (form.getAttribute('action') || location.pathname).split('#')[0];
+
+    let url;
+    try {
+      url = new URL(action, WP_ORIGIN + '/');
+      url.protocol = 'https:';
+      url.host = new URL(WP_ORIGIN).host;
+    } catch {
+      return;
+    }
+
+    const body = new URLSearchParams();
+    for (const [key, val] of new FormData(form)) {
+      // None of these forms has a file input, but `FormData` would hand us a
+      // `File` if one were ever added, and stringifying it silently posts the
+      // word "[object File]" as the answer to a question.
+      if (typeof val === 'string') body.append(key, val);
+    }
+
+    // Akismet stamps this with the time its script ran, and judges the
+    // submission partly on how long the form was open. The mirror froze one
+    // page's value into the markup, so every submission would carry the same
+    // implausible constant — and a submission Akismet marks as spam is stored
+    // as spam, which sends no notification at all. That failure is invisible
+    // from here, so give it the value it expects instead.
+    if (body.has('ak_js')) body.set('ak_js', String(Date.now()));
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      // `keepalive` so the request survives the page navigating away — the
+      // confirmation for form 5 is a download link, and form 21 starts a file
+      // download the moment it renders.
+      keepalive: true,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    }).catch(err => {
+      console.error(`[hubspot-forms] form ${id}: notification replay failed:`, err);
+    });
+  }
+
   /* -------------------------------------------------------------- submit */
 
   /**
@@ -486,6 +579,13 @@
     }
 
     form.dataset.hsSending = '1';
+
+    // Before `busy()`, which disables the submit button — and a disabled
+    // control is one `FormData` leaves out. Before the `await` too: the
+    // notification emails are the point of this, and they should not wait on
+    // HubSpot, nor be lost if HubSpot is the thing that is down.
+    notifyWordPress(form, id);
+
     const restore = busy(form, id);
     const ok = await send(spec, payload(form, spec));
     delete form.dataset.hsSending;
