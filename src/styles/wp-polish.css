@@ -1539,6 +1539,89 @@ body.wp-mirror.e-off-canvas__no-scroll {
 }
 
 /*
+ * The confirmation, as a pill.
+ *
+ * It replaces the whole form wrapper, so it inherits the width the form had,
+ * and that is what makes this read correctly: the bar the visitor just used
+ * becomes a bar of the same width carrying the reply, with the text centred in
+ * it rather than set against the left edge of a box that is no longer a form.
+ * Centring it needs saying — a bare `<p>` in a wrapper that used to be a
+ * flex-laid-out control inherits neither the centring nor the height.
+ *
+ * Not the two gated downloads. There the confirmation *is* the delivery — a
+ * heading and two download buttons — which a single-line pill cannot hold and
+ * which are styled just above. `:has()` is what tells them apart, matching on
+ * the delivery itself rather than on which form produced it.
+ */
+.wp-mirror .hs-confirmation:not(:has(a.download_pdf, .form_title)) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+/*
+ * The popup's close button, and why it disappeared.
+ *
+ * The mirrored rules were written for a dark card — the snippet still labels
+ * itself "POPUP (DARK)" and calls the background grey-800 — and the container
+ * was later changed to `background: #fff` without the button following it.
+ * So `:hover { color: #fff }` paints the X white on a white
+ * card. It is not fading out, it is camouflaged, and the glyph is an inline
+ * SVG stroked with `currentColor`, so colour is the whole of it.
+ *
+ * Its position was never really set either: the button carries no box — no
+ * size, no padding reset, no centring — so a 20x20 SVG sits wherever a
+ * button's default padding and a 1.5rem font-size leave it, which is down and
+ * left of the corner it is anchored to.
+ *
+ * Both popups need this. The mirrored pages render `#spenza-landing-wrapper-1`
+ * and the post template renders `#spenza-landing-wrapper`, and the two ids
+ * have to be spelled out rather than matched on a prefix: the rules being
+ * corrected are `!important` on an id, and an attribute selector does not
+ * outrank one.
+ */
+.wp-mirror #spenza-landing-wrapper .popup-close,
+.wp-mirror #spenza-landing-wrapper-1 .popup-close {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  top: 12px !important;
+  right: 12px !important;
+  border-radius: 50% !important;
+  color: #6b7280 !important;
+  line-height: 0;
+  transition: color .15s ease-out, background-color .15s ease-out;
+}
+
+.wp-mirror #spenza-landing-wrapper .popup-close:hover,
+.wp-mirror #spenza-landing-wrapper-1 .popup-close:hover,
+.wp-mirror #spenza-landing-wrapper .popup-close:focus-visible,
+.wp-mirror #spenza-landing-wrapper-1 .popup-close:focus-visible {
+  color: #e81224 !important;
+  background: #fdf3f1 !important;
+}
+
+/*
+ * Once the form is gone the card is mostly padding, and 2.5rem of it reads as
+ * a large empty box around one line of text. Tightened, with the top kept deep
+ * enough to clear the close button rather than crowd it.
+ */
+.wp-mirror #spenza-landing-wrapper .popup-container:has(.hs-confirmation),
+.wp-mirror #spenza-landing-wrapper-1 .popup-container:has(.hs-confirmation) {
+  padding: 3.25rem 1.75rem 1.75rem !important;
+}
+
+/*
  * eSIM compatibility checker — the results panel outgrowing its column.
  *
  * `.compatible-box` is given `height: 100%` next to `max-height: 320px`. The
