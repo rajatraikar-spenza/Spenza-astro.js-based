@@ -1666,3 +1666,41 @@ body.wp-mirror.e-off-canvas__no-scroll {
      outranks anything this stylesheet can write. */
   --content-width: 650px !important;
 }
+
+/*
+ * Reading progress on a post — see `public/scripts/reading-progress.js`.
+ *
+ * Here rather than in a mirrored stylesheet for the usual reason: this is the
+ * one stylesheet Astro emits and `wp:optimize-css` never purges, and nothing in
+ * the mirror ever contained this markup for purgecss to keep a rule for.
+ *
+ * The track is transparent, so before the script runs — and on the reader who
+ * never gets it — there is no line across the top of the page at all.
+ */
+.wp-mirror .wp-read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  /* Over the sticky header, which sits at 999. */
+  z-index: 1000;
+  background: transparent;
+  pointer-events: none;
+}
+
+.wp-mirror .wp-read-progress__fill {
+  display: block;
+  height: 100%;
+  /* The brand ramp, turned on its side; the same one the buttons use. */
+  background-image: linear-gradient(90deg, #ff6e24 0%, #fd4500 100%);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  will-change: transform;
+}
+
+@media print {
+  .wp-mirror .wp-read-progress {
+    display: none;
+  }
+}
