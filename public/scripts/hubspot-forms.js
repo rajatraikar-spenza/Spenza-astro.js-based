@@ -437,14 +437,26 @@
     if (!WP_ORIGIN || notified.has(form)) return;
     notified.add(form);
 
-    // The mirrored `action` is the page this form was captured on, and may
-    // carry the `#gf_19` fragment Gravity Forms appends. A fragment is not
-    // sent with a request, but it has no business in a URL we build by hand.
-    const action = (form.getAttribute('action') || location.pathname).split('#')[0];
+    // Where to post. The mirrored `action` is the page this form was captured
+    // on, and may carry the `#gf_19` fragment Gravity Forms appends; a fragment
+    // is not sent with a request, but it has no business in a URL built by hand.
+    //
+    // It is only trusted when it is a plain page path. Gravity Forms renders
+    // `action` as whatever the *current request URI* was, and form 16 lives in
+    // post content fetched through WPGraphQL — so on that one the attribute is
+    // the loader's own `/graphql?query={posts…}` URL, several kilobytes of it.
+    // Posting there reaches the WAF, which answers 415 or 403, and the lead's
+    // notification is lost to a URL that was never a page.
+    //
+    // Falling back to the current path is safe: Gravity Forms recognises a
+    // submission by `gform_submit`, not by which page receives it.
+    const raw = (form.getAttribute('action') || '').split('#')[0];
+    const usable = raw && !raw.includes('?') && !/\/graphql\/?$/.test(raw);
 
     let url;
     try {
-      url = new URL(action, WP_ORIGIN + '/');
+      url = new URL(usable ? raw : location.pathname, WP_ORIGIN + '/');
+      url.search = '';
       url.protocol = 'https:';
       url.host = new URL(WP_ORIGIN).host;
     } catch {
