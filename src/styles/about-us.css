@@ -66,55 +66,52 @@ body.page-id-11226 main > .elementor > .e-con.e-parent > .e-con-inner {
 /* ---------------------------------------------------------------------------
    1. Founder
 
-   Becomes one real two-column card: photo left, copy right, both filling the
-   same height. The PNG that used to stand in for the card is hidden, and the
-   two absolutely positioned text containers are returned to normal flow.
+   Photo left, centred copy right, on the page's own white — no card, no border,
+   no shadow. The two things that used to fake a card go with it: the 2560x869
+   banner that stood in for the portrait, and `Vector-14.png`, the PNG of a white
+   rounded rectangle the copy floated over.
+
+   The portrait is the square one the author archive already uses, so nothing new
+   is published to the media bucket. It is 364x364 and shown at 360, which is why
+   there is no upscaling to guard against.
 
    Elementor ships a desktop copy of this block and a mobile copy, each hidden
    from the other by its own `elementor-hidden-*` class. Both get the same
    treatment and grid auto-placement puts whichever one is visible in column 2.
    --------------------------------------------------------------------------- */
 
-/* The card *is* this section's `.e-con-inner`, so the shared rhythm rule above
-   would put its 72px inside the card — and that rule is the more specific of
-   the two, hence `!important` rather than source order. Margin here instead. */
+/* The shared rhythm rule above targets every `.e-con-inner` and is the more
+   specific of the two, hence `!important` rather than source order. The block
+   spaces itself with margin instead. */
 body.page-id-11226 .elementor-element-bb23b32 > .e-con-inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-  align-items: stretch;
-  gap: 0;
+  grid-template-columns: minmax(0, 481px) minmax(0, 1fr);
+  align-items: center;
+  gap: 128px;
   padding-block: 0 !important;
   margin-block: 72px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid var(--sp-line);
-  border-radius: 28px;
-  box-shadow: var(--sp-card-shadow);
 }
 
-/* The banner is 2.95:1. Cropped to a card column it needs an anchor, and the
-   founder stands about an eighth of the way in from the left edge. */
 body.page-id-11226 .elementor-element-6e37067,
 body.page-id-11226 .elementor-element-6e37067 > .elementor-widget-container,
 body.page-id-11226 .elementor-element-6e37067 picture {
   display: block;
-  height: 100%;
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* `height` and `display` carry `!important` because Elementor's image widget
-   asserts `height: auto` and `display: inline-block` on every `img` it renders,
-   and either one leaves the photo short of the card it is meant to fill. */
+/* `display`, `width` and `height` carry `!important` because Elementor's image
+   widget asserts `display: inline-block` and `height: auto` on every `img` it
+   renders, and `aspect-ratio` cannot hold a square against an explicit height. */
 body.page-id-11226 .elementor-element-6e37067 img {
   display: block !important;
-  width: 100%;
-  height: 100% !important;
-  min-height: 430px;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1;
   object-fit: cover;
-  object-position: 13% 42%;
-  border-radius: 0 !important;
+  object-position: center;
+  border-radius: 20px !important;
 }
 
 /* `693dcef` (desktop) and `c3d6584` (mobile) were both positioned absolute with
@@ -133,23 +130,26 @@ body.page-id-11226 .elementor-element-22bfa96 {
   background-color: transparent !important;
 }
 
-/* The mobile copy carries `margin-top: -120px`, which is how the fake white
-   card used to ride up over the photo. In a grid that is a row overlapping the
-   row above it: the heading printed straight across the founder's chest. */
+/* The mobile copy carries `margin-top: -120px`, which is how the fake white card
+   used to ride up over the photo. In a grid that is a row overlapping the row
+   above it: the heading printed straight across the founder's chest. */
 body.page-id-11226 .elementor-element-693dcef,
 body.page-id-11226 .elementor-element-c3d6584 {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 0 !important;
-  padding: 44px 48px !important;
+  padding: 0 !important;
 }
 
 body.page-id-11226 .elementor-element-462a1fd,
 body.page-id-11226 .elementor-element-22bfa96 {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 0;
   padding: 0 !important;
+  text-align: center;
 }
 
 /* Every widget inside the copy column was width-constrained and centred by
@@ -161,79 +161,144 @@ body.page-id-11226 .elementor-element-22bfa96 > .elementor-element {
   margin-inline: 0 !important;
 }
 
+/* Each widget also carries a bottom margin on its own `.elementor-widget-container`
+   — 32px under the heading, 12px under the credit, 32px under the paragraph —
+   which stacks on top of the margins set below. Zeroed here so the rhythm is
+   stated once, on the text itself, rather than as a sum of two sources. */
+body.page-id-11226 .elementor-element-462a1fd > .elementor-element > .elementor-widget-container,
+body.page-id-11226 .elementor-element-22bfa96 > .elementor-element > .elementor-widget-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* The white-rounded-rectangle PNGs that used to fake the card. */
 body.page-id-11226 .elementor-element-2083aec,
 body.page-id-11226 .elementor-element-0248033 {
   display: none !important;
 }
 
+/* Held to a measure that breaks the line after "From", which is the shape the
+   heading is drawn in. `text-wrap: balance` would even the two lines out and
+   carry "From" down with "Day One". */
 body.page-id-11226 .elementor-element-6d3ef7f h2,
 body.page-id-11226 .elementor-element-bd8f87b h2 {
-  font-size: 38px !important;
-  line-height: 1.18 !important;
-  font-weight: 800 !important;
+  max-width: 540px;
+  margin: 0 auto 48px !important;
+  font-size: 40px !important;
+  line-height: 50px !important;
+  font-weight: 700 !important;
+  letter-spacing: -1px !important;
   color: var(--sp-ink) !important;
-  text-align: left !important;
-  margin-bottom: 14px !important;
-  /* Two even lines rather than five words and an orphan. */
-  text-wrap: balance;
+  text-align: center !important;
 }
 
-/* Name and role read as one two-line credit, not two headings. */
+/* Name and role are one line: the name in ink, the role in orange, set at the
+   same size so the comma between them reads as punctuation and not a break. */
 body.page-id-11226 .elementor-element-cfc73e8 h3,
 body.page-id-11226 .elementor-element-66c693a h3 {
-  font-size: 17px !important;
-  font-weight: 700 !important;
-  color: var(--sp-ink) !important;
-  text-align: left !important;
-  margin: 0 !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 30px !important;
+  letter-spacing: -0.5px !important;
+  color: #000 !important;
+  text-align: center !important;
+  margin: 0 0 32px !important;
 }
 
-body.page-id-11226 .elementor-element-8ccbb37 h3,
-body.page-id-11226 .elementor-element-8b1aba7 h3 {
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--sp-orange-deep) !important;
-  text-align: left !important;
-  margin: 0 0 16px !important;
+body.page-id-11226 .elementor-element-cfc73e8 .founder-role,
+body.page-id-11226 .elementor-element-66c693a .founder-role {
+  color: var(--sp-orange-deep);
+  font-weight: 500;
+  /* The design sets a space either side of the comma; markup collapses one. */
+  margin-left: 3px;
 }
 
 body.page-id-11226 .elementor-element-0b41f76 p,
 body.page-id-11226 .elementor-element-576247e p {
-  font-size: 16.5px !important;
-  line-height: 1.65 !important;
+  max-width: 670px;
+  margin: 0 auto 32px !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
   color: var(--sp-body) !important;
-  text-align: left !important;
-  margin: 0 0 24px !important;
+  text-align: center !important;
 }
 
 /* "Meet our founder" was a bare orange link centred in empty space. */
 body.page-id-11226 .elementor-element-2b9417a,
 body.page-id-11226 .elementor-element-0435b9a {
-  text-align: left !important;
+  text-align: center !important;
 }
 
 body.page-id-11226 .elementor-element-2b9417a .elementor-button,
 body.page-id-11226 .elementor-element-0435b9a .elementor-button {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 13px 26px !important;
+  padding: 20px 28px 20px 26px !important;
   border-radius: 999px !important;
-  background: var(--sp-grad) !important;
+  background: #08090a !important;
+  background-image: none !important;
   color: #fff !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 10px 24px rgba(255, 69, 0, 0.24);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 body.page-id-11226 .elementor-element-2b9417a .elementor-button:hover,
-body.page-id-11226 .elementor-element-0435b9a .elementor-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(255, 69, 0, 0.3);
+body.page-id-11226 .elementor-element-0435b9a .elementor-button:hover,
+body.page-id-11226 .elementor-element-2b9417a .elementor-button:focus-visible,
+body.page-id-11226 .elementor-element-0435b9a .elementor-button:focus-visible {
+  background: #1f2124 !important;
+  box-shadow: 0 10px 24px rgba(8, 9, 10, 0.24);
+}
+
+body.page-id-11226 .elementor-element-2b9417a .elementor-button-content-wrapper,
+body.page-id-11226 .elementor-element-0435b9a .elementor-button-content-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* The arrow, and what hover does to it.
+ *
+ * It sits tilted — pointing north-east — and straightens to level on hover.
+ * Only the arrowhead group turns: the circle is concentric with the rotation
+ * origin, so turning it as well would cost a repaint and show nothing.
+ *
+ * `transform-origin` is in user units because the box the group occupies is the
+ * arrow's own bounding box, not the 24x24 viewBox, and a percentage would spin
+ * it about its own middle rather than the circle's. */
+body.page-id-11226 .founder-cta-arrow {
+  display: inline-flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+body.page-id-11226 .founder-cta-arrow svg {
+  width: 100%;
+  height: 100%;
+  /* The button declares `fill: #ff4500` for the icon fonts Elementor ships. The
+     circle carries no fill of its own, so without this it inherits an orange
+     disc with the arrow lost inside it. */
+  fill: none;
+}
+
+body.page-id-11226 .founder-cta-arrow-head {
+  transform: rotate(-45deg);
+  transform-origin: 12px 12px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.page-id-11226 .elementor-button:hover .founder-cta-arrow-head,
+body.page-id-11226 .elementor-button:focus-visible .founder-cta-arrow-head {
+  transform: rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-id-11226 .founder-cta-arrow-head {
+    transition: none;
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -870,11 +935,14 @@ body.page-id-11226 .elementor-element-4839565 .swiper-slide p {
 
   body.page-id-11226 .elementor-element-bb23b32 > .e-con-inner {
     grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 36px;
   }
 
-  body.page-id-11226 .elementor-element-6e37067 img {
-    min-height: 300px;
-    max-height: 340px;
+  /* Stacked, the portrait would otherwise stretch to the full column width and
+     take the whole viewport as a square. */
+  body.page-id-11226 .elementor-element-6e37067 {
+    max-width: 380px !important;
   }
 
   body.page-id-11226 .elementor-element-6d3ef7f h2,
@@ -899,12 +967,11 @@ body.page-id-11226 .elementor-element-4839565 .swiper-slide p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  body.page-id-11226 .elementor-element-693dcef,
-  body.page-id-11226 .elementor-element-c3d6584 {
-    padding: 28px 24px !important;
+  body.page-id-11226 .elementor-element-6e37067 {
+    max-width: 280px !important;
   }
 
-  /* Matches the rhythm rule's phone value — the founder card spaces itself with
+  /* Matches the rhythm rule's phone value — the founder block spaces itself with
      margin, so it does not pick that up on its own. */
   body.page-id-11226 .elementor-element-bb23b32 > .e-con-inner {
     margin-block: 48px;

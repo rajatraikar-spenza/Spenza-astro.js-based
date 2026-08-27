@@ -1567,6 +1567,39 @@ body.wp-mirror.e-off-canvas__no-scroll {
 }
 
 /*
+ * Except in a popup, where the pill is wrong.
+ *
+ * The pill works inline because it stands where a form stood: same width, same
+ * height, the bar the visitor just used answering back. A popup gives it none
+ * of that. The card is already a raised white panel with its own border and
+ * shadow, so a black pill inside it is a second surface inside the first — a
+ * box in a box — where the card itself is the thing that carries the reply.
+ * There the confirmation is the card's whole content, and content is set as
+ * text.
+ *
+ * Matched on `.popup-overlay .popup-container` rather than on the wrapper ids,
+ * because there are three popups and they do not agree on the id: the mirrored
+ * pages render `#spenza-landing-wrapper-1`, the post template
+ * `#spenza-landing-wrapper`, and form 16 arrives inside a post body from
+ * WordPress with a third. All three share this pair of classes.
+ *
+ * Four classes deep for specificity, not for the selector's own sake: the pill
+ * rule above scores three classes plus the type selector inside its `:has()`,
+ * and `.wp-mirror .popup-overlay .hs-confirmation` alone would lose to it.
+ */
+.wp-mirror .popup-overlay .popup-container .hs-confirmation {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--grey-400, #4e545d);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+/*
  * The popup's close button, and why it disappeared.
  *
  * The mirrored rules were written for a dark card — the snippet still labels
