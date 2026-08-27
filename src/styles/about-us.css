@@ -72,8 +72,10 @@ body.page-id-11226 main > .elementor > .e-con.e-parent > .e-con-inner {
    rounded rectangle the copy floated over.
 
    The portrait is the square one the author archive already uses, so nothing new
-   is published to the media bucket. It is 364x364 and shown at 360, which is why
-   there is no upscaling to guard against.
+   is published to the media bucket. Note that 364x364 is the full-size
+   attachment — there is no larger original — so at the design's 481px it is
+   upscaled 1.3x, and more on a 2x screen. Replacing the asset is the only fix;
+   shrinking the column to 364 would sharpen it and stop matching the design.
 
    Elementor ships a desktop copy of this block and a mobile copy, each hidden
    from the other by its own `elementor-hidden-*` class. Both get the same
