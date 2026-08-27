@@ -471,6 +471,22 @@
       if (typeof val === 'string') body.append(key, val);
     }
 
+    // The page the lead actually came from.
+    //
+    // Gravity Forms files an entry against the URL the POST lands on, and that
+    // URL is this replay's rather than the visitor's. The popup's mirrored
+    // `action` is `/#gf_15` on every one of the ~270 pages it appears on, so
+    // every popup lead is recorded against the homepage of a host no visitor
+    // ever saw. HubSpot keeps the real page — it is `context.pageUri` below —
+    // and the notification email was the poorer half of the pair for not
+    // having it, which is most of what made it read as a downgrade.
+    //
+    // Sent alongside the form rather than as part of it: Gravity Forms ignores
+    // a parameter that is not one of its fields, and `spenza-form-
+    // notifications.php` on WordPress is what reads these two back.
+    body.set('spenza_source_url', location.href);
+    body.set('spenza_page_title', document.title);
+
     // Akismet stamps this with the time its script ran, and judges the
     // submission partly on how long the form was open. The mirror froze one
     // page's value into the markup, so every submission would carry the same

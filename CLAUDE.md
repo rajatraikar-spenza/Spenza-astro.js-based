@@ -174,10 +174,53 @@ submits — neither is a lead form.
   that it *sent*. `ak_js` is restamped with `Date.now()`, because the mirror
   froze one page's Akismet timestamp into the markup and a submission Akismet
   scores as spam is stored as spam and notifies no one.
-- Before setting it, the WordPress host must answer **anonymous POSTs**.
-  Preprod currently serves Hostinger Tools' "Coming Soon" page to logged-out
-  visitors and `/wp-json/` answers 401, so Gravity Forms never runs. Mail
-  itself goes out through Easy WP SMTP, which is working.
+- Before setting it, the WordPress host must answer **anonymous POSTs**. That
+  is now true — `WP_FORMS_ORIGIN=https://preprod.spenza.com` is set as a repo
+  variable and the replay reaches Gravity Forms — but it was not always, and a
+  host that goes back behind Hostinger Tools' "Coming Soon" page silently stops
+  every notification again.
+- **A lead produces two alerts, and the Gravity Forms one is the poorer.**
+  HubSpot still sends its own "You've got a new submission on the Collected
+  Forms" mail for an API submission, so nothing was lost by adding the replay —
+  what arrived alongside it was the Gravity Forms default, which on all six
+  forms was `{admin_email}` as the sender, an empty Reply-To, and `{all_fields}`
+  as the entire body. All six now carry a From *Name*, a Reply-To pointing at
+  the lead, the lead's address in the subject, and a body that names the form,
+  the page, the time and where to look the person up.
+- **Do not "fix" the sender by moving it to `sales@spenza.com`.** It is the
+  obvious move — the address is real, it is what the client replies use, and it
+  makes the alert stop looking like a stray server address. It also stops the
+  mail arriving at all. Measured, not assumed: the same form, the same hour,
+  the same recipients, the only change being the From — `sales@spenza.com`
+  vanished silently twice, `{admin_email}` arrived in three seconds. That
+  address is Google Workspace, this mail leaves a Hostinger server with no
+  SPF or DKIM covering it, and Google quarantines unauthenticated mail claiming
+  its own domain rather than bouncing it, so the failure is invisible from
+  WordPress. The From has to stay on a domain the sending host is authorised
+  for; **`fromName` is what makes it presentable, and costs nothing.**
+- The consequence worth watching: the client replies *are* sent as
+  `Spenza <sales@spenza.com>` and so are exposed to exactly that. Their BCC
+  copies stopped reaching sales@ after 21 Aug. Whether leads on other hosts
+  still receive theirs is untested — an authenticated relay is what settles it.
+- **Mail does *not* go out through Easy WP SMTP.** The plugin is active and
+  configured, but every message is `X-Mailer: PHPMailer` straight out of
+  Hostinger's PHP into MailChannels, and none of its forced From/Reply-To
+  settings apply — so it is not intercepting `phpmailer_init`. Do not simply
+  "turn it on": as saved it would rewrite every sender to
+  `Richard Neville <sales@preprod.spenza.com>`, replace the Reply-To that
+  points at the lead, and dial `smtp.gmail.com:465` with encryption set to
+  **none**, which cannot connect. Relaying through an authenticated sender is
+  still the only thing that ends the DMARC failure for good.
+- **A replayed submission loses which page the lead came from.** Gravity Forms
+  files an entry against the URL the POST arrives at, and that is the mirrored
+  `action` — which for the popup is `/` on every one of the ~270 pages it
+  appears on. HubSpot keeps the real page (`context.pageUri`), which is why its
+  alert could name the page and Gravity Forms' could not. `hubspot-forms.js`
+  therefore sends `spenza_source_url` and `spenza_page_title` alongside the
+  form, and `wordpress/mu-plugins/spenza-form-source-url.php` writes the first
+  onto the entry so `{embed_url}` names the page the visitor actually saw.
+  Without that file installed the tag still resolves — to the preprod replay
+  target, which is wrong rather than absent.
 - The portal is on **EU1**. Submissions go to `api-eu1.hsforms.com`; the US
   host answers 404 for an EU portal. The management API is `api.hubapi.com`
   either way, which is why only the runtime carries a region.
