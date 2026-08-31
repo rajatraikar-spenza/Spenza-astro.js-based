@@ -151,16 +151,28 @@ function spenza_lead_submit() {
 		wp_send_json( array( 'ok' => false, 'error' => 'gravity_forms_inactive' ), 500 );
 	}
 
-	// Only the form's own fields. Gravity Forms names them `input_<id>` and
-	// `input_<id>_<sub>`; anything else in the POST is not this form's.
+	// Only the form's own fields. Anything else in the POST is not this form's.
+	//
+	// Two spellings, because the browser and GFAPI disagree. A rendered
+	// Gravity Form names a multi-input field's parts with a dot —
+	// `input_1.3` is the first name half of field 1, `input_7.6` the country
+	// half of an address — and that is what `FormData` sends. `GFAPI::
+	// submit_form()` wants the same key with an underscore.
+	//
+	// This matters for exactly one form and it is easy to miss: form 5, the
+	// gated mobility-policy download, carries `input_1.3`, `input_7.4`,
+	// `input_7.6` and `input_8.6`. Drop those and it loses first name, surname
+	// and country — three of its required fields — so every submission fails
+	// validation and no entry or email is produced. The other six forms use
+	// plain `input_<id>` throughout and would never have shown the bug.
 	$input = array();
 
 	foreach ( $_POST as $key => $value ) {
-		if ( ! is_string( $key ) || ! preg_match( '/^input_[0-9]+(_[0-9]+)?$/', $key ) ) {
+		if ( ! is_string( $key ) || ! preg_match( '/^input_[0-9]+([._][0-9]+)?$/', $key ) ) {
 			continue;
 		}
 		if ( is_string( $value ) ) {
-			$input[ $key ] = wp_unslash( $value );
+			$input[ str_replace( '.', '_', $key ) ] = wp_unslash( $value );
 		}
 	}
 

@@ -94,6 +94,9 @@
     // Book A Free Demo — the inline email bar on 14 marketing pages, every
     // blog post, and every day archive. By far the most-rendered form.
     19: {
+      // Replayed through `spenza-lead-endpoint.php` — see the note on
+      // 'ai-agent' below for why posting at a page URL is not enough.
+      replay: 'ajax',
       guid: 'e7291c23-7818-44f4-8995-81fb89b2ccb7',
       fields: { input_3: 'email' },
       required: ['input_3'],
@@ -104,6 +107,9 @@
     // Homepage Popup — the lead-capture modal behind every "book your demo
     // now" / "Get Started" button, plus the copy inside the post template.
     15: {
+      // Replayed through `spenza-lead-endpoint.php` — see the note on
+      // 'ai-agent' below for why posting at a page URL is not enough.
+      replay: 'ajax',
       guid: '131ba392-3608-445b-967e-293c7fb308bd',
       fields: { input_2: 'email', input_5: 'phone' },
       required: ['input_2'],
@@ -115,6 +121,9 @@
     // `input_4` is a hidden field holding that PDF's URL; it is the
     // confirmation's download link, not something HubSpot needs.
     16: {
+      // Replayed through `spenza-lead-endpoint.php` — see the note on
+      // 'ai-agent' below for why posting at a page URL is not enough.
+      replay: 'ajax',
       guid: '67bf9e1f-b653-42ff-af58-bed00c791765',
       fields: { input_2: 'email' },
       required: ['input_2'],
@@ -137,6 +146,9 @@
     // So they are not sent. Dropping them here rather than posting them into
     // the void is the same outcome with one difference: this file says so.
     20: {
+      // Replayed through `spenza-lead-endpoint.php` — see the note on
+      // 'ai-agent' below for why posting at a page URL is not enough.
+      replay: 'ajax',
       guid: '5d8b9928-1875-4a8e-942d-76d41139916e',
       fields: {
         input_1: 'name:first',
@@ -164,6 +176,21 @@
     // Download Now — the gated mobility-policy pack. Its confirmation is the
     // delivery mechanism: two files, linked straight from the thank-you.
     5: {
+      /*
+       * The one form still posting at a page URL, and the only one that
+       * cannot move until `spenza-lead-endpoint.php` is re-uploaded.
+       *
+       * Its fields are Gravity Forms' multi-input kind, named with a dot —
+       * `input_1.3`, `input_7.4`, `input_7.6`, `input_8.6` — which is first
+       * name, address parts and surname. The endpoint's first version matched
+       * only `input_<id>` and `input_<id>_<sub>`, so it dropped all four,
+       * three of them required, and every submission failed validation: HTTP
+       * 500, no entry, no email. Measured, not guessed.
+       *
+       * The fix is in the tree. Until the updated file is on WordPress this
+       * form keeps the page replay, which is what it has always used — no
+       * better, no worse. Set `replay: 'ajax'` once it is uploaded.
+       */
       guid: '32e3d5e9-f13b-4841-a28c-788b91eddf63',
       fields: {
         'input_1.3': 'firstname',
@@ -277,6 +304,9 @@
     // start the download, so a success here has to announce itself; see
     // `announce()` below.
     21: {
+      // Replayed through `spenza-lead-endpoint.php` — see the note on
+      // 'ai-agent' below for why posting at a page URL is not enough.
+      replay: 'ajax',
       guid: '96f58512-9d88-410f-9dce-4610a8761f8d',
       fields: { input_1: 'email', input_2: 'phone' },
       required: ['input_1', 'input_2'],
