@@ -592,10 +592,25 @@
    * `gform_submit`, the `state_<id>` token and the page-number fields are all
    * part of the markup, and Gravity Forms needs them to recognise the request.
    */
-  function replayBody(form) {
+  function replayBody(form, { forEndpoint = false } = {}) {
     const body = new URLSearchParams();
 
     for (const [key, val] of new FormData(form)) {
+      /*
+       * `is_submit_<id>` is what Gravity Forms' own front-end handler watches
+       * for, and it runs on any request carrying it — including this one.
+       * Left in, the submission is processed twice: once by that handler and
+       * once by the `GFAPI::submit_form()` call in the endpoint, producing two
+       * entries per lead. Measured, not deduced: posting the same body with
+       * the flag creates two entries and without it one, and the second is
+       * malformed — every value stored twice under `1_0`, `1_1`, `2_0` …
+       * rather than under the field ids.
+       *
+       * The page-URL replay still needs it, because there that handler *is*
+       * the thing doing the work. So it is dropped only for the endpoint.
+       */
+      if (forEndpoint && /^is_submit_\d+$/.test(key)) continue;
+
       // None of these forms has a file input, but `FormData` would hand us a
       // `File` if one were ever added, and stringifying it silently posts the
       // word "[object File]" as the answer to a question.
@@ -641,7 +656,7 @@
         // confirmation is a download link and form 21 starts a file download.
         keepalive: true,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: replayBody(form),
+        body: replayBody(form, { forEndpoint: true }),
       });
 
       const result = await res.json().catch(() => null);

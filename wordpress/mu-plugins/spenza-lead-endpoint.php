@@ -151,36 +151,44 @@ function spenza_lead_submit() {
 		wp_send_json( array( 'ok' => false, 'error' => 'gravity_forms_inactive' ), 500 );
 	}
 
-	// Only the form's own fields. Anything else in the POST is not this form's.
-	//
-	// Two spellings, because the browser and GFAPI disagree. A rendered
-	// Gravity Form names a multi-input field's parts with a dot —
-	// `input_1.3` is the first name half of field 1, `input_7.6` the country
-	// half of an address — and that is what `FormData` sends. `GFAPI::
-	// submit_form()` wants the same key with an underscore.
-	//
-	// This matters for exactly one form and it is easy to miss: form 5, the
-	// gated mobility-policy download, carries `input_1.3`, `input_7.4`,
-	// `input_7.6` and `input_8.6`. Drop those and it loses first name, surname
-	// and country — three of its required fields — so every submission fails
-	// validation and no entry or email is produced. The other six forms use
-	// plain `input_<id>` throughout and would never have shown the bug.
-	$input = array();
+	// At least one of the form's own fields has to be present, or this is not
+	// a submission and there is nothing to file.
+	$has_field = false;
 
-	foreach ( $_POST as $key => $value ) {
-		if ( ! is_string( $key ) || ! preg_match( '/^input_[0-9]+([._][0-9]+)?$/', $key ) ) {
-			continue;
-		}
-		if ( is_string( $value ) ) {
-			$input[ str_replace( '.', '_', $key ) ] = wp_unslash( $value );
+	foreach ( array_keys( $_POST ) as $key ) {
+		if ( is_string( $key ) && preg_match( '/^input_[0-9]+([._][0-9]+)?$/', $key ) ) {
+			$has_field = true;
+			break;
 		}
 	}
 
-	if ( ! $input ) {
+	if ( ! $has_field ) {
 		wp_send_json( array( 'ok' => false, 'error' => 'no_fields' ), 400 );
 	}
 
-	$result = GFAPI::submit_form( $form_id, $input );
+	/*
+	 * An EMPTY array of values, deliberately.
+	 *
+	 * `GFAPI::submit_form()` merges `$_POST` itself — its own documentation
+	 * says so: "Not $_POST, that will be automatically merged." The merge is
+	 * recursive, so passing the same keys again does not overwrite them, it
+	 * combines them: `input_1 => 'Alex'` in both places becomes
+	 * `array('Alex','Alex')`, and Gravity Forms stores an array under a field
+	 * id as `1_0`, `1_1`. Every value in the entry, twice, under keys that are
+	 * not the field ids — so the entry exists, the notification fires, and
+	 * `{all_fields}` renders nothing recognisable.
+	 *
+	 * That is exactly what this endpoint produced while it also passed the
+	 * values explicitly. It went unnoticed because Gravity Forms' own handler
+	 * was processing the same request in parallel — `is_submit_<id>` is in the
+	 * replayed body — and writing a correct entry alongside the malformed one.
+	 * Fixing the duplicate is what exposed which of the two was ours.
+	 *
+	 * Passing nothing also removes the need to translate `input_1.3` into
+	 * `input_1_3`: the dotted spelling is what a real Gravity Forms POST
+	 * carries, and its own merge understands it natively.
+	 */
+	$result = GFAPI::submit_form( $form_id, array() );
 
 	if ( is_wp_error( $result ) ) {
 		wp_send_json(
