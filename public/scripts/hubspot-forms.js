@@ -297,7 +297,12 @@
       unsent: [],
       required: ['input_1', 'input_2', 'input_3'],
       email: ['input_2'],
-      success: `<p>Thanks — a Spenza telecom specialist will review your setup and be in touch shortly.</p>`,
+      // A heading and a line, not one long sentence floating in a card. The
+      // class is this page's own: `.form_title` is wp-polish's, and it is one
+      // of the two things the mirrored pill rule tests for.
+      success:
+        '<h3 class="hs-confirmation-title">Request received</h3>' +
+        '<p>A Spenza telecom specialist will review your setup and be in touch shortly.</p>',
     },
 
     // Analysis Report Mail — the MVNO calculator's "send me the report" gate.

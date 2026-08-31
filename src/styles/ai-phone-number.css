@@ -1328,11 +1328,12 @@ html { scroll-behavior: smooth; }
    that replaces the form. None of it exists in the markup, so none
    of it can be styled by anything that reads the markup.
 
-   The site's copies of these rules live in wp-polish.css, scoped
-   under `.wp-mirror` — a class this page's body does not carry,
-   because it loads none of the WordPress stylesheets those rules
-   were written against. So they are restated here in the design's
-   own tokens rather than imported.
+   The site's copies live in wp-polish.css under `.wp-mirror`, and
+   this page's body DOES carry that class — WpLayout puts it there.
+   So these are not a substitute for rules that cannot reach; they
+   are overrides, and several have to outscore their wp-mirror
+   counterpart rather than merely follow it. The confirmation block
+   below is the clearest case.
 ═══════════════════════════════════════════════════════════════ */
 .ai-lp .hs-field-error {
   margin: 0;
@@ -1377,39 +1378,72 @@ html { scroll-behavior: smooth; }
 
 /*
    The confirmation replaces the form's own children, so it inherits
-   the panel: same white card, same radius, same shadow. Given a
-   minimum height so the CTA beside it does not collapse to a third
-   of its height the moment someone submits.
+   the panel: same white card, same radius, same shadow.
+
+   Every selector here is four classes deep, and that is not stylistic.
+   `wp-polish.css` renders an inline confirmation as a black pill:
+
+     .wp-mirror .hs-confirmation:not(:has(a.download_pdf, .form_title))
+
+   which scores (0,3,1) — the `:not()` inherits the specificity of the
+   `a.download_pdf` inside it. That rule is right where it was written,
+   for a confirmation standing in a form bar's place. Here it is wrong
+   for exactly the reason wp-polish already gives for popups: this is a
+   raised white card, so a black pill inside it is a box in a box. And
+   `.ai-lp .hs-confirmation` at (0,2,0) loses to it, which is what put a
+   black lozenge in the middle of an empty white panel.
+
+   `.wp-mirror` is on the body of this page too — WpLayout puts it
+   there — so the pill rule matches and has to be outscored, not merely
+   written later.
 */
-.ai-lp .integration-form:has(.hs-confirmation) {
+.ai-lp .cta-inner .integration-form:has(.hs-confirmation) {
   display: grid;
   place-items: center;
-  min-height: 320px;
+  /* Enough that the panel does not collapse away from the CTA beside
+     it, not so much that the message floats in a field of white. */
+  min-height: 260px;
+  padding: 32px;
 }
-.ai-lp .hs-confirmation {
+.ai-lp .cta-inner .integration-form .hs-confirmation {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font-weight: 400;
   text-align: center;
-  max-width: 420px;
+  max-width: 380px;
 }
-.ai-lp .hs-confirmation::before {
+.ai-lp .cta-inner .integration-form .hs-confirmation::before {
   content: "✓";
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  margin: 0 auto 16px;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   background: var(--orange-soft);
   color: var(--orange);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
+  line-height: 1;
 }
-.ai-lp .hs-confirmation p {
+.ai-lp .cta-inner .integration-form .hs-confirmation-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.25px;
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+.ai-lp .cta-inner .integration-form .hs-confirmation p {
   font-size: 16px;
-  line-height: 1.65;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--slate);
+  margin: 0;
 }
-.ai-lp .hs-confirmation > :first-child { margin-top: 0; }
-.ai-lp .hs-confirmation > :last-child { margin-bottom: 0; }
 
 /* ═══════════════════════════════════════════════════════════════
    TYPOGRAPHY — ALIGNED TO THE SOLUTION PAGES
@@ -1516,4 +1550,92 @@ html { scroll-behavior: smooth; }
 }
 .ai-lp .eyebrow {
   font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SMALL SCREENS
+
+   The design's own breakpoints already collapse every grid to one
+   column and give the comparison table its own scroll container —
+   verified at 360, 390 and 414px. What follows is what that left.
+═══════════════════════════════════════════════════════════════ */
+
+/*
+   Clip the decorative glows.
+
+   `.hero` already does this; `.cta-section` did not, and its glow is
+   600px wide and translated left, so on a phone it hung ~10px past
+   the viewport and made the whole document scroll sideways. A page
+   that slides under the thumb feels broken long before anyone works
+   out that the cause is an invisible gradient.
+*/
+.ai-lp .cta-section {
+  overflow: hidden;
+}
+
+/*
+   Anchor targets clear the sticky site header.
+
+   Every nav link on this page is a same-page anchor, and the header
+   is `position: sticky`. Without this the section's eyebrow lands
+   underneath it — visible on `#connect`, where "READY FOR PRODUCTION"
+   sat half-hidden behind the bar.
+
+   88px is the header at its mobile height plus a little air.
+*/
+.ai-lp [id],
+.elementor-17903 [id] {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 640px) {
+  /*
+     The hero card's telemetry bars and the transcript are decorative
+     detail at this width; they stay, but the card stops trying to
+     hold desktop padding.
+  */
+  .ai-lp .agent-card,
+  .ai-lp .transcript-card,
+  .ai-lp .demo-number-card {
+    padding: 20px;
+  }
+
+  /* A single column of touch targets, full width, no half-widths. */
+  .ai-lp .hero-actions .btn,
+  .ai-lp .cta-actions .btn,
+  .ai-lp .checklist-cta .btn {
+    width: 100%;
+  }
+
+  .ai-lp .integration-form {
+    padding: 22px;
+  }
+
+  /*
+     Radios on their own lines. Side by side they wrap mid-label at
+     this width, which reads as two broken labels rather than two
+     choices.
+  */
+  .ai-lp .form-capabilities {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* The confirmation card does not need desktop breathing room. */
+  .ai-lp .cta-inner .integration-form:has(.hs-confirmation) {
+    min-height: 220px;
+    padding: 24px;
+  }
+
+  /*
+     The comparison table scrolls inside its own box. Give it a hint
+     that it can be swiped, rather than leaving a column clipped at
+     the edge with nothing to say it continues.
+  */
+  .ai-lp .table-wrap {
+    -webkit-overflow-scrolling: touch;
+  }
+  .ai-lp .table-wrap table {
+    min-width: 560px;
+  }
 }
