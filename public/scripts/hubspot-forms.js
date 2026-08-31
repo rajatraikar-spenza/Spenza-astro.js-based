@@ -177,20 +177,21 @@
     // delivery mechanism: two files, linked straight from the thank-you.
     5: {
       /*
-       * The one form still posting at a page URL, and the only one that
-       * cannot move until `spenza-lead-endpoint.php` is re-uploaded.
+       * The form that took two fixes to get here, both of them silent.
        *
-       * Its fields are Gravity Forms' multi-input kind, named with a dot —
-       * `input_1.3`, `input_7.4`, `input_7.6`, `input_8.6` — which is first
-       * name, address parts and surname. The endpoint's first version matched
-       * only `input_<id>` and `input_<id>_<sub>`, so it dropped all four,
-       * three of them required, and every submission failed validation: HTTP
-       * 500, no entry, no email. Measured, not guessed.
+       * Its name and address fields are Gravity Forms' multi-input kind,
+       * named with a dot — `input_1.3`, `input_7.4`, `input_7.6`,
+       * `input_8.6`. The endpoint's first version matched only underscores
+       * and dropped all four, three of them required, so every submission
+       * failed. It now accepts both spellings.
        *
-       * The fix is in the tree. Until the updated file is on WordPress this
-       * form keeps the page replay, which is what it has always used — no
-       * better, no worse. Set `replay: 'ajax'` once it is uploaded.
+       * Then its phone field: alone among the seven it was set to Gravity
+       * Forms' US format, and a number with a country code did not merely
+       * fail validation, it crashed PHP — HTTP 500, no entry, no email, and
+       * "critical error" as the only clue. It is now `international`, which
+       * is what every other form on the site already used.
        */
+      replay: 'ajax',
       guid: '32e3d5e9-f13b-4841-a28c-788b91eddf63',
       fields: {
         'input_1.3': 'firstname',
