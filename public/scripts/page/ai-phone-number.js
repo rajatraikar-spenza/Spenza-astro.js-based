@@ -1,6 +1,7 @@
 /* Custom site scripts extracted from the WordPress page "ai-phone-number".
    Regenerate with: npm run wp:scripts */
 
+
 /* --- snippet 1 --- */
 try {
 (function(){
@@ -175,68 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
   console.debug('[wp-page-script] snippet 3 skipped:', e && e.message);
 }
 
-/* --- snippet 4 --- */
-try {
-(function(){
-document.addEventListener("DOMContentLoaded", () => {
-
-    const wordsArray = [
-        "Voice Assistant",
-        "2FS Verification",
-        "AI Automation",
-    ];
-
-    const wordsContainer = document.getElementById("new-words");
-
-    wordsArray.forEach((text, index) => {
-
-        const span = document.createElement("span");
-
-        span.classList.add("word");
-
-        if(index === 0){
-            span.classList.add("active");
-        }
-
-        span.textContent = text;
-
-        wordsContainer.appendChild(span);
-
-    });
-
-    const words = document.querySelectorAll("#new-words .word");
-
-    let current = 0;
-
-    setInterval(() => {
-
-        const currentWord = words[current];
-
-        currentWord.classList.remove("active");
-        currentWord.classList.add("exit");
-
-        current = (current + 1) % words.length;
-
-        const nextWord = words[current];
-
-        nextWord.classList.remove("exit");
-
-        setTimeout(() => {
-            nextWord.classList.add("active");
-        }, 50);
-
-        setTimeout(() => {
-            currentWord.classList.remove("exit");
-        }, 600);
-
-    }, 2500);
-
-});
-})();
-} catch (e) {
-  console.debug('[wp-page-script] snippet 4 skipped:', e && e.message);
-}
-
 /* --- snippet 5 --- */
 try {
 (function(){
@@ -292,55 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 } catch (e) {
   console.debug('[wp-page-script] snippet 5 skipped:', e && e.message);
-}
-
-/* --- snippet 6 --- */
-try {
-(function(){
-document.addEventListener("DOMContentLoaded", () => {
-        const svg = document.querySelector("#ai-banner-svg-2");
-        const path = document.querySelector(".ai-shape");
-        const wrapper = document.querySelector(".ai-svg-wrapper");
-
-        let inside = false;
-
-        path.addEventListener("mouseenter", () => {
-          inside = true;
-        });
-
-        path.addEventListener("mouseleave", () => {
-          inside = false;
-        });
-
-        path.addEventListener("mousemove", (e) => {
-          if (!inside) return;
-
-          const rect = svg.getBoundingClientRect();
-
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          createParticle(x, y);
-        });
-
-        function createParticle(x, y) {
-          const particle = document.createElement("div");
-
-          particle.classList.add("trail-particle");
-
-          particle.style.left = `${x}px`;
-          particle.style.top = `${y}px`;
-
-          wrapper.appendChild(particle);
-
-          setTimeout(() => {
-            particle.remove();
-          }, 500);
-        }
-      });
-})();
-} catch (e) {
-  console.debug('[wp-page-script] snippet 6 skipped:', e && e.message);
 }
 
 /* --- snippet 7 --- */
@@ -403,3 +293,52 @@ document.addEventListener("DOMContentLoaded", () => {
 } catch (e) {
   console.debug('[wp-page-script] snippet 7 skipped:', e && e.message);
 }
+
+
+/* --- landing page: copy the number ------------------------------------- */
+/*
+   Not extracted from WordPress — this page is hand-built, and the button
+   belongs to its hero and demo cards.
+
+   The form is deliberately not here. /scripts/hubspot-forms.js owns it: it
+   sends the lead to HubSpot and replays it to Gravity Forms so the admin
+   alert and the client reply go out. The design this page came from ended a
+   submit by writing "✓ Request Received" onto the button and sending nothing,
+   which is the one failure mode a lead form must not have.
+*/
+(() => {
+  'use strict';
+
+  /** The number as it is dialled, not as it is displayed. */
+  const NUMBER = '+12792043120';
+
+  const buttons = document.querySelectorAll('.ai-lp .copy-btn');
+  if (!buttons.length) return;
+
+  const toast = document.querySelector('.ai-lp .toast');
+  let timer;
+
+  function flash(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(() => toast.classList.remove('show'), 2000);
+  }
+
+  for (const btn of buttons) {
+    btn.addEventListener('click', async () => {
+      // `navigator.clipboard` is undefined on an insecure origin and its write
+      // rejects when the document is not focused. Either way the button has to
+      // say something — a copy button that silently does nothing reads as
+      // broken, and the number is the whole point of the page.
+      try {
+        await navigator.clipboard.writeText(NUMBER);
+        flash('Number copied');
+      } catch {
+        flash(NUMBER);
+      }
+    });
+  }
+})();
+

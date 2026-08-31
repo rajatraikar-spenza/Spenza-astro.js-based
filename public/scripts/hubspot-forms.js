@@ -194,6 +194,76 @@
               download="mobility policy template.docx">Download mobility policy template</a></p>`,
     },
 
+    // Request Integration Review — the /ai-phone-number/ landing page.
+    //
+    // Keyed by name rather than by a Gravity Forms id, because the page is
+    // hand-built and its markup carries no `id="gform_22"` for `gravityId` to
+    // read — `data-hs-form="ai-agent"` on the <form> selects this entry
+    // instead. It replays to Gravity Forms 22, which exists for this page
+    // alone, so every question below is a real field on both sides.
+    'ai-agent': {
+      // A real HubSpot form, and the only one on the site — every other entry
+      // above points at a *collected* form, whose field list HubSpot owns and
+      // will not widen. This one's fields are ours, so nothing is dropped and
+      // `unsent` is empty: the first form here that loses nothing by design
+      // rather than by luck.
+      guid: '96db89c5-4b46-4d3c-abb8-ef67db1d2453',
+
+      /**
+       * Replay through `spenza-lead-endpoint.php` rather than by posting at a
+       * page URL.
+       *
+       * The page replay dies whenever the host puts WordPress behind its
+       * "Coming Soon" placeholder: that answers 200 without reaching Gravity
+       * Forms, and a `no-cors` response is opaque, so the browser cannot tell
+       * the two apart. The lead reaches HubSpot and the notification emails
+       * are lost, silently, for as long as the placeholder is up.
+       *
+       * `admin-ajax.php` is not behind that gate and the endpoint answers with
+       * CORS headers, so this path can also report what happened. The six
+       * mirrored forms could move here too — set `replay: 'ajax'` on them; the
+       * endpoint already allowlists their ids.
+       */
+      replay: 'ajax',
+
+      fields: {
+        // The full name, both halves — a collected form would have taken the
+        // forename and silently discarded the rest.
+        input_1: 'name',
+        input_2: 'email',
+        input_3: 'company',
+        input_4: 'phone',
+      },
+      /**
+       * The five qualifying answers, into one contact property.
+       *
+       * They deserve five properties of their own, and creating a contact
+       * property needs a CRM schema scope that the token which made this form
+       * does not carry. `message` is standard, so they are stored and readable
+       * on the contact today rather than waiting on that. Splitting them out
+       * later means adding five entries to `fields` and five fields to the
+       * HubSpot form; nothing else here changes.
+       *
+       * Gravity Forms holds the structured copy either way: on form 22 these
+       * are five real fields, so they appear individually in the Entries
+       * screen, in exports and in `{all_fields}`.
+       */
+      summary: {
+        property: 'message',
+        parts: [
+          ['Current telephony provider', 'input_5'],
+          ['Voice AI use case', 'input_6'],
+          ['Expected monthly call volume', 'input_7'],
+          ['Number of agents', 'input_8'],
+          ['Required capabilities', 'input_9'],
+        ],
+      },
+      unsent: [],
+      required: ['input_1', 'input_2', 'input_3'],
+      email: ['input_2'],
+      success: `<p>Thanks — a Spenza telecom specialist will review your setup and be in touch shortly.</p>`,
+    },
+
     // Analysis Report Mail — the MVNO calculator's "send me the report" gate.
     // The page script waits on Gravity Forms' `gform_confirmation_loaded` to
     // start the download, so a success here has to announce itself; see
@@ -228,6 +298,17 @@
    * the double-quoted page markup and the single-quoted post template.
    */
   const gravityId = form => form.id.match(/^gform_(\d+)$/)?.[1];
+
+  /**
+   * Which entry of `FORMS` describes this form.
+   *
+   * Every mirrored form is its Gravity Forms id, because that is the one thing
+   * the markup carries. A hand-built page names its entry explicitly instead:
+   * `/ai-phone-number/` asks its own seven questions and replays them to form
+   * 20 for the notifications, so its id and its field set do not belong to the
+   * same form and cannot both be read off one number.
+   */
+  const specKey = form => form.dataset.hsForm || gravityId(form);
 
   /**
    * The two spam traps in the mirrored markup: Akismet's hidden textarea, which
@@ -283,11 +364,27 @@
     input.parentElement?.querySelector(':scope > .hs-field-error')?.remove();
   }
 
+  /**
+   * What to call a field in its error message.
+   *
+   * Two ways a label can be attached, because the site now has both. Every
+   * mirrored Gravity Form gives its inputs an id and a matching `label[for]`.
+   * The hand-built form on `/ai-phone-number/` wraps each input in its label
+   * instead — equally valid, and it needs no ids.
+   *
+   * The `?.` on the first lookup is not enough on its own: `input.id && …`
+   * evaluates to the empty string when an input has no id, and `''?.textContent`
+   * is `undefined` rather than a short-circuit, so the old `label?.textContent
+   * .replace(…)` threw on the first idless input it met — taking validation,
+   * and with it the whole submit, down with it.
+   */
   function labelFor(input) {
-    const id = input.id && CSS.escape(input.id);
-    const label = id && input.form?.querySelector(`label[for="${id}"]`);
+    const id = input.id ? CSS.escape(input.id) : '';
+    const explicit = id ? input.form?.querySelector(`label[for="${id}"]`) : null;
+    const label = explicit ?? input.closest('label');
+
     // Strip Gravity Forms' "(Required)" / "*" suffix out of the label text.
-    const text = label?.textContent.replace(/\s*\(Required\)\s*$|\s*\*\s*$/, '').trim();
+    const text = label?.textContent?.replace(/\s*\(Required\)\s*\*?\s*$|\s*\*\s*$/, '').trim();
     return text || input.placeholder || 'This field';
   }
 
@@ -327,9 +424,19 @@
 
   /* -------------------------------------------------------------- states */
 
-  /** The element Gravity Forms would have replaced: the whole form wrapper. */
+  /**
+   * The element Gravity Forms would have replaced: the whole form wrapper.
+   *
+   * A hand-built form is its own wrapper. On the mirrored pages the form's
+   * parent is the Gravity Forms shell and nothing else, so replacing it is
+   * right; on `/ai-phone-number/` the parent also holds the headline and the
+   * call-to-action beside the form, and replacing it would take the whole
+   * panel down to a one-line thank-you.
+   */
   const wrapperOf = form =>
-    form.closest('.gform_wrapper') || form.parentElement || form;
+    form.closest('.gform_wrapper') ||
+    (form.dataset.hsForm ? form : form.parentElement) ||
+    form;
 
   function showConfirmation(form, spec) {
     const html = typeof spec.success === 'function' ? spec.success(form) : spec.success;
@@ -433,9 +540,89 @@
    */
   const notified = new WeakSet();
 
-  function notifyWordPress(form, id) {
+  /**
+   * The body every replay sends: the form exactly as the page renders it.
+   *
+   * Shared by both paths below, because what makes the replay faithful is that
+   * it is the same bytes a real form post would carry — `is_submit_<id>`,
+   * `gform_submit`, the `state_<id>` token and the page-number fields are all
+   * part of the markup, and Gravity Forms needs them to recognise the request.
+   */
+  function replayBody(form) {
+    const body = new URLSearchParams();
+
+    for (const [key, val] of new FormData(form)) {
+      // None of these forms has a file input, but `FormData` would hand us a
+      // `File` if one were ever added, and stringifying it silently posts the
+      // word "[object File]" as the answer to a question.
+      if (typeof val === 'string') body.append(key, val);
+    }
+
+    // The page the lead actually came from. Gravity Forms files an entry
+    // against the URL the POST lands on, which is the replay's rather than the
+    // visitor's; `spenza-form-source-url.php` reads this back instead.
+    body.set('spenza_source_url', location.href);
+    body.set('spenza_page_title', document.title);
+
+    // Akismet stamps this with the time its script ran and judges the
+    // submission partly on how long the form was open. The mirror froze one
+    // page's value into the markup, so every submission would carry the same
+    // implausible constant — and a submission Akismet marks as spam is stored
+    // as spam, which sends no notification at all.
+    if (body.has('ak_js')) body.set('ak_js', String(Date.now()));
+
+    return body;
+  }
+
+  /**
+   * Hand the lead to `spenza-lead-endpoint.php` on admin-ajax.
+   *
+   * The page replay below cannot survive the host's "Coming Soon" page: that
+   * placeholder answers 200 without ever reaching Gravity Forms, and a
+   * `no-cors` response is opaque, so the browser cannot tell that 200 apart
+   * from a real submission. Every lead in that window loses its notification
+   * and nothing anywhere reports it.
+   *
+   * `admin-ajax.php` is not behind that gate, and the endpoint answers with
+   * CORS headers — so unlike the replay, this one can say whether the entry
+   * was actually written.
+   */
+  async function notifyViaEndpoint(form, id) {
+    const url = `${WP_ORIGIN}/wp-admin/admin-ajax.php?action=spenza_lead`;
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        // `keepalive` so it survives the page navigating away — form 5's
+        // confirmation is a download link and form 21 starts a file download.
+        keepalive: true,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: replayBody(form),
+      });
+
+      const result = await res.json().catch(() => null);
+
+      if (!res.ok || !result?.ok) {
+        console.error(
+          `[hubspot-forms] form ${id}: WordPress rejected the lead ` +
+          `(${res.status} ${result?.error ?? 'unreadable response'}). ` +
+          'The contact reached HubSpot; the notification emails did not.',
+          result?.validation ?? ''
+        );
+      }
+    } catch (err) {
+      // A network failure, or the endpoint is not installed. Either way the
+      // lead is in HubSpot and only the mail is lost, so this is logged rather
+      // than shown — the visitor has nothing to act on.
+      console.error(`[hubspot-forms] form ${id}: lead endpoint unreachable:`, err);
+    }
+  }
+
+  function notifyWordPress(form, id, spec) {
     if (!WP_ORIGIN || notified.has(form)) return;
     notified.add(form);
+
+    if (spec?.replay === 'ajax') return notifyViaEndpoint(form, id);
 
     // Where to post. The mirrored `action` is the page this form was captured
     // on, and may carry the `#gf_19` fragment Gravity Forms appends; a fragment
@@ -463,37 +650,10 @@
       return;
     }
 
-    const body = new URLSearchParams();
-    for (const [key, val] of new FormData(form)) {
-      // None of these forms has a file input, but `FormData` would hand us a
-      // `File` if one were ever added, and stringifying it silently posts the
-      // word "[object File]" as the answer to a question.
-      if (typeof val === 'string') body.append(key, val);
-    }
-
-    // The page the lead actually came from.
-    //
-    // Gravity Forms files an entry against the URL the POST lands on, and that
-    // URL is this replay's rather than the visitor's. The popup's mirrored
-    // `action` is `/#gf_15` on every one of the ~270 pages it appears on, so
-    // every popup lead is recorded against the homepage of a host no visitor
-    // ever saw. HubSpot keeps the real page — it is `context.pageUri` below —
-    // and the notification email was the poorer half of the pair for not
-    // having it, which is most of what made it read as a downgrade.
-    //
-    // Sent alongside the form rather than as part of it: Gravity Forms ignores
-    // a parameter that is not one of its fields, and `spenza-form-
-    // notifications.php` on WordPress is what reads these two back.
-    body.set('spenza_source_url', location.href);
-    body.set('spenza_page_title', document.title);
-
-    // Akismet stamps this with the time its script ran, and judges the
-    // submission partly on how long the form was open. The mirror froze one
-    // page's value into the markup, so every submission would carry the same
-    // implausible constant — and a submission Akismet marks as spam is stored
-    // as spam, which sends no notification at all. That failure is invisible
-    // from here, so give it the value it expects instead.
-    if (body.has('ak_js')) body.set('ak_js', String(Date.now()));
+    // Same bytes the endpoint path sends — see `replayBody`. Shared so the two
+    // cannot drift: a field added to one and not the other would be missing
+    // from exactly half the site's leads.
+    const body = replayBody(form);
 
     fetch(url, {
       method: 'POST',
@@ -542,6 +702,29 @@
       }
 
       fields.push({ objectTypeId: '0-1', name: property, value: val });
+    }
+
+    /**
+     * Several answers into one property, labelled.
+     *
+     * For questions a form asks that HubSpot has no property for. Empty
+     * answers are left out rather than sent as a label with nothing after it,
+     * and if every one is empty the property is not sent at all — an empty
+     * string would overwrite whatever the contact already had there.
+     */
+    if (spec.summary) {
+      const lines = spec.summary.parts
+        .map(([label, name]) => [label, value(form, name)])
+        .filter(([, val]) => val)
+        .map(([label, val]) => `${label}: ${val}`);
+
+      if (lines.length) {
+        fields.push({
+          objectTypeId: '0-1',
+          name: spec.summary.property,
+          value: lines.join('\n'),
+        });
+      }
     }
 
     const hutk = cookie('hubspotutk');
@@ -612,7 +795,7 @@
     // control is one `FormData` leaves out. Before the `await` too: the
     // notification emails are the point of this, and they should not wait on
     // HubSpot, nor be lost if HubSpot is the thing that is down.
-    notifyWordPress(form, id);
+    notifyWordPress(form, id, spec);
 
     const restore = busy(form, id);
     const ok = await send(spec, payload(form, spec));
@@ -636,12 +819,16 @@
   // that appeared after this script ran.
   document.addEventListener('submit', event => {
     const form = event.target;
-    const id = form instanceof HTMLFormElement && gravityId(form);
-    const spec = id && FORMS[id];
+    const key = form instanceof HTMLFormElement && specKey(form);
+    const spec = key && FORMS[key];
     if (!spec) return;
 
     event.preventDefault();
-    handle(form, id, spec);
+
+    // `gf_submitting_<id>` and `gform_confirmation_loaded` are Gravity Forms'
+    // and are keyed by its numeric id, so a named form passes the id it
+    // replays to where it has one, and its own key where it does not.
+    handle(form, gravityId(form) ?? key, spec);
   });
 
   // Clear a field's error as soon as it is being fixed, rather than making the
@@ -660,7 +847,7 @@
    * exactly the kind of always-on third-party cost this file exists to avoid.
    */
   document.addEventListener('focusin', function warm(event) {
-    if (!event.target.closest?.('form[id^="gform_"]')) return;
+    if (!event.target.closest?.('form[id^="gform_"], form[data-hs-form]')) return;
     document.removeEventListener('focusin', warm);
 
     const link = document.createElement('link');

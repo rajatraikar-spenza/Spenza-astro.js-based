@@ -1,8 +1,87 @@
 ---
+/**
+ * /ai-phone-number/ — the Voice AI landing page.
+ *
+ * The one marketing page whose body is hand-built rather than mirrored. It
+ * still renders through `WpLayout`, and that is deliberate: the layout brings
+ * the site's own header, footer and demo popup, plus Yoast's captured SEO,
+ * Analytics, and the lead-capture runtime. An earlier cut of this page carried
+ * the header and footer the design shipped — a white bar with anchor links and
+ * a three-link footer — and next to the cream site header with Product /
+ * Solution / Resources it read as a different website.
+ *
+ * So the layout is shared and only the content is new. Two consequences:
+ *
+ *   - The body is wrapped in `.ai-lp`, and `styles/ai-phone-number.css` is
+ *     scoped to it. That stylesheet opens with `* { margin: 0; padding: 0 }`
+ *     and styles bare `body`, `a`, `p` and `h1..h5`; unscoped it would land on
+ *     the Elementor chrome, which is styled by CSS that assumes WordPress'
+ *     defaults.
+ *   - The Why Spenza section sits *outside* that wrapper, because it is the
+ *     original Elementor markup and is styled by the WordPress bundles.
+ *
+ * DO NOT re-run `npm run wp:optimize-css` for this page without checking what
+ * it does to the others. The usual rule is to re-run it after a markup change;
+ * that rule assumes the markup grew out of the mirror. This page replaced
+ * 173KB of Elementor markup with its own, and the optimiser purges each
+ * *shared* bundle against the combined markup of every page using it — so
+ * shrinking this partial withdrew selectors that other pages in the same group
+ * were relying on it to vouch for. Measured: one run took `gform_wrapper` from
+ * 120 matches to 5 on every page, stripping Gravity Forms' styling site-wide
+ * and visibly breaking the demo popup and the inline email bar.
+ *
+ * The committed bundle already contains what this page needs, Why Spenza
+ * included, because it was purged when that section's markup was still here.
+ * If it ever must be regenerated, diff the other pages' bundles before
+ * committing — `gform_wrapper`, `popup-container` and `.eSim` are the
+ * canaries.
+ */
 import WpLayout from '../layouts/WpLayout.astro';
 import content from '../partials/ai-phone-number.html?raw';
+import '../styles/ai-phone-number.css';
+
+/*
+ * No font request of its own.
+ *
+ * The design asked for Outfit, Inter and JetBrains Mono — 22 faces, 209KB.
+ * The page now sets its type in `proxima-nova, sans-serif`, the stack every
+ * other Solution page uses, so none of the three is referenced any more and
+ * loading them would cost a stylesheet and fifteen woff2 files that nothing
+ * paints with.
+ */
+
+/**
+ * The ten questions the FAQ section answers, as schema.
+ *
+ * New to this URL — the page this replaces had no FAQ, so Yoast's captured
+ * graph, which `WpLayout` emits, says nothing about one.
+ */
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    ['Do I need to rebuild my Voice AI agent?', 'No. The objective is to connect a Spenza number to your existing agent while retaining all prompts, tools, workflows, and business logic.'],
+    ['Can I keep using Twilio for some agents?', 'Yes. Start with one Spenza-powered trial while continuing to use your existing provider for other agents.'],
+    ['Can the same number handle calls and SMS?', 'Yes, subject to carrier capabilities, number type, and messaging registration requirements.'],
+    ['Is SMS available immediately?', 'SMS availability depends on registration, use case approval, and carrier requirements.'],
+    ['Can I port an existing number?', 'Eligible numbers can be ported after technical and carrier validation.'],
+    ['Does Spenza prevent spam labeling?', 'No provider can guarantee calls will never be labeled. Registration and good practices can significantly reduce risk.'],
+    ['How quickly can we launch?', 'Timelines depend on number availability, SIP configuration, messaging approval, and call-flow complexity.'],
+    ['Does Spenza support inbound and outbound calls?', 'Yes, supported integrations can be configured for both inbound and outbound calling.'],
+    ['Can calls transfer to a human agent?', "Yes. Transfer behavior can be configured as part of the agent's call workflow."],
+    ['Is this an official Voice AI integration?', 'Spenza connects through supported Voice AI telephony workflows. Product names belong to their respective owners.'],
+  ].map(([name, text]) => ({
+    '@type': 'Question',
+    name,
+    acceptedAnswer: { '@type': 'Answer', text },
+  })),
+};
 ---
 
 <WpLayout slug="ai-phone-number">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faq)} />
+  </Fragment>
+
   <Fragment set:html={content} />
 </WpLayout>

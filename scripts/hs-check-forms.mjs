@@ -46,7 +46,10 @@ async function runtimeForms() {
   const source = (await fs.readFile(RUNTIME, 'utf8')).replace(/\r\n/g, '\n');
   const forms = new Map();
 
-  for (const block of source.matchAll(/\n {4}(\d+): \{\n([\s\S]*?)\n {4}\},/g)) {
+  // Numeric keys are Gravity Forms ids; a quoted key is a hand-built form that
+  // has no id of its own (see `specKey` in the runtime). Both are checked —
+  // a named form drifts from its HubSpot form exactly as silently.
+  for (const block of source.matchAll(/\n {4}'?([\w-]+)'?: \{\n([\s\S]*?)\n {4}\},/g)) {
     const [, id, body] = block;
     const guid = body.match(/guid: '([^']*)'/)?.[1] ?? '';
     const fieldBlock = body.match(/fields: \{([\s\S]*?)\},/)?.[1] ?? '';
@@ -58,6 +61,13 @@ async function runtimeForms() {
       else if (prop === 'name:first') properties.add('firstname');
       else properties.add(prop);
     }
+
+    // A `summary` block folds several of a form's answers into one property.
+    // It is a property the site sends, so the check has to know about it —
+    // otherwise the one field carrying five answers is the one field never
+    // verified.
+    const summary = body.match(/summary: \{[\s\S]*?property: '([^']+)'/)?.[1];
+    if (summary) properties.add(summary);
 
     const unsent = [...(body.match(/unsent: \[([^\]]*)\]/)?.[1] ?? '')
       .matchAll(/'([^']+)'/g)].map(m => m[1]);
@@ -75,7 +85,16 @@ async function hubspotForms() {
   let after;
 
   do {
+    // `captured` as well as the default `hubspot`, because six of the seven
+    // forms this site submits to are collected ones. Without it the listing
+    // comes back holding only the portal's hand-built forms and every guid
+    // here reads as "no such form" — a check that fails loudest exactly when
+    // it is given the credentials meant to make it work.
+    // Repeated rather than comma-joined: the endpoint deserialises each
+    // `formTypes` value on its own and rejects "hubspot,captured" as one.
     const query = new URLSearchParams({ limit: '100', ...(after ? { after } : {}) });
+    query.append('formTypes', 'hubspot');
+    query.append('formTypes', 'captured');
     const res = await fetch(`https://api.hubapi.com/marketing/v3/forms/?${query}`, {
       headers: { Authorization: `Bearer ${TOKEN}` },
     });
@@ -83,10 +102,17 @@ async function hubspotForms() {
 
     const page = await res.json();
     for (const form of page.results) {
+      // A collected form is returned without `fieldGroups` — its field list is
+      // HubSpot's private inference and is not exposed anywhere in the API, on
+      // this endpoint or on the single-form one. So it cannot be compared, and
+      // saying so is the honest result; the alternative is reading an absent
+      // list as an empty one and reporting every field as dropped.
       byGuid.set(form.id, {
         name: form.name,
         type: form.formType,
-        fields: new Set(form.fieldGroups.flatMap(g => g.fields.map(f => f.name))),
+        fields: form.fieldGroups
+          ? new Set(form.fieldGroups.flatMap(g => g.fields.map(f => f.name)))
+          : null,
       });
     }
     after = page.paging?.next?.after;
@@ -125,7 +151,7 @@ if (!hubspot) {
 
 for (const [id, form] of runtime) {
   const sends = [...form.properties].sort();
-  console.log(`gform_${id}  ${form.guid}`);
+  console.log(`${/^\d+$/.test(id) ? `gform_${id}` : id}  ${form.guid}`);
 
   if (!form.guid) {
     fail('no guid configured — this form cannot submit anywhere');
@@ -139,6 +165,11 @@ for (const [id, form] of runtime) {
     else fail('guid does not resolve: no such form in this portal');
   } else if (!known) {
     fail(`guid is not a form in this portal`);
+  } else if (!known.fields) {
+    // Collected: exists, but publishes no field list to compare against.
+    console.log(`  ${known.name} [${known.type}] — HubSpot publishes no field list for a collected form`);
+    if (await guidResolves(form.guid)) console.log(`  ✓ resolves — sends ${sends.join(', ')}`);
+    else fail('guid does not resolve: no such form in this portal');
   } else {
     const missing = sends.filter(p => !known.fields.has(p));
     console.log(`  ${known.name} [${known.type}] accepts ${[...known.fields].sort().join(', ')}`);
