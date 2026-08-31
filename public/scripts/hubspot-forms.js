@@ -209,23 +209,26 @@
       // rather than by luck.
       guid: '96db89c5-4b46-4d3c-abb8-ef67db1d2453',
 
-      /**
-       * Replay through `spenza-lead-endpoint.php` rather than by posting at a
-       * page URL.
+      /*
+       * Replayed by posting at a page URL, exactly like the six mirrored forms
+       * above. Nothing extra is installed on WordPress for this one.
        *
-       * The page replay dies whenever the host puts WordPress behind its
-       * "Coming Soon" placeholder: that answers 200 without reaching Gravity
-       * Forms, and a `no-cors` response is opaque, so the browser cannot tell
-       * the two apart. The lead reaches HubSpot and the notification emails
-       * are lost, silently, for as long as the placeholder is up.
+       * That means it shares their weakness, and it is worth naming rather
+       * than discovering. When the host puts WordPress behind its "Coming
+       * Soon" placeholder, the placeholder answers 200 without ever reaching
+       * Gravity Forms — and the replay is `no-cors`, so its response is opaque
+       * and the browser cannot tell that 200 from a real submission. For as
+       * long as the placeholder is up, every lead on every one of these forms
+       * reaches HubSpot and its notification emails are lost, silently, with
+       * nothing anywhere reporting it.
        *
-       * `admin-ajax.php` is not behind that gate and the endpoint answers with
-       * CORS headers, so this path can also report what happened. The six
-       * mirrored forms could move here too — set `replay: 'ajax'` on them; the
-       * endpoint already allowlists their ids.
+       * `wordpress/mu-plugins/spenza-lead-endpoint.php` is the fix and is not
+       * installed. It hangs off `admin-ajax.php`, which that placeholder does
+       * not gate, and answers with CORS headers so the runtime can report what
+       * actually happened. Install it and set `replay: 'ajax'` here — the
+       * endpoint already allowlists all seven form ids, so the mirrored forms
+       * can follow the same way.
        */
-      replay: 'ajax',
-
       fields: {
         // The full name, both halves — a collected form would have taken the
         // forename and silently discarded the rest.
