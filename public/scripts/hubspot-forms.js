@@ -209,26 +209,31 @@
       // rather than by luck.
       guid: '96db89c5-4b46-4d3c-abb8-ef67db1d2453',
 
-      /*
-       * Replayed by posting at a page URL, exactly like the six mirrored forms
-       * above. Nothing extra is installed on WordPress for this one.
+      /**
+       * Replayed through `spenza-lead-endpoint.php` on admin-ajax, not by
+       * posting at a page URL like the six mirrored forms above.
        *
-       * That means it shares their weakness, and it is worth naming rather
-       * than discovering. When the host puts WordPress behind its "Coming
-       * Soon" placeholder, the placeholder answers 200 without ever reaching
-       * Gravity Forms — and the replay is `no-cors`, so its response is opaque
-       * and the browser cannot tell that 200 from a real submission. For as
-       * long as the placeholder is up, every lead on every one of these forms
-       * reaches HubSpot and its notification emails are lost, silently, with
-       * nothing anywhere reporting it.
+       * Those six post at a page, and that breaks whenever the host puts
+       * WordPress behind its "Coming Soon" placeholder: the placeholder
+       * answers 200 without ever reaching Gravity Forms, and the replay is
+       * `no-cors`, so its response is opaque and the browser cannot tell that
+       * 200 from a real submission. For as long as the placeholder is up,
+       * every lead on those forms reaches HubSpot and its notification emails
+       * are lost, silently, with nothing anywhere reporting it. That is not a
+       * hypothetical — preprod sat behind that page for most of the day this
+       * form was built.
        *
-       * `wordpress/mu-plugins/spenza-lead-endpoint.php` is the fix and is not
-       * installed. It hangs off `admin-ajax.php`, which that placeholder does
-       * not gate, and answers with CORS headers so the runtime can report what
-       * actually happened. Install it and set `replay: 'ajax'` here — the
-       * endpoint already allowlists all seven form ids, so the mirrored forms
-       * can follow the same way.
+       * `admin-ajax.php` is not gated by it. Measured with the placeholder up:
+       * a GET of the page returns "Coming Soon" while
+       * `admin-ajax.php?action=heartbeat` returns JSON. The endpoint also
+       * answers with CORS headers, so unlike the replay this path can say
+       * whether the entry was actually written — see `notifyViaEndpoint`.
+       *
+       * The other six can move here the same way: set `replay: 'ajax'` on
+       * them. The endpoint already allowlists all seven form ids.
        */
+      replay: 'ajax',
+
       fields: {
         // The full name, both halves — a collected form would have taken the
         // forename and silently discarded the rest.
@@ -614,9 +619,19 @@
         );
       }
     } catch (err) {
-      // A network failure, or the endpoint is not installed. Either way the
-      // lead is in HubSpot and only the mail is lost, so this is logged rather
-      // than shown — the visitor has nothing to act on.
+      // A network failure, the endpoint not installed — or CORS, which is
+      // indistinguishable from both: a blocked response and a dead host are
+      // the same `TypeError: Failed to fetch`.
+      //
+      // Worth knowing when testing from `localhost`, because the endpoint
+      // echoes CORS only for the spenza.com origins. The POST still arrives
+      // and the entry is still written; only the *response* is blocked, so
+      // this line appears for a lead that actually landed. From a real origin
+      // it means what it says.
+      //
+      // Logged rather than shown either way: the lead is already in HubSpot
+      // and only the mail is at risk, so there is nothing for the visitor to
+      // act on.
       console.error(`[hubspot-forms] form ${id}: lead endpoint unreachable:`, err);
     }
   }
