@@ -119,6 +119,32 @@ if (CLARITY_PROJECT_ID && !/^[a-z0-9]+$/i.test(CLARITY_PROJECT_ID)) {
 }
 
 /**
+ * GA4 measurement id.
+ *
+ * Unlike Clarity, this one is **not** behind the consent gate — see the note in
+ * `Analytics.astro`. That is a deliberate instruction, not an oversight, and it
+ * is the reason this constant exists separately rather than being folded into
+ * the gate's `ID`.
+ *
+ * Same env-driven shape as `CLARITY_PROJECT_ID`, and for the same reason: this
+ * build is deployed to more than one place, and preview sessions landing in the
+ * production property skew every acquisition and engagement report with no way
+ * to separate them afterwards. Set it empty on a build that should not be
+ * measured — `preview.spenza.com` in particular — and no tag is emitted.
+ */
+export const GA_MEASUREMENT_ID = (process.env.GA_MEASUREMENT_ID ?? 'G-ZYNTP3QCG2').trim();
+
+if (GA_MEASUREMENT_ID && !/^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID)) {
+  throw new Error(
+    `GA_MEASUREMENT_ID must look like G-XXXXXXXXXX, got ${JSON.stringify(GA_MEASUREMENT_ID)}. ` +
+    `It is interpolated into an inline <script> and into a script src; anything ` +
+    `else is either a typo or an injection, and both are better caught here than ` +
+    `shipped to every page. A GTM container id (GTM-XXXXXXX) is not a measurement ` +
+    `id and does not belong here.`
+  );
+}
+
+/**
  * Let the host serve WordPress' 301s, and stop emitting the HTML stand-ins.
  *
  * A static build cannot send a redirect status, so `[...wpRedirect].astro`

@@ -1,70 +1,68 @@
 ---
 /**
- * Microsoft Clarity, behind a consent gate.
+ * The site's analytics: GA4 and Microsoft Clarity, both loading on page open
+ * for every visitor.
  *
- * Clarity records sessions and writes first-party cookies, which under
- * ePrivacy/GDPR is the kind of storage that needs consent *before* it happens,
- * not a notice afterwards. So nothing here contacts clarity.ms until someone
- * has said yes: no tag, no preconnect, no DNS lookup. The gate below is the
- * only thing that runs on a first visit, and it is inline because a returning
- * visitor who already accepted should start their session in the same tick the
- * parser reaches this, not one deferred script later.
+ * Neither is behind a consent decision. That is a deliberate instruction from
+ * the site owner, taken with the trade-off stated: `gtag.js` writes `_ga` and
+ * Clarity writes `_clck`/`_clsk`/`CLID`, all on the first request, so the site
+ * measures first and informs second — the arrangement ePrivacy/GDPR consent
+ * rules exist to prevent, and the HubSpot portal being on EU1 says the audience
+ * includes the EU. It is recorded here so nobody later reads it as a bug and
+ * quietly "fixes" it.
  *
- * The banner itself is `/scripts/consent.js` — UI, and only needed when there
- * is a decision outstanding, so it is deferred and cached like the site's other
- * scripts. It talks to the gate through `window.spenzaConsent`.
+ * The bar at the foot of the page is therefore a **notice, not a gate**. It
+ * says what is collected and offers one button that dismisses it. It does not
+ * offer Accept/Reject, and that is the point: a "Reject" wired to nothing tells
+ * the visitor a choice was recorded when none was, which is worse than not
+ * offering one. If analytics should ever become optional again, the honest
+ * shape is to move the `start()` calls below back behind a stored answer and
+ * give the bar its two buttons back — the storage and versioning are still
+ * here for exactly that.
  *
- * `is:inline` is load-bearing. Astro's default is to treat a `<script>` in a
- * component as a module to hoist, bundle and rewrite — which would move this
- * into `/_astro/`, defer it behind the bundle, and turn a first-party inline
- * gate into a third request.
+ * `is:inline` is load-bearing on both blocks. Astro's default is to treat a
+ * `<script>` in a component as a module to hoist, bundle and rewrite — which
+ * would move them into `/_astro/`, defer them behind the bundle, and turn a
+ * first-party inline tag into a third request.
+ *
+ * `public/scripts/consent.js` builds the notice. It is UI only, deferred, and
+ * talks to this block through `window.spenzaNotice` — which now records
+ * nothing but "this has been seen", so the bar does not follow the visitor
+ * from page to page.
  *
  * Rendered in `<head>` by all three layouts, so this is the whole site: the
  * mirrored marketing pages and archives (`WpLayout`), every post
  * (`ArticleLayout`), and the rebuild preview (`BaseLayout`).
  */
-import { CLARITY_PROJECT_ID } from '../../scripts/lib/config.mjs';
+import { CLARITY_PROJECT_ID, GA_MEASUREMENT_ID } from '../../scripts/lib/config.mjs';
 
 /**
- * Bump when what is being consented to changes — a new tool, a new purpose.
- * Stored alongside the answer, and an answer to an older question is treated
- * as no answer, so the banner asks again rather than carrying consent forward
- * to something the visitor never saw.
+ * Bump when what the notice *says* changes materially — a new tool, a new
+ * purpose. Stored with the dismissal, and a dismissal of an older notice is
+ * treated as no dismissal, so the bar is shown again rather than counting
+ * someone as informed about something they were never shown.
  */
-const CONSENT_VERSION = 1;
+const NOTICE_VERSION = 1;
+
+/*
+ * The standard GA4 bootstrap, unchanged apart from the id. `dataLayer` and
+ * `gtag` are created here rather than by the loader so that calls made before
+ * googletagmanager.com answers are queued instead of throwing.
+ */
+const ga = `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', ${JSON.stringify(GA_MEASUREMENT_ID)});`;
 
 // `JSON.stringify` rather than plain interpolation: the value reaches an inline
 // script, and config.mjs already rejects anything that is not alphanumeric, but
 // the two guards cost nothing and the failure mode without them is a script tag
 // on every page of the site.
-const gate = `(function (w, d) {
-  var KEY = 'spenza-cookie-consent';
-  var VERSION = ${CONSENT_VERSION};
+const clarity = `(function (w, d) {
+  var KEY = 'spenza-cookie-notice';
+  var VERSION = ${NOTICE_VERSION};
   var ID = ${JSON.stringify(CLARITY_PROJECT_ID)};
   var started = false;
-
-  function read() {
-    try {
-      var raw = w.localStorage.getItem(KEY);
-      if (!raw) return null;
-      var saved = JSON.parse(raw);
-      // An answer to an older version of the question is not an answer.
-      return saved && saved.v === VERSION ? saved.state : null;
-    } catch (e) {
-      // Private mode, or storage disabled. No stored answer means the banner
-      // asks, every time, which is the right way to fail: it never invents a
-      // consent nobody gave.
-      return null;
-    }
-  }
-
-  function write(state) {
-    try {
-      w.localStorage.setItem(KEY, JSON.stringify({
-        v: VERSION, state: state, at: new Date().toISOString()
-      }));
-    } catch (e) {}
-  }
 
   /* Clarity's own snippet, unchanged apart from the id. */
   function start() {
@@ -77,57 +75,55 @@ const gate = `(function (w, d) {
     })(w, d, "clarity", "script", ID);
   }
 
-  /*
-   * Withdrawal has to undo something, not just stop doing more of it. The
-   * script cannot be unloaded once it is running, so the cookies it set are
-   * cleared and the page is reloaded — after which the gate is closed and
-   * nothing starts. Only Clarity's first-party storage is reachable from here;
-   * what it holds on its own domain is Microsoft's to expire.
+  /**
+   * Has this visitor already been shown the notice? Storage that throws —
+   * private mode, storage disabled — reads as "no", so the bar is shown again.
+   * Showing a notice twice costs nothing; suppressing one nobody saw is the
+   * only failure worth avoiding here.
    */
-  function forget() {
-    var names = ['_clck', '_clsk', 'CLID'];
-    var host = d.location.hostname;
-    var domains = [null, host, '.' + host, '.' + host.split('.').slice(-2).join('.')];
-    for (var i = 0; i < names.length; i++) {
-      for (var j = 0; j < domains.length; j++) {
-        d.cookie = names[i] + '=; Max-Age=0; Path=/' +
-          (domains[j] ? '; Domain=' + domains[j] : '');
-      }
-    }
+  function seen() {
     try {
-      for (var k = w.localStorage.length - 1; k >= 0; k--) {
-        var key = w.localStorage.key(k);
-        if (/^_?cl(ck|sk)|^clarity/i.test(key)) w.localStorage.removeItem(key);
-      }
-    } catch (e) {}
+      var raw = w.localStorage.getItem(KEY);
+      if (!raw) return false;
+      var saved = JSON.parse(raw);
+      return !!saved && saved.v === VERSION;
+    } catch (e) {
+      return false;
+    }
   }
 
-  w.spenzaConsent = {
-    /** 'granted', 'denied', or null when the question is still open. */
-    state: read,
-    grant: function () {
-      write('granted');
-      start();
-    },
-    deny: function () {
-      write('denied');
-      if (started) {
-        forget();
-        d.location.reload();
-      }
+  w.spenzaNotice = {
+    seen: seen,
+    /** Dismissal. Records that the bar was shown, and nothing else — there is
+     *  no preference to store, because nothing about the page depends on it. */
+    acknowledge: function () {
+      try {
+        w.localStorage.setItem(KEY, JSON.stringify({
+          v: VERSION, at: new Date().toISOString()
+        }));
+      } catch (e) {}
     }
   };
 
-  if (read() === 'granted') start();
+  start();
 })(window, document);`;
 ---
 
-{CLARITY_PROJECT_ID && (
+{/*
+  GA4 and Clarity, both unconditional — see the note at the top of this file.
+  As high in the head as the layouts can put them: the tags time a session from
+  the moment they run, so anything in front of them is time the visit is not
+  being measured.
+*/}
+{GA_MEASUREMENT_ID && (
   <>
-    <script is:inline type="text/javascript" set:html={gate} />
-    <script src="/scripts/consent.js" defer></script>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline type="text/javascript" set:html={ga} />
   </>
 )}
+
+<script is:inline type="text/javascript" set:html={clarity} />
+<script src="/scripts/consent.js" defer></script>
 
 {/*
   Global rather than scoped: the banner is built by `/scripts/consent.js` at
@@ -200,13 +196,10 @@ const gate = `(function (w, d) {
   }
 
   .spz-consent__btn {
-    /* Same size, same weight, same reach, side by side. A "reject" that is
-       harder to find than "accept" is not a choice, and regulators have said so
-       repeatedly — so the two differ in fill and in nothing else.
-       A zero basis rather than `auto` so both are measured from nothing and come
-       out identical: from `auto` they are sized from their own labels and
-       "Accept" ends up a few pixels wider for being a longer word. */
-    flex: 1 1 0;
+    /* One button now, so the equal-basis trick the pair needed is gone: this is
+       sized from its own label with a floor under it, which keeps a two-word
+       label from ever coming out narrow enough to look like an afterthought. */
+    flex: 0 0 auto;
     min-width: 118px;
     padding: 11px 24px;
     border: 1px solid #fff;
@@ -238,10 +231,6 @@ const gate = `(function (w, d) {
     border-color: #2c180d;
   }
 
-  .spz-consent__btn--reject:hover {
-    background: rgba(255, 255, 255, 0.16);
-  }
-
   .spz-consent__btn:focus-visible {
     outline: 2px solid #fff;
     outline-offset: 3px;
@@ -261,27 +250,12 @@ const gate = `(function (w, d) {
     }
   }
 
-  /* The reopen control, added to the footer's legal row by consent.js. It has
-     to read as one of that row's links, which are `<a>`; this is a `<button>`
-     because it opens a dialog rather than going anywhere. */
-  .spz-consent-reopen {
-    padding: 0;
-    border: 0;
-    background: none;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-  }
-
-  .spz-consent-reopen:hover {
-    text-decoration: underline;
-  }
-
-  /* Narrow enough that two 118px buttons and the gutters no longer sit
-     comfortably side by side in the middle: let the pair span the bar. */
+  /* Narrow enough that the button no longer sits comfortably beside the end of
+     the sentence: give it the full width of the bar. */
   @media (max-width: 520px) {
     .spz-consent__actions {
       flex: 1 1 100%;
+      justify-content: center;
     }
   }
 </style>

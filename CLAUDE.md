@@ -256,36 +256,48 @@ submits — neither is a lead form.
   `public/vendor/` and fetched per format on demand — WordPress loads all
   1.28MB of them on every view of that page.
 
-## Analytics and consent
+## Analytics and notice
 
-Microsoft Clarity, and nothing else. It loads only after the visitor accepts.
+**GA4 and Microsoft Clarity both load on page open, for every visitor, before
+any interaction.** There is no consent gate. The bar at the foot of the page is
+a *notice*: it says what is collected and has one button that dismisses it.
 
-- `src/components/Analytics.astro` is the whole feature: an inline gate that
-  owns the decision, its storage and Clarity's own snippet, plus the banner's
-  CSS. Rendered by all three layouts, which is every page except the 367
-  redirect stand-ins — those bounce in milliseconds, and tagging them would log
-  a phantom zero-second session for each and split the real one that follows.
-- **Nothing reaches clarity.ms before consent** — no tag, no preconnect, no DNS
-  lookup. That is the requirement, not the banner; a notice over a tracker that
-  is already running is what the rules exist to stop.
-- The gate must stay inline. A returning visitor who accepted should start
-  their session in the tick the parser reaches it, and Astro's default is to
-  hoist a component `<script>` into a bundle — hence `is:inline`.
-- `public/scripts/consent.js` is UI only, deferred, and talks to the gate
-  through `window.spenzaConsent`. It builds the banner rather than shipping it
-  in markup, because a banner whose buttons do nothing without JS is worse than
-  no banner: it implies a choice was recorded.
-- Accept and Reject are the same size and Reject comes first, in the DOM as
-  well as on screen. `flex: 1 1 0` on both, not `auto`, or "Accept" comes out a
-  few pixels wider for being a longer word.
-- Withdrawal has to undo something. Rejecting after accepting clears Clarity's
-  first-party cookies and localStorage and reloads, because a running tag
-  cannot be unloaded.
-- `CONSENT_VERSION` in the component is stored with the answer. Bump it when
-  what is being consented to changes, and everyone is asked again rather than
-  having consent carried forward to something they never saw.
-- No stored answer means ask — including when storage throws in private mode.
-  It never infers a consent nobody gave.
+- `src/components/Analytics.astro` is the whole feature: the GA4 pair, Clarity's
+  snippet, the dismissal's storage, and the notice's CSS. Rendered by all three
+  layouts, which is every page except the 367 redirect stand-ins — those bounce
+  in milliseconds, and tagging them would log a phantom zero-second session for
+  each and split the real one that follows.
+- **Ungated is a decision, not a bug.** It was asked for that way, to collect
+  the maximum, with the trade-off stated: `gtag.js` sets `_ga` and Clarity sets
+  `_clck`/`_clsk`/`CLID` on the first request, so the site measures before it
+  informs — the arrangement ePrivacy/GDPR consent rules exist to prevent — and
+  the HubSpot portal being on EU1 says the audience includes the EU. Do not
+  "fix" it silently. Reversing it means putting both `start()` paths behind a
+  stored answer and giving the bar its two buttons back; the storage and
+  versioning are still in place for exactly that.
+- **The notice has one button on purpose.** Accept/Reject wired to nothing
+  would tell the visitor a choice was recorded when none was, which is worse
+  than not offering one — a compliance gap is a fine, a fake control is the
+  aggravating factor on top of it. If the buttons come back, the gate comes
+  back with them, in the same change.
+- `NOTICE_VERSION` in the component is stored with the dismissal. Bump it when
+  what the notice *says* changes materially, and everyone is shown it again
+  rather than being counted as informed about something they never saw.
+- Storage that throws (private mode) reads as "not seen", so the bar is shown
+  again. Showing a notice twice costs nothing; suppressing one nobody saw is
+  the only failure worth avoiding.
+- `public/scripts/consent.js` is UI only, deferred, and talks to the inline
+  block through `window.spenzaNotice` — which records "this has been seen" and
+  nothing else. It builds the bar rather than shipping it in markup because it
+  is chrome, and the alternative is the same block copied into three layouts.
+- Both inline blocks must stay `is:inline`. The tags time a session from the
+  moment they run, and Astro's default is to hoist a component `<script>` into
+  a bundle, which would defer them behind it.
+- WordPress preprod carries its own Google stack (three GTM containers,
+  `G-001C6D3F2C` and `G-MC7V4KNGD`), and the mirror strips all of it — see the
+  `/dataLayer|gtag\(/` rule in `scripts/lib/inline-scripts.mjs`. The tags this
+  site ships are the ones in `Analytics.astro` and nothing else, so a container
+  added in WordPress will never appear here.
 
 ## Deployment
 
@@ -300,6 +312,7 @@ two files it writes into `dist/`.
 | `NOINDEX=1` | `Disallow: /` plus `X-Robots-Tag`. Set on every preview. |
 | `HOST_REDIRECTS=1` | Stop emitting the 86 HTML redirect stand-ins. |
 | `CLARITY_PROJECT_ID` | Microsoft Clarity tag. Empty ships no analytics. |
+| `GA_MEASUREMENT_ID` | GA4 tag, ungated. Empty on previews, or they count as real traffic. |
 
 - `NOINDEX` is opt-*out* on purpose. A staging site that slips into the index is
   fixable; a production site that ships `Disallow: /` deletes itself from Google
