@@ -15,6 +15,7 @@
 //
 // The `_redirects` and `_headers` formats are shared by Cloudflare Pages and
 // Netlify. Vercel wants the same rules expressed in `vercel.json`.
+import * as esbuild from 'esbuild';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -510,6 +511,63 @@ async function fixFontLoading(out, logger) {
  * does not change; if that ever stops being true, widen the pattern rather than
  * bumping something by hand.
  */
+
+/**
+ * Minify the site's own scripts.
+ *
+ * These are hand-written and heavily commented — `wp-shim.js` is 71KB of which
+ * roughly half is prose — and `public/` is copied to `dist/` verbatim, so every
+ * byte of that shipped. Lighthouse put 21KB under "minify JavaScript" on mobile,
+ * naming `wp-shim.js` and `hubspot-forms.js`; across all 491 files it is 136KB
+ * down to 55KB before compression, and less to parse on a phone.
+ *
+ * `minifyIdentifiers` is deliberately off. These are classic scripts, not
+ * modules: they share globals across files — `wp-shim.js` publishes helpers the
+ * per-page scripts call, and the page scripts publish `openPopupOne` for markup
+ * to reach. Renaming a top-level binding in one file would break its caller in
+ * another, silently and only in production. Whitespace and syntax are where the
+ * weight is anyway, and neither can rename anything.
+ *
+ * A file that will not parse is left exactly as it was and logged, because a
+ * script that ships unminified is a slower page and a script that ships mangled
+ * is a broken one.
+ */
+async function minifyOwnScripts(out, logger) {
+  const files = (await walk(path.join(out, 'scripts'))).filter(f => f.endsWith('.js'));
+  if (!files.length) return;
+
+  let before = 0;
+  let after = 0;
+  let done = 0;
+  const skipped = [];
+
+  for (const file of files) {
+    const src = await fs.readFile(file, 'utf8');
+    let code;
+    try {
+      ({ code } = await esbuild.transform(src, {
+        minifyWhitespace: true,
+        minifySyntax: true,
+        minifyIdentifiers: false,
+        legalComments: 'none',
+        target: 'es2019',
+      }));
+    } catch (err) {
+      skipped.push(`${path.relative(out, file)}: ${err.message}`);
+      continue;
+    }
+    before += Buffer.byteLength(src);
+    after += Buffer.byteLength(code);
+    await fs.writeFile(file, code, 'utf8');
+    done++;
+  }
+
+  for (const s of skipped) logger.warn(`minify skipped ${s}`);
+  logger.info(
+    `scripts: minified ${done} files, ${((before - after) / 1024).toFixed(0)}KB saved` +
+    (skipped.length ? `, ${skipped.length} left as-is` : '')
+  );
+}
 async function versionScripts(out, logger) {
   const pages = (await walk(out)).filter(f => f.endsWith('.html'));
   if (!pages.length) return;
@@ -651,6 +709,8 @@ export function hostFiles() {
         // finished CSS.
         await fixFontLoading(out, logger);
         await rewriteAssetMedia(out, logger);
+        // Before the digest, which must hash the bytes that are actually served.
+        await minifyOwnScripts(out, logger);
         await versionScripts(out, logger);
         // Last: everything above reads the output, and this removes part of it.
         await dropMediaTrees(out, logger);

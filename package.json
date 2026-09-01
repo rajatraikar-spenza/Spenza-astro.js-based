@@ -48,6 +48,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@astrojs/sitemap": "^3.7.3",
+    "esbuild": "^0.28.2",
     "lightningcss": "^1.33.0",
     "parse5": "^8.0.1",
     "postcss": "^8.5.26",
