@@ -707,6 +707,28 @@ body.wp-mirror.e-off-canvas__no-scroll {
   margin-top: 12px !important;
 }
 
+/*
+ * The drill-down screens scroll.
+ *
+ * Each is `position: absolute` at `top: 0` with `min-height: 100vh`, so it is
+ * exactly as tall as the drawer and no taller — whatever it holds. Resources
+ * grew past that when Case Study and About Us folded into it: on a 740px phone
+ * its content runs to 711px against a 456px box, and the last two case-study
+ * cards sat below the fold with nothing to scroll. The panel is not the page,
+ * so the page's scrollbar does not reach them, and the drawer's own
+ * `overflow: auto` does not either — the panel is out of flow, so it never
+ * extends the area the drawer knows to scroll.
+ *
+ * Making the panel its own scroller is the fix, and it applies to all four:
+ * Product and Solutions carry more rows than Resources and would overflow the
+ * same way on a short screen. `overscroll-behavior` keeps the gesture in the
+ * panel rather than dragging the article underneath once it bottoms out.
+ */
+.wp-mirror .e-off-canvas .sub-menu-mob {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
 .wp-mirror .e-off-canvas .mobile-menu > .mob-btn + .elementor-widget-button:not(.mob-btn) {
   margin-top: 28px !important;
 }
