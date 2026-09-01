@@ -1,0 +1,287 @@
+/**
+ * Home hero — the two-column layout that replaced the orbit animation.
+ *
+ * Imported by `src/pages/index.astro`, so it ships only on this route.
+ *
+ * What went: a 1,400-line inline SVG of concentric orbits with eight icons
+ * that scaled up on hover, sitting in a 120vh container with the copy floated
+ * over it (`position:absolute`, `pointer-events:none`, `height:100%!important`).
+ *
+ * What replaced it: the Figma hero — copy in a 645px column on the left, a
+ * three-photo collage in a 571x600 stage on the right, 64px between them
+ * inside the 1280px content width. That is 645 + 64 + 571 = 1280 exactly, so
+ * the three are written here as 50.39% / 5% / 44.61% and the whole hero scales
+ * with the container instead of breaking at one width.
+ *
+ * Why a stylesheet rather than new containers: every rule Elementor generated
+ * for this page is keyed to an element id (`.elementor-element-63cae77`), and
+ * the purged bundles in `wp-assets/` are built from the markup that exists.
+ * Rewriting the containers would lose the type scale, the button gradient and
+ * the badge along with the layout meant to change. The same reasoning as
+ * `about-us.css`.
+ *
+ * Selectors mirror the bundle's own shape (`.elementor-18837
+ * .elementor-element.elementor-element-x`) with `.wp-mirror` in front, so they
+ * win on specificity rather than on which stylesheet the layout happens to
+ * emit first.
+ */
+
+/*
+ * The shell. It was 120vh because the animation was a full-bleed backdrop;
+ * now the hero is as tall as its content — 64px of air, the 600px stage, 64px
+ * again — and `overflow: hidden` goes with it so nothing clips the collage.
+ */
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-8c97a6c {
+  --min-height: 0px;
+  --overflow: visible;
+  --align-items: flex-start;
+  --justify-content: space-between;
+  --flex-wrap: nowrap;
+  --gap: 0px 5%;
+  --padding-top: 64px;
+  --padding-bottom: 64px;
+  --padding-left: 20px;
+  --padding-right: 20px;
+  background-color: #fff;
+}
+
+/*
+ * The copy column. `--position: absolute` was how it floated over the
+ * animation; static returns it to the flex row, which makes `top`/`left`
+ * irrelevant and saves fighting Elementor's `body:not(.rtl)` offset rules.
+ */
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-63cae77 {
+  --min-height: 0px;
+  --overflow: visible;
+  --content-width: 100%;
+  --align-items: flex-start;
+  --justify-content: flex-start;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  position: static;
+  z-index: auto;
+  flex: 0 1 50.3906%;
+  width: 50.3906%;
+  max-width: 50.3906%;
+}
+
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-63cae77 > .e-con-inner {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* The headline and the paragraph were centred over the animation. */
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-ce0455e {
+  text-align: left;
+}
+
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-7680780 {
+  --container-widget-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+/*
+ * 32px of leading rather than 26px, which is what the design's three lines in
+ * a 96px block work out to, and 48px of air before the buttons.
+ */
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-7680780 .elementor-heading-title {
+  line-height: 32px;
+}
+
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-7680780 > .elementor-widget-container {
+  margin: 0 0 48px;
+}
+
+/* Two calls to action side by side, both hugging their labels. */
+.wp-mirror .home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  width: 100%;
+}
+
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-b05395a {
+  width: auto;
+  max-width: none;
+}
+
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-b05395a .elementor-button {
+  padding: 11px 28px;
+}
+
+/*
+ * The secondary button is new markup, so it is described in full here rather
+ * than borrowing an Elementor id. Same metrics as the primary, outlined.
+ */
+.wp-mirror .home-hero__chat {
+  color: #101828;
+  background-color: #fff;
+  border: 1px solid #101828;
+  border-radius: 999px;
+  padding: 11px 28px;
+  min-width: 200px;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color var(--polish-base, 0.2s) var(--polish-ease, ease),
+    color var(--polish-base, 0.2s) var(--polish-ease, ease);
+}
+
+.wp-mirror .home-hero__chat:hover,
+.wp-mirror .home-hero__chat:focus-visible {
+  color: #fff;
+  background-color: #101828;
+}
+
+/*
+ * The collage.
+ *
+ * One composed image rather than three positioned ones. The first attempt
+ * placed each photo separately at the design's coordinates — the geometry
+ * measured correct to the pixel, and it still did not match, because each
+ * export carries its own white shaping (the curve between the child and the
+ * two smaller frames is painted into the file, not a `border-radius`) and
+ * those white areas then paint over whichever photo sits below. Reproducing
+ * the design meant reproducing Figma's own compositing, which the frame
+ * export already is. So the frame is the asset.
+ *
+ * Exported at 2x (1142x1200) and shipped as WebP with a JPEG fallback. It is
+ * opaque, with the design's white behind the shapes, which is why the hero
+ * shell above sets a white background rather than inheriting one.
+ */
+.wp-mirror .elementor-18837 .elementor-element.elementor-element-75c5795 {
+  flex: 0 1 44.6094%;
+  width: 44.6094%;
+  max-width: 44.6094%;
+  align-self: flex-start;
+}
+
+.wp-mirror .home-hero__media {
+  width: 100%;
+  max-width: 571px;
+  margin-inline-start: auto;
+}
+
+.wp-mirror .home-hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+ * The headline's orange, which is a gradient rather than the flat `#ea580c`
+ * `.hero-highlight` carries everywhere else on the site.
+ *
+ * Sampled off the design export: the colour depends only on x, and runs from
+ * #ff6e24 to #ff4500 — the same two stops as the primary button — across the
+ * width of the copy column, not across each span. Both highlighted spans start
+ * at the column's left edge ("One Platform" opens line 1, "Connectivity
+ * Business" opens line 3), so pinning the gradient box to 645px and letting it
+ * start at each span's own left edge reproduces one continuous ramp shared by
+ * both. Sizing it per-span instead would restart the ramp on line 3 and the two
+ * lines would no longer agree.
+ *
+ * Scoped to this heading: `.hero-highlight` is also the orange word in
+ * "Trusted by Industry Leaders" below, and on 30-odd other pages.
+ */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-ce0455e .hero-highlight {
+    background-image: linear-gradient(90deg, #ff6e24 0%, #ff4500 100%);
+    background-repeat: no-repeat;
+    background-size: 645px 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/*
+ * Below Elementor's tablet breakpoint the two columns stop fitting: 645px of
+ * copy and a 571px stage need 1280, and the design has no narrower version.
+ * They stack, and the stage keeps its ratio at a size a phone can hold.
+ */
+@media (max-width: 1024px) {
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-8c97a6c {
+    --flex-wrap: wrap;
+    --justify-content: flex-start;
+    --gap: 48px 0px;
+    --padding-top: 48px;
+    --padding-bottom: 48px;
+  }
+
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-63cae77,
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-75c5795 {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .wp-mirror .home-hero__media {
+    max-width: 440px;
+    margin-inline: auto;
+  }
+
+  /* The column is full width here, so the ramp follows each span instead. */
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-ce0455e .hero-highlight {
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-7680780 > .elementor-widget-container {
+    margin: 0 0 32px;
+  }
+
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-7680780 .elementor-heading-title {
+    line-height: 26px;
+  }
+
+  /*
+   * A phone gets the copy centred, one call to action, and no collage.
+   *
+   * Centring is the whole column, badge included — centring the heading and
+   * paragraph but leaving the pill above them ranged left reads as a mistake
+   * rather than as a choice.
+   *
+   * `justify-content`, not `align-items`: Elementor lays this container out as
+   * a wrapping **row**, so each widget takes a line of its own and the
+   * horizontal axis is the main one. The heading and paragraph are full width
+   * and centre themselves through `text-align`; the badge is only as wide as
+   * its label, so it is the one that needs the container's help.
+   */
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-63cae77 > .e-con-inner {
+    justify-content: center;
+  }
+
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-ce0455e,
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-7680780 {
+    text-align: center;
+  }
+
+  .wp-mirror .home-hero__actions {
+    justify-content: center;
+  }
+
+  /* "Chat With Us" is the desktop pairing; the demo button stands alone here. */
+  .wp-mirror .home-hero__chat {
+    display: none;
+  }
+
+  /*
+   * The collage goes. Hiding it is only half the job — an `<img>` is fetched
+   * whatever its display, so the `<picture>` in the markup gates both real
+   * sources on `min-width: 768px` and falls back to an empty inline SVG. That
+   * is what keeps the 91KB off the connection least able to afford it.
+   */
+  .wp-mirror .elementor-18837 .elementor-element.elementor-element-75c5795 {
+    display: none;
+  }
+}
