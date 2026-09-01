@@ -171,10 +171,23 @@ export function featuredImage(post: LoopPost, opts: { priority?: boolean } = {})
   const width = img.width;
   const height = img.height;
 
-  // WordPress' default `sizes`: full-width below the image's own width, then
-  // capped at it. Computed rather than fetched — the GraphQL field is scoped to
-  // a registered size and returns the medium variant's value.
-  const sizes = width ? `(max-width: ${width}px) 100vw, ${width}px` : '';
+  /*
+   * The slot the image actually fills, which is what decides which `srcset`
+   * candidate the browser downloads.
+   *
+   * This used to emit WordPress' default — `(max-width: {width}px) 100vw,
+   * {width}px` — which for a 1280px featured image claims the whole viewport at
+   * every width up to 1280. Both callers are card renderers (the home carousel,
+   * and the loop item behind the archives, the blog index and related posts),
+   * and a card is never full-bleed. So on a 1350px desktop the browser was told
+   * it needed 1280px for a 360px slot and fetched the 1280w original: 180KB of
+   * overshoot across the three cards above the fold on the home page alone.
+   *
+   * The real geometry instead — one card per row on a phone, two on a tablet,
+   * about 400px in the three-up grid a desktop draws. Rounded up rather than
+   * down: over-declaring costs bytes, under-declaring costs a soft image.
+   */
+  const sizes = '(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px';
 
   // WordPress itself omits `srcset` when only one candidate survives, and a
   // lone candidate would describe the `src` the browser already has.
