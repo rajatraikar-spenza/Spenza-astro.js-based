@@ -1,0 +1,188 @@
+/**
+ * "Make us a preferred source on Google".
+ *
+ * Google's preferred-sources picker lets a reader say they want a site shown
+ * more often in Top Stories, Discover, AI Overviews and AI Mode. The link is a
+ * plain deep link — `google.com/preferences/source?q=<domain>` — and the whole
+ * feature is that link plus somewhere to put it. Ours is in the footer, on
+ * every page, and in the sticky rail on every post under "Subscribe Now".
+ *
+ * The domain is spelt `spenza.com` rather than taken from `SITE_URL`, and that
+ * is deliberate: eligibility is per registrable domain, so a reader on a
+ * preview build should still be recommending the production site, not the
+ * preview host.
+ *
+ * Built as markup and CSS rather than shipped as the design's SVG. The SVG is
+ * 31KB with the label converted to outlines — no selectable text, no accessible
+ * name, no reflow, and a fixed 307x84 that cannot fill the post rail. This is
+ * about 3KB, most of it the Google mark, and it is a real link with real text.
+ */
+
+.spenza-preferred {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 307px;
+  /* 14/20 of padding plus the 1.5px the ring below occupies. */
+  padding: 15.5px 21.5px;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+
+  color: #101828;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    box-shadow var(--polish-base, 0.2s) var(--polish-ease, ease),
+    transform var(--polish-base, 0.2s) var(--polish-ease, ease);
+}
+
+/*
+ * The four-colour rule from the design, drawn as two stacked layers rather
+ * than as a gradient border.
+ *
+ * `border-color` cannot take a gradient, and the obvious workaround — the
+ * gradient on the element's own `background-image`, clipped to the border box
+ * — does not survive here. Elementor ships this, and the mirrored CSS keeps it:
+ *
+ *   .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) *
+ *     { background-image: none !important }
+ *
+ * That `*` reaches every descendant of a top-level container, so any gradient
+ * on the button itself is blanked until `wp-shim.js` adds `e-lazyloaded` on
+ * scroll. The site already lives with that for the TL;DR panel, but a
+ * Google-branded button that is a plain white box until JS runs is a worse
+ * trade: the brand mark is the whole point of it.
+ *
+ * `*` does not match pseudo-elements, so the ring goes on `::before` and a
+ * white plate 1.5px inside it goes on `::after`. Both sit behind the content
+ * on a negative z-index, and the element's own `z-index: 0` is what keeps them
+ * from falling behind an ancestor's background instead. No JavaScript, no
+ * masks, and the same 1.5px ring the design draws.
+ */
+/*
+ * The label carries the font, not just the link: the mirrored CSS sets
+ * `proxima-nova` on spans, which quietly won over a `font-family` declared on
+ * the `<a>` alone. Manrope is what every other button on the site is set in.
+ */
+.spenza-preferred,
+.spenza-preferred span {
+  font-family: Manrope, sans-serif;
+}
+
+.spenza-preferred::before,
+.spenza-preferred::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.spenza-preferred::before {
+  inset: 0;
+  border-radius: inherit;
+  background-image: linear-gradient(90deg, #e33629 0%, #f8bd00 33%, #319f43 66%, #587dbd 100%);
+}
+
+.spenza-preferred::after {
+  inset: 1.5px;
+  border-radius: 18.5px;
+  background-color: #fff;
+}
+
+.spenza-preferred:hover,
+.spenza-preferred:focus-visible {
+  color: #101828;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+  transform: translateY(-1px);
+}
+
+.spenza-preferred:focus-visible {
+  outline: 2px solid #ff4500;
+  outline-offset: 3px;
+}
+
+.spenza-preferred__mark {
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 26px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spenza-preferred {
+    transition: none;
+  }
+
+  .spenza-preferred:hover,
+  .spenza-preferred:focus-visible {
+    transform: none;
+  }
+}
+
+/*
+ * The row variant, which is what the footer design draws: the mark beside the
+ * label on one line, in a 332x46 box that hugs its content, where the post
+ * rail's copy stacks them inside the design's 307x84.
+ *
+ * Every number here is measured off `Footer.jpg` at 1:1 — 46px tall, a 10px
+ * radius, a 16px mark inset 20px from the left, and 10px between mark and
+ * label at 14px.
+ */
+.spenza-preferred--row {
+  flex-direction: row;
+  gap: 10px;
+  /* The footer column is a flex container, so `auto` would stretch it. */
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.spenza-preferred--row::after {
+  border-radius: 8.5px;
+}
+
+.spenza-preferred--row .spenza-preferred__mark {
+  width: 16px;
+  height: 17px;
+}
+
+/*
+ * Under the social row, above "Location".
+ *
+ * The negative top margin cancels the footer column's own 20px `gap`. Without
+ * it the button sits 64px below the icons — the column gap, plus the 32px of
+ * trailing grid space the social-icons widget reserves below its last row,
+ * plus a margin of its own. Cancelling the gap leaves the widget's trailing
+ * space as the whole separation, which is the 32px the design draws.
+ */
+.wp-mirror .elementor-10094 .spenza-preferred {
+  margin: -20px 0 12px;
+}
+
+/*
+ * In a post's sticky rail it fills the column, directly under "Subscribe Now".
+ * Elementor's own button there is `elementor-align-justify`, so matching its
+ * full width is what keeps the two reading as a pair.
+ */
+.wp-mirror .elementor-element-d027c06 .spenza-preferred {
+  max-width: none;
+  margin-top: 12px;
+}
+
+@media (max-width: 767px) {
+  .spenza-preferred {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
