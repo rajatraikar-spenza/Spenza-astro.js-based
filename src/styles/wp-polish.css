@@ -202,6 +202,58 @@
   transition: transform var(--polish-base) var(--polish-ease);
 }
 
+/*
+ * The Resources panel, now that it carries the case studies and About Us.
+ *
+ * Layout again, and again deliberately. Home, Case Study and About Us left the
+ * menu bar; Case Study's three cards and the About Us link moved inside the
+ * Resources dropdown. Elementor sized that dropdown for two link columns in a
+ * 500px box, nudged 75px left to sit under the fourth of seven titles — every
+ * one of those numbers is now wrong, and none of them can be corrected in the
+ * markup, because they live in the generated `post-17806.css` the mirror
+ * captured.
+ *
+ * So the three numbers are restated here: a box wide enough for three columns,
+ * no nudge (Resources is now the middle of four titles, so centred is right),
+ * and link columns that share what is left after the card column takes its
+ * fixed width instead of holding Elementor's hard 48%.
+ *
+ * Scoped above Elementor's tablet breakpoint, which is where this menu is
+ * replaced by the off-canvas drawer.
+ */
+@media (min-width: 1025px) {
+  .wp-mirror #desktop-primary-nav .elementor-element-9e6571b {
+    --content-width: 800px;
+  }
+
+  .wp-mirror #desktop-primary-nav .elementor-element-ad6c688 {
+    --margin-left: 0px;
+    gap: 24px;
+  }
+
+  .wp-mirror #desktop-primary-nav .elementor-element-964c8ef,
+  .wp-mirror #desktop-primary-nav .elementor-element-836d9ed {
+    width: auto;
+    max-width: none;
+    flex: 1 1 0;
+    /* The card column is the tall one; stretched link columns would space
+       their three rows out to match it. */
+    align-self: flex-start;
+  }
+}
+
+/*
+ * The case-study cards as a column of the Resources panel. On a phone they are
+ * rows of the Resources drill-down and need nothing: the drawer is already a
+ * single column.
+ */
+.wp-mirror .nav-resources-cases {
+  display: flex;
+  flex: 0 0 250px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 /* Carousels: ease the track instead of Swiper's default linear transition. */
 .wp-mirror .swiper-wrapper {
   transition-timing-function: var(--polish-ease);
