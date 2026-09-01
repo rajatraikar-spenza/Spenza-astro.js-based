@@ -317,13 +317,24 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================
   // EXIT INTENT POPUP
   // =========================
+  // Leaving through the top of the window arms the popup; it opens ten seconds
+  // later rather than on the way out, so it does not land on someone who is
+  // still reading.
+  //
+  // The one-shot guard is set when the timer is armed, not when it fires, so a
+  // visitor who crosses the edge several times queues one popup instead of one
+  // per crossing. The timer is deliberately not cancelled if the pointer comes
+  // back: most exits are a trip to the tab bar or a bookmark, and cancelling on
+  // re-entry would mean the popup almost never appears at all.
+  const EXIT_INTENT_DELAY = 10000;
+
   document.addEventListener("mouseleave", function (event) {
 
     if (event.clientY <= 0 && popupOpen === 0) {
 
-      openPopupOne();
-
       popupOpen++;
+
+      setTimeout(openPopupOne, EXIT_INTENT_DELAY);
 
     }
 
