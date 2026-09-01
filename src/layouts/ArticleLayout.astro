@@ -345,6 +345,7 @@ body = toMediaOrigin(applyHtmlPerf(body));
         `data-wp-forms-origin` is what lets Gravity Forms send its
         notifications again — see `WP_FORMS_ORIGIN` in scripts/lib/config.mjs. */}
     <script src="/scripts/hubspot-forms.js" data-wp-forms-origin={WP_FORMS_ORIGIN} defer></script>
+    <script src="/scripts/preferred-source.js" defer></script>
     {/* The reading-progress bar, and the scroll depth that opens the popup. */}
     <script src="/scripts/reading-progress.js" defer></script>
     {postScript && <script src={postScript} defer></script>}

@@ -185,6 +185,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
       script then behaves exactly as it did before: HubSpot only, no mail.
     */}
     <script src="/scripts/hubspot-forms.js" data-wp-forms-origin={WP_FORMS_ORIGIN} defer></script>
+    <script src="/scripts/preferred-source.js" defer></script>
     {pageScripts?.script && <script src={pageScripts.script} defer></script>}
 
     <slot name="head" />
