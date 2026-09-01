@@ -708,6 +708,28 @@ body.wp-mirror.e-off-canvas__no-scroll {
 }
 
 /*
+ * The drawer is as tall as the drawer, not as tall as its top-level rows.
+ *
+ * `.mobile-menu` holds two things: the rows you see first, in flow, and the
+ * four drill-down screens, absolutely positioned over them at
+ * `min-height: 100vh`. It sizes itself to the first group — 432px of rows on a
+ * 740px phone — and clips to `overflow: hidden`. So every drill-down was cut
+ * at 432px, and what fell past it simply was not painted: the sixth Solutions
+ * entry, "Phone Service for AI Agents", and the last of the case studies.
+ *
+ * It reads as an item missing rather than as content cut off, because the
+ * panel's own white background carries on to the foot of the screen — there is
+ * nothing to see, so there is nothing to suggest looking.
+ *
+ * A minimum of the drawer's own height is the whole fix. `overflow: hidden`
+ * stays: it is what keeps the inactive screens, parked off to the right, from
+ * showing.
+ */
+.wp-mirror .e-off-canvas .mobile-menu {
+  min-height: 100%;
+}
+
+/*
  * The drill-down screens scroll.
  *
  * Each is `position: absolute` at `top: 0` with `min-height: 100vh`, so it is
