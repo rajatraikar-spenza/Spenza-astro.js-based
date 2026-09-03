@@ -1977,3 +1977,51 @@ body.wp-mirror.e-off-canvas__no-scroll {
   border-radius: 20px;
   padding: 9px 20px !important;
 }
+
+/*
+ * The four Elementor icons this site actually draws, as SVG instead of a font.
+ *
+ * `eicons.woff2` is 103KB and the whole site renders six glyphs from it — the
+ * menu toggle and its close button on 801 pages, a spinner on the posts, and
+ * one pair of carousel chevrons. A phone downloaded all 103KB to draw a
+ * hamburger. Replacing the glyph with a mask means nothing on the page renders
+ * a character in that family, so the browser never asks for the file at all.
+ *
+ * `currentColor` through the mask, so these still take their colour from
+ * whatever is styling the button — which a background-image could not do.
+ *
+ * The two spinner glyphs are deliberately left on the font: they belong to
+ * Elementor's own lightbox, which nothing here opens, and adding them would
+ * mean drawing two icons no reader sees.
+ */
+.wp-mirror .eicon-menu-bar::before,
+.wp-mirror .eicon-close::before,
+.wp-mirror .eicon-chevron-left::before,
+.wp-mirror .eicon-chevron-right::before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: var(--sp-eicon) center / contain no-repeat;
+  mask: var(--sp-eicon) center / contain no-repeat;
+  /* Empty content is not enough on its own: the box still carries
+     `font-family: eicons`, and Chrome fetches a font it may need to measure a
+     box with. Taking the family off is what actually stops the request. */
+  font-family: inherit;
+}
+
+.wp-mirror .eicon-menu-bar,
+.wp-mirror .eicon-close,
+.wp-mirror .eicon-chevron-left,
+.wp-mirror .eicon-chevron-right {
+  font-family: inherit;
+}
+
+.wp-mirror .eicon-menu-bar { --sp-eicon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 6h18M3 12h18M3 18h18'/></svg>"); }
+
+.wp-mirror .eicon-close { --sp-eicon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 6l12 12M18 6L6 18'/></svg>"); }
+
+.wp-mirror .eicon-chevron-left { --sp-eicon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 5l-7 7 7 7'/></svg>"); }
+
+.wp-mirror .eicon-chevron-right { --sp-eicon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5l7 7-7 7'/></svg>"); }

@@ -12,12 +12,26 @@
  * `preferred-sources-control="manual"` is what stops the library prompting on
  * its own schedule; `addPreferredSource()` is then ours to call on the press.
  *
- * The library is loaded with the page rather than on demand, and it is 73KB
- * compressed. Deferring it until the button scrolls near — the obvious saving,
- * since most readers never press it — was tried and abandoned: the overlay is a
- * popup, and a popup opened from a callback that resolves after a network fetch
- * has lost the user gesture that gets it past the blocker. A button that
- * sometimes silently falls back to the old two-step page is worse than 73KB.
+ * The library costs about 240KB across `publisher.js` and the three
+ * `boq-subscribewithgoogle` chunks it pulls, and almost no reader presses the
+ * button. Loading it *on the press* was tried and abandoned, for a good reason
+ * worth keeping written down: the overlay is a popup, and a popup opened from a
+ * callback that resolves after a network fetch has lost the user gesture that
+ * gets it past the blocker.
+ *
+ * So it is deferred to the first sign of a reader instead — the first pointer,
+ * key, touch or scroll anywhere on the page. That is not the press, so the
+ * gesture is intact when the press comes; it is simply always earlier. A reader
+ * whose very first action is clicking this button gets the fallback below,
+ * which is the same thing they got when the library was blocked.
+ *
+ * There is deliberately no idle-time fallback. One was tried, and it defeated
+ * the point: `requestIdleCallback` fires about a second after load, so the
+ * 240KB landed inside the window that decides Time to Interactive and the page
+ * paid for it anyway. A reader who never touches the page never reaches this
+ * button either — and reaching it means scrolling, which is the event below.
+ * Before this it loaded with the page, and 240KB of third-party script on a
+ * phone was paid by every visitor for a feature a handful use.
  *
  * It stays additive either way. If the library never arrives — blocked,
  * offline, or pressed before it lands — nothing calls `preventDefault` and the
@@ -37,15 +51,33 @@
     api = ps;
   });
 
-  var script = document.createElement('script');
-  script.async = true;
-  script.setAttribute('preferred-sources-control', 'manual');
-  script.src = 'https://news.google.com/swg/js/v1/publisher.js';
-  document.head.appendChild(script);
+  var requested = false;
+
+  function loadLibrary() {
+    if (requested) return;
+    requested = true;
+    for (var j = 0; j < EVENTS.length; j++) {
+      window.removeEventListener(EVENTS[j], loadLibrary, LISTEN);
+    }
+    var script = document.createElement('script');
+    script.async = true;
+    script.setAttribute('preferred-sources-control', 'manual');
+    script.src = 'https://news.google.com/swg/js/v1/publisher.js';
+    document.head.appendChild(script);
+  }
+
+  var EVENTS = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+  var LISTEN = { passive: true, once: false };
+  for (var k = 0; k < EVENTS.length; k++) {
+    window.addEventListener(EVENTS[k], loadLibrary, LISTEN);
+  }
+
 
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (event) {
-      if (!api) return;
+      // Not ready: let the anchor do what it always did, and start the
+      // fetch so a second press gets the overlay.
+      if (!api) { loadLibrary(); return; }
       event.preventDefault();
       api.addPreferredSource();
     });
