@@ -1916,3 +1916,44 @@ body.wp-mirror.e-off-canvas__no-scroll {
     display: none;
   }
 }
+
+/**
+ * The location pin beside the footer's "Location" heading.
+ *
+ * Inline SVG rather than the 48x48 PNG it was drawn from: the bitmap is 2.9KB
+ * and would need a request on every page (or ~3.9KB of base64 in every page's
+ * HTML if inlined), where this is ~850 bytes that ship inside the footer markup
+ * — no request, and it stays sharp at any zoom or device pixel ratio. The head
+ * is a true r=16 circle and the gradients are sampled from the original, so it
+ * renders as the same icon rather than an approximation of one.
+ *
+ * The gradient ids are document-global, which is safe here only because the
+ * footer is rendered once per page. A second copy on a page would have both
+ * fills resolve to whichever came first.
+ */
+.wp-mirror .spenza-loc {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.wp-mirror .spenza-loc__pin {
+  /* The heading is a flex row now, so stop the pin being squeezed by the text. */
+  flex: 0 0 auto;
+}
+
+/**
+ * Gravity Forms prints the form's *internal* name as the popup heading.
+ *
+ * The mirrored bundles hide it for `#emailPopup` and `#emailPopup-1`, which
+ * covers every page but one: the kids-smartwatch post carries a second popup on
+ * `#emailPopup_2`, and no bundle has a rule for that id — so opening its
+ * download popup shows a heading reading "Download PDF Popup" to the visitor.
+ *
+ * It lives here rather than in the purged bundles because `wp:optimize-css`
+ * re-runs strip rules from other pages; this sheet is Astro-bundled and safe.
+ */
+#emailPopup_2 .gform_title,
+#emailPopup_2 .gform_required_legend {
+  display: none;
+}
