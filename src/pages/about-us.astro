@@ -9,5 +9,11 @@ import '../styles/about-us.css';
 ---
 
 <WpLayout slug="about-us">
+  {/*
+    Fills the journey rail as the section is read. Deferred and outside the
+    page's own extracted script, which still carries the marquee this replaced
+    — that snippet now finds no SVG and returns.
+  */}
+  <script slot="head" src="/scripts/about-timeline.js" defer is:inline></script>
   <Fragment set:html={content} />
 </WpLayout>
