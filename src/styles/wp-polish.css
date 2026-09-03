@@ -1732,7 +1732,26 @@ body.wp-mirror.e-off-canvas__no-scroll {
      column scrolls rather than pinning its own foot off-screen. */
   max-height: calc(100vh - var(--wp-sticky-top, 24px) - 24px);
   overflow-y: auto;
-  scrollbar-width: thin;
+
+  /*
+   * The column still scrolls; its scrollbar is just not drawn.
+   *
+   * It is a second track running the height of the sidebar, a few pixels from
+   * the window's own, and on Windows it renders as a full grey trough with
+   * arrows — furniture beside the reading column rather than a control anyone
+   * reaches for, since the sidebar's content also moves with the page. Hidden
+   * rather than styled: a thin custom bar is still a second bar.
+   *
+   * `overflow-y: auto` stays, so a keyboard or trackpad still scrolls it and
+   * nothing becomes unreachable on a short window.
+   */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.wp-mirror .wp-sticky-con::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 /*
@@ -1891,4 +1910,70 @@ body.wp-mirror.e-off-canvas__no-scroll {
 #emailPopup_2 .gform_title,
 #emailPopup_2 .gform_required_legend {
   display: none;
+}
+
+/*
+ * The post meta row: category, date, reading time, and "Updated".
+ *
+ * It sits beside the author box, and did so by accident rather than by rule.
+ * Both are flex items of a 1280px container with a 20px gap; the author widget
+ * is a fixed 640px and this one sized to its content. Three items came to
+ * ~428px and fitted in the 620px left over. A fourth took it past 620 and the
+ * whole row wrapped underneath the author box.
+ *
+ * Taking the remaining space instead of sizing to content is what keeps it in
+ * place: the row can no longer be wide enough to displace itself, and a long
+ * category now wraps *inside* the row rather than moving the row. Right-aligned
+ * because that is where it already sat — flush with the container's right edge.
+ */
+.wp-mirror .single-post-icon {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.wp-mirror .single-post-icon .elementor-post-info {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  /* Four pills need every pixel of the 620; the mirrored spacing was set for
+     three. Tight enough to keep one line, loose enough to still read as
+     separate boxes. */
+  column-gap: 14px;
+  row-gap: 10px;
+}
+
+/*
+ * Spacing from the flex gap alone.
+ *
+ * Elementor spaces these with `margin: 0 15px` per item, which is 30px each and
+ * 120px across four — on top of the gap, and enough on its own to push the last
+ * pill onto a second line inside a 620px row. The gap above already does this
+ * job, and does it between items rather than outside the first and last, so the
+ * row still ends flush with the container edge.
+ */
+.wp-mirror .single-post-icon .elementor-post-info,
+.wp-mirror .single-post-icon .elementor-post-info > li {
+  /* `!important` because Elementor sets these from
+     `.elementor-widget .elementor-icon-list-items.elementor-inline-items
+     .elementor-icon-list-item`, and the per-widget rule above that — both
+     outrank anything selector-shaped this file can write. The negative inline
+     margin on the list is the other half of the same spacing scheme, and
+     without it removed the row hangs past the container's right edge. */
+  margin-inline: 0 !important;
+}
+
+/*
+ * The reading-time pill.
+ *
+ * The mirrored rule gives the box to `li a` and to `li:last-child` — links for
+ * the category and the date, and "last" for the reading time, which had nothing
+ * to link. Adding "Updated" after it moved `:last-child` along and the reading
+ * time silently lost its box. Named here rather than left to position, so the
+ * next item added to this row cannot take it away again.
+ */
+.wp-mirror .single-post-icon li.elementor-repeater-item-c455ccf {
+  background: #fffaf8;
+  border: 1px solid #00000070;
+  border-radius: 20px;
+  padding: 9px 20px !important;
 }

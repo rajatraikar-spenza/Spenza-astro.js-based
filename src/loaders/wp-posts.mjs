@@ -42,7 +42,10 @@ const BATCH = 10;
  * so raising it re-fetches everything — the alternative is a store full of
  * records that predate a field and a build that fails far from the cause.
  */
-const SCHEMA_VERSION = 11;
+// 12: `postExtras` rows were stored before `icon` was requested. The GraphQL
+//     field wins over the snapshot, so those rows carried a title and text and
+//     an empty icon, and every TL;DR card rendered without one.
+const SCHEMA_VERSION = 12;
 
 const H = WP_HOST.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 

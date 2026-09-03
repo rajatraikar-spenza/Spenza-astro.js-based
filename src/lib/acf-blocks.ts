@@ -31,15 +31,34 @@ const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 /**
- * Turn ACF's icon descriptor into Font Awesome classes.
+ * Turn ACF's icon value into Font Awesome classes.
  *
- * Stored as a JSON *string* like
+ * Two shapes reach here, and only one of them was ever handled.
+ *
+ * WPGraphQL returns the field **already rendered**:
+ *   <i class="fa-classic fa-solid fa-gears" aria-hidden="true"></i>
+ * ACF stores it as a JSON *string*:
  *   {"family":"classic","style":"brands","id":"ubuntu","unicode":"f7df"}
- * which the mirrored markup renders as `fa-classic fa-brands fa-ubuntu`.
- * Malformed or missing values yield no icon rather than a broken glyph.
+ *
+ * This used to `JSON.parse` unconditionally, so every icon the loader supplied
+ * threw, was swallowed by the catch, and returned '' — every TL;DR card on
+ * every post rendered without its icon while the titles and text beside it came
+ * through fine, which is why it read as a styling fault rather than a parse one.
+ *
+ * Classes are filtered to `fa-*` tokens. The value is WordPress' to set, and
+ * only the icon families belong in a class attribute we build.
  */
+const FA_TOKEN = /^fa[a-z]?-[a-z0-9-]+$/i;
+
 export function iconClass(icon?: string): string {
   if (!icon) return '';
+
+  // Rendered form: take the class list off the first tag that carries one.
+  const rendered = /<i\s[^>]*class=["']([^"']+)["']/i.exec(icon);
+  if (rendered) {
+    return rendered[1].trim().split(/\s+/).filter(t => FA_TOKEN.test(t)).join(' ');
+  }
+
   try {
     const { family, style, id } = JSON.parse(icon) as Record<string, string>;
     if (!id) return '';

@@ -163,7 +163,10 @@ function webpSrcSet(candidates: string[]): string | null {
  * the post itself, where it must not be deprioritised behind the dozen card
  * thumbnails further down the same page.
  */
-export function featuredImage(post: LoopPost, opts: { priority?: boolean } = {}): string {
+export function featuredImage(
+  post: LoopPost,
+  opts: { priority?: boolean; sizes?: string } = {},
+): string {
   const img = post.featuredImage;
   if (!img) return '';
 
@@ -186,8 +189,15 @@ export function featuredImage(post: LoopPost, opts: { priority?: boolean } = {})
    * The real geometry instead — one card per row on a phone, two on a tablet,
    * about 400px in the three-up grid a desktop draws. Rounded up rather than
    * down: over-declaring costs bytes, under-declaring costs a soft image.
+   *
+   * That default describes a *card*, and it is wrong for anything full-bleed —
+   * which is why `sizes` is now an option. A post's hero draws at the full
+   * 1280px content width, and inheriting the card figure told the browser it
+   * needed 400px for it: on a 1.25 DPR laptop it fetched a 768w candidate for a
+   * slot wanting ~1600px, and the hero of every post was visibly soft. A caller
+   * that is not drawing a card has to say so.
    */
-  const sizes = '(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px';
+  const sizes = opts.sizes ?? '(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px';
 
   // WordPress itself omits `srcset` when only one candidate survives, and a
   // lone candidate would describe the `src` the browser already has.

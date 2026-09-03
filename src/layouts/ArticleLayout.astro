@@ -26,6 +26,8 @@ import { MEDIA_ORIGIN, toMediaOrigin, WP_FORMS_ORIGIN } from '../../scripts/lib/
 import { applyHtmlPerf } from '../../scripts/lib/html-perf.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
 import { renderTldrHeading, renderSummary, renderKeyPoints, renderSpenzaBlock } from '../lib/acf-blocks.ts';
+import { faGlyphStyles, iconNameFrom } from '../lib/fa-glyphs.ts';
+import { iconClass } from '../lib/acf-blocks.ts';
 import { removeWidget, replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
 import { renderLoopGrid, featuredImage as renderFeaturedImage, type LoopPost } from '../lib/loop-item.ts';
 import { decodeEntities } from '../lib/post-card.ts';
@@ -106,8 +108,17 @@ const excerpt = d.excerpt || '';
  * `featuredImage()` already offers both, and only when the manifest proves the
  * file exists. `priority` keeps the `fetchpriority="high"` the hero needs and
  * the lack of `loading="lazy"`, which is what this markup was for.
+ *
+ * `sizes` has to be given explicitly: the builder defaults to the geometry of a
+ * card, and this is the one place it draws full-bleed. It fills the 1280px
+ * content column, so without this the browser was told 400px, fetched a 768w
+ * candidate onto a slot wanting ~1600 device pixels at 1.25 DPR, and every
+ * post's hero rendered soft.
  */
-const featuredImage = renderFeaturedImage(d as LoopPost, { priority: true });
+const featuredImage = renderFeaturedImage(d as LoopPost, {
+  priority: true,
+  sizes: '(max-width: 1280px) 100vw, 1280px',
+});
 
 // Rendered raw: post bodies embed bespoke <section> widgets carrying their own
 // inline <style> and <script>, which any sanitising pass would break.
@@ -125,6 +136,20 @@ const tldrHeading = renderTldrHeading(blocks);
 const summary = renderSummary(blocks);
 const keyPoints = renderKeyPoints(blocks);
 const spenzaBlock = renderSpenzaBlock(blocks);
+
+/**
+ * The `--fa` values for this post's card icons.
+ *
+ * The purged bundle carries the font-family and the `content: var(--fa)`
+ * rule, but only the icons purgecss saw in the mirrored markup — so an icon
+ * this post uses and that markup never had resolves to nothing. See
+ * `lib/fa-glyphs.ts`.
+ */
+const faStyles = faGlyphStyles(
+  [...(blocks.twoCol ?? []), ...(blocks.oneCol ?? [])]
+    .map(c => iconNameFrom(iconClass(c.icon)))
+    .filter(Boolean),
+);
 
 const SLOTS: Record<string, string> = {
   breadcrumbs, title, excerpt, featuredImage, content, relatedPosts,
@@ -204,6 +229,30 @@ const dateInner =
   '<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">' +
   `<time>${dateText}</time></span>`;
 
+/**
+ * "Last updated", beside the reading time.
+ *
+ * `updatedDate` is WordPress' `modified`, which the loader already stores and
+ * keys its incremental fetch on — so this is the same timestamp that decides
+ * whether a post is refetched, not a second opinion about it.
+ *
+ * Shown on every post rather than only on edited ones. A post that has never
+ * been revised reports its publication date here, which is what "last updated"
+ * means for it; hiding the box on those would leave a reader to wonder whether
+ * the post was current or the site had simply stopped saying.
+ *
+ * A short month keeps it beside three other items on one line — the published
+ * date above spells its month out because it is the post's own date and reads
+ * as prose. `datetime` carries the full value for anything parsing it.
+ */
+const updDate = d.updatedDate;
+const updText = updDate.toLocaleDateString('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+});
+const updIso = `${updDate.getFullYear()}-${pad2(updDate.getMonth() + 1)}-${pad2(updDate.getDate())}`;
+
 const postInfoHtml =
   '<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">' +
     '<li class="elementor-icon-list-item elementor-repeater-item-41a4991 elementor-inline-item" itemprop="about">' +
@@ -217,6 +266,9 @@ const postInfoHtml =
     '<li class="elementor-icon-list-item elementor-repeater-item-c455ccf elementor-inline-item">' +
       '<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-custom">' +
       `${readingMinutes}mins</span></li>` +
+    '<li class="elementor-icon-list-item elementor-inline-item wp-post-updated" itemprop="dateModified">' +
+      '<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-custom">' +
+      `Updated <time datetime="${updIso}">${updText}</time></span></li>` +
   '</ul>';
 
 body = replaceWidgetInner(body, AUTHOR_BOX_ID, authorBoxHtml);
@@ -349,6 +401,7 @@ body = toMediaOrigin(applyHtmlPerf(body));
     {/* The reading-progress bar, and the scroll depth that opens the popup. */}
     <script src="/scripts/reading-progress.js" defer></script>
     {postScript && <script src={postScript} defer></script>}
+    {faStyles && <Fragment set:html={faStyles} />}
   </head>
   <body class={bodyClass}>
     <a class="skip-link screen-reader-text" href="#wp-main">Skip to content</a>
