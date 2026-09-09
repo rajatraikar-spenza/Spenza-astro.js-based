@@ -81,9 +81,17 @@ fn_etag() {
   aws cloudfront describe-function --name "$FUNCTION" \
     --query ETag --output text 2>/dev/null | grep -v '^None$' || true
 }
+# Empty means "does not exist" — but only after ruling out "cannot look". A
+# denied describe returning empty would send step_function on to create a store
+# that is already there, which is the same trap require_perms exists to close.
 kvs_arn() {
-  aws cloudfront describe-key-value-store --name "$KVS" \
-    --query KeyValueStore.ARN --output text 2>/dev/null | grep -v '^None$' || true
+  local out
+  out="$(aws cloudfront describe-key-value-store --name "$KVS" \
+    --query KeyValueStore.ARN --output text 2>&1)" || {
+      denied "$out" && die "cannot read key-value store ${KVS}: ${out}"
+      return 0
+    }
+  printf '%s' "$out" | grep -v '^None$' || true
 }
 # The data plane is a separate service from the control plane, and its ETag
 # changes on every write — so each batch has to re-read it.

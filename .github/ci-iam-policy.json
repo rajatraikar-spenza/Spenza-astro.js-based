@@ -35,6 +35,7 @@
       "Effect": "Allow",
       "Action": [
         "cloudfront:DescribeKeyValueStore",
+        "cloudfront:TestFunction",
         "cloudfront-keyvaluestore:DescribeKeyValueStore",
         "cloudfront-keyvaluestore:UpdateKeys",
         "cloudfront-keyvaluestore:ListKeys",
