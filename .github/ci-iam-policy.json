@@ -28,6 +28,19 @@
       "Effect": "Allow",
       "Action": ["cloudfront:CreateInvalidation", "cloudfront:GetDistribution", "cloudfront:ListDistributions"],
       "Resource": "*"
+    },
+    {
+      "Sid": "KeepTheRedirectTableCurrent",
+      "Comment": "The /blog/ redirect table lives in a CloudFront KeyValueStore because it does not fit in the 10KB function. Writing rows is content publishing, not provisioning - the same category as PutObject - so CI may do it. Creating or deleting the store itself is deliberately absent; that stays with scripts/aws-site-host.sh and a human.",
+      "Effect": "Allow",
+      "Action": [
+        "cloudfront:DescribeKeyValueStore",
+        "cloudfront-keyvaluestore:DescribeKeyValueStore",
+        "cloudfront-keyvaluestore:UpdateKeys",
+        "cloudfront-keyvaluestore:ListKeys",
+        "cloudfront-keyvaluestore:GetKey"
+      ],
+      "Resource": "*"
     }
   ]
 }

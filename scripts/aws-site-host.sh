@@ -4,6 +4,7 @@
 #
 #   ./scripts/aws-site-host.sh bucket    private origin bucket
 #   ./scripts/aws-site-host.sh function  build + publish the CloudFront Function
+#   ./scripts/aws-site-host.sh redirects push the /blog/ table into the key-value store
 #   ./scripts/aws-site-host.sh cdn       OAC, headers policy, distribution, policy
 #   ./scripts/aws-site-host.sh deploy    sync dist/ and invalidate
 #   ./scripts/aws-site-host.sh verify    smoke-test the distribution
@@ -20,11 +21,19 @@
 # ignores entirely. Their two jobs are split here: redirects into the function,
 # security headers into a response headers policy, and Cache-Control onto the
 # objects themselves at upload — which is why `deploy` syncs in three passes.
+#
+# Why a key-value store as well as the function: a CloudFront Function is capped
+# at 10KB of source, and 353 redirect rules are ~14KB of irreducible string data.
+# The 320 `/blog/<slug>/` aliases therefore live in a KeyValueStore the function
+# queries, while the 33 non-blog rules stay embedded — which is what keeps an
+# ordinary article request free of any data-plane lookup. See
+# scripts/aws-build-cf-function.mjs.
 set -euo pipefail
 
 BUCKET="${SITE_BUCKET:-spenza-site}"
 REGION="${REGION:-us-east-1}"
 FUNCTION="${FUNCTION_NAME:-spenza-site-router}"
+KVS="${KVS_NAME:-spenza-redirects}"
 DIST_DIR="./dist"
 
 say()  { printf '\n\033[1m==> %s\033[0m\n' "$*"; }
@@ -72,6 +81,16 @@ fn_etag() {
   aws cloudfront describe-function --name "$FUNCTION" \
     --query ETag --output text 2>/dev/null | grep -v '^None$' || true
 }
+kvs_arn() {
+  aws cloudfront describe-key-value-store --name "$KVS" \
+    --query KeyValueStore.ARN --output text 2>/dev/null | grep -v '^None$' || true
+}
+# The data plane is a separate service from the control plane, and its ETag
+# changes on every write — so each batch has to re-read it.
+kvs_data_etag() {
+  aws cloudfront-keyvaluestore describe-key-value-store --kvs-arn "$1" \
+    --query ETag --output text 2>/dev/null | grep -v '^None$' || true
+}
 headers_policy_id() {
   aws cloudfront list-response-headers-policies --type custom \
     --query "ResponseHeadersPolicyList.Items[?ResponseHeadersPolicy.ResponseHeadersPolicyConfig.Name=='spenza-site-security'].ResponseHeadersPolicy.Id | [0]" \
@@ -105,22 +124,84 @@ step_function() {
   local code="scripts/.cf-site-function.js"
   [ -f "$code" ] || die "expected $code"
 
+  # The store has to exist and be READY before a function can be associated with
+  # it: the association is part of the function config, so creating them the
+  # other way round fails the update rather than deferring it.
+  local arn; arn="$(kvs_arn)"
+  if [ -z "$arn" ]; then
+    say "Creating key-value store ${KVS}"
+    arn="$(aws cloudfront create-key-value-store --name "$KVS" \
+      --comment "Legacy /blog/ redirect table for ${FUNCTION}" \
+      --query KeyValueStore.ARN --output text)" \
+      || die "could not create the key-value store"
+    info "waiting for it to become READY"
+    local status tries=0
+    until [ "$(aws cloudfront describe-key-value-store --name "$KVS" \
+                 --query KeyValueStore.Status --output text 2>/dev/null)" = "READY" ]; do
+      tries=$((tries + 1))
+      [ "$tries" -gt 60 ] && die "key-value store ${KVS} never became READY"
+      sleep 5
+    done
+  fi
+  info "store: ${arn}"
+
+  local cfg
+  cfg="$(printf '{"Comment":"Spenza site router","Runtime":"cloudfront-js-2.0",'
+         printf '"KeyValueStoreAssociations":{"Quantity":1,"Items":[{"KeyValueStoreARN":"%s"}]}}' "$arn")"
+
   local etag; etag="$(fn_etag)"
   if [ -n "$etag" ]; then
     say "Updating function ${FUNCTION}"
     etag="$(aws cloudfront update-function --name "$FUNCTION" --if-match "$etag" \
-      --function-config "Comment=Spenza site router,Runtime=cloudfront-js-2.0" \
+      --function-config "$cfg" \
       --function-code "fileb://${code}" --query ETag --output text)"
   else
     say "Creating function ${FUNCTION}"
     etag="$(aws cloudfront create-function --name "$FUNCTION" \
-      --function-config "Comment=Spenza site router,Runtime=cloudfront-js-2.0" \
+      --function-config "$cfg" \
       --function-code "fileb://${code}" --query ETag --output text)"
   fi
 
   say "Publishing"
   aws cloudfront publish-function --name "$FUNCTION" --if-match "$etag" >/dev/null
   info "live"
+
+  info "now run: $0 redirects   (the function is published, the table is not)"
+}
+
+# Push the /blog/ redirect table into the key-value store.
+#
+# Separate from `function` because the two change at different rates: the
+# function source is stable, while the table gains a row every time a post is
+# published or an article is merged into another. Safe to re-run — `update-keys`
+# is an upsert, so this is idempotent.
+step_redirects() {
+  require_perms cloudfront
+  local arn; arn="$(kvs_arn)"
+  [ -n "$arn" ] || die "key-value store ${KVS} does not exist — run 'function' first"
+
+  local dir="scripts/.cf-kvs-batches"
+  if [ ! -d "$dir" ]; then
+    say "Building the table"
+    node scripts/aws-build-cf-function.mjs || die "function generation failed"
+  fi
+  local batches; batches=$(find "$dir" -name '*.json' | sort)
+  [ -n "$batches" ] || die "no batches in ${dir}"
+
+  say "Uploading $(printf '%s\n' "$batches" | wc -l | tr -d ' ') batches to ${KVS}"
+  local etag file
+  for file in $batches; do
+    etag="$(kvs_data_etag "$arn")"
+    [ -n "$etag" ] || die "could not read the store's ETag"
+    aws cloudfront-keyvaluestore update-keys --kvs-arn "$arn" --if-match "$etag" \
+      --puts "file://${file}" >/dev/null || die "upload failed on ${file}"
+    info "$(basename "$file") ok"
+  done
+
+  local count
+  count="$(aws cloudfront-keyvaluestore describe-key-value-store --kvs-arn "$arn" \
+    --query ItemCount --output text 2>/dev/null || echo '?')"
+  info "store now holds ${count} keys"
 }
 
 step_cdn() {
@@ -427,7 +508,14 @@ step_policy() {
                  "cloudfront:ListCachePolicies","cloudfront:CreateResponseHeadersPolicy",
                  "cloudfront:ListResponseHeadersPolicies","cloudfront:CreateFunction",
                  "cloudfront:UpdateFunction","cloudfront:PublishFunction",
-                 "cloudfront:DescribeFunction"],
+                 "cloudfront:DescribeFunction","cloudfront:CreateKeyValueStore",
+                 "cloudfront:DescribeKeyValueStore","cloudfront:ListKeyValueStores"],
+      "Resource": "*" },
+    { "Effect": "Allow",
+      "Action": ["cloudfront-keyvaluestore:DescribeKeyValueStore",
+                 "cloudfront-keyvaluestore:PutKey","cloudfront-keyvaluestore:DeleteKey",
+                 "cloudfront-keyvaluestore:UpdateKeys","cloudfront-keyvaluestore:ListKeys",
+                 "cloudfront-keyvaluestore:GetKey"],
       "Resource": "*" }
   ]
 }
@@ -435,9 +523,10 @@ JSON
 }
 
 case "${1:-}" in
-  bucket)   step_bucket ;;
-  function) step_function ;;
-  cdn)      step_cdn ;;
+  bucket)    step_bucket ;;
+  function)  step_function ;;
+  redirects) step_redirects ;;
+  cdn)       step_cdn ;;
   deploy)   step_deploy ;;
   verify)   step_verify "${2:-}" ;;
   alias)    step_alias "${2:-}" ;;

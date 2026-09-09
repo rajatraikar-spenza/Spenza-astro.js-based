@@ -5,11 +5,25 @@
  * post, which would compete with the canonical in search results.
  *
  * Driven by the mirror index so it cannot drift from the routes that exist.
+ *
+ * Superseded by the CloudFront function, which serves these as real 301s from
+ * its key-value store. `HOST_REDIRECTS` decides whether the HTML stand-ins are
+ * emitted at all — the same switch `[...wpRedirect].astro` has always honoured,
+ * and which this route quietly ignored.
+ *
+ * That omission was the whole of audit finding T01: 256 legacy URLs answering
+ * HTTP 200 with `noindex` and a meta refresh, 114 of them still ranking and
+ * holding ~10% of the site's search clicks. Order matters when turning this on
+ * — the store has to hold the rules *before* the pages stop being emitted, or
+ * the bounce page becomes a 404.
  */
 import Redirect from '../../components/Redirect.astro';
 import wpPosts from '../../data/wp-posts.json';
+import { HOST_REDIRECTS } from '../../../scripts/lib/config.mjs';
 
 export async function getStaticPaths() {
+  if (HOST_REDIRECTS) return [];
+
   const index = wpPosts as Record<string, { route: string }>;
   return Object.entries(index).map(([slug, entry]) => ({
     params: { slug },
