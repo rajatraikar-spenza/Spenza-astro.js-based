@@ -325,6 +325,158 @@
 
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+  /* ----------------------------------------------------------- analytics */
+
+  /**
+   * What each form actually *is*, for reporting. Audit finding C01/C02.
+   *
+   * The GA export the audit worked from carried 16 key events with no names on
+   * them, so nothing could say whether a given one was a demo request, a PDF
+   * download or a mis-click — and every judgement about which content earns
+   * pipeline was guesswork as a result. These names are what ends that.
+   *
+   * Kept here rather than on the `FORMS` specs above: those describe how a form
+   * reaches HubSpot, and this describes how it is counted. They change for
+   * different reasons.
+   *
+   * The kind here is the *starting* point; `kindOf` below can downgrade a lead
+   * to a newsletter, because one form is presented as two different things.
+   */
+  const FORM_KIND = {
+    19: ['lead', 'Book A Free Demo'],
+    15: ['lead', 'Get Started popup'],
+    20: ['lead', 'Contact Us'],
+    5:  ['download', 'Mobility policy pack'],
+    16: ['download', 'Gated PDF popup'],
+    21: ['download', 'MVNO calculator report'],
+  };
+
+  /**
+   * Where the visitor was when they filled it in.
+   *
+   * Deliberately no email, phone or name: GA4 forbids personal data in event
+   * parameters, and the audit's C01 says so explicitly. Everything here is
+   * about the *page*, which is the thing reporting actually needs — the
+   * contact record already lives in HubSpot and in Gravity Forms.
+   *
+   * `content_category` comes from the `category-<slug>` class the post template
+   * puts on `<body>`, which is the only place the article's topic is legible to
+   * a script. It is absent on marketing pages, and left out rather than guessed.
+   */
+  function pageContext() {
+    const cls = document.body?.className || '';
+    const category = cls.match(/\bcategory-([a-z0-9-]+)/)?.[1];
+    const path = location.pathname;
+
+    const pageType =
+      path === '/' ? 'home'
+      : /^\/category\//.test(path) ? 'archive'
+      : /^\/\d{4}\/\d{2}\/\d{2}\//.test(path) ? 'date-archive'
+      : /^\/author\//.test(path) ? 'author'
+      : category ? 'post'
+      : 'page';
+
+    return {
+      page_path: path,
+      page_type: pageType,
+      ...(category ? { content_category: category } : {}),
+    };
+  }
+
+  /**
+   * Which of the several places a form appears in. The audit asks for CTA
+   * placement so that the inline bar and the modal can be compared, which is
+   * what C05 proposes testing.
+   *
+   * Three values, taken from the markup rather than guessed at. `.popup-overlay`
+   * and `.popup-container` are what both modals actually use — the site-wide one
+   * in `chrome/demo-popup.html` and the one the post template carries. An
+   * earlier version of this looked for `.spenza-modal`, `[role="dialog"]` and an
+   * `<article>` wrapper, none of which exist here, so every popup submission
+   * reported itself as inline and the comparison C05 wants would have been
+   * measuring one thing against itself.
+   */
+  function placementOf(form) {
+    if (form.closest('.popup-overlay, .popup-container')) return 'popup';
+    if (form.closest('footer, .site-footer')) return 'footer';
+    return 'inline';
+  }
+
+  /**
+   * Send one event, if there is anywhere to send it.
+   *
+   * `gtag` is defined by the inline block in `Analytics.astro`, which is absent
+   * when `GA_MEASUREMENT_ID` is empty — every preview build, deliberately. So
+   * this is a no-op there rather than an error, and nothing on the page depends
+   * on it having worked.
+   */
+  function track(name, params) {
+    try {
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('event', name, params);
+    } catch (err) {
+      // Analytics must never take a submit down with it.
+      console.warn('[hubspot-forms] event failed:', err);
+    }
+  }
+
+  /**
+   * What this form is, judged by what the visitor was actually told it does.
+   *
+   * Gravity Forms 19 is named "Book A Free Demo" and posts to the demo lead
+   * form in HubSpot — but its submit button reads **"Subscribe"** on every blog
+   * post and every category archive. Two different mechanisms do it: this
+   * repo's `ArticleLayout` rewrites the label server-side for posts, and a
+   * mirrored WPCode footer snippet rewrites it at runtime elsewhere. On
+   * marketing pages it still reads "Book a Free Demo".
+   *
+   * So the same form asks some people for a demo and others for a subscription,
+   * and files both as demo leads. The audit's C02 — a subscription must not be
+   * counted as a sales lead — is therefore a live problem here, not a
+   * hypothetical, and it is a good part of why 16 unnamed key events could not
+   * be interpreted.
+   *
+   * Reading the rendered label is what makes the split honest. Anything
+   * hardcoded would be a guess about which mechanism won on a given page, and
+   * both of them can change without this file being touched.
+   *
+   * This does not fix the underlying mismatch: someone who clicks "Subscribe"
+   * still becomes a HubSpot contact on a demo form and still gets the Gravity
+   * Forms notification. That needs an editorial and CRM decision. It does mean
+   * reporting stops calling it a lead.
+   */
+  function kindOf(form, id) {
+    const [kind, label] = FORM_KIND[id] || ['lead', `Form ${id}`];
+    if (kind !== 'lead') return [kind, label, ''];
+
+    const button = form.querySelector('input[type="submit"], button[type="submit"]');
+    const shown = String(button?.value || button?.textContent || '').trim();
+
+    return [/subscrib/i.test(shown) ? 'newsletter' : kind, label, shown];
+  }
+
+  /** Everything a form event carries, from the form and the page around it. */
+  function formEvent(form, id) {
+    const [kind, label, shown] = kindOf(form, id);
+    return {
+      form_id: String(id),
+      form_name: label,
+      form_kind: kind,
+      // The words on the button, so a report can see what was promised rather
+      // than what the form is called internally.
+      ...(shown ? { cta_label: shown } : {}),
+      placement: placementOf(form),
+      ...pageContext(),
+    };
+  }
+
+  /** GA4 event name for a form outcome. Three kinds, three names, on purpose. */
+  const SUBMIT_EVENT = {
+    lead: 'lead_form_submit',
+    newsletter: 'newsletter_subscribe',
+    download: 'content_download',
+  };
+
   const value = (form, name) => {
     const el = form.elements[name];
     return el && typeof el.value === 'string' ? el.value.trim() : '';
@@ -873,11 +1025,30 @@
     if (!ok) {
       restore();
       showError(form);
+      // Counted so that a completion rate has a denominator and an outage is
+      // visible in reporting rather than only in someone's console.
+      track('form_error', { ...formEvent(form, id), error_type: 'submit_failed' });
       return;
     }
 
     showConfirmation(form, spec);
     announce(id);
+
+    /**
+     * Only here, and never earlier.
+     *
+     * `ok` is HubSpot answering 2xx to the submission — so this fires on a
+     * confirmed success, not on a button click, which is what the audit's C01
+     * asks for and the difference between a lead count and a click count. A
+     * failed submit above is counted separately, and a bot caught by the
+     * honeypot returns before reaching either.
+     *
+     * The two names are kept apart on purpose: a gated PDF is not a sales
+     * enquiry, and folding them together is how the 16 unnamed key events
+     * became impossible to interpret in the first place.
+     */
+    const ev = formEvent(form, id);
+    track(SUBMIT_EVENT[ev.form_kind] || 'lead_form_submit', ev);
   }
 
   /* ---------------------------------------------------------------- wire */
@@ -923,5 +1094,30 @@
     link.rel = 'preconnect';
     link.href = `https://api-${REGION}.hsforms.com`;
     document.head.appendChild(link);
+  });
+
+  /**
+   * `form_start`, once per form per page view.
+   *
+   * Separate listener from the preconnect above, which removes itself after the
+   * first form it sees — that is right for warming a connection and wrong for
+   * counting, because ~270 pages carry both the inline bar and the modal, and
+   * only counting whichever was touched first would undercount the second.
+   *
+   * This is the denominator. Submits alone say how many people finished; the
+   * ratio to starts is what says whether a form is losing people, which is the
+   * measure the audit's C05 wants before testing the inline CTA against the
+   * popup.
+   */
+  const started = new WeakSet();
+  document.addEventListener('focusin', event => {
+    const form = event.target.closest?.('form[id^="gform_"], form[data-hs-form]');
+    if (!form || started.has(form)) return;
+
+    const key = specKey(form);
+    if (!key || !FORMS[key]) return;
+
+    started.add(form);
+    track('form_start', formEvent(form, gravityId(form) ?? key));
   });
 })();
