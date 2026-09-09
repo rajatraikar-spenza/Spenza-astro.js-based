@@ -10,6 +10,7 @@ import path from 'node:path';
 
 import wpPosts from './src/data/wp-posts.json' with { type: 'json' };
 import wpRedirects from './src/data/wp-redirects.json' with { type: 'json' };
+import { SITE_REDIRECTS } from './src/data/site-redirects.mjs';
 import { partialRewrites } from './scripts/lib/partial-rewrites-plugin.mjs';
 import { wpRefresh } from './scripts/lib/wp-refresh-integration.mjs';
 import { hostFiles } from './scripts/lib/host-files-integration.mjs';
@@ -32,6 +33,7 @@ import { sitemapAlias } from './scripts/lib/sitemap-alias-integration.mjs';
 const REDIRECTING = new Set([
   ...Object.keys(wpPosts).map(slug => `/blog/${slug}/`),
   ...Object.keys(wpRedirects).map(from => (from.endsWith('/') ? from : `${from}/`)),
+  ...Object.keys(SITE_REDIRECTS).map(from => (from.endsWith('/') ? from : `${from}/`)),
   ...handWrittenRedirects(),
 ]);
 

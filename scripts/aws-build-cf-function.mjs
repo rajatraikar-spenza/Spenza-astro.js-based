@@ -46,6 +46,8 @@ const read = f =>
 const redirects = read('wp-redirects.json');
 /** slug -> { route, category, key }; the mirror index, and the route index. */
 const posts = read('wp-posts.json');
+/** This repo's own decisions, which a `wp:redirects` run must not overwrite. */
+const { SITE_REDIRECTS } = await import('../src/data/site-redirects.mjs');
 
 /**
  * Keyed on the path with both slashes stripped, so `/x`, `/x/` and `x` all
@@ -103,6 +105,10 @@ for (const [slug, entry] of Object.entries(posts)) {
   all.set(`blog/${slug}`, entry.route);
 }
 for (const [from, to] of Object.entries(redirects)) {
+  all.set(bare(from), to);
+}
+// Last, so a decision made here beats a stale capture of the same path.
+for (const [from, to] of Object.entries(SITE_REDIRECTS)) {
   all.set(bare(from), to);
 }
 

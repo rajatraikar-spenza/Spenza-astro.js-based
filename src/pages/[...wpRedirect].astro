@@ -19,6 +19,7 @@
  */
 import Redirect from '../components/Redirect.astro';
 import wpRedirects from '../data/wp-redirects.json';
+import { SITE_REDIRECTS } from '../data/site-redirects.mjs';
 import { HOST_REDIRECTS } from '../../scripts/lib/config.mjs';
 
 export async function getStaticPaths() {
@@ -28,6 +29,12 @@ export async function getStaticPaths() {
   // the same route, and emitting it twice is a build error.
   const byPath = new Map<string, string>();
   for (const [from, to] of Object.entries(wpRedirects as Record<string, string>)) {
+    byPath.set(from.replace(/^\/|\/$/g, ''), to);
+  }
+  // This repo's own redirects, added last so they win a collision. Without them
+  // here, a local or preview build (where HOST_REDIRECTS is unset) would 404 on
+  // paths production redirects — the two would disagree about the same URL.
+  for (const [from, to] of Object.entries(SITE_REDIRECTS as Record<string, string>)) {
     byPath.set(from.replace(/^\/|\/$/g, ''), to);
   }
   return [...byPath].map(([wpRedirect, target]) => ({
