@@ -81,4 +81,14 @@ export const SITE_REDIRECTS = {
    * is ever built — the audit's first choice, and still the better answer.
    */
   '/telecom-savings-calculator/': '/connectivity-revenue-optimization/',
+
+  /**
+   * Audit finding T05. The inventory records this as a private post, and the
+   * URL 404s, but a public Google Fi case study exists at /mvno/google-fi/ —
+   * so this looks like a predecessor whose inbound links now dead-end.
+   *
+   * The private source stays private; this only routes the old public URL at
+   * the page that replaced it.
+   */
+  '/mvno/google-fi-case-study/': '/mvno/google-fi/',
 };
