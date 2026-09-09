@@ -145,6 +145,11 @@ step_function() {
   fi
   info "store: ${arn}"
 
+  # Load the table before the function that reads it is tested, let alone
+  # published. The reverse order leaves a window where the function is live and
+  # every legacy URL misses the store — which is the bug this replaced.
+  step_redirects
+
   local cfg
   cfg="$(printf '{"Comment":"Spenza site router","Runtime":"cloudfront-js-2.0",'
          printf '"KeyValueStoreAssociations":{"Quantity":1,"Items":[{"KeyValueStoreARN":"%s"}]}}' "$arn")"
@@ -162,11 +167,45 @@ step_function() {
       --function-code "fileb://${code}" --query ETag --output text)"
   fi
 
+  # Test before publishing, against the real store. `update-function` writes to
+  # the DEVELOPMENT stage only, so nothing above this line has touched LIVE —
+  # and this function is on the path of every request, so a bad publish takes
+  # the whole site down rather than degrading one route. `test-function` is the
+  # only chance to find that out cheaply.
+  say "Testing the DEVELOPMENT stage"
+  fn_test "$etag" '/mvno/mvno/'          pass || die "a real article did not pass through"
+  fn_test "$etag" '/blog/what-are-mvnos/' 301 || die "a legacy /blog/ URL did not redirect"
+  fn_test "$etag" '/'                    pass || die "the homepage did not pass through"
+
   say "Publishing"
   aws cloudfront publish-function --name "$FUNCTION" --if-match "$etag" >/dev/null
   info "live"
+}
 
-  info "now run: $0 redirects   (the function is published, the table is not)"
+# Run one request through the DEVELOPMENT stage. $1 etag, $2 uri, $3 pass|301.
+fn_test() {
+  local etag="$1" uri="$2" want="$3" ev out got
+  ev="$(mktemp)"
+  printf '{"version":"1.0","context":{"eventType":"viewer-request"},'          >"$ev"
+  printf '"viewer":{"ip":"198.51.100.1"},"request":{"method":"GET","uri":"%s",' "$uri" >>"$ev"
+  printf '"headers":{},"cookies":{},"querystring":{}}}'                        >>"$ev"
+
+  out="$(aws cloudfront test-function --name "$FUNCTION" --if-match "$etag" \
+    --stage DEVELOPMENT --event-object "fileb://${ev}" \
+    --query 'TestResult.[FunctionErrorMessage,FunctionOutput]' --output text 2>&1)"
+  rm -f "$ev"
+
+  case "$out" in
+    *'"statusCode":301'*|*'"statusCode": 301'*) got=301 ;;
+    *'"uri"'*)                                  got=pass ;;
+    *)                                          got="error: ${out}" ;;
+  esac
+  if [ "$got" = "$want" ]; then
+    info "  ${uri} -> ${got}"
+    return 0
+  fi
+  printf '    %s -> %s (wanted %s)\n' "$uri" "$got" "$want" >&2
+  return 1
 }
 
 # Push the /blog/ redirect table into the key-value store.
