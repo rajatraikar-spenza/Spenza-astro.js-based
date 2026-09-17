@@ -75,12 +75,23 @@ export const SITE_REDIRECTS = {
    * "how much could I save". Sending 691 impressions of savings intent at a
    * launch-cost tool would be a worse answer than none.
    *
-   * /connectivity-revenue-optimization/ is the page about reducing telecom
-   * spend, and the Conversion Plan's commercial destination for the Telecom
-   * Spend & Revenue Assurance hub (H4). Replace this with the real tool if one
-   * is ever built — the audit's first choice, and still the better answer.
+   * This pointed at /connectivity-revenue-optimization/, then the page about
+   * reducing telecom spend. That page became the Voice Observability Solution,
+   * so this now lands on a different topic — kept pointing there only because
+   * the old URL is itself a redirect now, and a chain fails the CloudFront
+   * build. It needs a real telecom-spend destination; replace this when there
+   * is one.
    */
-  '/telecom-savings-calculator/': '/connectivity-revenue-optimization/',
+  '/telecom-savings-calculator/': '/voice-observability-solution/',
+
+  /**
+   * The Solution page renamed to what it now is. The old address carries years
+   * of links from posts and elsewhere, so it is a permanent redirect rather than
+   * a retirement. Point anything new at the target directly: a redirect whose
+   * target is this key is a chain, and the CloudFront function build rejects
+   * chains.
+   */
+  '/connectivity-revenue-optimization/': '/voice-observability-solution/',
 
   /**
    * Audit finding T05. The inventory records this as a private post, and the

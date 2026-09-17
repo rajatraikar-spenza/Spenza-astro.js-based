@@ -1,6 +1,6 @@
 ---
 /**
- * /connectivity-revenue-optimization/ — the Voice Observability Solution page
+ * /voice-observability-solution/ — the Voice Observability Solution page
  * (Spenza Number Intelligence).
  *
  * Built the way /ai-phone-number/ is: the body is hand-built, and it renders
@@ -8,13 +8,17 @@
  * and lead-capture runtime stay exactly as they are on every other page. The
  * design shipped its own nav bar and footer; neither is used.
  *
- * The URL is kept although the name changed. It replaces the old Connectivity
- * Revenue Optimization page in the Solution menu, and moving it would strand
- * the redirects and post links that already point here. The title,
- * description, Open Graph card and schema name are updated in
+ * It replaced Connectivity Revenue Optimization in the Solution menu and first
+ * shipped at that page's URL. It moved here so the address names the product;
+ * `/connectivity-revenue-optimization/` is a 301 in `data/site-redirects.mjs`,
+ * and everything that pointed at it was repointed here rather than left to
+ * chain through it (the CloudFront function build rejects chains).
+ *
+ * Title, description, canonical, Open Graph and the schema graph — including a
+ * `Service` node the WebPage names as its subject — live in
  * `data/wp-seo.json`, which is what `WpLayout` emits.
  *
- * `public/scripts/page/connectivity-revenue-optimization.js` is still loaded,
+ * `public/scripts/page/voice-observability-solution.js` is still loaded,
  * and has to be: besides the demo popup it drives the header's mobile
  * submenus. Nothing in it touches this page's own markup.
  *
@@ -25,8 +29,8 @@
  * comment in `ai-phone-number.astro` before doing it again.
  */
 import WpLayout from '../layouts/WpLayout.astro';
-import content from '../partials/connectivity-revenue-optimization.html?raw';
-import '../styles/connectivity-revenue-optimization.css';
+import content from '../partials/voice-observability-solution.html?raw';
+import '../styles/voice-observability-solution.css';
 
 /**
  * FAQPage schema, read out of the markup rather than kept as a second copy.
@@ -54,7 +58,7 @@ const questions = [
 }));
 
 if (questions.length === 0) {
-  throw new Error('connectivity-revenue-optimization: no FAQ items found in the partial');
+  throw new Error('voice-observability-solution: no FAQ items found in the partial');
 }
 
 const faq = {
@@ -64,7 +68,7 @@ const faq = {
 };
 ---
 
-<WpLayout slug="connectivity-revenue-optimization">
+<WpLayout slug="voice-observability-solution">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faq)} />
   </Fragment>
