@@ -36,9 +36,17 @@ interface Props {
    * than a 404 with no metadata at all.
    */
   indexable?: boolean;
+  /**
+   * Whether to render the lead-capture modal, for a page whose body is built
+   * from components rather than a partial. Left out, it is read from the
+   * partial, as below.
+   */
+  demoPopup?: boolean;
+  /** Whether to load Swiper, for the same kind of page. See `needsSwiper`. */
+  swiper?: boolean;
 }
 
-const { slug, title, description, indexable = true } = Astro.props;
+const { slug, title, description, indexable = true, demoPopup, swiper } = Astro.props;
 
 type PageMeta = { id?: string; title: string; description: string; bodyClass: string };
 
@@ -81,7 +89,8 @@ const partials = import.meta.glob('../partials/*.html', {
   import: 'default',
   eager: true,
 }) as Record<string, string>;
-const hasDemoButton = (partials[`../partials/${slug}.html`] ?? '').includes('get-started');
+const hasDemoButton =
+  demoPopup ?? (partials[`../partials/${slug}.html`] ?? '').includes('get-started');
 
 /**
  * Whether this page has a carousel for Swiper to drive.
@@ -95,7 +104,7 @@ const hasDemoButton = (partials[`../partials/${slug}.html`] ?? '').includes('get
  * its markup is not in this glob, so the safe answer is the old one.
  */
 const pageMarkup = partials[`../partials/${slug}.html`];
-const needsSwiper = pageMarkup === undefined || pageMarkup.includes('swiper-wrapper');
+const needsSwiper = swiper ?? (pageMarkup === undefined || pageMarkup.includes('swiper-wrapper'));
 
 // Astra/Elementor selectors depend on these, so mirror them verbatim.
 const bodyClass = ['wp-mirror', meta?.bodyClass ?? 'elementor-default elementor-kit-56']

@@ -1,0 +1,57 @@
+---
+/**
+ * The demo request.
+ *
+ * The form is Gravity Forms 15 — the "Get Started with Spenza" form the popup
+ * uses — laid out inline: work email, phone or WhatsApp number, and this
+ * section's own button. It goes where every popup lead goes: hubspot-forms.js
+ * sends it to HubSpot's `#gform_15` form (email and phone, both on that form's
+ * allowlist, so nothing is dropped) and replays it to WordPress so Gravity
+ * Forms stores the entry and sends form 15's notifications.
+ *
+ * Selected by `data-hs-form="15"`, not by `id="gform_15"`: the popup is on this
+ * page too and already owns that id, and two elements sharing it would break
+ * the labels and anything that looks the form up by id. The runtime reads
+ * `data-hs-form` first, and `gform_submit` below is what tells WordPress which
+ * form this is. `state_15` is that form's own token. On success the runtime
+ * replaces the form's contents with its confirmation.
+ *
+ * Counted in analytics as form 15 like the popup, told apart from it by
+ * `placement: inline`.
+ */
+---
+
+<section class="hm-sec hm-sec--flush" id="demo">
+  <div class="hm-wrap">
+    <div class="hm-cta hm-stack hm-reveal">
+      <div>
+        <h2 class="hm-cta-title">See <em>Spenza</em> in action</h2>
+        <p class="hm-cta-text">
+          Bring your line counts and target markets. In 30 minutes we show a deployment timeline,
+          operator availability by country, and a per-line cost projection for your fleet.
+        </p>
+      </div>
+      <div>
+        <form class="hm-form" id="hm-demo-form" data-hs-form="15" method="post" action="/" novalidate>
+          <label class="hm-sr" for="hm-demo-email">Work email</label>
+          <input id="hm-demo-email" name="input_2" type="email" placeholder="Your Work Email" autocomplete="email" aria-required="true" aria-invalid="false" />
+          <label class="hm-sr" for="hm-demo-phone">Phone or WhatsApp number</label>
+          <input id="hm-demo-phone" name="input_5" type="tel" placeholder="Phone Number / WhatsApp Number" autocomplete="tel" aria-invalid="false" />
+          <button class="hm-btn hm-btn--acc" type="submit">Book a technical demo</button>
+          <input type="hidden" name="gform_ajax" value="form_id=15&amp;title=1&amp;description=1&amp;tabindex=0" />
+          <input type="hidden" name="is_submit_15" value="1" />
+          <input type="hidden" name="gform_submit" value="15" />
+          <input type="hidden" name="gform_unique_id" value="" />
+          <input type="hidden" name="state_15" value="WyJbXSIsIjcwMWM3MTZjZjIwZjQzZTczYzBmMGYwYzU1NWFhMTc0Il0=" />
+          <input type="hidden" name="gform_target_page_number_15" value="0" />
+          <input type="hidden" name="gform_source_page_number_15" value="1" />
+          <input type="hidden" name="gform_field_values" value="" />
+          <p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_">
+            <label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label>
+            <input type="hidden" name="ak_js" value="0" />
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

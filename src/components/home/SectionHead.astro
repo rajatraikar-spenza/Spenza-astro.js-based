@@ -1,0 +1,24 @@
+---
+/**
+ * The eyebrow, heading and lede that open most sections of the home page.
+ * The heading is the slot, so a section can put an accent `<em>` in it.
+ */
+interface Props {
+  eyebrow?: string;
+  lede?: string;
+  /** Space below the block, in px. The design varies it per section. */
+  space?: number;
+  /** Extra classes on the block, for a section that lays it out differently. */
+  class?: string;
+}
+
+const { eyebrow, lede, space = 48, class: className } = Astro.props;
+---
+
+<div class:list={['hm-head hm-stack hm-reveal', className]} style={`--hm-head-space:${space}px`}>
+  <div>
+    {eyebrow && <div class="hm-eyebrow">{eyebrow}</div>}
+    <h2 class="hm-h2"><slot /></h2>
+  </div>
+  {lede && <p class="hm-lede">{lede}</p>}
+</div>

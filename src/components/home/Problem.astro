@@ -1,0 +1,45 @@
+---
+/** The connectivity challenge: a sticky intro beside three numbered problems. */
+const problems = [
+  {
+    title: 'Multi-operator connectivity is fragmented',
+    text: 'Different networks come with different contracts, pricing models, APIs, coverage, and operational workflows, making expansion slower and harder to manage.',
+  },
+  {
+    title: 'Connectivity adds a new operational layer',
+    text: 'SIM and eSIM provisioning, activations, plan changes, usage tracking, subscriptions, inventory, and support all need to work reliably behind the customer experience.',
+  },
+  {
+    title: 'Billing gets complicated fast',
+    text: 'Carrier costs, customer pricing, subscriptions, usage, markups, invoices, and reconciliation often live across separate systems, making margins and costs harder to understand.',
+  },
+];
+---
+
+<section class="hm-sec">
+  <div class="hm-wrap">
+    <div class="hm-problem hm-stack">
+      <div class="hm-problem-intro hm-reveal">
+        <div class="hm-eyebrow">THE CONNECTIVITY CHALLENGE</div>
+        <h2 class="hm-h2">Add connectivity.<br /> <span class="hm-line">Not telecom overhead.</span></h2>
+        <p class="hm-lede">
+          Adding connectivity to a product can unlock new revenue, better customer experiences,
+          and entirely new services. But getting there often means navigating carrier
+          relationships, fragmented APIs, provisioning systems, billing infrastructure, and
+          telecom operations that were never designed for modern product teams.
+        </p>
+      </div>
+      <ol class="hm-problem-list">
+        {problems.map((problem, i) => (
+          <li class="hm-reveal">
+            <div class="hm-problem-no">{String(i + 1).padStart(2, '0')}</div>
+            <div>
+              <h3>{problem.title}</h3>
+              <p>{problem.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

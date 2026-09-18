@@ -1,0 +1,168 @@
+---
+/**
+ * Customer proof: three case studies behind tabs, the headline numbers, and
+ * the customer logos.
+ *
+ * Content, layout and colour are the Figma file's "Customer Proof" frame. Its
+ * type is mapped onto the page's own families — that frame alone is set in
+ * Instrument Sans, Inter and JetBrains Mono, where every other frame uses
+ * Bricolage Grotesque, Geist and Geist Mono — except the quote, which keeps
+ * Instrument Serif. The count-up on the numbers is the HTML design's. Tabs
+ * are switched by src/scripts/home.js; without it the first story shows.
+ */
+import { LOGOS, logoHtml } from './logos';
+import arrow from '../../assets/home/arrow.svg?url';
+
+const stories = [
+  {
+    id: 'butlr',
+    name: 'Butlr',
+    kind: 'SMART BUILDING SENSORS',
+    badge: '88% FASTER',
+    chip: 'IoT fleets',
+    metric: ['88', '%'],
+    metricText: 'Faster time to market for a new country, against their previous carrier process.',
+    steps: [
+      'New countries launched through their previous carrier process.',
+      'High-bandwidth plans for smart building sensors across the US, UK, and France.',
+      'All three markets on one invoice, at lower total telecom cost.',
+    ],
+    quote: 'Multi-country connectivity stopped being an operational burden and became a strategic asset.',
+    tiles: [['3', 'markets live: US, UK, France'], ['1', 'invoice across every country'], ['Lower', 'total telecom cost']],
+    hubs: ['TelecomHub', 'ControlHub'],
+    href: '/spenza-product/butlr-iot-spenza-casestudy/',
+  },
+  {
+    id: 'angel-watch',
+    name: 'Angel Watch',
+    kind: "KIDS' SMARTWATCH",
+    badge: 'ONE CHECKOUT',
+    chip: 'Connected devices',
+    metric: ['1', 'checkout'],
+    metricText: 'For the watch and its connectivity plan, priced for a watch rather than a phone.',
+    steps: [
+      "Connectivity for a child's smartwatch, on pricing built around phones.",
+      'The plan moved into the Shopify checkout, sold alongside the device.',
+      'Watch-priced connectivity, lower cost per line, and a branded activation flow.',
+    ],
+    quote: 'Connectivity stopped being a cost centre and became a competitive advantage.',
+    tiles: [['Shopify', 'checkout with device and plan together'], ['Branded', 'activation flow'], ['Lower', 'cost per line']],
+    hubs: ['UXHub', 'TelecomHub'],
+    href: '/telecom/angel-watch-iot-business-casestudy/',
+  },
+  {
+    id: 'rocketphone',
+    name: 'RocketPhone',
+    kind: 'CONVERSATION AI FOR SALESFORCE',
+    badge: 'BRANDED MVNO',
+    chip: 'Connectivity providers',
+    metric: ['1', 'network'],
+    metricText: 'A branded business mobile network launched on Spenza, with no telecom stack of their own.',
+    steps: [
+      "Calls placed from a rep's handset never touched RocketPhone's platform, so they never reached Salesforce.",
+      'Carrier integration, eSIM provisioning, rating, billing, subscriber management, and multi-tier reseller control, all over API.',
+      'Native mobile calls terminate to a SIP URI inside RocketPhone, recorded, transcribed, and written to Salesforce.',
+    ],
+    quote: 'Capturing a native cellular call means controlling the voice path. There is no software shortcut.',
+    tiles: [['eSIM', 'provisioning and activation over API'], ['SIP', 'termination into their own platform'], ['Multi-tier', 'reseller and enterprise accounts']],
+    hubs: ['TelecomHub', 'UXHub'],
+    href: '/spenza-product/rocketphone-case-study/',
+  },
+];
+
+const STEP_LABELS = ['STARTING POINT', 'WHAT MOVED', 'WHAT CHANGED'];
+
+// [counts to, suffix, label]. The number is written out in full, so the page
+// is right before and without the count-up.
+const stats = [
+  [88, '%', 'Faster to launch a new market than building the carrier stack yourself'],
+  [180, '+', 'Countries with local operator access'],
+  [30, '+', 'Pre-built operator integrations'],
+  [30, '%', 'Typical connectivity cost reduction after routing and plan right-sizing'],
+] as const;
+
+// Smaller than the strip under the hero: the design sets this row in one
+// 27px line beside its label.
+const logos = LOGOS.map(logo => logoHtml(logo, { scale: 0.7 })).join('');
+---
+
+<section class="hm-sec hm-proof" id="customers">
+  <div class="hm-wrap hm-proof-inner">
+    <div class="hm-head hm-stack hm-reveal" style="--hm-head-space:56px">
+      <div>
+        <div class="hm-eyebrow">CUSTOMER PROOF</div>
+        <h2 class="hm-h2">What changed after<br /> <em>they moved to Spenza.</em></h2>
+      </div>
+      <div class="hm-proof-intro">
+        <p class="hm-lede">Three business models, one platform. Each story shows where the team started, what they moved, and what changed.</p>
+        <a class="hm-arrow-link" href="/category/spenza-product/">All case studies <img src={arrow} alt="" width="16" height="16" /></a>
+      </div>
+    </div>
+
+    <div class="hm-stories hm-reveal">
+      <div class="hm-story-tabs" role="tablist" aria-label="Case studies">
+        {stories.map((story, i) => (
+          <button
+            class="hm-story-tab"
+            type="button"
+            role="tab"
+            id={`story-tab-${story.id}`}
+            aria-controls={`story-${story.id}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+            data-story={story.id}
+          >
+            <span><strong>{story.name}</strong><small>{story.kind}</small></span>
+            <em>{story.badge}</em>
+          </button>
+        ))}
+      </div>
+
+      {stories.map((story, i) => (
+        <div class="hm-story" id={`story-${story.id}`} role="tabpanel" aria-labelledby={`story-tab-${story.id}`} hidden={i !== 0}>
+          <div class="hm-story-main">
+            <div class="hm-story-tags"><span class="hm-chip">{story.chip}</span><span class="hm-mono">{story.kind}</span></div>
+            <h3>{story.name}</h3>
+            <div class="hm-metric">
+              <div class="hm-metric-value">{story.metric[0]}<em>{story.metric[1]}</em></div>
+              <p>{story.metricText}</p>
+            </div>
+            <dl class="hm-steps">
+              {story.steps.map((step, s) => (
+                <div><dt>{STEP_LABELS[s]}</dt><dd>{step}</dd></div>
+              ))}
+            </dl>
+          </div>
+          <div class="hm-story-proof">
+            <figure class="hm-quote">
+              <span class="hm-quote-mark" aria-hidden="true">“</span>
+              <blockquote><p>{story.quote}</p></blockquote>
+              <figcaption>FROM THE {story.name.toUpperCase()} CASE STUDY</figcaption>
+            </figure>
+            <div class="hm-tiles">
+              {story.tiles.map(([value, label]) => <div><strong>{value}</strong><span>{label}</span></div>)}
+            </div>
+            <div class="hm-story-foot">
+              <div class="hm-runs"><span class="hm-mono">RUNS ON</span>{story.hubs.map(hub => <span class="hm-chip hm-chip--line">{hub}</span>)}</div>
+              <a class="hm-arrow-link" href={story.href}>Read the {story.name} story <img src={arrow} alt="" width="16" height="16" /></a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="hm-stats hm-cols4 hm-reveal">
+      {stats.map(([value, suffix, label]) => (
+        <div class="hm-stat">
+          <strong><span data-count={value}>{value}</span><em>{suffix}</em></strong>
+          <p>{label}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="hm-proof-logos hm-reveal">
+      <div class="hm-strip-label">CONNECTIVITY BEHIND</div>
+      <div class="hm-logo-row" set:html={logos} />
+    </div>
+  </div>
+</section>

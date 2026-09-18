@@ -1,0 +1,57 @@
+---
+/** The lifecycle: four stages on a line a dot travels along. */
+import SectionHead from './SectionHead.astro';
+
+const stages = [
+  {
+    title: 'Provision',
+    text: 'Order physical SIMs, provision eSIMs, assign plans, and activate service across supported operators and markets.',
+    code: 'POST /v1/sims { profile, markets[] }',
+  },
+  {
+    title: 'Connect',
+    text: 'Activate service, manage network selection, and control connectivity across devices, operators, and regions.',
+    code: 'PATCH /v1/sims/:id { routing: "auto" }',
+  },
+  {
+    title: 'Control',
+    text: 'Monitor every line, set usage rules and alerts, change plans, suspend service, and automate lifecycle actions.',
+    code: 'webhook sim.usage.threshold',
+  },
+  {
+    title: 'Bill',
+    text: 'Rate usage, generate invoices, manage subscriptions, and handle billing from one system.',
+    code: 'GET /v1/invoices?period=2026-08',
+  },
+];
+---
+
+<section class="hm-sec">
+  <div class="hm-wrap">
+    <SectionHead
+      eyebrow="THE CONNECTIVITY LIFECYCLE"
+      space={64}
+      lede="Provision, manage, optimize, and bill connectivity across operators and markets without stitching together separate carrier systems."
+    >One API from activation to billing.</SectionHead>
+
+    <div class="hm-life hm-reveal">
+      <div class="hm-life-line hm-desk" aria-hidden="true"><i /></div>
+      <ol class="hm-life-steps hm-cols4">
+        {stages.map((stage, i) => (
+          <li>
+            <div class="hm-life-no">{String(i + 1).padStart(2, '0')}</div>
+            <div class="hm-life-body">
+              <h3>{stage.title}</h3>
+              <p>{stage.text}</p>
+              <code>{stage.code}</code>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="hm-life-cta hm-reveal">
+      <a class="hm-btn hm-btn--acc hm-btn--sm" href="https://docs.spenza.com/">Read the API docs</a>
+    </div>
+  </div>
+</section>

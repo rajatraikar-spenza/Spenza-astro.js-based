@@ -1,0 +1,95 @@
+---
+/**
+ * Hero. Copy and layout from the design; the artwork on the right is the
+ * "MVNO in a Box" animation this page has had since the last redesign — a box
+ * that opens into the four hub layers — kept in place of the design's routing
+ * panel. Its behaviour is in src/scripts/home.js.
+ *
+ * "Book a demo" carries `get-started`, which opens the site's Get Started popup;
+ * `#demo` is where it goes without JavaScript.
+ */
+import agent from '../../assets/home/agent.svg?url';
+import boxLeft from '../../assets/home/box-left.svg?url';
+import boxRight from '../../assets/home/box-right.svg?url';
+import boxTop from '../../assets/home/box-top.svg?url';
+import control from '../../assets/home/control.svg?url';
+import telecom from '../../assets/home/telecom.svg?url';
+import ux from '../../assets/home/ux.svg?url';
+
+const stats = [
+  ['88% faster', 'to launch a market'],
+  ['180+', 'countries'],
+  ['30+', 'operator integrations'],
+  ['4 hubs', 'one API, one invoice'],
+];
+
+/** Back to front: each layer is stacked over the one after it. */
+const layers = [
+  { id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', label: 'Explore AgentHub: AI voice and intelligence' },
+  { id: 'ux', src: ux, n: '03', tag: 'BRAND', label: 'Explore UXHub: your brand and billing' },
+  { id: 'control', src: control, n: '02', tag: 'CONTROL', label: 'Explore ControlHub: operations and cost control' },
+  { id: 'telecom', src: telecom, n: '01', tag: 'NETWORK', label: 'Explore TelecomHub: multi-operator connectivity' },
+];
+
+const selectors = [
+  ['telecom', '01', 'TelecomHub'],
+  ['control', '02', 'ControlHub'],
+  ['ux', '03', 'UXHub'],
+  ['agent', '04', 'AgentHub'],
+];
+---
+
+<section class="hm-hero" aria-labelledby="hero-title">
+  <div class="hm-spot" aria-hidden="true"></div>
+  <div class="hm-wrap hm-hero-inner">
+    <div class="hm-hero-grid hm-stack">
+      <div class="hm-hero-copy">
+        <div class="hm-eyebrow hm-in">MVNE PLATFORM &middot; eSIM, IoT CONNECTIVITY, BILLING &amp; AI VOICE</div>
+        <h1 id="hero-title" class="hm-in">Turn Mobile Connectivity Into Your <em>Next Product.</em></h1>
+        <p class="hm-hero-lede hm-in">
+          Spenza brings operator access, eSIM provisioning, billing, cost management, and
+          programmable voice together in one platform across 180+ countries, with one API and
+          one invoice.
+        </p>
+        <div class="hm-hero-cta hm-in">
+          <a class="hm-btn hm-btn--acc get-started" href="#demo">Book a demo</a>
+          <a class="hm-btn hm-btn--line" href="https://docs.spenza.com/">Read the API docs</a>
+        </div>
+        <dl class="hm-hero-stats hm-in">
+          {stats.map(([value, label]) => (
+            <div><dt>{value}</dt> <dd>{label}</dd></div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="hm-hero-art" data-view="auto" aria-label="Interactive MVNO in a Box platform diagram">
+        <div class="hm-scene-wrap">
+          <div class="hm-scene">
+            <div class="hm-box-shadow" aria-hidden="true"></div>
+            <div class="hm-box-piece hm-box-left" aria-hidden="true"><img src={boxLeft} alt="" width="123" height="212" /></div>
+            {layers.map(layer => (
+              <button class="hm-hub-layer" type="button" data-hub={layer.id} aria-label={layer.label} aria-pressed="false">
+                <img src={layer.src} alt="" width="113" height="195" />
+                <span class="hm-layer-tag"><b>{layer.n}</b> {layer.tag}</span>
+              </button>
+            ))}
+            <div class="hm-box-piece hm-box-right" aria-hidden="true"><img src={boxRight} alt="" width="119" height="209" /></div>
+            <div class="hm-box-piece hm-box-top" aria-hidden="true"><img src={boxTop} alt="" width="240" height="139" /></div>
+            <img class="hm-box-brand" src="/spenza-logo-vector.svg" alt="" aria-hidden="true" width="1264" height="428" />
+
+          </div>
+        </div>
+        <div class="hm-art-footer">
+          <div class="hm-hub-selectors" role="group" aria-label="Explore the four platform layers">
+            {selectors.map(([id, n, name]) => (
+              <button type="button" data-select-hub={id} aria-pressed="false"><span>{n}</span> {name}</button>
+            ))}
+          </div>
+          <div class="hm-art-caption">
+            <p id="hero-caption" aria-live="polite">One connected stack. From network to customer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

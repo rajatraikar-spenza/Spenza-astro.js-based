@@ -1,0 +1,24 @@
+---
+/**
+ * "Connectivity behind" — the customer logos, moving.
+ *
+ * The design scrolled the names as text; these are the logos. The track holds
+ * the set twice and slides by exactly half its width, so the loop has no seam.
+ * It pauses on hover and stops entirely under reduced motion.
+ */
+import { LOGOS, logoHtml } from './logos';
+
+const track = [
+  ...LOGOS.map(logo => logoHtml(logo)),
+  ...LOGOS.map(logo => logoHtml(logo, { hidden: true })),
+].join('');
+---
+
+<section class="hm-strip" aria-label="Customers">
+  <div class="hm-wrap hm-strip-inner">
+    <div class="hm-strip-label">CONNECTIVITY BEHIND</div>
+    <div class="hm-marquee">
+      <div class="hm-marquee-track" set:html={track} />
+    </div>
+  </div>
+</section>
