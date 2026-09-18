@@ -31,6 +31,17 @@ const layers = [
   { id: 'telecom', src: telecom, n: '01', tag: 'NETWORK', label: 'Explore TelecomHub: multi-operator connectivity' },
 ];
 
+/**
+ * Phones do not show the box (see `hm-hero-art` in home.css), so they should
+ * not download it either. The four hub layers are the only parts big enough to
+ * matter (20-42KB each; the faces are inlined), and a `<source>` matching the
+ * same breakpoint hands those screens a one-pixel stand-in instead. Wider
+ * screens take the `<img>` exactly as before — eager, no lazy-load delay on an
+ * above-the-fold animation.
+ */
+const MOBILE = '(max-width: 767px)';
+const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
 const selectors = [
   ['telecom', '01', 'TelecomHub'],
   ['control', '02', 'ControlHub'],
@@ -69,7 +80,10 @@ const selectors = [
             <div class="hm-box-piece hm-box-left" aria-hidden="true"><img src={boxLeft} alt="" width="123" height="212" /></div>
             {layers.map(layer => (
               <button class="hm-hub-layer" type="button" data-hub={layer.id} aria-label={layer.label} aria-pressed="false">
-                <img src={layer.src} alt="" width="113" height="195" />
+                <picture>
+                  <source media={MOBILE} srcset={BLANK} />
+                  <img src={layer.src} alt="" width="113" height="195" />
+                </picture>
                 <span class="hm-layer-tag"><b>{layer.n}</b> {layer.tag}</span>
               </button>
             ))}

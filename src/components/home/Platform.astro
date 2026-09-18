@@ -5,6 +5,11 @@
  * Tab copy and the TelecomHub routing table are the Figma file's. The Figma
  * frame only draws the TelecomHub panel, so the other three are the HTML
  * design's. Tabs are a real ARIA tablist; src/scripts/home.js switches them.
+ *
+ * On phones the tabs shrink to a 2x2 grid of names, and each panel opens with
+ * its hub's description instead (`hm-screen-intro`, hidden on wider screens),
+ * so the words sit next to the picture they describe rather than a screen
+ * above it.
  */
 import SectionHead from './SectionHead.astro';
 
@@ -52,6 +57,8 @@ const operators = [
   ['US Operator 5', 'US · Cat-1', 45, '52 ms', 'degraded'],
 ] as const;
 
+const hubById = Object.fromEntries(hubs.map(hub => [hub.id, hub]));
+
 const usage = [62, 70, 66, 78, 84, 80, 74, 58, 52, 49, 46, 44];
 const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).toFixed(2)}s`);
 ---
@@ -88,6 +95,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
 
       <div class="hm-panel">
         <div class="hm-screen" id="panel-telecom" role="tabpanel" aria-labelledby="tab-telecom" tabindex="0">
+          <div class="hm-screen-intro"><strong>{hubById.telecom.lead}</strong><p>{hubById.telecom.text}</p></div>
           <div class="hm-screen-top">
             <span class="hm-mono">telecomhub / routing table</span>
             <span class="hm-live hm-tone-acc"><span class="hm-dot" />live</span>
@@ -105,6 +113,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
         </div>
 
         <div class="hm-screen" id="panel-control" role="tabpanel" aria-labelledby="tab-control" tabindex="0" hidden>
+          <div class="hm-screen-intro"><strong>{hubById.control.lead}</strong><p>{hubById.control.text}</p></div>
           <div class="hm-screen-top">
             <span class="hm-mono">controlhub / fleet spend</span>
             <span class="hm-quiet">Last 12 weeks</span>
@@ -129,6 +138,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
         </div>
 
         <div class="hm-screen" id="panel-ux" role="tabpanel" aria-labelledby="tab-ux" tabindex="0" hidden>
+          <div class="hm-screen-intro"><strong>{hubById.ux.lead}</strong><p>{hubById.ux.text}</p></div>
           <div class="hm-store hm-cols-sm">
             <div>
               <div class="hm-mono hm-screen-label">uxhub / your-brand.com/plans</div>
@@ -151,6 +161,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
         </div>
 
         <div class="hm-screen" id="panel-agent" role="tabpanel" aria-labelledby="tab-agent" tabindex="0" hidden>
+          <div class="hm-screen-intro"><strong>{hubById.agent.lead}</strong><p>{hubById.agent.text}</p></div>
           <div class="hm-agent hm-cols-sm">
             <div>
               <div class="hm-mono hm-screen-label">agenthub / numbers</div>

@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: 'Instrument Serif';
-  src: url('../assets/home/instrument-serif-italic.ttf') format('truetype');
+  src: url('../assets/home/instrument-serif-italic.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -335,7 +335,12 @@
   transform: translateX(4px);
 }
 
+/* 44px tall to a finger: the extra 22px of top padding is taken back by the
+   negative margin, so the link sits exactly where the text would. */
 .hm .hm-underline {
+  display: inline-block;
+  margin-top: -22px;
+  padding-top: 22px;
   padding-bottom: 2px;
   border-bottom: 1px solid rgba(15, 20, 32, .28);
   font-size: 15px;
@@ -359,6 +364,18 @@
 .hm.js .hm-reveal.in {
   opacity: 1;
   transform: none;
+}
+
+/*
+   Below the fold, the browser skips styling and laying out a section until it
+   comes near the viewport. The page is long and most of it starts off screen,
+   so this is most of the first render's style-and-layout work on a phone.
+   `auto` in the intrinsic size makes the browser remember each section's real
+   height once it has rendered it, so scrolling back up does not jump.
+*/
+.hm > section:not(.hm-hero, .hm-strip) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 /* A section out of view stops painting its loops (see `idle` in home.js). */
@@ -498,14 +515,40 @@
   color: var(--muted);
 }
 
-/* The marquee: masked at both edges, paused on hover. */
+/*
+   The marquee: faded at both edges, paused on hover.
+
+   The fade is two gradient overlays in the page colour, not a CSS mask. A mask
+   isolates what it covers, and the logos' `multiply` blend (which drops the
+   white ground some of the files are drawn on) then has nothing beneath it to
+   multiply against — Angel Watch showed as a white box.
+*/
 .hm .hm-marquee {
   position: relative;
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.hm .hm-marquee::before,
+.hm .hm-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 48px;
+  pointer-events: none;
+}
+
+.hm .hm-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg), rgba(251, 249, 246, 0));
+}
+
+.hm .hm-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg), rgba(251, 249, 246, 0));
 }
 
 .hm .hm-marquee-track {
@@ -538,11 +581,19 @@
 
 /*
    One tone: every logo in greys, so seven brands' colours read as one row.
-   Several of the files are drawn on a white ground; multiply drops it.
+
+   Several of the files are drawn on a white ground, and multiply drops it —
+   but only on the track as a whole. The track moves by an animated transform,
+   which makes it its own group; a blend on each logo would multiply against
+   that group's empty backdrop and leave the white showing. Blending the group
+   multiplies it onto the page itself.
 */
+.hm .hm-marquee-track {
+  mix-blend-mode: multiply;
+}
+
 .hm .hm-marquee img {
   filter: grayscale(1);
-  mix-blend-mode: multiply;
   opacity: .75;
 }
 
@@ -1111,6 +1162,26 @@
 
 .hm .hm-screen[hidden] {
   display: none;
+}
+
+/* Only phones show this; wider screens have the words in the tab. */
+.hm .hm-screen-intro {
+  display: none;
+}
+
+.hm .hm-screen-intro strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hm .hm-screen-intro p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--body);
 }
 
 .hm .hm-screen-top {
@@ -2589,8 +2660,13 @@
   .hm .hm-sec--flush {
     padding-top: 0;
   }
+  /* minmax(0, 1fr), not 1fr: a plain 1fr column cannot shrink below its
+     content, and the hero's hub selectors pushed it past the screen edge. */
   .hm .hm-stack {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hm .hm-head {
+    gap: 20px;
   }
   .hm .hm-head--problem > .hm-lede {
     padding-left: 0;
@@ -2631,6 +2707,9 @@
   .hm .hm-problem-intro {
     position: static;
   }
+  .hm .hm-life-no {
+    margin: 0 0 16px;
+  }
   .hm .hm-comp-row {
     grid-template-columns: 1fr;
   }
@@ -2667,6 +2746,140 @@
   }
 }
 
+/*
+   Phones. 767px, not 680: every phone in portrait sits below it, and tablets
+   (768 and up) keep the box, which still has room there. The hero's <picture>
+   sources use the same breakpoint, so a phone never downloads what it hides.
+*/
+@media (max-width: 767px) {
+  /* No box on phones: the hero is the copy alone, sized to its content
+     rather than to the screen, so the page starts straight after it. One
+     class heavier than the box's own rules, which come later in this file. */
+  .hm .hm-hero .hm-hero-art {
+    display: none;
+  }
+  .hm .hm-hero {
+    min-height: 0;
+  }
+  .hm .hm-hero-inner {
+    padding-top: 40px;
+    padding-bottom: 56px;
+  }
+  /* The eyebrow wraps to two centred lines here, and its rule would hang off
+     the first one; centred type needs no rule to lead it. */
+  .hm .hm-hero .hm-eyebrow {
+    font-size: 11px;
+    letter-spacing: .04em;
+    line-height: 1.6;
+  }
+  .hm .hm-hero .hm-eyebrow::before {
+    display: none;
+  }
+  .hm .hm-hero h1 {
+    margin: 16px 0 20px;
+    font-size: clamp(38px, 11vw, 46px);
+  }
+  .hm .hm-hero-lede {
+    margin-bottom: 28px;
+    font-size: 17px;
+  }
+  .hm .hm-hero-stats {
+    margin-top: 36px;
+  }
+
+  /* Problem list: a narrower number column gives the text the width. */
+  .hm .hm-problem-list li {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    padding: 24px 0;
+  }
+  .hm .hm-problem-no {
+    font-size: 34px;
+  }
+  .hm .hm-problem-list h3 {
+    font-size: 21px;
+  }
+
+  /* Platform: the hubs become a 2x2 grid of names, and the selected hub's
+     description opens its panel (see Platform.astro). */
+  .hm .hm-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    border-top: 0;
+  }
+  .hm .hm-tab {
+    min-height: 64px;
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .hm .hm-tab[aria-selected='true'].hm-edge-acc,
+  .hm .hm-tab[aria-selected='true'].hm-edge-blue,
+  .hm .hm-tab[aria-selected='true'].hm-edge-ink,
+  .hm .hm-tab[aria-selected='true'].hm-edge-green {
+    border-color: var(--acc);
+    box-shadow: inset 0 0 0 1px var(--acc);
+  }
+  .hm .hm-tab-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+  }
+  .hm .hm-tab-name {
+    font-size: 17px;
+  }
+  .hm .hm-tab-tag {
+    font-size: 10px;
+    text-align: left;
+  }
+  .hm .hm-tab-text {
+    display: none;
+  }
+  .hm .hm-platform {
+    gap: 16px;
+  }
+  .hm .hm-screen-intro {
+    display: block;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* Customer Proof: a three-way switch of names. The card below repeats each
+     one's subtitle, so the tab does not need it. */
+  .hm .hm-story-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .hm .hm-story-tab {
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 6px;
+    text-align: center;
+  }
+  .hm .hm-story-tab strong {
+    font-size: 15px;
+    letter-spacing: -.01em;
+  }
+  .hm .hm-story-tab small,
+  .hm .hm-story-tab em {
+    display: none;
+  }
+
+  /* FAQ: the answer takes the full width. */
+  .hm .hm-faq-list summary {
+    font-size: 16px;
+  }
+  .hm .hm-faq-list details p {
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 680px) {
   .hm .hm-cards {
     grid-template-columns: 1fr;
@@ -2677,11 +2890,19 @@
   .hm .hm-cols-sm,
   .hm .hm-cols4,
   .hm .hm-life-steps,
-  .hm .hm-stats,
   .hm .hm-tiles {
     grid-template-columns: 1fr;
   }
-.hm .hm-route {
+  .hm .hm-tiles > div {
+    padding: 16px;
+  }
+  .hm .hm-tiles strong {
+    font-size: 24px;
+  }
+  .hm .hm-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hm .hm-route {
     grid-template-columns: 1fr 70px 60px;
   }
   .hm .hm-route > :nth-child(2) {
@@ -2696,6 +2917,39 @@
   }
   .hm .hm-steps dt {
     width: auto;
+  }
+}
+
+/*
+   The smallest phones (320-400px). The routing table has four columns of
+   data in about 250px here; tighter padding and narrower number columns give
+   the operator names room to stay on one line.
+*/
+@media (max-width: 400px) {
+  .hm .hm-panel {
+    padding: 12px;
+  }
+  .hm .hm-route {
+    grid-template-columns: minmax(0, 1fr) 52px 62px;
+    gap: 8px;
+    padding: 12px 8px;
+  }
+  .hm .hm-route--head {
+    padding: 0 8px 10px;
+  }
+  .hm .hm-route-name {
+    font-size: 13px;
+  }
+  .hm .hm-route > .hm-mono,
+  .hm .hm-route-state {
+    font-size: 11px;
+  }
+  /* Three case-study names in about 90px each; "RocketPhone" needs the room. */
+  .hm .hm-story-tab {
+    padding: 0 4px;
+  }
+  .hm .hm-story-tab strong {
+    font-size: 14px;
   }
 }
 
@@ -2842,10 +3096,16 @@
 }
 
 .hm .hm-box-piece img,
-.hm .hm-hub-layer>img {
+.hm .hm-hub-layer img {
   width: 100%;
   height: 100%;
   max-width: none;
+}
+
+/* The hub image's <picture> (it exists to skip the download on phones) takes
+   no box of its own, so the image still fills its layer. */
+.hm .hm-hub-layer picture {
+  display: contents;
 }
 
 .hm .hm-box-top {
