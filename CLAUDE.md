@@ -141,7 +141,7 @@ WordPress, all keyed by their Gravity Forms id:
 | id | What | Where | HubSpot form |
 | :- | :--- | :---- | :----------- |
 | 19 | Book A Free Demo | 14 marketing pages, every post, every day archive | `#gform_19` |
-| 15 | Get Started popup | `chrome/demo-popup.html`, plus the post template | `#gform_15` |
+| 15 | Get Started popup | `chrome/demo-popup.html`, the post template, and inline on the home page | `#gform_15` |
 | 20 | Contact Us | `contact-us`, `support` | `#gform_20` |
 | 5  | Mobility policy download | `mobility-policy` | `#gform_5` |
 | 21 | MVNO calculator report | `mvno-calculator` | `#gform_21` |
@@ -149,6 +149,11 @@ WordPress, all keyed by their Gravity Forms id:
 
 `.e-search-form` (202 of them) is site search, and `#mvnoCalculator` never
 submits — neither is a lead form.
+
+The home page's inline copy of form 15 ("See Spenza in action") is selected by
+`data-hs-form="15"` rather than `id="gform_15"`, because the popup on the same
+page already owns that id. Same fields, same HubSpot form, same WordPress entry
+and notifications; GA tells the two apart by `placement`.
 
 - They post straight to HubSpot from the browser, via
   `public/scripts/hubspot-forms.js`. Static hosting has nowhere else to send
@@ -256,40 +261,31 @@ submits — neither is a lead form.
   `public/vendor/` and fetched per format on demand — WordPress loads all
   1.28MB of them on every view of that page.
 
-## Analytics and notice
+## Analytics
 
 **GA4 and Microsoft Clarity both load on page open, for every visitor, before
-any interaction.** There is no consent gate. The bar at the foot of the page is
-a *notice*: it says what is collected and has one button that dismisses it.
+any interaction.** There is no consent gate, and no cookie notice either — the
+bar that used to sit at the foot of every page was removed from the whole site
+on request. Nothing about what is measured changed with it.
 
-- `src/components/Analytics.astro` is the whole feature: the GA4 pair, Clarity's
-  snippet, the dismissal's storage, and the notice's CSS. Rendered by all three
-  layouts, which is every page except the 367 redirect stand-ins — those bounce
-  in milliseconds, and tagging them would log a phantom zero-second session for
-  each and split the real one that follows.
-- **Ungated is a decision, not a bug.** It was asked for that way, to collect
-  the maximum, with the trade-off stated: `gtag.js` sets `_ga` and Clarity sets
-  `_clck`/`_clsk`/`CLID` on the first request, so the site measures before it
-  informs — the arrangement ePrivacy/GDPR consent rules exist to prevent — and
-  the HubSpot portal being on EU1 says the audience includes the EU. Do not
-  "fix" it silently. Reversing it means putting both `start()` paths behind a
-  stored answer and giving the bar its two buttons back; the storage and
-  versioning are still in place for exactly that.
-- **The notice has one button on purpose.** Accept/Reject wired to nothing
-  would tell the visitor a choice was recorded when none was, which is worse
-  than not offering one — a compliance gap is a fine, a fake control is the
-  aggravating factor on top of it. If the buttons come back, the gate comes
-  back with them, in the same change.
-- `NOTICE_VERSION` in the component is stored with the dismissal. Bump it when
-  what the notice *says* changes materially, and everyone is shown it again
-  rather than being counted as informed about something they never saw.
-- Storage that throws (private mode) reads as "not seen", so the bar is shown
-  again. Showing a notice twice costs nothing; suppressing one nobody saw is
-  the only failure worth avoiding.
-- `public/scripts/consent.js` is UI only, deferred, and talks to the inline
-  block through `window.spenzaNotice` — which records "this has been seen" and
-  nothing else. It builds the bar rather than shipping it in markup because it
-  is chrome, and the alternative is the same block copied into three layouts.
+- `src/components/Analytics.astro` is the whole feature: the GA4 pair and
+  Clarity's snippet. Rendered by all three layouts, which is every page except
+  the 367 redirect stand-ins — those bounce in milliseconds, and tagging them
+  would log a phantom zero-second session for each and split the real one that
+  follows.
+- **Ungated and unannounced is a decision, not a bug.** It was asked for that
+  way, to collect the maximum, with the trade-off stated: `gtag.js` sets
+  `_ga` and Clarity sets `_clck`/`_clsk`/`CLID` on the first
+  request, so the site measures without informing — the arrangement
+  ePrivacy/GDPR consent rules exist to prevent — and the HubSpot portal being on
+  EU1 says the audience includes the EU. Do not "fix" it silently.
+- **If a notice or consent ever comes back**, the honest shape is a stored
+  answer that gates both tags plus a bar offering Accept and Reject, in the same
+  change. A bar whose buttons are wired to nothing tells the visitor a choice
+  was recorded when none was, which is worse than no bar — a compliance gap is a
+  fine, a fake control is the aggravating factor on top of it. The removed
+  implementation (`public/scripts/consent.js` and its storage) is in git
+  history.
 - Both inline blocks must stay `is:inline`. The tags time a session from the
   moment they run, and Astro's default is to hoist a component `<script>` into
   a bundle, which would defer them behind it.

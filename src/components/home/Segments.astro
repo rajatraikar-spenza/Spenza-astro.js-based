@@ -1,0 +1,130 @@
+---
+/**
+ * Who uses Spenza: six cards, each with a small animated illustration.
+ *
+ * The sixth card is Voice Observability. Its illustration is the stipends
+ * chart the Figma file still carries for it — a leftover from the Finance & HR
+ * card it replaced, kept as supplied until the design gives it its own.
+ */
+import SectionHead from './SectionHead.astro';
+
+// Fleet grid: 28 cells, four of them suspended, lighting up in turn.
+const OFF = new Set([4, 11, 19, 25]);
+const fleet = Array.from({ length: 28 }, (_, i) => (OFF.has(i) ? null : `${(i * 0.13).toFixed(2)}s`));
+const countries = ['US', 'GB', 'DE', 'FR', 'JP', 'BR'];
+
+const cards = [
+  {
+    href: '/iot-solutions/',
+    viz: 'fleet',
+    tag: 'IoT & DEVICE FLEETS',
+    title: 'Manage thousands of connected devices across multiple carriers',
+    text: 'Pool plans across operators, automate lifecycle changes, monitor usage, and control connectivity costs across your fleet.',
+  },
+  {
+    href: '/connected-devices/',
+    viz: 'checkout',
+    tag: 'CONNECTED DEVICES',
+    title: 'Turn connectivity into recurring product revenue',
+    text: 'Bundle mobile service with watches, cameras, routers, wearables, and other connected products under your own brand.',
+  },
+  {
+    href: '/mvne/',
+    viz: 'resellers',
+    tag: 'MSPs & RESELLERS',
+    title: 'Build and scale your connectivity business with unified CMP',
+    text: 'Manage customers, resellers, plans, billing, markups, commissions, and multiple operators from one platform.',
+  },
+  {
+    href: '/travel-esim/',
+    viz: 'esim',
+    tag: 'TRAVEL eSIM',
+    title: 'Launch your eSIM business across 180+ countries',
+    text: 'Offer branded plans, instant activation, subscriber management, billing, and support without integrating every operator yourself.',
+  },
+  {
+    href: '/ai-phone-number/',
+    viz: 'agent',
+    tag: 'AI AGENTS',
+    title: 'Give your voice AI agent a real phone number',
+    text: 'Provision phone numbers, voice and messaging, and give AI agents the telecom infrastructure needed to reach customers.',
+  },
+  {
+    href: '/voice-observability-solution/',
+    viz: 'spend',
+    tag: 'VOICE OBSERVABILITY',
+    title: 'Monitor the last mile of every voice experience',
+    text: 'Test calls from the outside in to monitor real-world delivery, delays, number reputation, and call quality before customers report a problem.',
+  },
+];
+---
+
+<section class="hm-sec" id="solutions">
+  <div class="hm-wrap">
+    <SectionHead
+      class="hm-head--problem"
+      eyebrow="WHO USES SPENZA"
+      lede="Whether connectivity powers your product, your customers, your workforce, or your AI agents, Spenza gives you the infrastructure to launch, manage, bill, and scale it from one platform."
+    >One connectivity platform. Many ways to build on it.</SectionHead>
+
+    <div class="hm-cards hm-reveal">
+      {cards.map(card => (
+        <a class="hm-card" href={card.href}>
+          <div class="hm-viz" aria-hidden="true">
+            {card.viz === 'fleet' && (
+              <>
+                <div class="v1g">{fleet.map(d => (d ? <i style={`animation-delay:${d}`} /> : <i class="off" />))}</div>
+                <div class="vlab"><span><b>42,318</b> active lines</span><span>4 suspended</span></div>
+              </>
+            )}
+            {card.viz === 'checkout' && (
+              <>
+                <div class="v2r" style="top:18px"><span>Watch, hardware</span><b>$199</b></div>
+                <div class="v2r add" style="top:42px"><span>+ Connectivity plan</span><b>$6/mo</b></div>
+                <div class="v2rule" />
+                <div class="v2tot"><span>One checkout</span><b>Stripe</b></div>
+              </>
+            )}
+            {card.viz === 'resellers' && (
+              <>
+                <div class="v3n v3root">YOUR BRAND</div>
+                <div class="v3d" style="left:50%" />
+                <div class="v3bus" />
+                {['22%', '50%', '78%'].map(left => <div class="v3dn" style={`left:${left}`} />)}
+                {[['22%', '+18%'], ['50%', '+22%'], ['78%', '+15%']].map(([left, v]) => (
+                  <div class="v3n v3leaf" style={`left:${left}`}>{v}</div>
+                ))}
+                <div class="vlab" style="bottom:9px"><span>3 resellers</span><span>markup &amp; payouts</span></div>
+              </>
+            )}
+            {card.viz === 'esim' && (
+              <>
+                <div class="v4qr" />
+                <div class="v4c">{countries.map((c, i) => <i style={`animation-delay:${(i * 0.9).toFixed(2)}s`}>{c}</i>)}</div>
+                <div class="vlab"><span>scan to install</span><b>activated in 4 s</b></div>
+              </>
+            )}
+            {card.viz === 'agent' && (
+              <>
+                {['0s', '1.2s', '2.4s'].map(d => <span class="v5ring" style={`animation-delay:${d}`} />)}
+                <div class="v5num">+1 (415) 555-0142</div>
+                <div class="vlab"><span>agent-01</span><b class="is-on">connected</b></div>
+              </>
+            )}
+            {card.viz === 'spend' && (
+              <>
+                <div class="v6r" style="top:26px"><span>Stipends</span><u style="--w:1" /><b>$14.4k</b></div>
+                <div class="v6r on" style="top:56px"><span>Managed lines</span><u style="--w:.46;animation-delay:.25s" /><b>$6.6k</b></div>
+                <div class="vlab"><span>240 employees</span><b>&minus;54% per year</b></div>
+              </>
+            )}
+          </div>
+          <div class="hm-card-tag">{card.tag}</div>
+          <h3>{card.title}</h3>
+          <p>{card.text}</p>
+          <span class="hm-card-go">Explore <i aria-hidden="true">&rarr;</i></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

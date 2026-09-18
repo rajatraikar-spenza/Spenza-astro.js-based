@@ -1,0 +1,29 @@
+---
+/**
+ * FAQ. Native `<details>` sharing one `name`, so opening a question closes the
+ * one that was open — the design's accordion, with no script, and every answer
+ * still in the page for readers without JavaScript and for search.
+ */
+import { HOME_FAQ } from '../../data/home-faq';
+---
+
+<section class="hm-sec" id="faq">
+  <div class="hm-wrap">
+    <div class="hm-faq hm-stack hm-reveal">
+      <div>
+        <h2 class="hm-h2 hm-faq-title">What buyers ask before the demo.</h2>
+        <p class="hm-faq-more">
+          More in the <a href="/faq/">full FAQ</a> and the <a href="https://docs.spenza.com/">developer docs</a>.
+        </p>
+      </div>
+      <div class="hm-faq-list">
+        {HOME_FAQ.map(([question, answer], i) => (
+          <details name="hm-faq" open={i === 0}>
+            <summary><span>{question}</span><i aria-hidden="true">+</i></summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -11,38 +11,24 @@
  * includes the EU. It is recorded here so nobody later reads it as a bug and
  * quietly "fixes" it.
  *
- * The bar at the foot of the page is therefore a **notice, not a gate**. It
- * says what is collected and offers one button that dismisses it. It does not
- * offer Accept/Reject, and that is the point: a "Reject" wired to nothing tells
- * the visitor a choice was recorded when none was, which is worse than not
- * offering one. If analytics should ever become optional again, the honest
- * shape is to move the `start()` calls below back behind a stored answer and
- * give the bar its two buttons back — the storage and versioning are still
- * here for exactly that.
+ * There is no cookie notice either. The site used to show a bar at the foot of
+ * every page saying what is collected, with one button that dismissed it
+ * (`public/scripts/consent.js`); it was removed from the whole site on request,
+ * and nothing about what is measured changed with it. If analytics should ever
+ * become optional, the honest shape is a stored answer that gates the two
+ * `start` paths below, and a bar that offers Accept and Reject together with
+ * that gate — never buttons wired to nothing.
  *
  * `is:inline` is load-bearing on both blocks. Astro's default is to treat a
  * `<script>` in a component as a module to hoist, bundle and rewrite — which
  * would move them into `/_astro/`, defer them behind the bundle, and turn a
  * first-party inline tag into a third request.
  *
- * `public/scripts/consent.js` builds the notice. It is UI only, deferred, and
- * talks to this block through `window.spenzaNotice` — which now records
- * nothing but "this has been seen", so the bar does not follow the visitor
- * from page to page.
- *
  * Rendered in `<head>` by all three layouts, so this is the whole site: the
  * mirrored marketing pages and archives (`WpLayout`), every post
  * (`ArticleLayout`), and the rebuild preview (`BaseLayout`).
  */
 import { CLARITY_PROJECT_ID, GA_MEASUREMENT_ID } from '../../scripts/lib/config.mjs';
-
-/**
- * Bump when what the notice *says* changes materially — a new tool, a new
- * purpose. Stored with the dismissal, and a dismissal of an older notice is
- * treated as no dismissal, so the bar is shown again rather than counting
- * someone as informed about something they were never shown.
- */
-const NOTICE_VERSION = 1;
 
 /*
  * The standard GA4 bootstrap, unchanged apart from the id. `dataLayer` and
@@ -59,53 +45,15 @@ gtag('config', ${JSON.stringify(GA_MEASUREMENT_ID)});`;
 // the two guards cost nothing and the failure mode without them is a script tag
 // on every page of the site.
 const clarity = `(function (w, d) {
-  var KEY = 'spenza-cookie-notice';
-  var VERSION = ${NOTICE_VERSION};
   var ID = ${JSON.stringify(CLARITY_PROJECT_ID)};
-  var started = false;
+  if (!ID) return;
 
   /* Clarity's own snippet, unchanged apart from the id. */
-  function start() {
-    if (started || !ID) return;
-    started = true;
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(w, d, "clarity", "script", ID);
-  }
-
-  /**
-   * Has this visitor already been shown the notice? Storage that throws —
-   * private mode, storage disabled — reads as "no", so the bar is shown again.
-   * Showing a notice twice costs nothing; suppressing one nobody saw is the
-   * only failure worth avoiding here.
-   */
-  function seen() {
-    try {
-      var raw = w.localStorage.getItem(KEY);
-      if (!raw) return false;
-      var saved = JSON.parse(raw);
-      return !!saved && saved.v === VERSION;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  w.spenzaNotice = {
-    seen: seen,
-    /** Dismissal. Records that the bar was shown, and nothing else — there is
-     *  no preference to store, because nothing about the page depends on it. */
-    acknowledge: function () {
-      try {
-        w.localStorage.setItem(KEY, JSON.stringify({
-          v: VERSION, at: new Date().toISOString()
-        }));
-      } catch (e) {}
-    }
-  };
-
-  start();
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(w, d, "clarity", "script", ID);
 })(window, document);`;
 ---
 
@@ -123,139 +71,3 @@ const clarity = `(function (w, d) {
 )}
 
 <script is:inline type="text/javascript" set:html={clarity} />
-<script src="/scripts/consent.js" defer></script>
-
-{/*
-  Global rather than scoped: the banner is built by `/scripts/consent.js` at
-  runtime, and Astro's scoping hash is applied to markup it compiles, so a
-  scoped selector would match nothing that exists. Kept here rather than in
-  `wp-polish.css` because that stylesheet is the mirror's polish layer and is
-  not loaded by `BaseLayout`, while this component is — the banner has to look
-  the same on all three.
-*/}
-<style is:global>
-  /*
-   * A full-bleed bar across the foot of the page, in the brand orange.
-   *
-   * Flat, square and edge to edge on purpose: the earlier floating card read as
-   * a third-party widget dropped on the site, and the whole point of a consent
-   * notice is that it is the site talking. Nothing here is decorative — the bar
-   * is `position: fixed`, so it paints over the page rather than moving it, and
-   * cannot cost a layout shift.
-   */
-  .spz-consent {
-    position: fixed;
-    z-index: 2147483000;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 12px 28px;
-    padding: 13px 24px;
-    background: #ff4500;
-    color: #fff;
-    font-family: "Manrope", "Lexend Deca", system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  /*
-   * No entrance animation, deliberately.
-   *
-   * A slide-in has to start the bar somewhere other than where it belongs, and
-   * anything that leaves it parked there is a consent notice nobody can see:
-   * a background tab throttles animations, and the bar sat exactly its own
-   * height below the fold until the tab was focused. Measured, not guessed.
-   * There is no fill-mode that fixes it, because "stuck at 0%" is inside the
-   * animation's own active phase. So the bar has one position and always has
-   * been in it.
-   */
-
-  .spz-consent__text {
-    /* No `flex: 1` and no width cap — the row is centred, so the sentence takes
-       exactly the width it needs and the buttons sit beside it rather than
-       being pushed to the far edge of a 1900px screen. A cap here only ever
-       forced a wrap that the viewport had room for. */
-    margin: 0;
-  }
-
-  .spz-consent__text a {
-    color: inherit;
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .spz-consent__actions {
-    display: flex;
-    flex: 0 0 auto;
-    gap: 10px;
-  }
-
-  .spz-consent__btn {
-    /* One button now, so the equal-basis trick the pair needed is gone: this is
-       sized from its own label with a floor under it, which keeps a two-word
-       label from ever coming out narrow enough to look like an afterthought. */
-    flex: 0 0 auto;
-    min-width: 118px;
-    padding: 11px 24px;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    background: transparent;
-    color: #fff;
-    font: inherit;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.2;
-    /* Uppercased in CSS, not in the markup: a screen reader announcing "A C C
-       E P T" one letter at a time is a real failure mode of capitalised
-       labels. */
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: background-color 180ms ease, color 180ms ease;
-  }
-
-  .spz-consent__btn--accept {
-    background: #fff;
-    color: #2c180d;
-  }
-
-  .spz-consent__btn--accept:hover {
-    background: #2c180d;
-    color: #fff;
-    border-color: #2c180d;
-  }
-
-  .spz-consent__btn:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 3px;
-  }
-
-  /* Narrow enough that the sentence and the buttons cannot share a line: give
-     the text the full width and centre the pair beneath it. */
-  @media (max-width: 860px) {
-    .spz-consent {
-      gap: 12px;
-      padding: 14px 16px;
-      text-align: center;
-    }
-
-    .spz-consent__text {
-      flex: 1 1 100%;
-    }
-  }
-
-  /* Narrow enough that the button no longer sits comfortably beside the end of
-     the sentence: give it the full width of the bar. */
-  @media (max-width: 520px) {
-    .spz-consent__actions {
-      flex: 1 1 100%;
-      justify-content: center;
-    }
-  }
-</style>

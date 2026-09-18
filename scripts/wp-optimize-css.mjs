@@ -320,8 +320,27 @@ const footer = (await readIf(path.join(PARTIALS, 'chrome', 'footer.html'))) ?? '
 const demoPopup = (await readIf(path.join(PARTIALS, 'chrome', 'demo-popup.html'))) ?? '';
 const shim = (await readIf(path.join(PUB, 'scripts', 'wp-shim.js'))) ?? '';
 
+/**
+ * Pages whose body is built from Astro components rather than a partial, and
+ * the directory those components live in.
+ *
+ * Without an entry here such a page has no markup to purge against, so the
+ * optimiser skips it and `WpLayout` falls back to the page's full, unpurged
+ * stylesheet list — about 2.2MB, silently. The component sources stand in for
+ * the markup: purgecss only needs the class names and tags that appear, and
+ * those are all written out literally in the `.astro` files.
+ */
+const COMPONENT_PAGES = {
+  index: path.join(PROJECT, 'src', 'components', 'home'),
+};
+
 /** Where a page key's markup lives. Keys are set by the mirroring scripts. */
 async function markupFor(key) {
+  if (COMPONENT_PAGES[key]) {
+    const dir = COMPONENT_PAGES[key];
+    const files = (await fs.readdir(dir)).filter(f => f.endsWith('.astro'));
+    return (await Promise.all(files.map(f => fs.readFile(path.join(dir, f), 'utf8')))).join('\n');
+  }
   if (key === '__post__') {
     // Synthetic key for the blog route's shared style set — it has no markup of
     // its own, so every post's markup counts as in scope.

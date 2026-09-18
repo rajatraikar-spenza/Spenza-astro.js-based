@@ -1,0 +1,73 @@
+---
+/**
+ * The alternatives, as a grid rather than a table: on a phone each row becomes
+ * a block with every cell labelled by its column, which a table cannot do
+ * without scrolling sideways.
+ */
+import SectionHead from './SectionHead.astro';
+
+const columns = [
+  ['Direct with a carrier', 'THE USUAL FIRST MOVE'],
+  ['Build it in-house', 'THE IN-HOUSE BUILD'],
+  ['Spenza', 'ONE PLATFORM, FOUR HUBS'],
+];
+
+const rows = [
+  ['Time to first market', 'Twelve to fifty weeks of contracting before a single SIM ships.', 'Eight to twelve vendors, then a year before revenue.', 'Days. Carrier integrations and billing are already built.'],
+  ['Adding country number five', 'A fifth contract, a fifth portal, a fifth invoice.', 'A fifth integration your team now owns forever.', 'A line in a config. Same dashboard, same invoice.'],
+  ['Cost per line at scale', 'Smartphone pricing on sensor traffic, and no lever to pull.', 'Better rates, if you win a wholesale negotiation.', 'Pooled plans and routing across 30+ operators. 30% typical reduction.'],
+  ['Changing networks', 'A truck roll and a physical SIM swap.', 'You build and maintain the multi-IMSI logic yourself.', 'Over the air, per device, no SIM swap.'],
+  ['Billing your own customers', 'Out of scope. You add a billing vendor.', 'Rating, tax, KYC, and payouts are all yours to maintain.', 'Branded checkout, invoicing, and reseller payouts included.'],
+  ['Putting an agent on a phone line', 'A separate CPaaS vendor and a separate invoice.', 'Another API, another number inventory to manage.', 'AgentHub. Same API, same billing rails.'],
+  ['When something breaks', 'A general support queue, at the tier your contract covers.', 'Every carrier escalation lands on your on-call rotation.', 'A named launch team and a shared channel from day one.'],
+];
+---
+
+<section class="hm-sec hm-sec--white">
+  <div class="hm-wrap">
+    <SectionHead
+      eyebrow="THE ALTERNATIVES"
+      lede="Most teams evaluating Spenza have already run one of the first two approaches. This is the comparison that decides it, so we have set it out in full rather than leaving it to a sales call."
+    >Three ways to get connectivity. One of them scales.</SectionHead>
+
+    <div class="hm-comp hm-reveal" role="table" aria-label="Connectivity approach comparison">
+      <div class="hm-comp-row" role="row">
+        <div class="hm-comp-head" role="columnheader"><span class="hm-sr">Capability</span></div>
+        {columns.map(([name, note], i) => (
+          <div class={i === 2 ? 'hm-comp-head is-us' : 'hm-comp-head'} role="columnheader">
+            {i === 2
+              ? <strong><img class="hm-comp-logo" src="/spenza-logo-vector.svg" alt="Spenza" width="1264" height="428" /></strong>
+              : <strong>{name}</strong>}
+            <span>{note}</span>
+          </div>
+        ))}
+      </div>
+      {rows.map(([label, ...cells]) => (
+        <div class="hm-comp-row" role="row">
+          <div class="hm-comp-label" role="rowheader">{label}</div>
+          {cells.map((cell, i) => (
+            <div class={i === 2 ? 'hm-comp-cell is-us' : 'hm-comp-cell'} role="cell">
+              <span class="hm-comp-col" aria-hidden="true">
+                {i === 2
+                  ? <img class="hm-comp-logo hm-comp-logo--sm" src="/spenza-logo-vector.svg" alt="" width="1264" height="428" />
+                  : columns[i][0].toUpperCase()}
+              </span>{cell}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <div class="hm-migrate hm-stack hm-reveal">
+      <div>
+        <h3>Already working with carriers or running your own stack?</h3>
+        <p>
+          You don’t have to start over. Keep the carrier contracts, customer relationships, and
+          systems that are working today. Bring existing connectivity into Spenza, move selected
+          operators or workflows first, and migrate at your own pace.
+        </p>
+      </div>
+      <a class="hm-btn hm-btn--ink" href="#demo">Talk to us about migration</a>
+    </div>
+  </div>
+</section>
