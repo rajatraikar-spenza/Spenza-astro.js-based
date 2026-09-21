@@ -53,7 +53,7 @@ jobs:
 
     env:
       WP_ORIGIN:      ${{ vars.WP_ORIGIN      || 'https://preprod.spenza.com' }}
-      SITE_URL:       ${{ vars.SITE_URL       || 'https://www.spenza.com' }}
+      SITE_URL:       ${{ vars.SITE_URL       || 'https://spenza.com' }}
       MEDIA_ORIGIN:   ${{ vars.MEDIA_ORIGIN   || 'https://media.spenza.com' }}
       # Where a lead form replays its submission so Gravity Forms sends the
       # confirmation and the sales alert. No default: leaving it unset ships
