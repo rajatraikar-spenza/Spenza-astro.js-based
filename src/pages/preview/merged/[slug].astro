@@ -139,7 +139,9 @@ const post = {
         `<meta name="description" content="${esc(preview.seoDescription)}">`,
     },
     content: banner + preview.content,
-    templateBlocks: { tldrHeading: '', tldrDescription: '', twoCol: [], oneCol: [] },
+    // The TL;DR block, which the Elementor template renders above the article
+    // from ACF fields rather than from the body.
+    templateBlocks: preview.templateBlocks,
   },
 } as any;
 ---

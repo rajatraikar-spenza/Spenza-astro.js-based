@@ -31,6 +31,13 @@ export interface MergeDonor {
   contributes: string;
 }
 
+/**
+ * ACF's icon value, in the shape WordPress stores it. `iconClass()` in
+ * `lib/acf-blocks.ts` parses both this and WPGraphQL's pre-rendered form.
+ */
+const faIcon = (id: string, label: string) =>
+  `{"family" : "classic", "style" : "solid", "id" : "${id}", "label" : "${label}"}`;
+
 export interface MergePreview {
   /** Destination slug — the surviving post. */
   slug: string;
@@ -52,8 +59,19 @@ export interface MergePreview {
   donors: MergeDonor[];
   /** Merged body, authored as Gutenberg-shaped HTML. */
   content: string;
+  /**
+   * The TL;DR block, which lives in ACF fields on the post rather than in the
+   * body — the Elementor template renders it above the article.
+   *
+   * It has to be merged like everything else. Three of the five posts in this
+   * cluster carried their own four-card TL;DR, largely restating each other;
+   * the other two had the heading and no cards. Leaving this empty would have
+   * shown the team a page missing the first thing a reader sees.
+   */
+  templateBlocks: AcfBlocks;
 }
 
+import type { AcfBlocks } from '../../lib/acf-blocks.ts';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
@@ -100,5 +118,71 @@ export const MERGE_PREVIEWS: Record<string, MergePreview> = {
       },
     ],
     content: launchMvnoUsGuide,
+
+    /**
+     * Four cards plus a closing one, the shape the template expects.
+     *
+     * Each merges a theme the donors repeated between them: the MVNE shortcut
+     * (winner + tips), model choice (winner + "launch strategy"), eSIM/5G
+     * (all three), and compliance — folded together with unit economics,
+     * because the tips post paired them and the winner treated compliance
+     * alone. The closing card takes the niche argument, which three of the
+     * five made separately and none made as the headline point.
+     *
+     * Icons are reused from the donors' own cards: known-good FA 6.5 names,
+     * and `faGlyphStyles` inlines each codepoint per post anyway.
+     */
+    templateBlocks: {
+      tldrHeading: 'TL;DR / At-a-Glance Summary',
+      tldrDescription:
+        'Launching an MVNO in the US in 2026 is a weeks-long project on an MVNE and a multi-year one without. ' +
+        'The decisions that matter are your model, your host network, eSIM from day one, and whether your ' +
+        'unit economics survive contact with real compliance costs.',
+      twoCol: [
+        {
+          icon: faIcon('gauge-simple-high', 'Gauge Simple High'),
+          title: 'An MVNE Is the Fast, Low-Cost Path',
+          text:
+            'A modern MVNE platform turns a 12-to-18-month build into a launch measured in weeks, with first-year ' +
+            'costs from roughly $10K instead of $5M. You license the network integrations, billing and compliance ' +
+            'tooling rather than building a telecom stack.',
+        },
+        {
+          icon: faIcon('circle-check', 'Circle Check'),
+          title: 'Pick Your Model Before You Pick a Carrier',
+          text:
+            'Branded Reseller through Full MVNO sets your cost, control and timeline before any other decision. ' +
+            'Most new entrants should start Light and upgrade; only deep SIM control or carrier-grade independence ' +
+            'justifies a Full MVNO from day one.',
+        },
+        {
+          icon: faIcon('sim-card', 'Sim Card'),
+          title: 'eSIM-First Activation, 5G-Ready Plans',
+          text:
+            'The US is effectively eSIM-only on new devices, and QR activation cuts first-month churn against ' +
+            'shipping physical SIMs. 5G standalone adds network slicing, so you can sell differentiated tiers ' +
+            'rather than just cheaper data.',
+        },
+        {
+          icon: faIcon('shield-halved', 'Shield Halved'),
+          title: 'Compliance and Unit Economics Decide Survival',
+          text:
+            'FCC Form 499, USF contributions, CALEA, CPNI, Kari’s Law and state fees all apply, and an MVNE ' +
+            'acting as carrier of record absorbs most of them. Model ARPU, wholesale cost, CAC and churn before ' +
+            'launch — CAC exceeding lifetime value is the usual cause of death.',
+        },
+      ],
+      oneCol: [
+        {
+          icon: faIcon('bullseye', 'Bullseye'),
+          title: 'Win a Niche, Not a Price War',
+          text:
+            'Every durable US MVNO scoped a segment tightly enough to design plans, support and distribution ' +
+            'around one kind of customer — IoT fleets, travellers, seniors, fintech or retail audiences. ' +
+            'Competing as "the same thing, slightly cheaper" against a national carrier is the one strategy ' +
+            'that reliably fails.',
+        },
+      ],
+    },
   },
 };
