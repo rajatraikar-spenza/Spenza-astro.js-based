@@ -13,6 +13,17 @@ build, deployment, forms and analytics.
 
 Current work happens on the **`blog-automation`** branch.
 
+## Skills
+
+Two procedures live in `.codex/skills/`. Load the matching one before starting
+that kind of work; each is the step-by-step, and the `docs/` file beside it is
+the reference it draws on.
+
+| Skill | Use it when |
+| :---- | :---------- |
+| [`blog-merge`](.codex/skills/blog-merge/SKILL.md) | Consolidating competing blog posts into one article and previewing the result |
+| [`blog-images`](.codex/skills/blog-images/SKILL.md) | Producing, optimising or replacing images for a blog post |
+
 ---
 
 ## Development
