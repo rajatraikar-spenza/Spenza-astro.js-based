@@ -73,6 +73,7 @@ export interface MergePreview {
 
 import type { AcfBlocks } from '../../lib/acf-blocks.ts';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
+import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
   'launch-mvno-us-guide': {
@@ -90,7 +91,7 @@ export const MERGE_PREVIEWS: Record<string, MergePreview> = {
     updatedDate: '2026-07-17T04:49:14+00:00',
     authorSlug: 'sivasai',
     authorName: 'SivaSai',
-    destinationWords: 4039,
+    destinationWords: 3444,
     donors: [
       {
         path: '/mvno/how-to-set-up-mvno/',
@@ -181,6 +182,105 @@ export const MERGE_PREVIEWS: Record<string, MergePreview> = {
             'around one kind of customer — IoT fleets, travellers, seniors, fintech or retail audiences. ' +
             'Competing as "the same thing, slightly cheaper" against a national carrier is the one strategy ' +
             'that reliably fails.',
+        },
+      ],
+    },
+  },
+
+  'white-label-mvno-launch-guide-2025': {
+    slug: 'white-label-mvno-launch-guide-2025',
+    category: 'mvno',
+    cluster: 'White-label MVNO launch (H1 — MVNO & MVNE)',
+    title: 'White Label MVNO Launch Guide 2026: Build Your Mobile Brand',
+    excerpt:
+      'What a white label MVNO includes, where white label ends and private label begins, what it costs, the launch sequence, the US compliance you cannot skip, and how to choose the platform underneath it.',
+    seoTitle: 'White Label MVNO Launch Guide 2026: Build Your Mobile Brand',
+    seoDescription:
+      'Launch a branded mobile service without owning infrastructure. White label vs private label, real costs and margins, the 10-step launch, US compliance and how to pick an MVNE.',
+    featuredImage: 'https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png',
+    publishedDate: '2026-08-06T09:00:00+00:00',
+    updatedDate: '2026-08-06T09:00:00+00:00',
+    authorSlug: 'sivasai',
+    authorName: 'SivaSai',
+    destinationWords: 2474,
+    donors: [
+      {
+        path: '/mvno/mvno-in-a-box-for-brands/',
+        title: 'MVNO in a Box: Launch Your Own Mobile Brand Fast',
+        clicks: 45,
+        contributes: 'What the package includes, brand use cases, traditional-vs-turnkey framing',
+      },
+      {
+        path: '/mvno/how-to-launch-mvno-non-telco-brand-2025/',
+        title: 'How to Start a MVNO as a Non-Telco Brand in 2026',
+        clicks: 19,
+        contributes: 'The non-telco thesis, brand-type table, smartwatch case study',
+      },
+      {
+        path: '/mvno/white-label-mvno/',
+        title: 'White Label MVNO: A Practical Launch Guide',
+        clicks: 22,
+        contributes: 'Launch challenges and their mitigations',
+      },
+    ],
+    content: whiteLabelMvnoLaunchGuide,
+
+    /**
+     * Only two of the four posts carried TL;DR cards, and both led with what
+     * the thing *is* before what it costs. These keep that order and take the
+     * closing card from the non-telco donor, whose whole thesis — that you do
+     * not need to be a telecom company — is the cluster's strongest single
+     * point and was not the headline of any of the four.
+     */
+    templateBlocks: {
+      tldrHeading: 'TL;DR / At-a-Glance Summary',
+      tldrDescription:
+        'A white label MVNO lets you sell a branded mobile service on someone else\u2019s network, with an MVNE ' +
+        'running billing, provisioning and compliance underneath. Launches run 7 to 90 days depending on the ' +
+        'model, and margins depend far more on wholesale terms and plan design than on the platform you pick.',
+      twoCol: [
+        {
+          icon: faIcon('tower-cell', 'Tower Cell'),
+          title: 'You Own the Brand, the MVNE Runs the Network',
+          text:
+            'You set the plans, the pricing and the customer relationship, and you keep the margin. Your MVNE ' +
+            'partner owns the carrier agreements, the BSS/OSS and the provisioning. That is the whole trade, ' +
+            'and it is why no telecom background is required.',
+        },
+        {
+          icon: faIcon('layer-group', 'Layer Group'),
+          title: 'White Label vs Private Label: Speed or Control',
+          text:
+            'White label launches in 7 to 30 days on a pre-built platform with moderate customisation. Private ' +
+            'label takes 3 to 6 months and gives you your own billing, CRM and support. Most brands start ' +
+            'white label and move up as volume justifies it.',
+        },
+        {
+          icon: faIcon('money-bill-trend-up', 'Money Bill Trend Up'),
+          title: 'What It Costs, and What You Keep',
+          text:
+            'Setup runs $10K\u2013$100K for a branded reseller, $100K\u2013$400K for a full white label build, and $2M+ ' +
+            'for private label. Margins land between 15% and 40%, but only with properly negotiated wholesale ' +
+            'rates and a platform whose pricing is flexible.',
+        },
+        {
+          icon: faIcon('calendar-days', 'Calendar Days'),
+          title: 'A 7-Day Launch Is Real, With Caveats',
+          text:
+            'Seven days applies to branded reseller and light white label models, and assumes niche, model, ' +
+            'carrier and platform are settled before the clock starts. Full builds with custom billing run ' +
+            'three to six weeks. Compliance is the step that slips, so start it first.',
+        },
+      ],
+      oneCol: [
+        {
+          icon: faIcon('shop', 'Shop'),
+          title: 'You Do Not Need to Be a Telco',
+          text:
+            'eSIM removed the SIM logistics, API-first platforms removed the integration work, and an MVNE can ' +
+            'act as carrier of record for most compliance. Fintechs, retailers, wearable makers, MSPs and ' +
+            'creator brands are launching on exactly this basis \u2014 because each already owns a distribution ' +
+            'channel and a reason for the customer to come back.',
         },
       ],
     },
