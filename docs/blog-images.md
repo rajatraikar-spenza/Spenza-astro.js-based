@@ -244,6 +244,14 @@ missing ones at once.
 Images belong to WordPress, because WordPress owns blog post content. The static
 site reads them from `media.spenza.com`.
 
+**While a merge is still a preview**, images live in this repo at
+`public/blog-media/<cluster>/` and are referenced with root-relative paths. That
+directory is not one of the `MEDIA_TREES` the build drops when `MEDIA_ORIGIN` is
+set, so previews keep their images in a real build. It is staging, not a
+destination — on publish the files move to the WordPress media library and the
+article's `src` attributes become `/wp-content/uploads/...` like every other
+post. Delete the staging copies once that is done.
+
 1. **Name the file** descriptively and in kebab-case, with no date prefix and no
    generator artefacts. `mvno-model-ladder-2026.png`, never
    `ChatGPT-Image-Sep-3-2026-04_29_14-PM.png`. The blog is full of the latter;

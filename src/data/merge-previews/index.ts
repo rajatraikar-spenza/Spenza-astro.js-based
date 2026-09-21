@@ -85,7 +85,7 @@ export const MERGE_PREVIEWS: Record<string, MergePreview> = {
     seoTitle: 'How to Launch an MVNO in the US: Requirements, Costs and Operating Plan',
     seoDescription:
       'Launch MVNO US operations in 2026 with this step-by-step guide to models, costs, FCC compliance, eSIM, 5G, and choosing the right MVNE partner.',
-    featuredImage: 'https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png',
+    featuredImage: '/blog-media/mvno-us-launch/launch-mvno-us-guide-featured.png',
     publishedDate: '2026-04-22T11:11:00+00:00',
     updatedDate: '2026-07-17T04:49:14+00:00',
     authorSlug: 'sivasai',
