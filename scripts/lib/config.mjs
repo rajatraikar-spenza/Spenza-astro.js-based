@@ -60,13 +60,21 @@ export const MEDIA_ORIGIN = (process.env.MEDIA_ORIGIN || '').replace(/\/+$/, '')
 /**
  * Canonical origin of the public site — drives canonicals and the sitemap.
  *
- * `www`, and not the apex. The certificate CloudFront serves covers
- * `www.spenza.com`; `https://spenza.com` fails its TLS handshake outright, so
- * the apex is not a URL anything can be canonicalised to. Pointing canonicals
- * at a host that cannot be fetched is worse than pointing them at the wrong
- * page — there is nothing there for a crawler to land on.
+ * The apex, and not `www`. This rule used to say the opposite, on the grounds
+ * that `https://spenza.com` failed its TLS handshake and so was not a URL
+ * anything could be canonicalised to. That is no longer true: the certificate
+ * CloudFront serves is `spenza.com` + `*.spenza.com`, and both hostnames are
+ * alternate domain names on the same distribution — which is why, before this
+ * change, every page answered 200 on both and only this value decided which
+ * one Google counted.
+ *
+ * `www` is not retired, and its DNS record must stay: ~1000 indexed URLs and
+ * every backlink still name it. It is redirected instead, by the viewer-request
+ * function in scripts/aws-build-cf-function.mjs, which derives the host to
+ * redirect *from* out of this value. Moving this back to `www` therefore
+ * reverses the redirect too, rather than leaving the two contradicting.
  */
-const PROD_SITE_URL = 'https://www.spenza.com';
+const PROD_SITE_URL = 'https://spenza.com';
 
 export const SITE_URL = (process.env.SITE_URL || PROD_SITE_URL).replace(/\/+$/, '');
 

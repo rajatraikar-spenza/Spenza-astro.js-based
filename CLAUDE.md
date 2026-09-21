@@ -314,6 +314,19 @@ two files it writes into `dist/`.
   fixable; a production site that ships `Disallow: /` deletes itself from Google
   and gives no signal. The build warns when `SITE_URL` is overridden and
   `NOINDEX` is not set, which is the shape of a preview deploy that forgot.
+- **The apex is canonical; `www` is a redirect and must stay one.** Both are
+  alternate domain names on the same distribution and the certificate covers
+  both, so without the redirect every URL answers 200 twice and only the
+  canonical tag decides which Google counts. The viewer-request function reads
+  the host to redirect *from* out of `SITE_URL` — it is the `www` twin of
+  whatever that names — so the two cannot drift apart. Never delete the `www`
+  DNS record: ~1000 indexed URLs and every backlink still name it.
+- The function folds the host into each redirect branch rather than redirecting
+  it up front, which is what holds every `www` request to a single 301. Sending
+  `www/contact` to `apex/contact` first would cost a second hop, because that
+  path is itself a redirect source. It also rebuilds the query string by hand:
+  a response a CloudFront Function *builds* does not inherit one, and before
+  this every 301 here silently dropped the visitor's `utm_*` parameters.
 - `astro:build:done` writes `_redirects` and `_headers` (Cloudflare Pages and
   Netlify share the format; Vercel wants the same rules in `vercel.json`),
   prunes stylesheets nothing links to, stamps every `/scripts/*.js` reference
