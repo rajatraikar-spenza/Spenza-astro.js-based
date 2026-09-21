@@ -197,7 +197,9 @@ export const MERGE_PREVIEWS: Record<string, MergePreview> = {
     seoTitle: 'White Label MVNO Launch Guide 2026: Build Your Mobile Brand',
     seoDescription:
       'Launch a branded mobile service without owning infrastructure. White label vs private label, real costs and margins, the 10-step launch, US compliance and how to pick an MVNE.',
-    featuredImage: 'https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png',
+    // The destination's own hero, already built on the featured-image template.
+    featuredImage:
+      'https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png',
     publishedDate: '2026-08-06T09:00:00+00:00',
     updatedDate: '2026-08-06T09:00:00+00:00',
     authorSlug: 'sivasai',

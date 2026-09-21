@@ -26,7 +26,79 @@ reader learns from an image, the post is better without it.
 
 ---
 
-## 2. Brand tokens
+## 2. Reuse before you generate
+
+**Generating a new image is the second option. The first is finding one that
+already exists.** The blog has 265 featured images and roughly 1,700 body
+images, and a merged article inherits everything its donors had.
+
+This matters most during consolidation. Four posts merging into one bring four
+sets of images with them, and some of them are good — the white-label cluster
+already contained an on-brand seven-day launch timeline and a four-up brand
+use-case grid that fit the merged article's slots exactly. Regenerating those
+would have been slower, worse, and would have thrown away work the design team
+already paid for.
+
+### How to check
+
+Pull every body image from the destination and its donors before writing a
+single prompt:
+
+```bash
+python3 - <<'EOF'
+import re, subprocess
+POSTS = ['destination-slug', 'donor-1-slug', 'donor-2-slug']
+NOISE = ('BGT.png', 'ChatGPT-Image-Sep-3-2026', 'How-to-Reduce-MVNO-Churn-8-Retention')  # related-post thumbnails
+seen = set()
+for slug in POSTS:
+    h = subprocess.run(['curl','-sL','--max-time','25',f'https://spenza.com/mvno/{slug}/'],
+                       capture_output=True, text=True).stdout
+    i = h.find('elementor-widget-theme-post-content')
+    og = re.search(r'<meta property="og:image" content="([^"]+)"', h)
+    print(f'\n### {slug}\n  og: {og.group(1).split("/")[-1] if og else None}')
+    for u in re.findall(r'<img[^>]+src="(https://media[^"]+)"', h[i:i+250000] if i>0 else ''):
+        if any(n in u for n in NOISE) or 'logo' in u.lower(): continue
+        base = re.sub(r'-\d+x\d+(?=\.\w+$)', '', u)
+        if base in seen: continue
+        seen.add(base); print('   ', u.split('/')[-1][:70])
+EOF
+```
+
+Strip the `-WIDTHxHEIGHT` suffix to fetch the original upload — WordPress serves
+resized derivatives in the markup, and the original is usually larger and
+cleaner. `White-Label-MVNO-2026-1024x576.png` in the page is
+`White-Label-MVNO-2026.png` at 1920×1080 in the library.
+
+**Then look at every candidate.** File names lie; a promising name is often a
+stock photograph.
+
+### What qualifies for reuse
+
+Keep it if all of these hold:
+
+- It teaches something the merged article still says.
+- It is on-brand — orange accent, no off-palette blues or greens.
+- Its text is accurate for the merged article. A diagram labelled for the donor's
+  narrower scope is a liability in a broader one.
+- It is 16:9, **or** its own aspect is deliberate and cropping would damage it.
+  The 16:9 house ratio in §4 governs images you *generate*. A reused asset keeps
+  its native aspect when a crop would cut content — the seven-day launch timeline
+  is a 2.5:1 banner and the brand use-case grid is 3:2, and forcing either into
+  16:9 would remove labels. Reuse the derivative the live page already serves.
+- It is not one of the failures in §9.
+
+Reject it otherwise, and say why in your summary so the decision is visible.
+
+### What still needs generating
+
+Whatever is left. In practice a merged article needs one or two genuinely new
+images, not four — the donors usually supply the rest. Generate only for slots
+no existing asset covers, and match the reused assets' style so the article
+reads as one piece rather than a scrapbook.
+
+---
+
+## 3. Brand tokens
 
 These are read from the live site, not invented. Use them exactly.
 
@@ -60,7 +132,7 @@ echo it in hero images, do not fight it.
 
 ---
 
-## 3. Specifications
+## 4. Specifications
 
 | Property | Value |
 | :------- | :---- |
@@ -77,7 +149,60 @@ neighbours. Do not deviate.
 
 ---
 
-## 4. The two-stage workflow
+## 5. The featured-image template
+
+**Featured images are not generated from scratch. They are a fixed template
+with one variable panel.** Every recent post uses it, and a hero that departs
+from it is immediately obvious in the related-posts grid where three sit side
+by side.
+
+Measured across four 2026 posts, the frame is pixel-identical:
+
+| Element | Position (on a 1280×720 canvas) |
+| :------ | :------------------------------ |
+| Canvas | 1280 × 720, pure white background |
+| Spenza logo | top-left, around x=75 y=80, roughly 155×50 |
+| Title | left column from x=72, baseline starts around y=225 |
+| "LEARN MORE" pill | x=72, y=432, roughly 210×42 |
+| `spenza.com` badge | **x=501–777, y=648–691. Identical on every post.** |
+| Art panel | right-aligned to x≈1207, between 446 and 578 wide, 348 to 515 tall, vertically centred in the upper portion |
+
+**Title:** all caps, high-contrast serif, near-black, left-aligned, maximum
+three lines. It is the post title, shortened if needed — it is read at
+thumbnail size.
+
+**"LEARN MORE" pill:** solid brand orange, white letterspaced caps, fully
+rounded ends.
+
+**`spenza.com` badge:** a white pill with a thin black outline and a magnifier
+glyph, centred at the bottom. It never moves.
+
+**The art panel is the only thing that changes.** Its style varies by subject
+and that is fine — a dark render with orange glow, a flat vector scene, a
+product illustration have all shipped. What does not vary is the frame.
+
+### So how do you make one?
+
+1. Take an existing hero as the base file. Do not regenerate the frame.
+2. Generate **only the art panel** — a square-ish image at roughly 1100×900,
+   which you scale into the panel. Prompt it as a standalone illustration, with
+   no text, no logo and no border.
+3. Set the title in the template, in the serif at the existing size.
+4. Export at 1280×720.
+
+A prompt for the art panel alone, appended to the preamble in §7:
+
+> A standalone square illustration, no text and no border, to sit on a white
+> page beside a headline. {SUBJECT}. Dark charcoal background with warm orange
+> `#FF4500` glow and thin line-art detail, or flat vector on cream — pick one
+> and commit to it. Centred composition with breathing room at the edges.
+
+**Filename** is the post title in Title-Case-Hyphenated, matching the recent
+convention: `White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png`.
+
+---
+
+## 6. The two-stage workflow
 
 Generative image tools reliably garble dense text. Chasing a clean ten-label
 diagram through regeneration is slower than the alternative and usually ends
@@ -100,7 +225,7 @@ beats a cluttered one with the explanation baked in at the wrong kerning.
 
 ---
 
-## 5. Prompt construction
+## 7. Prompt construction
 
 Every prompt is **style preamble + composition brief**. The preamble never
 changes; only the brief does.
@@ -132,7 +257,7 @@ Vague briefs produce decorative images. The shape is the information.
 
 ---
 
-## 6. The five image types
+## 8. The five image types
 
 Nearly every blog image on this site should be one of these. If your idea is not
 on the list, it is probably decoration.
@@ -204,7 +329,7 @@ read at thumbnail size in the related-posts grid.
 
 ---
 
-## 7. What the site already got wrong
+## 9. What the site already got wrong
 
 Learn from these; they are all present in the current blog.
 
@@ -222,7 +347,7 @@ Learn from these; they are all present in the current blog.
 
 ---
 
-## 8. Alt text
+## 10. Alt text
 
 Every image needs alt text, and the merge programme is a chance to fix a lot of
 missing ones at once.
@@ -239,7 +364,7 @@ missing ones at once.
 
 ---
 
-## 9. Getting the file onto the site
+## 11. Getting the file onto the site
 
 Images belong to WordPress, because WordPress owns blog post content. The static
 site reads them from `media.spenza.com`.
@@ -274,8 +399,10 @@ A merged article's images are not done until step 4 passes.
 
 ---
 
-## 10. Checklist before shipping an image
+## 12. Checklist before shipping an image
 
+- [ ] You checked the destination and donors for a reusable image first (§2).
+- [ ] A featured image was built from the template, not generated whole (§5).
 - [ ] 1600×900 for body, 1280×720 for featured. 16:9 either way.
 - [ ] Orange `#FF4500` is the only accent; state colours are muted.
 - [ ] Geometric sans throughout; no serifs, no rounded faces.
