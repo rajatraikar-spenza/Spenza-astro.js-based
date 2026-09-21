@@ -1,15 +1,21 @@
 ---
 /**
- * The platform: four hub tabs beside an illustrative panel for each.
+ * The platform: four hub tabs across the head of one window, with the
+ * selected hub's panel filling its body.
  *
  * Tab copy and the TelecomHub routing table are the Figma file's. The Figma
  * frame only draws the TelecomHub panel, so the other three are the HTML
  * design's. Tabs are a real ARIA tablist; src/scripts/home.js switches them.
  *
- * On phones the tabs shrink to a 2x2 grid of names, and each panel opens with
- * its hub's description instead (`hm-screen-intro`, hidden on wider screens),
- * so the words sit next to the picture they describe rather than a screen
- * above it.
+ * The tabs used to be a tall column beside the panel, which put AgentHub --
+ * the last of the four -- below the panel it opened: choosing it meant
+ * scrolling down to the tab and back up to read the result. Across the top,
+ * every tab sits directly above the thing it changes, at every width.
+ *
+ * Each tab carries its hub's name and tag only. The hub's description opens
+ * the panel beside the picture it describes (`hm-screen-intro` next to
+ * `hm-screen-body`), which also holds the mock to the width it was drawn at.
+ * On phones the row folds to a 2x2 grid and the panel to one column.
  */
 import SectionHead from './SectionHead.astro';
 
@@ -72,7 +78,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
     >Four layers. One connectivity stack.</SectionHead>
 
     <div class="hm-platform hm-stack hm-reveal">
-      <div class="hm-tabs" role="tablist" aria-label="Platform hubs" aria-orientation="vertical">
+      <div class="hm-tabs" role="tablist" aria-label="Platform hubs" aria-orientation="horizontal">
         {hubs.map((hub, i) => (
           <button
             class={`hm-tab hm-edge-${hub.tone}`}
@@ -85,10 +91,9 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
             data-tab={hub.id}
           >
             <span class="hm-tab-head">
-              <span class="hm-tab-name">{hub.name}</span>
               <span class="hm-tab-tag">{hub.tag}</span>
+              <span class="hm-tab-name">{hub.name}</span>
             </span>
-            <span class="hm-tab-text"><strong>{hub.lead}</strong>{hub.text}</span>
           </button>
         ))}
       </div>
@@ -96,93 +101,101 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
       <div class="hm-panel">
         <div class="hm-screen" id="panel-telecom" role="tabpanel" aria-labelledby="tab-telecom" tabindex="0">
           <div class="hm-screen-intro"><strong>{hubById.telecom.lead}</strong><p>{hubById.telecom.text}</p></div>
-          <div class="hm-screen-top">
-            <span class="hm-mono">telecomhub / routing table</span>
-            <span class="hm-live hm-tone-acc"><span class="hm-dot" />live</span>
-          </div>
-          <div class="hm-route hm-route--head"><span>OPERATOR</span><span>SIGNAL</span><span>LATENCY</span><span>STATE</span></div>
-          {operators.map(([name, region, signal, latency, state]) => (
-            <div class={`hm-route hm-route--${state}`}>
-              <div class="hm-route-name">{name}<span>{region}</span></div>
-              <div class="hm-route-bar"><i style={`width:${signal}%`} /></div>
-              <div class="hm-mono">{latency}</div>
-              <div class="hm-route-state">{state}</div>
+          <div class="hm-screen-body">
+            <div class="hm-screen-top">
+              <span class="hm-mono">telecomhub / routing table</span>
+              <span class="hm-live hm-tone-acc"><span class="hm-dot" />live</span>
             </div>
-          ))}
-          <div class="hm-api">PATCH /v1/sims/8944…/routing {'{"policy":"cost+coverage"}'} <span class="hm-tone-acc">200 OK</span></div>
+            <div class="hm-route hm-route--head"><span>OPERATOR</span><span>SIGNAL</span><span>LATENCY</span><span>STATE</span></div>
+            {operators.map(([name, region, signal, latency, state]) => (
+              <div class={`hm-route hm-route--${state}`}>
+                <div class="hm-route-name">{name}<span>{region}</span></div>
+                <div class="hm-route-bar"><i style={`width:${signal}%`} /></div>
+                <div class="hm-mono">{latency}</div>
+                <div class="hm-route-state">{state}</div>
+              </div>
+            ))}
+            <div class="hm-api">PATCH /v1/sims/8944…/routing {'{"policy":"cost+coverage"}'} <span class="hm-tone-acc">200 OK</span></div>
+          </div>
         </div>
 
         <div class="hm-screen" id="panel-control" role="tabpanel" aria-labelledby="tab-control" tabindex="0" hidden>
           <div class="hm-screen-intro"><strong>{hubById.control.lead}</strong><p>{hubById.control.text}</p></div>
-          <div class="hm-screen-top">
-            <span class="hm-mono">controlhub / fleet spend</span>
-            <span class="hm-quiet">Last 12 weeks</span>
-          </div>
-          <div class="hm-kpis hm-cols-sm">
-            <div class="hm-kpi"><div>Active lines</div><strong>42,318</strong></div>
-            <div class="hm-kpi"><div>Cost per line, month</div><strong>$1.84 <span>&minus;31%</span></strong></div>
-            <div class="hm-kpi hm-kpi--blue"><div>Open recommendations</div><strong>7 <span>$12.4k/yr</span></strong></div>
-          </div>
-          <div class="hm-usage" aria-hidden="true">
-            {usage.map((v, i) => (
-              <div>
-                <i class="hm-usage-cap" style={`height:${Math.round(v * 0.25)}%`} />
-                <i class={i >= 7 ? 'hm-usage-bar is-new' : 'hm-usage-bar'} style={`height:${v}%`} />
-              </div>
-            ))}
-          </div>
-          <div class="hm-recs">
-            <div><span>312 lines idle for 60+ days. Suspend.</span><span>$573/mo</span></div>
-            <div><span>DE fleet: move 1,204 lines to the pooled plan.</span><span>$460/mo</span></div>
+          <div class="hm-screen-body">
+            <div class="hm-screen-top">
+              <span class="hm-mono">controlhub / fleet spend</span>
+              <span class="hm-quiet">Last 12 weeks</span>
+            </div>
+            <div class="hm-kpis hm-cols-sm">
+              <div class="hm-kpi"><div>Active lines</div><strong>42,318</strong></div>
+              <div class="hm-kpi"><div>Cost per line, month</div><strong>$1.84 <span>&minus;31%</span></strong></div>
+              <div class="hm-kpi hm-kpi--blue"><div>Open recommendations</div><strong>7 <span>$12.4k/yr</span></strong></div>
+            </div>
+            <div class="hm-usage" aria-hidden="true">
+              {usage.map((v, i) => (
+                <div>
+                  <i class="hm-usage-cap" style={`height:${Math.round(v * 0.25)}%`} />
+                  <i class={i >= 7 ? 'hm-usage-bar is-new' : 'hm-usage-bar'} style={`height:${v}%`} />
+                </div>
+              ))}
+            </div>
+            <div class="hm-recs">
+              <div><span>312 lines idle for 60+ days. Suspend.</span><span>$573/mo</span></div>
+              <div><span>DE fleet: move 1,204 lines to the pooled plan.</span><span>$460/mo</span></div>
+            </div>
           </div>
         </div>
 
         <div class="hm-screen" id="panel-ux" role="tabpanel" aria-labelledby="tab-ux" tabindex="0" hidden>
           <div class="hm-screen-intro"><strong>{hubById.ux.lead}</strong><p>{hubById.ux.text}</p></div>
-          <div class="hm-store hm-cols-sm">
-            <div>
-              <div class="hm-mono hm-screen-label">uxhub / your-brand.com/plans</div>
-              <div class="hm-plans">
-                <div class="hm-plan"><div><strong>Tracker, 50 MB</strong><span>LTE-M, 180 countries</span></div><b>$1.90<small>/mo</small></b></div>
-                <div class="hm-plan is-picked"><div><strong>Watch, 500 MB and voice</strong><span>Multi-IMSI eSIM, US and EU</span></div><b>$6<small>/mo</small></b></div>
-                <div class="hm-plan"><div><strong>Camera, 10 GB</strong><span>Cat-1 and LTE, pooled</span></div><b>$14<small>/mo</small></b></div>
+          <div class="hm-screen-body">
+            <div class="hm-store hm-cols-sm">
+              <div>
+                <div class="hm-mono hm-screen-label">uxhub / your-brand.com/plans</div>
+                <div class="hm-plans">
+                  <div class="hm-plan"><div><strong>Tracker, 50 MB</strong><span>LTE-M, 180 countries</span></div><b>$1.90<small>/mo</small></b></div>
+                  <div class="hm-plan is-picked"><div><strong>Watch, 500 MB and voice</strong><span>Multi-IMSI eSIM, US and EU</span></div><b>$6<small>/mo</small></b></div>
+                  <div class="hm-plan"><div><strong>Camera, 10 GB</strong><span>Cat-1 and LTE, pooled</span></div><b>$14<small>/mo</small></b></div>
+                </div>
+                <p class="hm-store-note">Stripe checkout. Tax and KYC in the flow. Shopify app. Reseller tiers with markups and payouts.</p>
               </div>
-              <p class="hm-store-note">Stripe checkout. Tax and KYC in the flow. Shopify app. Reseller tiers with markups and payouts.</p>
-            </div>
-            <div class="hm-phone" aria-hidden="true">
-              <div class="hm-phone-notch" />
-              <div class="hm-phone-title">Activate your watch</div>
-              <div class="hm-phone-sub">Scan or tap to install the eSIM</div>
-              <div class="hm-phone-qr" />
-              <div class="hm-phone-btn">Install eSIM</div>
-              <div class="hm-phone-ok"><span class="hm-dot" />Provisioned in 4 s</div>
+              <div class="hm-phone" aria-hidden="true">
+                <div class="hm-phone-notch" />
+                <div class="hm-phone-title">Activate your watch</div>
+                <div class="hm-phone-sub">Scan or tap to install the eSIM</div>
+                <div class="hm-phone-qr" />
+                <div class="hm-phone-btn">Install eSIM</div>
+                <div class="hm-phone-ok"><span class="hm-dot" />Provisioned in 4 s</div>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="hm-screen" id="panel-agent" role="tabpanel" aria-labelledby="tab-agent" tabindex="0" hidden>
           <div class="hm-screen-intro"><strong>{hubById.agent.lead}</strong><p>{hubById.agent.text}</p></div>
-          <div class="hm-agent hm-cols-sm">
-            <div>
-              <div class="hm-mono hm-screen-label">agenthub / numbers</div>
-              <div class="hm-numbers">
-                <div class="hm-number is-live"><div><strong>+1 (415) 555-0142</strong><span>support-agent &middot; US local</span></div><em>on call</em></div>
-                <div class="hm-number"><div><strong>+44 20 7946 0821</strong><span>booking-agent &middot; UK local</span></div><em>idle</em></div>
-                <div class="hm-number"><div><strong>+1 (888) 402-3310</strong><span>outbound-agent &middot; toll-free</span></div><em>idle</em></div>
+          <div class="hm-screen-body">
+            <div class="hm-agent hm-cols-sm">
+              <div>
+                <div class="hm-mono hm-screen-label">agenthub / numbers</div>
+                <div class="hm-numbers">
+                  <div class="hm-number is-live"><div><strong>+1 (415) 555-0142</strong><span>support-agent &middot; US local</span></div><em>on call</em></div>
+                  <div class="hm-number"><div><strong>+44 20 7946 0821</strong><span>booking-agent &middot; UK local</span></div><em>idle</em></div>
+                  <div class="hm-number"><div><strong>+1 (888) 402-3310</strong><span>outbound-agent &middot; toll-free</span></div><em>idle</em></div>
+                </div>
+                <div class="hm-api">POST /v1/numbers {'{"country":"US","type":"local"}'} <span class="hm-tone-green">201 Created</span></div>
               </div>
-              <div class="hm-api">POST /v1/numbers {'{"country":"US","type":"local"}'} <span class="hm-tone-green">201 Created</span></div>
-            </div>
-            <div class="hm-call">
-              <div class="hm-call-top"><span>live conversation</span><span class="hm-tone-green"><span class="hm-dot hm-dot--green" />00:12</span></div>
-              <div class="hm-msgs">
-                <div class="hm-msg in">Is my replacement sensor shipping today?</div>
-                <div class="hm-msg out">Yes &mdash; it leaves the Austin hub at 4pm. Want the tracking link by SMS?</div>
-                <div class="hm-msg in">Yes please.</div>
-                <div class="hm-msg out">Sent to the number you are calling from.</div>
-              </div>
-              <div class="hm-call-foot">
-                <div class="hm-mono">inbound audio &middot; realtime stream</div>
-                <div class="hm-wave" aria-hidden="true">{wave(22).map(d => <i style={`animation-delay:${d}`} />)}</div>
+              <div class="hm-call">
+                <div class="hm-call-top"><span>live conversation</span><span class="hm-tone-green"><span class="hm-dot hm-dot--green" />00:12</span></div>
+                <div class="hm-msgs">
+                  <div class="hm-msg in">Is my replacement sensor shipping today?</div>
+                  <div class="hm-msg out">Yes &mdash; it leaves the Austin hub at 4pm. Want the tracking link by SMS?</div>
+                  <div class="hm-msg in">Yes please.</div>
+                  <div class="hm-msg out">Sent to the number you are calling from.</div>
+                </div>
+                <div class="hm-call-foot">
+                  <div class="hm-mono">inbound audio &middot; realtime stream</div>
+                  <div class="hm-wave" aria-hidden="true">{wave(22).map(d => <i style={`animation-delay:${d}`} />)}</div>
+                </div>
               </div>
             </div>
           </div>
