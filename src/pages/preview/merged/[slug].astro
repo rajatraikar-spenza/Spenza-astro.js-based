@@ -1,0 +1,147 @@
+---
+/**
+ * `/preview/merged/<slug>/` — a proposed consolidation, rendered as the real page.
+ *
+ * Renders through `ArticleLayout`, the same layout every headless post uses, so
+ * what the marketing team reviews is the actual article: same chrome, same
+ * Elementor shell, same CSS bundle, same related-posts grid. The only additions
+ * are a fixed review banner and `noindex`.
+ *
+ * `ArticleLayout` reads `post.data` and never calls `post.render()`, so a plain
+ * object with the collection's shape is enough — no WordPress write, no entry in
+ * the `posts` collection, and the live destination post is untouched.
+ *
+ * Excluded from the sitemap by the `/preview/` rule in astro.config.mjs.
+ */
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { MERGE_PREVIEWS } from '../../../data/merge-previews/index.ts';
+import wpAuthors from '../../../data/wp-authors.json';
+
+export async function getStaticPaths() {
+  const { MERGE_PREVIEWS } = await import('../../../data/merge-previews/index.ts');
+  const posts = await getCollection('posts');
+
+  // The same unfiltered three-newest query the Elementor loop grid runs, so the
+  // related strip matches what a real post shows.
+  const newest = [...posts].sort(
+    (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+  );
+
+  return Object.keys(MERGE_PREVIEWS).map(slug => ({
+    params: { slug },
+    props: { related: newest.filter(p => p.data.slug !== slug).slice(0, 3) },
+  }));
+}
+
+const { slug } = Astro.params;
+const { related } = Astro.props;
+const preview = MERGE_PREVIEWS[slug!];
+
+const author = (wpAuthors as Record<string, { name: string; description: string; avatar: string }>)[
+  preview.authorSlug
+];
+
+const esc = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const donorClicks = preview.donors.reduce((n, d) => n + d.clicks, 0);
+const mergedWords = preview.content.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ')
+  .split(/\s+/).filter(Boolean).length;
+
+/**
+ * The review banner. Injected into the body rather than wrapped around the
+ * layout, because `ArticleLayout` renders the whole document.
+ *
+ * It ends with a script that re-parents the bar to `<body>`. `position: fixed`
+ * is measured against the nearest ancestor carrying a `transform`, and
+ * Elementor sets one on several section wrappers — so left where it lands in
+ * the article the bar pins to a section rather than the viewport, and scrolls
+ * away. The script runs because this HTML is server-rendered into the document
+ * rather than assigned through `innerHTML`.
+ */
+const banner = `
+<style>
+  .merge-review-bar { position: fixed; inset: 0 0 auto 0; z-index: 99999; background: #12263F; color: #fff;
+    font: 500 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 10px 16px;
+    display: flex; gap: 18px; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 12px rgba(0,0,0,.25); }
+  .merge-review-bar .pill { background: #F2994A; color: #12263F; font-weight: 700; letter-spacing: .05em;
+    text-transform: uppercase; font-size: 11px; padding: 4px 9px; border-radius: 99px; white-space: nowrap; }
+  .merge-review-bar b { color: #FFD9B3; }
+  .merge-review-bar .spacer { flex: 1 1 auto; }
+  .merge-review-bar details { position: relative; }
+  .merge-review-bar summary { cursor: pointer; text-decoration: underline; list-style: none; }
+  .merge-review-bar summary::-webkit-details-marker { display: none; }
+  .merge-review-bar details[open] .panel { display: block; }
+  .merge-review-bar .panel { display: none; position: absolute; right: 0; top: 26px; width: min(560px, 90vw);
+    background: #fff; color: #12263F; border-radius: 10px; padding: 14px 16px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  .merge-review-bar .panel table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .merge-review-bar .panel td { padding: 6px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .merge-review-bar .panel td:first-child { white-space: nowrap; color: #b42318; }
+  .merge-review-bar .panel .keep td:first-child { color: #1a7f37; font-weight: 700; }
+  body.wp-mirror { padding-top: 44px; }
+  @media (max-width: 720px) { .merge-review-bar { font-size: 12px; } body.wp-mirror { padding-top: 76px; } }
+</style>
+<div class="merge-review-bar">
+  <span class="pill">Preview — proposed merge</span>
+  <span><b>${preview.donors.length + 1} posts → 1</b> · ${esc(preview.cluster)}</span>
+  <span><b>${(preview.destinationWords).toLocaleString()}</b> words today → <b>${mergedWords.toLocaleString()}</b> merged</span>
+  <span><b>${donorClicks}</b> donor clicks/16mo preserved via 301</span>
+  <span class="spacer"></span>
+  <details>
+    <summary>What merges into this page</summary>
+    <div class="panel">
+      <table>
+        <tr class="keep"><td>KEEP</td><td><strong>/${preview.category}/${preview.slug}/</strong><br>${esc(preview.title)}</td></tr>
+        ${preview.donors.map(d => `<tr><td>301 →</td><td><strong>${esc(d.path)}</strong><br>${esc(d.title)}<br><em>${esc(d.contributes)}</em></td></tr>`).join('')}
+      </table>
+    </div>
+  </details>
+</div>
+<script>
+  (function () {
+    var bar = document.currentScript.previousElementSibling;
+    if (bar && bar.parentNode !== document.body) document.body.prepend(bar);
+  })();
+</script>`;
+
+/** A synthetic collection entry. Shaped like `posts`, never added to it. */
+const post = {
+  id: preview.slug,
+  collection: 'posts',
+  data: {
+    databaseId: 0,
+    slug: preview.slug,
+    title: preview.title,
+    category: preview.category,
+    categories: [preview.category],
+    tags: [],
+    isCaseStudy: false,
+    excerpt: preview.excerpt,
+    publishedDate: new Date(preview.publishedDate),
+    updatedDate: new Date(preview.updatedDate),
+    author: {
+      name: author?.name ?? preview.authorName,
+      slug: preview.authorSlug,
+      bio: author?.description ?? '',
+      avatar: author?.avatar,
+    },
+    featuredImage: { url: preview.featuredImage, alt: preview.title },
+    seo: {
+      title: preview.seoTitle,
+      description: preview.seoDescription,
+      ogImage: preview.featuredImage,
+      // Authored rather than inherited from Yoast: a preview must never be
+      // indexable, and must not claim the destination's canonical URL.
+      fullHead:
+        `<title>${esc(preview.seoTitle)} — merge preview</title>` +
+        `<meta name="robots" content="noindex, nofollow">` +
+        `<meta name="description" content="${esc(preview.seoDescription)}">`,
+    },
+    content: banner + preview.content,
+    templateBlocks: { tldrHeading: '', tldrDescription: '', twoCol: [], oneCol: [] },
+  },
+} as any;
+---
+
+<ArticleLayout post={post} related={related} />
