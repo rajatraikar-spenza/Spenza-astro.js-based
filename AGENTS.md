@@ -8,6 +8,8 @@ build, deployment, forms and analytics.
   programme. Read it before touching a blog post, a redirect or a category.
 - **[`docs/blog-images.md`](docs/blog-images.md)** — how to produce images for a
   post so they match the site. Read it before generating any image.
+- **[`docs/site-issues.md`](docs/site-issues.md)** — defects found on the live
+  blog, with the commands that measured them. Check it before reporting a new one.
 - **`CLAUDE.md`** — everything else: the WordPress mirror, the headless loader,
   lead-capture forms, analytics, deployment, publishing.
 
