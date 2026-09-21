@@ -173,11 +173,39 @@
  * Scoped to Elementor's own mobile breakpoint. Tablets (768–1024px) show the
  * same collapsed header and are deliberately left alone; widen the query if that
  * one should shrink too.
+ *
+ * Since then the three parts came down together, because the padding was no
+ * longer the only thing oversized: the row was still 77px around a 38px logo
+ * and a 50px glyph, both of them desktop sizes shown on a 390px screen.
  */
 @media (max-width: 767px) {
   .wp-mirror .elementor-17806 .elementor-element.elementor-element-d197e1b {
-    --padding-top: 10px;
-    --padding-bottom: 10px;
+    --padding-top: 8px;
+    --padding-bottom: 8px;
+  }
+
+  /*
+   * The logo, narrower. Width only, and `!important` because the 112px it
+   * overrides is inline on the `img` -- see the note above on why the mark is
+   * sized by width and never by height.
+   *
+   * By the header's own widget id, not by `.elementor-widget-theme-site-logo`:
+   * the drawer carries a second copy of the same widget, and it has a whole
+   * panel to sit in rather than a 63px bar.
+   */
+  .wp-mirror .elementor-17806 .elementor-element-e654825 img {
+    width: 92px !important;
+  }
+
+  /*
+   * The drawer toggle. Elementor sizes the glyph with `font-size` on
+   * `.elementor-icon` and draws the svg at `1em`, so one declaration moves
+   * both. The glyph is also the tap target -- the anchor wraps it with no
+   * padding of its own -- so this is the floor: 40px, still comfortably over
+   * the 24px WCAG 2.2 minimum, and not to be taken lower.
+   */
+  .wp-mirror .elementor-17806 .elementor-element-3df7c9e .elementor-icon {
+    font-size: 40px;
   }
 }
 
