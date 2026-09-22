@@ -1,5 +1,5 @@
 {
-  "_comment": "The 44 consolidations from the content audit workbook (8 Sep 2026), extracted so agents do not need the spreadsheet. Ordered by priority, completed clusters last. Update \"status\" as each one ships.",
+  "_comment": "The 44 consolidations from the content audit workbook (8 Sep 2026), extracted so agents do not need the spreadsheet. Ordered by priority, completed clusters last. Update \"status\" as each one ships. Each cluster also carries the destination's editorial `brief` from the UPDATE BRIEFS tab: recommended title, required sections, evidence to add, internal links, CTAs and the editorial instruction.",
   "_source": "Decision workbook, tabs MERGE PLAN and CANNIBALIZATION",
   "_statusValues": [
     "pending",
@@ -73,7 +73,24 @@
           "contentToPreserve": "Consumer/IoT provisioning distinctions, workflow and global-management examples. Source sections to inspect: Connect Devices Instantly; Save Time and Money; Scale Effortlessly with Spenza; Table of Contents",
           "contentToRemove": "Duplicate RSP definitions and overbroad remote-switching promises"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "What Is Remote SIM Provisioning (RSP)? A 2026 Guide",
+        "requiredSections": "RSP architectures; component ownership; consumer vs IoT; profile lifecycle; recovery; standards links",
+        "evidenceToAdd": "Supported-device matrix, standards references and a tested provisioning example",
+        "internalLinks": "https://www.spenza.com/esim/esim/ https://www.spenza.com/connected-devices/ https://www.spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/ https://www.spenza.com/esim/esim-for-enterprises-business-enabler-2025/",
+        "primaryCta": "Review your eSIM deployment architecture \u2192 https://www.spenza.com/connected-devices/",
+        "secondaryCta": "Check device compatibility \u2192 https://www.spenza.com/esim-compatibility-checker/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "82",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "What Is Remote SIM Provisioning (RSP)? A 2026 Guide",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. Absolute capability wording: qualify against supported conditions",
+        "targetKeyword": "remote SIM provisioning"
+      }
     },
     {
       "destination": "/mvno/mvno/",
@@ -102,7 +119,24 @@
           "contentToPreserve": "Clear definitions, carrier examples and distinctions between ownership and operating responsibility. Source sections to inspect: MVNO vs MNO; MVNOs Win by Specialization, Not Price; Best-Fit MVNO Models and Niches; Spenza Accelerates MVNO Launch",
           "contentToRemove": "Repeated definitions and long generic introductions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "MVNO: Definition, Business Models and How to Launch",
+        "requiredSections": "Definition; role map; types summary; operating economics; links to launch/cost/RFP; expert-reviewed examples",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "92",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "MVNO Guide 2026: Definition, Types, Costs and Launch",
+        "mainProblem": "One clear definition hub; retain useful introductory answers from both donors; protect the 22,500 Bing citations. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "what is an MVNO"
+      }
     },
     {
       "destination": "/telecom/iot-connectivity-types-guide-2025/",
@@ -140,7 +174,24 @@
           "contentToPreserve": "Radio comparisons, decision criteria and device requirements. Source sections to inspect: Match Connectivity to the Use Case; Choose Between Wi-Fi, BLE, Zigbee, and LPWAN; Use Cellular IoT for Scalable Deployments; Future-Proof IoT Connectivity with eSIM",
           "contentToRemove": "Repeated technology definitions and generic provider lists"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Every IoT Connectivity Type Compared in 2026",
+        "requiredSections": "Selection matrix; cellular vs LPWAN vs Wi-Fi vs NTN; deployment constraints; buyer pathways",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "82",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "Every IoT Connectivity Type Compared in 2026",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "IoT connectivity types"
+      }
     },
     {
       "destination": "/telecom/skype-alternatives/",
@@ -169,7 +220,24 @@
           "contentToPreserve": "Migration requirements and historically accurate retirement context. Source sections to inspect: Skype Shutdown Timeline; More Than Just an App Replacement; Skype Becomes a Security Risk; Migration Requires Real Planning",
           "contentToRemove": "Future-tense retirement statements and expired instructions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Skype for Business Is Retired: Your Best Options",
+        "requiredSections": "Current alternatives; scope of retirement; calling and number continuity; migration checklist",
+        "evidenceToAdd": "Engineer-reviewed call flow, supported platform tests and reproducible failure examples",
+        "internalLinks": "https://www.spenza.com/telecom/why-ai-agents-need-real-phone-numbers/ https://www.spenza.com/ai-phone-number/ https://www.spenza.com/telecom/non-voip-vs-voip-numbers/ https://www.spenza.com/mvno/become-your-own-mvno-ai-ucaas/",
+        "primaryCta": "Request a Voice AI integration review \u2192 https://www.spenza.com/ai-phone-number/",
+        "secondaryCta": "See the call test checklist \u2192 https://www.spenza.com/telecom/voip-phone-number-warm-up-testing/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "78",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Skype for Business Is Retired: Your Best Options",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "Skype alternatives for business"
+      }
     },
     {
       "destination": "/tem/what-is-telecom-expense-management-tem/",
@@ -207,7 +275,24 @@
           "contentToPreserve": "TEM benefits, process and resource links. Source sections to inspect: Table of Contents; Introduction: The Importance of Telecom Expense Management (TEM); What is the importance of TEM?; What are the Top Benefits of TEM? Addressing Telecom Challenges with Strategic Solutions",
           "contentToRemove": "Repeated TEM definitions and unsourced savings promises"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "What is Telecom Expense Management (TEM)?",
+        "requiredSections": "Definition; lifecycle; TEM vs revenue assurance; buyer requirements; measured audit example",
+        "evidenceToAdd": "Anonymized invoice, contracted rate, service ledger, exception and verified recovery trail",
+        "internalLinks": "https://www.spenza.com/tem/what-is-telecom-expense-management-tem/ https://www.spenza.com/contact-us/ https://www.spenza.com/mvno/mvno-telecom-reseller-revenue-leakage/ https://www.spenza.com/tem/telecom-expense-management-implementation/",
+        "primaryCta": "Request a connectivity billing review \u2192 https://www.spenza.com/contact-us/",
+        "secondaryCta": "Use the telecom audit checklist \u2192 https://www.spenza.com/tem/telecom-compliance-audits/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "77",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "What is Telecom Expense Management (TEM)?",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "what is telecom expense management"
+      }
     },
     {
       "destination": "/mvno/mno-mvno-mvne-mvna-roles/",
@@ -254,7 +339,24 @@
           "contentToPreserve": "Pairwise distinctions and responsibility examples; retain anchors for each comparison. Source sections to inspect: Table of Contents; Choosing the Right Partner for Your 2025 MVNO Launch; What Does a Mobile Network Operator (MNO) Actually Do?; Why Should You Consider a Direct MNO Partnership?",
           "contentToRemove": "Repeating four separate general role introductions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "MNO vs MVNO vs MVNE vs MVNA: 2026 Buyer\u2019s Decision Guide",
+        "requiredSections": "Four-role comparison; ownership and contracts; MNO vs MVNO; MVNO vs MVNE; MVNE vs MVNA; decision tree",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "92",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "MNO vs MVNO vs MVNE vs MVNA: 2026 Buyer\u2019s Decision Guide",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "MNO vs MVNO vs MVNE vs MVNA"
+      }
     },
     {
       "destination": "/esim/top-iot-trends/",
@@ -292,7 +394,24 @@
           "contentToPreserve": "Commercially deployed trends and relevant eSIM/iSIM developments. Source sections to inspect: Multi-Carrier Connectivity Improves Reliability; NTN Extends IoT Beyond Cellular Coverage; eUICC Enables Remote Network Switching; Policy-Driven Connectivity Optimizes Cost and Performance",
           "contentToRemove": "Unverified forecasts and duplicated future-of-IoT claims"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Top IoT Trends to Watch in 2026: What Actually Ships",
+        "requiredSections": "What ships today; standards status; commercial availability; buyer implications; dated evidence",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "69",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "Top IoT Trends to Watch in 2026: What Actually Ships",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "IoT connectivity trends"
+      }
     },
     {
       "destination": "/mvno/mvne-provider-selection/",
@@ -312,7 +431,24 @@
           "contentToPreserve": "Vendor questions and procurement due-diligence criteria. Source sections to inspect: Evaluate Your MVNE Beyond Price; Prioritize APIs, Billing, and Compliance; Ensure Strong Operations, Security, and Analytics; Choose an MVNE Built for Long-Term Growth",
           "contentToRemove": "Repeated why-an-MVNE introductions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "How to Choose the Right MVNE Provider for Your Business",
+        "requiredSections": "Scored RFP; carrier and billing scope; support; data export; proof checklist",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "75",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "How to Choose the Right MVNE Provider for Your Business",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "how to choose an MVNE"
+      }
     },
     {
       "destination": "/tem/business-mobile-cost-quality/",
@@ -350,7 +486,24 @@
           "contentToPreserve": "Hidden fees, wireless expense pain points and plan optimization levers. Source sections to inspect: Complex Billing Creates Unexpected Costs; Multiple Operators Increase Management Complexity; Limited Visibility Leads to Overspending; Administrative Overhead and Downtime Add Business Costs",
           "contentToRemove": "Duplicate broad TEM definitions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Business Mobile Cost Optimization: A 2026 Playbook",
+        "requiredSections": "Service inventory; unused lines; plan pooling; roaming; contract rates; monthly review",
+        "evidenceToAdd": "Anonymized invoice, contracted rate, service ledger, exception and verified recovery trail",
+        "internalLinks": "https://www.spenza.com/tem/what-is-telecom-expense-management-tem/ https://www.spenza.com/contact-us/ https://www.spenza.com/mvno/mvno-telecom-reseller-revenue-leakage/ https://www.spenza.com/tem/telecom-expense-management-implementation/",
+        "primaryCta": "Request a connectivity billing review \u2192 https://www.spenza.com/contact-us/",
+        "secondaryCta": "Use the telecom audit checklist \u2192 https://www.spenza.com/tem/telecom-compliance-audits/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "74",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Business Mobile Cost Optimization: A 2026 Playbook",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "business mobile cost optimization"
+      }
     },
     {
       "destination": "/esim/esim-only-mvnos-2025/",
@@ -379,7 +532,24 @@
           "contentToPreserve": "Digital onboarding, eSIM operating implications and 5G offer considerations. Source sections to inspect: eSIM and 5G Are Transforming the MVNO Business Model; Lower Costs and Faster Customer Onboarding Drive Growth; 5G Unlocks New Revenue Through Enterprise and IoT Services; Early Adoption Creates a Competitive Advantage",
           "contentToRemove": "Repeated technology-disruption narratives"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "eSIM-Only MVNOs: Digital-First Business Models for 2026",
+        "requiredSections": "Digital model; activation; economics; retention; network and device constraints",
+        "evidenceToAdd": "Supported-device matrix, standards references and a tested provisioning example",
+        "internalLinks": "https://www.spenza.com/esim/esim/ https://www.spenza.com/connected-devices/ https://www.spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/ https://www.spenza.com/esim/esim-for-enterprises-business-enabler-2025/",
+        "primaryCta": "Review your eSIM deployment architecture \u2192 https://www.spenza.com/connected-devices/",
+        "secondaryCta": "Check device compatibility \u2192 https://www.spenza.com/esim-compatibility-checker/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "76",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "eSIM-Only MVNOs: Digital-First Business Models for 2026",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "eSIM-only MVNO"
+      }
     },
     {
       "destination": "/tem/telecom-compliance-audits/",
@@ -399,7 +569,24 @@
           "contentToPreserve": "Actionable checklist and evidence collection requirements. Source sections to inspect: Table of Contents; Introduction; Why Perform a Telecom Expense Audit?; Telecom Expense Audit Checklist",
           "contentToRemove": "Duplicated audit basics and tax/legal conclusions without review"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Telecom Expense Audit: Workflow, Checklist and Worked Example",
+        "requiredSections": "Contract and inventory inputs; line matching; billing tests; exception log; dispute evidence; recovery tracking",
+        "evidenceToAdd": "Anonymized invoice, contracted rate, service ledger, exception and verified recovery trail",
+        "internalLinks": "https://www.spenza.com/tem/what-is-telecom-expense-management-tem/ https://www.spenza.com/contact-us/ https://www.spenza.com/mvno/mvno-telecom-reseller-revenue-leakage/ https://www.spenza.com/tem/telecom-expense-management-implementation/",
+        "primaryCta": "Request a connectivity billing review \u2192 https://www.spenza.com/contact-us/",
+        "secondaryCta": "Use the telecom audit checklist \u2192 https://www.spenza.com/tem/telecom-compliance-audits/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "75",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Telecom Expense Audit: How to Cut Telecom Costs in 2026",
+        "mainProblem": "Own one complete enterprise invoice-audit workflow; absorb the separate checklist without losing its downloadable utility. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "telecom expense audit"
+      }
     },
     {
       "destination": "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
@@ -419,7 +606,24 @@
           "contentToPreserve": "Two-way NB-IoT/LTE-M technical comparison and deployment constraints. Source sections to inspect: NB-IoT = Ultra-Low Power for Static Devices; LTE-M = Mobility + Real-Time Performance; Battery vs Bandwidth Is the Core Tradeoff; Coverage and Carrier Strategy Matters",
           "contentToRemove": "Repeated radio definitions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "NB-IoT vs LTE-M vs 5G RedCap: IoT Connectivity Guide (2026)",
+        "requiredSections": "Three-way table; two-way quick decision; carrier availability; power and mobility assumptions; field validation",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "83",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "NB-IoT vs LTE-M vs 5G RedCap: IoT Connectivity Guide (2026)",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "NB-IoT vs LTE-M vs 5G RedCap"
+      }
     },
     {
       "destination": "/mvno/mvne-explained/",
@@ -448,7 +652,24 @@
           "contentToPreserve": "Infrastructure responsibilities, strategy, supported services and operator benefits. Source sections to inspect: Introduction; What is an MVNE? A Strategic Overview; What Does an MVNE Do? Core Services Provided; MVNE Strategy: How Enablers Drive Growth",
           "contentToRemove": "Duplicate definition and unsupported universal benefits"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "MVNE Explained: What a Mobile Virtual Network Enabler Does",
+        "requiredSections": "Definition; architecture; MVNE responsibilities; examples; selection path",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "81",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "MVNE Explained: What a Mobile Virtual Network Enabler Does",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "what is an MVNE"
+      }
     },
     {
       "destination": "/mvno/mvno-trends/",
@@ -468,7 +689,24 @@
           "contentToPreserve": "Relevant market shifts and sourceable examples. Source sections to inspect: MVNO Market Is Transforming; Digital Marketing Drives Growth; eSIMs Cut Costs; Data Analytics Boosts ROI",
           "contentToRemove": "Speculative forecasts presented as established fact"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "MVNO Trends 2026: Is Free Data the Future?",
+        "requiredSections": "Observed shifts; sources and dates; business implications; assumptions and outlook",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "86",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "MVNO Trends 2026: Is Free Data the Future?",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "MVNO trends 2026"
+      }
     },
     {
       "destination": "/iot/fleet-automotive-iot-connectivity-costs/",
@@ -497,7 +735,24 @@
           "contentToPreserve": "Vehicle connectivity requirements, cost drivers and failover scenarios. Source sections to inspect: Real-Time Visibility Without Gaps; Seamless Connectivity as a Core Asset; Unified Platform, Less Admin Burden; Full Ownership of the Customer Experience",
           "contentToRemove": "Repeated generic platform advantages"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Fleet & Automotive IoT Connectivity: Cost, Coverage, Failover",
+        "requiredSections": "Fleet cost model; routes and coverage; stationary vs moving assets; failure recovery; operational checklist",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "70",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "Fleet & Automotive IoT Connectivity: Cost, Coverage, Failover",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "fleet IoT connectivity costs"
+      }
     },
     {
       "destination": "/telecom/iot-connectivity-cost-guide-2025/",
@@ -544,7 +799,24 @@
           "contentToPreserve": "Plan selection rules, usage distribution, pool sizing and fleet savings levers. Source sections to inspect: Choose Flexible IoT Pricing Models; Optimize Data Transmission; Use Multi-Operator Connectivity; Streamline SIM Management and Monitoring",
           "contentToRemove": "Unverified savings percentages and repeating generic cost advice"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "IoT Connectivity Costs: Plans, Pooling, Overages and a Fleet Cost Model",
+        "requiredSections": "SIM and platform fees; pooled/per-device data; overages; roaming; inactive SIMs; operations effort; worksheet",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/iot/iot-sensors-types-connectivity/ https://www.spenza.com/telecom/cellular-identifiers-iccid-imsi-imei-eid-msisdn-tac-guide/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "92",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "IoT Connectivity Costs in 2026: 6 Ways to Cut Telecom Spend",
+        "mainProblem": "Move from savings tips to a reproducible total-cost example with disclosed fleet assumptions. Absolute capability wording: qualify against supported conditions; Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "IoT connectivity cost"
+      }
     },
     {
       "destination": "/telecom/white-label-telecom-reseller-guide/",
@@ -582,7 +854,24 @@
           "contentToPreserve": "Reseller risks, benefits and distribution responsibilities. Source sections to inspect: Introduction; The Traditional Telecom Distribution Model: Too Many Moving Parts; Key Challenges of the Traditional Model:; How White-Labeling Is Transforming Telecom Distribution",
           "contentToRemove": "Unsupported VoIP trend claims and overlapping reseller introductions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Becoming a Successful White Label Telecom Reseller",
+        "requiredSections": "Commercial model; margin waterfall; reseller responsibilities; risks; launch checklist",
+        "evidenceToAdd": "Approved partner economics, checkout walkthrough and channel operating responsibilities",
+        "internalLinks": "https://www.spenza.com/telecom/white-label-telecom-reseller-guide/ https://www.spenza.com/mvne/ https://www.spenza.com/byod/mvno-locked-phone-challenge-guide/ https://www.spenza.com/telecom/sim-card-types-form-factors/",
+        "primaryCta": "Review your connectivity revenue model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "74",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Becoming a Successful White Label Telecom Reseller",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "white label telecom reseller"
+      }
     },
     {
       "destination": "/byod/byod-in-2025-benefits-risks-and-best-practices/",
@@ -611,7 +900,24 @@
           "contentToPreserve": "Planning steps, security controls and policy governance",
           "contentToRemove": "Repeated BYOD introductions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "BYOD in 2026: Benefits, Risks and Best Practices",
+        "requiredSections": "BYOD vs corporate liable; risk matrix; onboarding; offboarding; costs; policy template",
+        "evidenceToAdd": "Anonymized mobility policy, onboarding workflow and documented cost assumptions",
+        "internalLinks": "https://www.spenza.com/byod/byod-in-2025-benefits-risks-and-best-practices/ https://www.spenza.com/contact-us/ https://www.spenza.com/esim/dual-sim-esim/ https://www.spenza.com/telecom/mobile-data-plan-ipad/",
+        "primaryCta": "Review your enterprise mobile estate \u2192 https://www.spenza.com/contact-us/",
+        "secondaryCta": "Download the mobility policy template \u2192 https://www.spenza.com/mobility-policy/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "79",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "BYOD in 2026: Benefits, Risks and Best Practices",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "BYOD benefits risks and best practices"
+      }
     },
     {
       "destination": "/esim/esim-for-enterprises-business-enabler-2025/",
@@ -649,7 +955,24 @@
           "contentToPreserve": "Enterprise business case, BYOD workflow and onboarding lessons",
           "contentToRemove": "Old device forecasts, hard-wired-only definition and universal cost claims"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Enterprise eSIM Management: Deployment, Governance and Cost Control",
+        "requiredSections": "Employee vs IoT scope; enrollment; provisioning; number policy; roaming; offboarding; financial controls",
+        "evidenceToAdd": "Supported-device matrix, standards references and a tested provisioning example",
+        "internalLinks": "https://www.spenza.com/esim/esim/ https://www.spenza.com/connected-devices/ https://www.spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/ https://www.spenza.com/esim/iot-esim-providers/",
+        "primaryCta": "Review your eSIM deployment architecture \u2192 https://www.spenza.com/connected-devices/",
+        "secondaryCta": "Check device compatibility \u2192 https://www.spenza.com/esim-compatibility-checker/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "84",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "eSIM for Enterprises: 2026 Connectivity Guide",
+        "mainProblem": "Absorb broad business-case articles and replace old iSimplexity-era assumptions with current supported workflows. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "enterprise eSIM management"
+      }
     },
     {
       "destination": "/esim/esim-for-smart-devices-2025/",
@@ -678,7 +1001,24 @@
           "contentToPreserve": "OEM device requirements, embedded connectivity and SKU considerations. Source sections to inspect: eSIM Is Becoming the Standard for OEMs; Key Benefits of Embedded Connectivity; Managing Connectivity Throughout; Multi-Carrier eSIM Enables Global Deployments",
           "contentToRemove": "Repeated broad technology benefits"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "eSIM for Smart Devices: A 2026 Guide for Brands",
+        "requiredSections": "OEM requirements; SKU and module choices; provisioning ownership; lifecycle; commercialization",
+        "evidenceToAdd": "Supported-device matrix, standards references and a tested provisioning example",
+        "internalLinks": "https://www.spenza.com/esim/esim/ https://www.spenza.com/connected-devices/ https://www.spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/ https://www.spenza.com/esim/esim-for-enterprises-business-enabler-2025/",
+        "primaryCta": "Review your eSIM deployment architecture \u2192 https://www.spenza.com/connected-devices/",
+        "secondaryCta": "Check device compatibility \u2192 https://www.spenza.com/esim-compatibility-checker/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "65",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "eSIM for Smart Devices: A 2026 Guide for Brands",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "eSIM for OEMs"
+      }
     },
     {
       "destination": "/esim/esim-vs-traditional-sims/",
@@ -698,7 +1038,24 @@
           "contentToPreserve": "IoT form-factor and lifecycle trade-offs. Source sections to inspect: Table of Contents; Introduction to SIM Technologies in IoT; The Evolution of Connectivity in IoT Devices; The Growing Importance of Choosing the Right SIM Technology",
           "contentToRemove": "Repeated generic SIM definitions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "eSIM vs. Traditional SIMs: Which is Right for Your Business?",
+        "requiredSections": "Device and profile distinction; business comparison; IoT table; migration and compatibility",
+        "evidenceToAdd": "Supported-device matrix, standards references and a tested provisioning example",
+        "internalLinks": "https://www.spenza.com/esim/esim/ https://www.spenza.com/connected-devices/ https://www.spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/ https://www.spenza.com/esim/esim-for-enterprises-business-enabler-2025/",
+        "primaryCta": "Review your eSIM deployment architecture \u2192 https://www.spenza.com/connected-devices/",
+        "secondaryCta": "Check device compatibility \u2192 https://www.spenza.com/esim-compatibility-checker/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "69",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "eSIM vs. Traditional SIMs: Which is Right for Your Business?",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "eSIM vs physical SIM for business"
+      }
     },
     {
       "destination": "/esim/iot-esim-introduction/",
@@ -727,7 +1084,24 @@
           "contentToPreserve": "Useful industry examples, remote management and device lifecycle constraints. Source sections to inspect: Table of Contents; How eSIM Fits in the IoT Environment; eSIM in IoT Deployment; How Spenza Can Enable eSIM Usage \u2013 A Real World Example",
           "contentToRemove": "Duplicated broad IoT benefits and obsolete statistics"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "eSIM for IoT: Architecture, Use Cases and Deployment Requirements",
+        "requiredSections": "eUICC vs eSIM; deployment components; industrial use cases; compatibility; provisioning; lifecycle limits",
+        "evidenceToAdd": "Supported-device matrix, standards references and a tested provisioning example",
+        "internalLinks": "https://www.spenza.com/esim/esim/ https://www.spenza.com/connected-devices/ https://www.spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/ https://www.spenza.com/esim/esim-for-enterprises-business-enabler-2025/",
+        "primaryCta": "Review your eSIM deployment architecture \u2192 https://www.spenza.com/connected-devices/",
+        "secondaryCta": "Check device compatibility \u2192 https://www.spenza.com/esim-compatibility-checker/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "68",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Introduction to eSIM in IoT connectivity",
+        "mainProblem": "Consolidate the generic IoT eSIM introductions; preserve use cases and clarify standards responsibilities. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "eSIM for IoT"
+      }
     },
     {
       "destination": "/esim/iot-sim-cards-guide/",
@@ -747,7 +1121,24 @@
           "contentToPreserve": "Global SIM buying criteria and form-factor details. Source sections to inspect: Simplify Global IoT Connectivity; Use Multi-Carrier Networks for Better Uptime; Make IoT Connectivity Costs More Predictable; Manage Devices and eSIM Profiles Remotely",
           "contentToRemove": "Duplicated global coverage claims"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "IoT SIM Cards 2026: Types, Form Factors and Plans",
+        "requiredSections": "SIM types; form factor vs profile; deployment lifecycle; contract requirements; plan selection",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "84",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "IoT SIM Cards 2026: Types, Form Factors and Plans",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. Absolute capability wording: qualify against supported conditions; Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "IoT SIM cards"
+      }
     },
     {
       "destination": "/esim/leading-iot-connectivity-management-platforms/",
@@ -767,7 +1158,24 @@
           "contentToPreserve": "Selection criteria, architecture trade-offs and procurement questions. Source sections to inspect: CMPs Are Strategic, Not Just Operational; Multi-Carrier & eSIM Ready; Zero Trust Connectivity & Compliance; Real-Time Cost Intelligence & FinOps",
           "contentToRemove": "Unsubstantiated provider rankings and repeated feature checklists"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "IoT Connectivity Management Platforms: A Sourced Buyer Comparison",
+        "requiredSections": "Provider comparison; connectivity vs software scope; contracts; APIs; lifecycle tests; evidence date; who each option fits",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "84",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Best IoT Connectivity Management Platforms in 2026",
+        "mainProblem": "4,469 Bing citations justify retaining this URL while absorbing the overlapping selector. Absolute capability wording: qualify against supported conditions; Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "best IoT connectivity management platforms"
+      }
     },
     {
       "destination": "/iot/global-iot-connectivity-2026/",
@@ -796,7 +1204,24 @@
           "contentToPreserve": "Regional plan constraints and cross-border operating requirements. Source sections to inspect: The Challenges of Regional IoT Deployments; The Advantages of Regional Plan Flexibility; Why Choose Spenza to Simplify Your Regional IoT Strategy?; Empower Your IoT Operations with Regional Flexibility",
           "contentToRemove": "Repeated global coverage claims without contract conditions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Global IoT Connectivity 2026: Multi-Carrier Roaming Guide",
+        "requiredSections": "Roaming vs local profiles; country constraints; failover; inventory; deployment checklist",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "76",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "Global IoT Connectivity 2026: Multi-Carrier Roaming Guide",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "global IoT connectivity"
+      }
     },
     {
       "destination": "/telecom/mobile-plan-management-simplified/",
@@ -890,7 +1315,24 @@
           "contentToPreserve": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: Connectivity Is the Real IoT Bottleneck; What Do IoT Connectivity Platforms Do; Four Platform Types in IoT; Must\u2011Have Features for 2026",
           "contentToRemove": "Repeated platform definitions; claims equating CMP with full device-management/MDM"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Connectivity Management Platforms: Architecture, Workflows and Buying Criteria",
+        "requiredSections": "CMP vs MDM; architecture; lifecycle state model; carrier aggregation; example workflow; implementation checklist",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "68",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "What Is a Connectivity Management Platform (CMP)?",
+        "mainProblem": "Consolidate overlapping CMP explanations; distinguish SIM/network lifecycle from device firmware management. Self-ranking \\#1 claim: substantiate or remove",
+        "targetKeyword": "connectivity management platform"
+      }
     },
     {
       "destination": "/esim/dual-sim-esim/",
@@ -910,7 +1352,24 @@
           "contentToPreserve": "Relevant compatibility and dual-profile setup considerations",
           "contentToRemove": "iPhone-13-only framing and claims that physical SIM is dead"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Dual-SIM with eSIM for Business: Two Numbers, One Phone",
+        "requiredSections": "Compatible device checks; work/personal setup; billing; roaming; troubleshooting",
+        "evidenceToAdd": "Anonymized mobility policy, onboarding workflow and documented cost assumptions",
+        "internalLinks": "https://www.spenza.com/byod/byod-in-2025-benefits-risks-and-best-practices/ https://www.spenza.com/contact-us/ https://www.spenza.com/telecom/mobile-data-plan-ipad/ https://www.spenza.com/spenza-product/how-to-top-up-your-spenza-account/",
+        "primaryCta": "Review your enterprise mobile estate \u2192 https://www.spenza.com/contact-us/",
+        "secondaryCta": "Download the mobility policy template \u2192 https://www.spenza.com/mobility-policy/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "86",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "Dual-SIM with eSIM for Business: Two Numbers, One Phone",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "dual SIM eSIM for business"
+      }
     },
     {
       "destination": "/esim/esim-orchestration-global-iot/",
@@ -939,7 +1398,24 @@
           "contentToPreserve": "Repeated RSP basics and unsupported automatic switching claims",
           "contentToRemove": "Winner: 10.0 GSC clicks; 108.0 Google AI impressions; 25.0 Bing citations. Intent fit also considered."
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "eSIM Orchestration for IoT: Benefits and Use Cases",
+        "requiredSections": "Policy vs provisioning; lifecycle orchestration; profiles; failure handling; system architecture",
+        "evidenceToAdd": "Supported-device matrix, standards references and a tested provisioning example",
+        "internalLinks": "https://www.spenza.com/esim/esim/ https://www.spenza.com/connected-devices/ https://www.spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/ https://www.spenza.com/esim/esim-for-enterprises-business-enabler-2025/",
+        "primaryCta": "Review your eSIM deployment architecture \u2192 https://www.spenza.com/connected-devices/",
+        "secondaryCta": "Check device compatibility \u2192 https://www.spenza.com/esim-compatibility-checker/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "73",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "eSIM Orchestration for IoT: Benefits and Use Cases",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "eSIM orchestration"
+      }
     },
     {
       "destination": "/esim/esim-vs-physical-sim-airport-decision/",
@@ -959,7 +1435,24 @@
           "contentToPreserve": "Traveler decision context and setup considerations. Source sections to inspect: Enjoy Seamless Digital Connectivity; Use One Device Across Multiple Countries; Reduce Roaming Costs and Travel Hassles; Choose a More Sustainable Travel Option",
           "contentToRemove": "Generic Gen-Z trend assertions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "SIM vs eSIM: The Airport Decision Every Traveler Faces",
+        "requiredSections": "Airport decision matrix; coverage; plan and device checks; setup; refunds",
+        "evidenceToAdd": "Approved partner economics, checkout walkthrough and channel operating responsibilities",
+        "internalLinks": "https://www.spenza.com/telecom/white-label-telecom-reseller-guide/ https://www.spenza.com/travel-esim/ https://www.spenza.com/byod/mvno-locked-phone-challenge-guide/ https://www.spenza.com/telecom/sim-card-types-form-factors/",
+        "primaryCta": "Review your connectivity revenue model \u2192 https://www.spenza.com/travel-esim/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "70",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "SIM vs eSIM: The Airport Decision Every Traveler Faces",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "travel eSIM vs physical SIM"
+      }
     },
     {
       "destination": "/esim/smart-city-iot-connectivity-playbook-2026/",
@@ -979,7 +1472,24 @@
           "contentToPreserve": "Municipal use cases and operating requirements. Source sections to inspect: Why 2025 Is a Breakout Year for Smart City Connectivity; Why Smart City Connectivity Requires More Than a Standard MNO; The Limitations of a Single MNO; Why MVNOs Win in Smart City Connectivity",
           "contentToRemove": "Broad MVNO opportunity claims without a deployment need"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Smart City IoT: BYON and Multi-Carrier Playbook 2026",
+        "requiredSections": "Use-case matrix; procurement; coverage; lifecycle; security; operator roles",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "69",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "Smart City IoT: BYON and Multi-Carrier Playbook 2026",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. Absolute capability wording: qualify against supported conditions",
+        "targetKeyword": "smart city IoT connectivity"
+      }
     },
     {
       "destination": "/mvno/launch-mvno-7-days/",
@@ -1008,7 +1518,24 @@
           "contentToPreserve": "Actual account, catalog, checkout and provisioning steps. Source sections to inspect: Launch Your MVNO Faster; Seamlessly Connect Shopify with Telecom Services; Manage Subscriptions from One Dashboard; Scale Your MVNO Business Globally",
           "contentToRemove": "Broad launch explanations already owned by the US launch guide"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Launching an MVNO With Spenza: A Scoped Seven-Day Implementation Example",
+        "requiredSections": "Prerequisites; what is included; what takes longer; daily tasks; current screenshots; go-live acceptance",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "71",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Launch a Branded MVNO in 7 Days with Spenza",
+        "mainProblem": "Keep the implementation walkthrough separate from the neutral US launch guide; substantiate any seven-day outcome. Absolute capability wording: qualify against supported conditions",
+        "targetKeyword": "launch an MVNO with Spenza"
+      }
     },
     {
       "destination": "/mvno/mvno-billing-platforms/",
@@ -1028,7 +1555,24 @@
           "contentToPreserve": "Unsourced best-provider rankings and duplicate BSS basics",
           "contentToRemove": "Winner: 25.0 GSC clicks; 2410.0 Google AI impressions; 2339.0 Bing citations. Intent fit also considered."
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "MVNO Billing Platforms: Compare Capabilities, Costs and Operating Models",
+        "requiredSections": "Carrier connectivity vs BSS scope; charging and invoices; multi-tier billing; prepaid/postpaid; integration tests; date-stamped vendor evidence",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "88",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "MVNO Billing Platforms 2026: Top BSS Solutions Compared",
+        "mainProblem": "The page ranks near buying intent; replace unsupported rankings with a sourced vendor-fit matrix. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "MVNO billing platforms"
+      }
     },
     {
       "destination": "/mvno/mvno-iot-connectivity/",
@@ -1057,7 +1601,24 @@
           "contentToPreserve": "Industrial and eSIM examples relevant to selling IoT connectivity. Source sections to inspect: Enable Reliable Industrial Connectivity; Use Multi-Carrier Networks for Resilience; Manage IoT Devices From One Platform; Scale Automation With Secure, Flexible Connectivity",
           "contentToRemove": "Generic benefits repeated across IoT articles"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "IoT MVNO: How to Capitalize on IoT Connectivity in 2026",
+        "requiredSections": "IoT versus consumer operating model; fleet economics; contracts; industrial examples",
+        "evidenceToAdd": "Anonymized fleet usage, tested coverage assumptions and an operator-approved architecture",
+        "internalLinks": "https://www.spenza.com/telecom/iot-connectivity-types-guide-2025/ https://www.spenza.com/iot-solutions/ https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/ https://www.spenza.com/iot/iot-sensors-types-connectivity/",
+        "primaryCta": "Review your fleet connectivity requirements \u2192 https://www.spenza.com/iot-solutions/",
+        "secondaryCta": "Use the connectivity cost worksheet \u2192 https://www.spenza.com/telecom/iot-connectivity-cost-guide-2025/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "69",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "IoT MVNO: How to Capitalize on IoT Connectivity in 2026",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "IoT MVNO"
+      }
     },
     {
       "destination": "/mvno/resell-data-plans-shopify/",
@@ -1077,7 +1638,24 @@
           "contentToPreserve": "Store setup and plan fulfillment flow. Source sections to inspect: Shopify Makes MVNO Launches Faster and Simpler; Spenza Handles the Telecom Backend; Launch an MVNO in Days With a Proven Process; Shopify and Spenza Deliver Real Business Results",
           "contentToRemove": "Duplicated platform benefits and general MVNO launch instructions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "How to Resell Internet Shopify Data Plans",
+        "requiredSections": "Catalog setup; purchase and activation; fulfillment failures; refunds; recurring billing limits",
+        "evidenceToAdd": "Approved partner economics, checkout walkthrough and channel operating responsibilities",
+        "internalLinks": "https://www.spenza.com/telecom/white-label-telecom-reseller-guide/ https://www.spenza.com/mvne/ https://www.spenza.com/byod/mvno-locked-phone-challenge-guide/ https://www.spenza.com/telecom/sim-card-types-form-factors/",
+        "primaryCta": "Review your connectivity revenue model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "82",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "How to Resell Internet Shopify Data Plans",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "resell data plans on Shopify"
+      }
     },
     {
       "destination": "/mvno/subscriber-management-system-guide/",
@@ -1097,7 +1675,24 @@
           "contentToPreserve": "Operations requirements, SIM lifecycle and management pain points. Source sections to inspect: Table of Contents; Introduction; Understanding the MVNO Landscape; Why do MVNOs struggle to adopt strategic new management tools that would foster effortless sustainable growth?",
           "contentToRemove": "Generic advanced-platform descriptions"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "MVNO Subscriber Management: Architecture, Charging & APIs",
+        "requiredSections": "Lifecycle and state model; provisioning failures; billing sync; idempotency; operator metrics",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "76",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "MVNO Subscriber Management: Architecture, Charging & APIs",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "MVNO subscriber management system"
+      }
     },
     {
       "destination": "/mvno/top-mvno-marketing-strategies/",
@@ -1117,7 +1712,24 @@
           "contentToPreserve": "Go-to-market segmentation and acquisition channel examples. Source sections to inspect: Start With a Clear Market Niche and Value Proposition; Partner With an MVNE to Accelerate Your Launch; Deliver a Digital-First Customer Experience and Build a Strong Financial Foundation; Invest in Scalable Technology From Day One",
           "contentToRemove": "Generic channel lists without cost or retention context"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "MVNO Marketing Strategies: 4 Ways to Grow Subscribers",
+        "requiredSections": "ICP and offer; channels; CAC and payback; onboarding; cohort retention",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "82",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "MVNO Marketing Strategies: 4 Ways to Grow Subscribers",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "MVNO marketing strategies"
+      }
     },
     {
       "destination": "/telecom/connectivity-as-a-benefit/",
@@ -1206,7 +1818,24 @@
           "contentToPreserve": "MSP onboarding, white-label responsibilities and recurring service packaging. Source sections to inspect: What Are White-Label Connectivity Solutions?; Why White-Label Connectivity Solutions Are on the Rise; The Big Picture; Key Benefits of Spenza\u2019s White-Label Connectivity Platform",
           "contentToRemove": "Duplicated broad reseller explanations"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "Telecom MSP Growth: Scale With White-Label Connectivity",
+        "requiredSections": "MSP service bundle; quoting; ticket ownership; billing; customer offboarding",
+        "evidenceToAdd": "Approved partner economics, checkout walkthrough and channel operating responsibilities",
+        "internalLinks": "https://www.spenza.com/telecom/white-label-telecom-reseller-guide/ https://www.spenza.com/mvne/ https://www.spenza.com/byod/mvno-locked-phone-challenge-guide/ https://www.spenza.com/telecom/sim-card-types-form-factors/",
+        "primaryCta": "Review your connectivity revenue model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "75",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "Telecom MSP Growth: Scale With White-Label Connectivity",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "white label connectivity for MSPs"
+      }
     },
     {
       "destination": "/telecom/what-is-telecom-as-a-service-taas/",
@@ -1235,7 +1864,24 @@
           "contentToPreserve": "Traditional-versus-platform decision criteria and US use cases. Source sections to inspect: What is TaaS (Telecom as a Service)?; What is Traditional Telecom?; Key Differences Between TaaS and Traditional Telecom; Infrastructure and Deployment",
           "contentToRemove": "Repeated future-of-telecom claims"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "What is Telecom-as-a-Service (TaaS)?",
+        "requiredSections": "Definition; delivery model; TaaS vs traditional; use cases; obligations and exclusions",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P2",
+        "score": "74",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "MAJOR REWRITE",
+        "currentTitle": "What is Telecom-as-a-Service (TaaS)?",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "telecom as a service"
+      }
     },
     {
       "destination": "/mvno/white-label-mvno-launch-guide-2025/",
@@ -1273,7 +1919,24 @@
           "contentToPreserve": "Brand use cases, reseller versus operator boundary and branded launch requirements. Source sections to inspect: Launch an MVNO Without Building Network Infrastructure; Follow a Practical MVNO Launch Process; Reduce Costs and Operational Complexity; Scale With Flexible Plans and Network Options",
           "contentToRemove": "Multiple near-identical launch promises and generic platform benefit lists"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
+        "requiredSections": "White-label scope; commercial ownership; launch requirements; limits; buyer checklist",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "92",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "white label MVNO"
+      }
     },
     {
       "destination": "/mvno/launch-mvno-us-guide/",
@@ -1320,7 +1983,24 @@
           "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: Choose a Specific Niche Before Launching an MVNO; Start With an MVNE Platform Instead of Building Everything Yourself; Make eSIM-First Digital Activation a Priority; Plan Economics, Compliance, and Customer Experience Early",
           "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
         }
-      ]
+      ],
+      "brief": {
+        "recommendedTitle": "How to Launch an MVNO in the US: Requirements, Costs and Operating Plan",
+        "requiredSections": "Operating model; US requirements verified by specialists; carrier contracts; BSS; launch gates; unit economics; test plan",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "88",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "How to Launch MVNO US Operations: 2026 Playbook",
+        "mainProblem": "Consolidate US launch variants; qualify jurisdiction, network, integration and readiness assumptions. Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "how to launch an MVNO in the US"
+      }
     }
   ]
 }

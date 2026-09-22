@@ -54,9 +54,19 @@ for k in ['DESTINATION','DONOR-1','DONOR-2']:
     print(k, json.dumps(d.get(k), indent=1)[:2000])"
 ```
 
-And read the cluster's entry in `merge-plan.json` — it carries each donor's
-**contentToPreserve** and **contentToRemove** verbatim from the workbook, plus
-the cluster's `preserve` note and `keyword`. Follow them.
+And read the cluster's entry in `merge-plan.json`. It carries each donor's
+**contentToPreserve** and **contentToRemove** verbatim from the workbook, the
+cluster's `preserve` note and `keyword`, and — on most clusters — a `brief` for
+the destination: `recommendedTitle`, `requiredSections`, `evidenceToAdd`,
+`internalLinks`, `primaryCta`, `secondaryCta`, `schema` and
+`editorialInstruction`.
+
+**Use `brief.requiredSections` as the merged article's section checklist**, and
+`brief.primaryCta` / `brief.secondaryCta` as its calls to action — they are
+chosen per hub and per buyer, not generic. `editorialInstruction` is usually
+"preserve useful existing sections; these are final coverage requirements, not
+an instruction to duplicate sections already present", which is exactly the
+instruction not to append.
 
 ## Step 2 — Write the merged body
 
