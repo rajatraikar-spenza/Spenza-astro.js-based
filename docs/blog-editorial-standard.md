@@ -226,7 +226,7 @@ research, schema and link tables. Go longer only with substance.
 | **C** | Outline | H1, every H2/H3 with target question, word budget, planned tables/callouts/links |
 | **D** | Full article | Per the blueprint |
 | **E** | Link plan | Internal links used; Inbound Link Plan; external sources; Redirect Map (merge only) plus sitewide internal links pointing at sources |
-| **F** | Schema (JSON-LD) | BlogPosting + BreadcrumbList. FAQPage only if the FAQ is visible. Schema must match visible content exactly. |
+| **F** | Schema (JSON-LD) | The **delta** against the graph Yoast already emits. See §12. Never a second Article or BreadcrumbList. |
 | **G** | QA scorecard | Score each check 1–10, fix anything below 8 |
 
 ### QA checks
@@ -260,3 +260,64 @@ Performance at 14, 28 and 56 days).
 If you cannot fetch a page, run a search or reach an SEO tool, **say so and
 continue with what you have**. Never invent search volume, KD, rankings, AI
 Overview citations or page content. Mark unmeasured metrics "not measured".
+
+---
+
+## 12. Schema: what already exists, and what to add
+
+**Yoast already emits a complete JSON-LD graph on every post.** Verified on a
+live article, the single `application/ld+json` block contains:
+
+```
+Article · WebPage · ImageObject · BreadcrumbList · WebSite · Organization · Person
+```
+
+with `Article` carrying `headline`, `datePublished`, `dateModified`,
+`wordCount`, `articleSection`, `keywords`, `author`, `publisher`, `image`,
+`thumbnailUrl`, `inLanguage`, `isPartOf` and `mainEntityOfPage`, and
+`BreadcrumbList` carrying `Home > Category > Title`.
+
+That graph reaches this site through `seo.fullHead`, which the loader injects
+verbatim. `CLAUDE.md` is explicit about why: reproducing the graph by hand is
+how migrations lose rich results.
+
+### So do not author a second graph
+
+Adding your own `BlogPosting` and `BreadcrumbList` puts two Article nodes and
+two breadcrumb trails on one page. That is not additive, it is a conflict, and
+it is a common way to lose the rich result you were trying to win.
+
+**Output F is a delta, not a document.** State only:
+
+1. **Fields the merge makes stale**, which must be corrected in WordPress:
+   - `wordCount` — currently the pre-merge count and always wrong afterwards
+   - `dateModified` — must be the merge date; `datePublished` must not change
+   - `headline` — must match the new H1 if the title changed
+   - `keywords` and the meta `description` — must match the new targeting
+2. **`FAQPage`, if and only if the FAQ is visible on the page.** Yoast does not
+   emit it today, so this is a genuine addition. Google shows FAQ rich results
+   only for a few authoritative government and health sites, so treat it as
+   machine readability rather than a rich-result play. Add it through Yoast or
+   an ACF field, not as a second script tag.
+3. **Anything the graph asserts that the merged article contradicts.** Schema
+   must match visible content exactly.
+
+### Known mismatch worth recording
+
+`articleSection` is the **URL folder**, not the hub. A post pinned at
+`/telecom/…` and reassigned to AI Voice will keep asserting `"articleSection":
+["Telecom"]`. That is the same conflation described in
+[`blog-merges.md`](./blog-merges.md) §6, surfacing in the structured data. Do
+not try to fix it inside a merge.
+
+### Previews carry no schema, deliberately
+
+`/preview/merged/…` pages emit zero JSON-LD, because their `seo.fullHead` is
+authored as `noindex, nofollow` rather than inheriting Yoast's graph. A preview
+must not claim the destination's canonical or its `@id`s. Schema is therefore a
+**publish-time deliverable**: specify it in Output F, apply it in WordPress, and
+verify on the live URL with Google's Rich Results Test after the merge ships.
+
+Reference: [schema.org documentation](https://schema.org/docs/documents.html),
+in particular the [full type hierarchy](https://schema.org/docs/full.html) and
+the [data model](https://schema.org/docs/datamodel.html).

@@ -350,6 +350,65 @@
       "targetReader": "Telecom finance, revenue assurance, procurement and operations"
     },
     {
+      "id": "M07",
+      "destination": "/mvno/white-label-mvno-launch-guide-2025/",
+      "destinationTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
+      "cluster": "White-label MVNO launch",
+      "keyword": "white label MVNO",
+      "priorityScore": 82,
+      "preserve": "Brand use cases, reseller versus operator boundary and branded launch requirements",
+      "status": "pending",
+      "donors": [
+        {
+          "path": "/mvno/mvno-in-a-box-for-brands/",
+          "title": "MVNO in a Box: Launch Your Own Mobile Brand Fast",
+          "gscClicks16m": "45",
+          "googleAiImpressions": "168",
+          "bingCitations": "6",
+          "contentToPreserve": "Brand use cases, reseller versus operator boundary and branded launch requirements. Source sections to inspect: What is MVNO in a Box?; Why Brands Are Choosing MVNO in a Box; Traditional MVNO vs MVNO in a Box; How to Choose the Right MVNO in a Box Provider",
+          "contentToRemove": "Multiple near-identical launch promises and generic platform benefit lists"
+        },
+        {
+          "path": "/mvno/how-to-launch-mvno-non-telco-brand-2025/",
+          "title": "How to Start a MVNO as a Non-Telco Brand in 2026",
+          "gscClicks16m": "19",
+          "googleAiImpressions": "115",
+          "bingCitations": "Data unavailable.",
+          "contentToPreserve": "Brand use cases, reseller versus operator boundary and branded launch requirements. Source sections to inspect: Table of Contents; Introduction; What Would You Get by the End of the Article?; You Don\u2019t Need to Be a Telco to Launch a Mobile Service",
+          "contentToRemove": "Multiple near-identical launch promises and generic platform benefit lists"
+        },
+        {
+          "path": "/mvno/white-label-mvno/",
+          "title": "White Label MVNO: A Practical Launch Guide",
+          "gscClicks16m": "22",
+          "googleAiImpressions": "103",
+          "bingCitations": "320",
+          "contentToPreserve": "Brand use cases, reseller versus operator boundary and branded launch requirements. Source sections to inspect: Launch an MVNO Without Building Network Infrastructure; Follow a Practical MVNO Launch Process; Reduce Costs and Operational Complexity; Scale With Flexible Plans and Network Options",
+          "contentToRemove": "Multiple near-identical launch promises and generic platform benefit lists"
+        }
+      ],
+      "brief": {
+        "recommendedTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
+        "requiredSections": "White-label scope; commercial ownership; launch requirements; limits; buyer checklist",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "92",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
+        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
+        "targetKeyword": "white label MVNO"
+      },
+      "hub": "MVNO & MVNE",
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "note": "Built before docs/blog-editorial-standard.md existed. Re-merge to the standard: em/en dashes, length, answer-first H2s, FAQ, sources, schema delta."
+    },
+    {
       "id": "M08",
       "destination": "/mvno/mno-mvno-mvne-mvna-roles/",
       "destinationTitle": "MNO vs MVNO vs MVNE vs MVNA: 2026 Buyer\u2019s Decision Guide",
@@ -758,6 +817,74 @@
       },
       "hub": "Reseller & Embedded Connectivity",
       "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands"
+    },
+    {
+      "id": "M16",
+      "destination": "/mvno/launch-mvno-us-guide/",
+      "destinationTitle": "How to Launch MVNO US Operations: 2026 Playbook",
+      "cluster": "US MVNO launch",
+      "keyword": "how to launch an MVNO in the US",
+      "priorityScore": 78,
+      "preserve": "US launch steps, readiness requirements, market context and actionable launch tips",
+      "status": "pending",
+      "donors": [
+        {
+          "path": "/mvno/how-to-set-up-mvno/",
+          "title": "MVNO 2026 Setup: How to Launch Step by Step",
+          "gscClicks16m": "31",
+          "googleAiImpressions": "114",
+          "bingCitations": "50",
+          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: Table of Contents; Introduction: The MVNO Opportunity in 2025; What Exactly is a Mobile Network Operator (MVNO)? And Why is Now the Time?; Understanding the Evolving MVNO Landscape in 2025",
+          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
+        },
+        {
+          "path": "/mvno/launch-us-mvno-now/",
+          "title": "MVNO US Launch: Why 2026 Is the Right Moment",
+          "gscClicks16m": "33",
+          "googleAiImpressions": "28",
+          "bingCitations": "Data unavailable.",
+          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: 5G and eSIM Are Lowering Launch Barriers; Niche Markets Create New MVNO Opportunities; The MVNx Experience Matters Beyond Pricing; Choose the Right MVNO Launch Strategy",
+          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
+        },
+        {
+          "path": "/mvno/us-mvno-introduction/",
+          "title": "MVNOs in the US Market: Impact on Telecom",
+          "gscClicks16m": "18",
+          "googleAiImpressions": "452",
+          "bingCitations": "7",
+          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: Overview of the MVNO Market and Its Dynamics; Challenges in the MVNO Space; Successes in the MVNO Space; The Role of Partnerships in MVNO Success",
+          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
+        },
+        {
+          "path": "/mvno/top-10-tips-launching-mvno-us-2025/",
+          "title": "Top 10 Tips for Launching an MVNO in the US (2026)",
+          "gscClicks16m": "4",
+          "googleAiImpressions": "48",
+          "bingCitations": "36",
+          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: Choose a Specific Niche Before Launching an MVNO; Start With an MVNE Platform Instead of Building Everything Yourself; Make eSIM-First Digital Activation a Priority; Plan Economics, Compliance, and Customer Experience Early",
+          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
+        }
+      ],
+      "brief": {
+        "recommendedTitle": "How to Launch an MVNO in the US: Requirements, Costs and Operating Plan",
+        "requiredSections": "Operating model; US requirements verified by specialists; carrier contracts; BSS; launch gates; unit economics; test plan",
+        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
+        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
+        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
+        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
+        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
+        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
+        "priority": "P1",
+        "score": "88",
+        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
+        "action": "UPDATE",
+        "currentTitle": "How to Launch MVNO US Operations: 2026 Playbook",
+        "mainProblem": "Consolidate US launch variants; qualify jurisdiction, network, integration and readiness assumptions. Coverage/integration count differs from other site copy: reconcile definitions",
+        "targetKeyword": "how to launch an MVNO in the US"
+      },
+      "hub": "MVNO & MVNE",
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "note": "Built before docs/blog-editorial-standard.md existed. Re-merge to the standard: em/en dashes, length, answer-first H2s, FAQ, sources, schema delta."
     },
     {
       "id": "M17",
@@ -2008,131 +2135,6 @@
       ],
       "hub": "IoT Connectivity & CMP",
       "targetReader": "IoT product, engineering and fleet operations teams"
-    },
-    {
-      "id": "M07",
-      "destination": "/mvno/white-label-mvno-launch-guide-2025/",
-      "destinationTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
-      "cluster": "White-label MVNO launch",
-      "keyword": "white label MVNO",
-      "priorityScore": 82,
-      "preserve": "Brand use cases, reseller versus operator boundary and branded launch requirements",
-      "status": "done",
-      "donors": [
-        {
-          "path": "/mvno/mvno-in-a-box-for-brands/",
-          "title": "MVNO in a Box: Launch Your Own Mobile Brand Fast",
-          "gscClicks16m": "45",
-          "googleAiImpressions": "168",
-          "bingCitations": "6",
-          "contentToPreserve": "Brand use cases, reseller versus operator boundary and branded launch requirements. Source sections to inspect: What is MVNO in a Box?; Why Brands Are Choosing MVNO in a Box; Traditional MVNO vs MVNO in a Box; How to Choose the Right MVNO in a Box Provider",
-          "contentToRemove": "Multiple near-identical launch promises and generic platform benefit lists"
-        },
-        {
-          "path": "/mvno/how-to-launch-mvno-non-telco-brand-2025/",
-          "title": "How to Start a MVNO as a Non-Telco Brand in 2026",
-          "gscClicks16m": "19",
-          "googleAiImpressions": "115",
-          "bingCitations": "Data unavailable.",
-          "contentToPreserve": "Brand use cases, reseller versus operator boundary and branded launch requirements. Source sections to inspect: Table of Contents; Introduction; What Would You Get by the End of the Article?; You Don\u2019t Need to Be a Telco to Launch a Mobile Service",
-          "contentToRemove": "Multiple near-identical launch promises and generic platform benefit lists"
-        },
-        {
-          "path": "/mvno/white-label-mvno/",
-          "title": "White Label MVNO: A Practical Launch Guide",
-          "gscClicks16m": "22",
-          "googleAiImpressions": "103",
-          "bingCitations": "320",
-          "contentToPreserve": "Brand use cases, reseller versus operator boundary and branded launch requirements. Source sections to inspect: Launch an MVNO Without Building Network Infrastructure; Follow a Practical MVNO Launch Process; Reduce Costs and Operational Complexity; Scale With Flexible Plans and Network Options",
-          "contentToRemove": "Multiple near-identical launch promises and generic platform benefit lists"
-        }
-      ],
-      "brief": {
-        "recommendedTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
-        "requiredSections": "White-label scope; commercial ownership; launch requirements; limits; buyer checklist",
-        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
-        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
-        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
-        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
-        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
-        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
-        "priority": "P1",
-        "score": "92",
-        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
-        "action": "UPDATE",
-        "currentTitle": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
-        "mainProblem": "Review the article against its buyer task; refresh source-dependent claims and add the specific evidence and next step below. No specific automated content flag; editorial review remains required for claims and evidence.",
-        "targetKeyword": "white label MVNO"
-      },
-      "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
-    },
-    {
-      "id": "M16",
-      "destination": "/mvno/launch-mvno-us-guide/",
-      "destinationTitle": "How to Launch MVNO US Operations: 2026 Playbook",
-      "cluster": "US MVNO launch",
-      "keyword": "how to launch an MVNO in the US",
-      "priorityScore": 78,
-      "preserve": "US launch steps, readiness requirements, market context and actionable launch tips",
-      "status": "done",
-      "donors": [
-        {
-          "path": "/mvno/how-to-set-up-mvno/",
-          "title": "MVNO 2026 Setup: How to Launch Step by Step",
-          "gscClicks16m": "31",
-          "googleAiImpressions": "114",
-          "bingCitations": "50",
-          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: Table of Contents; Introduction: The MVNO Opportunity in 2025; What Exactly is a Mobile Network Operator (MVNO)? And Why is Now the Time?; Understanding the Evolving MVNO Landscape in 2025",
-          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
-        },
-        {
-          "path": "/mvno/launch-us-mvno-now/",
-          "title": "MVNO US Launch: Why 2026 Is the Right Moment",
-          "gscClicks16m": "33",
-          "googleAiImpressions": "28",
-          "bingCitations": "Data unavailable.",
-          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: 5G and eSIM Are Lowering Launch Barriers; Niche Markets Create New MVNO Opportunities; The MVNx Experience Matters Beyond Pricing; Choose the Right MVNO Launch Strategy",
-          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
-        },
-        {
-          "path": "/mvno/us-mvno-introduction/",
-          "title": "MVNOs in the US Market: Impact on Telecom",
-          "gscClicks16m": "18",
-          "googleAiImpressions": "452",
-          "bingCitations": "7",
-          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: Overview of the MVNO Market and Its Dynamics; Challenges in the MVNO Space; Successes in the MVNO Space; The Role of Partnerships in MVNO Success",
-          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
-        },
-        {
-          "path": "/mvno/top-10-tips-launching-mvno-us-2025/",
-          "title": "Top 10 Tips for Launching an MVNO in the US (2026)",
-          "gscClicks16m": "4",
-          "googleAiImpressions": "48",
-          "bingCitations": "36",
-          "contentToPreserve": "US launch steps, readiness requirements, market context and actionable launch tips. Source sections to inspect: Choose a Specific Niche Before Launching an MVNO; Start With an MVNE Platform Instead of Building Everything Yourself; Make eSIM-First Digital Activation a Priority; Plan Economics, Compliance, and Customer Experience Early",
-          "contentToRemove": "Why now hype, duplicate step lists and unqualified launch guarantees"
-        }
-      ],
-      "brief": {
-        "recommendedTitle": "How to Launch an MVNO in the US: Requirements, Costs and Operating Plan",
-        "requiredSections": "Operating model; US requirements verified by specialists; carrier contracts; BSS; launch gates; unit economics; test plan",
-        "evidenceToAdd": "Approved launch timeline, scope, subscriber cohort and operations screenshots",
-        "internalLinks": "https://www.spenza.com/mvno/mvno/ https://www.spenza.com/mvne/ https://www.spenza.com/mvno/mvno-types/ https://www.spenza.com/mvno/mvno-mvno-launch-cost/",
-        "primaryCta": "Discuss your MVNO operating model \u2192 https://www.spenza.com/mvne/",
-        "secondaryCta": "Estimate launch costs \u2192 https://www.spenza.com/mvno-calculator/",
-        "ctaPlacement": "After first useful answer or comparison; contextual mid-article after evidence; repeat once at end. Use a small optional CTA on consumer-intent pages.",
-        "schema": "Article/BlogPosting + BreadcrumbList when accurate; VideoObject only for an actual prominent video; no FAQ rich-result promise.",
-        "priority": "P1",
-        "score": "88",
-        "editorialInstruction": "Preserve useful existing sections; these are final coverage requirements, not an instruction to duplicate sections already present.",
-        "action": "UPDATE",
-        "currentTitle": "How to Launch MVNO US Operations: 2026 Playbook",
-        "mainProblem": "Consolidate US launch variants; qualify jurisdiction, network, integration and readiness assumptions. Coverage/integration count differs from other site copy: reconcile definitions",
-        "targetKeyword": "how to launch an MVNO in the US"
-      },
-      "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
     }
   ]
 }

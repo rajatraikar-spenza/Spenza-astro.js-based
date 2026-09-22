@@ -180,6 +180,12 @@ Then check the page:
 - [ ] `<meta name="robots" content="noindex, nofollow">` present
 - [ ] Sidebar TOC lists the merged sections
 
+**Schema is a delta, not a document.** Yoast already emits Article, WebPage,
+BreadcrumbList, Organization and Person on every post. Do not author a second
+graph. Output F states only what the merge makes stale (`wordCount`,
+`dateModified`, `headline`, `keywords`), plus `FAQPage` if the FAQ is visible.
+See §12 of the standard.
+
 Run the **QA scorecard** (§10 of the standard). Fix anything below 8 before
 reporting. Report word count, em/en dash count, internal link count and external
 source count as measured numbers, not claims.
