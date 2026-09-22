@@ -6,6 +6,9 @@ build, deployment, forms and analytics.
 
 - **[`docs/blog-merges.md`](docs/blog-merges.md)** — the blog consolidation
   programme. Read it before touching a blog post, a redirect or a category.
+- **[`docs/blog-editorial-standard.md`](docs/blog-editorial-standard.md)** — the
+  quality bar every blog article must clear: role, goal, Spenza's ICPs and proof
+  points, the article blueprint, and the writing, keyword and linking rules.
 - **[`docs/blog-images.md`](docs/blog-images.md)** — how to produce images for a
   post so they match the site. Read it before generating any image.
 - **[`docs/site-issues.md`](docs/site-issues.md)** — defects found on the live

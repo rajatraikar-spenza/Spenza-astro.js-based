@@ -102,6 +102,13 @@ words out.
 
 ## 4. Editorial rules for a merge
 
+**The full standard is [`blog-editorial-standard.md`](./blog-editorial-standard.md)**:
+role, goal, Spenza's ICPs and approved proof points, the article blueprint
+(TL;DR, answer-first H2s, 2 to 4 tables, 4 to 6 callouts, FAQ, 2,000 to 3,000
+words), and the writing, keyword and linking rules. Read it before writing.
+
+The merge-specific points on top of it:
+
 The workbook gives per-donor "content to preserve" and "content to remove"
 columns. Follow them, and follow these:
 
@@ -211,6 +218,9 @@ of `pending`, `preview`, `approved` or `done`.
 
 It also carries `doNotMerge`: six groups that look mergeable and are not.
 Check it before combining two similar posts.
+
+Each cluster carries the Input Pack `id` (`M01` to `M44`), its `hub` and its
+`targetReader`. Use the id when talking to the user.
 
 Work the highest-priority `pending` cluster first, and move its `status` as it
 progresses.
