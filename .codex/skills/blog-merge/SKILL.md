@@ -12,8 +12,14 @@ the procedure.
 ## Before you start
 
 - Work on the `blog-automation` branch.
-- Confirm the cluster is a merge and not one of the six **do-not-merge** groups.
-  Check the CANNIBALIZATION tab.
+- **The work queue is `src/data/merge-previews/merge-plan.json`.** All 44
+  clusters, ordered by priority, each with its destination, donors, per-donor
+  metrics, content-to-preserve, content-to-remove, and a `status` field. You do
+  not need the spreadsheet.
+- Take the **highest-priority cluster whose `status` is `pending`**, unless the
+  user names one.
+- Confirm it is not in that file's `doNotMerge` list — six groups look
+  mergeable and are not.
 - The destination is the workbook's "Selected winner". Do not substitute your
   own judgement for it — it was chosen on clicks, AI impressions and citations.
 - The destination **keeps its slug**. Donors redirect to it. Never move a post.
@@ -48,11 +54,9 @@ for k in ['DESTINATION','DONOR-1','DONOR-2']:
     print(k, json.dumps(d.get(k), indent=1)[:2000])"
 ```
 
-And read the workbook rows for the cluster: MERGE PLAN gives per-donor
-**content to preserve** and **content to remove**; UPDATE BRIEFS gives the
-destination's recommended title, required sections and CTAs. Note that UPDATE
-BRIEFS' columns are shifted by one — a merged-cell artefact. Read the values,
-not the headers.
+And read the cluster's entry in `merge-plan.json` — it carries each donor's
+**contentToPreserve** and **contentToRemove** verbatim from the workbook, plus
+the cluster's `preserve` note and `keyword`. Follow them.
 
 ## Step 2 — Write the merged body
 

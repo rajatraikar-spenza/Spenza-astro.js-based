@@ -201,7 +201,23 @@ Do not start this work as a side effect of a merge. It is its own change.
 
 ---
 
-## 7. Source data
+## 7. The work queue
+
+`src/data/merge-previews/merge-plan.json` holds all 44 clusters extracted from
+the workbook, so no agent needs the spreadsheet. Each entry carries the
+destination, its donors with per-donor metrics and the workbook's
+content-to-preserve / content-to-remove text, a priority score, and a `status`
+of `pending`, `preview`, `approved` or `done`.
+
+It also carries `doNotMerge`: six groups that look mergeable and are not.
+Check it before combining two similar posts.
+
+Work the highest-priority `pending` cluster first, and move its `status` as it
+progresses.
+
+---
+
+## 8. Source data (the original workbook)
 
 The workbook's 40 tabs. The ones that matter for this programme:
 
