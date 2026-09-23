@@ -1,0 +1,62 @@
+{
+  "cluster": "M08",
+  "before": [
+    {
+      "path": "/mvno/mno-mvno-mvne-mvna-roles/",
+      "bodyWords": 2952,
+      "tldrWords": 147
+    },
+    {
+      "path": "/telecom/mvne-vs-mvna/",
+      "bodyWords": 1954,
+      "tldrWords": 4
+    },
+    {
+      "path": "/mvno/mvno-vs-mvne/",
+      "bodyWords": 1655,
+      "tldrWords": 4
+    },
+    {
+      "path": "/mvno/mno-vs-mvnos/",
+      "bodyWords": 1615,
+      "tldrWords": 4
+    },
+    {
+      "path": "/mvno/mvne-mvna-mno-to-launch-mvno/",
+      "bodyWords": 2160,
+      "tldrWords": 0
+    }
+  ],
+  "combinedBeforeWords": 10495,
+  "bodyWords": 2427,
+  "tldrWords": 155,
+  "totalWords": 2582,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvne/",
+    "/mvno/mvno-types/",
+    "/mvno/mvno-billing-platforms/",
+    "/mvno/mvne-provider-selection/",
+    "/mvno/mvno-mvno-launch-cost/",
+    "/mvno-calculator/",
+    "/spenza-product/rocketphone-case-study/"
+  ],
+  "external": [
+    "https://crtc.gc.ca/eng/comm/telecom/respmobvir.htm",
+    "https://www.itu.int/dms_pub/itu-d/opb/stg/D-STG-SG01.04.2-2021-PDF-E.pdf",
+    "https://docs.portaone.com/docs/mr119-mvno-faqs",
+    "https://www.ofcom.org.uk/siteassets/resources/documents/consultations/category-1-10-weeks/185679-consultation-global-titles-and-mobile-network-security/associated-documents/statement-global-titles-and-mobile-network-security.pdf"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved redacted responsibility map and one activation incident handoff showing the performing and escalation teams, from Spenza delivery and support]",
+    "[EVIDENCE NEEDED: RocketPhone cohort size and dated start/end milestones, from the RocketPhone delivery owner]",
+    "[EVIDENCE NEEDED: a redacted operations screenshot with permission to publish, from Spenza product/delivery]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+  ]
+}

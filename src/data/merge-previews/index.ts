@@ -74,11 +74,92 @@ export interface MergePreview {
 
 import type { AcfBlocks } from '../../lib/acf-blocks.ts';
 import m03Billing from './mvno-billing-platforms.html?raw';
+import m08Roles from './mno-mvno-mvne-mvna-roles.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "mno-mvno-mvne-mvna-roles": {
+  "slug": "mno-mvno-mvne-mvna-roles",
+  "category": "mvno",
+  "cluster": "M08: Operator role comparisons",
+  "title": "MNO vs MVNO vs MVNE vs MVNA: Roles and Buyer’s Guide",
+  "excerpt": "Compare network ownership, customer relationships, technical enablement and wholesale access. Choose partners around the responsibilities your service needs.",
+  "seoTitle": "MNO vs MVNO vs MVNE vs MVNA: Roles and Buyer’s Guide",
+  "seoDescription": "Compare MNO, MVNO, MVNE and MVNA roles, network ownership and contracts. Use a practical decision framework to choose partners for your mobile service.",
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2.png\" class=\"attachment-full size-full wp-image-18035 webpexpress-processed\" alt=\"MNO vs MVNO vs MVNE vs MVNA: The 2026 Buyer's Decision Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/MNO-vs-MVNO-vs-MVNE-vs-MVNA-The-2026-Buyers-Decision-Guide-2.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "MNO, MVNO, MVNE and MVNA roles: a buyer’s decision guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-05-25T10:46:07+00:00",
+  "updatedDate": "2026-09-23T09:21:48.443Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 2952,
+  "donors": [
+    {
+      "path": "/telecom/mvne-vs-mvna/",
+      "title": "MVNE vs. MVNA: Understanding the Key Differences",
+      "clicks": 11,
+      "contributes": "Pairwise role distinctions, operating responsibilities and partner-selection questions"
+    },
+    {
+      "path": "/mvno/mvno-vs-mvne/",
+      "title": "MVNO vs MVNE: Key Differences and Which to Pick",
+      "clicks": 17,
+      "contributes": "Pairwise role distinctions, operating responsibilities and partner-selection questions"
+    },
+    {
+      "path": "/mvno/mno-vs-mvnos/",
+      "title": "MNO vs MVNO: What Is the Real Difference?",
+      "clicks": 7,
+      "contributes": "Pairwise role distinctions, operating responsibilities and partner-selection questions"
+    },
+    {
+      "path": "/mvno/mvne-mvna-mno-to-launch-mvno/",
+      "title": "MVNE vs MVNA vs MNO: Best for Your MVNO Launch?",
+      "clicks": 11,
+      "contributes": "Pairwise role distinctions, operating responsibilities and partner-selection questions"
+    }
+  ],
+  "content": m08Roles,
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "MNO, MVNO, MVNE and MVNA describe roles in delivering mobile service, not a mandatory chain of four companies. Choose partners around your customer workflow, retained systems, network access and operating capacity. Compare contractual scope and responsibilities before price or speed claims. The published RocketPhone case shows how a native-call application requirement and reseller administration shaped an enterprise MVNO implementation; it does not provide a universal launch benchmark.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-broadcast\"}",
+        "title": "Separate the roles",
+        "text": "MNO supplies radio access, MVNO the customer offer, MVNE enabling systems and MVNA wholesale aggregation."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Check retained control",
+        "text": "An MVNO can operate core functions while using a host’s radio network."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-contract\"}",
+        "title": "Read the agreement",
+        "text": "Identify the network counterparty, platform operator and escalation owner, even when one supplier combines roles."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Test the handoffs",
+        "text": "Verify failures, billing corrections and usable exports before accepting the service."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+        "title": "Choose the work before the label",
+        "text": "Use a responsibility worksheet to expose missing access, operating tasks and acceptance evidence."
+      }
+    ]
+  }
+},
   "mvno-billing-platforms": {
   "slug": "mvno-billing-platforms",
   "category": "mvno",
