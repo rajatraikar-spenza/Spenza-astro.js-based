@@ -49,7 +49,7 @@ This supersedes the image plans in the September 22 Phase 6 reports and the earl
 
 | ID / slot | Candidate | Decision and reason |
 | :--- | :--- | :--- |
-| 18 / featured | [Blog-Thumbnails.png](https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png) | KEEP featured. Existing fixed template matches the retained US launch guide. |
+| 18 / featured | [Blog-Thumbnails.png](https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png) | KEEP featured. Visually verified again on 2026-09-23: despite the generic filename, this is the title-specific US launch hero. See the verification below. |
 | 19 / body | [image-1024x683.png](https://media.spenza.com/wp-content/uploads/2025/06/image-1024x683.png) | REJECT. Decorative rocket/character scene; no operating decision or evidence. |
 | 20 / body | [Spenzas-MVNO-Launch-Solution-2026-1024x766.png](https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1024x766.png) | REJECT. Broad compliance-coverage claim needs qualification; feature wheel cannot replace scoped responsibility review. |
 
@@ -119,3 +119,18 @@ Copy-ready [ChatGPT prompts and typography instructions](M07-M16-image-prompts.m
 ## Rejected staging files removed (2026-09-23)
 
 Deleted the four rejected M16 assets above in both PNG and WebP formats: eight files, 1,500,309 bytes (1,465.1 KiB). No runtime references existed in `src/` or `public/scripts/`. The three retained M16 body images and their format pairs remain.
+
+## M16 featured-image verification (2026-09-23)
+
+The manifest already points to [the existing title-specific CDN hero](https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png). `Blog-Thumbnails.png` is a generic filename, but the image itself is specific to this article. A fresh download and visual inspection confirmed:
+
+- 1280 by 720 pixels.
+- Left title: “HOW TO LAUNCH YOUR MVNO IN THE US”.
+- Right panel: a SIM, phone and US map, with “Launch Your MVNO in 2026”.
+- Existing Spenza template: logo, serif title, orange “LEARN MORE” pill and bottom `spenza.com` badge.
+
+Retain `featuredImage` and its existing live PNG/WebP responsive markup in `src/data/merge-previews/index.ts`. No replacement generation, art-panel prompt, local copy, media upload or URL rename is needed. The donor hero candidates and media manifest were also reviewed; switching to an older 2025 or narrower-scope title would reduce the match to M16.
+
+Downloaded PNG SHA-256: `38a98008b1ffea631a9d27a76eff36d7f07839694eea2394307d580ab3987c30`.
+
+Cleanup verification: production build completed (910 pages); `wp:verify-dist` reported zero missing assets and zero stranded local media. All eight rejected files are absent from both `public/` and the rebuilt `dist/`.
