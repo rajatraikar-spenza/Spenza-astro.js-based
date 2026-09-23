@@ -1165,14 +1165,37 @@
    * reads as a blank white panel beside the category links.
    *
    * Reveal it. The live-results dropdown is an authenticated WP AJAX endpoint and
-   * cannot be mirrored, so the form is left to submit normally.
+   * cannot be mirrored, so the form is left to submit normally — to /search/,
+   * which runs the search in the browser (see `src/pages/search.astro`).
    *
    * Elementor's clear button is not wired up: it is hidden in `wp-polish.css`
-   * instead, so the only control in the field is the magnifier.
+   * instead, so the only control in the field is the magnifier. Its real submit
+   * button is screen-reader-only, so the magnifier is what a mouse user clicks
+   * to search; as a `<label>` it would only focus the field, so with text in
+   * the field it submits instead.
+   *
+   * `/?s=` is where these forms used to go, and is what WordPress still links to
+   * and what old bookmarks and search-engine sitelinks carry. Here `/` is the
+   * home page and nothing reads the query, so forward it to the results page.
    */
   function initSearch() {
+    if (location.pathname === '/') {
+      const q = new URLSearchParams(location.search).get('s');
+      if (q !== null) {
+        location.replace(`/search/?s=${encodeURIComponent(q)}`);
+        return;
+      }
+    }
+
     document.querySelectorAll('.elementor-widget-search .e-search').forEach(widget => {
       widget.classList.remove('hidden');
+      const form = widget.querySelector('.e-search-form');
+      const input = widget.querySelector('.e-search-input');
+      on(widget.querySelector('.e-search-label'), 'click', event => {
+        if (!form || !input?.value.trim()) return;
+        event.preventDefault();
+        form.requestSubmit ? form.requestSubmit() : form.submit();
+      });
     });
   }
 

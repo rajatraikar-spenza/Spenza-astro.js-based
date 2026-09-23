@@ -504,7 +504,10 @@ body.wp-mirror.e-off-canvas__no-scroll {
   transform: translateY(-50%) !important;
   width: auto !important;
   margin: 0 !important;
-  pointer-events: none;
+  /* Clickable: with a query in the field it runs the search (wp-shim.js),
+     and empty it focuses the field, as a label does. */
+  z-index: 1;
+  cursor: pointer;
 }
 
 /*
@@ -2173,4 +2176,54 @@ body.wp-mirror.e-off-canvas__no-scroll {
     transform: none;
     transition: none;
   }
+}
+
+/*
+ * Blog search results (/search/).
+ *
+ * The cards are the blog index's own and are styled by its bundle; only the
+ * two pieces the search adds need rules — the line saying what was found, and
+ * the button that shows the next ten. Both exist only after the script runs,
+ * so no mirrored page vouches for them and the purge would drop any rule for
+ * them from a bundle.
+ */
+.wp-mirror .wp-search__status {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #54595f;
+}
+
+.wp-mirror .wp-search__status a {
+  color: #ea580c;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.wp-mirror .wp-search__status strong {
+  color: #1c1c1c;
+}
+
+.wp-mirror .wp-search__more {
+  display: block;
+  margin: 32px auto 0;
+  padding: 12px 28px;
+  border: 1px solid #fd4500;
+  border-radius: 999px;
+  background: #fff;
+  color: #fd4500;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: none;
+  cursor: pointer;
+  transition: background-color var(--polish-base) var(--polish-ease), color var(--polish-base) var(--polish-ease);
+}
+
+.wp-mirror .wp-search__more:is(:hover, :focus-visible) {
+  background: #fd4500;
+  color: #fff;
+}
+
+.wp-mirror .wp-search__more[hidden] {
+  display: none;
 }

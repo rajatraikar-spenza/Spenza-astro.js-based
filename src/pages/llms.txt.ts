@@ -52,7 +52,7 @@ const ROUTE_FILES = import.meta.glob('./*.astro', {
  * catch-all that replays WordPress' 301s, and listing it advertises a URL with
  * literal brackets in it.
  */
-const NOT_LISTED = new Set(['404', 'index', 'sitemap']);
+const NOT_LISTED = new Set(['404', 'index', 'sitemap', 'search']);
 const isDynamic = (slug: string) => slug.includes('[');
 
 /**
