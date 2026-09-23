@@ -1,0 +1,185 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What does an MVNO subscriber management system do?",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "Keep subscriber identity separate from assigned resources",
+      "id": "elementor-toc__heading-anchor-2",
+      "openingWords": 52,
+      "idCount": 1
+    },
+    {
+      "text": "Model commercial and network states separately",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 52,
+      "idCount": 1
+    },
+    {
+      "text": "Confirm provisioning outcomes before retrying",
+      "id": "elementor-toc__heading-anchor-4",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "Keep charging decisions and billing records aligned",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Measure unresolved work and state drift",
+      "id": "elementor-toc__heading-anchor-6",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Use Daito’s tenant model as a scoped example",
+      "id": "elementor-toc__heading-anchor-7",
+      "openingWords": 54,
+      "idCount": 1
+    },
+    {
+      "text": "FAQ: subscriber management architecture and operations",
+      "id": "elementor-toc__heading-anchor-9",
+      "openingWords": 51,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    51,
+    50,
+    50,
+    49,
+    50,
+    50
+  ],
+  "calloutWords": [
+    42,
+    41,
+    44,
+    43,
+    44
+  ],
+  "images": [
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/08/image-10.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2026/08/image-10-1536x864.png",
+      "natural": [
+        1439,
+        809
+      ],
+      "alt": "Subscriber management connects subscription records, SIM resources, the network and charging"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/subscriber-management/stable-identity.png",
+      "currentSrc": "http://localhost:4321/blog-media/subscriber-management/stable-identity.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Stable subscription identity connects customer relationships to changing SIM and number assignments"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/subscriber-management/operation-confirmation.png",
+      "currentSrc": "http://localhost:4321/blog-media/subscriber-management/operation-confirmation.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Requested, confirmed and reconciled operations represent distinct levels of evidence"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What does an MVNO subscriber management system do?",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "Keep subscriber identity separate from assigned resources",
+      "href": "#elementor-toc__heading-anchor-2"
+    },
+    {
+      "text": "Model commercial and network states separately",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "Confirm provisioning outcomes before retrying",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "Keep charging decisions and billing records aligned",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "Measure unresolved work and state drift",
+      "href": "#elementor-toc__heading-anchor-6"
+    },
+    {
+      "text": "Use Daito’s tenant model as a scoped example",
+      "href": "#elementor-toc__heading-anchor-7"
+    },
+    {
+      "text": "FAQ: subscriber management architecture and operations",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": true,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}

@@ -1,0 +1,45 @@
+{
+  "cluster": "M27",
+  "before": [
+    {
+      "path": "/mvno/subscriber-management-system-guide/",
+      "bodyWords": 2638,
+      "tldrWords": 197
+    },
+    {
+      "path": "/mvno/mvno-management-solution/",
+      "bodyWords": 1587,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 4426,
+  "bodyWords": 2412,
+  "tldrWords": 144,
+  "totalWords": 2556,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvno/mno-mvno-mvne-mvna-roles/",
+    "/mvno/mvno-billing-platforms/",
+    "/mvno/mvne-provider-selection/",
+    "/mvno/launch-mvno-7-days/",
+    "/spenza-product/daito-case-study/"
+  ],
+  "external": [
+    "https://docs.stripe.com/api/idempotent_requests",
+    "https://docs.stripe.com/webhooks",
+    "https://www.rfc-editor.org/rfc/rfc8506.html",
+    "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: redacted provisioning/event/billing trace and observed operations metric baseline, from Spenza engineering and delivery]",
+    "[EVIDENCE NEEDED: Daito deployment cohort size and dated start/end milestones, from the Daito delivery lead and approved customer owner]",
+    "[EVIDENCE NEEDED: redacted operations screenshot with date and scope, from Spenza product and delivery]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor]"
+  ]
+}

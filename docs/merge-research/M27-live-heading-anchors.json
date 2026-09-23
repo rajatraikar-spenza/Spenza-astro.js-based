@@ -1,0 +1,98 @@
+{
+  "checkedAt": "2026-09-23T10:42:35.985Z",
+  "url": "https://spenza.com/mvno/subscriber-management-system-guide/",
+  "headings": [
+    {
+      "text": "What a Subscriber Management System Actually Is",
+      "id": "elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "The Four Layers (data model, provisioning, charging, lifecycle)",
+      "id": ""
+    },
+    {
+      "text": "The Subscriber Data Model (and the Mistake to Avoid)",
+      "id": "elementor-toc__heading-anchor-2"
+    },
+    {
+      "text": "Customer, Account, Subscription, Resource",
+      "id": ""
+    },
+    {
+      "text": "Why You Never Key on the MSISDN",
+      "id": ""
+    },
+    {
+      "text": "The Subscriber Lifecycle: States and Transitions",
+      "id": "elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "The Provisioning Chain: From Order to Attach",
+      "id": "elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "Sequence: Order to Active",
+      "id": ""
+    },
+    {
+      "text": "eSIM Profile States vs Subscription States",
+      "id": ""
+    },
+    {
+      "text": "Making Provisioning Idempotent",
+      "id": ""
+    },
+    {
+      "text": "Real-Time Charging: How It Works",
+      "id": "elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "The Interfaces (Gy, Ro, Sy, Gz, Nchf)",
+      "id": ""
+    },
+    {
+      "text": "Sequence: A Charging Session (CCR-I / CCR-U / CCR-T)",
+      "id": ""
+    },
+    {
+      "text": "Quota Reservation and the Sizing Tradeoff",
+      "id": ""
+    },
+    {
+      "text": "Running Out of Balance (Final-Unit-Indication)",
+      "id": ""
+    },
+    {
+      "text": "What Happens When It Fails",
+      "id": "elementor-toc__heading-anchor-6"
+    },
+    {
+      "text": "When the OCS Times Out Mid-Session",
+      "id": ""
+    },
+    {
+      "text": "Stranded Reservations and Duplicate Requests",
+      "id": ""
+    },
+    {
+      "text": "Late Usage, Roaming, and the Leakage Window",
+      "id": ""
+    },
+    {
+      "text": "Reconciling BSS State Against Network State",
+      "id": ""
+    },
+    {
+      "text": "Where Spenza Fits",
+      "id": "elementor-toc__heading-anchor-7"
+    },
+    {
+      "text": "Conclusion",
+      "id": "elementor-toc__heading-anchor-8"
+    },
+    {
+      "text": "FAQs",
+      "id": "elementor-toc__heading-anchor-9"
+    }
+  ]
+}

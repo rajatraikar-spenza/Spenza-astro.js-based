@@ -81,11 +81,74 @@ import m19Trends from './mvno-trends.html?raw';
 import m21Content from './mvne-explained.html?raw';
 import m22Content from './what-is-telecom-as-a-service-taas.html?raw';
 import m23Content from './top-mvno-marketing-strategies.html?raw';
+import m27Content from './subscriber-management-system-guide.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "subscriber-management-system-guide": {
+  "slug": "subscriber-management-system-guide",
+  "category": "mvno",
+  "cluster": "M27: Subscriber management systems",
+  "title": "MVNO Subscriber Management: Architecture, Charging & APIs",
+  "excerpt": "Connect stable subscriber records to explicit lifecycle states, confirmed provisioning and reconciled billing.",
+  "seoTitle": "MVNO Subscriber Management: Architecture, Charging & APIs",
+  "seoDescription": "Design MVNO subscriber management around stable identities, explicit lifecycle states, safe retries, billing reconciliation and measurable operational checks.",
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery.png\" class=\"attachment-full size-full wp-image-22165 webpexpress-processed\" alt=\"MVNO Subscriber Management: Architecture, Charging &amp; APIs\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/08/MVNO-Subscriber-Management-Architecture-Real-Time-Charging-Failure-Recovery.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "MVNO Subscriber Management: Architecture, Charging & APIs",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-08-14T08:00:20+00:00",
+  "updatedDate": "2026-09-23T10:50:35.773Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2638,
+  "donors": [
+    {
+      "path": "/mvno/mvno-management-solution/",
+      "title": "Why MVNOs Need Advanced Management Solutions",
+      "clicks": 1,
+      "contributes": "Operations requirements, SIM lifecycle and management pain points. Source sections to inspect: Table of Contents; Introduction; Understanding the MVNO Landscape; Why do MVNOs struggle to adopt strategic new management tools that would foster effortless sustainable growth?"
+    }
+  ],
+  "content": m27Content,
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "An MVNO subscriber management system connects the commercial subscription to assigned resources and delivered service. Keep customer, account, subscription and SIM records distinct, with effective dates for changes. Model commercial status separately from network readiness. Confirm provisioning outcomes, document retry behavior and reconcile billing against the applicable plan and usage. The published Daito case illustrates tenant-based number and subscription management; deployment scale, recovery performance and access-control acceptance still need their own evidence.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Keep identities stable",
+        "text": "Use an internal subscription identifier and preserve changing SIM and number assignments."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Separate service states",
+        "text": "Distinguish requested changes, commercial status and confirmed network outcomes."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Test failure recovery",
+        "text": "Verify timeouts, duplicate requests and delayed events across each provider boundary."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Reconcile the records",
+        "text": "Explain usage, plan versions, adjustments and unresolved state differences."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+        "title": "Require observable evidence",
+        "text": "Use scoped acceptance tests and dated operations records before accepting performance claims."
+      }
+    ]
+  }
+},
   "top-mvno-marketing-strategies": {
   "slug": "top-mvno-marketing-strategies",
   "category": "mvno",
