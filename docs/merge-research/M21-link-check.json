@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://spenza.com/mvno/mvno/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno/"
+  },
+  {
+    "url": "https://spenza.com/mvne/",
+    "status": 200,
+    "final": "https://spenza.com/mvne/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-types/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-types/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-billing-platforms/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-billing-platforms/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mno-mvno-mvne-mvna-roles/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mno-mvno-mvne-mvna-roles/"
+  },
+  {
+    "url": "https://spenza.com/spenza-product/rocketphone-case-study/",
+    "status": 200,
+    "final": "https://spenza.com/spenza-product/rocketphone-case-study/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvne-provider-selection/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvne-provider-selection/"
+  },
+  {
+    "url": "https://spenza.com/mvno-calculator/",
+    "status": 200,
+    "final": "https://spenza.com/mvno-calculator/"
+  },
+  {
+    "url": "https://www.itu.int/dms_pub/itu-d/opb/stg/D-STG-SG01.04_REV_ED-2025-PDF-E.pdf",
+    "status": 200,
+    "final": "https://www.itu.int/dms_pub/itu-d/opb/stg/D-STG-SG01.04_REV_ED-2025-PDF-E.pdf"
+  },
+  {
+    "url": "https://docs.portaone.com/docs/mr119-mvno-faqs",
+    "status": 200,
+    "final": "https://docs.portaone.com/docs/mr119-mvno-faqs"
+  },
+  {
+    "url": "https://www.gsma.com/solutions-and-impact/technologies/esim/",
+    "status": 403,
+    "final": "https://www.gsma.com/solutions-and-impact/technologies/esim/"
+  },
+  {
+    "url": "https://github.com/tmforum-apis/TMF641_ServiceOrder",
+    "status": 200,
+    "final": "https://github.com/tmforum-apis/TMF641_ServiceOrder"
+  }
+]

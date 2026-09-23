@@ -1,0 +1,52 @@
+{
+  "cluster": "M21",
+  "before": [
+    {
+      "path": "/mvno/mvne-explained/",
+      "bodyWords": 1797,
+      "tldrWords": 4
+    },
+    {
+      "path": "/mvno/mvne-benefits/",
+      "bodyWords": 1705,
+      "tldrWords": 263
+    },
+    {
+      "path": "/spenza-product/what-is-mvne-strategy-services/",
+      "bodyWords": 1720,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 5493,
+  "bodyWords": 2296,
+  "tldrWords": 145,
+  "totalWords": 2441,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvne/",
+    "/mvno/mvno-types/",
+    "/mvno/mvno-billing-platforms/",
+    "/mvno/mno-mvno-mvne-mvna-roles/",
+    "/spenza-product/rocketphone-case-study/",
+    "/mvno/mvne-provider-selection/",
+    "/mvno-calculator/"
+  ],
+  "external": [
+    "https://www.itu.int/dms_pub/itu-d/opb/stg/D-STG-SG01.04_REV_ED-2025-PDF-E.pdf",
+    "https://docs.portaone.com/docs/mr119-mvno-faqs",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/",
+    "https://github.com/tmforum-apis/TMF641_ServiceOrder"
+  ],
+  "images": {
+    "reused": 0,
+    "generated": 4
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: completed responsibility map and redacted failed-activation handoff trace, from Spenza engineering and delivery.]",
+    "[EVIDENCE NEEDED: RocketPhone subscriber/device cohort and dated implementation start/end milestones, from the RocketPhone delivery owner.]",
+    "[EVIDENCE NEEDED: approved redacted operations screenshot with scope and capture date, from Spenza product and delivery.]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor.]"
+  ]
+}

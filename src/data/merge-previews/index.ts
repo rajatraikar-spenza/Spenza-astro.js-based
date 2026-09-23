@@ -78,11 +78,80 @@ import m08Roles from './mno-mvno-mvne-mvna-roles.html?raw';
 import m12Selection from './mvne-provider-selection.html?raw';
 import m18Selection from './launch-mvno-7-days.html?raw';
 import m19Trends from './mvno-trends.html?raw';
+import m21Content from './mvne-explained.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "mvne-explained": {
+  "slug": "mvne-explained",
+  "category": "mvno",
+  "cluster": "M21: MVNE definition",
+  "title": "What Is an MVNE? Services, Benefits and Responsibilities",
+  "excerpt": "Define the MVNE service boundary, compare responsibilities and evaluate benefits against an actual customer workflow.",
+  "seoTitle": "What Is an MVNE? Services, Benefits and Responsibilities",
+  "seoDescription": "Understand what an MVNE does, which services it may supply, what your mobile brand still owns, and how to test a provider against your operating needs.",
+  "featuredImage": "/blog-media/mvne-explained/What-Is-an-MVNE-Services-and-Responsibilities.png",
+  "featuredImageMarkup": "<picture><source srcset=\"/blog-media/mvne-explained/What-Is-an-MVNE-Services-and-Responsibilities.webp\" type=\"image/webp\"><img src=\"/blog-media/mvne-explained/What-Is-an-MVNE-Services-and-Responsibilities.png\" alt=\"What Is an MVNE? Services, Benefits and Responsibilities\" width=\"1280\" height=\"720\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "What Is an MVNE? Services, Benefits and Responsibilities",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-03-07T08:53:36+00:00",
+  "updatedDate": "2026-09-23T10:22:57.534Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 1797,
+  "donors": [
+    {
+      "path": "/mvno/mvne-benefits/",
+      "title": "MVNE Partnership: Top 5 Benefits for Operators",
+      "clicks": 3,
+      "contributes": "Infrastructure responsibilities, strategy, supported services and operator benefits. Source sections to inspect: MVNEs Simplify Mobile Service Launches; Reduce Costs and Accelerate Time-to-Market; MVNE Partnerships Improve Operations and Customer Experience; Choose an MVNE That Can Scale With Your Business"
+    },
+    {
+      "path": "/spenza-product/what-is-mvne-strategy-services/",
+      "title": "What is an MVNE? Strategy, Services, and Use Cases",
+      "clicks": 17,
+      "contributes": "Infrastructure responsibilities, strategy, supported services and operator benefits. Source sections to inspect: Introduction; What is an MVNE? A Strategic Overview; What Does an MVNE Do? Core Services Provided; MVNE Strategy: How Enablers Drive Growth"
+    }
+  ],
+  "content": m21Content,
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "An MVNE supplies agreed technical systems, network integrations or operational services to a mobile brand. Billing, provisioning and administration may be included, but the acronym does not define the contract. Separate software capabilities from network access and ongoing operations, then identify what your own team retains. RocketPhone’s published enterprise case illustrates why a specific customer workflow should shape the enabling scope. Test both normal service and exceptions before accepting a provider.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}",
+        "title": "Define the boundary",
+        "text": "List functions, exclusions and operating owners before comparing providers."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"gears\"}",
+        "title": "Separate the layers",
+        "text": "Software, network integration and managed operations are distinct purchasing decisions."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Retain customer decisions",
+        "text": "Assign pricing, support communication and change authority to named owners."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"clipboard-check\"}",
+        "title": "Test the handoffs",
+        "text": "Trace a failed activation from the customer report through confirmed recovery."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+        "title": "Require evidence of the service",
+        "text": "Match the contract to demonstrated workflows, usable exports and a documented support boundary."
+      }
+    ]
+  }
+},
   "mvno-trends": {
   "slug": "mvno-trends",
   "category": "mvno",
