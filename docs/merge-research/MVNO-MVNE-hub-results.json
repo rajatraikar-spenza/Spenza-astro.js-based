@@ -1,0 +1,241 @@
+[
+  {
+    "id": "M02",
+    "destination": "/mvno/mvno/",
+    "posts": 3,
+    "before": 8988,
+    "after": 2682,
+    "body": 2524,
+    "images": {
+      "reused": 3,
+      "generated": 1
+    },
+    "author": {
+      "name": "SivaSai",
+      "slug": "sivasai",
+      "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1, Spenza 1 of 3 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: RocketPhone subscriber or device cohort size, measurement date and launch versus current scope, from the Spenza delivery owner with customer approval.]",
+      "[EVIDENCE NEEDED: dated RocketPhone start and end milestones, their definitions and excluded prerequisites, from the project owner.]",
+      "[EVIDENCE NEEDED: one redacted operations screenshot, capture date and permission to publish, from the delivery or product owner.]",
+      "[EVIDENCE NEEDED: technical reviewer's name and role, from the user.]"
+    ]
+  },
+  {
+    "id": "M03",
+    "destination": "/mvno/mvno-billing-platforms/",
+    "posts": 2,
+    "before": 4525,
+    "after": 2349,
+    "body": 2201,
+    "images": {
+      "reused": 2,
+      "generated": 2
+    },
+    "author": {
+      "name": "Spenza",
+      "slug": "isimplexity",
+      "basis": "majority: Spenza 2 of 2 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: redacted usage-event to invoice trace including adjustments and approved timing conditions, from Spenza billing engineering]",
+      "[EVIDENCE NEEDED: RocketPhone subscriber or device cohort and dated launch milestones, from the RocketPhone delivery owner]",
+      "[EVIDENCE NEEDED: approved operations screenshot showing billing or reseller administration, from Spenza product/delivery]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+    ]
+  },
+  {
+    "id": "M08",
+    "destination": "/mvno/mno-mvno-mvne-mvna-roles/",
+    "posts": 5,
+    "before": 10495,
+    "after": 2582,
+    "body": 2427,
+    "images": {
+      "reused": 2,
+      "generated": 2
+    },
+    "author": {
+      "name": "SivaSai",
+      "slug": "sivasai",
+      "basis": "majority: SivaSai 4, Spenza 1 of 5 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: approved redacted responsibility map and one activation incident handoff showing the performing and escalation teams, from Spenza delivery and support]",
+      "[EVIDENCE NEEDED: RocketPhone cohort size and dated start/end milestones, from the RocketPhone delivery owner]",
+      "[EVIDENCE NEEDED: a redacted operations screenshot with permission to publish, from Spenza product/delivery]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+    ]
+  },
+  {
+    "id": "M12",
+    "destination": "/mvno/mvne-provider-selection/",
+    "posts": 2,
+    "before": 4561,
+    "after": 2408,
+    "body": 2263,
+    "images": {
+      "reused": 0,
+      "generated": 4
+    },
+    "author": {
+      "name": "SivaSai",
+      "slug": "sivasai",
+      "basis": "majority: SivaSai 2 of 2 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: approved completed provider acceptance worksheet and redacted request/event/billing trace, from Spenza engineering and delivery]",
+      "[EVIDENCE NEEDED: RocketPhone subscriber cohort and dated start/end milestones, from RocketPhone delivery owner]",
+      "[EVIDENCE NEEDED: redacted operations screenshot with publication permission, from Spenza product/delivery]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+    ]
+  },
+  {
+    "id": "M18",
+    "destination": "/mvno/launch-mvno-7-days/",
+    "posts": 3,
+    "before": 6013,
+    "after": 2486,
+    "body": 2332,
+    "images": {
+      "reused": 3,
+      "generated": 1
+    },
+    "author": {
+      "name": "Spenza",
+      "slug": "isimplexity",
+      "basis": "majority: Spenza 2, SivaSai 1 of 3 posts",
+      "flippedFrom": "SivaSai"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: approved timed launch record identifying scope, subscriber/device cohort and dated start/end milestones, from Spenza delivery and the customer owner]",
+      "[EVIDENCE NEEDED: current redacted account, catalog, checkout and provisioning screenshots and exact interface labels, from Spenza product/delivery]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+    ]
+  },
+  {
+    "id": "M19",
+    "destination": "/mvno/mvno-trends/",
+    "posts": 2,
+    "before": 4188,
+    "after": 2518,
+    "body": 2367,
+    "images": {
+      "reused": 0,
+      "generated": 4
+    },
+    "author": {
+      "name": "SivaSai",
+      "slug": "sivasai",
+      "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1 of 2 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: approved cohort-level acquisition, active-use, retention and contribution data for a relevant MVNO offer, from Spenza finance/growth and the customer owner]",
+      "[EVIDENCE NEEDED: RocketPhone subscriber cohort and dated start/end milestones, from RocketPhone delivery owner]",
+      "[EVIDENCE NEEDED: redacted operations screenshot with publication permission, from Spenza product/delivery]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+    ]
+  },
+  {
+    "id": "M21",
+    "destination": "/mvno/mvne-explained/",
+    "posts": 3,
+    "before": 5493,
+    "after": 2441,
+    "body": 2296,
+    "images": {
+      "reused": 0,
+      "generated": 4
+    },
+    "author": {
+      "name": "SivaSai",
+      "slug": "sivasai",
+      "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1, Spenza 1 of 3 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: completed responsibility map and redacted failed-activation handoff trace, from Spenza engineering and delivery.]",
+      "[EVIDENCE NEEDED: RocketPhone subscriber/device cohort and dated implementation start/end milestones, from the RocketPhone delivery owner.]",
+      "[EVIDENCE NEEDED: approved redacted operations screenshot with scope and capture date, from Spenza product and delivery.]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor.]"
+    ]
+  },
+  {
+    "id": "M22",
+    "destination": "/telecom/what-is-telecom-as-a-service-taas/",
+    "posts": 3,
+    "before": 5814,
+    "after": 2527,
+    "body": 2385,
+    "images": {
+      "reused": 3,
+      "generated": 1
+    },
+    "author": {
+      "name": "SivaSai",
+      "slug": "sivasai",
+      "basis": "majority: SivaSai 2, Spenza 1 of 3 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: approved before/after operating baseline, deployment scope, device/subscriber cohort and dated start/end milestones for a comparable TaaS workflow, from Spenza delivery and the customer owner.]",
+      "[EVIDENCE NEEDED: approved redacted operations screenshot with capture date and scope, from Spenza product and delivery.]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor.]"
+    ]
+  },
+  {
+    "id": "M23",
+    "destination": "/mvno/top-mvno-marketing-strategies/",
+    "posts": 2,
+    "before": 4841,
+    "after": 2621,
+    "body": 2475,
+    "images": {
+      "reused": 2,
+      "generated": 2
+    },
+    "author": {
+      "name": "SivaSai",
+      "slug": "sivasai",
+      "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1 of 2 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: approved acquisition-channel costs, customer and subscription cohort definitions, activation completion, equal-age retention and contribution records with campaign dates, from Spenza growth/finance and the customer owner.]",
+      "[EVIDENCE NEEDED: RocketPhone deployment cohort and dated start/end milestones, from the RocketPhone delivery owner.]",
+      "[EVIDENCE NEEDED: approved redacted onboarding or cohort-operations screenshot with capture date and scope, from Spenza product and delivery.]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor.]"
+    ]
+  },
+  {
+    "id": "M27",
+    "destination": "/mvno/subscriber-management-system-guide/",
+    "posts": 2,
+    "before": 4426,
+    "after": 2556,
+    "body": 2412,
+    "images": {
+      "reused": 2,
+      "generated": 2
+    },
+    "author": {
+      "name": "Spenza",
+      "slug": "isimplexity",
+      "basis": "tie, destination author wins: Spenza 1, SivaSai 1 of 2 posts"
+    },
+    "status": "preview",
+    "evidence": [
+      "[EVIDENCE NEEDED: redacted provisioning/event/billing trace and observed operations metric baseline, from Spenza engineering and delivery]",
+      "[EVIDENCE NEEDED: Daito deployment cohort size and dated start/end milestones, from the Daito delivery lead and approved customer owner]",
+      "[EVIDENCE NEEDED: redacted operations screenshot with date and scope, from Spenza product and delivery]",
+      "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor]"
+    ]
+  }
+]
