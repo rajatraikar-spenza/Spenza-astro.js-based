@@ -1,0 +1,48 @@
+{
+  "cluster": "M19",
+  "before": [
+    {
+      "path": "/mvno/mvno-trends/",
+      "bodyWords": 2509,
+      "tldrWords": 221
+    },
+    {
+      "path": "/mvno/mvno-market-trends/",
+      "bodyWords": 1352,
+      "tldrWords": 106
+    }
+  ],
+  "combinedBeforeWords": 4188,
+  "bodyWords": 2367,
+  "tldrWords": 151,
+  "totalWords": 2518,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvne/",
+    "/mvno/mvno-types/",
+    "/mvno/mvno-mvno-launch-cost/",
+    "/mvno-calculator/",
+    "/mvno/top-mvno-marketing-strategies/",
+    "/mvno/mvno-billing-platforms/",
+    "/spenza-product/rocketphone-case-study/"
+  ],
+  "external": [
+    "https://www.firsty.app/plans/firsty-free",
+    "https://support.apple.com/en-us/118669",
+    "https://help.revolut.com/help/revpoints/esim/question-what-are-mobile-plans/",
+    "https://www.berec.europa.eu/system/files/2023-04/BoR%20%2823%29%2041%20Study%20on%20wholesale%20mobile%20connectivity%20trends%20and%20issues%20for%20emerging%20mobile%20technologies%20and%20deployments_final_0.pdf",
+    "https://www.gsmaintelligence.com/blogs/a-closer-look-at-mvnos-what-2100-mvnos-tell-us-about-the-trends-shifts-and-the-outlook"
+  ],
+  "images": {
+    "reused": 0,
+    "generated": 4
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved cohort-level acquisition, active-use, retention and contribution data for a relevant MVNO offer, from Spenza finance/growth and the customer owner]",
+    "[EVIDENCE NEEDED: RocketPhone subscriber cohort and dated start/end milestones, from RocketPhone delivery owner]",
+    "[EVIDENCE NEEDED: redacted operations screenshot with publication permission, from Spenza product/delivery]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+  ]
+}
