@@ -90,10 +90,10 @@
   ],
   "reconcileBeforePublish": [
     {
-      "field": "Article.author and existing Person reference",
+      "field": "Article.author and existing author reference",
       "current": "Spenza",
-      "proposed": "SivaSai, Founder’s Office",
-      "action": "Assign the approved existing WordPress author and let Yoast reference the matching Person. Do not invent a Person @id. Technical review credit is pending."
+      "proposed": "Spenza (isimplexity), as resolved in merge-plan.json",
+      "action": "Retain the resolved existing WordPress author and matching Yoast author reference. Do not invent an author node or add a reviewer assertion. Author-only byline by decision, 23 September 2026."
     },
     {
       "field": "Article.image, thumbnailUrl and existing ImageObject",
