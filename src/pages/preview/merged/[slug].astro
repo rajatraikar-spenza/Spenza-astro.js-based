@@ -17,6 +17,7 @@ import { getCollection } from 'astro:content';
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import { MERGE_PREVIEWS } from '../../../data/merge-previews/index.ts';
 import wpAuthors from '../../../data/wp-authors.json';
+import { mergeReadingWords } from '../../../lib/merge-preview-text';
 
 export async function getStaticPaths() {
   const { MERGE_PREVIEWS } = await import('../../../data/merge-previews/index.ts');
@@ -46,8 +47,7 @@ const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const donorClicks = preview.donors.reduce((n, d) => n + d.clicks, 0);
-const mergedWords = preview.content.replace(/<style>[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ')
-  .split(/\s+/).filter(Boolean).length;
+const mergedWords = mergeReadingWords(preview.content, preview.templateBlocks);
 
 /**
  * The review banner. Injected into the body rather than wrapped around the
@@ -79,14 +79,14 @@ const banner = `
   .merge-review-bar .panel td { padding: 6px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
   .merge-review-bar .panel td:first-child { white-space: nowrap; color: #b42318; }
   .merge-review-bar .panel .keep td:first-child { color: #1a7f37; font-weight: 700; }
-  body.wp-mirror { padding-top: 44px; }
-  @media (max-width: 720px) { .merge-review-bar { font-size: 12px; } body.wp-mirror { padding-top: 76px; } }
+  body.wp-mirror { padding-top: var(--merge-review-height, 44px); }
+  @media (max-width: 720px) { .merge-review-bar { font-size: 12px; gap: 6px 12px; } .merge-review-bar .merge-metrics, .merge-review-bar .spacer { display: none; } body.wp-mirror { padding-top: var(--merge-review-height, 82px); } }
 </style>
 <div class="merge-review-bar">
-  <span class="pill">Preview — proposed merge</span>
+  <span class="pill">Preview: proposed merge</span>
   <span><b>${preview.donors.length + 1} posts → 1</b> · ${esc(preview.cluster)}</span>
-  <span><b>${(preview.destinationWords).toLocaleString()}</b> words today → <b>${mergedWords.toLocaleString()}</b> merged</span>
-  <span><b>${donorClicks}</b> donor clicks/16mo preserved via 301</span>
+  <span class="merge-metrics"><b>${(preview.destinationWords).toLocaleString()}</b> live body words → <b>${mergedWords.toLocaleString()}</b> draft words including TL;DR</span>
+  <span class="merge-metrics"><b>${donorClicks}</b> historical donor clicks/16mo</span>
   <span class="spacer"></span>
   <details>
     <summary>What merges into this page</summary>
@@ -102,6 +102,11 @@ const banner = `
   (function () {
     var bar = document.currentScript.previousElementSibling;
     if (bar && bar.parentNode !== document.body) document.body.prepend(bar);
+    if (bar) {
+      var resize = function () { document.body.style.setProperty("--merge-review-height", bar.offsetHeight + "px"); };
+      resize();
+      new ResizeObserver(resize).observe(bar);
+    }
   })();
 </script>`;
 
@@ -121,12 +126,13 @@ const post = {
     publishedDate: new Date(preview.publishedDate),
     updatedDate: new Date(preview.updatedDate),
     author: {
-      name: author?.name ?? preview.authorName,
-      slug: preview.authorSlug,
-      bio: author?.description ?? '',
-      avatar: author?.avatar,
+      name: preview.authorName,
+      slug: preview.authorName === author?.name ? preview.authorSlug : undefined,
+      bio: preview.authorBio ?? author?.description ?? '',
+      avatar: preview.authorName === author?.name ? author?.avatar : undefined,
     },
-    featuredImage: { url: preview.featuredImage, alt: preview.title },
+    featuredImage: { url: preview.featuredImage, alt: preview.featuredImageAlt ?? preview.title,
+      width: preview.featuredImageWidth, height: preview.featuredImageHeight },
     seo: {
       title: preview.seoTitle,
       description: preview.seoDescription,
@@ -134,8 +140,10 @@ const post = {
       // Authored rather than inherited from Yoast: a preview must never be
       // indexable, and must not claim the destination's canonical URL.
       fullHead:
-        `<title>${esc(preview.seoTitle)} — merge preview</title>` +
+        `<title>${esc(preview.seoTitle)}</title>` +
         `<meta name="robots" content="noindex, nofollow">` +
+        `<meta property="og:title" content="${esc(preview.ogTitle ?? preview.title)}">` +
+        `<meta property="og:description" content="${esc(preview.ogDescription ?? preview.excerpt)}">` +
         `<meta name="description" content="${esc(preview.seoDescription)}">`,
     },
     content: banner + preview.content,
@@ -146,4 +154,4 @@ const post = {
 } as any;
 ---
 
-<ArticleLayout post={post} related={related} />
+<ArticleLayout post={post} related={related} readingWordCount={mergedWords} featuredImageMarkup={preview.featuredImageMarkup} />

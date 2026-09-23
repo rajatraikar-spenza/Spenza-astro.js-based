@@ -37,6 +37,10 @@ import '../styles/preferred-source.css';
 interface Props {
   post: CollectionEntry<'posts'>;
   related: CollectionEntry<'posts'>[];
+  /** Preview-only measured text, including its separately rendered TL;DR. */
+  readingWordCount?: number;
+  /** Captured responsive media for previews; live posts use the normal renderer. */
+  featuredImageMarkup?: string;
 }
 
 const { post, related } = Astro.props;
@@ -115,7 +119,7 @@ const excerpt = d.excerpt || '';
  * candidate onto a slot wanting ~1600 device pixels at 1.25 DPR, and every
  * post's hero rendered soft.
  */
-const featuredImage = renderFeaturedImage(d as LoopPost, {
+const featuredImage = Astro.props.featuredImageMarkup ?? renderFeaturedImage(d as LoopPost, {
   priority: true,
   sizes: '(max-width: 1280px) 100vw, 1280px',
 });
@@ -207,7 +211,7 @@ const authorBoxHtml =
  */
 const readingMinutes = Math.max(
   1,
-  Math.ceil(content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length / 200)
+  Math.ceil((Astro.props.readingWordCount ?? content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length) / 200)
 );
 
 const pubDate = d.publishedDate;
