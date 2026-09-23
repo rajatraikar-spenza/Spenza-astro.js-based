@@ -1,0 +1,51 @@
+{
+  "cluster": "M22",
+  "before": [
+    {
+      "path": "/telecom/what-is-telecom-as-a-service-taas/",
+      "bodyWords": 2203,
+      "tldrWords": 4
+    },
+    {
+      "path": "/telecom/taas-revolutionizing-telecom-usa/",
+      "bodyWords": 1986,
+      "tldrWords": 4
+    },
+    {
+      "path": "/telecom/taas-vs-traditional-telecom/",
+      "bodyWords": 1613,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 5814,
+  "bodyWords": 2385,
+  "tldrWords": 142,
+  "totalWords": 2527,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvne/",
+    "/mvno/mvne-explained/",
+    "/telecom/angel-watch-iot-business-casestudy/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/spenza-product/daito-case-study/",
+    "/mvno/mvne-provider-selection/",
+    "/mvno-calculator/"
+  ],
+  "external": [
+    "https://careers.vodafone.com/life-at-vodafone/projects-stories/vodafone-taas-a-telecommunications-paradigm-shift/",
+    "https://www.vonage.com/resources/articles/ucaas-vs-cpaas-cracking-acronym-code/",
+    "https://aws.amazon.com/blogs/industries/opening-the-power-of-telecom-networks-to-aws-developers/",
+    "https://www.nist.gov/publications/guidelines-security-and-privacy-public-cloud-computing"
+  ],
+  "images": {
+    "reused": 3,
+    "generated": 1
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved before/after operating baseline, deployment scope, device/subscriber cohort and dated start/end milestones for a comparable TaaS workflow, from Spenza delivery and the customer owner.]",
+    "[EVIDENCE NEEDED: approved redacted operations screenshot with capture date and scope, from Spenza product and delivery.]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor.]"
+  ]
+}
