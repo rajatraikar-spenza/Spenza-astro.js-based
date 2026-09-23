@@ -1,5 +1,7 @@
 # M07 and M16 correction report
 
+> Follow-up: the user subsequently authorized generation. All four pending body diagrams are now generated and placed; see [image delivery and verification](M07-M16-generated-images.md). The pending/no-generation statements below describe the earlier correction checkpoint.
+
 September 23, 2026. Scope: these two existing previews only. No new cluster, WordPress write, redirect, unpublication, slug/category change or push.
 
 ## Images

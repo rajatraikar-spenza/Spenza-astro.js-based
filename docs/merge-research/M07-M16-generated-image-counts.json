@@ -1,0 +1,26 @@
+{
+  "measuredAt": "2026-09-23T06:39:55.306Z",
+  "method": "Repository parse5 helper: reading body plus ACF TL;DR, excluding editorial-only image slots, notes, sources, styles and scripts.",
+  "articles": {
+    "launch-mvno-us-guide": {
+      "bodyWords": 2551,
+      "readingWords": 2711,
+      "emDashes": 0,
+      "enDashes": 0,
+      "bannedMatches": [],
+      "bodyFigures": 3,
+      "pendingImageSlots": 0,
+      "faqCount": 6
+    },
+    "white-label-mvno-launch-guide-2025": {
+      "bodyWords": 2522,
+      "readingWords": 2685,
+      "emDashes": 0,
+      "enDashes": 0,
+      "bannedMatches": [],
+      "bodyFigures": 3,
+      "pendingImageSlots": 0,
+      "faqCount": 6
+    }
+  }
+}

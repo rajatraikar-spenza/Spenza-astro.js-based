@@ -1,5 +1,7 @@
 # M07 and M16 image inventory and correction, September 23, 2026
 
+> Follow-up: the user subsequently authorized generation. All four pending body diagrams are now generated and placed; see [image delivery and verification](M07-M16-generated-images.md). The pending/no-generation statements below describe the earlier correction checkpoint.
+
 This supersedes the image plans in the September 22 Phase 6 reports and the earlier M16 inventory. Inventory came before these prompts. All nine live source URLs returned HTTP 200; all 37 featured/body candidates were downloaded to temporary storage and visually inspected. Related-post thumbnails and site chrome were excluded. The [fresh source capture](M07-M16-image-reaudit.json) preserves each live URL, dimensions, markup, srcset and sizes. IDs below follow source order, starting at zero.
 
 **Current count: two actual images per article (one featured, one body). Target: four total per article (one featured, three body). Two visible orange placeholders per article mark the unfilled body slots. Placeholders are not counted as images or article reading text. No new images were generated in this correction.**

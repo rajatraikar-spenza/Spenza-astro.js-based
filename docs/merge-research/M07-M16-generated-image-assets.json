@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-09-23T06:39:22.865Z",
+  "method": "Built-in image_gen frames; exact editable Inter labels in Figma; PNG exports optimized with sharp.",
+  "figma": "https://www.figma.com/design/QYBV0dwgiLrqR4PP6RpgP6",
+  "outputs": [
+    {
+      "name": "white-label-mvno-responsibility-roles",
+      "folder": "white-label-mvno",
+      "width": 1600,
+      "height": 900,
+      "pngBytes": 35440,
+      "webpBytes": 57640
+    },
+    {
+      "name": "white-label-mvno-request-to-bill",
+      "folder": "white-label-mvno",
+      "width": 1600,
+      "height": 900,
+      "pngBytes": 39720,
+      "webpBytes": 47042
+    },
+    {
+      "name": "us-mvno-product-and-operating-choices",
+      "folder": "mvno-us-launch",
+      "width": 1600,
+      "height": 900,
+      "pngBytes": 42217,
+      "webpBytes": 61972
+    },
+    {
+      "name": "us-mvno-contribution-and-cash-timing",
+      "folder": "mvno-us-launch",
+      "width": 1600,
+      "height": 900,
+      "pngBytes": 45005,
+      "webpBytes": 53032
+    }
+  ]
+}

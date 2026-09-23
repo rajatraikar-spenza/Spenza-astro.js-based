@@ -1,5 +1,7 @@
 # M07 and M16: four copy-ready ChatGPT image prompts
 
+> Follow-up: the user subsequently authorized generation. All four pending body diagrams are now generated and placed; see [image delivery and verification](M07-M16-generated-images.md). The pending/no-generation statements below describe the earlier correction checkpoint.
+
 Prepared after the [complete live inventory](M07-M16-image-inventory.md), September 23, 2026. No images were generated. These fill two missing body slots per article, for four total images per article. Reuse the current published featured images unchanged; never generate a complete featured template.
 
 For each prompt: run Stage 1 in ChatGPT, then add the listed exact labels in Figma or Canva. The fixed style preamble is reproduced verbatim from docs/blog-images.md §7. The two-stage workflow prevents misspelled generated text. Use Montserrat/Inter, headings 32px or larger, labels at least 24px at 1600px width; inspect at 800px article width and on mobile. Each label set stays below 40 words. Final output: 1600×900 PNG plus visually checked WebP under 200KB, with native dimensions retained. These are conceptual illustrations, never evidence of an actual deployment.
