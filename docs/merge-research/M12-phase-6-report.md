@@ -48,3 +48,7 @@ Publication handoff, not executed: close evidence, publish body and ACF, archive
 ## Local inbound references (proposed updates only)
 src/partials/posts/questions-to-ask-mvne-2025.html
 src/partials/posts/mvno.html
+
+## Final brand correction
+
+The initial reuse decision for hero1 and body3/4/8 failed the image standard's palette test. All four are now rejected in the inventory and replaced, so final image count is0 reused and4 newly composed. The hero preserves the fixed logo, Learn More pill and search badge, with the existing generated M21 art panel and a new title. No complete hero was generated. Three body diagrams use the generated blank cream/orange template with editable Inter labels. Figma page22:2, frames22:3/22:15/22:27/22:39. Every export visually inspected; body1600x900, hero1280x720, PNG/WebP pairs. Earlier reuse claims above are superseded by this correction. The article word count and evidence holds are unchanged. Gate and browser checks repeated successfully; Astro remains0 errors.

@@ -176,3 +176,13 @@ Schema DELTA: update existing Article headline, dateModified, wordCount and keyw
 [EVIDENCE NEEDED: technical reviewer name and role, from the user]
 
 All eleven image candidates visually inspected. Four retained at existing CDN URLs with source srcset; seven rejected individually in inventory. No new image required, no prompt or generation needed.
+
+## Final image prompt/composition correction
+
+Reject the initially kept multicolour legacy graphics under the strict reuse criteria. New body background uses the previously generated frame: “16:9 Spenza editorial background, warm cream, three white rounded cards, one bright orange accent, generous empty title/card/footer space, no text or logos.” Exact editable text:
+
+- selection-domains: “Evaluate six provider domains”; “Service fit / Coverage and technical capability”; “Operating fit / Integration and scalability”; “Commercial fit / Contract terms and security”; “Translate each domain into scoped evidence.”
+- service-scope: “Separate the service categories”; “Connectivity / Provisioning and network terms”; “Commerce / Catalog, billing and payments”; “Operations / Support and reporting”; “Confirm which services are included and who operates them.”
+- acceptance-evidence: “Turn questions into acceptance evidence”; “Requirements / State the service and boundary”; “Evidence / Record the agreed demonstration”; “Acceptance / Assign an owner and decision”; “A demonstrated outcome is stronger than a feature claim.”
+
+Hero uses the fixed template and already-generated M21 orange bridge/tower/phone art panel with title “CHOOSING THE RIGHT MVNE PROVIDER FOR YOUR BUSINESS”. New composition, no whole-hero generation and no copied CDN asset. Final0 reused/4 newly composed.
