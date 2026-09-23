@@ -1,0 +1,26 @@
+{
+  "cluster": "M02",
+  "generatedOn": "2026-09-23",
+  "figma": "https://www.figma.com/design/QYBV0dwgiLrqR4PP6RpgP6?node-id=8-5",
+  "figmaPage": "M02 MVNO pillar",
+  "frameId": "8:5",
+  "generation": "Built-in image_gen, unlabelled frame; final labels separately set in Inter in Figma",
+  "sourceFrame": "exec-f0a3a503-52da-47a5-b796-42e9c5ff132c.png",
+  "optimization": "sharp: final PNG palette quality 90 effort 10 compression 9; WebP quality 90 effort 6; sRGB",
+  "files": [
+    {
+      "path": "public/blog-media/mvno-definition/mvno-network-and-operating-roles.png",
+      "width": 1600,
+      "height": 900,
+      "bytes": 58540,
+      "sha256": "c7afbe772b9189538aae1a32f8b76547ea59fa7dbf0a895aade181ed1998e337"
+    },
+    {
+      "path": "public/blog-media/mvno-definition/mvno-network-and-operating-roles.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 36818,
+      "sha256": "846bffac5a7d89129bd368572aed54c612ee5b72bf13302e2fdcd1ce14cdfb50"
+    }
+  ]
+}

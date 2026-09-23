@@ -60,3 +60,17 @@ Composition brief:
 Caption: “A role map, not a traffic diagram. One supplier can combine enablement and aggregation; the contract defines who performs each task.”
 
 Stage 2 typesetting is required for the labels. Review at mobile width and use the paragraph/table to carry detail. The four-role definitions and optional/combined relationships must be technically reviewed before final export.
+
+## Phase 5 completion, 23 September 2026
+
+All four approved slots are filled. The three KEEP decisions above now reference the captured CDN URLs and responsive attributes in the M02 preview. No reused media was downloaded into the repository. Only the new network/operating-role diagram has a local PNG/WebP pair.
+
+The built-in image generator produced an unlabelled frame using the fixed preamble and the approved composition above. Stage 1 explicitly excluded all letters, numbers, logos and icons, leaving five empty cards and their solid/dashed relationships. The exact additional composition instruction was:
+
+> Generate ONLY the unlabelled composition frame; ALL TEXT will be set later in Figma, so do not render any text, letters, numerals or logo. Make a clean sparse role map, not a packet-flow or five-step chain. Top row at y=220 to460: three equal white rounded cards at x=90..410, x=640..960, x=1190..1510. Leave their middle zones entirely empty for the future labels Customer, MVNO, MNO. A solid orange horizontal connector from first card to second, and solid ink horizontal connector from second to third, y=340. Ample blank space above connectors for future labels. Below center card, smaller white card x=640..960 y=610..790. Below the gap between center and right top cards, another smaller white card x=1060..1380 y=610..790. Grey dashed connectors lead from first lower card up to middle top card and second lower card up to network-access connector. Keep the lower cards' interiors empty for future optional MVNE and MVNA labels. No arrows suggesting mandatory sequence. No icons are necessary. Uniform cream background, orange accent only on center top card thin border and customer relationship connector. Broad blank top margin for a title. Precise spacious flat diagram.
+
+Stage 2 set every label as editable Inter type in [Figma, M02 page](https://www.figma.com/design/QYBV0dwgiLrqR4PP6RpgP6?node-id=8-5). Other pages and existing figures in that file were not modified. The image import required a palette PNG: the original exceeded the connector's 50,000-character code limit and WebP import was unsupported. The background was reduced to 1200 by 675 before import; the final canvas and editable type were exported at 1600 by 900. This is a sparse shape layer, not an upscaled text image.
+
+Final label sizes: 48px title/top roles, 32px MVNE card, 28px MVNA card and relationship labels. Minimum is above the 24px floor. Optimized PNG is 58,540 bytes; WebP is 36,818 bytes. Both are sRGB, 1600 by 900. Inspected the Figma export at 1024px and optimized WebP at full width: spelling, line relationships, crop and contrast pass. No new hero was generated. The two retained body figures keep their native PNG responsive markup; only the hero and new diagram have verified WebP variants.
+
+[Asset provenance and hashes](./M02-generated-image.json). No slots remain unfilled and no further prompts require execution. The requested customer operations screenshot remains evidence pending; the illustrative role diagram does not stand in for it.
