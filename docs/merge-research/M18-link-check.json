@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://spenza.com/mvno/mvno/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-types/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-types/"
+  },
+  {
+    "url": "https://spenza.com/mvne/",
+    "status": 200,
+    "final": "https://spenza.com/mvne/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvne-provider-selection/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvne-provider-selection/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-mvno-launch-cost/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-mvno-launch-cost/"
+  },
+  {
+    "url": "https://spenza.com/mvno-calculator/",
+    "status": 200,
+    "final": "https://spenza.com/mvno-calculator/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-billing-platforms/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-billing-platforms/"
+  },
+  {
+    "url": "https://spenza.com/spenza-product/rocketphone-case-study/",
+    "status": 200,
+    "final": "https://spenza.com/spenza-product/rocketphone-case-study/"
+  },
+  {
+    "url": "https://help.shopify.com/en/manual/products/purchase-options/subscriptions",
+    "status": 403,
+    "final": "https://help.shopify.com/en/manual/products/purchase-options/subscriptions"
+  },
+  {
+    "url": "https://help.shopify.com/en/manual/checkout-settings/test-orders",
+    "status": 403,
+    "final": "https://help.shopify.com/en/manual/checkout-settings/test-orders"
+  },
+  {
+    "url": "https://shopify.dev/docs/apps/build/webhooks/verify-deliveries",
+    "status": 200,
+    "final": "https://shopify.dev/docs/apps/build/webhooks/verify-deliveries"
+  },
+  {
+    "url": "https://support.apple.com/en-us/118669",
+    "status": 200,
+    "final": "https://support.apple.com/en-us/118669"
+  }
+]

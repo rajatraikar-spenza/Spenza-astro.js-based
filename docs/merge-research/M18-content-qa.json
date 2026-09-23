@@ -1,0 +1,51 @@
+{
+  "cluster": "M18",
+  "before": [
+    {
+      "path": "/mvno/launch-mvno-7-days/",
+      "bodyWords": 2133,
+      "tldrWords": 198
+    },
+    {
+      "path": "/mvno/launching-mvno/",
+      "bodyWords": 1874,
+      "tldrWords": 4
+    },
+    {
+      "path": "/spenza-product/reselling-mobile-plans-on-shopify-store/",
+      "bodyWords": 1610,
+      "tldrWords": 194
+    }
+  ],
+  "combinedBeforeWords": 6013,
+  "bodyWords": 2332,
+  "tldrWords": 154,
+  "totalWords": 2486,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvno/mvno-types/",
+    "/mvne/",
+    "/mvno/mvne-provider-selection/",
+    "/mvno/mvno-mvno-launch-cost/",
+    "/mvno-calculator/",
+    "/mvno/mvno-billing-platforms/",
+    "/spenza-product/rocketphone-case-study/"
+  ],
+  "external": [
+    "https://help.shopify.com/en/manual/products/purchase-options/subscriptions",
+    "https://help.shopify.com/en/manual/checkout-settings/test-orders",
+    "https://shopify.dev/docs/apps/build/webhooks/verify-deliveries",
+    "https://support.apple.com/en-us/118669"
+  ],
+  "images": {
+    "reused": 4,
+    "generated": 0
+  },
+  "author": "Spenza",
+  "flipped": true,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved timed launch record identifying scope, subscriber/device cohort and dated start/end milestones, from Spenza delivery and the customer owner]",
+    "[EVIDENCE NEEDED: current redacted account, catalog, checkout and provisioning screenshots and exact interface labels, from Spenza product/delivery]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+  ]
+}

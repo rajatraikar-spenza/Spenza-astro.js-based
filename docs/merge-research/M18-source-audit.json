@@ -1,0 +1,1973 @@
+{
+  "cluster": "M18",
+  "fetchedAt": "2026-09-23T09:47:46.889Z",
+  "method": "Fresh public destination and donor HTML; parse5 selects exact article widget, first featured widget excludes related cards. Body count includes lists, tables and captions; excludes shell and separate ACF TLDR.",
+  "sources": [
+    {
+      "path": "/mvno/launch-mvno-7-days/",
+      "url": "https://spenza.com/mvno/launch-mvno-7-days/",
+      "status": 200,
+      "h1": [
+        "Launch a Branded MVNO in 7 Days with Spenza"
+      ],
+      "bodyWords": 2133,
+      "headings": [
+        {
+          "level": "h2",
+          "id": "Introduction",
+          "text": "Introduction: The MVNO Revolution is for Brands Like Yours"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What Is a Branded MVNO?"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What Will You Gain from This Article?"
+        },
+        {
+          "level": "h2",
+          "id": "Challenge",
+          "text": "The Challenge: Why Launching an MVNO is So Hard (Without the Right Partner)"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "Common pain points include:"
+        },
+        {
+          "level": "h2",
+          "id": "Solution",
+          "text": "The Solution: The Spenza No-Code MVNO Platform"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Breaking the Barriers to Connectivity"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What You Need Before a 7-Day MVNO Launch"
+        },
+        {
+          "level": "h2",
+          "id": "Blueprint",
+          "text": "Blueprint for Success: Your 7-Day MVNO Launch with Spenza"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Day 1: Strategy & Brand Onboarding"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Day 2: Designing Your Mobile Plans"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Day 3: Customizing the Customer Journey"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Day 4: Activating Billing & Payments"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Day 5: Internal Testing & Final Review"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Day 6: Go-to-Market Preparation"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Day 7: GO LIVE!"
+        },
+        {
+          "level": "h2",
+          "id": "Technology",
+          "text": "How Is This Possible? The Technology Behind the Speed"
+        },
+        {
+          "level": "h2",
+          "id": "Spenza",
+          "text": "The Benefits of a Launching MVNO with Spenza"
+        },
+        {
+          "level": "h2",
+          "id": "Brands",
+          "text": "Case Studies in Success: How Brands are Winning with Spenza"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Angel Watch"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Butlr.io"
+        },
+        {
+          "level": "h2",
+          "id": "Conclusion",
+          "text": "Conclusion: Your Brand, Your Service, Your Revenue—Next Week."
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": "Introduction",
+          "text": "Introduction: The MVNO Revolution is for Brands Like Yours"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The world of mobile connectivity is undergoing a revolution. The global Mobile Virtual Network Operator ( MVNO ) market is projected to reach over $172 billion by 2032 , presenting a massive opportunity for innovative hardware brands, IoT startups, and device OEMs to create powerful new revenue streams."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By launching your own branded mobile service, you can enhance brand loyalty and take full control of your customer experience."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "But this opportunity has always seemed out of reach for most, blocked by insurmountable challenges."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "What if those barriers were gone? What if you could launch your own branded mobile service in just seven days?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With Spenza, you can."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What Is a Branded MVNO?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A branded MVNO is a mobile service operated under a company’s own brand while using wholesale network access from mobile network operators instead of building and owning the underlying cellular network infrastructure."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A branded MVNO gives hardware brands, device OEMs, and IoT companies control over the customer-facing mobile experience while a connectivity platform manages the underlying telecom infrastructure. This allows the company to package connectivity with its existing product, control its service experience, and build recurring connectivity revenue without developing the entire telecom stack internally."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What Will You Gain from This Article?"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Understand the traditional challenges that make launching an MVNO difficult. Discover how Spenza removes these barriers. Get a day-by-day blueprint for launching your own mobile service in just one week. Learn how to create new recurring revenue streams for your hardware business. See the technology that makes a 7-day launch a reality."
+        },
+        {
+          "tag": "h2",
+          "id": "Challenge",
+          "text": "The Challenge: Why Launching an MVNO is So Hard (Without the Right Partner)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For consumer device OEMs, IoT startups, and hardware brands, the path to becoming an MVNO has traditionally been littered with obstacles that stifle innovation and drain resources."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "While your team is savvy in product design and understands connectivity dynamics, you likely lack the deep telecom stack experience required to navigate the industry’s complexities."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These challenges often prevent brands from realizing the full potential of their connected devices."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Common pain points include:"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Complex Negotiations: Securing favorable terms with Mobile Network Operators ( MNOs ) can be a long and arduous process, often requiring multi-million dollar contracts just to get started. High Capital Expenditures: The investment in engineering capex, infrastructure, and technology can be a significant and often unjustifiable barrier to entry. Regulatory Nightmares: Navigating the complex web of telecom and privacy regulations—like KYC , reseller rights , SOC-2, and tax obligations —is a full-time job in itself. Business Stagnation: For many device vendors, reliance on single-operator solutions can lead to low customer satisfaction, high churn, and shrinking profit margins. Want to calculate the true cost of launching your own connectivity offering? Use our MVNO Calculator to get started."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These roadblocks don’t just slow progress—they limit scalability, increase risk, and drain resources. That’s where Spenza comes in."
+        },
+        {
+          "tag": "h2",
+          "id": "Solution",
+          "text": "The Solution: The Spenza No-Code MVNO Platform"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s “ Connectivity as a Service ” platform is the game-changer for any company looking to launch a branded mobile service."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Our no-code MVNO platform abstracts away the complexities of the telecom industry, empowering you to launch faster, profit sooner, and scale with ease ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "We provide an integrated, turnkey solution that is managed by non-engineering or light-engineering teams, allowing you to bypass building a costly in-house telecom stack."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Breaking the Barriers to Connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza eliminates the friction of traditional telecom models. Here’s how we compare:"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Challenge Traditional Approach The Spenza Solution Time to Market 12–18 months of negotiations, development, and integration Launch in under 7 days with our no-code platform and out-of-the-box Shopify integration. Upfront Costs High capital expenditure on infrastructure, engineering, and contracts Cut fixed costs by up to 50% with a scalable, variable-cost model. Operational Complexity Juggling MNO deals, billing systems, and fragmented support channels A single pane of glass to manage connectivity, spend, billing, and support. Global Expansion Separate legal entities, contracts, and compliance hurdles per country Add new countries, operators, and plans in days—not months—with built-in compliance. Tax & Compliance Navigating KYC, reseller rights, SOC-2, and local telecom regulations independently – No support Fully integrated tax handling, KYC, and compliance—no extra lift required.",
+          "html": "<table>\n<thead>\n<tr>\n<th>Challenge</th>\n<th>Traditional Approach</th>\n<th>The Spenza Solution</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Time to Market</td>\n<td>12–18 months of negotiations, development, and integration</td>\n<td>Launch in under 7 days with our no-code platform and out-of-the-box Shopify integration.</td>\n</tr>\n<tr>\n<td>Upfront Costs</td>\n<td>High capital expenditure on infrastructure, engineering, and contracts</td>\n<td>Cut fixed costs by up to 50% with a scalable, variable-cost model.</td>\n</tr>\n<tr>\n<td>Operational Complexity</td>\n<td>Juggling MNO deals, billing systems, and fragmented support channels</td>\n<td>A single pane of glass to manage connectivity, spend, billing, and support.</td>\n</tr>\n<tr>\n<td>Global Expansion</td>\n<td>Separate legal entities, contracts, and compliance hurdles per country</td>\n<td>Add new countries, operators, and plans in days—not months—with built-in compliance.</td>\n</tr>\n<tr>\n<td>Tax &amp; Compliance</td>\n<td>Navigating KYC, reseller rights, SOC-2, and local telecom regulations independently – No support</td>\n<td>Fully integrated tax handling, KYC, and compliance—no extra lift required.</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With the heavy lifting taken care of, all that’s left is execution. Here’s how you can go from idea to launch in just 7 days."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What You Need Before a 7-Day MVNO Launch"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A fast MVNO launch still requires several inputs before the seven-day workflow begins:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Business model: Define the target customer, service proposition, and revenue model. Connectivity: Select a wholesale network partner or bring an existing network relationship. Brand assets: Prepare the company name, logo, brand guidelines, terms, and customer-facing messaging. Mobile plans: Decide data, voice, SMS, pricing, and usage rules. Payments: Prepare the payment method and billing requirements. Compliance information: Provide the business and regulatory information required for service activation. Launch team: Assign the people responsible for product, operations, support, and go-to-market."
+        },
+        {
+          "tag": "h2",
+          "id": "Blueprint",
+          "text": "Blueprint for Success: Your 7-Day MVNO Launch with Spenza"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This seven-day workflow covers the configuration, testing, and launch preparation required to take a branded MVNO from an approved concept to a live service, assuming the required business, connectivity, compliance, and brand inputs are ready before the launch process begins."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Day 1: Strategy & Brand Onboarding"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Kick off your MVNO journey with a personalized strategy session and brand setup:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Welcome Session : Connect with your dedicated Spenza launch expert to align on goals and timelines. Value Proposition : Refine your unique offering and pinpoint your ideal customer profile. Brand Configuration : Use our intuitive no-code interface to upload your logo, select brand colors, and input legal terms, instantly bringing your mobile experience to life."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Day 2: Designing Your Mobile Plans"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Craft flexible, competitive plans with just a few clicks:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Partner Selection : Browse and choose from Spenza’s curated marketplace of wholesale network partners or integrate your own Plan Builder : Leverage our visual interface to define data, voice, and text bundles in seconds. Pricing Control : Set your retail pricing strategy on the fly to maximize margins and appeal to your target audience."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Day 3: Customizing the Customer Journey"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Shape every touchpoint of your MVNO—without writing a single line of code with our White Label MVNO :"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Drag-and-Drop Builder : Design your branded portal with intuitive components and workflows. Self-Service Dashboard : Configure a seamless account management experience so customers can activate, upgrade, or troubleshoot on their own. Full Brand Control : Tailor messaging, imagery, and flows to match your brand identity from end to end."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Day 4: Activating Billing & Payments"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Streamline your revenue operations in minutes—no finance team required:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "One-Click Integration : Link your Shopify store to Spenza instantly for seamless order processing. Automated Billing Cycles : Configure recurring invoices, proration rules, and usage-based charges—all handled automatically. Hidden Complexity : Spenza takes care of telecom taxes, compliance, and regulatory reporting behind the scenes so you can focus on growth."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Day 5: Internal Testing & Final Review"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Validate every element of your MVNO before going live:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Receive Test SIMs/eSIMs : We ship physical SIM cards and downloadable eSIM profiles straight to your team. End-to-End QA : Run through the full customer lifecycle—sign-up, activation, usage monitoring, and support interactions—to catch any issues. Final Sign-Off : Ensure branding consistency, performance benchmarks, and support workflows meet your standards before launch."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Day 6: Go-to-Market Preparation"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Lock in your launch success with polished messaging and a ready-to-serve team:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Marketing Assets : Finalize your website and promotional copy, from key value propositions to FAQ content—ensuring consistency across all channels. Support Readiness : Train your customer-care agents with Spenza’s intuitive agent portal, complete with simulated workflows and knowledge-base access."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You’ll be fully prepared to welcome and delight your first mobile subscribers from day one."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Day 7: GO LIVE!"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Launch your branded mobile service with confidence and start generating revenue immediately:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "One-Click Deployment : Push your final configuration live across all channels with a single tap. Real-Time Monitoring : Track activations, usage metrics, and customer feedback instantly via your Spenza dashboard. Launch Toolkit : Use our built-in announcement templates and promo tools to drive early adoption and keep the momentum going."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Congratulations —you’re live! Your customers can now activate and manage their service instantly, and you’re set to start scaling your revenue."
+        },
+        {
+          "tag": "h2",
+          "id": "Technology",
+          "text": "How Is This Possible? The Technology Behind the Speed"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This rapid timeline isn’t magic; it’s the result of our purpose-built technology designed to eliminate traditional delays."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Pre-Integrated Networks: We’ve already done the years of work to build API integrations with top-tier carriers, so you don’t have to. Access them instantly. Templated & No-Code Workflows: Our platform uses pre-built, best-practice templates for every step. You simply customize them with your brand, saving months of development time. Managed Compliance-as-a-Service: Spenza handles the complex telecom regulatory and tax remittance on the back end, a process that traditionally takes months of legal and financial effort."
+        },
+        {
+          "tag": "h2",
+          "id": "Spenza",
+          "text": "The Benefits of a Launching MVNO with Spenza"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Rapid Market Launch: Go from idea to revenue in a week, bypassing months of complexity and negotiations. Recurring Revenue: Bundle your hardware with connectivity subscriptions to monetize user engagement over time and build predictable revenue. Cost Efficiency & ROI: Reduce upfront engineering and operational costs and accelerate your break-even point with intelligent data pooling and cost optimization tools. Global Scalability: Expand your reach without vendor lock-in using our operator-neutral marketplace and “Bring Your Own Network” feature. Operational Simplicity: We provide integrated billing, support ticket routing, and managed tax filings so you can operate globally without needing a local team in every country. Built-In Compliance: Enjoy automated KYC, tax calculations, and telecom-specific regulatory workflows so you can stay fully compliant out of the box."
+        },
+        {
+          "tag": "h2",
+          "id": "Brands",
+          "text": "Case Studies in Success: How Brands are Winning with Spenza"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Angel Watch"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This kids’ smartwatch company was burdened by high-cost, inflexible data plans from operators. With Spenza, they now offer affordable, customized mobile plans via their Shopify store, reducing costs and streamlining their operations."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Butlr.io"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The IoT home automation company needed high-bandwidth mobile plans across multiple countries. Spenza’s marketplace provided cost-effective plans for the US, UK, and France, while our centralized platform simplified global service management and unified their billing."
+        },
+        {
+          "tag": "h2",
+          "id": "Conclusion",
+          "text": "Conclusion: Your Brand, Your Service, Your Revenue—Next Week."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The barriers that made launching a branded mobile service impossible for most have been completely eliminated. Spenza’s no-code platform removes the cost, complexity, and time that previously stood in your way. This unprecedented speed allows you to innovate, react to market demands, and start building a powerful new revenue stream almost immediately."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza is designed for consumer device OEMs, hardware brands, and IoT-focused startups that want to bundle connectivity with their products and create a branded mobile experience."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. A business can launch a branded MVNO without building its own underlying telecom infrastructure by using a platform that provides carrier connectivity, provisioning, billing, compliance workflows, and other operational capabilities."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO needs a defined target market and service model, wholesale network access, mobile plans and pricing, customer-facing branding, billing and payment capabilities, compliance requirements, provisioning, testing, and operational support."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "No. The platform is built for product-savvy teams that may not have deep telecom stack experience. We handle the underlying complexity so you can focus on your brand and customers."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A no-code MVNO platform reduces launch time by replacing custom telecom development with pre-integrated carrier connections, configurable workflows, billing, provisioning, and compliance capabilities. This allows teams to configure an MVNO without building the entire telecom stack from scratch."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It means you have complete flexibility. You can source mobile plans from our marketplace of leading global carriers or connect your own existing wholesale operator contracts into our platform using our “Bring Your Own Network” feature."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes, Spenza’s 7-day blueprint is a proven process. Because we have pre-integrated the networks, compliance, and billing, the launch process is focused on branding and configuration, which can be completed in one week."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Hardware companies can bundle branded mobile connectivity with connected devices such as smartwatches, IoT products, and other connected hardware to create a recurring service offering. Spenza’s existing examples include Angel Watch and Butlr.io."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "We offer Compliance-as-a-Service. Spenza’s platform has pre-integrated solutions for telecom tax obligations and helps you navigate regulatory requirements like reseller rights, significantly reducing your risk and administrative burden."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Stop waiting. Start launching. Schedule a free demo today and we’ll build your personalized 7-day launch blueprint with you."
+        }
+      ],
+      "links": [
+        {
+          "text": "MVNO",
+          "href": "/mvno/mvno/"
+        },
+        {
+          "text": "$172 billion by 2032",
+          "href": "https://www.fortunebusinessinsights.com/industry-reports/mobile-virtual-network-operators-market-100076"
+        },
+        {
+          "text": "challenges",
+          "href": "/telecom/full-mvno/"
+        },
+        {
+          "text": "MNOs",
+          "href": "https://en.wikipedia.org/wiki/Mobile_network_operator"
+        },
+        {
+          "text": "KYC",
+          "href": "https://en.wikipedia.org/wiki/Know_your_customer"
+        },
+        {
+          "text": "reseller rights",
+          "href": "https://yourcommsgroup.com/case-study/what-is-telecoms-reseller/"
+        },
+        {
+          "text": "tax obligations",
+          "href": "https://www.taxconnex.com/en/understanding-telecom-taxes#:~:text=against%20certain%20revenue.-,Telecom%20Tax%20Obligations,way%20fees%2C%20USF%20and%20more."
+        },
+        {
+          "text": "MVNO Calculator",
+          "href": "/mvno-calculator/"
+        },
+        {
+          "text": "White Label MVNO",
+          "href": "/mvno/white-label-mvno-launch-guide-2025/"
+        },
+        {
+          "text": "Shopify store",
+          "href": "/mvno/mvno-shopify-launch/"
+        },
+        {
+          "text": "complex telecom regulatory and tax remittance",
+          "href": "/mvno/2025-mvno-guide-telecom-regulatory-success/"
+        },
+        {
+          "text": "Angel Watch",
+          "href": "/telecom/angel-watch-iot-business-casestudy/"
+        },
+        {
+          "text": "Butlr.io",
+          "href": "/spenza-product/butlr-iot-spenza-casestudy/"
+        },
+        {
+          "text": "free demo today",
+          "href": "https://calendly.com/spenza/discovery"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png",
+          "class": "attachment-full size-full wp-image-11704 webpexpress-processed",
+          "alt": "Launch MVNO -in-7-days with spenza",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Launch-in-7-days-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Launch-in-7-days-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Launch-in-7-days-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Launch-in-7-days.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png\" class=\"attachment-full size-full wp-image-11704 webpexpress-processed\" alt=\"Launch MVNO -in-7-days with spenza\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "538",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-1024x538.png",
+          "alt": " Launch MVNO in 7 Days",
+          "class": "wp-image-11706",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-1024x538.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-300x158.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-768x403.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days.png 1200w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"538\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-1024x538.png\" alt=\" Launch MVNO in 7 Days\" class=\"wp-image-11706\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-1024x538.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-300x158.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days-768x403.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Launch-a-Branded-MVNO-in-7-Days.png 1200w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "836",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-1024x836.png",
+          "alt": "",
+          "class": "wp-image-11707",
+          "style": "width:444px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-1024x836.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-300x245.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-768x627.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-1536x1254.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-2048x1672.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"836\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-1024x836.png\" alt=\"\" class=\"wp-image-11707\" style=\"width:444px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-1024x836.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-300x245.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-768x627.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-1536x1254.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/Common-pain-points-2048x1672.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "464",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/Road-1024x464.png",
+          "alt": "",
+          "class": "wp-image-11709",
+          "style": "width:777px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/Road-1024x464.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Road-300x136.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Road-768x348.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Road-1536x696.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/Road-2048x928.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"464\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/Road-1024x464.png\" alt=\"\" class=\"wp-image-11709\" style=\"width:777px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/Road-1024x464.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Road-300x136.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Road-768x348.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Road-1536x696.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/Road-2048x928.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "766",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/Sp-1024x766.png",
+          "alt": "",
+          "class": "wp-image-11710",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/Sp-1024x766.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Sp-300x224.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Sp-768x574.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Sp-1536x1149.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/Sp.png 1764w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"766\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/Sp-1024x766.png\" alt=\"\" class=\"wp-image-11710\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/Sp-1024x766.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Sp-300x224.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Sp-768x574.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Sp-1536x1149.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/Sp.png 1764w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "Launching a branded MVNO traditionally involves complex carrier negotiations, high infrastructure costs, compliance requirements, and lengthy development cycles. Spenza’s no-code MVNO platform simplifies these processes, enabling brands to launch a branded mobile service in as little as seven days without building their own telecom infrastructure.",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"forward\", \"label\" : \"Forward\", \"unicode\" : \"f04e\"}",
+            "title": "Launch a Branded MVNO Faster",
+            "text": "Spenza reduces the traditional 12–18 month launch timeline by providing pre-integrated networks, no-code workflows, and out-of-the-box Shopify integration for a faster path to market."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"mobile\", \"label\" : \"Mobile\", \"unicode\" : \"f3ce\"}",
+            "title": "Build Flexible Mobile Plans",
+            "text": "Brands can choose wholesale network partners, create data, voice, and text bundles, and control retail pricing through Spenza’s visual plan builder without extensive engineering work."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
+            "title": "Automate Billing and Compliance",
+            "text": "Spenza integrates recurring billing, proration, usage-based charges, telecom taxes, KYC, and regulatory workflows to reduce operational complexity for MVNOs."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"route\", \"label\" : \"Route\", \"unicode\" : \"f4d7\"}",
+            "title": "Scale a Branded Connectivity Business",
+            "text": "An MVNO can create recurring revenue by bundling connectivity with hardware while using an operator-neutral marketplace and Bring Your Own Network capabilities to expand across markets."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"rocket\", \"label\" : \"Rocket\", \"unicode\" : \"f135\"}",
+            "title": "Spenza Enables 7-Day MVNO Launches",
+            "text": "Spenza combines carrier integrations, no-code workflows, eSIM provisioning, billing, compliance, and branded customer experiences into a turnkey MVNO platform, helping device OEMs, hardware brands, and IoT startups launch and scale mobile services."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/mvno/launch-mvno-7-days/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/mvno/launch-mvno-7-days/"
+              },
+              "author": {
+                "name": "SivaSai",
+                "@id": "https://spenza.com/#/schema/person/1e3d01b217300c2230b9747116185ede"
+              },
+              "headline": "Launch a Branded MVNO in 7 Days with Spenza",
+              "datePublished": "2025-08-07T10:58:15+00:00",
+              "dateModified": "2026-08-13T05:58:57+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/mvno/launch-mvno-7-days/"
+              },
+              "wordCount": 1774,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/launch-mvno-7-days/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png",
+              "keywords": [
+                "Branded mobile service",
+                "connectivity as a service",
+                "eSIM MVNO platform",
+                "fast time to market MVNO",
+                "Launch MVNO",
+                "MVNO",
+                "MVNO for device OEMs",
+                "MVNO launch blueprint",
+                "no-code MVNO platform",
+                "recurring revenue for hardware",
+                "spenza"
+              ],
+              "articleSection": [
+                "MVNO"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/mvno/launch-mvno-7-days/",
+              "url": "https://spenza.com/mvno/launch-mvno-7-days/",
+              "name": "Launch a Branded MVNO in 7 Days with Spenza - Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/mvno/launch-mvno-7-days/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/launch-mvno-7-days/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png",
+              "datePublished": "2025-08-07T10:58:15+00:00",
+              "dateModified": "2026-08-13T05:58:57+00:00",
+              "description": "Launch a branded MVNO in 7 days with Spenza: host carrier access, billing, eSIM provisioning and a storefront, without building telecom infrastructure.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/mvno/launch-mvno-7-days/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/mvno/launch-mvno-7-days/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/mvno/launch-mvno-7-days/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/08/Launch-in-7-days.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "Launch MVNO -in-7-days with spenza"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/mvno/launch-mvno-7-days/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "MVNO",
+                  "item": "https://spenza.com/category/mvno/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Launch a Branded MVNO in 7 Days with Spenza"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/1e3d01b217300c2230b9747116185ede",
+              "name": "SivaSai",
+              "description": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO &amp; AI Search | Email Campaigns &amp; Funnels | AI-driven B2B SaaS Growth",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/sivasai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/mvno/launching-mvno/",
+      "url": "https://spenza.com/mvno/launching-mvno/",
+      "status": 200,
+      "h1": [
+        "How to Launch a MVNO With Spenza in Days"
+      ],
+      "bodyWords": 1874,
+      "headings": [
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What Is an MVNO?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Spenza accelerates the MVNO business"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Process and Speed of Launching an MVNO with Spenza’s Support"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What You Need Before Launching an MVNO"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Spenza Handles vs What the MVNO Provides"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why Choose Spenza for Your MVNO Launch?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "level": "h5",
+          "id": null,
+          "text": "Trusted by Industry Leaders"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In the ubiquitous world of mobile services, Mobile Virtual Network Operators (MVNOs) play a crucial role by offering tailored services and innovative solutions to meet the diverse needs of consumers and businesses. However, launching an MVNO can be a complex and resource-intensive endeavor. Spenza provides a streamlined path to launching a lite-MVNO in a few days. Spenza offers a comprehensive platform, eSIM-based multi-operator contracts, and advanced apps that accelerate and simplify the MVNO business."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What Is an MVNO?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO is a mobile service provider that sells mobile connectivity under its own brand without owning the underlying radio access network. Instead, it obtains wholesale mobile network services from one or more network operators and focuses on its own products, pricing, customer experience, and distribution."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO can therefore build a differentiated mobile service without constructing a nationwide cellular network. The amount of infrastructure and operational capability the MVNO needs to build itself depends on its MVNO model and the capabilities provided by its MVNE, MNO, or other technology partners."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Spenza accelerates the MVNO business"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Comprehensive MVNO enablement platform: Spenza offers an end-to-end platform for launching a MVNO, from initial planning to implementation and ongoing management. This includes network integration, billing systems, subscription management, and marketing strategies, ensuring companies have all the necessary tools and support. Global Connectivity: Spenza enables MVNOs to resell 4G/5G data and voice services in over 200 countries with Spenza-negotiated operator contracts, offering both local and roaming services with a flexible pool and unlimited plan options. Irrespective of the use cases, whether for fixed applications or traveling, high or low bandwidth applications for consumer or IoT devices, Spenza ensures reliable global connectivity tailored to your needs with eSIM or SIMs with multi-operator connectivity. Connectivity & Subscription Platform: Manage consumer and IoT devices and services through a single platform. Spenza’s platform allows for the reselling and tracking of subscriptions, making it easy to manage devices, services, and plans in one place. The platform supports both SIM and eSIM-based device activation, providing a completely digital experience with remote activation capabilities. Management APIs: Spenza’s API-based connectivity solution offers access to dozens of operators, enabling the integration of voice, SMS, and data solutions across 5G, LTE, NB-IOT, LTE-M, and other IoT configurations. The robust APIs support complex workflows, on-field activation/deactivation of services, and seamless management of global connectivity services. White-label consumer apps: With Spenza consumer APIs and apps, MVNOs can launch branded mobile service with custom activation flow through apps and messaging services like SMS, WhatsApp, or a browser. The entire user experience and messaging can be personalized to align with brand promise, device form factor, and user needs."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Process and Speed of Launching an MVNO with Spenza’s Support"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Initial Consultation and Planning: The journey begins with an in-depth consultation to understand the company’s vision and requirements. Spenza’s experts develop a tailored strategy and roadmap for the MVNO launch. This typically involves understanding the MVNO business goals, identifying the target market, and end-user connectivity needs. Service design and mapping the end-user journey: Based on the MVNOs requirements and volume projections, Spenza proposes the mobile plan, pricing, and end-user experience. MVNOs will have the choice of calibrating the pricing and user experience to align with business goals. Spenza offers a wide range of operator partners, and additionally, MVNOs can use their own operator contracts for designing the mobile plans. Network Integration: Spenza has pre-integrated with major operators and facilitates seamless integration with additional network operators, ensuring reliable and high-quality connectivity. This includes technical setup, testing, and validation to automate inventory, service management, and billing for the MVNOs. Accounts setup and launch: Spenza configures its platform to implement the service requirements of the MVNO, including creating plans across multiple operators, inventory build-up, setting up billing, and user management tools. Regulatory Compliance: Spenza provides comprehensive support to get certified and compliant with all relevant laws and regulations, including GDPR and SOC2 compliance. Testing and Quality Assurance: Rigorous testing and quality assurance are conducted before the official launch to identify and address any potential issues, ensuring the MVNO is fully operational and ready to deliver a seamless user experience. Launch and Ongoing Support: With everything in place, the MVNO is ready for launch. Spenza provides a single pane of glass and support channel across partner operator systems to identify any technical issues, assign ownership, and track issues to closure."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What You Need Before Launching an MVNO"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Before the launch process begins, the MVNO should have several core decisions ready:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Target market and proposition: Define who the service is for and why customers would choose it. Commercial model: Determine pricing, plans, expected volumes, and revenue model. Network requirements: Define target countries, coverage, voice/SMS/data requirements, and preferred operators. Brand and customer experience: Prepare the brand, activation journey, customer support model, and communication channels. Device and SIM strategy: Determine whether customers will use physical SIMs, eSIMs, or both. Compliance requirements: Identify the regulatory obligations applicable to each launch market. Operational requirements: Define billing, provisioning, inventory, support, reporting, and account-management requirements."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Spenza Handles vs What the MVNO Provides"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A successful MVNO launch requires both platform capabilities and business inputs. Spenza provides the connectivity and technology layer, including network integration, SIM/eSIM activation, subscription management, billing configuration, APIs, and operational support."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The MVNO still needs to define its target market, proposition, pricing, branding, customer experience, launch markets, and commercial requirements. Spenza then configures the platform and connectivity environment around those requirements."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why Choose Spenza for Your MVNO Launch?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza offers a competitive edge with its global connectivity, robust platform, and advanced APIs. Here are some key benefits:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Global Connectivity: 4G/ 5G data, voice, and SMS services in over 200 countries. Flexible Plans: Affordable and flexible plans tailored to meet your specific needs. Advanced APIs: Scalable APIs for managing all connectivity use cases, supporting complex workflows, and personalized end-user experience. Comprehensive Platform: Manage consumer and IoT devices , services, and plans in one place. Regulatory Compliance: Full support for regulatory compliance and documentation. Expert Support: Continuous support from Spenza’s team of experts to ensure ongoing success."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Launching an MVNO can be a daunting process, but with Spenza’s comprehensive solutions, expert guidance, and cutting-edge technology, businesses can navigate this journey with confidence. Spenza’s global connectivity, robust platform, and advanced APIs ensure a seamless and efficient MVNO eSIM launch, enabling companies to quickly bring their services to market and capitalize on new opportunities in the telecommunications landscape.Ready to launch your eSIM MVNO with Spenza? Get Started"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s solutions are trusted by industry leaders to provide reliable, scalable, and flexible connectivity services globally. Join the ranks of successful MVNOs powered by Spenza and transform your telecommunications offerings today."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For more information on how Spenza can assist in launching your MVNO, visit our website or contact us at johnny@preprod.spenza.com .To learn more about reselling mobile plans on Shopify, check out this detailed guide . This guide explains how to link a Spenza account with a Shopify store, add custom products, and resell mobile plans globally."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO is a telecom service provider who has no control over any physical network but offers telecom services. Different from other mobile operators, MVNOs rent network capacity from ordinary and principal carriers while outsourcing branding, customer care, and product differentiation and innovation initiatives. eSIM-based multi-operator MVNEs incorporate the use of the embedded SIM technology to enable switching from one network to another, with better coverage and services. This makes MVNOs a cheap and versatile model which is suitable for a company and a consumer looking for a specialized telecommunications service."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO launch timeline depends on the target market, regulatory requirements, network agreements, product scope, integrations, and operational readiness. A platform such as Spenza can shorten the technology and operational setup by providing pre-integrated connectivity, provisioning, billing, APIs, and management capabilities, but the overall launch timeline still depends on the requirements of the specific MVNO."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Multi-Operator MVNOs using eSIM offer corporate entities flexibility of how they use the network and better coverage. E-SIM enables different phone owners to change their SIM card service providers electronically without having to change a physical SIM card to do so in case the other provider’s network is better for them. This innovation cuts operating expenses, makes the supply chain more streamlined, and addresses international business requirements. MVNOs also are a way for businesses to manage and modify mobile plans and improve customers’ experiences, which makes them a perfect solution for enterprises in need of cost-effective and easily expandable telecommunication services."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If you want to start an MVNO, first you need to identify the niche for your service and proposition. Sign access deals with the service providers of the related infrastructures. Adopt eSIM based multi operator solution for flexibility connectivity solution. Ensure that you have a business model that outlines issues to do with pricing, marketing and customer support. Allocate resources towards compliance and efficient and effective technology systems. The market analysis shows that branding and partnerships contribute significantly to the success of an MVNO in a competitive telecom market environment."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO needs a defined target market and business model, mobile network access, service plans and pricing, branding, SIM/eSIM capabilities, provisioning, billing, customer management, compliance processes, testing, and ongoing operational support."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. An MVNO can use connectivity from multiple operators when its technology and commercial arrangements support it. Multi-operator connectivity can provide broader coverage, greater flexibility, and network redundancy across markets."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. An MVNO can support eSIM-based activation where compatible devices, eSIM infrastructure, and operator arrangements are available. eSIM can also reduce physical SIM logistics and support remote provisioning capabilities. GSMA’s current eSIM specifications include active standards for consumer and IoT use cases."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Entering into launching an MVNO requires compliance to the local telecom regulations. This includes proper licensing requirements, data privacy regulation, and multi-operator eSIM’s compliance. Specific laws may differ from country to country, however, it is generally a necessity for operations to be partnering with a licensed network operator, the customer identification verification system, and lawful interception features. It is advisable to seek the services of professional consultants to help in the adherence of the set regulations and law."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO sells mobile services under its own brand, while an MVNE provides technology and operational infrastructure that can help an MVNO launch and manage those services. An MVNE may provide capabilities such as network integration, provisioning, billing, APIs, and service management."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM technology transforms MVNO operations by enabling multi-operator capabilities. Unlike traditional SIM cards, eSIMs allow users to switch between networks instantly, ensuring better coverage and reduced downtime. This feature is invaluable for international travelers and businesses requiring global connectivity. eSIMs also lower logistics costs and support streamlined provisioning, making them a strategic asset for modern MVNOs."
+        }
+      ],
+      "links": [
+        {
+          "text": "Mobile Virtual Network Operators (MVNOs)",
+          "href": "/blog/best-mvno/"
+        },
+        {
+          "text": "eSIM",
+          "href": "/blog/how-esim-technology-is-transforming-iot-connectivity/"
+        },
+        {
+          "text": "5G",
+          "href": "https://en.wikipedia.org/wiki/5G"
+        },
+        {
+          "text": "IoT devices",
+          "href": "https://en.wikipedia.org/wiki/Internet_of_things"
+        },
+        {
+          "text": "Get Started",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        },
+        {
+          "text": "guide",
+          "href": "/blog/reselling-mobile-plans-on-shopify-store/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/12/33.png",
+          "class": "attachment-full size-full wp-image-6926 webpexpress-processed",
+          "alt": "How to launch a MVNO with SPENZA",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/12/33-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/33-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/33-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/33.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/12/33.png\" class=\"attachment-full size-full wp-image-6926 webpexpress-processed\" alt=\"How to launch a MVNO with SPENZA\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/12/33-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/33-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/33-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/33.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [],
+        "oneCol": []
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/mvno/launching-mvno/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/mvno/launching-mvno/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "How to Launch a MVNO With Spenza in Days",
+              "datePublished": "2024-07-10T04:56:15+00:00",
+              "dateModified": "2026-08-14T10:10:00+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/mvno/launching-mvno/"
+              },
+              "wordCount": 1190,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/launching-mvno/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2024/12/33.png",
+              "keywords": [
+                "Connectivity Platform",
+                "eSIM Activation",
+                "Global Connectivity",
+                "IoT Solutions",
+                "Mobile Virtual Network Operator",
+                "MVNO Launch",
+                "Telecommunications"
+              ],
+              "articleSection": [
+                "MVNO"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/mvno/launching-mvno/",
+              "url": "https://spenza.com/mvno/launching-mvno/",
+              "name": "How to Launch a MVNO With Spenza in Days",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/mvno/launching-mvno/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/launching-mvno/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2024/12/33.png",
+              "datePublished": "2024-07-10T04:56:15+00:00",
+              "dateModified": "2026-08-14T10:10:00+00:00",
+              "description": "How to launch a MVNO with Spenza: global connectivity, tailored plans and billing on one platform, so you go to market without building a network.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/mvno/launching-mvno/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/mvno/launching-mvno/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/mvno/launching-mvno/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2024/12/33.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2024/12/33.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "How to launch a MVNO with SPENZA"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/mvno/launching-mvno/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "MVNO",
+                  "item": "https://spenza.com/category/mvno/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "How to Launch a MVNO With Spenza in Days"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/spenza-product/reselling-mobile-plans-on-shopify-store/",
+      "url": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/",
+      "status": 200,
+      "h1": [
+        "How to launch an MVNO with Spenza Platform"
+      ],
+      "bodyWords": 1610,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What is an MVNO Enablement Platform?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Benefits of Using Spenza for MVNO Launches"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Linking Spenza Account with Shopify Store"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Install Spenza from Shopify Store"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Organizing Products and Collections"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Purchasing and Tracking Subscriptions"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Managing Subscriptions with Enterprise Mobility"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In the past – launching an international MVNO required complex negotiations with multiple operators, investment in a subscription management platform, and managing multiple marketplace listings. Not any longer! With Spenza, you will be launching your MVNO in minutes! Spenza provides a robust MVNO enablement platform, enabling brands to procure, resell plans, collect payments, and track subscriptions seamlessly. It also offers enterprise mobility management solutions that streamline telecom operations. This guide explains how to link a Spenza account with a Shopify store, add custom products, and resell mobile plans globally."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What is an MVNO Enablement Platform?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO enablement platform provides the tools needed to launch and operate a Mobile Virtual Network Operator (MVNO) without building telecom infrastructure from scratch. It typically includes mobile plan provisioning, billing, subscription management, payment processing, API integrations, and customer lifecycle management, enabling businesses to launch connectivity services faster and at lower cost."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Benefits of Using Spenza for MVNO Launches"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Launching an international MVNO has traditionally been a complex and costly process, but with Spenza’s MVNO enablement platform, you can experience numerous benefits that simplify and accelerate your journey."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Faster Time-to-Market: Spenza has the added advantage of integrating with other platforms such as Shopify to help you establish your MVNO in minutes not weeks. The easy setup and synchronization makes for a very short go-live time so that your telecom plans are ready for customers almost as soon as possible. Cost Efficiency: Spenza saves money by not requiring expensive investments in a subscription management platform and many operators’ negotiations. This eliminates operational costs that normally come hand in hand with the formation of an MVNO and frees up capital which might be of immense importance in other areas of business. Simplified Enterprise Mobility Management : The Spenza helps organisations to tackle the EMM challenges effectively since it helps brands to control telecom subscriptions, monitor usage and do collections for them at the same place. This integration helps you in getting visibility and control over your MVNO operations and therefore makes your business management comfortable. Scalable and Global Reach: Whether you are looking to sell mobile plans locally or globally, Spenza allows for global reselling capabilities. You can easily add custom products, adjust offerings, and scale your MVNO operations without geographical limitations. Real-Time Tracking and Updates: With Spenza’s enterprise mobility management solutions, you gain access to real-time updates and a centralized dashboard that lets you track and manage phone lines, subscriptions, and usage. This real-time data empowers you to make informed decisions and optimize your telecom services with ease."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By choosing Spenza for your MVNO launch, you are not just simplifying the process but also empowering your brand with the tools needed for sustainable and efficient telecom operations."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Linking Spenza Account with Shopify Store"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 1: Log in to your Spenza business account. Go to Settings → Account Management."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Inside Account Management, locate “Shopify Merchant.” This is where you can link your Shopify store with your Spenza account. Click on “Connect” and add the link to your Shopify store"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ".Connecting Shopify with Spenza is beneficial as it ensures seamless synchronization of purchase details, eliminating the need for manual data entry. This integration enhances enterprise mobility management by allowing real-time updates, better inventory management, and streamlined operations."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": "Step Action 1 Connect your Spenza account to Shopify 2 Install the Spenza Shopify app 3 Import mobile plans from the Spenza Marketplace 4 Organize plans into Shopify collections 5 Publish plans to your online store 6 Track subscriptions, usage, and billing from the Spenza dashboard"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Install Spenza from Shopify Store"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 2: Open your Shopify admin dashboard and navigate to the Shopify App Store. Use the search bar to find the Spenza app. Once located, click on it to view the app details. Click on the “Install” button and follow the on-screen instructions to add the Spenza app to your Shopify store."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 3: After installation, go to the Apps section in your Shopify admin dashboard. You will see Spenza listed among your installed apps."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Click on the Spenza app to open it. You will be prompted to log in to your Spenza business account. Enter your credentials and log in. Once logged in, you will have access to the Spenza Marketplace. Here, you can view all available plans. Select the plans you wish to add to your Shopify store and click on “Proceed” to add them to your product cart."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Organizing Products and Collections"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 4: Go to the Products page from your Shopify admin dashboard. Here, you can see all the products available in your store. Select the products (plans) you added from Spenza and add them to your preferred collections. This makes it easier for customers to find and purchase them. After organizing the products into collections, ensure to save the changes to update your store catalog."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 5: Add these products to your sales channel as well, in this case, the online store. This step ensures that the products are visible to your customers for purchase."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Purchasing and Tracking Subscriptions"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 6: The products you added from Spenza will now be visible in your Shopify store. Customers can browse these products, view details, and select the plans they wish to purchase. During the purchase process, customers will need to enter their contact information and payment details. This ensures that all necessary information is collected for the subscription."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 7: After the payment is successfully processed, the customer will receive an order confirmation. This typically includes a confirmation email with details of the purchase. The subscription will be activated, and the user’s details will be recorded in your Spenza account."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Managing Subscriptions with Enterprise Mobility"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 8: In your Spenza account, go to the Enterprise Mobility Management section and select Phone Lines. Here, you will see the updated phone line information, including the new subscriptions. The user information will also be updated in your Spenza database, allowing you to track phone lines, subscriptions, and usage."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 9: In the Enterprise Mobility Management Solutions section, select Subscriptions. A new subscription entry will be created for each purchase. By clicking on the subscription ID, you can view detailed information about the subscription, including purchase details and usage data."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Step 10: The Spenza dashboard provides a centralized view of all your subscriptions. You can see spend and usage data for subscriptions from various operators. The dashboard offers near real-time updates, allowing you to monitor and manage your telecom expenses efficiently."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can seamlessly integrate Spenza with Shopify, allowing for efficient management and tracking of telecom plans and subscriptions. These enterprise mobility management solutions make it easier to manage your business operations globally."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "See Spenza demo for step-by-step instructions on launching an MVNO."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s MVNO enablement platform simplifies launching an international MVNO by integrating with platforms like Shopify. It allows brands to procure, resell telecom plans, collect payments, and track subscriptions seamlessly. This solution eliminates the need for complex negotiations, subscription management platforms, and multiple marketplace listings. With Spenza, businesses can go live quickly, scale globally, and manage telecom operations with ease, making it the ideal platform for modern MVNO launches."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With Spenza’s MVNO enablement platform, businesses can connect their Shopify store, import mobile plans, configure products, and begin selling much faster than with traditional MVNO launches. The exact timeline depends on business requirements and store configuration, but the platform significantly reduces the complexity of launching and managing mobile connectivity services."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza provides cost-efficient solutions by eliminating the need for heavy investments in subscription management platforms and reducing the operational complexity of dealing with multiple telecom operators. By using Spenza, businesses can focus on reselling telecom plans and managing subscriptions without worrying about complex setups. Its centralized dashboard and enterprise mobility management features allow operators to track spending and usage, further optimizing resources and minimizing unnecessary expenditures. This approach enables businesses to scale their MVNOs without incurring prohibitive costs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Enterprise Mobility Management (EMM) refers to the administration of mobile devices, applications, and data within a company. Spenza integrates EMM solutions by providing a platform where businesses can easily track phone lines, subscriptions, and usage data in real-time. Through Spenza’s dashboard, businesses can gain valuable insights into telecom expenses and user activities, all while maintaining control over their MVNO operations. This seamless integration ensures greater operational efficiency, better inventory management, and real-time updates, allowing businesses to manage their telecom services effectively."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes, Spenza supports global MVNO launches by offering reselling capabilities that allow businesses to provide mobile plans worldwide. The platform’s scalability ensures that companies can easily adjust their offerings based on geographic location and customer demand. By connecting Spenza with Shopify, businesses can list telecom products in multiple currencies and regions, reaching a global audience. Spenza’s integration with enterprise mobility management solutions ensures that businesses can monitor subscriptions and phone lines across borders, making it an ideal platform for global MVNO operations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The integration between Spenza and Shopify enhances the management of telecom products by synchronizing purchase details, tracking inventory, and enabling real-time updates. This integration helps eliminate manual data entry, providing a smoother user experience and improving operational efficiency. MVNO operators can easily list and sell mobile plans, organize products into collections, and make them available through Shopify’s online store. By connecting Spenza with Shopify, businesses can focus on growing their customer base, managing subscriptions, and enhancing their enterprise mobility management efforts seamlessly."
+        }
+      ],
+      "links": [
+        {
+          "text": "MVNO",
+          "href": "/blog/what-are-mvnos-and-the-best-options-for-you/"
+        },
+        {
+          "text": "Spenza",
+          "href": "/"
+        },
+        {
+          "text": "Shopify",
+          "href": "https://en.wikipedia.org/wiki/Shopify"
+        },
+        {
+          "text": "Spenza demo",
+          "href": "/device-vendors-demo/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png",
+          "class": "attachment-full size-full wp-image-5800 webpexpress-processed",
+          "alt": "ecommerce store showcasing mobile devices, ideal for initiating a mobile reselling business plan.",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/06/Frame-72-1-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/06/Frame-72-1-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/06/Frame-72-1-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/06/Frame-72-1.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png\" class=\"attachment-full size-full wp-image-5800 webpexpress-processed\" alt=\"ecommerce store showcasing mobile devices, ideal for initiating a mobile reselling business plan.\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-53-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5596",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-53-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-2048x877.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-53-1024x439.png\" alt=\"\" class=\"wp-image-5596\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-53-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-53-2048x877.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "150",
+          "height": "150",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-58-1024x439-1-150x150.png",
+          "alt": "",
+          "class": "wp-image-5601",
+          "title": "",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"150\" height=\"150\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-58-1024x439-1-150x150.png\" alt=\"\" class=\"wp-image-5601\" title=\"\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-54-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5597",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-54-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-2048x877.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-54-1024x439.png\" alt=\"\" class=\"wp-image-5597\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-54-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-54-2048x877.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "150",
+          "height": "150",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-50-1024x439-1-150x150.png",
+          "alt": "",
+          "class": "wp-image-5593",
+          "title": "",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"150\" height=\"150\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-50-1024x439-1-150x150.png\" alt=\"\" class=\"wp-image-5593\" title=\"\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-52-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5595",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-52-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-52-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-52-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-52-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-52.png 1799w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-52-1024x439.png\" alt=\"\" class=\"wp-image-5595\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-52-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-52-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-52-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-52-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-52.png 1799w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "150",
+          "height": "150",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-59-1024x439-1-150x150.png",
+          "alt": "",
+          "class": "wp-image-5602",
+          "title": "",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"150\" height=\"150\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-59-1024x439-1-150x150.png\" alt=\"\" class=\"wp-image-5602\" title=\"\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-55-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5598",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-55-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-2048x877.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-55-1024x439.png\" alt=\"\" class=\"wp-image-5598\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-55-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-55-2048x877.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-57-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5600",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-57-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-2048x877.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-57-1024x439.png\" alt=\"\" class=\"wp-image-5600\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-57-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-57-2048x877.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-51-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5594",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-51-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-2048x877.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-51-1024x439.png\" alt=\"\" class=\"wp-image-5594\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-51-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-51-2048x877.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-56-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5599",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-56-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-2048x877.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-56-1024x439.png\" alt=\"\" class=\"wp-image-5599\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-56-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-56-2048x877.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "439",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/06/image-60-1024x439.png",
+          "alt": "",
+          "class": "wp-image-5603",
+          "title": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/06/image-60-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-2048x877.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"439\" src=\"https://media.spenza.com/wp-content/uploads/2024/06/image-60-1024x439.png\" alt=\"\" class=\"wp-image-5603\" title=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/06/image-60-1024x439.png 1024w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-300x129.png 300w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-768x329.png 768w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-1536x658.png 1536w, https://media.spenza.com/wp-content/uploads/2024/06/image-60-2048x877.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "Launching an MVNO no longer requires lengthy carrier negotiations or expensive telecom infrastructure. With Spenza's MVNO enablement platform, businesses can integrate with Shopify, resell mobile plans, automate subscription management, and monitor telecom operations from a centralized dashboard—accelerating go-to-market while reducing operational complexity.",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"forward-fast\", \"label\" : \"Forward Fast\", \"unicode\" : \"f050\"}",
+            "title": "Launch Your MVNO Faster",
+            "text": "Spenza simplifies MVNO deployment by integrating directly with Shopify, enabling businesses to procure, resell, and manage mobile plans within minutes instead of months."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"brands\", \"id\" : \"shopify\", \"label\" : \"Shopify\", \"unicode\" : \"e057\"}",
+            "title": "Seamlessly Connect Shopify with Telecom Services",
+            "text": "The Shopify integration synchronizes mobile plans, orders, payments, and subscriptions automatically, eliminating manual processes while creating a streamlined customer purchasing experience."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
+            "title": "Manage Subscriptions from One Dashboard",
+            "text": "Businesses can track phone lines, subscriptions, customer usage, and telecom spending through a centralized Enterprise Mobility Management dashboard with near real-time updates."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-simple\", \"label\" : \"Chart Simple\", \"unicode\" : \"e473\"}",
+            "title": "Scale Your MVNO Business Globally",
+            "text": "Spenza enables global telecom reselling by supporting multiple regions, currencies, and enterprise mobility management, allowing businesses to expand internationally while maintaining centralized operational control."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
+            "title": "Why Spenza for MVNO Launches",
+            "text": "Spenza provides an end-to-end MVNO enablement platform that combines Shopify integration, subscription management, payment collection, enterprise mobility management, and global telecom reselling—helping brands launch, operate, and scale profitable MVNO businesses with minimal infrastructure."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "How to launch an MVNO with Spenza Platform",
+              "datePublished": "2026-04-04T11:12:00+00:00",
+              "dateModified": "2026-08-12T07:08:38+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/"
+              },
+              "wordCount": 1124,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png",
+              "keywords": [
+                "eSIM",
+                "IoT",
+                "MVNO",
+                "plans",
+                "resell",
+                "Shopify",
+                "spenza",
+                "Telecom Expense Management",
+                "TEM",
+                "travel sim"
+              ],
+              "articleSection": [
+                "Spenza Platform"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/",
+              "url": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/",
+              "name": "How to launch an MVNO with Spenza Platform - Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png",
+              "datePublished": "2026-04-04T11:12:00+00:00",
+              "dateModified": "2026-08-12T07:08:38+00:00",
+              "description": "Resell mobile plans on your Shopify store and run it like an MVNO: integration steps, plan variants, marketing tactics and margin math with Spenza.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2024/06/Frame-72-1.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "ecommerce store showcasing mobile devices, ideal for initiating a mobile reselling business plan."
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/spenza-product/reselling-mobile-plans-on-shopify-store/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Spenza Platform",
+                  "item": "https://spenza.com/category/spenza-product/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "How to launch an MVNO with Spenza Platform"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -76,11 +76,80 @@ import type { AcfBlocks } from '../../lib/acf-blocks.ts';
 import m03Billing from './mvno-billing-platforms.html?raw';
 import m08Roles from './mno-mvno-mvne-mvna-roles.html?raw';
 import m12Selection from './mvne-provider-selection.html?raw';
+import m18Selection from './launch-mvno-7-days.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "launch-mvno-7-days": {
+  "slug": "launch-mvno-7-days",
+  "category": "mvno",
+  "cluster": "M18: Spenza implementation walkthrough",
+  "title": "Launch an MVNO with Spenza: Setup and Readiness",
+  "excerpt": "Follow Spenza’s published account and Shopify steps, review a proposed seven-day schedule and validate the service before launch.",
+  "seoTitle": "Launch an MVNO with Spenza: Setup and Readiness",
+  "seoDescription": "Launch an MVNO with Spenza using a scoped setup plan. Review prerequisites, Shopify steps, a proposed seven-day schedule and go-live acceptance checks.",
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2024/12/33.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/33.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/12/33.png\" class=\"attachment-full size-full wp-image-6926 webpexpress-processed\" alt=\"How to launch a MVNO with SPENZA\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/12/33-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/33-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/33-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/33.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "How to launch an MVNO with Spenza",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-08-07T10:58:15+00:00",
+  "updatedDate": "2026-09-23T09:53:03.520Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2133,
+  "donors": [
+    {
+      "path": "/mvno/launching-mvno/",
+      "title": "How to Launch a MVNO With Spenza in Days",
+      "clicks": 13,
+      "contributes": "Account setup, catalog and Shopify workflow, subscription inspection and launch prerequisites"
+    },
+    {
+      "path": "/spenza-product/reselling-mobile-plans-on-shopify-store/",
+      "title": "How to launch an MVNO with Spenza Platform",
+      "clicks": 8,
+      "contributes": "Account setup, catalog and Shopify workflow, subscription inspection and launch prerequisites"
+    }
+  ],
+  "content": m18Selection,
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Launch an MVNO with Spenza by defining the service, completing prerequisites, configuring the account and catalog, and accepting the full customer workflow. The published Shopify walkthrough provides concrete setup and subscription-management steps. A proposed seven-day sequence can organize the work, but it does not establish a measured customer launch. Network access, device support, commercial approval and operational readiness remain project-specific dependencies that need owners and evidence.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Confirm the entry conditions",
+        "text": "Agree on the offer, permitted network services, devices and operating owners before configuration."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"store\"}",
+        "title": "Connect account and catalog",
+        "text": "Follow the published merchant, app, plan-import and channel-publication sequence; verify current labels."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"arrows-rotate\"}",
+        "title": "Test the complete transaction",
+        "text": "Trace purchase, subscription and usable device service, including failures and recovery."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calendar-check\"}",
+        "title": "Treat seven days as a plan",
+        "text": "Use proposed work packages with acceptance artifacts, not an unsupported delivery guarantee."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+        "title": "Release against evidence",
+        "text": "Name the go/no-go owner and confirm purchase, subscription and device-service outcomes before opening the offer."
+      }
+    ]
+  }
+},
   "mvne-provider-selection": {
   "slug": "mvne-provider-selection",
   "category": "mvno",
