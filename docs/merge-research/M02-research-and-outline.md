@@ -1,6 +1,6 @@
 # M02 research and Phase 4 outline
 
-Prepared 23 September 2026. M02 only, on `blog-automation`. Awaiting outline approval. No article body or preview registration has been created. Destination `/mvno/mvno/`, category `mvno`, remains unchanged. M07 and M16 stay held and untouched.
+Prepared 23 September 2026. M02 only, on `blog-automation`. Phase 4 outline approved by the user ("yes i approve"). The outline below records the approved plan; the completed draft, measured counts and publication hold are recorded in [M02-phase-6-review.md](./M02-phase-6-review.md). Destination `/mvno/mvno/`, category `mvno`, remains unchanged. M07 and M16 stay held and untouched.
 
 Read alongside the [full section-level Merge Map and citation-priority register](./M02-phase-1-audit.md), [live source capture](./M02-source-audit.json), [live fragment IDs](./M02-live-heading-anchors.json), and [complete image inventory](./M02-image-inventory.md).
 
@@ -302,7 +302,7 @@ CTA blocks may repeat the commercial target. Other body links stay unique. M16 i
 
 Six primary external URLs planned. All were read through the web tool. The GSMA Open Gateway PDF was initially retrievable, then returned 403 on follow-up; the GSMA interoperability article and FCC number-porting guide also returned 403. They are research leads, not passed source-verification entries or required article citations. No unsupported regulatory conclusion depends on them.
 
-### Approval boundary and later checks
+### Phase 4 approval boundary (historical record)
 
 Stop here for outline approval under `.codex/skills/blog-merge/SKILL.md`, Phase 4: “then stop and wait for approval. Do not write the article yet.” No preview body, manifest row, queue status, image generation, WordPress change or redirect has been produced.
 
