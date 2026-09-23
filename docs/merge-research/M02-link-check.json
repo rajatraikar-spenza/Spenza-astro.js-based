@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-09-23T07:45:42.567Z",
+  "method": "HEAD; no article edits or re-audit of linked clusters",
+  "results": [
+    {
+      "path": "/mvno/mno-mvno-mvne-mvna-roles/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvno/mno-mvno-mvne-mvna-roles/"
+    },
+    {
+      "path": "/mvno/mvno-types/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvno/mvno-types/"
+    },
+    {
+      "path": "/mvno/mvno-mvno-launch-cost/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvno/mvno-mvno-launch-cost/"
+    },
+    {
+      "path": "/mvno/mvno-billing-platforms/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvno/mvno-billing-platforms/"
+    },
+    {
+      "path": "/mvno/mvne-provider-selection/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvno/mvne-provider-selection/"
+    },
+    {
+      "path": "/mvno/launch-mvno-us-guide/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvno/launch-mvno-us-guide/"
+    },
+    {
+      "path": "/mvne/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvne/"
+    },
+    {
+      "path": "/mvno-calculator/",
+      "status": 200,
+      "resolved": "https://spenza.com/mvno-calculator/"
+    },
+    {
+      "path": "/spenza-product/rocketphone-case-study/",
+      "status": 200,
+      "resolved": "https://spenza.com/spenza-product/rocketphone-case-study/"
+    }
+  ]
+}
