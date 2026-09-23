@@ -1,0 +1,158 @@
+---
+/**
+ * /search/ — blog search results, for the "Search articles" box on the blog
+ * index, the category archives and the day archives.
+ *
+ * On WordPress that box submitted to `/?s=`, which WordPress answered with a
+ * results page. Here `/` is the home page and nothing reads `?s=`, so every
+ * search quietly landed on the home page with no results at all. The box now
+ * submits to this page instead (`action="/search/"` in the partials), and a
+ * stray `/?s=` from an old link is forwarded here by wp-shim.js.
+ *
+ * The page is the blog index's own shell — header, hero, category bar, search
+ * box — with the loop grid replaced by a results region. The script below
+ * fills it from `/search-index.json` using `renderCard`, the function that
+ * builds the blog index's cards, so a result is the same card a reader sees on
+ * /blog/, styled by the same bundle.
+ *
+ * `noindex`: a results page is a thin copy of pages that are already indexed,
+ * and every query string would be another URL of it. Kept out of the XML
+ * sitemap and llms.txt for the same reason.
+ */
+import WpLayout from '../layouts/WpLayout.astro';
+import { replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
+import shell from '../partials/blog.html?raw';
+
+const HEADING = 'Latest Telecom Industry <span class="hero-highlight">Insights</span>';
+if (!shell.includes(HEADING)) {
+  throw new Error('search.astro: the blog shell no longer carries its heading; update HEADING');
+}
+
+const results = `
+<div class="wp-search" id="wp-search" aria-live="polite">
+  <p class="wp-search__status" id="wp-search-status">Searching…</p>
+  <div class="elementor-loop-container elementor-grid" id="wp-search-grid"></div>
+  <button type="button" class="wp-search__more" id="wp-search-more" hidden>Show more results</button>
+  <noscript><p class="wp-search__status">Search needs JavaScript. Browse every article on the <a href="/blog/">blog</a>.</p></noscript>
+</div>`;
+
+// The blog index's loop grid, as in `blog/[...page].astro`.
+const body = replaceWidgetInner(shell, 'a9c42f2', results).replace(HEADING, 'Search the <span class="hero-highlight">Blog</span>');
+---
+
+<WpLayout slug="blog" title="Search the Blog - Spenza" indexable={false}>
+  <Fragment set:html={body} />
+</WpLayout>
+
+<script>
+  import { renderCard, type CardData } from '../lib/post-card-render';
+
+  type Entry = CardData & { text: string };
+
+  const PAGE = 10;
+  const status = document.getElementById('wp-search-status')!;
+  const grid = document.getElementById('wp-search-grid')!;
+  const more = document.getElementById('wp-search-more') as HTMLButtonElement;
+
+  let index: Promise<Entry[]> | null = null;
+  const load = () =>
+    (index ??= fetch('/search-index.json').then(r => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    }));
+
+  /** Lower case, accents off, punctuation to spaces — applied to both sides. */
+  const norm = (s: string) =>
+    s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+
+  const escape = (s: string) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  /**
+   * Every word must appear somewhere; where it appears decides the order.
+   * A title match outweighs a category match, which outweighs one in the
+   * excerpt or headings, and the whole query as a phrase in the title wins
+   * outright. Ties keep the index's order, which is newest first.
+   */
+  function search(entries: Entry[], query: string): Entry[] {
+    const q = norm(query);
+    const words = q.split(' ').filter(Boolean);
+    if (!words.length) return [];
+    const scored: [Entry, number][] = [];
+    for (const e of entries) {
+      const title = ` ${norm(e.title)} `;
+      const cat = norm(e.categoryLabel);
+      const text = norm(e.text);
+      let score = 0;
+      let all = true;
+      for (const w of words) {
+        const inTitle = title.includes(w);
+        const inCat = cat.includes(w);
+        const inText = text.includes(w);
+        if (!inTitle && !inCat && !inText) { all = false; break; }
+        score += (inTitle ? (title.includes(` ${w} `) ? 6 : 4) : 0) + (inCat ? 3 : 0) + (inText ? 1 : 0);
+      }
+      if (!all) continue;
+      if (words.length > 1 && title.includes(q)) score += 10;
+      scored.push([e, score]);
+    }
+    return scored.sort((a, b) => b[1] - a[1]).map(([e]) => e);
+  }
+
+  let shown: Entry[] = [];
+  let count = 0;
+
+  function showMore() {
+    const next = shown.slice(count, count + PAGE);
+    grid.insertAdjacentHTML('beforeend', next.map(e => renderCard(e, 'blog')).join(''));
+    count += next.length;
+    more.hidden = count >= shown.length;
+  }
+
+  async function run(query: string) {
+    const q = query.trim();
+    document.querySelectorAll<HTMLInputElement>('.e-search-input').forEach(i => (i.value = q));
+    grid.replaceChildren();
+    more.hidden = true;
+    count = 0;
+
+    if (!q) {
+      document.title = 'Search the Blog - Spenza';
+      status.innerHTML = 'Type a word or two in the search box above — for example <em>eSIM</em>, <em>IoT</em> or <em>MVNO</em>.';
+      return;
+    }
+
+    document.title = `Search results for “${q}” - Spenza`;
+    status.textContent = 'Searching…';
+    try {
+      shown = search(await load(), q);
+    } catch {
+      status.innerHTML = 'Search is unavailable right now. Browse every article on the <a href="/blog/">blog</a>.';
+      return;
+    }
+
+    status.innerHTML = shown.length
+      ? `${shown.length} ${shown.length === 1 ? 'article' : 'articles'} for <strong>“${escape(q)}”</strong>`
+      : `No articles match <strong>“${escape(q)}”</strong>. Try a shorter or different word, or browse the <a href="/blog/">blog</a>.`;
+    showMore();
+  }
+
+  more.addEventListener('click', showMore);
+
+  // A search from this page's own box runs in place: no reload, but the URL
+  // still changes, so the result can be shared and Back returns to it.
+  document.addEventListener('submit', e => {
+    const form = e.target as HTMLFormElement;
+    if (!form.matches?.('.e-search-form')) return;
+    e.preventDefault();
+    const q = (form.querySelector('.e-search-input') as HTMLInputElement).value;
+    const url = new URL(location.href);
+    url.search = q.trim() ? `?s=${encodeURIComponent(q.trim())}` : '';
+    history.pushState(null, '', url);
+    run(q);
+  });
+
+  addEventListener('popstate', () => run(new URLSearchParams(location.search).get('s') ?? ''));
+
+  run(new URLSearchParams(location.search).get('s') ?? '');
+</script>

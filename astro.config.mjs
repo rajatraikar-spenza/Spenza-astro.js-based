@@ -101,6 +101,8 @@ export default defineConfig({
           // /preview/ holds the hand-built rebuild experiment, not the site. It
           // was being submitted to Google as though it were a real page.
           !/\/preview\//.test(page) &&
+          // Blog search results: `noindex`, and a thin copy of indexed pages.
+          path !== '/search/' &&
           // Nothing that only redirects. Half of what this sitemap listed was
           // the legacy /blog/<slug>/ aliases and WordPress' own 301s — pages
           // that carry `noindex, follow` and bounce to the canonical URL, which
