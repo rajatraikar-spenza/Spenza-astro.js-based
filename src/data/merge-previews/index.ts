@@ -31,13 +31,6 @@ export interface MergeDonor {
   contributes: string;
 }
 
-/**
- * ACF's icon value, in the shape WordPress stores it. `iconClass()` in
- * `lib/acf-blocks.ts` parses both this and WPGraphQL's pre-rendered form.
- */
-const faIcon = (id: string, label: string) =>
-  `{"family" : "classic", "style" : "solid", "id" : "${id}", "label" : "${label}"}`;
-
 export interface MergePreview {
   /** Destination slug — the surviving post. */
   slug: string;
@@ -49,11 +42,19 @@ export interface MergePreview {
   excerpt: string;
   seoTitle: string;
   seoDescription: string;
+  ogTitle?: string;
+  ogDescription?: string;
   featuredImage: string;
+  featuredImageAlt?: string;
+  /** Preserve the existing published image candidates when reusing media. */
+  featuredImageMarkup?: string;
+  featuredImageWidth?: number;
+  featuredImageHeight?: number;
   publishedDate: string;
   updatedDate: string;
   authorSlug: 'isimplexity' | 'sivasai' | 'vinay';
   authorName: string;
+  authorBio?: string;
   /** The destination as it stands today, for the before/after count. */
   destinationWords: number;
   donors: MergeDonor[];
@@ -77,214 +78,161 @@ import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
   'launch-mvno-us-guide': {
-    slug: 'launch-mvno-us-guide',
-    category: 'mvno',
-    cluster: 'US MVNO launch (H1 — MVNO & MVNE)',
-    title: 'How to Launch MVNO US Operations: 2026 Playbook',
-    excerpt:
-      'Launch MVNO US operations in 2026: business models, real costs, FCC compliance, eSIM, 5G slicing, and the 10-step playbook — plus which niches are working and what to check before you go live.',
-    seoTitle: 'How to Launch an MVNO in the US: Requirements, Costs and Operating Plan',
-    seoDescription:
-      'Launch MVNO US operations in 2026 with this step-by-step guide to models, costs, FCC compliance, eSIM, 5G, and choosing the right MVNE partner.',
-    featuredImage: '/blog-media/mvno-us-launch/launch-mvno-us-guide-featured.png',
-    publishedDate: '2026-04-22T11:11:00+00:00',
-    updatedDate: '2026-07-17T04:49:14+00:00',
-    authorSlug: 'sivasai',
-    authorName: 'SivaSai',
-    destinationWords: 3444,
-    donors: [
+    "slug": "launch-mvno-us-guide",
+    "category": "mvno",
+    "cluster": "M16: US MVNO launch",
+    "title": "How to Launch an MVNO in the US: Requirements, Costs and Operating Plan",
+    "excerpt": "Plan a US MVNO launch around your service, operating responsibilities and evidence. Compare models, scope costs and requirements, and define the tests your pilot must pass.",
+    "seoTitle": "How to Launch an MVNO in the US: Costs and Checklist",
+    "seoDescription": "Learn how to launch an MVNO in the US: choose an operating model, scope regulatory duties, build a cost plan, and test readiness before going live.",
+    "ogTitle": "How to Launch an MVNO in the US: Costs and Checklist",
+    "ogDescription": "A practical US MVNO launch plan for OEMs, MSPs and software platforms: operating models, requirements, cost inputs and pilot evidence.",
+    "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png",
+    "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png\" class=\"attachment-full size-full wp-image-16942 webpexpress-processed\" alt=\"How to Launch an MVNO in the US: 2026 Playbook &amp; Cost\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+    "featuredImageAlt": "How to launch an MVNO in the US, with a SIM, phone and US map",
+    "featuredImageWidth": 1280,
+    "featuredImageHeight": 720,
+    "publishedDate": "2026-04-22T11:11:00+00:00",
+    "updatedDate": "2026-09-22T12:22:16.186074+00:00",
+    "authorSlug": "sivasai",
+    "authorName": "SivaSai",
+    "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+    "destinationWords": 3441,
+    "donors": [
       {
-        path: '/mvno/how-to-set-up-mvno/',
-        title: 'MVNO 2026 Setup: How to Launch Step by Step',
-        clicks: 31,
-        contributes: 'Market landscape, traditional-vs-MVNE framing, FAQ material',
+        "path": "/mvno/how-to-set-up-mvno/",
+        "title": "MVNO 2026 Setup: How to Launch Step by Step",
+        "clicks": 31,
+        "contributes": "Network and platform setup, billing hierarchies and operating responsibilities"
       },
       {
-        path: '/mvno/launch-us-mvno-now/',
-        title: 'MVNO US Launch: Why 2026 Is the Right Moment',
-        clicks: 33,
-        contributes: 'Niche opportunity table, 2026 launch checklist',
+        "path": "/mvno/launch-us-mvno-now/",
+        "title": "MVNO US Launch: Why 2026 Is the Right Moment",
+        "clicks": 33,
+        "contributes": "Customer needs, service differentiation and launch checklist"
       },
       {
-        path: '/mvno/us-mvno-introduction/',
-        title: 'MVNOs in the US Market: Impact on Telecom',
-        clicks: 18,
-        contributes: 'How MVNOs compete, challenges, Consumer Cellular / Mint, partnerships',
+        "path": "/mvno/us-mvno-introduction/",
+        "title": "MVNOs in the US Market: Impact on Telecom",
+        "clicks": 18,
+        "contributes": "MVNO definition, audience fit, partnership constraints and distribution"
       },
       {
-        path: '/mvno/top-10-tips-launching-mvno-us-2025/',
-        title: 'Top 10 Tips for Launching an MVNO in the US (2026)',
-        clicks: 4,
-        contributes: 'Unit economics, multi-carrier, first-1,000-customers, Butlr case',
-      },
+        "path": "/mvno/top-10-tips-launching-mvno-us-2025/",
+        "title": "Top 10 Tips for Launching an MVNO in the US (2026)",
+        "clicks": 4,
+        "contributes": "Unit economics, device eligibility, support and pilot preparation"
+      }
     ],
-    content: launchMvnoUsGuide,
-
-    /**
-     * Four cards plus a closing one, the shape the template expects.
-     *
-     * Each merges a theme the donors repeated between them: the MVNE shortcut
-     * (winner + tips), model choice (winner + "launch strategy"), eSIM/5G
-     * (all three), and compliance — folded together with unit economics,
-     * because the tips post paired them and the winner treated compliance
-     * alone. The closing card takes the niche argument, which three of the
-     * five made separately and none made as the headline point.
-     *
-     * Icons are reused from the donors' own cards: known-good FA 6.5 names,
-     * and `faGlyphStyles` inlines each codepoint per post anyway.
-     */
-    templateBlocks: {
-      tldrHeading: 'TL;DR / At-a-Glance Summary',
-      tldrDescription:
-        'Launching an MVNO in the US in 2026 is a weeks-long project on an MVNE and a multi-year one without. ' +
-        'The decisions that matter are your model, your host network, eSIM from day one, and whether your ' +
-        'unit economics survive contact with real compliance costs.',
-      twoCol: [
+    "content": launchMvnoUsGuide,
+    "templateBlocks": {
+      "tldrHeading": "TL;DR / At-a-Glance Summary",
+      "tldrDescription": "To launch a mobile virtual network operator (MVNO) in the US, define the service, arrange network access and assign operating responsibilities. Build a budget from quoted terms, identify applicable obligations with specialists, and test the full customer journey before expanding. For device makers, managed service providers and software platforms, the right model fits an existing product and audience. A credible launch date follows contracts, integrations and accepted pilot results; a configured portal alone does not establish readiness.",
+      "twoCol": [
         {
-          icon: faIcon('gauge-simple-high', 'Gauge Simple High'),
-          title: 'An MVNE Is the Fast, Low-Cost Path',
-          text:
-            'A modern MVNE platform turns a 12-to-18-month build into a launch measured in weeks, with first-year ' +
-            'costs from roughly $10K instead of $5M. You license the network integrations, billing and compliance ' +
-            'tooling rather than building a telecom stack.',
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-list\"}",
+          "title": "Define the service",
+          "text": "Name the customers, devices, markets, features and support promise before choosing a package."
         },
         {
-          icon: faIcon('circle-check', 'Circle Check'),
-          title: 'Pick Your Model Before You Pick a Carrier',
-          text:
-            'Branded Reseller through Full MVNO sets your cost, control and timeline before any other decision. ' +
-            'Most new entrants should start Light and upgrade; only deep SIM control or carrier-grade independence ' +
-            'justifies a Full MVNO from day one.',
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+          "title": "Assign responsibilities",
+          "text": "Document what your team, network supplier and enabling partner must each deliver."
         },
         {
-          icon: faIcon('sim-card', 'Sim Card'),
-          title: 'eSIM-First Activation, 5G-Ready Plans',
-          text:
-            'The US is effectively eSIM-only on new devices, and QR activation cuts first-month churn against ' +
-            'shipping physical SIMs. 5G standalone adds network slicing, so you can sell differentiated tiers ' +
-            'rather than just cheaper data.',
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"coins\"}",
+          "title": "Validate the economics",
+          "text": "Price setup, recurring work, usage and cash commitments against the same service scope."
         },
         {
-          icon: faIcon('shield-halved', 'Shield Halved'),
-          title: 'Compliance and Unit Economics Decide Survival',
-          text:
-            'FCC Form 499, USF contributions, CALEA, CPNI, Kari’s Law and state fees all apply, and an MVNE ' +
-            'acting as carrier of record absorbs most of them. Model ARPU, wholesale cost, CAC and churn before ' +
-            'launch — CAC exceeding lifetime value is the usual cause of death.',
-        },
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+          "title": "Prove the pilot",
+          "text": "Test activation, applicable voice and porting, billing, cancellation and support exceptions."
+        }
       ],
-      oneCol: [
+      "oneCol": [
         {
-          icon: faIcon('bullseye', 'Bullseye'),
-          title: 'Win a Niche, Not a Price War',
-          text:
-            'Every durable US MVNO scoped a segment tightly enough to design plans, support and distribution ' +
-            'around one kind of customer — IoT fleets, travellers, seniors, fintech or retail audiences. ' +
-            'Competing as "the same thing, slightly cheaper" against a national carrier is the one strategy ' +
-            'that reliably fails.',
-        },
-      ],
-    },
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+          "title": "Launch against evidence",
+          "text": "Approve the service when named owners accept the results, rather than relying on a generic deadline."
+        }
+      ]
+    }
   },
-
   'white-label-mvno-launch-guide-2025': {
-    slug: 'white-label-mvno-launch-guide-2025',
-    category: 'mvno',
-    cluster: 'White-label MVNO launch (H1 — MVNO & MVNE)',
-    title: 'White Label MVNO Launch Guide 2026: Build Your Mobile Brand',
-    excerpt:
-      'What a white label MVNO includes, where white label ends and private label begins, what it costs, the launch sequence, the US compliance you cannot skip, and how to choose the platform underneath it.',
-    seoTitle: 'White Label MVNO Launch Guide 2026: Build Your Mobile Brand',
-    seoDescription:
-      'Launch a branded mobile service without owning infrastructure. White label vs private label, real costs and margins, the 10-step launch, US compliance and how to pick an MVNE.',
-    // The destination's own hero, already built on the featured-image template.
-    featuredImage:
-      'https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png',
-    publishedDate: '2026-08-06T09:00:00+00:00',
-    updatedDate: '2026-08-06T09:00:00+00:00',
-    authorSlug: 'sivasai',
-    authorName: 'SivaSai',
-    destinationWords: 2474,
-    donors: [
+    "slug": "white-label-mvno-launch-guide-2025",
+    "category": "mvno",
+    "cluster": "M07: White-label MVNO launch",
+    "title": "White Label MVNO Launch Guide: Scope, Costs and Ownership",
+    "excerpt": "A practical guide for OEMs, MSPs and software platforms evaluating branded mobile service, including ownership, cost inputs, provider selection and launch tests.",
+    "seoTitle": "White Label MVNO: Scope, Costs and Launch Requirements",
+    "seoDescription": "Learn what a white label MVNO includes, who owns billing and support, how to evaluate costs, and what to test before launching branded mobile service.",
+    "ogTitle": "White Label MVNO: Plan Your Branded Mobile Launch",
+    "ogDescription": "Decide what your team will own, compare provider responsibilities, build a launch budget, and test the service before selling it.",
+    "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png",
+    "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png\" class=\"attachment-full size-full wp-image-17019 webpexpress-processed\" alt=\"White Label MVNO Launch Guide 2026: Build Your Mobile Brand\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+    "featuredImageAlt": "White label MVNO launch guide for branded mobile services",
+    "featuredImageWidth": 1280,
+    "featuredImageHeight": 720,
+    "publishedDate": "2026-04-24T06:48:54+00:00",
+    "updatedDate": "2026-09-22T11:25:11.336Z",
+    "authorSlug": "sivasai",
+    "authorName": "SivaSai",
+    "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+    "destinationWords": 2470,
+    "donors": [
       {
-        path: '/mvno/mvno-in-a-box-for-brands/',
-        title: 'MVNO in a Box: Launch Your Own Mobile Brand Fast',
-        clicks: 45,
-        contributes: 'What the package includes, brand use cases, traditional-vs-turnkey framing',
+        "path": "/mvno/mvno-in-a-box-for-brands/",
+        "title": "MVNO in a Box: Launch Your Own Mobile Brand Fast",
+        "clicks": 45,
+        "contributes": "Package components, operating responsibilities and integration checks"
       },
       {
-        path: '/mvno/how-to-launch-mvno-non-telco-brand-2025/',
-        title: 'How to Start a MVNO as a Non-Telco Brand in 2026',
-        clicks: 19,
-        contributes: 'The non-telco thesis, brand-type table, smartwatch case study',
+        "path": "/mvno/how-to-launch-mvno-non-telco-brand-2025/",
+        "title": "How to Start a MVNO as a Non-Telco Brand in 2026",
+        "clicks": 19,
+        "contributes": "Device bundles, customer value and existing sales channels"
       },
       {
-        path: '/mvno/white-label-mvno/',
-        title: 'White Label MVNO: A Practical Launch Guide',
-        clicks: 22,
-        contributes: 'Launch challenges and their mitigations',
-      },
+        "path": "/mvno/white-label-mvno/",
+        "title": "White Label MVNO: A Practical Launch Guide",
+        "clicks": 22,
+        "contributes": "Pilot sequence, support ownership, cost categories and migration questions"
+      }
     ],
-    content: whiteLabelMvnoLaunchGuide,
-
-    /**
-     * Only two of the four posts carried TL;DR cards, and both led with what
-     * the thing *is* before what it costs. These keep that order and take the
-     * closing card from the non-telco donor, whose whole thesis — that you do
-     * not need to be a telecom company — is the cluster's strongest single
-     * point and was not the headline of any of the four.
-     */
-    templateBlocks: {
-      tldrHeading: 'TL;DR / At-a-Glance Summary',
-      tldrDescription:
-        'A white label MVNO lets you sell a branded mobile service on someone else\u2019s network, with an MVNE ' +
-        'running billing, provisioning and compliance underneath. Launches run 7 to 90 days depending on the ' +
-        'model, and margins depend far more on wholesale terms and plan design than on the platform you pick.',
-      twoCol: [
+    "content": whiteLabelMvnoLaunchGuide,
+    "templateBlocks": {
+      "tldrHeading": "TL;DR / At-a-Glance Summary",
+      "tldrDescription": "A white label mobile virtual network operator (MVNO) lets you offer branded mobile service through contracted network and platform capabilities. Your agreement determines who operates billing, provisioning and support, and who holds the subscriber relationship. For device makers, managed service providers and software platforms, the decision starts with the product you already sell. Compare responsibilities, model the actual charging rules and test the complete customer journey. A configured account is one milestone; a usable service with correct billing is the launch objective.",
+      "twoCol": [
         {
-          icon: faIcon('tower-cell', 'Tower Cell'),
-          title: 'You Own the Brand, the MVNE Runs the Network',
-          text:
-            'You set the plans, the pricing and the customer relationship, and you keep the margin. Your MVNE ' +
-            'partner owns the carrier agreements, the BSS/OSS and the provisioning. That is the whole trade, ' +
-            'and it is why no telecom background is required.',
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+          "title": "Define the offer",
+          "text": "Name the customer need, services, devices and markets before choosing a package."
         },
         {
-          icon: faIcon('layer-group', 'Layer Group'),
-          title: 'White Label vs Private Label: Speed or Control',
-          text:
-            'White label launches in 7 to 30 days on a pre-built platform with moderate customisation. Private ' +
-            'label takes 3 to 6 months and gives you your own billing, CRM and support. Most brands start ' +
-            'white label and move up as volume justifies it.',
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+          "title": "Assign ownership",
+          "text": "Put contracts, billing, support and data access into a written responsibility schedule."
         },
         {
-          icon: faIcon('money-bill-trend-up', 'Money Bill Trend Up'),
-          title: 'What It Costs, and What You Keep',
-          text:
-            'Setup runs $10K\u2013$100K for a branded reseller, $100K\u2013$400K for a full white label build, and $2M+ ' +
-            'for private label. Margins land between 15% and 40%, but only with properly negotiated wholesale ' +
-            'rates and a platform whose pricing is flexible.',
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"money-bill-trend-up\"}",
+          "title": "Check the charging rules",
+          "text": "Confirm billable line states, minimum commitments, activation fees and excluded operating costs."
         },
         {
-          icon: faIcon('calendar-days', 'Calendar Days'),
-          title: 'A 7-Day Launch Is Real, With Caveats',
-          text:
-            'Seven days applies to branded reseller and light white label models, and assumes niche, model, ' +
-            'carrier and platform are settled before the clock starts. Full builds with custom billing run ' +
-            'three to six weeks. Compliance is the step that slips, so start it first.',
-        },
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+          "title": "Test the whole journey",
+          "text": "Verify completed provisioning, usable service, correct charges, failure recovery and support."
+        }
       ],
-      oneCol: [
+      "oneCol": [
         {
-          icon: faIcon('shop', 'Shop'),
-          title: 'You Do Not Need to Be a Telco',
-          text:
-            'eSIM removed the SIM logistics, API-first platforms removed the integration work, and an MVNE can ' +
-            'act as carrier of record for most compliance. Fintechs, retailers, wearable makers, MSPs and ' +
-            'creator brands are launching on exactly this basis \u2014 because each already owns a distribution ' +
-            'channel and a reason for the customer to come back.',
-        },
-      ],
-    },
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+          "title": "Launch against evidence",
+          "text": "Approve the pilot against agreed criteria. Do not substitute a generic deadline for readiness."
+        }
+      ]
+    }
   },
 };
