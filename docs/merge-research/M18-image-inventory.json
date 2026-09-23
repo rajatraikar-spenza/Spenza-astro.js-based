@@ -81,8 +81,8 @@
       "httpStatus": 200,
       "nativeWidth": 1024,
       "nativeHeight": 464,
-      "decision": "keep",
-      "reason": "Keep: seven workstreams without fixed dates; caption identifies proposed sequence, not measured timeline."
+      "decision": "reject",
+      "reason": "Final brand review supersedes initial keep: blue-only timeline violates the orange-accent reuse rule. Replaced with a scoped seven-workstream diagram without a promised duration."
     },
     {
       "kind": "body",

@@ -51,3 +51,7 @@ src/partials/posts/launching-mvno.html
 src/partials/posts/mvno.html
 src/partials/posts/reselling-mobile-plans-on-shopify-store.html
 src/partials/posts/telematics-to-mvno-connectivity-strategy.html
+
+## Final brand correction
+
+The blue Road timeline failed the reuse palette rule. Its inventory entry now rejects it; the replacement shows seven workstreams under setup, validation and release, with no promised duration. Final count3 reused (title-specific hero and two authentic archived product screenshots) and1 newly composed body figure. Figma page24:2 frame24:3 uses the generated blank cream/orange frame with editable Inter labels; exported1600x900 PNG/WebP, visually inspected. Earlier four-reused claims are superseded. Native screenshot colors remain authentic product records, not invented diagram branding. Article count and evidence holds unchanged. Repeated gate, browser and Astro checks pass.

@@ -117,3 +117,7 @@ Schema delta: existing Article headline/wordCount/dateModified/keywords only; pr
 [EVIDENCE NEEDED: technical reviewer name and role, from the user]
 
 18 image candidates viewed. Keep4,6,12,16 at source CDN URLs/srcsets; no local copies or new generation. Current interface proof requires real screenshots, not synthetic UI. Inventory records every decision.
+
+## Final image correction and prompt
+
+The initial Road diagram reuse fails the orange-only accent rule. Reuse the generated background template: “16:9 editorial background, warm cream, three white rounded cards, one orange accent, generous blank title/card/footer areas, no labels or logos.” Compose editable Inter text: “Seven workstreams, three review gates”; “Set up / Strategy and brand / Plans / Customer journey”; “Validate / Billing and payments / Testing”; “Release / Go-to-market / Go-live”; “Ready inputs and accepted results determine timing.” No clock, deadline or measured customer result is implied. Final3 reused/1 new composition.

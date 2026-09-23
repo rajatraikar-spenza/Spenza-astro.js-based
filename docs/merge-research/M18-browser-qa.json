@@ -74,13 +74,13 @@
       "alt": "Published Spenza sample table showing plan subscriptions and their states"
     },
     {
-      "src": "https://media.spenza.com/wp-content/uploads/2025/08/Road-1024x464.png",
-      "currentSrc": "https://media.spenza.com/wp-content/uploads/2025/08/Road-1024x464.png",
+      "src": "http://localhost:4321/blog-media/launch-mvno-setup/launch-workstreams.png",
+      "currentSrc": "http://localhost:4321/blog-media/launch-mvno-setup/launch-workstreams.webp",
       "natural": [
-        1024,
-        464
+        1600,
+        900
       ],
-      "alt": "Seven launch workstreams from brand onboarding through go-live review"
+      "alt": "Seven launch workstreams grouped into setup, validation and release gates without a promised duration"
     }
   ],
   "tldrCards": 5,
