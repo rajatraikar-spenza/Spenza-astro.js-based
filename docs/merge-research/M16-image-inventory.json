@@ -1,0 +1,259 @@
+{
+  "inspectedOn": "2026-09-22",
+  "images": [
+    {
+      "source": "/mvno/launch-mvno-us-guide/",
+      "kind": "featured",
+      "url": "https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png",
+      "id": 0,
+      "width": 1280,
+      "height": 720,
+      "decision": "Reuse",
+      "reason": "Destination fixed-template featured image: correct 1280 by 720 layout; US launch subject fits. Reuse as a 2026-reviewed guide, optimize to WebP; do not generate a whole replacement hero."
+    },
+    {
+      "source": "/mvno/launch-mvno-us-guide/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/06/image-1024x683.png",
+      "alt": "Launch MVNO US in 2026",
+      "width": 1024,
+      "height": 683,
+      "id": 1,
+      "decision": "Drop",
+      "reason": "Blue rocket illustration is decorative and outside the chosen orange system."
+    },
+    {
+      "source": "/mvno/launch-mvno-us-guide/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1024x766.png",
+      "alt": "How Spenza Helps You Launch an MVNO in the US",
+      "width": 1024,
+      "height": 766,
+      "id": 2,
+      "decision": "Drop",
+      "reason": "Six-function wheel includes unqualified compliance coverage and does not explain readiness."
+    },
+    {
+      "source": "/mvno/how-to-set-up-mvno/",
+      "kind": "featured",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10.png",
+      "id": 3,
+      "width": 1280,
+      "height": 720,
+      "decision": "Drop",
+      "reason": "Donor fixed-template hero has the old 2025 title; destination hero is more relevant."
+    },
+    {
+      "source": "/mvno/how-to-set-up-mvno/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/05/image-7-1024x683.png",
+      "alt": "",
+      "width": 1024,
+      "height": 683,
+      "id": 4,
+      "decision": "Drop",
+      "reason": "Old-year purple launch illustration does not fit the new structure."
+    },
+    {
+      "source": "/mvno/how-to-set-up-mvno/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/05/image-8-1024x314.png",
+      "alt": "",
+      "width": 1024,
+      "height": 314,
+      "id": 5,
+      "decision": "Drop",
+      "reason": "Tiny isometric lettering is decorative and difficult to read."
+    },
+    {
+      "source": "/mvno/how-to-set-up-mvno/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-1024x511.png",
+      "alt": " Launch Your MVNO",
+      "width": 1024,
+      "height": 511,
+      "id": 6,
+      "decision": "Drop",
+      "reason": "Small rainbow step diagram is superseded by the clearer existing preview process image."
+    },
+    {
+      "source": "/mvno/launch-us-mvno-now/",
+      "kind": "featured",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025.png",
+      "id": 7,
+      "width": 1280,
+      "height": 720,
+      "decision": "Drop",
+      "reason": "Old-year donor hero duplicates the destination role."
+    },
+    {
+      "source": "/mvno/launch-us-mvno-now/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-1024x683.png",
+      "alt": "Launch and Grow an MVNO in the US",
+      "width": 1024,
+      "height": 683,
+      "id": 8,
+      "decision": "Drop",
+      "reason": "Blue/purple phone illustration adds no operational information."
+    },
+    {
+      "source": "/mvno/launch-us-mvno-now/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/06/AD_4nXfBv69Cy4V2vY30wHIANxkA_XvqTbU-En3orrrR32yPWraUOw2quT6LgHHNBFc9C1IWNFG4WaGhoPPqnZSyqxVpVAHNoe2foXF98H4lzkGA4rRBzFLUrGQiS5GOepCaTEZdhiT3gg.png",
+      "alt": "US MVNO Market Overview 2025",
+      "width": 636,
+      "height": 827,
+      "id": 9,
+      "decision": "Drop",
+      "reason": "Market forecast chart is not needed and its figures are not carried forward."
+    },
+    {
+      "source": "/mvno/launch-us-mvno-now/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-1024x683.png",
+      "alt": "Prime Time to Launch and Grow an MVNO in the US",
+      "width": 1024,
+      "height": 683,
+      "id": 10,
+      "decision": "Drop",
+      "reason": "Technology-trend artwork repeats the rejected urgency framing."
+    },
+    {
+      "source": "/mvno/launch-us-mvno-now/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-1024x683.png",
+      "alt": "Modern MVNO Consumer's Demand for More\n",
+      "width": 1024,
+      "height": 683,
+      "id": 11,
+      "decision": "Drop",
+      "reason": "Consumer collage does not fit the prioritized B2B decision."
+    },
+    {
+      "source": "/mvno/launch-us-mvno-now/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-1024x829.png",
+      "alt": "Launch an MVNO in 2025 using Spenza",
+      "width": 1024,
+      "height": 829,
+      "id": 12,
+      "decision": "Drop",
+      "reason": "Small multicolor product wheel repeats generic partner claims."
+    },
+    {
+      "source": "/mvno/us-mvno-introduction/",
+      "kind": "featured",
+      "url": "https://media.spenza.com/wp-content/uploads/2024/12/35.png",
+      "id": 13,
+      "width": 1280,
+      "height": 720,
+      "decision": "Drop",
+      "reason": "Donor hero topic and tiny labels do not fit this launch checklist."
+    },
+    {
+      "source": "/mvno/top-10-tips-launching-mvno-us-2025/",
+      "kind": "featured",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US.png",
+      "id": 14,
+      "width": 1280,
+      "height": 720,
+      "decision": "Drop",
+      "reason": "Tips thumbnail duplicates the better-matched destination featured image."
+    },
+    {
+      "source": "/mvno/top-10-tips-launching-mvno-us-2025/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-1024x683.png",
+      "alt": "",
+      "width": 1024,
+      "height": 683,
+      "id": 15,
+      "decision": "Drop",
+      "reason": "Dated 2025 route illustration is decorative."
+    },
+    {
+      "source": "/mvno/top-10-tips-launching-mvno-us-2025/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-1024x509.png",
+      "alt": "Our Top 10 Tips for a Successful 2025 MVNO Launch",
+      "width": 1024,
+      "height": 509,
+      "id": 16,
+      "decision": "Drop",
+      "reason": "Small blue ten-tip diagram is superseded by the larger process image."
+    },
+    {
+      "source": "/mvno/top-10-tips-launching-mvno-us-2025/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/08/image-7-1024x768.png",
+      "alt": "eSIM",
+      "width": 1024,
+      "height": 768,
+      "id": 17,
+      "decision": "Drop",
+      "reason": "SIM-size graphic does not explain eSIM compatibility or the launch decision."
+    },
+    {
+      "source": "/mvno/top-10-tips-launching-mvno-us-2025/",
+      "kind": "body",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-1024x827.png",
+      "alt": "The Spenza Advantage: Your All-in-One MVNO Launchpad",
+      "width": 1024,
+      "height": 827,
+      "id": 18,
+      "decision": "Drop",
+      "reason": "Feature wheel implies broad compliance support without defined responsibilities."
+    },
+    {
+      "source": "existing preview",
+      "kind": "preview",
+      "local": "public/blog-media/mvno-us-launch/launch-mvno-us-guide-featured.png",
+      "id": 19,
+      "width": 1280,
+      "height": 720,
+      "decision": "Reject",
+      "reason": "Previous preview featured image was generated whole and violates the fixed template."
+    },
+    {
+      "source": "existing preview",
+      "kind": "preview",
+      "local": "public/blog-media/mvno-us-launch/mvno-cost-timeline-build-vs-mvne.png",
+      "id": 20,
+      "width": 1600,
+      "height": 900,
+      "decision": "Reject",
+      "reason": "Previous cost/timeline graphic contains unsupported price and launch-duration bands."
+    },
+    {
+      "source": "existing preview",
+      "kind": "preview",
+      "local": "public/blog-media/mvno-us-launch/mvno-customer-evidence-strip.png",
+      "id": 21,
+      "width": 1600,
+      "height": 900,
+      "decision": "Reject",
+      "reason": "Previous customer strip turns unapproved launch times and geographic counts into evidence."
+    },
+    {
+      "source": "existing preview",
+      "kind": "preview",
+      "local": "public/blog-media/mvno-us-launch/mvno-model-ladder.png",
+      "id": 22,
+      "width": 1600,
+      "height": 900,
+      "decision": "Reject",
+      "reason": "Previous ladder incorrectly mixes IoT and embedded use cases with operating depth."
+    },
+    {
+      "source": "existing preview",
+      "kind": "preview",
+      "local": "public/blog-media/mvno-us-launch/mvno-us-launch-10-step-path.png",
+      "id": 23,
+      "width": 1600,
+      "height": 900,
+      "decision": "Reuse with caption",
+      "reason": "1600 by 900 process diagram matches the retained ten steps. Caption must clarify parallel workstreams: compliance starts at scoping, and public launch follows the pilot. All labels and evidence stay in accessible HTML too."
+    }
+  ]
+}

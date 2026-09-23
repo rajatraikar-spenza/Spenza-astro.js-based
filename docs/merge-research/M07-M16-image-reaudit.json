@@ -1,0 +1,901 @@
+{
+  "measuredOn": "2026-09-23",
+  "method": "Fresh public live HTML. Exact featured-image widget and article body; capture img attributes and picture sources, including live srcset and sizes.",
+  "sources": [
+    {
+      "cluster": "M07",
+      "route": "/mvno/white-label-mvno-launch-guide-2025/",
+      "url": "https://spenza.com/mvno/white-label-mvno-launch-guide-2025/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png",
+          "class": "attachment-full size-full wp-image-17019 webpexpress-processed",
+          "alt": "White Label MVNO Launch Guide 2026: Build Your Mobile Brand",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png\" class=\"attachment-full size-full wp-image-17019 webpexpress-processed\" alt=\"White Label MVNO Launch Guide 2026: Build Your Mobile Brand\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-Launch-Guide-2026-Build-Your-Mobile-Brand.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "576",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-1024x576.png",
+          "alt": "White Label MVNO Launch Guide 2026",
+          "class": "wp-image-17020",
+          "style": "width:777px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026.png 1920w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"576\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-1024x576.png\" alt=\"White Label MVNO Launch Guide 2026\" class=\"wp-image-17020\" style=\"width:777px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/White-Label-MVNO-2026.png 1920w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-1024x683.png",
+          "alt": "Illustration of different devices using white label MVNO services in different industries",
+          "class": "wp-image-17027",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-1024x683.png\" alt=\"Illustration of different devices using white label MVNO services in different industries\" class=\"wp-image-17027\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/White-label-industrial-use-cases.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "409",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-1024x409.png",
+          "alt": "A 7-day white label MVNO launch timeline infographic illustrating the day-to-day steps",
+          "class": "wp-image-17030",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-1024x409.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-300x120.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-768x307.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-1536x614.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline.png 1983w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"409\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-1024x409.png\" alt=\"A 7-day white label MVNO launch timeline infographic illustrating the day-to-day steps\" class=\"wp-image-17030\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-1024x409.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-300x120.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-768x307.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline-1536x614.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/7-Day-Launch-MVNO-Timeline.png 1983w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-1024x683.png",
+          "alt": " Multi-carrier connectivity platform connecting telecom networks to sim eSIM and iot devices through a unified system",
+          "class": "wp-image-17031",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-1024x683.png\" alt=\" Multi-carrier connectivity platform connecting telecom networks to sim eSIM and iot devices through a unified system\" class=\"wp-image-17031\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Spenza-Image.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M07",
+      "route": "/mvno/mvno-in-a-box-for-brands/",
+      "url": "https://spenza.com/mvno/mvno-in-a-box-for-brands/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand.png",
+          "class": "attachment-full size-full wp-image-12865 webpexpress-processed",
+          "alt": "MVNO‑in‑a‑Box: The Fast Track to Launching Your Own Mobile Brand",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand.png\" class=\"attachment-full size-full wp-image-12865 webpexpress-processed\" alt=\"MVNO‑in‑a‑Box: The Fast Track to Launching Your Own Mobile Brand\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO‑in‑a‑Box-The-Fast-Track-to-Launching-Your-Own-Mobile-Brand.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "888",
+          "height": "533",
+          "class": "wp-image-12867",
+          "style": "width: 888px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box.png",
+          "alt": "MVNO in a Box",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box-300x180.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box-768x461.png 768w",
+          "sizes": "(max-width: 888px) 100vw, 888px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"888\" height=\"533\" class=\"wp-image-12867\" style=\"width: 888px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box.png\" alt=\"MVNO in a Box\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box-300x180.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/MVNO-in-a-Box-768x461.png 768w\" sizes=\"(max-width: 888px) 100vw, 888px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "555",
+          "height": "333",
+          "class": "wp-image-12869",
+          "style": "width: 555px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box.png",
+          "alt": "What is MVNO in a Box?",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box-300x180.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box-768x461.png 768w",
+          "sizes": "(max-width: 555px) 100vw, 555px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"555\" height=\"333\" class=\"wp-image-12869\" style=\"width: 555px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box.png\" alt=\"What is MVNO in a Box?\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box-300x180.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/What-is-MVNO-in-a-Box-768x461.png 768w\" sizes=\"(max-width: 555px) 100vw, 555px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "555",
+          "height": "333",
+          "class": "wp-image-12871",
+          "style": "width: 555px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box.png",
+          "alt": "Why Brands Are Choosing MVNO in a Box",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box-300x180.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box-768x461.png 768w",
+          "sizes": "(max-width: 555px) 100vw, 555px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"555\" height=\"333\" class=\"wp-image-12871\" style=\"width: 555px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box.png\" alt=\"Why Brands Are Choosing MVNO in a Box\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box-300x180.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/Why-Brands-Are-Choosing-MVNO-in-a-Box-768x461.png 768w\" sizes=\"(max-width: 555px) 100vw, 555px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "555",
+          "height": "320",
+          "class": "wp-image-12875",
+          "style": "width: 555px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/image-17.png",
+          "alt": "Spenza: Your Complete \"MVNO in a Box\" Solution",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/image-17.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/image-17-300x173.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/image-17-768x443.png 768w",
+          "sizes": "(max-width: 555px) 100vw, 555px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"555\" height=\"320\" class=\"wp-image-12875\" style=\"width: 555px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/image-17.png\" alt=\"Spenza: Your Complete &quot;MVNO in a Box&quot; Solution\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/image-17.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/image-17-300x173.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/image-17-768x443.png 768w\" sizes=\"(max-width: 555px) 100vw, 555px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "555",
+          "height": "370",
+          "class": "wp-image-12877",
+          "style": "width: 555px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-1024x683.png",
+          "alt": "Market Outlook of MVNO in a Box",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM.png 1536w",
+          "sizes": "(max-width: 555px) 100vw, 555px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"555\" height=\"370\" class=\"wp-image-12877\" style=\"width: 555px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-1024x683.png\" alt=\"Market Outlook of MVNO in a Box\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/ChatGPT-Image-Oct-24-2025-01_33_34-PM.png 1536w\" sizes=\"(max-width: 555px) 100vw, 555px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M07",
+      "route": "/mvno/how-to-launch-mvno-non-telco-brand-2025/",
+      "url": "https://spenza.com/mvno/how-to-launch-mvno-non-telco-brand-2025/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1.png",
+          "class": "attachment-full size-full wp-image-9793 webpexpress-processed",
+          "alt": "how to start a mvno",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-1-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-1-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-1-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-1.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1.png\" class=\"attachment-full size-full wp-image-9793 webpexpress-processed\" alt=\"how to start a mvno\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-1.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "888",
+          "height": "592",
+          "class": "wp-image-9794",
+          "style": "width: 888px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/image-28-1024x683.png",
+          "alt": " Launch an MVNO as a Non‑Telco Brand ",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/image-28-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/image-28-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/image-28-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-28.png 1536w",
+          "sizes": "(max-width: 888px) 100vw, 888px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"888\" height=\"592\" class=\"wp-image-9794\" style=\"width: 888px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/image-28-1024x683.png\" alt=\" Launch an MVNO as a Non‑Telco Brand \" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/image-28-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/image-28-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/image-28-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-28.png 1536w\" sizes=\"(max-width: 888px) 100vw, 888px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "333",
+          "height": "499",
+          "class": "wp-image-9796",
+          "style": "width: 333px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/image-30-683x1024.png",
+          "alt": "launching your brand's MVNO",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/image-30-683x1024.png 683w, https://media.spenza.com/wp-content/uploads/2025/06/image-30-200x300.png 200w, https://media.spenza.com/wp-content/uploads/2025/06/image-30-768x1152.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-30.png 1024w",
+          "sizes": "(max-width: 333px) 100vw, 333px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"333\" height=\"499\" class=\"wp-image-9796\" style=\"width: 333px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/image-30-683x1024.png\" alt=\"launching your brand's MVNO\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/image-30-683x1024.png 683w, https://media.spenza.com/wp-content/uploads/2025/06/image-30-200x300.png 200w, https://media.spenza.com/wp-content/uploads/2025/06/image-30-768x1152.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-30.png 1024w\" sizes=\"(max-width: 333px) 100vw, 333px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "333",
+          "height": "499",
+          "class": "wp-image-9802",
+          "style": "width: 333px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/image-31-683x1024.png",
+          "alt": "MVNO partner",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/image-31-683x1024.png 683w, https://media.spenza.com/wp-content/uploads/2025/06/image-31-200x300.png 200w, https://media.spenza.com/wp-content/uploads/2025/06/image-31-768x1152.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-31.png 1024w",
+          "sizes": "(max-width: 333px) 100vw, 333px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"333\" height=\"499\" class=\"wp-image-9802\" style=\"width: 333px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/image-31-683x1024.png\" alt=\"MVNO partner\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/image-31-683x1024.png 683w, https://media.spenza.com/wp-content/uploads/2025/06/image-31-200x300.png 200w, https://media.spenza.com/wp-content/uploads/2025/06/image-31-768x1152.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-31.png 1024w\" sizes=\"(max-width: 333px) 100vw, 333px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M07",
+      "route": "/mvno/white-label-mvno/",
+      "url": "https://spenza.com/mvno/white-label-mvno/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7.png",
+          "class": "attachment-full size-full wp-image-7491 webpexpress-processed",
+          "alt": "White Label MVNO - Comprehensive Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/02/Blog-Thumbnails-7-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/02/Blog-Thumbnails-7-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/02/Blog-Thumbnails-7-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/02/Blog-Thumbnails-7.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7.png\" class=\"attachment-full size-full wp-image-7491 webpexpress-processed\" alt=\"White Label MVNO - Comprehensive Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-7.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1472",
+          "height": "832",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl.png",
+          "alt": "White Label MVNO ",
+          "class": "wp-image-7517",
+          "style": "width:850px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl.png 1472w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl-300x170.png 300w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl-1024x579.png 1024w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl-768x434.png 768w",
+          "sizes": "(max-width: 1472px) 100vw, 1472px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1472\" height=\"832\" src=\"https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl.png\" alt=\"White Label MVNO \" class=\"wp-image-7517\" style=\"width:850px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl.png 1472w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl-300x170.png 300w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl-1024x579.png 1024w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXdDz03b_mjvELNM5td5Mtnlo3HIlW_tbKmpysUdB98DOKPkIY-Yzrm0y6IC8Vzq0JWFMAx20fhMdI1We5uyf6U4kryYPsGAG2ENhSdiyaQtkzOWQPzrPgX126hSyp0ZgjdIObKl-768x434.png 768w\" sizes=\"(max-width: 1472px) 100vw, 1472px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1080",
+          "height": "1080",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ.png",
+          "alt": "Launch Your White Label MVNO in 5 Steps",
+          "class": "wp-image-7516",
+          "style": "width:364px;height:auto",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ.png 1080w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-300x300.png 300w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-1024x1024.png 1024w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-150x150.png 150w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-768x768.png 768w",
+          "sizes": "(max-width: 1080px) 100vw, 1080px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1080\" height=\"1080\" src=\"https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ.png\" alt=\"Launch Your White Label MVNO in 5 Steps\" class=\"wp-image-7516\" style=\"width:364px;height:auto\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ.png 1080w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-300x300.png 300w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-1024x1024.png 1024w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-150x150.png 150w, https://media.spenza.com/wp-content/uploads/2025/02/AD_4nXfG4OpGDWZZqTaQBmt-AyZKouzjbE8qoCJx4e8o_RQns6fmXfYfLAGu3OsBQSw0anS50VUu_pirtHwUywis4XedtFnCV7a06Z-1r-DZj75iDWjemtCYcGHFWQy0XREfd60TwPkNUQ-768x768.png 768w\" sizes=\"(max-width: 1080px) 100vw, 1080px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M16",
+      "route": "/mvno/launch-mvno-us-guide/",
+      "url": "https://spenza.com/mvno/launch-mvno-us-guide/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png",
+          "class": "attachment-full size-full wp-image-16942 webpexpress-processed",
+          "alt": "How to Launch an MVNO in the US: 2026 Playbook & Cost",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/Blog-Thumbnails.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png\" class=\"attachment-full size-full wp-image-16942 webpexpress-processed\" alt=\"How to Launch an MVNO in the US: 2026 Playbook &amp; Cost\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Blog-Thumbnails.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/image-1024x683.png",
+          "alt": "Launch MVNO US in 2026",
+          "class": "wp-image-9279",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/image-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/image-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/image-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/image-1024x683.png\" alt=\"Launch MVNO US in 2026\" class=\"wp-image-9279\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/image-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/image-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/image-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "766",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1024x766.png",
+          "alt": "How Spenza Helps You Launch an MVNO in the US",
+          "class": "wp-image-16955",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1024x766.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-300x224.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-768x574.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1536x1149.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026.png 2022w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"766\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1024x766.png\" alt=\"How Spenza Helps You Launch an MVNO in the US\" class=\"wp-image-16955\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1024x766.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-300x224.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-768x574.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026-1536x1149.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/Spenzas-MVNO-Launch-Solution-2026.png 2022w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M16",
+      "route": "/mvno/how-to-set-up-mvno/",
+      "url": "https://spenza.com/mvno/how-to-set-up-mvno/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10.png",
+          "class": "attachment-full size-full wp-image-9161 webpexpress-processed",
+          "alt": "How to Set Up an MVNO in 2025",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-10-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-10-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-10-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-10.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10.png\" class=\"attachment-full size-full wp-image-9161 webpexpress-processed\" alt=\"How to Set Up an MVNO in 2025\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-10.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/image-7-1024x683.png",
+          "alt": "",
+          "class": "wp-image-9162",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/image-7-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-7-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-7-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-7.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/image-7-1024x683.png\" alt=\"\" class=\"wp-image-9162\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/image-7-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-7-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-7-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-7.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "314",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/image-8-1024x314.png",
+          "alt": "",
+          "class": "wp-image-9163",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/image-8-1024x314.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-8-300x92.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-8-768x236.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-8-1536x471.png 1536w, https://media.spenza.com/wp-content/uploads/2025/05/image-8.png 1600w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"314\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/image-8-1024x314.png\" alt=\"\" class=\"wp-image-9163\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/image-8-1024x314.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-8-300x92.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-8-768x236.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-8-1536x471.png 1536w, https://media.spenza.com/wp-content/uploads/2025/05/image-8.png 1600w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "511",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-1024x511.png",
+          "alt": " Launch Your MVNO",
+          "class": "wp-image-9166",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-1024x511.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-300x150.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-768x383.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-1536x766.png 1536w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-2048x1021.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"511\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-1024x511.png\" alt=\" Launch Your MVNO\" class=\"wp-image-9166\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-1024x511.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-300x150.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-768x383.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-1536x766.png 1536w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Launch-Your-MVNO-in-2025-visual-selection-2048x1021.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M16",
+      "route": "/mvno/launch-us-mvno-now/",
+      "url": "https://spenza.com/mvno/launch-us-mvno-now/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025.png",
+          "class": "attachment-full size-full wp-image-9334 webpexpress-processed",
+          "alt": "Why 2025 is the Prime Time to Launch and Grow an MVNO in the US",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025.png\" class=\"attachment-full size-full wp-image-9334 webpexpress-processed\" alt=\"Why 2025 is the Prime Time to Launch and Grow an MVNO in the US\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/Launch-and-Grow-an-MVNO-in-the-US-2025.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-1024x683.png",
+          "alt": "Launch and Grow an MVNO in the US",
+          "class": "wp-image-9335",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-1024x683.png\" alt=\"Launch and Grow an MVNO in the US\" class=\"wp-image-9335\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/USA-MVNO.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "636",
+          "height": "827",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/AD_4nXfBv69Cy4V2vY30wHIANxkA_XvqTbU-En3orrrR32yPWraUOw2quT6LgHHNBFc9C1IWNFG4WaGhoPPqnZSyqxVpVAHNoe2foXF98H4lzkGA4rRBzFLUrGQiS5GOepCaTEZdhiT3gg.png",
+          "alt": "US MVNO Market Overview 2025",
+          "class": "wp-image-9355",
+          "style": "width:222px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/AD_4nXfBv69Cy4V2vY30wHIANxkA_XvqTbU-En3orrrR32yPWraUOw2quT6LgHHNBFc9C1IWNFG4WaGhoPPqnZSyqxVpVAHNoe2foXF98H4lzkGA4rRBzFLUrGQiS5GOepCaTEZdhiT3gg.png 636w, https://media.spenza.com/wp-content/uploads/2025/06/AD_4nXfBv69Cy4V2vY30wHIANxkA_XvqTbU-En3orrrR32yPWraUOw2quT6LgHHNBFc9C1IWNFG4WaGhoPPqnZSyqxVpVAHNoe2foXF98H4lzkGA4rRBzFLUrGQiS5GOepCaTEZdhiT3gg-231x300.png 231w",
+          "sizes": "(max-width: 636px) 100vw, 636px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"636\" height=\"827\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/AD_4nXfBv69Cy4V2vY30wHIANxkA_XvqTbU-En3orrrR32yPWraUOw2quT6LgHHNBFc9C1IWNFG4WaGhoPPqnZSyqxVpVAHNoe2foXF98H4lzkGA4rRBzFLUrGQiS5GOepCaTEZdhiT3gg.png\" alt=\"US MVNO Market Overview 2025\" class=\"wp-image-9355\" style=\"width:222px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/AD_4nXfBv69Cy4V2vY30wHIANxkA_XvqTbU-En3orrrR32yPWraUOw2quT6LgHHNBFc9C1IWNFG4WaGhoPPqnZSyqxVpVAHNoe2foXF98H4lzkGA4rRBzFLUrGQiS5GOepCaTEZdhiT3gg.png 636w, https://media.spenza.com/wp-content/uploads/2025/06/AD_4nXfBv69Cy4V2vY30wHIANxkA_XvqTbU-En3orrrR32yPWraUOw2quT6LgHHNBFc9C1IWNFG4WaGhoPPqnZSyqxVpVAHNoe2foXF98H4lzkGA4rRBzFLUrGQiS5GOepCaTEZdhiT3gg-231x300.png 231w\" sizes=\"(max-width: 636px) 100vw, 636px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-1024x683.png",
+          "alt": "Prime Time to Launch and Grow an MVNO in the US",
+          "class": "wp-image-9339",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-1024x683.png\" alt=\"Prime Time to Launch and Grow an MVNO in the US\" class=\"wp-image-9339\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-US.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-1024x683.png",
+          "alt": "Modern MVNO Consumer's Demand for More\n",
+          "class": "wp-image-9341",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-1024x683.png\" alt=\"Modern MVNO Consumer's Demand for More\n\" class=\"wp-image-9341\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/US-MVNO.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "829",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-1024x829.png",
+          "alt": "Launch an MVNO in 2025 using Spenza",
+          "class": "wp-image-9344",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-1024x829.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-300x243.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-768x622.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-1536x1243.png 1536w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection.png 1548w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"829\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-1024x829.png\" alt=\"Launch an MVNO in 2025 using Spenza\" class=\"wp-image-9344\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-1024x829.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-300x243.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-768x622.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection-1536x1243.png 1536w, https://media.spenza.com/wp-content/uploads/2025/06/Spenza_-Your-Catalyst-to-Launch-an-MVNO-in-2025-visual-selection.png 1548w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M16",
+      "route": "/mvno/us-mvno-introduction/",
+      "url": "https://spenza.com/mvno/us-mvno-introduction/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2024/12/35.png",
+          "class": "attachment-full size-full wp-image-6928 webpexpress-processed",
+          "alt": "Understanding MVNOs: Impact on US Telecom Landscape",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2024/12/35-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/35-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/35-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/35.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/35-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/35-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/35-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/35.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/12/35.png\" class=\"attachment-full size-full wp-image-6928 webpexpress-processed\" alt=\"Understanding MVNOs: Impact on US Telecom Landscape\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/12/35-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/35-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/35-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/35.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    },
+    {
+      "cluster": "M16",
+      "route": "/mvno/top-10-tips-launching-mvno-us-2025/",
+      "url": "https://spenza.com/mvno/top-10-tips-launching-mvno-us-2025/",
+      "status": 200,
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US.png",
+          "class": "attachment-full size-full wp-image-11725 webpexpress-processed",
+          "alt": "Top 10 Tips for Launching an MVNO in the US (2025)",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US.png\" class=\"attachment-full size-full wp-image-11725 webpexpress-processed\" alt=\"Top 10 Tips for Launching an MVNO in the US (2025)\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/Top-10-Tips-for-Launching-an-MVNO-in-the-US.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-1024x683.png",
+          "alt": "",
+          "class": "wp-image-11727",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-1024x683.png\" alt=\"\" class=\"wp-image-11727\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/ChatGPT-Image-Aug-7-2025-11_20_14-AM.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "509",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-1024x509.png",
+          "alt": "Our Top 10 Tips for a Successful 2025 MVNO Launch",
+          "class": "wp-image-11728",
+          "style": "width:777px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-1024x509.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-300x149.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-768x382.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-1536x764.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-2048x1018.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"509\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-1024x509.png\" alt=\"Our Top 10 Tips for a Successful 2025 MVNO Launch\" class=\"wp-image-11728\" style=\"width:777px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-1024x509.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-300x149.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-768x382.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-1536x764.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/launch-an-MVNO-in-the-US-2025_-10-steps-visual-selection-2048x1018.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "768",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/image-7-1024x768.png",
+          "alt": "eSIM",
+          "class": "wp-image-11730",
+          "style": "width:444px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/image-7-1024x768.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/image-7-300x225.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/image-7-768x576.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/image-7.png 1200w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"768\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/image-7-1024x768.png\" alt=\"eSIM\" class=\"wp-image-11730\" style=\"width:444px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/image-7-1024x768.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/image-7-300x225.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/image-7-768x576.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/image-7.png 1200w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "827",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-1024x827.png",
+          "alt": "The Spenza Advantage: Your All-in-One MVNO Launchpad",
+          "class": "wp-image-11731",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-1024x827.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-300x242.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-768x620.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-1536x1241.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection.png 1872w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"827\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-1024x827.png\" alt=\"The Spenza Advantage: Your All-in-One MVNO Launchpad\" class=\"wp-image-11731\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-1024x827.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-300x242.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-768x620.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection-1536x1241.png 1536w, https://media.spenza.com/wp-content/uploads/2025/08/The-Spenza-Advantage_-Your-All-in-One-Launchpad-visual-selection.png 1872w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "excludedRelatedThumbnails": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png",
+          "class": "attachment-full size-full wp-image-15042 webpexpress-processed",
+          "alt": "best mvnos 2026",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png.webp 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png\" class=\"attachment-full size-full wp-image-15042 webpexpress-processed\" alt=\"best mvnos 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Best-MVNO-Plans-for-2026-Top-Carriers-Coverage-and-How-to-Choose.png 1280w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/BGT.png",
+          "class": "attachment-full size-full wp-image-22403 webpexpress-processed",
+          "alt": "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/BGT.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT.png\" class=\"attachment-full size-full wp-image-22403 webpexpress-processed\" alt=\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/BGT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/BGT-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/BGT.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        },
+        {
+          "kind": "featured",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png",
+          "class": "attachment-full size-full wp-image-22396 webpexpress-processed",
+          "alt": "VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w",
+          "sizes": "(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png.webp 1536w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png.webp 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\" type=\"image/webp\"><img width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png\" class=\"attachment-full size-full wp-image-22396 webpexpress-processed\" alt=\"VoIP Phone Number Warm-Up and Testing: The 2026 Operator's Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/09/ChatGPT-Image-Sep-3-2026-04_29_14-PM.png 1672w\" sizes=\"(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px\"></picture>"
+        }
+      ]
+    }
+  ]
+}

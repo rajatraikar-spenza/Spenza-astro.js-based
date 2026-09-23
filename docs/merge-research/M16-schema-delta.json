@@ -1,0 +1,115 @@
+{
+  "status": "Proposed publish-time delta only. No schema was inserted into either preview or WordPress.",
+  "destination": "https://spenza.com/mvno/launch-mvno-us-guide/",
+  "retain": "Existing Yoast Article, WebPage, ImageObject, BreadcrumbList, WebSite, Organization and Person nodes and IDs.",
+  "updates": [
+    {
+      "targetId": "https://spenza.com/mvno/launch-mvno-us-guide/#article",
+      "set": {
+        "headline": "How to Launch an MVNO in the US: Requirements, Costs and Operating Plan",
+        "wordCount": 2675,
+        "keywords": [
+          "MVNO",
+          "MVNE",
+          "US MVNO launch",
+          "Telecom billing"
+        ]
+      },
+      "dateModified": "Use the actual approved merge publication timestamp; do not reuse the pre-merge timestamp.",
+      "preserve": {
+        "datePublished": "2026-04-22T11:11:00+00:00",
+        "articleSection": [
+          "MVNO"
+        ],
+        "author": {
+          "name": "SivaSai",
+          "@id": "https://spenza.com/#/schema/person/1e3d01b217300c2230b9747116185ede"
+        }
+      },
+      "note": "Count the visible ACF TL;DR and collapsed but accessible FAQ answers in final approved reading text."
+    },
+    {
+      "targetId": "https://spenza.com/mvno/launch-mvno-us-guide/",
+      "set": {
+        "description": "Learn how to launch an MVNO in the US: choose an operating model, scope regulatory duties, build a cost plan, and test readiness before going live."
+      },
+      "note": "Update the existing WebPage description and HTML meta description together."
+    }
+  ],
+  "addToExistingGraph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://spenza.com/mvno/launch-mvno-us-guide/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a US MVNO launch take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A US MVNO launch timeline depends on contracts, service scope, integrations, required reviews and pilot results. Ask each owner for dependencies and acceptance dates. Distinguish a configured account from a tested customer service. A provider's fastest launch does not establish the schedule for your devices, markets or operating model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need your own spectrum license to launch an MVNO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An MVNO ordinarily uses a host operator's licensed radio network rather than acquiring spectrum for its own radio network. That arrangement does not remove every registration, reporting or service obligation. Have the relevant specialists classify your offering and the entities involved, then identify the permissions and responsibilities that apply."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need a direct contract with an MNO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An MVNO can obtain network access directly or through an agreed intermediary arrangement. Confirm who holds the access agreement and which rights reach your business. Review supported services, eligible devices, charging terms, escalation and exit conditions. A platform integration does not by itself prove that every intended use is commercially permitted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a full MVNO still use an MVNE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A full MVNO can use an MVNE for selected enabling functions while retaining the operating scope agreed for its own business. Define the systems, interfaces and responsibilities rather than treating the labels as opposing choices. The question is which functions your team must control and which it can reliably contract."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can every customer activate through eSIM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not every customer can activate through eSIM. Eligibility depends on the device, network, plan and supported provisioning path, including any carrier lock. Check the actual models you expect to serve and test installation and recovery. Digital delivery does not remove device compatibility work or guarantee that a failed activation fixes itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does multi-network access make customer migration automatic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multi-network access does not make customer migration automatic. Alternative network agreements, roaming selection, profile changes and number transfers are different mechanisms. Ask which migration path is supported for your devices and service. Test continuity, customer steps and billing consequences before promising that subscribers can move between networks without disruption."
+          }
+        }
+      ]
+    }
+  ],
+  "reconcileBeforePublish": [
+    {
+      "field": "Article.image, thumbnailUrl and existing ImageObject",
+      "action": "Retain the existing published featured image URL, dimensions and existing ImageObject @id. The preview reuses the live CDN asset and responsive markup; no new featured upload or replacement graph is needed."
+    },
+    {
+      "field": "WebPage.name and final BreadcrumbList item.name",
+      "action": "Allow Yoast to update names from the approved H1; retain IDs and route."
+    },
+    {
+      "field": "Existing Person description",
+      "action": "Use SivaSai and the exact user-approved bio. Do not add a reviewer or review assertion until confirmed."
+    }
+  ],
+  "conditions": [
+    "Use the existing graph integration for FAQPage, not a second script or Article graph.",
+    "Accordion answers are rendered in the HTML and accessible by expanding their questions. Keep schema text identical to the approved visible answers.",
+    "No FAQ rich-result promise.",
+    "Preview remains noindex, nofollow with zero JSON-LD and no destination canonical."
+  ]
+}

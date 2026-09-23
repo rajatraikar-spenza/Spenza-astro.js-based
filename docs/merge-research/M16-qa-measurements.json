@@ -1,0 +1,33 @@
+{
+  "measuredAt": "2026-09-22T12:33:01.032Z",
+  "method": "Parse5 reading text excludes styles, scripts, data-editorial-only and data-source-index; includes headings, table text, callouts, captions, CTAs, all FAQ answers including collapsed panels, and ACF TL;DR. Whitespace-separated token count. Same method applied to original HEAD.",
+  "before": {
+    "bodyWords": 4565,
+    "tldrWords": 283,
+    "readingWords": 4848,
+    "em": 25,
+    "en": 0,
+    "banned": [
+      "unlock"
+    ],
+    "titleCharacters": 71,
+    "descriptionCharacters": 143
+  },
+  "after": {
+    "bodyWords": 2515,
+    "tldrWords": 160,
+    "readingWords": 2675,
+    "em": 0,
+    "en": 0,
+    "banned": [],
+    "titleCharacters": 52,
+    "descriptionCharacters": 147
+  },
+  "links": {
+    "contextualInternal": 8,
+    "externalPrimary": 4,
+    "donorLinks": 0
+  },
+  "browserEvidence": "M16-M07-browser-qa.json",
+  "faqUI": "Six native details/summary disclosures per article, H3 questions, plus/minus, one open at a time; tested mouse, keyboard, mobile and no-JavaScript."
+}

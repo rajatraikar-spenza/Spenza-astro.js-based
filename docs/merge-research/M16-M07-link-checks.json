@@ -1,0 +1,50 @@
+{
+  "measuredAt": "2026-09-22T12:28:33.994Z",
+  "base": "http://localhost:4321",
+  "results": [
+    {
+      "path": "/mvno/mvno/",
+      "status": 200
+    },
+    {
+      "path": "/mvno/mvno-types/",
+      "status": 200
+    },
+    {
+      "path": "/mvno/white-label-mvno-launch-guide-2025/",
+      "status": 200
+    },
+    {
+      "path": "/mvne/",
+      "status": 200
+    },
+    {
+      "path": "/mvno/mvno-mvno-launch-cost/",
+      "status": 200
+    },
+    {
+      "path": "/mvno/mvno-billing-platforms/",
+      "status": 200
+    },
+    {
+      "path": "/esim/esim/",
+      "status": 200
+    },
+    {
+      "path": "/telecom/angel-watch-iot-business-casestudy/",
+      "status": 200
+    },
+    {
+      "path": "/mvno-calculator/",
+      "status": 200
+    },
+    {
+      "path": "/mvno/resell-data-plans-shopify/",
+      "status": 200
+    },
+    {
+      "path": "/spenza-product/butlr-iot-spenza-casestudy/",
+      "status": 200
+    }
+  ]
+}

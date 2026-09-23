@@ -1,0 +1,534 @@
+{
+  "measuredAt": "2026-09-22T12:31:56.763Z",
+  "results": {
+    "m16": {
+      "h1": "How to Launch an MVNO in the US: Requirements, Costs and Operating Plan",
+      "title": "How to Launch an MVNO in the US: Costs and Checklist",
+      "robots": "noindex, nofollow",
+      "schema": 0,
+      "canonical": null,
+      "slots": false,
+      "cards": 4,
+      "closingCards": 1,
+      "icons": [
+        {
+          "class": "fa-classic fa-solid fa-clipboard-list",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-layer-group",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-coins",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-circle-check",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-clipboard-check",
+          "glyph": "\"\""
+        }
+      ],
+      "author": "SivaSai",
+      "bio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+      "breadcrumb": "\n    Home  MVNO  How to Launch an MVNO in the US: Requirements, Costs and Operating Plan\n  ",
+      "related": 3,
+      "h2": [
+        {
+          "text": "What must you define before a US MVNO launch?",
+          "openingWords": 50
+        },
+        {
+          "text": "Which MVNO operating model fits your team?",
+          "openingWords": 51
+        },
+        {
+          "text": "Which US requirements apply to your service?",
+          "openingWords": 49
+        },
+        {
+          "text": "How Much Does It Cost to Launch an MVNO in the US?",
+          "openingWords": 48
+        },
+        {
+          "text": "The 10-Step Playbook to Launch an MVNO in the US",
+          "openingWords": 50
+        },
+        {
+          "text": "What must pass before the pilot becomes a public launch?",
+          "openingWords": 49
+        },
+        {
+          "text": "What does Spenza's launch evidence actually show?",
+          "openingWords": 49
+        },
+        {
+          "text": "FAQs about launching a US MVNO",
+          "openingWords": 51
+        }
+      ],
+      "introWords": 115,
+      "conclusionWords": 82,
+      "sentenceAverage": 13.3,
+      "brandMentions": 5,
+      "faq": [
+        {
+          "q": "How long does a US MVNO launch take?",
+          "a": "A US MVNO launch timeline depends on contracts, service scope, integrations, required reviews and pilot results. Ask each owner for dependencies and acceptance dates. Distinguish a configured account from a tested customer service. A provider's fastest launch does not establish the schedule for your devices, markets or operating model.",
+          "words": 49
+        },
+        {
+          "q": "Do you need your own spectrum license to launch an MVNO?",
+          "a": "An MVNO ordinarily uses a host operator's licensed radio network rather than acquiring spectrum for its own radio network. That arrangement does not remove every registration, reporting or service obligation. Have the relevant specialists classify your offering and the entities involved, then identify the permissions and responsibilities that apply.",
+          "words": 49
+        },
+        {
+          "q": "Do you need a direct contract with an MNO?",
+          "a": "An MVNO can obtain network access directly or through an agreed intermediary arrangement. Confirm who holds the access agreement and which rights reach your business. Review supported services, eligible devices, charging terms, escalation and exit conditions. A platform integration does not by itself prove that every intended use is commercially permitted.",
+          "words": 51
+        },
+        {
+          "q": "Can a full MVNO still use an MVNE?",
+          "a": "A full MVNO can use an MVNE for selected enabling functions while retaining the operating scope agreed for its own business. Define the systems, interfaces and responsibilities rather than treating the labels as opposing choices. The question is which functions your team must control and which it can reliably contract.",
+          "words": 50
+        },
+        {
+          "q": "Can every customer activate through eSIM?",
+          "a": "Not every customer can activate through eSIM. Eligibility depends on the device, network, plan and supported provisioning path, including any carrier lock. Check the actual models you expect to serve and test installation and recovery. Digital delivery does not remove device compatibility work or guarantee that a failed activation fixes itself.",
+          "words": 51
+        },
+        {
+          "q": "Does multi-network access make customer migration automatic?",
+          "a": "Multi-network access does not make customer migration automatic. Alternative network agreements, roaming selection, profile changes and number transfers are different mechanisms. Ask which migration path is supported for your devices and service. Test continuity, customer steps and billing consequences before promising that subscribers can move between networks without disruption.",
+          "words": 49
+        }
+      ],
+      "tables": 4,
+      "toc": [
+        "TL;DR / At-a-Glance Summary",
+        "What must you define before a US MVNO launch?",
+        "Which MVNO operating model fits your team?",
+        "Which US requirements apply to your service?",
+        "How Much Does It Cost to Launch an MVNO in the US?",
+        "The 10-Step Playbook to Launch an MVNO in the US",
+        "What must pass before the pilot becomes a public launch?",
+        "What does Spenza's launch evidence actually show?",
+        "FAQs about launching a US MVNO",
+        "Related  Articles",
+        "Subscribe for Smarter Connectivity Insights",
+        "Homepage Popup"
+      ],
+      "links": [
+        {
+          "href": "/mvno/mvno/",
+          "anchor": "MVNO business model",
+          "cta": false
+        },
+        {
+          "href": "/mvno/mvno-types/",
+          "anchor": "MVNO operating models",
+          "cta": false
+        },
+        {
+          "href": "/mvno/white-label-mvno-launch-guide-2025/",
+          "anchor": "white-label MVNO responsibilities",
+          "cta": false
+        },
+        {
+          "href": "/mvne/",
+          "anchor": "MVNE platform capabilities",
+          "cta": false
+        },
+        {
+          "href": "/mvne/",
+          "anchor": "discuss your operating model",
+          "cta": true
+        },
+        {
+          "href": "https://www.usac.org/wp-content/uploads/service-providers/documents/forms/2026/2026-FCC-Form-499A-Form-Instructions.pdf",
+          "anchor": "FCC Form 499-A instructions",
+          "cta": false
+        },
+        {
+          "href": "https://www.ecfr.gov/current/title-47/chapter-I/subchapter-A/part-9/subpart-C/section-9.10",
+          "anchor": "wireless 911 requirements",
+          "cta": false
+        },
+        {
+          "href": "https://www.federalregister.gov/documents/2026/08/13/2026-16503/empowering-broadband-consumers-through-transparency",
+          "anchor": "broadband-label final rule",
+          "cta": false
+        },
+        {
+          "href": "/mvno/mvno-mvno-launch-cost/",
+          "anchor": "MVNO launch cost inputs",
+          "cta": false
+        },
+        {
+          "href": "/mvno/mvno-billing-platforms/",
+          "anchor": "MVNO billing systems",
+          "cta": false
+        },
+        {
+          "href": "/esim/esim/",
+          "anchor": "embedded SIM (eSIM) provisioning basics",
+          "cta": false
+        },
+        {
+          "href": "https://docs.spenza.com/introduction",
+          "anchor": "Spenza application programming interface (API) documentation",
+          "cta": false
+        },
+        {
+          "href": "/telecom/angel-watch-iot-business-casestudy/",
+          "anchor": "Angel Watch's service design",
+          "cta": false
+        },
+        {
+          "href": "/mvne/",
+          "anchor": "review your launch scope",
+          "cta": true
+        },
+        {
+          "href": "/mvno-calculator/",
+          "anchor": "launch cost calculator",
+          "cta": true
+        },
+        {
+          "href": "/mvne/",
+          "anchor": "discuss your launch plan",
+          "cta": true
+        }
+      ],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4333/blog-media/mvno-us-launch/launch-mvno-us-guide-featured-template.webp",
+          "w": 1280,
+          "h": 720,
+          "picture": false
+        },
+        {
+          "src": "http://127.0.0.1:4333/blog-media/mvno-us-launch/mvno-us-launch-10-step-path.webp",
+          "w": 1600,
+          "h": 900,
+          "picture": true
+        }
+      ],
+      "evidence": [
+        "[EVIDENCE NEEDED: technical reviewer name, role and completed review, from the editorial owner]",
+        "[EVIDENCE NEEDED: service-specific legal and tax review, from the telecom legal/tax specialist]",
+        "[EVIDENCE NEEDED: approved IMZ scope and wording, from the account owner]",
+        "[EVIDENCE NEEDED: redacted cancellation record, matching invoice and approved explanation, from engineering and finance]",
+        "[EVIDENCE NEEDED: approved launch timeline, service scope and subscriber cohort, from the delivery owner]"
+      ],
+      "faqUI": {
+        "click": true,
+        "space": true,
+        "enter": true,
+        "oneOpen": true,
+        "questionHeading": true,
+        "worksWithoutJS": true
+      },
+      "faqStyle": {
+        "background": "rgb(246, 246, 246)",
+        "borderRadius": "20px",
+        "questionPadding": "20px",
+        "openIconVerticalBar": "none"
+      },
+      "mobile": {
+        "viewport": 390,
+        "width": 390,
+        "tables": [
+          {
+            "width": 357,
+            "scroll": 610,
+            "overflow": "auto"
+          },
+          {
+            "width": 357,
+            "scroll": 610,
+            "overflow": "auto"
+          },
+          {
+            "width": 357,
+            "scroll": 610,
+            "overflow": "auto"
+          },
+          {
+            "width": 357,
+            "scroll": 610,
+            "overflow": "auto"
+          }
+        ]
+      },
+      "status": 200,
+      "errors": []
+    },
+    "m07": {
+      "h1": "White Label MVNO Launch Guide: Scope, Costs and Ownership",
+      "title": "White Label MVNO: Scope, Costs and Launch Requirements",
+      "robots": "noindex, nofollow",
+      "schema": 0,
+      "canonical": null,
+      "slots": false,
+      "cards": 4,
+      "closingCards": 1,
+      "icons": [
+        {
+          "class": "fa-classic fa-solid fa-tower-cell",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-layer-group",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-money-bill-trend-up",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-circle-check",
+          "glyph": "\"\""
+        },
+        {
+          "class": "fa-classic fa-solid fa-clipboard-check",
+          "glyph": "\"\""
+        }
+      ],
+      "author": "SivaSai",
+      "bio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+      "breadcrumb": "\n    Home  MVNO  White Label MVNO Launch Guide: Scope, Costs and Ownership\n  ",
+      "related": 3,
+      "h2": [
+        {
+          "text": "What is a White Label MVNO?",
+          "openingWords": 47
+        },
+        {
+          "text": "Who Should Launch a White Label MVNO?",
+          "openingWords": 47
+        },
+        {
+          "text": "What do you own, and what does your provider operate?",
+          "openingWords": 48
+        },
+        {
+          "text": "Cost Breakdown: What Does It Actually Cost to Launch?",
+          "openingWords": 49
+        },
+        {
+          "text": "Step-by-Step: How to Launch a White Label MVNO",
+          "openingWords": 47
+        },
+        {
+          "text": "How do you choose a provider and avoid lock-in?",
+          "openingWords": 48
+        },
+        {
+          "text": "What does a branded launch look like in practice?",
+          "openingWords": 48
+        },
+        {
+          "text": "FAQs",
+          "openingWords": 46
+        }
+      ],
+      "introWords": 111,
+      "conclusionWords": 83,
+      "sentenceAverage": 13.5,
+      "brandMentions": 5,
+      "faq": [
+        {
+          "q": "Can customers use their existing phones?",
+          "a": "Customers can use an existing phone only if the device is eligible for the chosen network and service. Check carrier locks, radio compatibility and the supported SIM or eSIM activation path. Test the actual device models you expect to serve. A successful activation on one phone does not validate your whole device list.",
+          "words": 53
+        },
+        {
+          "q": "Can you keep your existing billing system?",
+          "a": "You can retain an existing billing system when the provider supports the required integration and responsibilities are agreed. Specify which system controls subscriptions, generates invoices and processes refunds. Reconcile identifiers and amounts across systems, including cancellations and failed orders. Two systems recording a purchase must not create two customer charges.",
+          "words": 50
+        },
+        {
+          "q": "Can customers keep their phone numbers?",
+          "a": "Customers may keep eligible phone numbers through the applicable porting process. The Federal Communications Commission (FCC) porting guidance describes retaining a number when changing providers within the same geographic area. Confirm eligibility and the receiving provider's process. Number transfer does not automatically transfer the old SIM, eSIM profile, balance or subscription terms.",
+          "words": 52
+        },
+        {
+          "q": "Does multi-carrier access mean automatic network switching?",
+          "a": "Multi-carrier access does not by itself mean a device automatically switches between every available network. Roaming selection, a new subscription and an eSIM profile change are distinct mechanisms. Ask which mechanism the service supports, on which devices and under which agreements. Test the expected behavior rather than infer it from a coverage map.",
+          "words": 53
+        },
+        {
+          "q": "Can you bring an existing carrier agreement?",
+          "a": "An existing carrier agreement can be used only when the platform supports the required integration and the commercial terms permit it. Bring Your Own Network (BYON) is a capability to evaluate, not an automatic right. Confirm provisioning access, usage records, settlement and escalation ownership before assuming your current agreement will transfer into the platform.",
+          "words": 54
+        },
+        {
+          "q": "Does a data-only service include voice and SMS?",
+          "a": "A data-only service does not inherently include native mobile voice or text messaging. An app using mobile data is different from a mobile voice subscription. Specify the services your product requires, including any numbering and emergency-calling needs. Have the provider and relevant advisers review the obligations of that actual offer.",
+          "words": 50
+        }
+      ],
+      "tables": 3,
+      "toc": [
+        "TL;DR / At-a-Glance Summary",
+        "What is a White Label MVNO?",
+        "Who Should Launch a White Label MVNO?",
+        "What do you own, and what does your provider operate?",
+        "Cost Breakdown: What Does It Actually Cost to Launch?",
+        "Step-by-Step: How to Launch a White Label MVNO",
+        "How do you choose a provider and avoid lock-in?",
+        "What does a branded launch look like in practice?",
+        "FAQs",
+        "Related  Articles",
+        "Subscribe for Smarter Connectivity Insights",
+        "Homepage Popup"
+      ],
+      "links": [
+        {
+          "href": "/mvno/mvno/",
+          "anchor": "MVNO business model",
+          "cta": false
+        },
+        {
+          "href": "/mvno/mvno-types/",
+          "anchor": "MVNO operating models",
+          "cta": false
+        },
+        {
+          "href": "https://ibasis.com/solutions/mvno-as-a-service/",
+          "anchor": "iBASIS responsibility models",
+          "cta": false
+        },
+        {
+          "href": "https://www.usac.org/service-providers/contributing-to-the-usf/who-must-contribute/",
+          "anchor": "filing and exemption guidance",
+          "cta": false
+        },
+        {
+          "href": "/mvne/",
+          "anchor": "Discuss your MVNO operating model",
+          "cta": true
+        },
+        {
+          "href": "/mvno/mvno-mvno-launch-cost/",
+          "anchor": "MVNO launch cost inputs",
+          "cta": false
+        },
+        {
+          "href": "/esim/esim/",
+          "anchor": "eSIM provisioning basics",
+          "cta": false
+        },
+        {
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/esim-specification/",
+          "anchor": "GSMA consumer and IoT specifications",
+          "cta": false
+        },
+        {
+          "href": "https://gigs.com/use-cases/mvno-in-a-box",
+          "anchor": "Gigs' operating-system scope",
+          "cta": false
+        },
+        {
+          "href": "https://www.transatel.com/news-and-insights/blog/what-are-mvno-white-label-solutions/",
+          "anchor": "Transatel's branded-service scope",
+          "cta": false
+        },
+        {
+          "href": "/mvne/",
+          "anchor": "MVNE platform capabilities",
+          "cta": false
+        },
+        {
+          "href": "/mvno/resell-data-plans-shopify/",
+          "anchor": "Shopify reseller workflow",
+          "cta": false
+        },
+        {
+          "href": "https://docs.spenza.com/introduction",
+          "anchor": "Partner API contract",
+          "cta": false
+        },
+        {
+          "href": "/spenza-product/butlr-iot-spenza-casestudy/",
+          "anchor": "Butlr's regional rollout",
+          "cta": false
+        },
+        {
+          "href": "/mvno-calculator/",
+          "anchor": "Estimate your launch costs",
+          "cta": true
+        },
+        {
+          "href": "https://consumercomplaints.fcc.gov/hc/en-us",
+          "anchor": "Federal Communications Commission (FCC) porting guidance",
+          "cta": false
+        },
+        {
+          "href": "/mvne/",
+          "anchor": "discuss your operating model",
+          "cta": true
+        }
+      ],
+      "images": [
+        {
+          "src": "http://127.0.0.1:4333/blog-media/white-label-mvno/White-Label-MVNO-Launch-Guide.webp",
+          "w": 1280,
+          "h": 720,
+          "picture": false
+        },
+        {
+          "src": "http://127.0.0.1:4333/blog-media/white-label-mvno/white-label-use-cases.webp",
+          "w": 1024,
+          "h": 683,
+          "picture": true
+        }
+      ],
+      "evidence": [
+        "[EVIDENCE NEEDED: technical reviewer name, role and completed review, from the editorial owner]",
+        "[EVIDENCE NEEDED: approved IMZ deployment scope, from the account owner]"
+      ],
+      "faqUI": {
+        "click": true,
+        "space": true,
+        "enter": true,
+        "oneOpen": true,
+        "questionHeading": true,
+        "worksWithoutJS": true
+      },
+      "faqStyle": {
+        "background": "rgb(246, 246, 246)",
+        "borderRadius": "20px",
+        "questionPadding": "20px",
+        "openIconVerticalBar": "none"
+      },
+      "mobile": {
+        "viewport": 390,
+        "width": 390,
+        "tables": [
+          {
+            "width": 357,
+            "scroll": 610,
+            "overflow": "auto"
+          },
+          {
+            "width": 357,
+            "scroll": 610,
+            "overflow": "auto"
+          },
+          {
+            "width": 357,
+            "scroll": 610,
+            "overflow": "auto"
+          }
+        ]
+      },
+      "status": 200,
+      "errors": []
+    }
+  }
+}

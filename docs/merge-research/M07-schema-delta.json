@@ -1,0 +1,112 @@
+{
+  "status": "Proposed publish-time delta only. Not injected into preview and not applied to WordPress.",
+  "destination": "https://spenza.com/mvno/white-label-mvno-launch-guide-2025/",
+  "existingGraph": "Yoast seo.fullHead; retain its Article, WebPage, ImageObject, BreadcrumbList, WebSite, Organization and Person nodes.",
+  "updates": [
+    {
+      "targetId": "https://spenza.com/mvno/white-label-mvno-launch-guide-2025/#article",
+      "set": {
+        "wordCount": 2649,
+        "headline": "White Label MVNO Launch Guide: Scope, Costs and Ownership",
+        "keywords": [
+          "White Label MVNO",
+          "MVNE",
+          "Embedded Connectivity",
+          "Telecom Billing"
+        ]
+      },
+      "dateModified": "Set to actual publication of the approved merge; draft prepared September 22, 2026.",
+      "preserve": {
+        "datePublished": "2026-04-24T06:48:54+00:00",
+        "articleSection": [
+          "MVNO"
+        ]
+      },
+      "note": "Word count includes visible ACF TL;DR. Recalculate from final approved content if review changes it; configure the existing Yoast output to include ACF reading text."
+    },
+    {
+      "targetId": "https://spenza.com/mvno/white-label-mvno-launch-guide-2025/",
+      "set": {
+        "description": "Learn what a white label MVNO includes, who owns billing and support, how to evaluate costs, and what to test before launching branded mobile service."
+      },
+      "note": "Update existing WebPage description and page meta description together."
+    }
+  ],
+  "addToExistingGraph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://spenza.com/mvno/white-label-mvno-launch-guide-2025/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can customers use their existing phones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Customers can use an existing phone only if the device is eligible for the chosen network and service. Check carrier locks, radio compatibility and the supported SIM or eSIM activation path. Test the actual device models you expect to serve. A successful activation on one phone does not validate your whole device list."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you keep your existing billing system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can retain an existing billing system when the provider supports the required integration and responsibilities are agreed. Specify which system controls subscriptions, generates invoices and processes refunds. Reconcile identifiers and amounts across systems, including cancellations and failed orders. Two systems recording a purchase must not create two customer charges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can customers keep their phone numbers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Customers may keep eligible phone numbers through the applicable porting process. The Federal Communications Commission (FCC) porting guidance describes retaining a number when changing providers within the same geographic area. Confirm eligibility and the receiving provider's process. Number transfer does not automatically transfer the old SIM, eSIM profile, balance or subscription terms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does multi-carrier access mean automatic network switching?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multi-carrier access does not by itself mean a device automatically switches between every available network. Roaming selection, a new subscription and an eSIM profile change are distinct mechanisms. Ask which mechanism the service supports, on which devices and under which agreements. Test the expected behavior rather than infer it from a coverage map."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you bring an existing carrier agreement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An existing carrier agreement can be used only when the platform supports the required integration and the commercial terms permit it. Bring Your Own Network (BYON) is a capability to evaluate, not an automatic right. Confirm provisioning access, usage records, settlement and escalation ownership before assuming your current agreement will transfer into the platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a data-only service include voice and SMS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A data-only service does not inherently include native mobile voice or text messaging. An app using mobile data is different from a mobile voice subscription. Specify the services your product requires, including any numbering and emergency-calling needs. Have the provider and relevant advisers review the obligations of that actual offer."
+          }
+        }
+      ]
+    }
+  ],
+  "reconcileBeforePublish": [
+    {
+      "field": "Article.author and existing Person reference",
+      "current": "Spenza",
+      "proposed": "SivaSai, Founder’s Office",
+      "action": "Assign the approved existing WordPress author and let Yoast reference the matching Person. Do not invent a Person @id. Technical review credit is pending."
+    },
+    {
+      "field": "Article.image, thumbnailUrl and existing ImageObject",
+      "action": "Retain the existing published featured image URL, dimensions and existing ImageObject @id. The preview reuses the live CDN asset and responsive markup; no new featured upload or replacement graph is needed."
+    },
+    {
+      "field": "WebPage.name and final BreadcrumbList item.name",
+      "action": "Let Yoast regenerate the existing node labels from the new H1; keep the existing node IDs and destination URL."
+    }
+  ],
+  "conditions": [
+    "Add FAQPage through the existing Yoast graph or approved ACF integration only while all six answers remain visible.",
+    "Recheck FAQ text after human edits. This is machine-readable content, not a promised FAQ rich result.",
+    "Preview emits zero JSON-LD and does not claim destination canonical or schema IDs."
+  ]
+}

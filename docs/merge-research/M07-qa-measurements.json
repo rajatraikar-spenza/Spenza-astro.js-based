@@ -1,0 +1,373 @@
+{
+  "measuredAt": "2026-09-22T11:45:42.690Z",
+  "method": "Parse5 text nodes separated by whitespace; exclude style, script, editorial-only notes, bio and source index; include body headings, tables, captions, callouts and CTAs plus all separately rendered TL;DR text. Same method applied to original HEAD preview and final draft. Browser body textContent undercounts adjacent table cells, so its bodyWords field is not used.",
+  "before": {
+    "bodyWords": 2746,
+    "tldrWords": 315,
+    "readingWords": 3061,
+    "em": 23,
+    "en": 25,
+    "bannedMatches": [],
+    "titleCharacters": 59,
+    "descriptionCharacters": 175
+  },
+  "after": {
+    "bodyWords": 2486,
+    "tldrWords": 163,
+    "readingWords": 2649,
+    "em": 0,
+    "en": 0,
+    "bannedMatches": [],
+    "titleCharacters": 54,
+    "descriptionCharacters": 150
+  },
+  "browser": {
+    "title": "White Label MVNO: Scope, Costs and Launch Requirements",
+    "h1": "White Label MVNO Launch Guide: Scope, Costs and Ownership",
+    "banner": "Preview: proposed merge 4 posts → 1 · M07: White-label MVNO launch 2,470 live body words → 2,649 draft words including TL;DR 86 historical donor clicks/16mo What merges into this page KEEP/mvno/white-label-mvno-launch-guide-2025/White Label MVNO Launch Guide: Scope, Costs and Ownership 301 →/mvno/mvno-in-a-box-for-brands/MVNO in a Box: Launch Your Own Mobile Brand FastPackage components, operating responsibilities and integration checks301 →/mvno/how-to-launch-mvno-non-telco-brand-2025/How to Start a MVNO as a Non-Telco Brand in 2026Device bundles, customer value and existing sales channels301 →/mvno/white-label-mvno/White Label MVNO: A Practical Launch GuidePilot sequence, support ownership, cost categories and migration questions",
+    "h2": [
+      {
+        "text": "What is a White Label MVNO?",
+        "words": 47
+      },
+      {
+        "text": "Who Should Launch a White Label MVNO?",
+        "words": 47
+      },
+      {
+        "text": "What do you own, and what does your provider operate?",
+        "words": 48
+      },
+      {
+        "text": "Cost Breakdown: What Does It Actually Cost to Launch?",
+        "words": 49
+      },
+      {
+        "text": "Step-by-Step: How to Launch a White Label MVNO",
+        "words": 47
+      },
+      {
+        "text": "How do you choose a provider and avoid lock-in?",
+        "words": 48
+      },
+      {
+        "text": "What does a branded launch look like in practice?",
+        "words": 48
+      },
+      {
+        "text": "FAQs",
+        "words": 46
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can customers use their existing phones?",
+        "a": "Customers can use an existing phone only if the device is eligible for the chosen network and service. Check carrier locks, radio compatibility and the supported SIM or eSIM activation path. Test the actual device models you expect to serve. A successful activation on one phone does not validate your whole device list.",
+        "words": 53
+      },
+      {
+        "q": "Can you keep your existing billing system?",
+        "a": "You can retain an existing billing system when the provider supports the required integration and responsibilities are agreed. Specify which system controls subscriptions, generates invoices and processes refunds. Reconcile identifiers and amounts across systems, including cancellations and failed orders. Two systems recording a purchase must not create two customer charges.",
+        "words": 50
+      },
+      {
+        "q": "Can customers keep their phone numbers?",
+        "a": "Customers may keep eligible phone numbers through the applicable porting process. The Federal Communications Commission (FCC) porting guidance describes retaining a number when changing providers within the same geographic area. Confirm eligibility and the receiving provider's process. Number transfer does not automatically transfer the old SIM, eSIM profile, balance or subscription terms.",
+        "words": 52
+      },
+      {
+        "q": "Does multi-carrier access mean automatic network switching?",
+        "a": "Multi-carrier access does not by itself mean a device automatically switches between every available network. Roaming selection, a new subscription and an eSIM profile change are distinct mechanisms. Ask which mechanism the service supports, on which devices and under which agreements. Test the expected behavior rather than infer it from a coverage map.",
+        "words": 53
+      },
+      {
+        "q": "Can you bring an existing carrier agreement?",
+        "a": "An existing carrier agreement can be used only when the platform supports the required integration and the commercial terms permit it. Bring Your Own Network (BYON) is a capability to evaluate, not an automatic right. Confirm provisioning access, usage records, settlement and escalation ownership before assuming your current agreement will transfer into the platform.",
+        "words": 54
+      },
+      {
+        "q": "Does a data-only service include voice and SMS?",
+        "a": "A data-only service does not inherently include native mobile voice or text messaging. An app using mobile data is different from a mobile voice subscription. Specify the services your product requires, including any numbering and emergency-calling needs. Have the provider and relevant advisers review the obligations of that actual offer.",
+        "words": 50
+      }
+    ],
+    "callouts": [
+      17,
+      14,
+      20,
+      15,
+      19,
+      24
+    ],
+    "introWords": 111,
+    "introOpening": 47,
+    "conclusionWords": 83,
+    "em": 0,
+    "en": 0,
+    "spenza": 5,
+    "links": [
+      {
+        "href": "/mvno/mvno/",
+        "anchor": "MVNO business model",
+        "cta": false
+      },
+      {
+        "href": "/mvno/mvno-types/",
+        "anchor": "MVNO operating models",
+        "cta": false
+      },
+      {
+        "href": "https://ibasis.com/solutions/mvno-as-a-service/",
+        "anchor": "iBASIS responsibility models",
+        "cta": false
+      },
+      {
+        "href": "https://www.usac.org/service-providers/contributing-to-the-usf/who-must-contribute/",
+        "anchor": "filing and exemption guidance",
+        "cta": false
+      },
+      {
+        "href": "/mvne/",
+        "anchor": "Discuss your MVNO operating model",
+        "cta": true
+      },
+      {
+        "href": "/mvno/mvno-mvno-launch-cost/",
+        "anchor": "MVNO launch cost inputs",
+        "cta": false
+      },
+      {
+        "href": "/esim/esim/",
+        "anchor": "eSIM provisioning basics",
+        "cta": false
+      },
+      {
+        "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/esim-specification/",
+        "anchor": "GSMA consumer and IoT specifications",
+        "cta": false
+      },
+      {
+        "href": "https://gigs.com/use-cases/mvno-in-a-box",
+        "anchor": "Gigs' operating-system scope",
+        "cta": false
+      },
+      {
+        "href": "https://www.transatel.com/news-and-insights/blog/what-are-mvno-white-label-solutions/",
+        "anchor": "Transatel's branded-service scope",
+        "cta": false
+      },
+      {
+        "href": "/mvne/",
+        "anchor": "MVNE platform capabilities",
+        "cta": false
+      },
+      {
+        "href": "/mvno/resell-data-plans-shopify/",
+        "anchor": "Shopify reseller workflow",
+        "cta": false
+      },
+      {
+        "href": "https://docs.spenza.com/introduction",
+        "anchor": "Partner API contract",
+        "cta": false
+      },
+      {
+        "href": "/spenza-product/butlr-iot-spenza-casestudy/",
+        "anchor": "Butlr's regional rollout",
+        "cta": false
+      },
+      {
+        "href": "/mvno-calculator/",
+        "anchor": "Estimate your launch costs",
+        "cta": true
+      },
+      {
+        "href": "https://consumercomplaints.fcc.gov/hc/en-us",
+        "anchor": "Federal Communications Commission (FCC) porting guidance",
+        "cta": false
+      },
+      {
+        "href": "/mvne/",
+        "anchor": "discuss your operating model",
+        "cta": true
+      }
+    ],
+    "robots": "noindex, nofollow",
+    "schema": 0,
+    "slots": false,
+    "tables": 3,
+    "toc": [
+      "TL;DR / At-a-Glance Summary",
+      "What is a White Label MVNO?",
+      "Who Should Launch a White Label MVNO?",
+      "What do you own, and what does your provider operate?",
+      "Cost Breakdown: What Does It Actually Cost to Launch?",
+      "Step-by-Step: How to Launch a White Label MVNO",
+      "How do you choose a provider and avoid lock-in?",
+      "What does a branded launch look like in practice?",
+      "FAQs",
+      "Related  Articles",
+      "Subscribe for Smarter Connectivity Insights",
+      "Homepage Popup"
+    ],
+    "images": [
+      {
+        "url": "http://localhost:4321/blog-media/white-label-mvno/White-Label-MVNO-Launch-Guide.webp",
+        "width": 1280,
+        "height": 720,
+        "loaded": true,
+        "picture": false
+      },
+      {
+        "url": "http://localhost:4321/blog-media/white-label-mvno/white-label-use-cases.webp",
+        "width": 1024,
+        "height": 683,
+        "loaded": true,
+        "picture": true
+      }
+    ],
+    "evidence": [
+      "[EVIDENCE NEEDED: technical reviewer name, role and completed review, from the editorial owner]",
+      "[EVIDENCE NEEDED: approved IMZ deployment scope, from the account owner]"
+    ],
+    "mobile": {
+      "viewport": 390,
+      "documentWidth": 390,
+      "tables": [
+        {
+          "width": 357,
+          "scrollWidth": 610,
+          "overflow": "auto"
+        },
+        {
+          "width": 357,
+          "scrollWidth": 610,
+          "overflow": "auto"
+        },
+        {
+          "width": 357,
+          "scrollWidth": 610,
+          "overflow": "auto"
+        }
+      ]
+    },
+    "errors": []
+  },
+  "links": {
+    "contextualInternal": 8,
+    "uniqueInternalIncludingCta": 9,
+    "internalOccurrencesIncludingCta": 11,
+    "externalPrimary": 6,
+    "donorLinksInBody": 0
+  },
+  "assets": {
+    "hero": {
+      "width": 1280,
+      "height": 720,
+      "webpBytes": 53154
+    },
+    "body": {
+      "width": 1024,
+      "height": 683,
+      "webpBytes": 65862
+    }
+  },
+  "additionalBrowserChecks": {
+    "cards": 4,
+    "closing": 1,
+    "icons": [
+      {
+        "class": "fa-classic fa-solid fa-tower-cell",
+        "content": "\"\"",
+        "font": "\"Font Awesome 6 Free\""
+      },
+      {
+        "class": "fa-classic fa-solid fa-layer-group",
+        "content": "\"\"",
+        "font": "\"Font Awesome 6 Free\""
+      },
+      {
+        "class": "fa-classic fa-solid fa-money-bill-trend-up",
+        "content": "\"\"",
+        "font": "\"Font Awesome 6 Free\""
+      },
+      {
+        "class": "fa-classic fa-solid fa-circle-check",
+        "content": "\"\"",
+        "font": "\"Font Awesome 6 Free\""
+      },
+      {
+        "class": "fa-classic fa-solid fa-clipboard-check",
+        "content": "\"\"",
+        "font": "\"Font Awesome 6 Free\""
+      }
+    ],
+    "sentenceAverage": 13,
+    "canonical": null,
+    "author": "SivaSai",
+    "related": 3,
+    "anchorIds": [
+      {
+        "id": "Spenza",
+        "present": true
+      },
+      {
+        "id": "IMZ",
+        "present": true
+      },
+      {
+        "id": "Conclusion",
+        "present": true
+      },
+      {
+        "id": "FAQs",
+        "present": true
+      }
+    ],
+    "hero": [
+      {
+        "width": "1280",
+        "height": "720"
+      }
+    ]
+  },
+  "buildVerification": {
+    "astroCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "hints": 72,
+      "files": 329
+    },
+    "build": "passed with MEDIA_ORIGIN from .env.example and NOINDEX=1",
+    "assetAudit": {
+      "pages": 487,
+      "broken": 0
+    },
+    "distVerification": {
+      "missing": 0,
+      "stranded": 0
+    },
+    "linkAudit": {
+      "uniqueLinks": 633,
+      "broken": 1,
+      "url": "/mvno/resell-data-plans-shopify/]/",
+      "source": "/mvno/msp-reselling-connectivity-with-hardware/",
+      "scope": "Existing malformed link outside M07; not changed"
+    }
+  },
+  "faqUpdate": {
+    "measuredAt": "2026-09-22T12:33:01.033Z",
+    "counts": {
+      "bodyWords": 2486,
+      "tldrWords": 163,
+      "readingWords": 2649,
+      "em": 0,
+      "en": 0,
+      "banned": [],
+      "titleCharacters": 54,
+      "descriptionCharacters": 150
+    },
+    "browserEvidence": "M16-M07-browser-qa.json",
+    "note": "Existing question/answer text preserved; native expandable FAQ UI matches the live gray-card appearance and plus/minus interaction."
+  }
+}
