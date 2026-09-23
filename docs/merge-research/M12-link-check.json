@@ -1,0 +1,57 @@
+[
+  {
+    "url": "https://spenza.com/mvno/mvno/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-types/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-types/"
+  },
+  {
+    "url": "https://spenza.com/mvne/",
+    "status": 200,
+    "final": "https://spenza.com/mvne/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-billing-platforms/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-billing-platforms/"
+  },
+  {
+    "url": "https://spenza.com/mvno/mvno-mvno-launch-cost/",
+    "status": 200,
+    "final": "https://spenza.com/mvno/mvno-mvno-launch-cost/"
+  },
+  {
+    "url": "https://spenza.com/mvno-calculator/",
+    "status": 200,
+    "final": "https://spenza.com/mvno-calculator/"
+  },
+  {
+    "url": "https://spenza.com/spenza-product/rocketphone-case-study/",
+    "status": 200,
+    "final": "https://spenza.com/spenza-product/rocketphone-case-study/"
+  },
+  {
+    "url": "https://docs.stripe.com/api/idempotent_requests",
+    "status": 200,
+    "final": "https://docs.stripe.com/api/idempotent_requests"
+  },
+  {
+    "url": "https://docs.stripe.com/webhooks",
+    "status": 200,
+    "final": "https://docs.stripe.com/webhooks"
+  },
+  {
+    "url": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+    "status": 200,
+    "final": "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/"
+  },
+  {
+    "url": "https://csrc.nist.gov/pubs/sp/800/144/final",
+    "status": 200,
+    "final": "https://csrc.nist.gov/pubs/sp/800/144/final"
+  }
+]

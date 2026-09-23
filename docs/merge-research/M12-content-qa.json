@@ -1,0 +1,46 @@
+{
+  "cluster": "M12",
+  "before": [
+    {
+      "path": "/mvno/mvne-provider-selection/",
+      "bodyWords": 2335,
+      "tldrWords": 4
+    },
+    {
+      "path": "/mvno/questions-to-ask-mvne-2025/",
+      "bodyWords": 1969,
+      "tldrWords": 253
+    }
+  ],
+  "combinedBeforeWords": 4561,
+  "bodyWords": 2263,
+  "tldrWords": 145,
+  "totalWords": 2408,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvno/mvno-types/",
+    "/mvne/",
+    "/mvno/mvno-billing-platforms/",
+    "/mvno/mvno-mvno-launch-cost/",
+    "/mvno-calculator/",
+    "/spenza-product/rocketphone-case-study/"
+  ],
+  "external": [
+    "https://docs.stripe.com/api/idempotent_requests",
+    "https://docs.stripe.com/webhooks",
+    "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+    "https://csrc.nist.gov/pubs/sp/800/144/final"
+  ],
+  "images": {
+    "reused": 4,
+    "generated": 0
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved completed provider acceptance worksheet and redacted request/event/billing trace, from Spenza engineering and delivery]",
+    "[EVIDENCE NEEDED: RocketPhone subscriber cohort and dated start/end milestones, from RocketPhone delivery owner]",
+    "[EVIDENCE NEEDED: redacted operations screenshot with publication permission, from Spenza product/delivery]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+  ]
+}

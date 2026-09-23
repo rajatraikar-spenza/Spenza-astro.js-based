@@ -75,11 +75,74 @@ export interface MergePreview {
 import type { AcfBlocks } from '../../lib/acf-blocks.ts';
 import m03Billing from './mvno-billing-platforms.html?raw';
 import m08Roles from './mno-mvno-mvne-mvna-roles.html?raw';
+import m12Selection from './mvne-provider-selection.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "mvne-provider-selection": {
+  "slug": "mvne-provider-selection",
+  "category": "mvno",
+  "cluster": "M12: MVNE provider evaluation",
+  "title": "How to Choose an MVNE: Provider Evaluation and RFP",
+  "excerpt": "Compare MVNE providers with a practical RFP, scope checks, acceptance tests and a usable data-exit plan.",
+  "seoTitle": "How to Choose an MVNE: Provider Evaluation and RFP",
+  "seoDescription": "Learn how to choose an MVNE with a scored RFP, carrier and billing checks, acceptance tests, support boundaries and data-export requirements.",
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails.png\" class=\"attachment-full size-full wp-image-7892 webpexpress-processed\" alt=\"How to Choose the Right MVNE Provider for Your Business\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Choosing the right MVNE provider for your business",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-03-20T12:29:49+00:00",
+  "updatedDate": "2026-09-23T09:35:28.699Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 2335,
+  "donors": [
+    {
+      "path": "/mvno/questions-to-ask-mvne-2025/",
+      "title": "Questions to Ask Your MVNE Partner (2026 Checklist)",
+      "clicks": 5,
+      "contributes": "Provider questions, carrier and billing scope, operations, commercial terms and evidence checklist"
+    }
+  ],
+  "content": m12Selection,
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Choose an MVNE around the work your mobile service requires and the evidence that a provider can perform it. Compare carrier access, billing, integrations, support and exit terms under a common scope. Use a scored RFP for preferences while keeping essential requirements as separate gates. Published customer evidence such as RocketPhone helps identify relevant workflows, but your own acceptance tests and agreement must establish the proposed service.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"list-check\"}",
+        "title": "Define the required service",
+        "text": "Specify customers, markets, devices, channels and retained systems before comparing providers."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Score verified evidence",
+        "text": "Separate mandatory gates from preferences and record the artifact behind each score."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"arrows-rotate\"}",
+        "title": "Test exception paths",
+        "text": "Check retries, delayed events, billing changes and account isolation in an authorized environment."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-export\"}",
+        "title": "Verify a usable exit",
+        "text": "Request export definitions, sample import results and service-transition responsibilities."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+        "title": "Keep open requirements visible",
+        "text": "Assign every unresolved dependency an owner, required artifact and acceptance condition."
+      }
+    ]
+  }
+},
   "mno-mvno-mvne-mvna-roles": {
   "slug": "mno-mvno-mvne-mvna-roles",
   "category": "mvno",

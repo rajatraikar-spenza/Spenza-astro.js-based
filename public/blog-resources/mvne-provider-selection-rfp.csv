@@ -1,0 +1,10 @@
+Requirement,Mandatory gate? (buyer defines),Preference weight 1-3 (buyer defines),Evidence score 0-2 (after review),Evidence reference,Acceptance test,Expected outcome,Observed result,Owner,Open dependency,Decision
+Network access and permitted offer,,,,,Verify proposed carrier/service entitlement,,,,,
+Device and eSIM activation,,,,,Complete intended device activation and recovery,,,,,
+Billing and plan change,,,,,Trace usage through invoice and adjustment,,,,,
+Request retry,,,,,Check final state and duplicate handling,,,,,
+Delayed or reordered events,,,,,Reconcile authoritative subscription state,,,,,
+Account isolation,,,,,Authorized cross-account access test,,,,,
+Support escalation,,,,,Walk through a scoped incident,,,,,
+Data export and import,,,,,Import sample export with documented identifiers,,,,,
+Commercial and exit scope,,,,,Review exclusions and transition responsibilities,,,,,
