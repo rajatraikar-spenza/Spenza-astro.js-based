@@ -1,0 +1,46 @@
+{
+  "cluster": "M23",
+  "before": [
+    {
+      "path": "/mvno/top-mvno-marketing-strategies/",
+      "bodyWords": 2749,
+      "tldrWords": 94
+    },
+    {
+      "path": "/mvno/top-mvno-go-to-market-strategies-2025/",
+      "bodyWords": 1722,
+      "tldrWords": 276
+    }
+  ],
+  "combinedBeforeWords": 4841,
+  "bodyWords": 2475,
+  "tldrWords": 146,
+  "totalWords": 2621,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvno/mvno-types/",
+    "/mvne/",
+    "/mvno-calculator/",
+    "/mvno/launch-mvno-7-days/",
+    "/spenza-product/rocketphone-case-study/",
+    "/mvno/how-to-reduce-mvno-churn/"
+  ],
+  "external": [
+    "https://stripe.com/resources/more/cac-in-saas",
+    "https://stripe.com/resources/more/what-is-the-cac-payback-period",
+    "https://support.apple.com/en-us/118669",
+    "https://support.google.com/analytics/answer/9670133?hl=en"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved acquisition-channel costs, customer and subscription cohort definitions, activation completion, equal-age retention and contribution records with campaign dates, from Spenza growth/finance and the customer owner.]",
+    "[EVIDENCE NEEDED: RocketPhone deployment cohort and dated start/end milestones, from the RocketPhone delivery owner.]",
+    "[EVIDENCE NEEDED: approved redacted onboarding or cohort-operations screenshot with capture date and scope, from Spenza product and delivery.]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the commissioning editor.]"
+  ]
+}
