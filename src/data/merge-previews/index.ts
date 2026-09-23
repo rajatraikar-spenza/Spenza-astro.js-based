@@ -73,11 +73,73 @@ export interface MergePreview {
 }
 
 import type { AcfBlocks } from '../../lib/acf-blocks.ts';
+import m03Billing from './mvno-billing-platforms.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "mvno-billing-platforms": {
+  "slug": "mvno-billing-platforms",
+  "category": "mvno",
+  "cluster": "M03: MVNO billing platforms",
+  "title": "MVNO Billing Platforms: Compare Scope, Costs and Tests",
+  "excerpt": "Compare charging, account hierarchies, carrier integration and operating costs. Verify the platform with an event-to-invoice acceptance test.",
+  "seoTitle": "MVNO Billing Platforms: Compare Scope, Costs and Tests",
+  "seoDescription": "Compare MVNO billing platforms by charging, account hierarchy, carrier integration and cost scope. Use practical tests to verify a platform before launch.",
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png\" class=\"attachment-full size-full wp-image-9201 webpexpress-processed\" alt=\"Billing and BSS Providers for MVNOs: What to Look For\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Billing and BSS providers for MVNOs: what to look for",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-04-17T10:07:28+00:00",
+  "updatedDate": "2026-09-23T09:03:13.080Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "destinationWords": 2459,
+  "donors": [
+    {
+      "path": "/mvno/bss-providers-mvno-billing/",
+      "title": "MVNO BSS Provider: What to Look For in Billing",
+      "clicks": 335,
+      "contributes": "Account hierarchies, catalog controls, billing integration and operator-neutrality questions"
+    }
+  ],
+  "content": m03Billing,
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "MVNO billing platforms connect usage, charging, customer accounts and invoices. Choose a system around the responsibilities your operating model retains. Verify network access separately from software, compare quotes on equivalent units, and test disputed charges as well as successful bills. The published RocketPhone case supplies an enterprise MVNO example with billing and reseller capabilities. It does not supply a universal price, launch period or subscriber benchmark.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Separate the functions",
+        "text": "Charging calculates charges, billing compiles the bill and payment collection receives money."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-broadcast\"}",
+        "title": "Verify network scope",
+        "text": "A BSS license does not automatically include a carrier agreement or charging interface."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"users\"}",
+        "title": "Define who pays",
+        "text": "Separate the subscription user, delegated administrator and responsible payer in enterprise accounts."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Keep acceptance evidence",
+        "text": "Trace an event through the applicable rate, balance, invoice and adjustment."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+        "title": "Compare the same operating scope",
+        "text": "Normalize billable units, integration work, support, changes and exit assistance before comparing quotes."
+      }
+    ]
+  }
+},
   mvno: {
     "slug": "mvno",
     "category": "mvno",

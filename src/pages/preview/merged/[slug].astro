@@ -49,17 +49,16 @@ const esc = (s: string) =>
 const donorClicks = preview.donors.reduce((n, d) => n + d.clicks, 0);
 const mergedWords = mergeReadingWords(preview.content, preview.templateBlocks);
 
-// M02 retains numeric fragments from the live pillar. The theme's page-wide
-// TOC otherwise gives later shell headings those same IDs. Name only this
-// preview's unnumbered shell headings before deferred theme scripts run.
-const fragmentGuard = slug === 'mvno' ? `<script>
+// Retained live fragments can collide with numeric IDs assigned to shell headings.
+// Guard only previews that preserve those fragments, before the theme TOC runs.
+const fragmentGuard = preview.content.includes('id="elementor-toc__heading-anchor-') ? `<script>
   (function () {
     function nameShellHeadings() {
       document.querySelectorAll('h2:not([id])').forEach(function (heading, index) {
-        if (heading.closest('.m02-article')) return;
+        if (heading.closest('.elementor-widget-theme-post-content')) return;
         heading.id = heading.textContent.trim().startsWith('TL;DR')
           ? 'elementor-toc__heading-anchor-0'
-          : 'm02-preview-shell-' + index;
+          : 'merge-preview-shell-' + index;
       });
     }
     if (document.readyState !== 'loading') nameShellHeadings();

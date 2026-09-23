@@ -1,0 +1,47 @@
+{
+  "cluster": "M03",
+  "before": [
+    {
+      "path": "/mvno/mvno-billing-platforms/",
+      "bodyWords": 2459,
+      "tldrWords": 118
+    },
+    {
+      "path": "/mvno/bss-providers-mvno-billing/",
+      "bodyWords": 1944,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 4525,
+  "bodyWords": 2201,
+  "tldrWords": 148,
+  "totalWords": 2349,
+  "internal": [
+    "/mvno/mvno/",
+    "/mvne/",
+    "/mvno/subscriber-management-system-guide/",
+    "/spenza-product/rocketphone-case-study/",
+    "/mvno/mvno-types/",
+    "/mvno/mvno-mvno-launch-cost/",
+    "/mvno-calculator/",
+    "/mvno/mvne-provider-selection/"
+  ],
+  "external": [
+    "https://docs.oracle.com/en/industries/communications/billing-revenue/15.1/concepts/billing-and-revenue-management1.html",
+    "https://docs.portaone.com/docs/mr119-mvno-faqs",
+    "https://www.onebillsoftware.com/best-telecom-billing-platforms-2026/",
+    "https://docs.stripe.com/billing/subscriptions/usage-based/recording-usage-api"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: redacted usage-event to invoice trace including adjustments and approved timing conditions, from Spenza billing engineering]",
+    "[EVIDENCE NEEDED: RocketPhone subscriber or device cohort and dated launch milestones, from the RocketPhone delivery owner]",
+    "[EVIDENCE NEEDED: approved operations screenshot showing billing or reseller administration, from Spenza product/delivery]",
+    "[EVIDENCE NEEDED: technical reviewer name and role, from the user]"
+  ]
+}

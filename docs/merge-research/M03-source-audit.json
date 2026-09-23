@@ -1,0 +1,1841 @@
+{
+  "cluster": "M03",
+  "fetchedAt": "2026-09-23T08:41:59.625Z",
+  "method": "Fresh public destination and donor HTML; parse5 selects exact article widget, first featured widget excludes related cards. Body count includes lists, tables and captions; excludes shell and separate ACF TLDR.",
+  "sources": [
+    {
+      "path": "/mvno/mvno-billing-platforms/",
+      "url": "https://spenza.com/mvno/mvno-billing-platforms/",
+      "status": 200,
+      "h1": [
+        "MVNO Billing Platforms 2026: Top BSS Solutions Compared"
+      ],
+      "bodyWords": 2459,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What is an MVNO Billing Platform?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How MVNO Billing Works: The End-to-End Flow"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "MVNO vs MVNE vs MVNA: Who Needs What Kind of Billing?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Must-Have Features in an MVNO Billing System"
+        },
+        {
+          "level": "h2",
+          "id": "Billing",
+          "text": "Top MVNO Billing Platforms Compared (2026)"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "MVNO Billing Platform Pricing: What to Actually Expect"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. Enterprise tier ($500K–$2M+/year)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Mid-tier modular ($50K–$500K/year)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. API-first per-line (OpEx model)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "4. Open source (free software, ops cost)"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Integration Requirements and Supported Carriers"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. Host carrier integration"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. CRM and ERP systems"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. Payment gateways"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "4. Tax engines"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "5. eSIM platforms"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How to Choose by Buyer Type"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Time-to-Launch Comparison"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "IoT and eSIM Billing Considerations"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Implementation Checklist and Red Flags"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What is an MVNO Billing Platform?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO billing platform or billing software is the system that manages how a mobile virtual network operator (MVNO) charges its customers and tracks usage. It handles rates and charges, subscriber activation, wholesale reconciliation with mobile network operators, and the overall customer billing experience."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Think of it as the financial nervous system of any MVNO business. Without it, you cannot charge customers, reconcile costs with your host carrier, or scale your mobile services beyond a handful of users."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If you are exploring the MVNO space for the first time, here is the simplest way to think about it: imagine opening a coffee shop inside someone else’s building. You use their kitchen, their electricity, their space. But you still need your own cash register, your own pricing menu, and your own receipts for customers. The billing platform is that cash register. It sits between what your host carrier charges you wholesale and what you charge your end customers at retail."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Short on time? Skip ahead to the Top MVNOs Billing Platforms Complete Comparison"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How MVNO Billing Works: The End-to-End Flow"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The billing journey inside an MVNO follows a fairly consistent path, regardless of which platform you use. These billing processes form the core business process behind delivering reliable mobile services to end customers."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Subscriber activation: A customer signs up and gets a SIM or eSIM provisioned on the network."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Rating and charging: Every call, text, and megabyte of data consumed gets rated against a price plan in real time."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Wholesale reconciliation: Your platform reconciles what your host MNO charges you (in bulk) against what your subscribers actually used."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Invoicing: Bills go out to customers based on their plan, usage, and billing cycle."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Customer management: Customers can top up, change plans, raise disputes, or cancel through a self-care portal."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These billing processes happen continuously, often millions of times per day for larger operators. A weak billing system creates errors at every stage. That means unhappy customers, revenue leakage, and compliance headaches."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "According to GSMA Intelligence , there are over 1,000 active MVNOs globally , and the U.S. MVNO market was valued at approximately $30 billion in 2024 , projected to exceed $52.9 billion by 2032 ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "MVNO vs MVNE vs MVNA: Who Needs What Kind of Billing?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These three acronyms confuse almost everyone entering the mobile services world. Here is a clean breakdown of how billing platform needs differ across each role."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Role What They Do Billing Need MVNO Sells mobile services directly to end customers End-customer billing, invoicing, self-care MVNE Provides the backend technology stack to MVNOs Multi-tenant white-label billing, wholesale reconciliation MVNA Acts as an aggregator between MNOs and MVNOs Wholesale rate management, margin billing",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Role</th>\n<th>What They Do</th>\n<th>Billing Need</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"role\">MVNO</td>\n<td>Sells mobile services directly to end customers</td>\n<td>End-customer billing, invoicing, self-care</td>\n</tr>\n<tr>\n<td class=\"role\">MVNE</td>\n<td>Provides the backend technology stack to MVNOs</td>\n<td>Multi-tenant white-label billing, wholesale reconciliation</td>\n</tr>\n<tr>\n<td class=\"role\">MVNA</td>\n<td>Acts as an aggregator between MNOs and MVNOs</td>\n<td>Wholesale rate management, margin billing</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A branded retailer launching their own SIM service is an MVNO. A company like Spenza , which powers other brands to become MVNOs, operates as an MVNE. An MVNA sits even further upstream, negotiating bulk rates from carriers and passing them down to MVNEs and MVNOs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Knowing which role you are playing determines which type of billing system you actually need."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Must-Have Features in an MVNO Billing System"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Not all billing systems are created equal. Before evaluating any vendor, run through this checklist."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Convergent rating engine: Handles voice, data, and SMS under one unified logic."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Prepaid and postpaid support: Both models in a single system, not separate silos."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Real-time charging: Deducts balance or notifies customers as usage happens."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Product catalog management: Lets you create, modify, and launch new plans quickly."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Wholesale reconciliation: Matches your MNO invoice against subscriber usage automatically."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Multi-carrier support: Critical if you plan to operate across more than one host network."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "eSIM and SIM lifecycle management: Provisioning, swapping, suspending, and terminating profiles."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Customer self-care portal: Reduces support tickets and improves customer experience."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Tax engine integration: Telecom tax is complex; platforms need to plug into engines like Avalara or Vertex."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "API access: Connects your billing system to CRM, ERP, and e-commerce platforms."
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Analytics and reporting: Usage trends, revenue reports, churn signals."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Ultimately, these features directly impact customer experience, especially when it comes to real-time usage visibility and billing accuracy."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If a vendor claims full feature support but cannot demonstrate real-time charging in a live product walkthrough, treat it as a red flag . Real-time charging is highly complex to implement and is often the first capability removed in lower-cost solutions."
+        },
+        {
+          "tag": "h2",
+          "id": "Billing",
+          "text": "Top MVNO Billing Platforms Compared (2026)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here is an honest look at the major platforms in the market. This is not a ranked list. The right platform depends entirely on your scale, budget, and speed requirements."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Platform Best For Strengths Weaknesses Pricing Band Spenza Branded resellers, IoT MVNOs, fast launchers API-first, 7-day launch, per-line pricing, eSIM-native Not suited for very early startups Per-line OpEx model & Custom pricing Amdocs CES Tier-1 MNOs and large MVNOs Battle-tested, massive feature set Expensive, long implementation $500K–$2M+/year Oracle BRM Enterprise telcos Deep financial controls Complex to configure and maintain $500K–$1.5M+/year Netcracker Large-scale operators Strong OSS/BSS integration Not suited for small MVNOs Enterprise-only, $500K+ Cerillion Skyline Mid-size MVNOs Modern UI, modular Requires an implementation partner $50K–$300K/year Comarch BSS European MVNOs Regulatory compliance strength Less common in the US market $50K–$500K/year Plintron Full-MVNO enablement Turnkey solution Less flexibility for customization Custom pricing Totogi API-first cloud MVNOs Cloud-native, fast setup Newer, smaller track record Per-subscriber pricing PortaBilling Small to mid MVNOs Affordable, open architecture Dated UI, DIY-heavy $10K–$50K/year BillRun Tech-savvy operators Open source, no license cost Requires in-house ops Free + infrastructure Tridens Subscription-based MVNOs Strong recurring billing logic Heavily self-promotes Mid-tier custom Telgoo5 US-based MVNOs Carrier-certified, US-focused Less global coverage Custom pricing",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Platform</th>\n<th>Best For</th>\n<th>Strengths</th>\n<th>Weaknesses</th>\n<th>Pricing Band</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Spenza</strong></td>\n<td>Branded resellers, IoT MVNOs, fast launchers</td>\n<td class=\"strength\">API-first, 7-day launch, per-line pricing, eSIM-native</td>\n<td class=\"weakness\">Not suited for very early startups</td>\n<td>Per-line OpEx model &amp; Custom pricing</td>\n</tr>\n<tr>\n<td><strong>Amdocs CES</strong></td>\n<td>Tier-1 MNOs and large MVNOs</td>\n<td class=\"strength\">Battle-tested, massive feature set</td>\n<td class=\"weakness\">Expensive, long implementation</td>\n<td>$500K–$2M+/year</td>\n</tr>\n<tr>\n<td><strong>Oracle BRM</strong></td>\n<td>Enterprise telcos</td>\n<td class=\"strength\">Deep financial controls</td>\n<td class=\"weakness\">Complex to configure and maintain</td>\n<td>$500K–$1.5M+/year</td>\n</tr>\n<tr>\n<td><strong>Netcracker</strong></td>\n<td>Large-scale operators</td>\n<td class=\"strength\">Strong OSS/BSS integration</td>\n<td class=\"weakness\">Not suited for small MVNOs</td>\n<td>Enterprise-only, $500K+</td>\n</tr>\n<tr>\n<td><strong>Cerillion Skyline</strong></td>\n<td>Mid-size MVNOs</td>\n<td class=\"strength\">Modern UI, modular</td>\n<td class=\"weakness\">Requires an implementation partner</td>\n<td>$50K–$300K/year</td>\n</tr>\n<tr>\n<td><strong>Comarch BSS</strong></td>\n<td>European MVNOs</td>\n<td class=\"strength\">Regulatory compliance strength</td>\n<td class=\"weakness\">Less common in the US market</td>\n<td>$50K–$500K/year</td>\n</tr>\n<tr>\n<td><strong>Plintron</strong></td>\n<td>Full-MVNO enablement</td>\n<td class=\"strength\">Turnkey solution</td>\n<td class=\"weakness\">Less flexibility for customization</td>\n<td>Custom pricing</td>\n</tr>\n<tr>\n<td><strong>Totogi</strong></td>\n<td>API-first cloud MVNOs</td>\n<td class=\"strength\">Cloud-native, fast setup</td>\n<td class=\"weakness\">Newer, smaller track record</td>\n<td>Per-subscriber pricing</td>\n</tr>\n<tr>\n<td><strong>PortaBilling</strong></td>\n<td>Small to mid MVNOs</td>\n<td class=\"strength\">Affordable, open architecture</td>\n<td class=\"weakness\">Dated UI, DIY-heavy</td>\n<td>$10K–$50K/year</td>\n</tr>\n<tr>\n<td><strong>BillRun</strong></td>\n<td>Tech-savvy operators</td>\n<td class=\"strength\">Open source, no license cost</td>\n<td class=\"weakness\">Requires in-house ops</td>\n<td>Free + infrastructure</td>\n</tr>\n<tr>\n<td><strong>Tridens</strong></td>\n<td>Subscription-based MVNOs</td>\n<td class=\"strength\">Strong recurring billing logic</td>\n<td class=\"weakness\">Heavily self-promotes</td>\n<td>Mid-tier custom</td>\n</tr>\n<tr>\n<td><strong>Telgoo5</strong></td>\n<td>US-based MVNOs</td>\n<td class=\"strength\">Carrier-certified, US-focused</td>\n<td class=\"weakness\">Less global coverage</td>\n<td>Custom pricing</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Choosing the right MVNO billing solution or platform comes down to how well the system fits your operating model and integrates with your existing workflows. The table above provides a starting point, but the best choice ultimately depends on your specific use case."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A Real-World Example: A D2C electronics brand that wants to bundle a SIM plan with its smart home device does not need Amdocs. That would be like hiring a commercial airline catering team to make sandwiches for a family picnic. Spenza ControlHub or Totogi would be far more appropriate: faster to deploy, lower upfront cost, and designed for exactly that kind of branded reseller use case."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "MVNO Billing Platform Pricing: What to Actually Expect"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The cost of an MVNO billing system varies significantly depending on the complexity of billing processes and the scale of mobile services offered. Pricing in this space is intentionally opaque. Most enterprise vendors do not publish rates. Here is a realistic breakdown by tier."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. Enterprise tier ($500K–$2M+/year)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Amdocs, Oracle BRM, Netcracker. These platforms are built for operators running millions of subscribers. The pricing reflects months of implementation, dedicated support teams, and deep customization. If you are a startup or a branded MVNO with under 100,000 subscribers, these are not your options."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Mid-tier modular ($50K–$500K/year)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Cerillion, Comarch, Plintron. More accessible, but still requires significant implementation effort and usually an integration partner. Good for MVNOs that have confirmed product-market fit and are scaling."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. API-first per-line (OpEx model)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza ControlHub, Totogi. No massive upfront CapEx. You pay per active line or subscriber. This model is ideal for brands launching fast and needing flexibility as they grow. Spenza, for instance, can get an MVNO operational in as little as 7 days."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "4. Open source (free software, ops cost)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "BillRun. The software is free, but someone needs to host, maintain, and operate it. Viable for technically strong teams who want full control."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "According to Analysys Mason , MVNO launches are accelerating in markets where low-code and API-first enablement platforms reduce the technical barrier to entry . time-to-market is now a primary competitive factor ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Integration Requirements and Supported Carriers"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A billing platform that cannot connect to your other systems is a walled garden. B2B buyers evaluating platforms should ask specifically about these integration categories."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. Host carrier integration"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Your BSS solution needs certified connections to your host MNO. In the US, that typically means AT&T, Verizon, or T-Mobile. Platforms like Spenza ControlHub have pre-built integrations with major carriers, which cut months off implementation timelines."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If you are unfamiliar with how OSS and BSS systems work together in a telecom stack, this OSS/BSS overview is a good place to start before evaluating any billing platform."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. CRM and ERP systems"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Salesforce, HubSpot, NetSuite. Your billing system should push subscriber data into your CRM without manual exports."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. Payment gateways"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Stripe and Adyen are the most common. If your platform cannot connect to a modern payment gateway natively, expect workarounds."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "4. Tax engines"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Avalara and Vertex handle the nightmarish complexity of telecom tax across US states and international markets."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "5. eSIM platforms"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If you are launching with eSIM support, the billing platform needs to interface with SGP.32 eSIM orchestration. This is increasingly non-negotiable as physical SIM usage declines."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Since MVNOs rely on multiple mobile network operators for network access, seamless integration becomes critical for accurate billing and service delivery."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How to Choose by Buyer Type"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here is a simple decision framework based on your telecom solutions/services."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Buyer Type Recommended Platform(s) Why Enterprise MNO or large MVNO Amdocs, Oracle BRM Scale, compliance, support Mid-size MVNE operator Cerillion, Comarch Modular, manageable cost Branded reseller or fast-launch MVNO Spenza, Totogi Speed, flexibility, API-first IoT-focused MVNO Spenza, Tridens Machine-to-machine billing logic Open-source preference BillRun Cost control, technical ownership",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Buyer Type</th>\n<th>Recommended Platform(s)</th>\n<th>Why</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Enterprise MNO or large MVNO</strong></td>\n<td class=\"platform\">Amdocs, Oracle BRM</td>\n<td class=\"reason\">Scale, compliance, support</td>\n</tr>\n<tr>\n<td><strong>Mid-size MVNE operator</strong></td>\n<td class=\"platform\">Cerillion, Comarch</td>\n<td class=\"reason\">Modular, manageable cost</td>\n</tr>\n<tr>\n<td><strong>Branded reseller or fast-launch MVNO</strong></td>\n<td class=\"platform\">Spenza, Totogi</td>\n<td class=\"reason\">Speed, flexibility, API-first</td>\n</tr>\n<tr>\n<td><strong>IoT-focused MVNO</strong></td>\n<td class=\"platform\">Spenza, Tridens</td>\n<td class=\"reason\">Machine-to-machine billing logic</td>\n</tr>\n<tr>\n<td><strong>Open-source preference</strong></td>\n<td class=\"platform\">BillRun</td>\n<td class=\"reason\">Cost control, technical ownership</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The table above is a helpful starting point, but every business has its own nuances. A brand launching its first connected product with a bundled SIM plan has very different needs from an operator managing millions of subscribers. The right platform is one that fits your current scale comfortably while leaving room to grow alongside your business over time."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Time-to-Launch Comparison"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "One of the most misleading phrases in telecom is “ fast deployment .” Every vendor says it. Almost none quantify it. Here is the reality based on market experience."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Platform Type Typical Time-to-Launch Traditional enterprise BSS (Amdocs, Oracle) 12–18 months Modular mid-tier (Cerillion, Comarch) 3–6 months Modern API-first (Spenza, Totogi) 7 days to 4 weeks Open source self-hosted (BillRun) 1–3 months (technical team required)",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Platform Type</th>\n<th>Typical Time-to-Launch</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Traditional enterprise BSS (Amdocs, Oracle)</strong></td>\n<td class=\"slow\">12–18 months</td>\n</tr>\n<tr>\n<td><strong>Modular mid-tier (Cerillion, Comarch)</strong></td>\n<td class=\"medium\">3–6 months</td>\n</tr>\n<tr>\n<td><strong>Modern API-first (Spenza, Totogi)</strong></td>\n<td class=\"fast\">7 days to 4 weeks</td>\n</tr>\n<tr>\n<td><strong>Open source self-hosted (BillRun)</strong></td>\n<td class=\"medium\">1–3 months (technical team required)</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For a branded retailer or IoT company, the difference between 12 months and 7 days is not just operational. It is the difference between catching a market window and missing it entirely."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s MVNE platform is designed for brands that need to launch quickly without sacrificing billing accuracy or carrier compliance . Its per-line pricing model allows you to scale without being locked into enterprise-level costs before reaching enterprise-scale volumes ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "IoT and eSIM Billing Considerations"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "IoT billing is fundamentally different from consumer mobile billing, and many legacy platforms are not built for it."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Consumer billing typically involves a few thousand events per subscriber per month. IoT billing can involve millions of micro-events from a single device fleet; most of them are low-value and machine-generated. A smart parking sensor does not consume the same billing logic as a human smartphone user."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Key differences to understand:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Rating logic must handle massive volumes of tiny events without collapsing"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Multi-IMSI and eSIM support is essential for global deployments"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Plan flexibility matters because IoT devices have wildly different data consumption profiles"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Automated management of dormant or stranded devices prevents billing waste"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Platforms like Spenza’s IoT connectivity management solution are purpose-built for this use case, combining eSIM lifecycle management with billing logic designed for machine-to-machine environments."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Implementation Checklist and Red Flags"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Before signing any contract, verify the following."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Green lights to look for:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Carrier certification documentation (not just a claim) Uptime SLA of 99.9% or higher in writing Real-time charging demo with live data API documentation that is publicly accessible or available on request References from live MVNO deployments, not pilots"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Red flags to walk away from:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "No published SLA or vague “best effort” language The vendor cannot name a live customer in your target segment Integration requires 6 months of professional services before you see anything working Pricing requires a full CapEx commitment before proof of concept"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Choosing the right MVNO billing platform comes down to three variables: your scale, your budget, and how fast you need to move. Enterprise operators with millions of subscribers and complex regulatory requirements should evaluate Amdocs or Oracle. Mid-size operators building out an MVNE layer should look at Cerillion or Comarch. If you are a branded reseller, a D2C company bundling connectivity with a product, or an IoT company managing device fleets across multiple countries, an API-first platform built for speed and flexibility is the smarter starting point."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza ControlHub is built specifically for that last category. Per-line pricing, 7-day launch timelines, carrier-certified integrations, and native eSIM support make it a strong fit for brands that want to move fast without the overhead of traditional BSS implementations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Whether you choose a traditional BSS solution or a modern MVNO billing platform, aligning your billing system with your business model is key to long-term success."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It is the software system that manages subscriber charging, invoicing, wholesale reconciliation, and customer management for a mobile virtual network operator."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It calculates usage, rates, taxes, and invoices. It also supports collections, dunning, and financial reporting for both prepaid and postpaid MVNO operations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Users expect real-time balances. Real-time billing prevents overuse, ensures accuracy, and supports instant service suspension or renewal, reducing revenue leaks significantly."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "MNO billing handles network-owner-level complexity at massive scale; MVNO billing sits on top of wholesale agreements and focuses on retail subscriber management."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Anywhere from 7 days for modern API-first platforms to 18 months for traditional enterprise BSS implementations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It removes infrastructure maintenance, reduces costs, enables remote access, supports scalability, allows quick upgrades, and shortens your time-to-market for launching new offers."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO needs end-customer billing; an MVNE needs multi-tenant billing that supports multiple MVNO brands simultaneously from one platform."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Not necessarily. Modern platforms like Spenza support SGP.32 eSIM orchestration natively alongside billing."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Start with host carrier integration, then payment gateways, then CRM. Tax engine and eSIM integrations become critical as you scale internationally."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can launch in just weeks. Spenza’s modular setup, APIs, and cloud-native infrastructure make activation and scaling faster than legacy billing vendors."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Want help choosing or switching your billing engine? Consult Spenza today to transform your MVNO billing platform."
+        }
+      ],
+      "links": [
+        {
+          "text": "Top MVNOs Billing Platforms Complete Comparison",
+          "href": "#Billing"
+        },
+        {
+          "text": "GSMA Intelligence",
+          "href": "https://www.gsmaintelligence.com/"
+        },
+        {
+          "text": "Spenza",
+          "href": "/"
+        },
+        {
+          "text": "Spenza ControlHub",
+          "href": "/controlhub/"
+        },
+        {
+          "text": "Analysys Mason",
+          "href": "https://www.analysysmason.com/research/content/reports/mvno-market-shares-rma18/"
+        },
+        {
+          "text": "OSS/BSS overview",
+          "href": "/telecom/oss-bss/"
+        },
+        {
+          "text": "Spenza’s MVNE platform",
+          "href": "/mvne/"
+        },
+        {
+          "text": "Spenza’s IoT connectivity management solution",
+          "href": "/esim/iot-connectivity-platforms/"
+        },
+        {
+          "text": "Consult Spenza today",
+          "href": "/contact/"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png",
+          "class": "attachment-full size-full wp-image-9472 webpexpress-processed",
+          "alt": "MVNO Billing Platforms: The Ultimate Guide for 2025",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/MVNO-Billing-Platforms-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/MVNO-Billing-Platforms-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/MVNO-Billing-Platforms-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/MVNO-Billing-Platforms.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png\" class=\"attachment-full size-full wp-image-9472 webpexpress-processed\" alt=\"MVNO Billing Platforms: The Ultimate Guide for 2025\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/06/image-12-1024x683.png",
+          "alt": "MVNO Billing Platforms 2026",
+          "class": "wp-image-9470",
+          "style": "width:777px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/06/image-12-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/image-12-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/image-12-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-12.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/image-12-1024x683.png\" alt=\"MVNO Billing Platforms 2026\" class=\"wp-image-9470\" style=\"width:777px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/image-12-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/image-12-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/image-12-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/image-12.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "502",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-1024x502.png",
+          "alt": "MVNO billing flow showing subscriber activation, rating, charging, reconciliation, and invoicing process\n",
+          "class": "wp-image-16923",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-1024x502.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-300x147.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-768x377.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-1536x753.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"502\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-1024x502.png\" alt=\"MVNO billing flow showing subscriber activation, rating, charging, reconciliation, and invoicing process\n\" class=\"wp-image-16923\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-1024x502.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-300x147.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-768x377.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-1536x753.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "485",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-1024x485.png",
+          "alt": "Comparison of MVNO billing platform pricing tiers, including enterprise, mid-tier, API-first, and open source models",
+          "class": "wp-image-16928",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-1024x485.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-300x142.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-768x364.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart.png 1376w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"485\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-1024x485.png\" alt=\"Comparison of MVNO billing platform pricing tiers, including enterprise, mid-tier, API-first, and open source models\" class=\"wp-image-16928\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-1024x485.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-300x142.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart-768x364.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Pricing-Tier-Chart.png 1376w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-1024x683.png",
+          "alt": "MVNO billing platform integration with carriers, CRM systems, payment gateways, and tax engines",
+          "class": "wp-image-16930",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-1024x683.png\" alt=\"MVNO billing platform integration with carriers, CRM systems, payment gateways, and tax engines\" class=\"wp-image-16930\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Integrated-payment-platform-infographic.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "572",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-1024x572.png",
+          "alt": "Time to launch comparison of MVNO billing platforms across enterprise, mid-tier, API-first, and open source solutions",
+          "class": "wp-image-16931",
+          "style": "aspect-ratio:1.7917524906469378;width:666px;height:auto",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-1024x572.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-300x167.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-768x429.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-1536x857.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-2048x1143.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"572\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-1024x572.png\" alt=\"Time to launch comparison of MVNO billing platforms across enterprise, mid-tier, API-first, and open source solutions\" class=\"wp-image-16931\" style=\"aspect-ratio:1.7917524906469378;width:666px;height:auto\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-1024x572.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-300x167.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-768x429.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-1536x857.png 1536w, https://media.spenza.com/wp-content/uploads/2026/04/Time-to-launch-bar-graph-2048x1143.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"user-tie\", \"label\" : \"User Tie\", \"unicode\" : \"f508\"}",
+            "title": "Know Your Role",
+            "text": " Whether you are an MVNO, MVNE, or MVNA determines which type of MVNO billing platform and pricing model you actually need."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
+            "title": "Features Matter",
+            "text": "Convergent rating, real-time charging, wholesale reconciliation, and eSIM support are the core features that separate capable platforms from basic ones."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"money-bills\", \"label\" : \"Money Bills\", \"unicode\" : \"e1f3\"}",
+            "title": "Budget Realistically",
+            "text": "Enterprise BSS platforms cost $500K–$2M+ annually, while API-first per-line models offer a far more accessible entry point for newer operators."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"users-gear\", \"label\" : \"Users Gear\", \"unicode\" : \"f509\"}",
+            "title": "Buyer Fit First",
+            "text": "Choosing a platform based on your current scale and speed requirements beats over-investing in infrastructure you are not ready to use."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Spenza Advantage",
+            "text": "For branded resellers and IoT MVNOs needing fast launches, Spenza ControlHub delivers carrier-certified, API-first billing with no heavy upfront CapEx."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/mvno/mvno-billing-platforms/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/mvno/mvno-billing-platforms/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "MVNO Billing Platforms 2026: Top BSS Solutions Compared",
+              "datePublished": "2026-04-17T10:07:28+00:00",
+              "dateModified": "2026-07-17T04:50:17+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/mvno/mvno-billing-platforms/"
+              },
+              "wordCount": 2171,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/mvno-billing-platforms/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png",
+              "keywords": [
+                "eSIM",
+                "IoT",
+                "MVNO",
+                "spenza",
+                "Telecom Expense Management",
+                "Telecom management",
+                "TEM",
+                "wireless telecom expense management"
+              ],
+              "articleSection": [
+                "MVNO"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/mvno/mvno-billing-platforms/",
+              "url": "https://spenza.com/mvno/mvno-billing-platforms/",
+              "name": "MVNO Billing Platforms 2026: Top BSS Solutions Compared - Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/mvno/mvno-billing-platforms/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/mvno-billing-platforms/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png",
+              "datePublished": "2026-04-17T10:07:28+00:00",
+              "dateModified": "2026-07-17T04:50:17+00:00",
+              "description": "Compare the top MVNO billing platform options for 2026: features, pricing, integrations, and which BSS suits greenfield, enterprise or IoT launches.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/mvno/mvno-billing-platforms/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/mvno/mvno-billing-platforms/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/mvno/mvno-billing-platforms/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/06/MVNO-Billing-Platforms.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "MVNO Billing Platforms: The Ultimate Guide for 2025"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/mvno/mvno-billing-platforms/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "MVNO",
+                  "item": "https://spenza.com/category/mvno/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "MVNO Billing Platforms 2026: Top BSS Solutions Compared"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/mvno/bss-providers-mvno-billing/",
+      "url": "https://spenza.com/mvno/bss-providers-mvno-billing/",
+      "status": 200,
+      "h1": [
+        "MVNO BSS Provider: What to Look For in Billing"
+      ],
+      "bodyWords": 1944,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Introduction"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What Is an MVNO BSS Provider?"
+        },
+        {
+          "level": "h2",
+          "id": "MVNOs",
+          "text": "Why MVNOs Need Billing & BSS Solutions"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why Modern MVNO BSS Needs to Be Flexible"
+        },
+        {
+          "level": "h2",
+          "id": "Features",
+          "text": "Key Features to Look For in an MVNO Billing & BSS Provider"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. All-In-One Connectivity & Billing System"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Advanced Subscription and Account Controls"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. Custom Plan Creation and Product Catalog Flexibility"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "4. Real-Time Usage and Cost Optimization (WEM)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "5. API-Ready and Fully Integrated"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "6. Branded Experience with White-Labeling"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "7. Scalability Meets Security"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "8. Operator-Neutral Access"
+        },
+        {
+          "level": "h2",
+          "id": "Difference",
+          "text": "What Is the Difference Between BSS and OSS for MVNOs?"
+        },
+        {
+          "level": "h2",
+          "id": "Spenza",
+          "text": "Spenza: Your Comprehensive OSS/BSS Partner for MVNOs"
+        },
+        {
+          "level": "h2",
+          "id": "Conclusion",
+          "text": "Conclusion: Choose Wisely, Build Strongly"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Introduction"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Choosing the right MVNO BSS provider is critical because billing, customer management, subscriptions, products, orders, and payments directly affect the day-to-day operation of an MVNO."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A modern BSS should do more than generate invoices. It should support usage-based billing, flexible plan and product management, customer and account hierarchies, payment processing, integrations, and the ability to scale as subscriber and service volumes grow."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This guide explains what to look for in an MVNO BSS provider, which billing and BSS capabilities matter most, how BSS differs from OSS, and what to evaluate before choosing a platform."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This blog will walk through what to look for in an MVNO BSS provider. You’ll find out which features matter most, why technical flexibility is key, and how modern tools like Spenza can support your operations."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What Is an MVNO BSS Provider?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO BSS provider supplies the business support systems an MVNO needs to manage customers, products, subscriptions, orders, billing, invoicing, payments, and revenue operations. A strong MVNO BSS platform should also support usage-based charging, plan management, integrations, and scalable telecom operations."
+        },
+        {
+          "tag": "h2",
+          "id": "MVNOs",
+          "text": "Why MVNOs Need Billing & BSS Solutions"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Running an MVNO is no longer just about reselling mobile services. It’s about building a service that feels native, smart, and fast. That’s where a proper BSS for MVNOs comes in."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "1. Operational Efficiency : MVNO operations include real-time plan updates, customer onboarding, SIM management, and plan provisioning. Without automation, these tasks slow everything down. A good MVNO billing system cuts out delays."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "2. Customer Experience : Today’s users want instant service. They expect real-time data tracking, usage control, and billing clarity. A top telecom billing software makes onboarding smooth and billing transparent. Also, with features like self-service portals, users manage their plans with ease."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "3. Revenue Accuracy : Billing errors cost money. The right billing solutions for MVNOs ensure exact usage tracking and correct invoicing. No more leakage. This is key when you operate on thin margins."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "4. Scale Without Trouble : You want to grow. You may expand to enterprise clients or new geographies. Your BSS must handle high volumes and new features without causing issues."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "5. Control Over Costs : Wireless expenses can skyrocket if you don’t watch usage. Good wireless expense management (WEM) features flag overspend quickly. Spenza helps overcome these common WEM challenges by offering live spend insights and automation."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "6. Telecom Billing is Complex : Unlike simple SaaS billing, telecom involves usage-based pricing, roaming, tiered plans, and multi-currency invoicing. Your MVNO BSS provider must support all these without slowing you down."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why Modern MVNO BSS Needs to Be Flexible"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Modern telecom BSS is moving beyond traditional billing and customer management toward more programmable, API-driven platforms. Current industry discussions highlight the need for faster product launches, simpler integrations, and greater flexibility as MVNOs expand into 5G, IoT, eSIM, and other digital connectivity services."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For MVNOs, this makes API readiness, product catalog flexibility, real-time usage data, and integration capabilities important considerations when evaluating a BSS provider."
+        },
+        {
+          "tag": "h2",
+          "id": "Features",
+          "text": "Key Features to Look For in an MVNO Billing & BSS Provider"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Choosing a BSS isn’t only about features. It’s about finding the right tool that fits into your daily operations. Let’s explore what really matters."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. All-In-One Connectivity & Billing System"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Don’t use separate systems for billing and connectivity. That’s a recipe for errors. Look for a platform that combines them. A procure-to-pay SaaS should come with an integrated marketplace for mobile plans. You need to control everything from one dashboard: operator switching, SIM provisioning, and billing."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza makes this possible. We combine operator-neutral connectivity with billing into a single pane of glass. You can actively control usage, import invoices, and manage connectivity, all in one place."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Advanced Subscription and Account Controls"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As your subscriber base grows, things get messy. Managing hundreds or thousands of subscriptions across devices and users needs a strong subscription management telecom solution."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Look for:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Parent-child billing Account hierarchy for resellers Multi-device SIM control Global payment collection support"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can explore how Spenza’s TaaS platform supports these billing needs ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza lets you do just that. Manage enterprise customers, resellers, and individuals in a structured way. We support parent-child billing and cross-border subscription payments."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. Custom Plan Creation and Product Catalog Flexibility"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "No two customers are the same. Your platform should support custom mobile and IoT plans. You might serve a low-data GPS tracker and a high-data industrial sensor. Your MVNO billing system must support both."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Features to look for:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Modular plan builder Custom usage triggers (throttling, alerts) Plan templates for quick rollout Local vs. roaming plan management"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza offers a marketplace of mobile plans from various operators. You can customize any plan and serve niche devices. That’s why partners like Angel Watch and Butlr choose us."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "4. Real-Time Usage and Cost Optimization (WEM)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here’s where wireless expense management ( WEM ) comes in. You must see how data is being used right now, not at month-end. Real-time control prevents surprise charges."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Key tools include:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Pool optimization Usage-based billing triggers Mid-cycle plan adjustments Invoice imports with automation"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With Spenza, we help users save up to 30% on mobile costs. APIs connect directly to usage data, letting us adjust plans before you overspend."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "5. API-Ready and Fully Integrated"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You already use CRM, ERP, or e-commerce tools like Shopify. Your API integration telecom feature should connect with all of them. Spenza’s TEM APIs bring seamless automation into enterprise workflows. Manual syncing is slow and creates errors."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Look for:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Webhook triggers Open API documentation Integration support for payment and CRM systems Automated sync tools"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza comes API-first. That means it’s ready to plug into your stack from day one."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "6. Branded Experience with White-Labeling"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Selling under your name builds trust. That’s why white-label billing matters. Check out Spenza’s complete guide on launching a white-label MVNO to see how this boosts brand trust. Your customers or resellers should only see your branding, not your provider’s."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Choose a system that:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Lets you apply your logo and brand colors Offers custom domains for self-service portals Supports partner branding for resellers"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With Spenza, we help MVNOs launch their own brand experience. Your end user only sees your name."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "7. Scalability Meets Security"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Security isn’t optional. Neither is growth. Your BSS must support both. From handling hundreds of transactions per second to being compliant with SOC2 and GDPR."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Look for:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Cloud-native deployments Enterprise-grade encryption Regional data hosting options Disaster recovery and failover support"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "8. Operator-Neutral Access"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Working with one MNO limits your control. Operator neutrality gives you the edge. It brings better rates, global access, and uptime."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Features to check:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Support for multiple carriers Multi-SIM / eSIM profiles IoT platform compatibility"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza offers operator-neutral access in one place. A single SIM works across carriers."
+        },
+        {
+          "tag": "h2",
+          "id": "Difference",
+          "text": "What Is the Difference Between BSS and OSS for MVNOs?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "BSS and OSS serve different but complementary functions in an MVNO. BSS manages the commercial and customer-facing side of the business , including customers, subscriptions, products, orders, billing, invoicing, payments, and plans. OSS manages the technical delivery of services , including provisioning, SIM activation, device authentication, network operations, and service assurance."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In simple terms, BSS manages what is sold, who buys it, and how it is billed , while OSS manages how the service is delivered and maintained ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "OSS takes care of service delivery and network functions."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For example, if a customer signs up for a mobile plan, the BSS sets up their billing profile, applies taxes, generates the invoice, and stores the customer’s plan data."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The OSS ensures that the SIM card gets activated, the device connects to the right network, and the service works without interruptions."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO without a strong OSS may face SIM activation failures or dropped connectivity. Without strong BSS, it can’t bill customers properly or manage plan upgrades."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Together, they form the backbone of MVNO operations. But not all vendors offer both. When choosing a MVNO BSS provider, ensure they work well with your OSS or provide OSS services too."
+        },
+        {
+          "tag": "h2",
+          "id": "Spenza",
+          "text": "Spenza: Your Comprehensive OSS/BSS Partner for MVNOs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "At Spenza, we build for real MVNO problems. Our unified platform combines both OSS (Operational Support Systems) and BSS (Business Support Systems) to give you full control over your connectivity and customer experience. From network operations to billing, we streamline it all in one powerful product."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You get seamless service management, real-time cost tracking, global support, and the flexibility to operate how you need. We’ve helped customers like Angel Watch launch low-data plans worldwide, and supported Butlr in managing high-bandwidth smart devices across markets. Both scaled fast using our integrated tools."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Our team understands the daily pain points, SIM tracking, spend control, plan customization, and we’ve built solutions to make them easy. No clutter. Just clean, reliable software that works."
+        },
+        {
+          "tag": "h2",
+          "id": "Conclusion",
+          "text": "Conclusion: Choose Wisely, Build Strongly"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A solid MVNO BSS provider keeps your business running. You can support customers better, fix billing gaps, and grow without limits. Don’t choose by features alone. Think about fit, flexibility, and future plans. Spenza offers all this and more."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remember, your BSS isn’t just a system, it’s a strategic partner in your success. The right choice empowers you to innovate, respond quickly to market demands, and deliver exceptional customer experiences. Take the time to evaluate not just what a provider offers, but how they’ll support your journey from launch to leadership in the MVNO space."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A BSS (Business Support System) handles customer management, billing, invoicing, payments, and product plans for telecom services."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO BSS platform manages the business and customer-facing operations of an MVNO, including customer accounts, subscriptions, products, orders, billing, invoicing, payments, and plan management."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "MVNOs use wireless expense management (WEM) tools to track data usage, set thresholds, and prevent bill spikes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An MVNO should evaluate BSS providers based on billing capabilities, subscription and account management, flexible product catalogs, real-time usage data, API integrations, white-label capabilities, scalability, security, and multi-carrier support."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Real-time billing and usage visibility help MVNOs track consumption, apply usage-based charges, identify potential overspending, and make timely adjustments to plans and services."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. BSS and OSS can work together so that commercial actions such as subscriptions, orders, and billing are connected with technical processes such as provisioning, SIM activation, and service delivery. The article notes that MVNOs should ensure their BSS works effectively with their OSS or that the provider offers both."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "MVNO billing software primarily focuses on charging, invoicing, payments, and related billing processes. An MVNO BSS is broader and can include billing alongside customer management, product catalogs, subscriptions, order management, and other commercial operations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It allows MVNOs to bill large customers with many users under one account, like enterprises or reseller networks."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It means the BSS supports multiple carriers. MVNOs can switch networks without changing platforms."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. White-label billing lets MVNOs put their own brand on portals, bills, and user interfaces."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza offers a marketplace and plan builder. You can pick or edit plans based on usage patterns."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It must be fast, accurate, scalable, and integrated with APIs. Real-time usage control is also essential."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Ready to simplify your telecom operations? Choose the right MVNO BSS provider now. Contact us to see how our tools help you manage billing, subscriptions, and cost, faster and smarter."
+        }
+      ],
+      "links": [
+        {
+          "text": "common WEM challenges",
+          "href": "/blog/wireless-expense-management-challenges-spenza-solutions/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "TaaS platform supports these billing needs",
+          "href": "/blog/taas-billing-plan-bundling/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "WEM",
+          "href": "/blog/wireless-expense-management-challenges-spenza-solutions/"
+        },
+        {
+          "text": "TEM APIs",
+          "href": "/blog/api-platforms-telecom-operations/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "complete guide on launching a white-label MVNO",
+          "href": "/blog/white-label-mvno-guide/"
+        },
+        {
+          "text": "Angel Watch",
+          "href": "/blog/how-angel-watch-scaled-its-iot-business-with-spenza/"
+        },
+        {
+          "text": "Contact us",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png",
+          "class": "attachment-full size-full wp-image-9201 webpexpress-processed",
+          "alt": "Billing and BSS Providers for MVNOs: What to Look For",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-11.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png\" class=\"attachment-full size-full wp-image-9201 webpexpress-processed\" alt=\"Billing and BSS Providers for MVNOs: What to Look For\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/image-9-1024x683.png",
+          "alt": "MVNO BSS provider",
+          "class": "wp-image-9205",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/image-9-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-9-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-9-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-9.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/image-9-1024x683.png\" alt=\"MVNO BSS provider\" class=\"wp-image-9205\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/image-9-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-9-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-9-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-9.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/image-10-1024x683.png",
+          "alt": "BSS for MVNOs\n",
+          "class": "wp-image-9206",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/image-10-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-10-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-10-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-10.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/image-10-1024x683.png\" alt=\"BSS for MVNOs\n\" class=\"wp-image-9206\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/image-10-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-10-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-10-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-10.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/05/image-11-1024x683.png",
+          "alt": "subscription management telecom\n",
+          "class": "wp-image-9213",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/05/image-11-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-11-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-11-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-11.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/image-11-1024x683.png\" alt=\"subscription management telecom\n\" class=\"wp-image-9213\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/image-11-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/image-11-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/image-11-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/image-11.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [],
+        "oneCol": []
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "MVNO BSS Provider: What to Look For in Billing",
+              "datePublished": "2025-05-29T05:23:18+00:00",
+              "dateModified": "2026-08-26T04:56:41+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/"
+              },
+              "wordCount": 1599,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png",
+              "keywords": [
+                "Billing automation",
+                "BSS provider",
+                "MVNO",
+                "MVNO BSS provider"
+              ],
+              "articleSection": [
+                "MVNO"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/",
+              "url": "https://spenza.com/mvno/bss-providers-mvno-billing/",
+              "name": "MVNO BSS Provider: What to Look For in Billing",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png",
+              "datePublished": "2025-05-29T05:23:18+00:00",
+              "dateModified": "2026-08-26T04:56:41+00:00",
+              "description": "Choosing an MVNO BSS provider decides your margins. See which billing features matter for rating, mediation, cost control and long-term growth.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/mvno/bss-providers-mvno-billing/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-11.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "Billing and BSS Providers for MVNOs: What to Look For"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/mvno/bss-providers-mvno-billing/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "MVNO",
+                  "item": "https://spenza.com/category/mvno/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "MVNO BSS Provider: What to Look For in Billing"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
