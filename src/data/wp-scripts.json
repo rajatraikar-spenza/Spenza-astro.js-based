@@ -1958,5 +1958,9 @@
   "__post__": {
     "script": "/scripts/page/__post__.js",
     "jsonLd": []
+  },
+  "local-numbers": {
+    "script": "/scripts/page/voice-observability-solution.js",
+    "jsonLd": []
   }
 }

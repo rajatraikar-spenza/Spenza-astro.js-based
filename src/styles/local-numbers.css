@@ -1,0 +1,962 @@
+/* ═══════════════════════════════════════════════════════════════
+   Local Numbers — /local-numbers/
+
+   The "Spenza Local Numbers" HTML design, moved out of its inline
+   <style> into a stylesheet. Its own nav bar and footer are dropped:
+   the page renders through WpLayout, so the header, footer, demo popup,
+   Analytics and lead-capture runtime are the site's own.
+
+   Scoped to `.ln-lp`, with every class prefixed `ln-`, for the same
+   reason as styles/home.css and styles/voice-observability-solution.css:
+   the mirrored Elementor/Astra bundle styles bare `p`, `a`, `h1..h6`,
+   `button`, `input`, `pre` and `code`, and has rules of its own for
+   generic class names such as `.hero`, `.btn` and `.code`. The last
+   section of this file answers the bare-element rules.
+
+   Type is the design's — Geist, Bricolage Grotesque, Geist Mono and
+   Instrument Serif — served from the same self-hosted files as the home
+   page, so a visitor who has seen the home page already has them. Every
+   `font-family` is `!important` to answer the bundle rule that sets
+   `proxima-nova !important` on every paragraph, link and heading.
+
+   Sizes are px, not rem: the site's root font size is 15px and the
+   design was drawn against 16px.
+═══════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../assets/home/instrument-serif-italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Geist;
+  src: url('../assets/home/geist.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('../assets/home/bricolage.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../assets/home/geist-mono.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/*
+   Width-matched stand-ins, used for the moment before the webfonts arrive.
+   Arial set at Geist's and Bricolage's average advance (measured over this
+   page's own copy) wraps the hero's lines where the real fonts will, so
+   the swap does not re-flow the paragraphs and push the page down — which
+   it otherwise did, by 26px on a phone (CLS 0.016). Android has no Arial
+   and falls through to the system font, as before.
+*/
+@font-face {
+  font-family: 'Geist Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 102%;
+}
+
+@font-face {
+  font-family: 'Bricolage Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 106%;
+}
+
+/* ── tokens and base ───────────────────────────────────────────── */
+
+.ln-lp {
+  --bg: #fbf9f6;
+  --bg-deep: #f5f1ea;
+  --ink: #0f1420;
+  --body-c: #3d4656;
+  --muted: #5b6472;
+  --rule: rgba(15, 20, 32, .12);
+  --rule-strong: rgba(15, 20, 32, .22);
+  --acc: #ff4904;
+  --accdark: #d63a00;
+  --acctext: #c93600;
+  --accdeep: #c2410c;
+  --peach: #fff2ed;
+  --peach-line: #f3d9cc;
+  --sand-line: #e6e1d8;
+  --card: #fff;
+  --display: 'Bricolage Grotesque', 'Bricolage Fallback', system-ui, sans-serif;
+  --sans: Geist, 'Geist Fallback', system-ui, -apple-system, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif: 'Instrument Serif', Georgia, serif;
+
+  display: block;
+  background: var(--bg);
+  color: var(--body-c);
+  font-family: var(--sans) !important;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+.ln-lp *,
+.ln-lp *::before,
+.ln-lp *::after {
+  box-sizing: border-box;
+}
+
+.ln-lp a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ln-lp :is(a, button, input):focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
+.ln-lp .ln-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-inline: 32px;
+}
+
+/* ── buttons ───────────────────────────────────────────────────── */
+
+.ln-lp .ln-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 6px;
+  font-family: var(--sans) !important;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+}
+
+.ln-lp .ln-btn-acc,
+.ln-lp .ln-btn-acc:is(:hover, :focus, :active) {
+  color: #fff;
+}
+
+.ln-lp .ln-btn-acc {
+  background: var(--acc);
+}
+
+.ln-lp .ln-btn-acc:hover {
+  background: var(--accdark);
+}
+
+.ln-lp .ln-btn-line {
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.ln-lp .ln-btn-line:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* ── eyebrow and headings ──────────────────────────────────────── */
+
+.ln-lp .ln-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--mono) !important;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ln-lp .ln-eyebrow::before {
+  content: "";
+  flex-shrink: 0;
+  width: 22px;
+  height: 1px;
+  background: var(--acc);
+}
+
+.ln-lp h1 {
+  margin: 20px 0 24px;
+  font-family: var(--display) !important;
+  font-size: clamp(38px, 4.2vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.04em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.ln-lp h2 {
+  margin: 18px 0;
+  font-family: var(--display) !important;
+  font-size: clamp(32px, 3.7vw, 54px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.ln-lp :is(h1, h2) em {
+  font-family: var(--serif) !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  color: var(--acctext);
+}
+
+.ln-lp .ln-lede {
+  max-width: 560px;
+  margin: 0 0 48px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--body-c);
+  text-wrap: pretty;
+}
+
+/* ── hero ──────────────────────────────────────────────────────── */
+
+.ln-lp .ln-hero {
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 62%);
+}
+
+.ln-lp .ln-hero-inner {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 56px;
+  align-items: center;
+  padding-block: 88px 84px;
+}
+
+.ln-lp .ln-hero-lede {
+  max-width: 560px;
+  margin: 0 0 18px;
+  font-size: clamp(16.5px, 1.3vw, 18.5px);
+  line-height: 1.62;
+  color: var(--body-c);
+  text-wrap: pretty;
+}
+
+.ln-lp .ln-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.ln-lp .ln-canvas-card {
+  overflow: hidden;
+  padding: 18px 16px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 24px 60px rgba(15, 20, 32, .08), 0 2px 8px rgba(15, 20, 32, .04);
+}
+
+/*
+   The drawing size is set by the page script from the card's width, so
+   the text in it stays at its drawn size on a phone rather than being
+   scaled down with the whole bitmap. These rules reserve exactly the box
+   the script will draw — the design's 560:320, or a fixed 340px once the
+   card is under 480px wide — so nothing moves when it runs. Keep both
+   numbers in step with `layout()` in the page script.
+*/
+.ln-lp .ln-canvas-card {
+  container-type: inline-size;
+}
+
+.ln-lp .ln-canvas-card canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 560 / 320;
+}
+
+@container (width < 480px) {
+  .ln-lp .ln-canvas-card canvas {
+    height: 340px;
+    aspect-ratio: auto;
+  }
+}
+
+.ln-lp .ln-canvas-label {
+  margin: 10px 0 0;
+  font-family: var(--mono) !important;
+  font-size: 10.5px;
+  line-height: 1.5;
+  letter-spacing: .05em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── sections ──────────────────────────────────────────────────── */
+
+.ln-lp .ln-sec {
+  padding-block: 104px;
+}
+
+.ln-lp .ln-sec + .ln-sec {
+  border-top: 1px solid var(--rule);
+}
+
+/* ── compare ───────────────────────────────────────────────────── */
+
+.ln-lp .ln-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ln-lp .ln-compare-col {
+  padding: 30px 28px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.ln-lp .ln-compare-col.ln-good {
+  border-color: var(--peach-line);
+  background: var(--peach);
+}
+
+.ln-lp .ln-compare-col h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+  margin: 0 0 20px;
+  font-family: var(--mono) !important;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.ln-lp .ln-bad h3 {
+  color: var(--muted);
+}
+
+.ln-lp .ln-good h3 {
+  color: var(--accdeep);
+}
+
+.ln-lp .ln-compare-logo {
+  display: block;
+  width: auto;
+  height: 26px;
+}
+
+.ln-lp .ln-compare-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+.ln-lp .ln-compare-col li {
+  position: relative;
+  margin: 0;
+  padding-left: 26px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--body-c);
+}
+
+.ln-lp .ln-compare-col li::before {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  font-family: var(--mono) !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ln-lp .ln-bad li::before {
+  content: "\2715";
+  color: var(--muted);
+}
+
+.ln-lp .ln-good li::before {
+  content: "\2713";
+  color: var(--acctext);
+}
+
+.ln-lp .ln-good li strong {
+  color: var(--ink);
+}
+
+/* ── how it works ──────────────────────────────────────────────── */
+
+.ln-lp .ln-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.ln-lp .ln-flow-step {
+  padding-top: 20px;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.ln-lp .ln-flow-num {
+  margin-bottom: 14px;
+  font-family: var(--mono) !important;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--acctext);
+}
+
+.ln-lp .ln-flow-step h3,
+.ln-lp .ln-card h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+
+.ln-lp .ln-flow-step p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.ln-lp .ln-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 72px 0 0;
+  padding-top: 36px;
+  border-top: 1px solid var(--sand-line);
+}
+
+.ln-lp .ln-stat {
+  padding: 0 32px;
+  border-left: 1px solid var(--sand-line);
+}
+
+.ln-lp .ln-stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.ln-lp .ln-stat dd {
+  margin: 0 0 10px;
+  font-family: var(--display) !important;
+  font-size: clamp(40px, 3.8vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.ln-lp .ln-stat dd em {
+  font-family: var(--serif) !important;
+  font-size: .62em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accdeep);
+}
+
+.ln-lp .ln-stat dt {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* The label reads after the figure, as the design has it. */
+.ln-lp .ln-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
+/* ── code ──────────────────────────────────────────────────────── */
+
+.ln-lp .ln-code {
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.ln-lp .ln-code-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-deep);
+}
+
+.ln-lp .ln-code-tab {
+  padding: 15px 15px 13px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  font-family: var(--mono) !important;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .03em;
+  text-transform: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .18s;
+}
+
+.ln-lp .ln-code-tab:is(:hover, :focus):not([aria-selected="true"]) {
+  border-color: transparent;
+  background: none;
+  color: var(--ink);
+}
+
+.ln-lp .ln-code-tab[aria-selected="true"],
+.ln-lp .ln-code-tab[aria-selected="true"]:is(:hover, :focus) {
+  border-color: transparent;
+  border-bottom-color: var(--acc);
+  background: none;
+  color: var(--acctext);
+}
+
+.ln-lp .ln-code-body {
+  overflow-x: auto;
+  padding: 26px 24px;
+}
+
+.ln-lp .ln-code-body pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--mono) !important;
+  font-size: 12.5px;
+  line-height: 1.75;
+  white-space: pre;
+  color: var(--body-c);
+}
+
+.ln-lp .ln-code-body pre[hidden] {
+  display: none;
+}
+
+.ln-lp .tk-kw { color: var(--ink); font-weight: 600; }
+.ln-lp .tk-str { color: var(--acctext); }
+.ln-lp .tk-key { color: var(--ink); font-weight: 500; }
+/* The design's rgba(91,100,114,.62) is 2.6:1 on white; this clears 4.5:1. */
+.ln-lp .tk-cmt { color: #6b7280; }
+.ln-lp .tk-num { color: #a16207; }
+
+/* ── cards: trust, ownership, use cases ────────────────────────── */
+
+.ln-lp .ln-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.ln-lp .ln-own-grid,
+.ln-lp .ln-uc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ln-lp .ln-uc-grid {
+  margin-top: 48px;
+}
+
+.ln-lp .ln-card {
+  padding: 24px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--card);
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.ln-lp .ln-card:hover {
+  border-color: var(--peach-line);
+  box-shadow: 0 12px 32px rgba(15, 20, 32, .06);
+  transform: translateY(-2px);
+}
+
+.ln-lp .ln-trust-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.ln-lp .ln-own-card {
+  padding: 28px 26px;
+}
+
+.ln-lp .ln-card h3 {
+  font-size: 15.5px;
+}
+
+.ln-lp .ln-own-card h3 {
+  font-size: 16.5px;
+}
+
+.ln-lp .ln-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.ln-lp .ln-own-card p {
+  font-size: 14.5px;
+  line-height: 1.62;
+}
+
+.ln-lp .ln-trust-card h3 {
+  margin-bottom: 3px;
+}
+
+.ln-lp .ln-card .ln-sub {
+  margin: 0 0 7px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--acctext);
+}
+
+.ln-lp .ln-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--peach-line);
+  border-radius: 10px;
+  background: var(--peach);
+}
+
+.ln-lp .ln-own-card .ln-icon {
+  margin-bottom: 18px;
+}
+
+.ln-lp .ln-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--accdeep);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ln-lp .ln-usecase.ln-highlight {
+  border-color: var(--peach-line);
+  background: var(--peach);
+}
+
+.ln-lp .ln-usecase.ln-highlight p:not(.ln-uc-tag) {
+  color: #57534e;
+}
+
+.ln-lp .ln-card .ln-uc-tag {
+  margin: 0 0 12px;
+  font-family: var(--mono) !important;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--acctext);
+}
+
+/* ── call to action ────────────────────────────────────────────── */
+
+.ln-lp .ln-cta-sec {
+  padding-block: 104px;
+  border-top: 1px solid var(--rule);
+}
+
+.ln-lp .ln-cta {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 72px 48px;
+  border: 1px solid var(--peach-line);
+  border-radius: 14px;
+  background: var(--peach);
+  text-align: center;
+}
+
+.ln-lp .ln-cta .ln-eyebrow {
+  justify-content: center;
+}
+
+.ln-lp .ln-cta .ln-eyebrow::before {
+  display: none;
+}
+
+.ln-lp .ln-cta h2 {
+  margin-top: 16px;
+}
+
+.ln-lp .ln-cta-text {
+  margin: 0 0 38px;
+  font-size: 16.5px;
+  color: #57534e;
+  text-wrap: pretty;
+}
+
+.ln-lp .ln-cta-formwrap {
+  max-width: 470px;
+  margin: 0 auto;
+}
+
+/* Wraps, so a send error (prepended by hubspot-forms.js) takes a row of its own. */
+.ln-lp .ln-cta-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+/* The input's own box, so a field error lands under the input, not the button. */
+.ln-lp .ln-cta-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.ln-lp .ln-cta-form > .hs-form-error {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.ln-lp .ln-cta-form .hs-field-error {
+  font-size: 13px;
+}
+
+/* Akismet's honeypot: there for bots, never for people. */
+.ln-lp .ln-hp {
+  display: none !important;
+}
+
+.ln-lp .ln-cta-form input {
+  width: 100%;
+  height: 52px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: none;
+  font-family: var(--sans) !important;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+.ln-lp .ln-cta-form button {
+  flex: none;
+}
+
+.ln-lp .ln-cta-form button:disabled {
+  cursor: progress;
+  opacity: .75;
+}
+
+.ln-lp .ln-cta-form input:focus {
+  border-color: var(--acc);
+  box-shadow: 0 0 0 3px rgba(255, 73, 4, .14);
+}
+
+.ln-lp .ln-cta-form input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+/* ── inside the site layout ────────────────────────────────────── */
+
+/*
+   The bundle sets `proxima-nova !important` on every `p`, `a` and heading;
+   restating `inherit` at the same importance hands the family back. Every
+   rule above that names a family is more specific, so it still wins.
+*/
+.ln-lp :where(p, a, li, h1, h2, h3, h4, h5, h6, dt, dd) {
+  font-family: inherit !important;
+}
+
+.ln-lp :where(h1, h2, h3, h4, h5, h6) {
+  clear: none;
+}
+
+.ln-lp :where(ul, ol, dl) {
+  margin: 0;
+  padding: 0;
+}
+
+.ln-lp .ln-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Under the sticky 80px site header, an in-page link would hide its target. */
+.ln-lp [id] {
+  scroll-margin-top: 90px;
+}
+
+/* ── responsive ────────────────────────────────────────────────── */
+
+@media (max-width: 980px) {
+  .ln-lp .ln-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding-block: 56px 60px;
+  }
+  /* Full width on a tablet would make the drawing half empty. */
+  .ln-lp .ln-canvas-card {
+    max-width: 600px;
+  }
+  .ln-lp .ln-flow-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .ln-lp .ln-trust-grid,
+  .ln-lp .ln-own-grid {
+    grid-template-columns: 1fr;
+  }
+  .ln-lp .ln-uc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ln-lp .ln-wrap {
+    padding-inline: 20px;
+  }
+  .ln-lp .ln-sec,
+  .ln-lp .ln-cta-sec {
+    padding-block: 64px;
+  }
+  .ln-lp .ln-compare-grid {
+    grid-template-columns: 1fr;
+  }
+  .ln-lp .ln-compare-col {
+    padding: 26px 22px;
+  }
+  .ln-lp .ln-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 0;
+    margin-top: 52px;
+    padding-top: 28px;
+  }
+  .ln-lp .ln-stat {
+    padding: 0 24px;
+  }
+  .ln-lp .ln-stat:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .ln-lp .ln-lede {
+    margin-bottom: 36px;
+  }
+  .ln-lp .ln-code-body {
+    padding: 20px 18px;
+  }
+  .ln-lp .ln-code-body pre {
+    font-size: 12px;
+  }
+  .ln-lp .ln-cta {
+    padding: 48px 24px;
+  }
+  /* Stacked: the field and the button each take the full row. */
+  .ln-lp .ln-cta-field,
+  .ln-lp .ln-cta-form button {
+    flex: 1 1 100%;
+  }
+  /* The drawing's labels are too small to read at phone width, and the
+     copy above it already makes the point; the script never starts. */
+  .ln-lp .ln-hero-inner > .ln-canvas-card {
+    display: none;
+  }
+  .ln-lp .ln-hero-inner {
+    padding-block: 48px 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ln-lp .ln-hero-cta .ln-btn {
+    flex: 1 1 100%;
+  }
+  .ln-lp .ln-uc-grid,
+  .ln-lp .ln-flow-grid {
+    grid-template-columns: 1fr;
+  }
+  /* One row that scrolls sideways, rather than a third tab wrapping below. */
+  .ln-lp .ln-code-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 6px;
+    scrollbar-width: none;
+  }
+  .ln-lp .ln-code-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .ln-lp .ln-code-tab {
+    flex: none;
+    padding: 13px 7px 11px;
+    font-size: 11px;
+    letter-spacing: .01em;
+    white-space: nowrap;
+  }
+  .ln-lp .ln-canvas-card {
+    padding: 14px 10px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ln-lp *,
+  .ln-lp *::before,
+  .ln-lp *::after {
+    transition: none !important;
+  }
+  .ln-lp .ln-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,676 @@
+---
+/**
+ * /local-numbers/ — Local Numbers: MNO-backed US numbers with two-way SMS.
+ *
+ * Built from the "Spenza Local Numbers" HTML design the way
+ * /voice-observability-solution/ was built from its own: the body is
+ * hand-built, and it renders through `WpLayout` so the site's header, footer,
+ * demo popup, Analytics and lead-capture runtime stay exactly as they are on
+ * every other page. The design's nav bar and footer are not used.
+ *
+ * It is one of the two pages under "Number Services" in the Solution menu, the
+ * other being Voice Observability.
+ *
+ * Title, description, canonical, Open Graph and the schema graph — including a
+ * `Service` node the WebPage names as its subject — live in `data/wp-seo.json`,
+ * which is what `WpLayout` emits.
+ *
+ * Every slug-keyed data file points at the Voice Observability page's entries:
+ * the same purged CSS bundles (this page's own styles are scoped and ship
+ * separately, so the bundles only have to cover the chrome, which is
+ * identical) and the same page script, which drives the header's mobile
+ * submenus and opens the demo popup from any `.get-started`. Sharing the files
+ * rather than copying them means a visitor arriving from that page already has
+ * them cached. Do not run `wp:optimize-css` for this page — read the comment
+ * in `ai-phone-number.astro` first.
+ *
+ * Lead capture: the design's email box only printed "We'll be in touch" and
+ * sent nothing anywhere. It is now Gravity Forms 19 — "Book A Free Demo", the
+ * same form that closes /controlhub/ and the other marketing pages — so
+ * `hubspot-forms.js` validates it, posts it to HubSpot's `#gform_19` form,
+ * replays it to WordPress for the sales alert, and replaces it with the same
+ * confirmation. The hero's "Book a Demo" opens the Get Started popup, as
+ * everywhere else.
+ */
+import WpLayout from '../layouts/WpLayout.astro';
+import '../styles/local-numbers.css';
+
+const voipList = [
+  'Numbers sourced from VoIP aggregators, not licensed MNOs',
+  'Shared DID ranges flagged in carrier spam databases',
+  'More likely to receive lower STIR/SHAKEN attestation',
+  'Filtered at the SMS firewall layer — no delivery, no error code',
+  'Rejected by bank KYC flows and government OTP endpoints',
+  'Flagged by enterprise security policies in SaaS platforms',
+  'No MSISDN-level trust; treated as bulk sender by default',
+  'Inbound bank OTPs & 2FA codes blocked, users never receive them',
+];
+
+const steps = [
+  ['01 · PROVISION', 'Dedicated local numbers', 'Get a real geographic or national number via API, provisioned on live MNO infrastructure, dedicated to your account. Choose by country, prefix, or area code.'],
+  ['02 · SEND & RECEIVE', 'Two-way SMS API', 'POST to send, receive inbound via webhook. Replies land on the same number. Supports Unicode, concatenation, and delivery receipts with real carrier DLRs.'],
+  ['03 · TRUST SIGNAL', 'MNO-level reputation', 'Numbers originate from US mobile operator infrastructure and carry A-level STIR/SHAKEN attestation, giving carriers stronger trust signals than typical VoIP DIDs.'],
+  ['04 · GROW', 'Upgrade to full eSIM plan', 'Keep the same number. Upgrade to a data eSIM plan with native voice & SMS, or port out to any carrier.'],
+];
+
+const trust = [
+  {
+    icon: '<path d="M3 21h18"/><path d="M4 18h16"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 3 2.5 8h19L12 3Z"/>',
+    title: 'Banks & Financial Services',
+    sub: 'Get OTPs and verification messages through',
+    text: 'Bank-linked mobile flows often apply strict anti-fraud checks. VoIP ranges can be filtered, while US MNO-backed numbers carry stronger mobile-network trust signals.',
+  },
+  {
+    icon: '<path d="M12 3l8 4v5c0 5-3.4 8.2-8 9-4.6-.8-8-4-8-9V7l8-4Z"/><path d="M9 12l2 2 4-4"/>',
+    title: 'Government & Federal Portals',
+    sub: 'Work with verification-sensitive services',
+    text: 'Government identity and verification flows may require a recognized US mobile number. MNO-backed numbers are better aligned with those requirements than standard VoIP DIDs.',
+  },
+  {
+    icon: '<rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/>',
+    title: 'Enterprise SaaS & CRM Inboxes',
+    sub: 'Avoid shared VoIP reputation issues',
+    text: 'Enterprise platforms can use carrier and reputation data to filter inbound SMS. Dedicated mobile operator-backed numbers avoid the reputation risks of shared VoIP ranges.',
+  },
+  {
+    icon: '<path d="M4 19v-4"/><path d="M9 19v-8"/><path d="M14 19V7"/><path d="M19 19V4"/>',
+    title: 'Mobile Operators & A2P Firewalls',
+    sub: 'Pass carrier-level trust checks',
+    text: 'US operators enforce messaging and identity controls at the network level. MNO-backed numbers originate from mobile-network infrastructure rather than a VoIP layer.',
+  },
+];
+
+const ownership = [
+  {
+    icon: '<circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8 20 3"/><path d="M17 6l3 3"/><path d="M14.5 8.5l2 2"/>',
+    title: 'You own the number',
+    sub: 'Dedicated to your account',
+    text: 'Each number is assigned exclusively to you — no shared pool, no reuse across customers, and less risk of inheriting another sender’s reputation history.',
+  },
+  {
+    icon: '<path d="M12 19V6"/><path d="M6 12l6-6 6 6"/><path d="M5 21h14"/>',
+    title: 'Port out anytime',
+    sub: 'Take your number with you',
+    text: 'Your number is portable under standard US number-porting rules, so you can move it to another supported carrier or account when needed.',
+  },
+  {
+    icon: '<path d="M2 9.5C4.8 6.9 8.2 5.5 12 5.5s7.2 1.4 10 4"/><path d="M5.5 13c1.8-1.7 4-2.6 6.5-2.6s4.7.9 6.5 2.6"/><path d="M9 16.4c.9-.8 1.9-1.2 3-1.2s2.1.4 3 1.2"/><circle cx="12" cy="19.3" r="1.2"/>',
+    title: 'Upgrade to eSIM data',
+    sub: 'Keep the number as you expand',
+    text: 'Use the same number as you move from messaging to a full mobile plan with voice, SMS, and data on supported eSIM devices.',
+  },
+];
+
+const useCases = [
+  ['Authentication & OTP', 'Deliver verification codes reliably', 'Send one-time passwords and authentication messages to users who may otherwise be blocked or filtered when using VoIP-based numbers.'],
+  ['Notifications', 'Make critical notifications reach users', 'Use local mobile-backed numbers for delivery, payment, appointment, and account alerts that need to arrive on time.'],
+  ['Sales & Marketing SMS', 'Use local numbers for customer outreach', 'Replace VoIP or CRM-issued DIDs with dedicated local numbers that carry stronger mobile-network trust signals.'],
+  ['Two-Way Customer Support', 'Keep conversations on one number', 'Receive replies on the same local number. No VoIP relay, no intermediate carrier hop — direct MNO path.'],
+  ['KYC & Compliance Flows', 'Support verification-sensitive workflows', 'Use MNO-backed numbers for SMS-based identity, onboarding, and compliance flows where number type and trust signals matter.'],
+  ['UCaaS & CRM Integration', 'Keep your platform. Upgrade the number.', 'Continue using your existing UCaaS or CRM workflow while replacing the underlying VoIP DID with a Spenza local number.'],
+];
+---
+
+<WpLayout slug="local-numbers" demoPopup swiper={false}>
+  <div class="ln-lp">
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <section class="ln-hero" aria-labelledby="ln-title">
+      <div class="ln-wrap ln-hero-inner">
+        <div>
+          <p class="ln-eyebrow">US MNO Wholesale &middot; US Local Numbers &middot; Two-Way SMS API</p>
+          <h1 id="ln-title">Send &amp; receive SMS<br />that <em>actually arrives.</em></h1>
+          <p class="ln-hero-lede">
+            VoIP DIDs from Twilio, UCaaS, and CRM platforms often carry C-level STIR/SHAKEN attestation, making them more likely to be flagged, silently dropped by major U.S. carriers, or blocked by bank fraud filters and government portals.
+          </p>
+          <p class="ln-hero-lede">
+            Spenza numbers are provisioned through a US mobile operator wholesale network with full A-level attestation, helping messages get delivered in both directions.
+          </p>
+          <div class="ln-hero-cta">
+            <a href="/contact-us/" class="ln-btn ln-btn-acc get-started">Book a Demo</a>
+            <a href="https://docs.spenza.com/" class="ln-btn ln-btn-line" target="_blank" rel="noopener">View API Docs &rarr;</a>
+          </div>
+        </div>
+        <figure class="ln-canvas-card" style="margin:0">
+          <canvas id="ln-signal" width="560" height="320" role="img" aria-label="Animated comparison: messages sent from a VoIP DID are blocked at the carrier firewall, while messages from a Spenza MNO-backed number pass through and are delivered."></canvas>
+          <figcaption class="ln-canvas-label">Live delivery simulation &middot; VoIP vs. MNO-backed numbers</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ── COMPARE ──────────────────────────────────────── -->
+    <section class="ln-sec" id="problem" aria-labelledby="ln-problem-title">
+      <div class="ln-wrap">
+        <p class="ln-eyebrow">The Deliverability Gap</p>
+        <h2 id="ln-problem-title">VoIP DIDs vs. <em>Local Numbers</em></h2>
+        <p class="ln-lede">Not all phone numbers are equal. The DID source determines whether your message is delivered, filtered, or silently blocked.</p>
+        <div class="ln-compare-grid">
+          <div class="ln-compare-col ln-bad">
+            <h3>VoIP DIDs (Twilio, UCaaS, CRM)</h3>
+            <ul>{voipList.map(item => <li>{item}</li>)}</ul>
+          </div>
+          <div class="ln-compare-col ln-good">
+            <h3><img class="ln-compare-logo" src="/spenza-logo-vector.svg" alt="Spenza Local Numbers" width="1264" height="428" loading="lazy" decoding="async" /></h3>
+            <ul>
+              <li>Numbers provisioned under wholesale MNO contracts</li>
+              <li>Dedicated MSISDN ranges not shared with other platforms</li>
+              <li>Pass operator-level trust validation on delivery</li>
+              <li>Accepted by government and enterprise messaging endpoints</li>
+              <li>Full two-way SMS: receive inbound replies on the same number</li>
+              <li>Designed to support bank OTP and verification flows</li>
+              <li>Number is <strong>yours</strong> &mdash; port out to any carrier at any time</li>
+              <li>Upgrade to data eSIM plan with native voice &amp; SMS on the same number</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ─────────────────────────────────── -->
+    <section class="ln-sec" id="how" aria-labelledby="ln-how-title">
+      <div class="ln-wrap">
+        <p class="ln-eyebrow">Infrastructure</p>
+        <h2 id="ln-how-title">Direct from <em>the network</em></h2>
+        <p class="ln-lede">Spenza provisions numbers through a direct wholesale relationship with a US mobile operator &mdash; not through a VoIP overlay, reseller chain, or shared number pool.</p>
+        <ol class="ln-flow-grid" style="list-style:none">
+          {steps.map(([num, title, text]) => (
+            <li class="ln-flow-step">
+              <div class="ln-flow-num">{num}</div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </li>
+          ))}
+        </ol>
+        <dl class="ln-stats">
+          <div class="ln-stat"><dt>SMS delivery rate to bank-registered numbers</dt><dd>99.1<em>%</em></dd></div>
+          <div class="ln-stat"><dt>STIR/SHAKEN attestation on supported US MNO routes</dt><dd>A</dd></div>
+          <div class="ln-stat"><dt>Median time-to-delivery on MNO routes</dt><dd>&lt;2<em>s</em></dd></div>
+          <div class="ln-stat"><dt>Numbers flagged in spam databases at provisioning</dt><dd>0<em>%</em></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ── API ──────────────────────────────────────────── -->
+    <section class="ln-sec" id="api" aria-labelledby="ln-api-title">
+      <div class="ln-wrap">
+        <p class="ln-eyebrow">Developer API</p>
+        <h2 id="ln-api-title">Integrate in <em>minutes</em></h2>
+        <p class="ln-lede">REST API with webhooks. Familiar to integrate, built for reliable delivery.</p>
+        <div class="ln-code">
+          <div class="ln-code-tabs" role="tablist" aria-label="API examples">
+            <button type="button" class="ln-code-tab" id="ln-tab-send" role="tab" aria-selected="true" aria-controls="ln-code-send">Send SMS</button>
+            <button type="button" class="ln-code-tab" id="ln-tab-receive" role="tab" aria-selected="false" aria-controls="ln-code-receive" tabindex="-1">Receive Inbound</button>
+            <button type="button" class="ln-code-tab" id="ln-tab-provision" role="tab" aria-selected="false" aria-controls="ln-code-provision" tabindex="-1">Provision Number</button>
+          </div>
+          <div class="ln-code-body">
+<pre id="ln-code-send" role="tabpanel" aria-labelledby="ln-tab-send" tabindex="0"><span class="tk-cmt"># Send an SMS from your Spenza local number</span>
+<span class="tk-kw">curl</span> -X POST <span class="tk-str">'https://api.spenza.io/v1/messages'</span> \
+  -H <span class="tk-str">'Authorization: Bearer sk_live_&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'</span> \
+  -H <span class="tk-str">'Content-Type: application/json'</span> \
+  -d <span class="tk-str">'&#123;
+    "from": "+1 415 555 0192",
+    "to":   "+1 212 555 0147",
+    "text": "Your OTP is 847291. Valid for 5 minutes.",
+    "route": "mno_direct"
+  &#125;'</span>
+
+<span class="tk-cmt"># Response</span>
+&#123;
+  <span class="tk-key">"id"</span>:       <span class="tk-str">"msg_01J8xkp3q7mHnNvTdF2CG"</span>,
+  <span class="tk-key">"status"</span>:   <span class="tk-str">"queued"</span>,
+  <span class="tk-key">"route"</span>:    <span class="tk-str">"mno_direct"</span>,
+  <span class="tk-key">"network"</span>:  <span class="tk-str">"T-Mobile US"</span>,
+  <span class="tk-key">"segments"</span>: <span class="tk-num">1</span>
+&#125;</pre>
+<pre id="ln-code-receive" role="tabpanel" aria-labelledby="ln-tab-receive" tabindex="0" hidden><span class="tk-cmt"># Inbound webhook &mdash; POST to your endpoint</span>
+<span class="tk-cmt"># Configure at: dashboard.spenza.io &rarr; Numbers &rarr; Webhooks</span>
+
+POST <span class="tk-str">https://your-app.com/sms/inbound</span>
+
+&#123;
+  <span class="tk-key">"event"</span>:       <span class="tk-str">"message.inbound"</span>,
+  <span class="tk-key">"id"</span>:          <span class="tk-str">"msg_01J8ykr9p4nXoQwTeG3DH"</span>,
+  <span class="tk-key">"to"</span>:          <span class="tk-str">"+1 415 555 0192"</span>,
+  <span class="tk-key">"from"</span>:        <span class="tk-str">"+1 212 555 0147"</span>,
+  <span class="tk-key">"text"</span>:        <span class="tk-str">"Yes, confirm appointment"</span>,
+  <span class="tk-key">"received_at"</span>: <span class="tk-str">"2024-09-18T16:42:01Z"</span>,
+  <span class="tk-key">"network"</span>:     <span class="tk-str">"T-Mobile US"</span>
+&#125;
+
+<span class="tk-cmt"># Respond with HTTP 200 to acknowledge</span></pre>
+<pre id="ln-code-provision" role="tabpanel" aria-labelledby="ln-tab-provision" tabindex="0" hidden><span class="tk-cmt"># Provision a new local number</span>
+<span class="tk-kw">curl</span> -X POST <span class="tk-str">'https://api.spenza.io/v1/numbers'</span> \
+  -H <span class="tk-str">'Authorization: Bearer sk_live_&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'</span> \
+  -d <span class="tk-str">'&#123;
+    "country":      "US",
+    "type":         "local",
+    "capabilities": ["sms", "voice"]
+  &#125;'</span>
+
+&#123;
+  <span class="tk-key">"number"</span>:     <span class="tk-str">"+1 646 555 0188"</span>,
+  <span class="tk-key">"country"</span>:    <span class="tk-str">"US"</span>,
+  <span class="tk-key">"mno"</span>:        <span class="tk-str">"T-Mobile (wholesale)"</span>,
+  <span class="tk-key">"type"</span>:       <span class="tk-str">"local"</span>,
+  <span class="tk-key">"spam_score"</span>: <span class="tk-num">0.0</span>,
+  <span class="tk-key">"status"</span>:     <span class="tk-str">"active"</span>
+&#125;</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRUST ────────────────────────────────────────── -->
+    <section class="ln-sec" id="trust" aria-labelledby="ln-trust-title">
+      <div class="ln-wrap">
+        <p class="ln-eyebrow">Why It Matters</p>
+        <h2 id="ln-trust-title">Where VoIP numbers <em>get filtered</em></h2>
+        <p class="ln-lede">Spenza numbers are backed by US mobile operator infrastructure, helping them pass trust checks that can cause VoIP DIDs to be filtered or rejected.</p>
+        <div class="ln-trust-grid">
+          {trust.map(card => (
+            <div class="ln-card ln-trust-card">
+              <div class="ln-icon" aria-hidden="true"><svg viewBox="0 0 24 24" set:html={card.icon} /></div>
+              <div>
+                <h3>{card.title}</h3>
+                <p class="ln-sub">{card.sub}</p>
+                <p>{card.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OWNERSHIP ────────────────────────────────────── -->
+    <section class="ln-sec" id="ownership" aria-labelledby="ln-own-title">
+      <div class="ln-wrap">
+        <p class="ln-eyebrow">Number Ownership</p>
+        <h2 id="ln-own-title">Your number. <em>Your control.</em></h2>
+        <p class="ln-lede">Unlike VoIP DIDs drawn from shared pools, Spenza numbers are assigned directly to your account, with full portability and a clear path to broader mobile connectivity.</p>
+        <div class="ln-own-grid">
+          {ownership.map(card => (
+            <div class="ln-card ln-own-card">
+              <div class="ln-icon" aria-hidden="true"><svg viewBox="0 0 24 24" set:html={card.icon} /></div>
+              <h3>{card.title}</h3>
+              <p class="ln-sub">{card.sub}</p>
+              <p>{card.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── USE CASES ────────────────────────────────────── -->
+    <section class="ln-sec" id="usecases" aria-labelledby="ln-uc-title">
+      <div class="ln-wrap">
+        <p class="ln-eyebrow">Built For</p>
+        <h2 id="ln-uc-title">Use cases that need <em>real delivery</em></h2>
+        <div class="ln-uc-grid">
+          {useCases.map(([tag, title, text], i) => (
+            <div class:list={['ln-card ln-usecase', { 'ln-highlight': i === 0 }]}>
+              <p class="ln-uc-tag">{tag}</p>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ──────────────────────────────────────────── -->
+    <!--
+      Gravity Forms 19, as it closes /controlhub/: `id="gform_19"` and
+      `input_3` are what hubspot-forms.js keys on, and the hidden fields and
+      Akismet honeypot are what the WordPress replay needs to be recognised
+      as a real submission. On success the script replaces `.ln-cta-formwrap`
+      with the confirmation, so the heading above stays in place.
+    -->
+    <section class="ln-cta-sec" id="cta" aria-labelledby="ln-cta-title">
+      <div class="ln-wrap">
+        <div class="ln-cta">
+          <p class="ln-eyebrow">Get Started</p>
+          <h2 id="ln-cta-title">Start with a <em>real</em> local number.</h2>
+          <p class="ln-cta-text">Provision a number in under 60 seconds. No commitment, no shared pool, no VoIP relay.</p>
+          <div class="ln-cta-formwrap">
+            <form class="ln-cta-form" id="gform_19" data-formid="19" method="post" action="/local-numbers/#cta" novalidate>
+              <div class="ln-cta-field">
+                <label for="input_19_3" class="ln-sr">Work email</label>
+                <input name="input_3" id="input_19_3" type="email" placeholder="you@company.com" autocomplete="email" aria-required="true" />
+              </div>
+              <button type="submit" id="gform_submit_button_19" class="ln-btn ln-btn-acc">Book a Demo</button>
+              <input type="hidden" name="gform_ajax" value="form_id=19&amp;title=&amp;description=1&amp;tabindex=0" />
+              <input type="hidden" name="is_submit_19" value="1" />
+              <input type="hidden" name="gform_submit" value="19" />
+              <input type="hidden" name="gform_unique_id" value="" />
+              <input type="hidden" name="state_19" value="WyJbXSIsIjcwMWM3MTZjZjIwZjQzZTczYzBmMGYwYzU1NWFhMTc0Il0=" />
+              <input type="hidden" name="gform_target_page_number_19" value="0" />
+              <input type="hidden" name="gform_source_page_number_19" value="1" />
+              <input type="hidden" name="gform_field_values" value="" />
+              <p class="ln-hp" aria-hidden="true"><label>Leave this empty<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100" tabindex="-1"></textarea></label><input type="hidden" name="ak_js" value="" /></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</WpLayout>
+
+<script>
+  /* ── Delivery simulation ──────────────────────────────────────────
+     The design's canvas animation, with four changes:
+       - the bitmap is sized from the card at the device's pixel ratio, so
+         it is sharp on a retina screen and its labels stay legible on a
+         phone instead of being scaled down with a fixed 560px drawing;
+       - movement is timed by the clock, not by frames, so a 120Hz screen
+         does not run it twice as fast;
+       - it stops drawing while off screen or in a background tab;
+       - with reduced motion it draws one still frame. */
+  const canvas = document.getElementById('ln-signal') as HTMLCanvasElement | null;
+  const ctx = canvas?.getContext('2d');
+
+  if (canvas && ctx) {
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const COL = {
+      ink: '#0f1420',
+      muted: '#5b6472',
+      line: '#e6e1d8',
+      voip: '#8a93a3',
+      voipDeep: '#57534e',
+      voipBg: '#f6f4ef',
+      voipPill: '#eceae4',
+      mno: '#ff4904',
+      mnoDeep: '#c2410c',
+      mnoBg: '#fff2ed',
+      mnoPill: '#ffe3d6',
+    };
+    const SANS = 'Geist, system-ui, sans-serif';
+    const PERIOD = 1.5; // seconds between VoIP sends; two MNO sends in between
+
+    type Packet = { lane: 'voip' | 'mno'; x: number };
+    let W = 560, H = 320, MID = 160;
+    let lane = { voip: 80, mno: 240 };
+    let nodes = { sender: 72, carrier: 280, dest: 488 };
+    let speed = 84; // px per second at 560 wide, as the design moved
+    let packets: Packet[] = [];
+    let clock = 0;
+    let last = 0;
+    let running = false;
+    let visible = false;
+
+    function layout() {
+      W = Math.max(280, Math.round(canvas!.clientWidth || 560));
+      // Narrow cards get a taller drawing, so the lanes' labels have room.
+      // The CSS reserves the same box with a container query, so nothing
+      // moves when this runs; keep the 480 and 340 in step with it.
+      H = W >= 480 ? Math.round((W * 320) / 560) : 340;
+      MID = H / 2;
+      const inset = Math.max(46, Math.round(W * 0.128));
+      nodes = { sender: inset, carrier: W / 2, dest: W - inset };
+      const laneOffset = Math.max(MID * 0.5, 70);
+      lane = { voip: laneOffset, mno: MID + laneOffset };
+      speed = (84 * W) / 560;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas!.width = Math.round(W * dpr);
+      canvas!.height = Math.round(H * dpr);
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function roundRect(x: number, y: number, w: number, h: number, r: number) {
+      ctx!.beginPath();
+      // Safari before 16 has no roundRect; the arcs below draw the same shape.
+      if ('roundRect' in ctx!) {
+        ctx!.roundRect(x, y, w, h, r);
+      } else {
+        ctx!.moveTo(x + r, y);
+        ctx!.arcTo(x + w, y, x + w, y + h, r);
+        ctx!.arcTo(x + w, y + h, x, y + h, r);
+        ctx!.arcTo(x, y + h, x, y, r);
+        ctx!.arcTo(x, y, x + w, y, r);
+        ctx!.closePath();
+      }
+    }
+
+    function pill(text: string, cx: number, cy: number, fg: string, bg: string, align: 'center' | 'left' = 'center') {
+      ctx!.font = `700 12px ${SANS}`;
+      const pw = ctx!.measureText(text).width + 18;
+      const px = align === 'left' ? cx : cx - pw / 2;
+      ctx!.fillStyle = bg;
+      roundRect(px, cy - 11, pw, 22, 11);
+      ctx!.fill();
+      ctx!.fillStyle = fg;
+      ctx!.textAlign = 'center';
+      ctx!.textBaseline = 'middle';
+      ctx!.fillText(text, px + pw / 2, cy);
+      return px + pw;
+    }
+
+    function node(x: number, y: number, color: string) {
+      ctx!.strokeStyle = color;
+      ctx!.lineWidth = 2;
+      ctx!.fillStyle = '#fff';
+      ctx!.beginPath();
+      ctx!.arc(x, y, 10, 0, Math.PI * 2);
+      ctx!.fill();
+      ctx!.stroke();
+      ctx!.fillStyle = color;
+      ctx!.beginPath();
+      ctx!.arc(x, y, 4, 0, Math.PI * 2);
+      ctx!.fill();
+    }
+
+    function label(x: number, y: number, lines: string[], color: string) {
+      ctx!.textAlign = 'center';
+      ctx!.textBaseline = 'top';
+      lines.forEach((l, i) => {
+        ctx!.fillStyle = i === 0 ? color : COL.muted;
+        ctx!.font = i === 0 ? `600 11px ${SANS}` : `500 10px ${SANS}`;
+        ctx!.fillText(l, x, y + 14 + i * 13);
+      });
+    }
+
+    function dashed(y: number, color: string) {
+      ctx!.strokeStyle = color + '55';
+      ctx!.lineWidth = 1.5;
+      ctx!.setLineDash([5, 6]);
+      ctx!.beginPath();
+      ctx!.moveTo(nodes.sender + 12, y);
+      ctx!.lineTo(nodes.dest - 12, y);
+      ctx!.stroke();
+      ctx!.setLineDash([]);
+    }
+
+    function blockX(x: number, y: number) {
+      ctx!.fillStyle = COL.voipPill;
+      ctx!.beginPath();
+      ctx!.arc(x, y, 14, 0, Math.PI * 2);
+      ctx!.fill();
+      ctx!.strokeStyle = COL.voipDeep;
+      ctx!.lineWidth = 2.5;
+      ctx!.beginPath();
+      ctx!.moveTo(x - 6, y - 6);
+      ctx!.lineTo(x + 6, y + 6);
+      ctx!.moveTo(x + 6, y - 6);
+      ctx!.lineTo(x - 6, y + 6);
+      ctx!.stroke();
+    }
+
+    function packet(p: Packet) {
+      const y = lane[p.lane];
+      const color = p.lane === 'voip' ? COL.voip : COL.mno;
+      const grad = ctx!.createLinearGradient(p.x - 36, y, p.x, y);
+      grad.addColorStop(0, 'rgba(255,255,255,0)');
+      grad.addColorStop(1, color + 'BB');
+      ctx!.strokeStyle = grad;
+      ctx!.lineWidth = 2;
+      ctx!.beginPath();
+      ctx!.moveTo(p.x - 36, y);
+      ctx!.lineTo(p.x, y);
+      ctx!.stroke();
+      ctx!.fillStyle = color;
+      ctx!.beginPath();
+      ctx!.moveTo(p.x + 11, y);
+      ctx!.lineTo(p.x, y - 7);
+      ctx!.lineTo(p.x + 3, y);
+      ctx!.lineTo(p.x, y + 7);
+      ctx!.closePath();
+      ctx!.fill();
+    }
+
+    function frame() {
+      ctx!.clearRect(0, 0, W, H);
+      ctx!.fillStyle = COL.voipBg;
+      ctx!.fillRect(0, 0, W, MID);
+      ctx!.fillStyle = COL.mnoBg;
+      ctx!.fillRect(0, MID, W, MID);
+      ctx!.strokeStyle = COL.line;
+      ctx!.lineWidth = 1;
+      ctx!.beginPath();
+      ctx!.moveTo(0, MID);
+      ctx!.lineTo(W, MID);
+      ctx!.stroke();
+
+      const left = Math.max(10, nodes.sender - 46);
+      const endVoip = pill('VoIP DID', left, 18, COL.voipDeep, COL.voipPill, 'left');
+      const endMno = pill('Spenza MNO', left, MID + 18, COL.mnoDeep, COL.mnoPill, 'left');
+      ctx!.font = `500 11px ${SANS}`;
+      ctx!.textAlign = 'left';
+      ctx!.textBaseline = 'middle';
+      ctx!.fillStyle = COL.voipDeep;
+      ctx!.fillText('Twilio · UCaaS · CRM', Math.max(endVoip, endMno) + 10, 18);
+      ctx!.fillStyle = COL.mnoDeep;
+      ctx!.fillText('Wholesale MNO contract', Math.max(endVoip, endMno) + 10, MID + 18);
+
+      dashed(lane.voip, COL.voip);
+      dashed(lane.mno, COL.mno);
+      for (const x of [nodes.sender, nodes.carrier, nodes.dest]) {
+        node(x, lane.voip, COL.voip);
+        node(x, lane.mno, COL.mno);
+      }
+      blockX(nodes.carrier, lane.voip);
+
+      label(nodes.sender, lane.voip, ['Your App'], COL.ink);
+      label(nodes.sender, lane.mno, ['Your App'], COL.ink);
+      label(nodes.carrier, lane.voip, ['Carrier', 'Firewall'], COL.voipDeep);
+      label(nodes.carrier, lane.mno, ['Carrier', 'Firewall'], COL.mnoDeep);
+      label(nodes.dest, lane.voip, ['BLOCKED'], COL.voipDeep);
+      label(nodes.dest, lane.mno, ['DELIVERED'], COL.mnoDeep);
+
+      pill('✕  Blocked', nodes.dest, lane.voip - 26, COL.voipDeep, COL.voipPill);
+      pill('✓  Delivered', nodes.dest, lane.mno - 26, COL.mnoDeep, COL.mnoPill);
+
+      packets.forEach(packet);
+    }
+
+    function spawn(laneName: Packet['lane'], x = nodes.sender + 20) {
+      packets.push({ lane: laneName, x });
+    }
+
+    function tick(now: number) {
+      if (!running) return;
+      const dt = Math.min((now - (last || now)) / 1000, 0.1);
+      last = now;
+      const before = clock % PERIOD;
+      clock += dt;
+      const after = clock % PERIOD;
+      // Fire each send once as the clock passes its offset in the period.
+      const crossed = (at: number) => (after < before ? at >= before || at < after : at >= before && at < after);
+      if (crossed(0)) spawn('voip');
+      if (crossed(PERIOD * 0.311)) spawn('mno');
+      if (crossed(PERIOD * 0.622)) spawn('mno');
+
+      const blockAt = nodes.carrier - 18;
+      packets = packets.filter(p => (p.lane === 'voip' ? p.x < blockAt : p.x < W + 40));
+      packets.forEach(p => (p.x += speed * dt));
+      frame();
+      requestAnimationFrame(tick);
+    }
+
+    function start() {
+      if (running || reduceMotion || !visible || document.hidden) return;
+      running = true;
+      last = 0;
+      requestAnimationFrame(tick);
+    }
+
+    function stop() {
+      running = false;
+    }
+
+    function still() {
+      packets = [];
+      spawn('voip', nodes.sender + (nodes.carrier - nodes.sender) * 0.4);
+      spawn('mno', nodes.sender + (nodes.carrier - nodes.sender) * 0.7);
+      spawn('mno', nodes.dest - 60);
+      frame();
+    }
+
+    // Phones hide the card, so nothing is drawn until it has a size — the
+    // ResizeObserver below catches it if the window is widened later.
+    const shown = () => canvas.clientWidth > 0;
+    if (shown()) {
+      layout();
+      if (reduceMotion) still();
+      else {
+        spawn('voip');
+        frame();
+      }
+    }
+
+    let resizeTimer = 0;
+    new ResizeObserver(() => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        if (!shown()) return;
+        const was = W;
+        layout();
+        if (W !== was) packets = packets.map(p => ({ ...p, x: (p.x * W) / was }));
+        if (reduceMotion) still();
+        else frame();
+      }, 100);
+    }).observe(canvas);
+
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) start();
+      else stop();
+    }).observe(canvas);
+
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+    // The canvas draws text; redraw once the webfont it names has arrived.
+    document.fonts?.ready.then(() => shown() && (reduceMotion ? still() : frame()));
+  }
+
+  /* ── API example tabs ─────────────────────────────────────────── */
+  const tablist = document.querySelector<HTMLElement>('.ln-code-tabs');
+  if (tablist) {
+    const tabs = [...tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const select = (tab: HTMLButtonElement, focus = false) => {
+      for (const t of tabs) {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls')!);
+        if (panel) panel.hidden = !on;
+      }
+      if (focus) tab.focus();
+    };
+    tablist.addEventListener('click', e => {
+      const tab = (e.target as HTMLElement).closest<HTMLButtonElement>('[role="tab"]');
+      if (tab) select(tab);
+    });
+    tablist.addEventListener('keydown', e => {
+      const i = tabs.indexOf(document.activeElement as HTMLButtonElement);
+      if (i < 0) return;
+      const next =
+        e.key === 'ArrowRight' ? tabs[(i + 1) % tabs.length]
+        : e.key === 'ArrowLeft' ? tabs[(i - 1 + tabs.length) % tabs.length]
+        : e.key === 'Home' ? tabs[0]
+        : e.key === 'End' ? tabs[tabs.length - 1]
+        : null;
+      if (next) {
+        e.preventDefault();
+        select(next, true);
+      }
+    });
+  }
+</script>
