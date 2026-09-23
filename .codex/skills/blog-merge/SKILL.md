@@ -135,7 +135,14 @@ The ones most often missed:
 - **Keep the destination's strong H2 wording and anchor IDs** where they still
   fit, so existing jump links and citations survive.
 - Approved customers only: Butlr, RocketPhone, Angel Watch, Daito, IMZ. Never
-  invent a metric for any of them.
+  invent a metric for any of them. **Check the published case studies before
+  raising an evidence request** — `/spenza-product/rocketphone-case-study/` is a
+  full enterprise MVNO launch, `/spenza-product/daito-case-study/` is shared SMS
+  2FA, and the Butlr and Angel Watch cases are IoT and device OEM.
+- **The author is precomputed, not chosen.** Take `author.name` and `author.slug`
+  from the cluster in `merge-plan.json`. It is the author appearing most often
+  across the destination and its donors, with the destination winning a tie.
+  Do not ask the user which byline to use.
 
 ### Where the file goes
 

@@ -91,6 +91,14 @@ research, schema and link tables. Go longer only with substance.
    the meta title.
 2. **Byline block** — author, role, reviewer, "Last updated: Month YYYY", read
    time.
+
+   **On a merge, the author is not a choice.** It is the author who appears most
+   often across the destination and its donors. On a tie, the destination's own
+   author wins, because that post is the one surviving. The resolved name and the
+   count behind it are precomputed on every cluster in `merge-plan.json` as
+   `author.name`, `author.slug` and `author.basis` — use them, do not ask.
+   Where the donors outvote the destination the entry also carries
+   `author.flippedFrom`, so a reviewer can see the byline changed and why.
 3. **TL;DR box** — 60 to 100 words plus 3 to 5 bullets. The first sentence
    answers the main query directly. Key numbers, who it is for, the decision. It
    must make sense on its own.

@@ -93,7 +93,12 @@
         "targetKeyword": "remote SIM provisioning"
       },
       "hub": "eSIM & Provisioning",
-      "targetReader": "OEM engineering, device product teams and eSIM platform buyers"
+      "targetReader": "OEM engineering, device product teams and eSIM platform buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 3 of 3 posts"
+      }
     },
     {
       "id": "M02",
@@ -142,7 +147,12 @@
         "targetKeyword": "what is an MVNO"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1, Spenza 1 of 3 posts"
+      }
     },
     {
       "id": "M03",
@@ -182,7 +192,12 @@
         "targetKeyword": "MVNO billing platforms"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2 of 2 posts"
+      }
     },
     {
       "id": "M04",
@@ -240,7 +255,12 @@
         "targetKeyword": "IoT connectivity types"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 2, SivaSai 2 of 4 posts"
+      }
     },
     {
       "id": "M05",
@@ -289,7 +309,13 @@
         "targetKeyword": "Skype alternatives for business"
       },
       "hub": "AI Voice & Phone Numbers",
-      "targetReader": "Voice AI builders, agencies and enterprise automation teams"
+      "targetReader": "Voice AI builders, agencies and enterprise automation teams",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2, Spenza 1 of 3 posts",
+        "flippedFrom": "Spenza"
+      }
     },
     {
       "id": "M06",
@@ -347,7 +373,12 @@
         "targetKeyword": "what is telecom expense management"
       },
       "hub": "Telecom Spend & Revenue Assurance",
-      "targetReader": "Telecom finance, revenue assurance, procurement and operations"
+      "targetReader": "Telecom finance, revenue assurance, procurement and operations",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "tie, destination author wins: Vinaychandra Bharadwaj 2, SivaSai 2 of 4 posts"
+      }
     },
     {
       "id": "M07",
@@ -406,7 +437,12 @@
       },
       "hub": "MVNO & MVNE",
       "targetReader": "MVNO founders, scaling operators, MVNE buyers",
-      "note": "M07 rewritten from scratch after outline approval. Preview and QA: docs/merge-research/M07-phase-6-report.md. Human review and research limitations remain recorded there."
+      "note": "M07 rewritten from scratch after outline approval. Preview and QA: docs/merge-research/M07-phase-6-report.md. Human review and research limitations remain recorded there.",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 2, SivaSai 2 of 4 posts"
+      }
     },
     {
       "id": "M08",
@@ -473,7 +509,12 @@
         "targetKeyword": "MNO vs MVNO vs MVNE vs MVNA"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 4, Spenza 1 of 5 posts"
+      }
     },
     {
       "id": "M09",
@@ -531,7 +572,13 @@
         "targetKeyword": "IoT connectivity trends"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, SivaSai 1, Vinaychandra Bharadwaj 1 of 4 posts",
+        "flippedFrom": "SivaSai"
+      }
     },
     {
       "id": "M10",
@@ -589,7 +636,13 @@
         "targetKeyword": "business mobile cost optimization"
       },
       "hub": "Telecom Spend & Revenue Assurance",
-      "targetReader": "Telecom finance, revenue assurance, procurement and operations"
+      "targetReader": "Telecom finance, revenue assurance, procurement and operations",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2, Spenza 1, Vinaychandra Bharadwaj 1 of 4 posts",
+        "flippedFrom": "Spenza"
+      }
     },
     {
       "id": "M11",
@@ -647,7 +700,12 @@
         "targetKeyword": "white label telecom reseller"
       },
       "hub": "Reseller & Embedded Connectivity",
-      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands"
+      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 3, Vinaychandra Bharadwaj 1 of 4 posts"
+      }
     },
     {
       "id": "M12",
@@ -687,7 +745,12 @@
         "targetKeyword": "how to choose an MVNE"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2 of 2 posts"
+      }
     },
     {
       "id": "M13",
@@ -727,7 +790,12 @@
         "targetKeyword": "telecom expense audit"
       },
       "hub": "Telecom Spend & Revenue Assurance",
-      "targetReader": "Telecom finance, revenue assurance, procurement and operations"
+      "targetReader": "Telecom finance, revenue assurance, procurement and operations",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1 of 2 posts"
+      }
     },
     {
       "id": "M14",
@@ -776,7 +844,12 @@
         "targetKeyword": "eSIM-only MVNO"
       },
       "hub": "eSIM & Provisioning",
-      "targetReader": "OEM engineering, device product teams and eSIM platform buyers"
+      "targetReader": "OEM engineering, device product teams and eSIM platform buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 3 of 3 posts"
+      }
     },
     {
       "id": "M15",
@@ -816,7 +889,12 @@
         "targetKeyword": "resell data plans on Shopify"
       },
       "hub": "Reseller & Embedded Connectivity",
-      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands"
+      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2 of 2 posts"
+      }
     },
     {
       "id": "M16",
@@ -884,7 +962,12 @@
       },
       "hub": "MVNO & MVNE",
       "targetReader": "MVNO founders, scaling operators, MVNE buyers",
-      "note": "Rewritten from the approved outline to the editorial standard. Phase 6 preview; reviewer and evidence holds recorded in docs/merge-research/M16-phase-6-report.md."
+      "note": "Rewritten from the approved outline to the editorial standard. Phase 6 preview; reviewer and evidence holds recorded in docs/merge-research/M16-phase-6-report.md.",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 4, Spenza 1 of 5 posts"
+      }
     },
     {
       "id": "M17",
@@ -924,7 +1007,12 @@
         "targetKeyword": "NB-IoT vs LTE-M vs 5G RedCap"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2 of 2 posts"
+      }
     },
     {
       "id": "M18",
@@ -973,7 +1061,13 @@
         "targetKeyword": "launch an MVNO with Spenza"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, SivaSai 1 of 3 posts",
+        "flippedFrom": "SivaSai"
+      }
     },
     {
       "id": "M19",
@@ -1013,7 +1107,12 @@
         "targetKeyword": "MVNO trends 2026"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1 of 2 posts"
+      }
     },
     {
       "id": "M20",
@@ -1053,7 +1152,12 @@
         "targetKeyword": "white label connectivity for MSPs"
       },
       "hub": "Reseller & Embedded Connectivity",
-      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands"
+      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 1, Vinaychandra Bharadwaj 1 of 2 posts"
+      }
     },
     {
       "id": "M21",
@@ -1102,7 +1206,12 @@
         "targetKeyword": "what is an MVNE"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1, Spenza 1 of 3 posts"
+      }
     },
     {
       "id": "M22",
@@ -1151,7 +1260,12 @@
         "targetKeyword": "telecom as a service"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2, Spenza 1 of 3 posts"
+      }
     },
     {
       "id": "M23",
@@ -1191,7 +1305,12 @@
         "targetKeyword": "MVNO marketing strategies"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1 of 2 posts"
+      }
     },
     {
       "id": "M24",
@@ -1240,7 +1359,12 @@
         "targetKeyword": "fleet IoT connectivity costs"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, Vinaychandra Bharadwaj 1 of 3 posts"
+      }
     },
     {
       "id": "M25",
@@ -1307,7 +1431,12 @@
         "targetKeyword": "IoT connectivity cost"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 3, Spenza 1, Vinaychandra Bharadwaj 1 of 5 posts"
+      }
     },
     {
       "id": "M26",
@@ -1330,7 +1459,12 @@
         }
       ],
       "hub": "Reseller & Embedded Connectivity",
-      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands"
+      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "majority: Vinaychandra Bharadwaj 2 of 2 posts"
+      }
     },
     {
       "id": "M27",
@@ -1370,7 +1504,12 @@
         "targetKeyword": "MVNO subscriber management system"
       },
       "hub": "MVNO & MVNE",
-      "targetReader": "MVNO founders, scaling operators, MVNE buyers"
+      "targetReader": "MVNO founders, scaling operators, MVNE buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 1, SivaSai 1 of 2 posts"
+      }
     },
     {
       "id": "M28",
@@ -1428,7 +1567,12 @@
         "targetKeyword": "enterprise eSIM management"
       },
       "hub": "eSIM & Provisioning",
-      "targetReader": "OEM engineering, device product teams and eSIM platform buyers"
+      "targetReader": "OEM engineering, device product teams and eSIM platform buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 4 of 4 posts"
+      }
     },
     {
       "id": "M29",
@@ -1522,7 +1666,13 @@
         "targetKeyword": "connectivity management platform"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 6, Spenza 2 of 8 posts",
+        "flippedFrom": "Spenza"
+      }
     },
     {
       "id": "M30",
@@ -1571,7 +1721,12 @@
         "targetKeyword": "eSIM for IoT"
       },
       "hub": "eSIM & Provisioning",
-      "targetReader": "OEM engineering, device product teams and eSIM platform buyers"
+      "targetReader": "OEM engineering, device product teams and eSIM platform buyers",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "tie, destination author wins: Vinaychandra Bharadwaj 1, SivaSai 1, Spenza 1 of 3 posts"
+      }
     },
     {
       "id": "M31",
@@ -1594,7 +1749,12 @@
         }
       ],
       "hub": "Enterprise Mobility & BYOD",
-      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders"
+      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "tie, destination author wins: Vinaychandra Bharadwaj 1, SivaSai 1 of 2 posts"
+      }
     },
     {
       "id": "M32",
@@ -1643,7 +1803,12 @@
         "targetKeyword": "IoT MVNO"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 1, SivaSai 1, Vinaychandra Bharadwaj 1 of 3 posts"
+      }
     },
     {
       "id": "M33",
@@ -1683,7 +1848,12 @@
         "targetKeyword": "eSIM vs physical SIM for business"
       },
       "hub": "eSIM & Provisioning",
-      "targetReader": "OEM engineering, device product teams and eSIM platform buyers"
+      "targetReader": "OEM engineering, device product teams and eSIM platform buyers",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2 of 2 posts"
+      }
     },
     {
       "id": "M34",
@@ -1732,7 +1902,12 @@
         "targetKeyword": "global IoT connectivity"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, Vinaychandra Bharadwaj 1 of 3 posts"
+      }
     },
     {
       "id": "M35",
@@ -1772,7 +1947,12 @@
         "targetKeyword": "IoT SIM cards"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "tie, destination author wins: SivaSai 1, Spenza 1 of 2 posts"
+      }
     },
     {
       "id": "M36",
@@ -1821,7 +2001,12 @@
         "targetKeyword": "eSIM for OEMs"
       },
       "hub": "eSIM & Provisioning",
-      "targetReader": "OEM engineering, device product teams and eSIM platform buyers"
+      "targetReader": "OEM engineering, device product teams and eSIM platform buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, SivaSai 1 of 3 posts"
+      }
     },
     {
       "id": "M37",
@@ -1870,7 +2055,12 @@
         "targetKeyword": "BYOD benefits risks and best practices"
       },
       "hub": "Enterprise Mobility & BYOD",
-      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders"
+      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, SivaSai 1 of 3 posts"
+      }
     },
     {
       "id": "M38",
@@ -1910,7 +2100,12 @@
         "targetKeyword": "smart city IoT connectivity"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2 of 2 posts"
+      }
     },
     {
       "id": "M39",
@@ -1950,7 +2145,12 @@
         "targetKeyword": "best IoT connectivity management platforms"
       },
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "tie, destination author wins: Vinaychandra Bharadwaj 1, SivaSai 1 of 2 posts"
+      }
     },
     {
       "id": "M40",
@@ -1982,7 +2182,13 @@
         }
       ],
       "hub": "Enterprise Mobility & BYOD",
-      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders"
+      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, SivaSai 1 of 3 posts",
+        "flippedFrom": "SivaSai"
+      }
     },
     {
       "id": "M41",
@@ -2022,7 +2228,12 @@
         "targetKeyword": "travel eSIM vs physical SIM"
       },
       "hub": "Reseller & Embedded Connectivity",
-      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands"
+      "targetReader": "MSPs, ISPs, resellers, travel platforms and connected-device brands",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2 of 2 posts"
+      }
     },
     {
       "id": "M42",
@@ -2071,7 +2282,12 @@
         "targetKeyword": "eSIM orchestration"
       },
       "hub": "eSIM & Provisioning",
-      "targetReader": "OEM engineering, device product teams and eSIM platform buyers"
+      "targetReader": "OEM engineering, device product teams and eSIM platform buyers",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 3 of 3 posts"
+      }
     },
     {
       "id": "M43",
@@ -2111,7 +2327,12 @@
         "targetKeyword": "dual SIM eSIM for business"
       },
       "hub": "Enterprise Mobility & BYOD",
-      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders"
+      "targetReader": "Enterprise IT, procurement, finance and HR mobility stakeholders",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 1, Vinaychandra Bharadwaj 1 of 2 posts"
+      }
     },
     {
       "id": "M44",
@@ -2134,7 +2355,12 @@
         }
       ],
       "hub": "IoT Connectivity & CMP",
-      "targetReader": "IoT product, engineering and fleet operations teams"
+      "targetReader": "IoT product, engineering and fleet operations teams",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "majority: Vinaychandra Bharadwaj 2 of 2 posts"
+      }
     }
   ]
 }
