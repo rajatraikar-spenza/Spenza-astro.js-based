@@ -2053,3 +2053,124 @@ body.wp-mirror.e-off-canvas__no-scroll {
 .wp-mirror .eicon-chevron-left { --sp-eicon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 5l-7 7 7 7'/></svg>"); }
 
 .wp-mirror .eicon-chevron-right { --sp-eicon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5l7 7-7 7'/></svg>"); }
+
+/*
+ * Number Services in the Solution menu: a tile that holds two pages, Local
+ * Numbers and Voice Observability, rather than linking to one.
+ *
+ * Its rows are the Voice Observability tile's own markup — the same container
+ * and widget classes — because the tiles are styled by per-widget rules in the
+ * purged bundles (`.elementor-element-b353735`, `-80bd804` and their mobile
+ * twins). Reusing the classes makes each row match the other five tiles with
+ * no bundle change; everything here is only what a nested row needs on top.
+ *
+ * Desktop: the tile is focusable and opens its menu on hover or on focus, so a
+ * keyboard reaches both links with Tab and a tap on a touch screen opens it.
+ * The menu drops *below* the tile rather than beside it: the tile is in the
+ * panel's right-hand column, and at 1100px there is no room to its right.
+ *
+ * Mobile: a <details>, so a tap opens it with no script at all.
+ */
+.wp-mirror .nav-group {
+  position: relative;
+  cursor: default;
+}
+
+.wp-mirror .nav-group > .elementor-widget .elementor-icon-box-title > span::after,
+.wp-mirror .nav-group > summary .elementor-icon-box-title > span::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0 3px 9px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--polish-base) var(--polish-ease);
+}
+
+.wp-mirror div.nav-group:is(:hover, :focus-within) > .elementor-widget .elementor-icon-box-title > span::after,
+.wp-mirror details.nav-group[open] > summary .elementor-icon-box-title > span::after {
+  transform: translateY(3px) rotate(-135deg);
+}
+
+.wp-mirror div.nav-group > .nav-group__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 340px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(15, 20, 32, 0.14), 0 0 0 1px rgba(15, 20, 32, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity var(--polish-base) var(--polish-ease),
+    transform var(--polish-base) var(--polish-ease),
+    visibility 0s linear var(--polish-base);
+}
+
+/* Bridges the 8px gap, so moving the pointer down to the menu keeps it open. */
+.wp-mirror div.nav-group > .nav-group__menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+
+.wp-mirror div.nav-group:is(:hover, :focus-within) > .nav-group__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+/* The rows carry the tile's container class, which sizes a tile to its column. */
+.wp-mirror .nav-group__menu > .solution-sub {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/*
+ * The bundle turns every paragraph in a hovered `.solution-sub` orange, and the
+ * Number Services tile is one — so hovering it would light up both rows at
+ * once. A row turns orange only when it is the one under the pointer.
+ */
+.wp-mirror .nav-group__menu > .solution-sub:not(:hover, :focus-visible) p {
+  color: #54595f !important;
+}
+
+/* A flex item that sizes to its content, where the rows beside it fill the screen. */
+.wp-mirror details.nav-group {
+  align-self: stretch;
+  width: 100%;
+}
+
+.wp-mirror details.nav-group > summary {
+  width: 100% !important;
+  list-style: none;
+  cursor: pointer;
+}
+
+.wp-mirror details.nav-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.wp-mirror details.nav-group > .nav-group__menu {
+  padding-left: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wp-mirror div.nav-group > .nav-group__menu {
+    transform: none;
+    transition: none;
+  }
+}

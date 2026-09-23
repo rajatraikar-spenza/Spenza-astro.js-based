@@ -2,9 +2,11 @@
 /**
  * Who uses Spenza: six cards, each with a small animated illustration.
  *
- * The sixth card is Voice Observability. Its illustration is the stipends
- * chart the Figma file still carries for it — a leftover from the Finance & HR
- * card it replaced, kept as supplied until the design gives it its own.
+ * The sixth card is Voice Observability. Its illustration is "A · Call
+ * delivery test" from the "Spenza Homepage – Voice Observability Card Graphic"
+ * Figma file: one outbound test across three carriers, results resolving in
+ * turn. The Figma frame is static; the motion is this section's own, on the
+ * same 5.4s loop as its neighbours.
  */
 import SectionHead from './SectionHead.astro';
 
@@ -12,6 +14,13 @@ import SectionHead from './SectionHead.astro';
 const OFF = new Set([4, 11, 19, 25]);
 const fleet = Array.from({ length: 28 }, (_, i) => (OFF.has(i) ? null : `${(i * 0.13).toFixed(2)}s`));
 const countries = ['US', 'GB', 'DE', 'FR', 'JP', 'BR'];
+
+// Call delivery test: operator, result, and whether the result is a spam label.
+const calls: [string, string, boolean][] = [
+  ['US Operator A', 'delivered · 1.2 s', false],
+  ['US Operator B', 'Spam Likely', true],
+  ['US Operator C', 'delivered · 0.9 s', false],
+];
 
 const cards = [
   {
@@ -51,7 +60,7 @@ const cards = [
   },
   {
     href: '/voice-observability-solution/',
-    viz: 'spend',
+    viz: 'calls',
     tag: 'CPaaS & VOIP PROVIDERS',
     title: 'Monitor number reputation and call delivery',
     text: 'Monitor real-world call delivery, delays, number reputation, and call quality using outside-in testing across mobile networks.',
@@ -111,11 +120,17 @@ const cards = [
                 <div class="vlab"><span>agent-01</span><b class="is-on">connected</b></div>
               </>
             )}
-            {card.viz === 'spend' && (
+            {card.viz === 'calls' && (
               <>
-                <div class="v6r" style="top:26px"><span>Stipends</span><u style="--w:1" /><b>$14.4k</b></div>
-                <div class="v6r on" style="top:56px"><span>Managed lines</span><u style="--w:.46;animation-delay:.25s" /><b>$6.6k</b></div>
-                <div class="vlab"><span>240 employees</span><b>&minus;54% per year</b></div>
+                <div class="v7h"><span>outbound test &middot; 3 carriers</span><span class="v7live"><i />2 min ago</span></div>
+                {calls.map(([op, result, spam], i) => (
+                  <div class="v7r" style={`top:${27 + i * 17}px`}>
+                    <span>{op}</span>
+                    <b class:list={{ v7spam: spam }} style={`animation-delay:${(0.2 + i * 0.45).toFixed(2)}s`}>{result}</b>
+                  </div>
+                ))}
+                <div class="v7rule" />
+                <div class="vlab"><span>answer rate</span><b class="v7rate">92%</b></div>
               </>
             )}
           </div>
