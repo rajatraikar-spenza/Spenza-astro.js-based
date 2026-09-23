@@ -247,9 +247,8 @@ export const MERGE_PREVIEWS: Record<string, MergePreview> = {
     "featuredImageHeight": 720,
     "publishedDate": "2026-04-24T06:48:54+00:00",
     "updatedDate": "2026-09-22T11:25:11.336Z",
-    "authorSlug": "sivasai",
-    "authorName": "SivaSai",
-    "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+    "authorSlug": "isimplexity",
+    "authorName": "Spenza",
     "destinationWords": 2470,
     "donors": [
       {
