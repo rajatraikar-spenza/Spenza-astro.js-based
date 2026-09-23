@@ -43,8 +43,6 @@ function checks(cluster, html) {
   const body = strip(html);
   const words = text(html).split(' ').filter(Boolean).length;
   const h2s = [...body.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)];
-  const h3s = [...body.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/g)]
-    .map(m => m[1].replace(/<[^>]+>/g, '').trim());
   const internal = new Set([...body.matchAll(/href="(\/[^"#?]*\/)"/g)].map(m => m[1]));
   const external = new Set([...body.matchAll(/href="(https?:\/\/[^"]+)"/g)]
     .map(m => m[1]).filter(u => !/(^https?:\/\/(www\.)?spenza\.com|media\.spenza\.com)/.test(u)));
@@ -53,6 +51,13 @@ function checks(cluster, html) {
   // Answer-first: the sentence after each H2 must name its subject, not point back.
   const pronounOpeners = [];
   const sections = body.split(/<h2[^>]*>[\s\S]*?<\/h2>/);
+  // Question-shaped H3s elsewhere are normal article headings, not FAQs.
+  // Count questions only in sections explicitly headed FAQ(s).
+  const faqQuestions = h2s.flatMap((heading, index) => {
+    if (!/\bFAQs?\b|frequently asked questions/i.test(text(heading[1]))) return [];
+    return [...(sections[index + 1] || '').matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/g)]
+      .map(match => text(match[1])).filter(question => question.endsWith('?'));
+  });
   h2s.forEach((m, i) => {
     const after = (sections[i + 1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
     const first = after.split(/(?<=[.!?])\s/)[0] || '';
@@ -74,7 +79,7 @@ function checks(cluster, html) {
     ['tables 2-4', (body.match(/<table/g) || []).length >= 2 && (body.match(/<table/g) || []).length <= 4, (body.match(/<table/g) || []).length],
     ['internal links 6-10', internal.size >= 6 && internal.size <= 10, internal.size],
     ['external links 4-8', external.size >= 4 && external.size <= 8, external.size],
-    ['FAQ questions 6-8', h3s.filter(h => h.endsWith('?')).length >= 6 && h3s.filter(h => h.endsWith('?')).length <= 8, h3s.filter(h => h.endsWith('?')).length],
+    ['FAQ questions 6-8', faqQuestions.length >= 6 && faqQuestions.length <= 8, faqQuestions.length],
     ['figures 3-5', (body.match(/<figure/g) || []).length >= 3 && (body.match(/<figure/g) || []).length <= 5, (body.match(/<figure/g) || []).length],
     ['no banned words', banned.length === 0, banned.join(', ') || 'none'],
     ['no links to any donor', donorLinks.length === 0, donorLinks.join(', ') || 'none'],
