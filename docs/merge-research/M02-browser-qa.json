@@ -1,0 +1,290 @@
+{
+  "h1": "What Is an MVNO? Business Models and How to Launch",
+  "robots": "noindex, nofollow",
+  "jsonLd": 0,
+  "canonical": null,
+  "unfilledSlots": false,
+  "anchors": [
+    {
+      "id": "elementor-toc__heading-anchor-0",
+      "count": 1,
+      "text": "TL;DR / At-a-Glance Summary"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-1",
+      "count": 1,
+      "text": "MVNO Fundamentals: Definitions and Core Concepts"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-2",
+      "count": 1,
+      "text": "The MVNO Ecosystem: MNO vs MVNE vs MVNA"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-3",
+      "count": 1,
+      "text": "MVNO Types: Full, Light, and Branded Reseller Compared"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-4",
+      "count": 1,
+      "text": "How Do MVNOs Make Money?"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-5",
+      "count": 1,
+      "text": "How to Launch an MVNO in 2026"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-6",
+      "count": 1,
+      "text": "White-label is a delivery arrangement"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-7",
+      "count": 1,
+      "text": "Match the model to the product"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-8",
+      "count": 1,
+      "text": "MVNO Billing, BSS, and Platform Operations"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-9",
+      "count": 1,
+      "text": "Vertical MVNOs: Industry Use Cases That Work"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-10",
+      "count": 1,
+      "text": "A device OEM, or original equipment manufacturer, may need activation and lifecycle contro"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-11",
+      "count": 1,
+      "text": "Verify device and service support"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-12",
+      "count": 1,
+      "text": "Assign risk and compliance owners"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-13",
+      "count": 1,
+      "text": "Which carriers are MVNO examples?"
+    },
+    {
+      "id": "elementor-toc__heading-anchor-14",
+      "count": 1,
+      "text": "An MVNO gives your business a way to package mobile service around a customer need. The mo"
+    },
+    {
+      "id": "FAQs",
+      "count": 1,
+      "text": "FAQs"
+    }
+  ],
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "MVNO Fundamentals: Definitions and Core Concepts",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "The MVNO Ecosystem: MNO vs MVNE vs MVNA",
+      "href": "#elementor-toc__heading-anchor-2"
+    },
+    {
+      "text": "MVNO Types: Full, Light, and Branded Reseller Compared",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "How Do MVNOs Make Money?",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "Vertical MVNOs: Industry Use Cases That Work",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "How to Launch an MVNO in 2026",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#m02-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#m02-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#m02-preview-shell-4"
+    }
+  ],
+  "bodyImages": [
+    {
+      "src": "/blog-media/mvno-definition/mvno-network-and-operating-roles.png",
+      "currentSrc": "http://localhost:4333/blog-media/mvno-definition/mvno-network-and-operating-roles.webp",
+      "naturalWidth": 1600,
+      "naturalHeight": 900,
+      "srcset": null,
+      "sizes": null,
+      "alt": "An MVNO serves customers through host network access, with optional MVNE systems and MVNA aggregation"
+    },
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_56_12-PM.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_56_12-PM-768x576.png",
+      "naturalWidth": 666,
+      "naturalHeight": 499,
+      "srcset": "https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_56_12-PM.png 1448w, https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_56_12-PM-300x225.png 300w, https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_56_12-PM-1024x768.png 1024w, https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_56_12-PM-768x576.png 768w",
+      "sizes": "(max-width: 666px) 100vw, 666px",
+      "alt": "Vertical MVNO uses include watches, finance, gaming, monitors, fleets and smart cities"
+    },
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_54_24-PM.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_54_24-PM-768x432.png",
+      "naturalWidth": 666,
+      "naturalHeight": 374,
+      "srcset": "https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_54_24-PM.png 1672w, https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_54_24-PM-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_54_24-PM-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_54_24-PM-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-11-2026-02_54_24-PM-1536x864.png 1536w",
+      "sizes": "(max-width: 666px) 100vw, 666px",
+      "alt": "An MVNO launch progresses from model and partner selection through plans, systems, pilot and scale"
+    }
+  ],
+  "hero": [
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights.png",
+      "currentSrc": "https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights.png.webp",
+      "natural": [
+        1280,
+        720
+      ],
+      "srcset": "https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights.png 1280w",
+      "sizes": "(max-width: 1280px) 100vw, 1280px"
+    }
+  ],
+  "h2": [
+    {
+      "heading": "MVNO Fundamentals: Definitions and Core Concepts",
+      "openingWords": 46
+    },
+    {
+      "heading": "The MVNO Ecosystem: MNO vs MVNE vs MVNA",
+      "openingWords": 47
+    },
+    {
+      "heading": "MVNO Types: Full, Light, and Branded Reseller Compared",
+      "openingWords": 49
+    },
+    {
+      "heading": "How Do MVNOs Make Money?",
+      "openingWords": 50
+    },
+    {
+      "heading": "Vertical MVNOs: Industry Use Cases That Work",
+      "openingWords": 49
+    },
+    {
+      "heading": "How to Launch an MVNO in 2026",
+      "openingWords": 50
+    },
+    {
+      "heading": "FAQs",
+      "openingWords": 47
+    }
+  ],
+  "faqAnswerWords": [
+    49,
+    50,
+    52,
+    49,
+    52,
+    52
+  ],
+  "introWords": 112,
+  "conclusionWords": 88,
+  "tableCount": 4,
+  "calloutWords": [
+    29,
+    27,
+    31,
+    44,
+    17,
+    26
+  ],
+  "tldrCards": [
+    {
+      "text": "Separate the rolesThe host supplies radio access. Enablers and aggregators can supply optional systems and commercial arrangements.",
+      "icon": true,
+      "glyph": "\"\""
+    },
+    {
+      "text": "Choose required controlCompare reseller, light and full models against the decisions your product needs to own.",
+      "icon": true,
+      "glyph": "\"\""
+    },
+    {
+      "text": "Price the whole operationInclude fixed costs, usage, active lines, acquisition and minimum commitments.",
+      "icon": true,
+      "glyph": "\"\""
+    },
+    {
+      "text": "Prove launch readinessAccept activation, billing, support and export evidence before expanding.",
+      "icon": true,
+      "glyph": "\"\""
+    },
+    {
+      "text": "Start with the customer workflowRocketPhone shows how a specific application requirement can shape the mobile service and partner scope.",
+      "icon": true,
+      "glyph": "\"\""
+    }
+  ],
+  "byline": true,
+  "authorBio": true,
+  "breadcrumb": true,
+  "related": true,
+  "evidenceMarkers": 4,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "faqEnter": true,
+  "oneOpen": true,
+  "faqSpaceCloses": true,
+  "closedSymbol": "\"+\"",
+  "mobile": {
+    "viewport": 390,
+    "pageWidth": 390,
+    "tables": [
+      {
+        "client": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "client": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "client": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "client": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "faqWorksWithoutJs": true
+}

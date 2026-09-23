@@ -39,7 +39,8 @@
     "wp:seo": "node scripts/wp-extract-seo.mjs",
     "wp:authors": "node scripts/wp-extract-authors.mjs",
     "wp:changed": "node scripts/wp-changed.mjs",
-    "hs:check": "node scripts/hs-check-forms.mjs"
+    "hs:check": "node scripts/hs-check-forms.mjs",
+    "merge:qa": "node scripts/merge-qa.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",

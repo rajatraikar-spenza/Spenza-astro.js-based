@@ -73,10 +73,81 @@ export interface MergePreview {
 }
 
 import type { AcfBlocks } from '../../lib/acf-blocks.ts';
+import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  mvno: {
+    "slug": "mvno",
+    "category": "mvno",
+    "cluster": "M02: MVNO definitions",
+    "title": "What Is an MVNO? Business Models and How to Launch",
+    "excerpt": "An MVNO brings mobile service to customers through a host network. This guide explains the operating models, costs, responsibilities and checks that shape a launch.",
+    "seoTitle": "What Is an MVNO? Business Models and How to Launch",
+    "seoDescription": "Learn what an MVNO is, how its business models work, which costs and duties remain yours, and what to verify before launching a branded mobile service.",
+    "ogTitle": "What Is an MVNO? Business Models and How to Launch",
+    "ogDescription": "Understand MVNO roles, compare operating models, assess costs and use a published enterprise launch to plan your next step.",
+    "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights.png",
+    "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights.png\" class=\"attachment-full size-full wp-image-18843 webpexpress-processed\" alt=\"What Is an MVNO Types, Benefits, and Key Insights\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-an-MVNO-Types-Benefits-and-Key-Insights.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+    "featuredImageAlt": "What is an MVNO? Types, benefits and the mobile service model",
+    "featuredImageWidth": 1280,
+    "featuredImageHeight": 720,
+    "publishedDate": "2026-06-11T10:40:10+00:00",
+    "updatedDate": "2026-09-23T08:05:31.352522+00:00",
+    "authorSlug": "sivasai",
+    "authorName": "SivaSai",
+    "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+    "destinationWords": 3595,
+    "donors": [
+      {
+        "path": "/mvno/what-are-mvnos/",
+        "title": "Define MVNO: What Is a Mobile Virtual Network Operator?",
+        "clicks": 47,
+        "contributes": "Definition, service mechanism, carrier examples and plan-specific trade-offs"
+      },
+      {
+        "path": "/telecom/what-is-mvno/",
+        "title": "What Is MVNO? Mobile Virtual Network Operator Guide",
+        "clicks": 16,
+        "contributes": "Radio versus core ownership, product fit, operating economics and pilot risks"
+      }
+    ],
+    "content": mvnoDefinition,
+    "templateBlocks": {
+      "tldrHeading": "TL;DR / At-a-Glance Summary",
+      "tldrDescription": "An MVNO sells branded mobile service using a host operator's radio network. Its operating model determines which systems and customer tasks it runs or sources. For device makers, MSPs and software platforms, choose the model around the product requirement, then verify network access, costs and responsibilities. The published RocketPhone case demonstrates an enterprise launch connecting cellular voice to an existing application. It provides implementation scope, not a universal launch timeline or subscriber benchmark.",
+      "twoCol": [
+        {
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-broadcast\"}",
+          "title": "Separate the roles",
+          "text": "The host supplies radio access. Enablers and aggregators can supply optional systems and commercial arrangements."
+        },
+        {
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+          "title": "Choose required control",
+          "text": "Compare reseller, light and full models against the decisions your product needs to own."
+        },
+        {
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"coins\"}",
+          "title": "Price the whole operation",
+          "text": "Include fixed costs, usage, active lines, acquisition and minimum commitments."
+        },
+        {
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+          "title": "Prove launch readiness",
+          "text": "Accept activation, billing, support and export evidence before expanding."
+        }
+      ],
+      "oneCol": [
+        {
+          "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+          "title": "Start with the customer workflow",
+          "text": "RocketPhone shows how a specific application requirement can shape the mobile service and partner scope."
+        }
+      ]
+    }
+  },
   'launch-mvno-us-guide': {
     "slug": "launch-mvno-us-guide",
     "category": "mvno",

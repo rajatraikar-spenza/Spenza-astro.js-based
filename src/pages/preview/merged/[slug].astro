@@ -49,6 +49,28 @@ const esc = (s: string) =>
 const donorClicks = preview.donors.reduce((n, d) => n + d.clicks, 0);
 const mergedWords = mergeReadingWords(preview.content, preview.templateBlocks);
 
+// M02 retains numeric fragments from the live pillar. The theme's page-wide
+// TOC otherwise gives later shell headings those same IDs. Name only this
+// preview's unnumbered shell headings before deferred theme scripts run.
+const fragmentGuard = slug === 'mvno' ? `<script>
+  (function () {
+    function nameShellHeadings() {
+      document.querySelectorAll('h2:not([id])').forEach(function (heading, index) {
+        if (heading.closest('.m02-article')) return;
+        heading.id = heading.textContent.trim().startsWith('TL;DR')
+          ? 'elementor-toc__heading-anchor-0'
+          : 'm02-preview-shell-' + index;
+      });
+    }
+    if (document.readyState !== 'loading') nameShellHeadings();
+    else document.addEventListener('readystatechange', function ready() {
+      if (document.readyState === 'loading') return;
+      nameShellHeadings();
+      document.removeEventListener('readystatechange', ready);
+    });
+  })();
+</script>` : '';
+
 /**
  * The review banner. Injected into the body rather than wrapped around the
  * layout, because `ArticleLayout` renders the whole document.
@@ -146,7 +168,7 @@ const post = {
         `<meta property="og:description" content="${esc(preview.ogDescription ?? preview.excerpt)}">` +
         `<meta name="description" content="${esc(preview.seoDescription)}">`,
     },
-    content: banner + preview.content,
+    content: banner + fragmentGuard + preview.content,
     // The TL;DR block, which the Elementor template renders above the article
     // from ACF fields rather than from the body.
     templateBlocks: preview.templateBlocks,
