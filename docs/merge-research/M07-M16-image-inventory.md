@@ -96,10 +96,10 @@ These are genuinely new artwork, not copied media-library files. PNG/WebP pairs 
 | Candidate | Decision and reason |
 | :--- | :--- |
 | `mvno-us-launch-10-step-path` | KEEP body 1. Legible current checklist. Caption says workstreams overlap and regulatory scoping starts at service definition. |
-| `launch-mvno-us-guide-featured` | REJECT. Whole-generated hero violates the fixed template. Remains unused. |
-| `mvno-cost-timeline-build-vs-mvne` | REJECT. Unsupported costs and timeline comparisons. Remains unused. |
-| `mvno-customer-evidence-strip` | REJECT. Unsupported customer metrics. Remains unused. |
-| `mvno-model-ladder` | REJECT. Treats use cases/distribution as ownership levels. Remains unused. |
+| `launch-mvno-us-guide-featured` | REJECT. Whole-generated hero violates the fixed template. PNG and WebP deleted on 2026-09-23; rejection retained here. |
+| `mvno-cost-timeline-build-vs-mvne` | REJECT. Unsupported costs and timeline comparisons. PNG and WebP deleted on 2026-09-23; rejection retained here. |
+| `mvno-customer-evidence-strip` | REJECT. Unsupported customer metrics. PNG and WebP deleted on 2026-09-23; rejection retained here. |
+| `mvno-model-ladder` | REJECT. Treats use cases/distribution as ownership levels. PNG and WebP deleted on 2026-09-23; rejection retained here. |
 
 ## Reference correction
 
@@ -115,3 +115,7 @@ Removed six untracked files: M07 `white-label-use-cases.png` and `.webp` (copy/r
 | M16 | Live fixed template, ID 18 | Existing new ten-step diagram, after playbook | Product choice vs operating scope, after operating-model section | Contribution vs cash timing, after cost section |
 
 Copy-ready [ChatGPT prompts and typography instructions](M07-M16-image-prompts.md) cover only the four unfilled slots. No featured-image generation is requested. Delivery of those images remains pending.
+
+## Rejected staging files removed (2026-09-23)
+
+Deleted the four rejected M16 assets above in both PNG and WebP formats: eight files, 1,500,309 bytes (1,465.1 KiB). No runtime references existed in `src/` or `public/scripts/`. The three retained M16 body images and their format pairs remain.
