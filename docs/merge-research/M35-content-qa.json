@@ -1,0 +1,48 @@
+{
+  "cluster": "M35",
+  "before": [
+    {
+      "path": "/esim/iot-sim-cards-guide/",
+      "bodyWords": 3353,
+      "tldrWords": 162
+    },
+    {
+      "path": "/telecom/global-iot-sim-cards-2025/",
+      "bodyWords": 2072,
+      "tldrWords": 0
+    }
+  ],
+  "combinedBeforeWords": 5587,
+  "bodyWords": 2255,
+  "tldrWords": 128,
+  "totalWords": 2383,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/iot-solutions/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/iot/global-iot-connectivity-2026/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/telecom/what-is-connectivity-management-platform-cmp/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://iot.telenor.com/technologies/introduction-to-iot-sim-cards/",
+    "https://docs.things.1global.com/docs/sims/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/gsma_resources/sgp-32-v1-2/",
+    "https://portal.3gpp.org/desktopmodules/WorkItem/WorkItemDetails.aspx?workitemId=920069"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved SIM part, module, firmware and operator compatibility matrix with representative provisioning and retirement traces plus redacted operations screenshot, from Spenza engineering and host operators]",
+    "[EVIDENCE NEEDED: anonymized fleet usage distribution and reconciled activation, recurring, overage and termination charges, from customer operations and finance]",
+    "[EVIDENCE NEEDED: approved Butlr cohort size and dated rollout milestones, from the Butlr account owner]"
+  ],
+  "informationGain": 7
+}

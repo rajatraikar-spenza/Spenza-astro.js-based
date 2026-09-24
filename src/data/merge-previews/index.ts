@@ -97,11 +97,74 @@ import m25Content from './iot-connectivity-cost-guide-2025.html?raw';
 import m29Content from './what-is-connectivity-management-platform-cmp.html?raw';
 import m32Content from './mvno-iot-connectivity.html?raw';
 import m34Content from './global-iot-connectivity-2026.html?raw';
+import m35Content from './iot-sim-cards-guide.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "iot-sim-cards-guide": {
+  "slug": "iot-sim-cards-guide",
+  "category": "esim",
+  "cluster": "M35: IoT SIM selection",
+  "title": "IoT SIM Cards: Form Factors, Profiles and Plan Choices",
+  "seoTitle": "IoT SIM Cards: Form Factors, Profiles and Plan Choices",
+  "seoDescription": "Choose IoT SIM cards by device fit, profile capability and service terms. Compare form factors, global access, plan costs and lifecycle acceptance checks.",
+  "excerpt": "Separate the physical SIM, its profile capabilities and the service contract before committing a fleet.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "IoT SIM cards hold the subscriber credentials used to authenticate cellular devices. Select the physical package, environmental grade, profile capability and network service separately. Removable cards can support eUICC, and a soldered package does not prove remote profile support. Confirm the actual device, bands, service eligibility and recovery process in the intended markets. Compare complete contract costs, then test activation, changes and retirement through application delivery and billing. Global access remains subject to the supported networks and service terms.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Check the part",
+        "text": "Match package and grade to the device."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Confirm profile support",
+        "text": "Name the supported provisioning architecture."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Validate global access",
+        "text": "Test actual markets and eligible networks."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Read complete terms",
+        "text": "Include idle, pooled and termination charges."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Verify lifecycle results",
+        "text": "Reconcile device, subscription and invoice states."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide.png\" class=\"attachment-full size-full wp-image-16729 webpexpress-processed\" alt=\"IoT SIM Cards Explained (2026): Types, Form Factors, Plans, &amp; More\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/IoT-SIM-Cards-Explained-The-Complete-2026-Buyers-Guide.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "IoT SIM Cards: Form Factors, Profiles and Plan Choices",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-03-27T10:27:30+00:00",
+  "updatedDate": "2026-09-24T09:33:13.806Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 3353,
+  "donors": [
+    {
+      "path": "/telecom/global-iot-sim-cards-2025/",
+      "title": "Global IoT SIM Cards: 5 Ways to Boost Connectivity",
+      "clicks": 13,
+      "contributes": "Global SIM buying criteria and form-factor details. Source sections to inspect: Simplify Global IoT Connectivity; Use Multi-Carrier Networks for Better Uptime; Make IoT Connectivity Costs More Predictable; Manage Devices and eSIM Profiles Remotely"
+    }
+  ],
+  "content": m35Content
+},
   "global-iot-connectivity-2026": {
   "slug": "global-iot-connectivity-2026",
   "category": "iot",
