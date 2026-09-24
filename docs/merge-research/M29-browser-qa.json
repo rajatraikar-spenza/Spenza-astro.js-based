@@ -1,0 +1,175 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What Is a Connectivity Management Platform (CMP)?",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "How Connectivity Management Platforms Work",
+      "id": "elementor-toc__heading-anchor-2",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Benefits of Using a Connectivity Management Platform",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "The eSIM Advantage in CMPs",
+      "id": "elementor-toc__heading-anchor-4",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "How Spenza Supports Multi-Carrier IoT Operations",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "How Should You Implement and Verify a CMP?",
+      "id": "elementor-toc__heading-anchor-6",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "Connectivity Management Platform FAQs",
+      "id": "FAQs",
+      "openingWords": 51,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    51,
+    51,
+    48,
+    51,
+    49,
+    51
+  ],
+  "calloutWords": [
+    20,
+    27,
+    28,
+    25,
+    25
+  ],
+  "images": [
+    {
+      "src": "http://localhost:4321/blog-media/cmp-guide/control-boundaries.png",
+      "currentSrc": "http://localhost:4321/blog-media/cmp-guide/control-boundaries.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "A connectivity management platform controls subscriptions; device management controls software"
+    },
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2025/11/Spenzas-Unified-IoT-Connectivity-Management-1024x696.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2025/11/Spenzas-Unified-IoT-Connectivity-Management-1024x696.png",
+      "natural": [
+        1024,
+        696
+      ],
+      "alt": "CMP operations connect carrier integration, usage visibility, billing and supported lifecycle actions"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/cmp-guide/request-verification.png",
+      "currentSrc": "http://localhost:4321/blog-media/cmp-guide/request-verification.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Verify authorization, provider response, final state and application outcome for a CMP action"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What Is a Connectivity Management Platform (CMP)?",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "How Connectivity Management Platforms Work",
+      "href": "#elementor-toc__heading-anchor-2"
+    },
+    {
+      "text": "Benefits of Using a Connectivity Management Platform",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "The eSIM Advantage in CMPs",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "How Spenza Supports Multi-Carrier IoT Operations",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "How Should You Implement and Verify a CMP?",
+      "href": "#elementor-toc__heading-anchor-6"
+    },
+    {
+      "text": "Connectivity Management Platform FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}

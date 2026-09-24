@@ -1,0 +1,77 @@
+{
+  "cluster": "M29",
+  "before": [
+    {
+      "path": "/telecom/what-is-connectivity-management-platform-cmp/",
+      "bodyWords": 2327,
+      "tldrWords": 134
+    },
+    {
+      "path": "/telecom/integrated-connectivity-management/",
+      "bodyWords": 1234,
+      "tldrWords": 4
+    },
+    {
+      "path": "/telecom/global-iot-network-management-simplified/",
+      "bodyWords": 1216,
+      "tldrWords": 4
+    },
+    {
+      "path": "/telecom/iot-connectivity-management-simplified/",
+      "bodyWords": 1505,
+      "tldrWords": 272
+    },
+    {
+      "path": "/telecom/iot-device-management/",
+      "bodyWords": 923,
+      "tldrWords": 4
+    },
+    {
+      "path": "/telecom/single-pane-of-glass-iot-connectivity-management/",
+      "bodyWords": 2556,
+      "tldrWords": 135
+    },
+    {
+      "path": "/esim/unified-connectivity-management-iot/",
+      "bodyWords": 3567,
+      "tldrWords": 133
+    },
+    {
+      "path": "/esim/iot-connectivity-platforms/",
+      "bodyWords": 3328,
+      "tldrWords": 148
+    }
+  ],
+  "combinedBeforeWords": 17490,
+  "bodyWords": 2260,
+  "tldrWords": 128,
+  "totalWords": 2388,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot-solutions/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://www.cisco.com/c/dam/en_us/about/doing_business/legal/msla/iot_control_center.pdf",
+    "https://learn.microsoft.com/en-us/windows/client-management/mdm-overview",
+    "https://docs.aws.amazon.com/iot/latest/developerguide/key-concepts-jobs.html",
+    "https://developers.soracom.io/en/docs/air/subscriber-status/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "SivaSai",
+  "flipped": true,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved cross-carrier lifecycle trace with partial failure, retries, provider timestamps and redacted operations screenshot, from Spenza product and engineering]",
+    "[EVIDENCE NEEDED: matched before-and-after operations effort and invoice reconciliation for the same device cohort, from customer operations and finance]",
+    "[EVIDENCE NEEDED: approved Butlr cohort size and dated rollout milestones, from the Butlr account owner]"
+  ],
+  "informationGain": 7
+}

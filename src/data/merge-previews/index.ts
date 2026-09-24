@@ -94,11 +94,110 @@ import m09Content from './top-iot-trends.html?raw';
 import m17Content from './nb-iot-vs-lte-m-vs-5g-redcap.html?raw';
 import m24Content from './fleet-automotive-iot-connectivity-costs.html?raw';
 import m25Content from './iot-connectivity-cost-guide-2025.html?raw';
+import m29Content from './what-is-connectivity-management-platform-cmp.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "what-is-connectivity-management-platform-cmp": {
+  "slug": "what-is-connectivity-management-platform-cmp",
+  "category": "telecom",
+  "cluster": "M29: CMP scope and operations",
+  "title": "Connectivity Management Platform: Scope and Workflow",
+  "seoTitle": "Connectivity Management Platform: Scope and Workflow",
+  "seoDescription": "Learn what a connectivity management platform controls, how SIM lifecycle workflows work, and how to separate CMP, eSIM and device management duties.",
+  "excerpt": "Separate SIM control from device software, then test a CMP through a complete carrier workflow.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "A connectivity management platform centralizes SIM subscriptions, usage records and supported carrier actions. It can bring several providers into a common workflow, but integration depth determines which actions and observations are available. Device firmware, application health and endpoint policy remain separate responsibilities unless explicitly included. Evaluate a platform through a complete request, provider confirmation and service outcome. Use the same cohort and workload to compare operating effort and cost, with failures and delayed observations kept visible.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Define the boundary",
+        "text": "Separate subscription control from device software."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Preserve provider meaning",
+        "text": "Keep raw states and source timestamps."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Verify every outcome",
+        "text": "A request is not a completed action."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Check eSIM architecture",
+        "text": "Prove compatibility and recovery for the actual fleet."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Measure useful work",
+        "text": "Compare completed tasks and reconciled charges."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP.png\" class=\"attachment-full size-full wp-image-14719 webpexpress-processed\" alt=\"What Is a Connectivity Management Platform (CMP)?\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/What-Is-a-Connectivity-Management-Platform-CMP.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Connectivity Management Platform: Scope and Workflow",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-02-06T13:32:46+00:00",
+  "updatedDate": "2026-09-24T09:00:35.917Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 2327,
+  "donors": [
+    {
+      "path": "/telecom/integrated-connectivity-management/",
+      "title": "IoT Device Management: Integrated Connectivity by Spenza",
+      "clicks": 2,
+      "contributes": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: Connectivity Management is Siloed; Connectivity Management is De-centralized; The Paradigm Shift; The Statista Report: A Glimpse into the Future"
+    },
+    {
+      "path": "/telecom/global-iot-network-management-simplified/",
+      "title": "Global IoT Network Management: A Unified Approach",
+      "clicks": 0,
+      "contributes": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: How Does a Unified Cross-Border IoT Solution Work?; Challenges in Managing IoT Connectivity Across Borders; Key Components of a Unified Cross-Border IoT Solution; The Challenge of Permanent Roaming in IoT Deployments"
+    },
+    {
+      "path": "/telecom/iot-connectivity-management-simplified/",
+      "title": "IoT Connectivity Management: How to Simplify Operations",
+      "clicks": 6,
+      "contributes": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: IoT Connectivity Becomes More Complex as Device Fleets Grow; Unified Connectivity Management Improves Efficiency; Simplified IoT Operations Reduce Costs and Improve Performance; AI and Cloud Technologies Power Modern IoT Connectivity"
+    },
+    {
+      "path": "/telecom/iot-device-management/",
+      "title": "IoT Device Management Across Multiple Carriers",
+      "clicks": 0,
+      "contributes": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: Understanding the Modern IoT Connectivity Landscape; Key Challenges in Multi-Carrier IoT Management; Solutions for Efficient IoT Management; How Spenza is Simplifies IoT Device Management"
+    },
+    {
+      "path": "/telecom/single-pane-of-glass-iot-connectivity-management/",
+      "title": "Single Pane of Glass for IoT Connectivity Management",
+      "clicks": 15,
+      "contributes": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: The Operational Overload of IoT at Scale; Why It Matters Now; “Single Pane of Glass” (SPOG) Means; What to Look For"
+    },
+    {
+      "path": "/esim/unified-connectivity-management-iot/",
+      "title": "Unified Connectivity Management: Transform IoT Ops in 2026",
+      "clicks": 8,
+      "contributes": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: Unified IoT Connectivity Is Now Critical; 2026 Marks the Inflection Year; SGP.32 Enables Scalable eSIM Orchestration; Operational Benefits of Unified Management"
+    },
+    {
+      "path": "/esim/iot-connectivity-platforms/",
+      "title": "IoT Connectivity Platforms: The Enterprise Guide",
+      "clicks": 8,
+      "contributes": "Single-console workflow, multi-carrier operations, unified inventory and architecture examples. Source sections to inspect: Connectivity Is the Real IoT Bottleneck; What Do IoT Connectivity Platforms Do; Four Platform Types in IoT; Must‑Have Features for 2026"
+    }
+  ],
+  "content": m29Content
+},
   "iot-connectivity-cost-guide-2025": {
   "slug": "iot-connectivity-cost-guide-2025",
   "category": "telecom",
