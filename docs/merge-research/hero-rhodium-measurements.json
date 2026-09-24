@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-24",
+  "face": "Rhodium Libre",
+  "weight": 400,
+  "fontSize": 64,
+  "lineHeight": 60,
+  "leftEdge": 72,
+  "titleRegion": {
+    "x": 72,
+    "y": 220,
+    "width": 600,
+    "height": 195
+  },
+  "renderer": "Chromium Canvas FontFace loaded from supplied TTF; sharp composites only the title rectangle and exports PNG/WebP",
+  "heroes": [
+    {
+      "id": "M21",
+      "path": "public/blog-media/mvne-explained/What-Is-an-MVNE-Services-and-Responsibilities.png",
+      "changedPixelsOutsideTitle": 0,
+      "loaded": true,
+      "measured": [
+        {
+          "text": "MVNE SERVICES",
+          "width": 540.5439648628235,
+          "capHeight": 45.05600357055664
+        },
+        {
+          "text": "AND ROLES",
+          "width": 378.9439325928688,
+          "capHeight": 45.05600357055664
+        }
+      ]
+    },
+    {
+      "id": "M19",
+      "path": "public/blog-media/mvno-trends/MVNO-Trends-2026-Is-Free-Data-the-Future.png",
+      "changedPixelsOutsideTitle": 0,
+      "loaded": true,
+      "measured": [
+        {
+          "text": "MVNO TRENDS",
+          "width": 491.90391969680786,
+          "capHeight": 45.05600357055664
+        },
+        {
+          "text": "IS DATA FREE?",
+          "width": 476.54390382766724,
+          "capHeight": 44.80000305175781
+        }
+      ]
+    },
+    {
+      "id": "M12",
+      "path": "public/blog-media/mvne-provider-selection/MVNE-Provider-Selection.png",
+      "changedPixelsOutsideTitle": 0,
+      "loaded": true,
+      "measured": [
+        {
+          "text": "CHOOSING AN",
+          "width": 456.8959233760834,
+          "capHeight": 45.05600357055664
+        },
+        {
+          "text": "MVNE PROVIDER",
+          "width": 559.487934589386,
+          "capHeight": 45.05600357055664
+        }
+      ]
+    }
+  ]
+}
