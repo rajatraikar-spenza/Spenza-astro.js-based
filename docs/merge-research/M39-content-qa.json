@@ -1,0 +1,53 @@
+{
+  "cluster": "M39",
+  "before": [
+    {
+      "path": "/esim/leading-iot-connectivity-management-platforms/",
+      "bodyWords": 2631,
+      "tldrWords": 163
+    },
+    {
+      "path": "/esim/best-iot-connectivity-management-platform/",
+      "bodyWords": 2917,
+      "tldrWords": 125
+    }
+  ],
+  "combinedBeforeWords": 5836,
+  "bodyWords": 2306,
+  "tldrWords": 126,
+  "totalWords": 2432,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot-solutions/",
+    "/contact-us/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/iot/global-iot-connectivity-2026/",
+    "/telecom/what-is-connectivity-management-platform-cmp/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/spenza-product/butlr-iot-spenza-casestudy/"
+  ],
+  "external": [
+    "https://developer.cisco.com/docs/control-center/",
+    "https://www.aeris.com/resources/aeris-announces-closing-of-the-acquisition-of-ericssons-iot-accelerator-and-connected-vehicle-cloud-businesses/",
+    "https://kb.flolive.net/Content/UserGuide/Getting%20Started/Introduction.htm",
+    "https://www.korewireless.com/iot-connectivity-management/",
+    "https://developers.soracom.io/en/docs/air/",
+    "https://www.6dtechnologies.com/wp-content/uploads/2023/10/IoT_Brochure.pdf",
+    "https://www.enea.com/solutions/iot-connectivity-security/cellular-iot-connectivity-management/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/gsma_resources/sgp-32-v1-2/"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "Vinaychandra Bharadwaj",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: dated supported-carrier and API capability matrix plus representative lifecycle, partial-failure and billing-reconciliation traces with redacted operations screenshot, from Spenza product and engineering]",
+    "[EVIDENCE NEEDED: comparable quotes and complete fleet usage/cost assumptions for the shortlisted providers, from customer procurement and finance]",
+    "[EVIDENCE NEEDED: operator-approved deployment architecture and tested coverage assumptions for the target fleet, from host operators and customer engineering]",
+    "[EVIDENCE NEEDED: approved Butlr cohort size and dated rollout milestones, from the Butlr account owner]"
+  ],
+  "informationGain": 7
+}

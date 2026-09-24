@@ -1,0 +1,169 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "How Should This CMP Comparison Be Used?",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Which IoT Connectivity Platforms Fit Different Needs?",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Which Architecture and Contract Boundaries Matter?",
+      "id": "elementor-toc__heading-anchor-7",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "How Should Lifecycle APIs and Automation Be Tested?",
+      "id": "elementor-toc__heading-anchor-9",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "How Do You Compare CMP Costs and Exit Terms?",
+      "id": "costs",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Where Does Spenza Fit in the Shortlist?",
+      "id": "spenza-evidence",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "IoT CMP Comparison FAQs",
+      "id": "FAQs",
+      "openingWords": 50,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    52,
+    53,
+    53,
+    51,
+    52,
+    50
+  ],
+  "calloutWords": [
+    26,
+    27,
+    23,
+    29
+  ],
+  "images": [
+    {
+      "src": "http://localhost:4321/blog-media/iot-cmp-comparison/evidence-levels.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-cmp-comparison/evidence-levels.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Published CMP capabilities must be checked against fleet tests and commercial conditions"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/iot-cmp-comparison/api-acceptance.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-cmp-comparison/api-acceptance.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "A CMP API action needs authorization, response handling, confirmed state and reconciliation"
+    },
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/02/Spenza-Managed-IoT-Connectivity.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2026/02/Spenza-Managed-IoT-Connectivity.png",
+      "natural": [
+        936,
+        431
+      ],
+      "alt": "Published Spenza illustration separates connected assets, managed access and backend destinations"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "How Should This CMP Comparison Be Used?",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "Which IoT Connectivity Platforms Fit Different Needs?",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "Which Architecture and Contract Boundaries Matter?",
+      "href": "#elementor-toc__heading-anchor-7"
+    },
+    {
+      "text": "How Should Lifecycle APIs and Automation Be Tested?",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "How Do You Compare CMP Costs and Exit Terms?",
+      "href": "#costs"
+    },
+    {
+      "text": "Where Does Spenza Fit in the Shortlist?",
+      "href": "#spenza-evidence"
+    },
+    {
+      "text": "IoT CMP Comparison FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}
