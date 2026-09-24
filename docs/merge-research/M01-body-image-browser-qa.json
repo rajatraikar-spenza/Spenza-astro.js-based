@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/remote-sim-provisioning/rsp-profile-hardware-cutaway.png",
+      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-profile-hardware-cutaway.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/remote-sim-provisioning/rsp-service-recovery-loop.png",
+      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-service-recovery-loop.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

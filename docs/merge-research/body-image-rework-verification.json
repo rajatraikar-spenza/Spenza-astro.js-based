@@ -1,0 +1,350 @@
+{
+  "clusters": 31,
+  "generated_body_images": 66,
+  "dropped_text_card_images": 62,
+  "rebuilt_existing_relationship_images": 4,
+  "published_figures_unchanged": 27,
+  "protected_hero_files_unchanged": 8,
+  "local_files": 140,
+  "rows": [
+    {
+      "cluster": "M01",
+      "dropped": [
+        "rsp-architectures.png",
+        "rsp-acceptance.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M02",
+      "dropped": [],
+      "rebuilt_existing": [
+        "mvno-network-and-operating-roles.png"
+      ],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M03",
+      "dropped": [
+        "billing-functions.png",
+        "rocketphone-billing-scope.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M04",
+      "dropped": [
+        "pilot-evidence.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M07",
+      "dropped": [
+        "white-label-mvno-responsibility-roles.png"
+      ],
+      "rebuilt_existing": [
+        "white-label-mvno-request-to-bill.png"
+      ],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M08",
+      "dropped": [
+        "enablement-and-aggregation.png",
+        "rocketphone-role-evidence.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M09",
+      "dropped": [
+        "readiness-levels.png",
+        "operating-layers.png",
+        "automation-controls.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M12",
+      "dropped": [
+        "selection-domains.png",
+        "service-scope.png",
+        "acceptance-evidence.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M14",
+      "dropped": [
+        "distribution-models.png",
+        "activation-checkpoints.png",
+        "unit-economics.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M16",
+      "dropped": [
+        "us-mvno-product-and-operating-choices.png"
+      ],
+      "rebuilt_existing": [
+        "us-mvno-contribution-and-cash-timing.png",
+        "mvno-us-launch-10-step-path.png"
+      ],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M17",
+      "dropped": [
+        "energy-record.png",
+        "mobility-record.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M18",
+      "dropped": [
+        "launch-workstreams.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 3
+    },
+    {
+      "cluster": "M19",
+      "dropped": [
+        "funding-models.png",
+        "trend-evidence.png",
+        "rocketphone-product-scope.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M21",
+      "dropped": [
+        "service-boundary.png",
+        "activation-handoff.png",
+        "rocketphone-enablement.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M22",
+      "dropped": [
+        "taas-service-boundary.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M23",
+      "dropped": [
+        "acquisition-activation.png",
+        "cohort-decisions.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 3
+    },
+    {
+      "cluster": "M24",
+      "dropped": [
+        "recovery-record.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M25",
+      "dropped": [
+        "allowance-boundaries.png",
+        "invoice-record.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M27",
+      "dropped": [
+        "stable-identity.png",
+        "operation-confirmation.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M28",
+      "dropped": [
+        "offboarding-controls.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M29",
+      "dropped": [
+        "control-boundaries.png",
+        "request-verification.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M30",
+      "dropped": [
+        "iot-components.png",
+        "deployment-checks.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M32",
+      "dropped": [
+        "fleet-lifecycle.png",
+        "contribution-costs.png",
+        "offer-acceptance.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M33",
+      "dropped": [
+        "three-decisions.png",
+        "deployment-choice.png",
+        "lifecycle-cost.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M34",
+      "dropped": [
+        "identity-routing.png",
+        "country-record.png",
+        "recovery-evidence.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M35",
+      "dropped": [
+        "form-versus-function.png",
+        "lifecycle-record.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 3
+    },
+    {
+      "cluster": "M36",
+      "dropped": [
+        "sku-boundaries.png",
+        "provisioning-owners.png",
+        "commercial-states.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M38",
+      "dropped": [
+        "service-acceptance.png",
+        "control-boundaries.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 3
+    },
+    {
+      "cluster": "M39",
+      "dropped": [
+        "evidence-levels.png",
+        "api-acceptance.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 3
+    },
+    {
+      "cluster": "M42",
+      "dropped": [
+        "change-evidence.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    },
+    {
+      "cluster": "M44",
+      "dropped": [
+        "meeting-brief.png",
+        "attendance-budget.png",
+        "follow-through.png"
+      ],
+      "rebuilt_existing": [],
+      "figures": 3,
+      "tables": 4
+    }
+  ],
+  "verification": {
+    "mergeQA": "31/31 PASS",
+    "astroCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "existingHints": 72
+    },
+    "build": {
+      "passed": true,
+      "pages": 939,
+      "mediaOrigin": "https://media.spenza.com",
+      "noindex": true
+    },
+    "verifyDist": {
+      "missing": 0,
+      "stranded": 0
+    },
+    "visualReview": "All 66 final WebPs inspected at 800px in contact sheets after individual PNG checks at 1024px.",
+    "browserReview": "All 31 previews: generated images loaded as 1600x900 WebP; no horizontal overflow at 390px.",
+    "planAndManifest": "Unchanged",
+    "informationGain": "Unchanged at 7",
+    "push": "Not performed"
+  }
+}
