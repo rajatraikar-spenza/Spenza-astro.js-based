@@ -1,0 +1,184 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "Which IoT connectivity trends are ready for procurement?",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "What changes with SGP.32, eSIM and iSIM?",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "How far have RedCap and satellite services progressed?",
+      "id": "radio-services",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "What can edge, AI and ambient IoT change?",
+      "id": "elementor-toc__heading-anchor-2",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "Which security and regional constraints matter?",
+      "id": "regional-security",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "How should buyers assess cost and operating value?",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "What belongs in an enterprise action plan?",
+      "id": "elementor-toc__heading-anchor-4",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Frequently asked questions",
+      "id": "FAQs",
+      "openingWords": 48,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    53,
+    51,
+    52,
+    51,
+    51,
+    51
+  ],
+  "calloutWords": [
+    25,
+    26,
+    25,
+    34
+  ],
+  "images": [
+    {
+      "src": "http://localhost:4321/blog-media/iot-trends/readiness-levels.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-trends/readiness-levels.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "IoT connectivity trends need separate evidence for standards, commercial offers and accepted deployments"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/iot-trends/operating-layers.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-trends/operating-layers.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Radio hardware, subscription management and application behavior are separate operating layers"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/iot-trends/automation-controls.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-trends/automation-controls.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Control automated changes through permissions, tracked execution and verified recovery"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "Which IoT connectivity trends are ready for procurement?",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "What changes with SGP.32, eSIM and iSIM?",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "How far have RedCap and satellite services progressed?",
+      "href": "#radio-services"
+    },
+    {
+      "text": "What can edge, AI and ambient IoT change?",
+      "href": "#elementor-toc__heading-anchor-2"
+    },
+    {
+      "text": "Which security and regional constraints matter?",
+      "href": "#regional-security"
+    },
+    {
+      "text": "How should buyers assess cost and operating value?",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "What belongs in an enterprise action plan?",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "Frequently asked questions",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}

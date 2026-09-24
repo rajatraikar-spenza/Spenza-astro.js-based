@@ -1,0 +1,60 @@
+{
+  "cluster": "M09",
+  "before": [
+    {
+      "path": "/esim/top-iot-trends/",
+      "bodyWords": 2788,
+      "tldrWords": 144
+    },
+    {
+      "path": "/telecom/iot-connectivity-trends/",
+      "bodyWords": 1571,
+      "tldrWords": 4
+    },
+    {
+      "path": "/esim/iot-esim-trends/",
+      "bodyWords": 2326,
+      "tldrWords": 144
+    },
+    {
+      "path": "/telecom/future-of-iot-connectivity-2025/",
+      "bodyWords": 1998,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 8979,
+  "bodyWords": 2272,
+  "tldrWords": 132,
+  "totalWords": 2404,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot-solutions/",
+    "/esim/iot-esim-introduction/",
+    "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/spenza-product/butlr-iot-spenza-casestudy/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://soracom.io/press-releases/soracom-announces-commercial-release-of-sgp-32-compatible-iot-esims/",
+    "https://www.qualcomm.com/news/releases/2023/02/qualcomm-and-thales-unveil-world-s-first-gsma-compliant-isim-wit",
+    "https://www.etsi.org/deliver/etsi_tr/121900_121999/121917/17.00.01_60/tr_121917v170001p.pdf",
+    "https://soracom.io/press-releases/soracom-announces-general-availability-of-integrated-satellite-iot-connectivity-solution-with-skylo/",
+    "https://aws.amazon.com/greengrass/faqs/",
+    "https://www.wiliot.com/blog/wiliot-collaborates-with-walmart-to-transform-retail-supply-chain-with-ambient-iot-and-ai",
+    "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act"
+  ],
+  "images": {
+    "reused": 1,
+    "generated": 3
+  },
+  "author": "Spenza",
+  "flipped": true,
+  "evidence": [
+    "[EVIDENCE NEEDED: anonymized fleet adoption and usage baseline with dated coverage/power test assumptions, from fleet operations and engineering]",
+    "[EVIDENCE NEEDED: approved supported architecture and versioned automation execution/recovery trace with a redacted operations screenshot, from product and delivery engineering]",
+    "[EVIDENCE NEEDED: approved Butlr cohort and dated regional milestones for the cited scope, from the account owner and customer marketing]"
+  ],
+  "informationGain": 7
+}

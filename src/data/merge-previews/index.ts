@@ -90,11 +90,86 @@ import m33Content from './esim-vs-traditional-sims.html?raw';
 import m36Content from './esim-for-smart-devices-2025.html?raw';
 import m42Content from './esim-orchestration-global-iot.html?raw';
 import m04Content from './iot-connectivity-types-guide-2025.html?raw';
+import m09Content from './top-iot-trends.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "top-iot-trends": {
+  "slug": "top-iot-trends",
+  "category": "esim",
+  "cluster": "M09: IoT trend coverage",
+  "title": "IoT Connectivity Trends 2026: What Ships and What to Test",
+  "seoTitle": "IoT Connectivity Trends 2026: What Ships and What to Test",
+  "seoDescription": "Evaluate IoT connectivity trends in 2026 with dated eSIM, iSIM, satellite and edge evidence, plus a checklist for cost, security and deployment.",
+  "excerpt": "Separate published standards from orderable services and tested deployments, then decide which connectivity changes deserve a pilot.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "IoT connectivity trends in 2026 include remote profile management, integrated SIM hardware, satellite service options, edge processing and lifecycle controls. Commercial examples exist, but availability remains specific to devices, regions and integrations. Separate a published standard from an orderable offer and an accepted deployment. Evaluate the operating problem, incremental cost and recovery plan before adoption. Use dated primary evidence and a bounded pilot instead of assuming a new technology guarantees coverage, savings or regulatory compliance.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Check the readiness claim",
+        "text": "Distinguish specifications, commercial offers and field results."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Separate the layers",
+        "text": "Hardware, provisioning and service agreements remain distinct."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Test the actual configuration",
+        "text": "Verify device, region, delivery and recovery behavior."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Control automated actions",
+        "text": "Assign permissions, spending limits and exception ownership."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Measure operating value",
+        "text": "Compare equivalent outcomes with an explicit cost baseline."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026.png\" class=\"attachment-full size-full wp-image-14504 webpexpress-processed\" alt=\"Top IoT Trends to Watch in 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-Trends-to-Watch-in-2026.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "IoT Connectivity Trends 2026: What Ships and What to Test",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-01-23T06:10:23+00:00",
+  "updatedDate": "2026-09-24T07:59:40.589Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2788,
+  "donors": [
+    {
+      "path": "/telecom/iot-connectivity-trends/",
+      "title": "IoT Connectivity Trends for 2026 and Beyond",
+      "clicks": 12,
+      "contributes": "Commercially deployed trends and relevant eSIM/iSIM developments"
+    },
+    {
+      "path": "/esim/iot-esim-trends/",
+      "title": "IoT eSIM Trends 2026: iSIM and the Multi-Carrier Shift",
+      "clicks": 2,
+      "contributes": "Commercially deployed trends and relevant eSIM/iSIM developments. Source sections to inspect: eSIM replaces the plastic, not the network; IoT is where eSIM matters most; Seven trends; Carrier lock-in is dying"
+    },
+    {
+      "path": "/telecom/future-of-iot-connectivity-2025/",
+      "title": "The Future of IoT Connectivity: Multi-Carrier and NTN",
+      "clicks": 3,
+      "contributes": "Commercially deployed trends and relevant eSIM/iSIM developments. Source sections to inspect: Multi-Carrier Connectivity Improves Reliability; NTN Extends IoT Beyond Cellular Coverage; eUICC Enables Remote Network Switching; Policy-Driven Connectivity Optimizes Cost and Performance"
+    }
+  ],
+  "content": m09Content
+},
   "iot-connectivity-types-guide-2025": {
   "slug": "iot-connectivity-types-guide-2025",
   "category": "telecom",
