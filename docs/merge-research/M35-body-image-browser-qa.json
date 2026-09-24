@@ -1,0 +1,41 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/iot-sim-cards/package-and-profile-capability.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-sim-cards/package-and-profile-capability.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/iot-sim-cards/subscription-record-continuity.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-sim-cards/subscription-record-continuity.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
