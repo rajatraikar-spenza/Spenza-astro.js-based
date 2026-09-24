@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/mvne-provider-selection/mandatory-fit-barrier.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvne-provider-selection/mandatory-fit-barrier.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvne-provider-selection/linked-service-records.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvne-provider-selection/linked-service-records.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvne-provider-selection/account-authorization-boundary.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvne-provider-selection/account-authorization-boundary.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
