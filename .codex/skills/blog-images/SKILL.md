@@ -91,7 +91,8 @@ Every body image needs all four: a **colour field** filling the frame (never
 white — white is heroes only), an **icon or object per concept**, a **visible
 relationship** the eye reads before any words, and **depth** from grain, a glow
 behind the subject and a shadow side. Orange is a five-stop ramp
-(`#9B2A00 #C63600 #FF4500 #FF6F39 #FF8E64`), not one flat swatch.
+(`#C63600 #FF4500 #FF6F39 #FF8E64`), not one flat swatch. **`#9B2A00` is
+excluded — too dark, reads brown at illustration scale. Never use it.**
 
 Pick the composition type from §8: **A** comparison, **B** process/timeline,
 **C** hierarchy/ladder, **D** evidence strip, **E** concept hero.

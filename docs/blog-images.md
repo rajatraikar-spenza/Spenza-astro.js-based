@@ -106,8 +106,7 @@ official values. Anything sampled from CSS is an approximation of them.
 | Token | Hex | Role |
 | :---- | :-- | :--- |
 | **Spenza Orange** | `#FF4500` | The brand. Primary fills, colour fields, the one thing a reader should remember. |
-| Orange deep | `#9B2A00` | Gradient dark stop, shadow side of an orange form |
-| Orange mid | `#C63600` | Gradient mid stop |
+| Orange deep | `#C63600` | Darkest stop. Shadow side of an orange form, start of a gradient. |
 | Orange light | `#FF6F39` | Gradient light stop, hover, highlight |
 | Orange pale | `#FF8E64` | Gradient lightest stop, tints, soft glows |
 | Ink | `#282829` | Text on orange, dark panels, headings inside images |
@@ -116,10 +115,13 @@ official values. Anything sampled from CSS is an approximation of them.
 | Grey | `#96989A` | Tertiary text, de-emphasised elements |
 | Light grey | `#D7D7D7` | Dividers, hairlines, inactive states |
 
-**The orange is a ramp, not a swatch.** `#9B2A00 → #C63600 → #FF4500 → #FF6F39
-→ #FF8E64` is a five-stop gradient the brand owns. Using only the flat `#FF4500`
-throws away four fifths of the palette, and that is most of why the current
-diagrams look thin.
+**The orange is a ramp, not a swatch.** `#C63600 → #FF4500 → #FF6F39 → #FF8E64`
+is a four-stop gradient. Using only the flat `#FF4500` throws away three
+quarters of the palette, and that is most of why the early diagrams looked thin.
+
+**`#9B2A00` is excluded.** It is in the brand guidelines, but it reads as brown
+rather than orange at illustration scale and drags the whole frame dark.
+`#C63600` is the darkest stop we use. Do not reintroduce it.
 
 **Cool neutrals, not warm.** `#7B8898` and `#96989A` are blue-grey. They sit
 against orange without muddying it. Do not substitute a warm grey.
@@ -290,7 +292,7 @@ changes; only the brief does.
 
 > Create a rich editorial illustration for a B2B telecom brand. **Fill the frame
 > with a warm colour field** — a soft gradient built from Spenza orange
-> `#9B2A00`, `#C63600`, `#FF4500`, `#FF6F39`, `#FF8E64` — never a plain white
+> `#C63600`, `#FF4500`, `#FF6F39`, `#FF8E64` — never a plain white
 > background. Add a fine grain or paper texture across the whole image and a
 > soft radial glow behind the focal subject so it sits forward. Shapes are
 > confident and slightly hand-drawn rather than mechanically precise, with
@@ -369,7 +371,7 @@ stepped line that visibly travels left to right, each node carrying an icon
 inside it and a two-or-three-word label beneath.
 
 **Treatment:** The connecting line is an orange gradient that **brightens along
-its length**, `#9B2A00` at the start through to `#FF8E64` at the end, so
+its length**, `#C63600` at the start through to `#FF8E64` at the end, so
 progress is visible as light. Completed nodes filled, later nodes outlined.
 Soft glow under the final node.
 
@@ -382,7 +384,7 @@ the increase is felt as mass rather than only read as a label. Two long arrows
 beneath naming the two axes.
 
 **Treatment:** Each step takes the next stop up the orange ramp. Lowest step
-`#FF8E64`, highest `#9B2A00`, so the ramp itself encodes the progression.
+`#FF8E64`, highest `#C63600`, so the ramp itself encodes the progression.
 
 ### D. Evidence strip — customer proof
 
@@ -489,7 +491,8 @@ A merged article's images are not done until step 4 passes.
 - [ ] **The relationship is visible** before any text is read: flow, scale, nesting.
 - [ ] **It has depth**: grain, a glow behind the subject, a shadow side.
 - [ ] **It is not boxes-plus-text.** If it is, delete it and write an HTML table.
-- [ ] Orange is used as the five-stop ramp, not one flat swatch.
+- [ ] Orange is used as the four-stop ramp, not one flat swatch.
+- [ ] `#9B2A00` does not appear anywhere. It is excluded for being too dark.
 - [ ] Geometric sans throughout; no serifs, no rounded faces.
 - [ ] Every word in the image is spelled correctly — read it twice.
 - [ ] Nothing smaller than 24px at full width.
