@@ -46,7 +46,11 @@ The left side is the rejected text-card image. The right side is the useful mech
 
 |Asset|PNG bytes|WebP bytes|
 |---|---:|---:|
-|rsp-profile-hardware-cutaway|802,297|114,742|
-|rsp-service-recovery-loop|858,823|133,110|
+|rsp-profile-hardware-cutaway|710,550|87,250|
+|rsp-service-recovery-loop|757,060|81,924|
 
-Status: M01 direction sample complete; await user confirmation before the remaining 30 clusters. No push or publication.
+Status: direction accepted by the subsequent instruction to continue unattended. No push or publication.
+
+## Four-stop palette correction
+
+The cutaway corners and recovery background visibly carried a brown cast. Both art fields were regenerated with #C63600 as the darkest orange endpoint, then the existing Figma labels were reapplied unchanged. Objects, arrows and information are preserved. Both optimized images were inspected at 1024px: readable labels, intact crops, bright orange fields and no brown vignette. M01 gate passes. The prompt preambles now list only the four approved stops.

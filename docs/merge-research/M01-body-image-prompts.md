@@ -6,7 +6,7 @@ Generated with the built-in image_gen tool. Artwork generated without text; Inte
 
 Create a rich editorial illustration for a B2B telecom brand. **Fill the frame
 with a warm colour field** — a soft gradient built from Spenza orange
-`#9B2A00`, `#C63600`, `#FF4500`, `#FF6F39`, `#FF8E64` — never a plain white
+`#C63600`, `#FF4500`, `#FF6F39`, `#FF8E64` — never a plain white
 background. Add a fine grain or paper texture across the whole image and a
 soft radial glow behind the focal subject so it sits forward. Shapes are
 confident and slightly hand-drawn rather than mechanically precise, with
@@ -25,7 +25,7 @@ Final labels: “Profiles change. Hardware stays.”, “eUICC + profiles”, �
 
 Create a rich editorial illustration for a B2B telecom brand. **Fill the frame
 with a warm colour field** — a soft gradient built from Spenza orange
-`#9B2A00`, `#C63600`, `#FF4500`, `#FF6F39`, `#FF8E64` — never a plain white
+`#C63600`, `#FF4500`, `#FF6F39`, `#FF8E64` — never a plain white
 background. Add a fine grain or paper texture across the whole image and a
 soft radial glow behind the focal subject so it sits forward. Shapes are
 confident and slightly hand-drawn rather than mechanically precise, with
