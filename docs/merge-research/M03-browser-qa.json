@@ -56,13 +56,13 @@
   ],
   "images": [
     {
-      "src": "http://localhost:4321/blog-media/mvno-billing/billing-functions.png",
-      "currentSrc": "http://localhost:4321/blog-media/mvno-billing/billing-functions.webp",
+      "src": "http://localhost:4321/blog-media/mvno-billing/invoice-record-anatomy.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-billing/invoice-record-anatomy.webp",
       "natural": [
         1600,
         900
       ],
-      "alt": "Charging calculates charges, billing compiles the bill, and payment processing collects money"
+      "alt": "Usage and tariff records explain an invoice; collecting payment is a separate function"
     },
     {
       "src": "https://media.spenza.com/wp-content/uploads/2026/04/MVNO-Billing-Flow-Diagram-1024x502.png",
@@ -74,13 +74,13 @@
       "alt": "MVNO billing flow showing subscriber activation, rating, charging, reconciliation, and invoicing process\n"
     },
     {
-      "src": "http://localhost:4321/blog-media/mvno-billing/rocketphone-billing-scope.png",
-      "currentSrc": "http://localhost:4321/blog-media/mvno-billing/rocketphone-billing-scope.webp",
+      "src": "http://localhost:4321/blog-media/mvno-billing/payer-administrator-users.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-billing/payer-administrator-users.webp",
       "natural": [
         1600,
         900
       ],
-      "alt": "RocketPhone’s published scope combines mobile and CRM integration, reseller tiers, billing and SIM management"
+      "alt": "The payer, delegated administrator and people using mobile lines can be different parties"
     }
   ],
   "tldrCards": 5,
@@ -144,6 +144,11 @@
     "width": 390,
     "scrollWidth": 390,
     "tables": [
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
       {
         "width": 359,
         "scroll": 580,
