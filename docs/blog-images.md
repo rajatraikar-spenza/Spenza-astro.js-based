@@ -100,37 +100,35 @@ reads as one piece rather than a scrapbook.
 
 ## 3. Brand tokens
 
-These are read from the live site, not invented. Use them exactly.
+**From `Spenza Brand Guidelines.pdf` (Pedram Fayazian, 2022).** These are the
+official values. Anything sampled from CSS is an approximation of them.
 
-| Token | Value | Use |
-| :---- | :---- | :-- |
-| Primary orange | `#FF4500` | Accent, highlights, the "good" side of a comparison, active nodes |
-| Deep orange | `#E03D00` | Hover/darker accent, gradient end |
-| Light orange | `#FF6E24` | Gradient mid, secondary accent |
-| Ink | `#1A1A2E` | Headings inside images, dark panels |
-| Heading grey | `#3A3A3A` | Secondary headings |
-| Body grey | `#4E545D` | Body text inside images |
-| Warm cream | `#FDF5F2` | Image background (preferred over pure white) |
-| Card white | `#FFFFFF` | Cards sitting on cream |
-| Divider | `#D9D9D9` | Hairlines, table rules |
+| Token | Hex | Role |
+| :---- | :-- | :--- |
+| **Spenza Orange** | `#FF4500` | The brand. Primary fills, colour fields, the one thing a reader should remember. |
+| Orange deep | `#9B2A00` | Gradient dark stop, shadow side of an orange form |
+| Orange mid | `#C63600` | Gradient mid stop |
+| Orange light | `#FF6F39` | Gradient light stop, hover, highlight |
+| Orange pale | `#FF8E64` | Gradient lightest stop, tints, soft glows |
+| Ink | `#282829` | Text on orange, dark panels, headings inside images |
+| Off-white | `#FAFAFA` | Text on orange, card fills on a colour field |
+| Slate | `#7B8898` | Secondary text, supporting labels |
+| Grey | `#96989A` | Tertiary text, de-emphasised elements |
+| Light grey | `#D7D7D7` | Dividers, hairlines, inactive states |
 
-**Rule: one accent.** Orange is the only accent colour. If a diagram needs a
-second signal — "slow" versus "fast", "risk" versus "mitigation" — use a muted
-red-grey and a muted green that read as *states*, not as brand colours, and keep
-them desaturated so orange stays the loudest thing in the frame. The article
-tables already do this (`#B42318` risk, `#1A7F37` mitigation); match them.
+**The orange is a ramp, not a swatch.** `#9B2A00 → #C63600 → #FF4500 → #FF6F39
+→ #FF8E64` is a five-stop gradient the brand owns. Using only the flat `#FF4500`
+throws away four fifths of the palette, and that is most of why the current
+diagrams look thin.
 
-**Typography.** The blog sets everything in **Proxima Nova** — H1 at 700 weight,
-H2 at 32px, body at 15px `#4E545D`. Generative tools do not have Proxima Nova.
-Substitute **Montserrat**, **Inter** or **Poppins**, which sit in the same
-geometric-sans family and will not look foreign next to the real type. Never use
-a serif, a condensed face, or a rounded/"friendly" face.
+**Cool neutrals, not warm.** `#7B8898` and `#96989A` are blue-grey. They sit
+against orange without muddying it. Do not substitute a warm grey.
 
-**The TL;DR band** at the top of every post is a peach-to-orange gradient with
-white cards on top. That is the site's most recognisable visual signature —
-echo it in hero images, do not fight it.
+**Typefaces.** The brand uses **Vice City Sans** (display) and **Mercury SSm**
+(body serif). Both are licensed and not available to a generator, so substitute:
+a geometric sans at heavy weight for display, and use **Rhodium Libre** where a
+serif is called for, since it is already the hero face (§5).
 
----
 
 ## 4. Specifications
 
@@ -290,15 +288,24 @@ changes; only the brief does.
 
 ### Style preamble — paste this first, every time
 
-> Create a clean, modern B2B SaaS infographic for a telecommunications platform
-> brand. Flat vector illustration style. Palette: warm cream background
-> `#FDF5F2`, white cards with soft shadows, deep ink `#1A1A2E` for headings, grey
-> `#4E545D` for body text, and a single accent of vivid orange `#FF4500` used
-> sparingly for emphasis. Geometric sans-serif typography (Montserrat or Inter).
-> Generous whitespace, strong alignment to an invisible grid, everything level
-> and symmetrical. No photorealism, no 3D renders, no drop-shadowed bevels, no
-> gradient meshes, no stock-photo people, no clip-art, no emoji. 1600×900
-> pixels, 16:9. Any text must be large, minimal and correctly spelled.
+> Create a rich editorial illustration for a B2B telecom brand. **Fill the frame
+> with a warm colour field** — a soft gradient built from Spenza orange
+> `#9B2A00`, `#C63600`, `#FF4500`, `#FF6F39`, `#FF8E64` — never a plain white
+> background. Add a fine grain or paper texture across the whole image and a
+> soft radial glow behind the focal subject so it sits forward. Shapes are
+> confident and slightly hand-drawn rather than mechanically precise, with
+> layered depth: a shadow side, a lit side, and a subtle highlight. Icons and
+> objects are simple and bold, in off-white `#FAFAFA` and ink `#282829`, with
+> blue-grey `#7B8898` for secondary detail. Generous negative space around a
+> single clear focal point. No stock-photo people, no clip-art, no flat
+> outlined rectangles, no drop-shadowed bevels, no 3D renders. 1600×900 pixels,
+> 16:9. Any text is large, minimal and correctly spelled.
+
+**The previous preamble asked for "flat vector, no gradients" and that is what
+produced the boring images.** Flat plus outline plus white background is a
+wireframe, not an illustration. The brand owns a five-stop gradient ramp and a
+texture-friendly palette; use them.
+
 
 ### Composition brief — the part you write
 
@@ -317,75 +324,90 @@ Vague briefs produce decorative images. The shape is the information.
 
 ## 8. The five image types
 
-Nearly every blog image on this site should be one of these. If your idea is not
-on the list, it is probably decoration.
+Every body image is one of these. Each entry gives the **shape** and the
+**treatment**. The shape carries the information; the treatment is what stops it
+looking like a wireframe.
+
+### The rule that governs all five
+
+> **An outlined rectangle with words in it is a table, not an illustration.**
+
+If your image is boxes plus text, delete it and write an HTML table instead —
+the site already styles those, and they are searchable, responsive and
+accessible. An illustration earns its place by doing something a table cannot:
+showing flow, proportion, spatial relationship, or a thing in context.
+
+**Every body image must have all four of these:**
+
+1. **A colour field.** The frame is filled with a warm orange gradient, never
+   plain white. White is for the hero template only.
+2. **An icon or object per concept.** A named thing the eye can grab. Not a
+   label floating in a box.
+3. **Visible relationship.** Arrows, overlap, nesting, scale, a connecting path.
+   The reader should see how the parts relate before reading a word.
+4. **Depth.** Grain, a soft glow behind the focal subject, a shadow side. Flat
+   is what made the last batch lifeless.
 
 ### A. Comparison — two or three options against each other
 
-Use for: build vs. buy, model vs. model, before vs. after, us vs. them.
+*Build vs buy, model vs model, before vs after.*
 
-> **Shape:** Two panels side by side, equal width, separated by a thin vertical
-> divider. Left panel tinted muted grey-red and titled "{LOSING OPTION}". Right
-> panel tinted warm orange `#FF4500` at low opacity and titled "{WINNING
-> OPTION}". Inside each panel: one large headline figure, one supporting figure,
-> and a row of three small line-art icons. No table gridlines — this is panels,
-> not a spreadsheet.
+**Shape:** Two panels meeting at a centre divider, with a small circular "VS"
+badge where they meet. Each panel carries one large figure, one supporting
+figure, and a row of three icons.
 
-Guard against: making it look like an HTML table. If it needs more than four
-rows of comparison, use the article's real `.responsive-table` instead.
+**Treatment:** The losing side sits on a desaturated slate field (`#7B8898` at
+low saturation); the winning side on the orange gradient. The asymmetry does
+the arguing before any text is read. Grain across both.
 
 ### B. Process or timeline — an ordered sequence
 
-Use for: launch steps, migration phases, an activation flow.
+*Launch steps, migration phases, an activation flow.*
 
-> **Shape:** A horizontal timeline of {N} numbered circular nodes connected by a
-> thin line with small directional arrows, snaking onto a second row if {N} > 6.
-> Each node carries its number large inside the circle and a two-or-three-word
-> label beneath it. First half of the nodes in deep ink `#1A1A2E`, second half in
-> orange `#FF4500`, showing progression. Even spacing, nodes all identical size.
+**Shape:** A path, not a row of boxes. Numbered circular nodes on a curved or
+stepped line that visibly travels left to right, each node carrying an icon
+inside it and a two-or-three-word label beneath.
 
-Guard against: uneven node spacing and nodes of drifting size — the most common
-way a generated timeline looks amateur.
+**Treatment:** The connecting line is an orange gradient that **brightens along
+its length**, `#9B2A00` at the start through to `#FF8E64` at the end, so
+progress is visible as light. Completed nodes filled, later nodes outlined.
+Soft glow under the final node.
 
 ### C. Hierarchy or ladder — levels of something
 
-Use for: model tiers, maturity levels, control-versus-cost tradeoffs.
+*Model tiers, maturity levels, control-versus-cost tradeoffs.*
 
-> **Shape:** An ascending staircase of {N} steps rising left to right, each step
-> a flat rectangular block. Label each step with its name. Beneath the whole
-> staircase, two long horizontal arrows pointing right, labelled "{AXIS ONE}" and
-> "{AXIS TWO}". Lower steps orange, upper steps deep ink, with a clean gradation
-> between.
+**Shape:** Ascending blocks, each one physically larger as well as higher, so
+the increase is felt as mass rather than only read as a label. Two long arrows
+beneath naming the two axes.
 
-Guard against: perspective. Keep it flat and face-on — an isometric staircase
-reads as a stock illustration.
+**Treatment:** Each step takes the next stop up the orange ramp. Lowest step
+`#FF8E64`, highest `#9B2A00`, so the ramp itself encodes the progression.
 
 ### D. Evidence strip — customer proof
 
-Use for: case-study rows, logos-with-outcomes, three-up results.
+*Case-study rows, outcomes, three-up results.*
 
-> **Shape:** Three equal white cards side by side on a cream background, each
-> with a simple line-art icon at top, a bold short headline beneath it, and one
-> metric line. A thin orange rule above each headline. Cards identical height,
-> evenly gapped, generous internal padding.
+**Shape:** Three cards on a shared colour field, each with a line-art icon, a
+short headline and one metric. The metric is the largest element on the card.
 
-Guard against: inventing customer logos or metrics. Only use outcomes that
-already appear in the article text.
+**Treatment:** Off-white `#FAFAFA` cards floating on the orange field with soft
+shadow, not outlined boxes on white. A thin orange rule above each headline.
+
+**Never invent a metric.** Only outcomes already in the article text.
 
 ### E. Concept hero — the featured image
 
-Use for: the post's featured/OG image at 1280×720.
+See §5. Different rules: white frame, fixed template, Rhodium Libre title. The
+colour-field rule above does **not** apply to heroes.
 
-> **Shape:** Left two-thirds carries the post title in large deep-ink geometric
-> sans, with a short orange sub-line beneath. Right third carries a flat vector
-> composition of {2–3 CONCRETE OBJECTS}. Cream background, wide margins, nothing
-> touching the edges. Composition balanced, title left-aligned and vertically
-> centred.
+### What to reach for when none of these fit
 
-Guard against: putting the full headline in. Shorten it — a featured image is
-read at thumbnail size in the related-posts grid.
+A cutaway, a map, a stack diagram, a before-and-after of one object, a thing
+shown in its real context. If the honest answer is "this is just a list", the
+article wants a list, and the right move is to ship no image at all rather than
+a decorated one.
 
----
 
 ## 9. What the site already got wrong
 
@@ -462,7 +484,12 @@ A merged article's images are not done until step 4 passes.
 - [ ] You checked the destination and donors for a reusable image first (§2).
 - [ ] A featured image was built from the template, not generated whole (§5).
 - [ ] 1600×900 for body, 1280×720 for featured. 16:9 either way.
-- [ ] Orange `#FF4500` is the only accent; state colours are muted.
+- [ ] **The frame is a colour field, not white.** (Body images only; heroes are white.)
+- [ ] **Every concept has an icon or object**, not a label in a box.
+- [ ] **The relationship is visible** before any text is read: flow, scale, nesting.
+- [ ] **It has depth**: grain, a glow behind the subject, a shadow side.
+- [ ] **It is not boxes-plus-text.** If it is, delete it and write an HTML table.
+- [ ] Orange is used as the five-stop ramp, not one flat swatch.
 - [ ] Geometric sans throughout; no serifs, no rounded faces.
 - [ ] Every word in the image is spelled correctly — read it twice.
 - [ ] Nothing smaller than 24px at full width.

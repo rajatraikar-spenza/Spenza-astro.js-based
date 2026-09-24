@@ -79,6 +79,20 @@ states, in this order:
 3. How colour encodes meaning.
 4. What must not appear.
 
+**Before writing a prompt, read §8 in full.** It changed. The old guidance asked
+for flat vector on white with no gradients, and that is exactly what produced a
+run of lifeless outlined boxes.
+
+**The rule that governs every body image:** an outlined rectangle with words in
+it is a table, not an illustration. If that is what you are about to make,
+delete it and write an HTML table instead.
+
+Every body image needs all four: a **colour field** filling the frame (never
+white — white is heroes only), an **icon or object per concept**, a **visible
+relationship** the eye reads before any words, and **depth** from grain, a glow
+behind the subject and a shadow side. Orange is a five-stop ramp
+(`#9B2A00 #C63600 #FF4500 #FF6F39 #FF8E64`), not one flat swatch.
+
 Pick the composition type from §8: **A** comparison, **B** process/timeline,
 **C** hierarchy/ladder, **D** evidence strip, **E** concept hero.
 
