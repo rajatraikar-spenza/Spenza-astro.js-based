@@ -1,0 +1,49 @@
+{
+  "cluster": "M17",
+  "before": [
+    {
+      "path": "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
+      "bodyWords": 2714,
+      "tldrWords": 122
+    },
+    {
+      "path": "/esim/nb-iot-vs-lte-m-comparison/",
+      "bodyWords": 1957,
+      "tldrWords": 132
+    }
+  ],
+  "combinedBeforeWords": 4925,
+  "bodyWords": 2368,
+  "tldrWords": 120,
+  "totalWords": 2488,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/contact-us/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/esim/iot-esim-introduction/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/iot-solutions/"
+  ],
+  "external": [
+    "https://www.etsi.org/deliver/etsi_ts/136300_136399/136300/13.13.00_60/ts_136300v131300p.pdf",
+    "https://www.etsi.org/deliver/etsi_ts/138300_138399/138300/17.09.00_60/ts_138300v170900p.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/wp-content/uploads/2026/02/Mobile-IoT-Deployment-Guide-digital-1.pdf",
+    "https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/ltem-vs-nbiot-field-test-how-distance-affects-power-consumption",
+    "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/deployment-map/",
+    "https://www.t-mobile.com/news/network/5g-redcap-powering-smart-devices-with-smarter-5g",
+    "https://www.etsi.org/deliver/etsi_ts/138300_138399/138300/18.03.00_60/ts_138300v180300p.pdf"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: comparable NB-IoT/LTE-M/RedCap field traces including payload, timers, radio conditions, mobility, delivery and power, from device engineering and fleet operations]",
+    "[EVIDENCE NEEDED: operator-approved module/band/firmware/service availability matrix and redacted operations view for the offered scope, from product and delivery engineering]",
+    "[EVIDENCE NEEDED: approved deployment cohort and dated milestones for the published Butlr scope, from the account owner and customer marketing]"
+  ],
+  "informationGain": 7
+}

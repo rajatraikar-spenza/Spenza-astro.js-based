@@ -91,11 +91,74 @@ import m36Content from './esim-for-smart-devices-2025.html?raw';
 import m42Content from './esim-orchestration-global-iot.html?raw';
 import m04Content from './iot-connectivity-types-guide-2025.html?raw';
 import m09Content from './top-iot-trends.html?raw';
+import m17Content from './nb-iot-vs-lte-m-vs-5g-redcap.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "nb-iot-vs-lte-m-vs-5g-redcap": {
+  "slug": "nb-iot-vs-lte-m-vs-5g-redcap",
+  "category": "esim",
+  "cluster": "M17: Cellular IoT radio comparison",
+  "title": "NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide",
+  "seoTitle": "NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide",
+  "seoDescription": "Compare NB-IoT vs LTE-M vs 5G RedCap by radio capability, power, mobility and carrier support. Use a field-test checklist before committing your fleet.",
+  "excerpt": "Choose a cellular IoT radio using versioned capabilities, supported service and comparable field measurements.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "NB-IoT vs LTE-M vs 5G RedCap is a choice between radio capabilities, device designs and supported commercial services. NB-IoT often fits small, infrequent reports; LTE-M is a useful starting point for connected mobility; RedCap brings reduced-complexity 5G New Radio. Product teams should compare equivalent application workloads, verify operator and module support, and measure power and recovery before rollout. No technology name guarantees battery life, global availability or a simple upgrade path.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Name the category",
+        "text": "Compare the specific release and device capability."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Measure the workload",
+        "text": "Include retries, sleep and maintenance."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Verify the service",
+        "text": "Confirm bands, operator and subscription eligibility."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Separate provisioning",
+        "text": "eSIM does not add radio hardware."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Approve a field record",
+        "text": "Reconcile radio logs with application delivery."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You.png\" class=\"attachment-full size-full wp-image-16788 webpexpress-processed\" alt=\"NB-IoT vs LTE-M vs 5G RedCap: IoT Connectivity Guide [2026]\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/NB-IoT-vs-LTE-M-vs-5G-RedCap-Which-IoT-Connectivity-Is-Right-for-You.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-04-02T09:18:13+00:00",
+  "updatedDate": "2026-09-24T08:22:21.322Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2714,
+  "donors": [
+    {
+      "path": "/esim/nb-iot-vs-lte-m-comparison/",
+      "title": "NB-IoT vs LTE-M: Which Is Right for You?",
+      "clicks": 8,
+      "contributes": "Two-way NB-IoT/LTE-M technical comparison and deployment constraints. Source sections to inspect: NB-IoT = Ultra-Low Power for Static Devices; LTE-M = Mobility + Real-Time Performance; Battery vs Bandwidth Is the Core Tradeoff; Coverage and Carrier Strategy Matters"
+    }
+  ],
+  "content": m17Content
+},
   "top-iot-trends": {
   "slug": "top-iot-trends",
   "category": "esim",

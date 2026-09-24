@@ -1,0 +1,184 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "Head-to-head comparison: NB-IoT vs LTE-M vs 5G RedCap",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "How do data rate, mobility and latency affect the choice?",
+      "id": "elementor-toc__heading-anchor-4",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "How should NB-IoT vs LTE-M battery life be compared?",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "What determines coverage, roaming and global availability?",
+      "id": "elementor-toc__heading-anchor-7",
+      "openingWords": 47,
+      "idCount": 1
+    },
+    {
+      "text": "How do module cost and total cost of ownership compare?",
+      "id": "elementor-toc__heading-anchor-6",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "What changes with eRedCap, network evolution and eSIM?",
+      "id": "elementor-toc__heading-anchor-9",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "How should you choose and validate a cellular IoT radio?",
+      "id": "elementor-toc__heading-anchor-10",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Frequently asked questions",
+      "id": "elementor-toc__heading-anchor-12",
+      "openingWords": 46,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    49,
+    51,
+    49,
+    49,
+    50,
+    49
+  ],
+  "calloutWords": [
+    29,
+    33,
+    22,
+    27
+  ],
+  "images": [
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/02/image-1-1024x559.jpeg",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2026/02/image-1-1024x559.jpeg",
+      "natural": [
+        1024,
+        559
+      ],
+      "alt": "NB-IoT vs LTE-M vs 5G RedCap selection starts with coverage and mobility requirements"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/cellular-iot-radio/energy-record.png",
+      "currentSrc": "http://localhost:4321/blog-media/cellular-iot-radio/energy-record.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Record connection, transfer, waiting and sleep energy across the complete reporting cycle"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/cellular-iot-radio/mobility-record.png",
+      "currentSrc": "http://localhost:4321/blog-media/cellular-iot-radio/mobility-record.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Compare radio cell changes with application delivery and recovery records"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "Head-to-head comparison: NB-IoT vs LTE-M vs 5G RedCap",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "How do data rate, mobility and latency affect the choice?",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "How should NB-IoT vs LTE-M battery life be compared?",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "What determines coverage, roaming and global availability?",
+      "href": "#elementor-toc__heading-anchor-7"
+    },
+    {
+      "text": "How do module cost and total cost of ownership compare?",
+      "href": "#elementor-toc__heading-anchor-6"
+    },
+    {
+      "text": "What changes with eRedCap, network evolution and eSIM?",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "How should you choose and validate a cellular IoT radio?",
+      "href": "#elementor-toc__heading-anchor-10"
+    },
+    {
+      "text": "Frequently asked questions",
+      "href": "#elementor-toc__heading-anchor-12"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}
