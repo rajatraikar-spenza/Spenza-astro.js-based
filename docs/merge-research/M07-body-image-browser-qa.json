@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/white-label-mvno/contract-role-allocation.png",
+      "currentSrc": "http://localhost:4321/blog-media/white-label-mvno/contract-role-allocation.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/white-label-mvno/white-label-mvno-request-to-bill.png",
+      "currentSrc": "http://localhost:4321/blog-media/white-label-mvno/white-label-mvno-request-to-bill.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 610,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 610,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 610,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 610,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
