@@ -1,0 +1,2958 @@
+{
+  "cluster": "M42",
+  "fetchedAt": "2026-09-24T06:53:58.660Z",
+  "method": "Fresh public destination and donor HTML; parse5 selects exact article widget, first featured widget excludes related cards. Body count includes lists, tables and captions; excludes shell and separate ACF TLDR.",
+  "sources": [
+    {
+      "path": "/esim/esim-orchestration-global-iot/",
+      "url": "https://spenza.com/esim/esim-orchestration-global-iot/",
+      "status": 200,
+      "h1": [
+        "eSIM Orchestration for IoT: Benefits and Use Cases"
+      ],
+      "bodyWords": 2596,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Introduction: The Global IoT Paradox"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is eSIM Orchestration for IoT?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "eSIM Provisioning vs. Orchestration: A Critical Distinction"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "eSIM Provisioning (The “Action”)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "eSIM Orchestration (The “Strategy”)"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Key Benefits: Why Orchestration Is a Strategic Capability"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Benefit 1: True “One SKU” Global Deployment"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Benefit 2: Automated Cost and Performance Optimization"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Benefit 3: Seamless Regulatory Compliance (The SGP.32 Advantage)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Benefit 4: Built-In Resilience and Uptime"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Benefit 5: Smarter Lifecycle Management"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Benefit 6: Real-Time Insights and Optimization"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "eSIM Provisioning vs. Orchestration"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Use Cases: Where eSIM Orchestration Is Mission-Critical"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. Global Logistics and Asset Tracking"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Remote Patient Monitoring"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. Smart Agriculture"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "4. Industrial IoT and Manufacturing"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Spenza: Your IoT Orchestration Engine"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "How Spenza simplifies IoT orchestration:"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "How Spenza Connects to eSIM Provisioning vs Orchestration"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Future: AI-Driven, Autonomous Connectivity"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why Spenza’s Model Works"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "The Future of Global IoT Connectivity"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Conclusion: Stop Managing SIMs. Start Orchestrating Connectivity."
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQ s"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration helps IoT brands manage and automate connectivity for millions of devices worldwide. It controls profile switching , cost , and compliance , making global IoT connectivity seamless, flexible, and scalable — while enabling companies to move from provisioning to intelligent lifecycle management ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Introduction: The Global IoT Paradox"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Why does global IoT connectivity still feel harder than it should be? By 2023, the world already has 16.6 billion IoT devices , and experts expect over 40 billion by 2030. But scaling beyond one country brings chaos."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Deploying 1,000 devices in one market is easy. Deploying 1,000,000 devices across 50 countries is a logistical storm. Teams juggle multiple carrier contracts, different billing systems, and regulations that change per region. For example, Brazil and India ban permanent roaming, forcing devices to switch to local networks after a set period."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Many IoT leaders assumed eSIMs would solve this. But a “basic” eSIM, one that only downloads a profile once, doesn’t fix global scale issues. You still face fragmented management, roaming restrictions, and costs that spiral with every border crossed."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The truth: the solution isn’t just eSIM provisioning. It’s the orchestration layer that makes eSIMs intelligent. This is eSIM orchestration, the software brain that controls, automates, and governs connectivity across your global IoT fleet."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In this blog, we explore how eSIM orchestration changes everything, helping businesses cut costs, meet compliance, and finally scale global IoT deployments efficiently."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is eSIM Orchestration for IoT?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration for IoT is the software layer that automates the provisioning, profile management, carrier selection, connectivity policies, and lifecycle management of eSIM-enabled IoT devices. It allows businesses to manage connectivity across multiple carriers, countries, and devices from a centralized system instead of handling profiles and network changes manually."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "eSIM Provisioning vs. Orchestration: A Critical Distinction"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Before understanding orchestration, it’s vital to know what it’s not . Let’s make this simple."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "eSIM Provisioning (The “Action”)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This is a one-time command, you remotely download and activate a carrier profile on a device’s eSIM. Think of it as installing an app. It gets the device online, but that’s it. If conditions change, someone must intervene."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "eSIM Orchestration (The “Strategy”)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Now imagine a smart, automated system that constantly manages every SIM across your entire global IoT fleet. It decides when to switch profiles, which carrier to use, and how to balance cost and performance, without manual work."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This is the difference between an action and an engine. eSIM orchestration runs ongoing logic like:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "“If network strength drops below 30%, switch to backup.” “If a cheaper plan appears, migrate all devices in that country.” “If a device crosses a national border, activate a local, compliant carrier profile.”"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "That’s why eSIM orchestration is strategic. It isn’t about connecting one device. It’s about managing millions intelligently and efficiently."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM provisioning is like manually installing one app. eSIM orchestration is your company’s entire Mobile Device Management (MDM) system — automatically enforcing updates , policies , and logic for all users."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In global IoT, this difference determines whether you’re scaling or struggling."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Key Benefits: Why Orchestration Is a Strategic Capability"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Global IoT deployments fail without automation. Here’s why eSIM orchestration matters to every CTO, VP of IoT, and operations leader today."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Benefit 1: True “One SKU” Global Deployment"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Manufacturing separate SIM SKUs for every region creates complexity. With eSIM orchestration, you can ship a single device model worldwide. When it powers up, whether in a port in Singapore or a warehouse in Texas, it automatically downloads the most relevant local carrier profile."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The system identifies its location, applies preset business rules, and activates a compliant, cost-effective profile."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This single SKU approach cuts logistics costs, eliminates inventory silos, and speeds time-to-market. It also ties directly to Spenza’s operator-neutral approach, described in how eSIM is transforming IoT connectivity ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Enterprises gain global flexibility. Devices behave dynamically. Operations teams no longer maintain regional SIM inventories or reconfigure hardware for each country."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Benefit 2: Automated Cost and Performance Optimization"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "IoT data costs vary drastically. Roaming adds unnecessary expense. eSIM orchestration fixes that through automation."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For example, if a new low-cost plan appears in France, the system can automatically push it to all French devices, instantly cutting data expenses. Similarly, if network signal strength drops, the device automatically switches to another carrier within seconds."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In one global pilot, a large enterprise using automated profile management saw a 25% drop in data connectivity costs compared to static single-network contracts."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Every IoT device becomes self-optimizing, always connected to the most efficient, highest-quality network available. This is exactly what Spenza enables through its dynamic IoT connectivity platform ."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Benefit 3: Seamless Regulatory Compliance (The SGP.32 Advantage)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Compliance has become a hidden threat in global IoT. Many countries like Brazil, Turkey, Nigeria ban permanent roaming or require data localization."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here’s where eSIM orchestration aligns with the GSMA SGP.32 specification for IoT. The current SGP.32 v1.3 specification, published in May 2026, defines the technical framework for remote provisioning and management of eUICCs in network-constrained and/or user-interface-constrained IoT devices."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If a device stays in India for 60 days, for instance, SGP.32-based orchestration automatically switches it from a global profile to a compliant local one."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This automation protects connectivity while ensuring every device follows national telecom and data laws. Spenza’s platform fully supports GSMA SGP.32 , enabling IoT teams to stay compliant without manual oversight."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Benefit 4: Built-In Resilience and Uptime"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "IoT devices often run in remote or high-risk environments, mines, trucks, or medical setups. Downtime is not an option."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration ensures uninterrupted operation through failover switching. If one carrier’s network fails, the system instantly activates another available profile. This means connected ambulances, containers, or payment terminals never lose signal."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Instead of reacting to outages, the system prevents them. This reliability turns global IoT connectivity into a predictable utility, not a variable risk."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Benefit 5: Smarter Lifecycle Management"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Without orchestration, teams must manually update profiles, track usage, and manage renewals across regions. That’s inefficient. With eSIM orchestration, you gain centralized lifecycle control, everything from activation to billing. You can push bulk updates, track data per device, and adjust policies in real time."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This unified view replaces dozens of carrier dashboards. It also simplifies audits, support, and troubleshooting for large-scale deployments."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "And when orchestration is integrated into a system like Spenza’s IoT eSIM provider network , teams control global operations from one console instead of managing fragmented relationships."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Benefit 6: Real-Time Insights and Optimization"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Every IoT connection generates performance and cost data. Orchestration platforms aggregate that information across carriers and regions."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Leaders can see trends instantly: which carriers perform best, which countries cost most, where devices are idle, and how usage changes month by month."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Armed with data, operations teams can adjust network priorities or negotiate better terms. The orchestration layer becomes a real-time business intelligence engine for IoT connectivity."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "eSIM Provisioning vs. Orchestration"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Feature eSIM Provisioning eSIM Orchestration Scope One-time profile download Continuous lifecycle management Automation Manual commands Rules-based automation Scale Individual devices Global IoT fleet Compliance Limited Built-in through GSMA SGP.32 Cost Control None Automatic optimization Failover Manual Automatic carrier switching Visibility Basic reporting Full analytics and monitoring Strategy Level Tactical Strategic",
+          "html": "<table>\n<thead>\n<tr>\n<th>Feature</th>\n<th>eSIM Provisioning</th>\n<th>eSIM Orchestration</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Scope</td>\n<td>One-time profile download</td>\n<td>Continuous lifecycle management</td>\n</tr>\n<tr>\n<td>Automation</td>\n<td>Manual commands</td>\n<td>Rules-based automation</td>\n</tr>\n<tr>\n<td>Scale</td>\n<td>Individual devices</td>\n<td>Global IoT fleet</td>\n</tr>\n<tr>\n<td>Compliance</td>\n<td>Limited</td>\n<td>Built-in through GSMA SGP.32</td>\n</tr>\n<tr>\n<td>Cost Control</td>\n<td>None</td>\n<td>Automatic optimization</td>\n</tr>\n<tr>\n<td>Failover</td>\n<td>Manual</td>\n<td>Automatic carrier switching</td>\n</tr>\n<tr>\n<td>Visibility</td>\n<td>Basic reporting</td>\n<td>Full analytics and monitoring</td>\n</tr>\n<tr>\n<td>Strategy Level</td>\n<td>Tactical</td>\n<td>Strategic</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Use Cases: Where eSIM Orchestration Is Mission-Critical"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Let’s look at how eSIM orchestration transforms industries facing real connectivity pain."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. Global Logistics and Asset Tracking"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A connected container might travel from China to Europe and end in the U.S. It crosses multiple carrier zones. Without orchestration, each move triggers roaming fees or network dropouts."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With orchestration, the container’s eSIM automatically switches to local carriers at each stop, keeping tracking data live."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This “ zero-touch connectivity ” means logistics providers stay compliant and connected, even across strict regulatory borders. This capability supports what Spenza refers to as global IoT connectivity ."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Remote Patient Monitoring"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Healthcare IoT must remain online, with no exceptions. Devices monitoring heart rate or oxygen levels need 24/7 uptime."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here, eSIM orchestration ensures constant signal quality. It can switch from one carrier to another mid-session if performance drops. This keeps patient data flowing to cloud systems or hospitals in real time."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Such automation makes remote care safer and more reliable, regardless of the patient’s location."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. Smart Agriculture"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Farmers now deploy thousands of IoT sensors to track soil, moisture, and crop conditions. But replacing or manually updating each sensor’s SIM card is impossible."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With eSIM orchestration, updates happen over the air. Devices can automatically switch carriers when coverage fades or push new security patches remotely."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This automation eliminates truck rolls, saving both time and cost over long device lifecycles."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "4. Industrial IoT and Manufacturing"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Factories often operate across continents. Machines, robots, and controllers rely on constant connectivity for production analytics."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration allows automatic switching between public and private 5G networks, ensuring uptime even during outages. It also lets industrial companies manage entire device fleets globally from one system; no manual reconfiguration is needed."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Such control reflects how companies are moving from carrier dependence to software-defined connectivity, exactly what Spenza’s operator-neutral approach enables."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Spenza: Your IoT Orchestration Engine"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An eSIM is hardware. eSIM orchestration is the intelligence that drives it. Spenza brings both together under a single control layer that connects thousands of devices across countries, without carrier lock-in."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "How Spenza simplifies IoT orchestration:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Operator-neutral platform: Manage multiple carrier profiles through one console. Spenza eliminates dependency on any single mobile operator and allows seamless switching across networks. Compliance-first orchestration: Built around the GSMA SGP.32 standard, it ensures automatic profile localization to meet global telecom rules. Automation and APIs: Run rules like “switch to best local carrier under $0.01/MB” through no-code workflows or APIs. Full OSS/BSS integration: Manage billing, rating, and usage directly, no separate systems. Connectivity marketplace: Access pre-integrated carrier options worldwide without individual negotiations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This combination means IoT OEMs, MVNOs, and enterprises can run global connectivity as a product, not a patchwork of deals."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "When Spenza calls its system “the orchestration engine,” it means every element, provisioning, switching, and compliance, is software-defined. This enables the agility enterprises need for global IoT connectivity without re-engineering devices or rewriting firmware."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can explore more in how eSIM is transforming IoT connectivity and how Spenza eliminates carrier lock-in ."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "How Spenza Connects to eSIM Provisioning vs Orchestration"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza includes provisioning, but extends far beyond it."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Layer What It Does How Spenza Enhances It Provisioning Downloads and activates one eSIM profile Spenza automates this across carriers using APIs Orchestration Applies rules to manage profiles over time Spenza turns these rules into intelligent workflows Operations Tracks billing, data, and compliance Spenza unifies these into one dashboard",
+          "html": "<table>\n<thead>\n<tr>\n<th>Layer</th>\n<th>What It Does</th>\n<th>How Spenza Enhances It</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Provisioning</td>\n<td>Downloads and activates one eSIM profile</td>\n<td>Spenza automates this across carriers using APIs</td>\n</tr>\n<tr>\n<td>Orchestration</td>\n<td>Applies rules to manage profiles over time</td>\n<td>Spenza turns these rules into intelligent workflows</td>\n</tr>\n<tr>\n<td>Operations</td>\n<td>Tracks billing, data, and compliance</td>\n<td>Spenza unifies these into one dashboard</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "So, when you think of eSIM provisioning vs orchestration, provisioning is the start; Spenza’s orchestration is the continuous intelligence that keeps the entire IoT connectivity platform running efficiently."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s platform makes it possible to manage a global IoT fleet with the same ease you manage a cloud server cluster, fast, automated, and adaptive."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Future: AI-Driven, Autonomous Connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The next era of eSIM orchestration moves toward full autonomy. Spenza is already laying the groundwork for AI-driven orchestration that predicts and acts before issues occur."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here’s how it evolves:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Predictive Switching: AI forecasts congestion or high latency in networks and triggers early switching. Dynamic Pricing Adjustments: The platform monitors rate changes globally and automatically shifts to lower-cost plans. Network-of-Networks Intelligence: The orchestration layer connects 5G, LTE-M, and satellite seamlessly, choosing the optimal bearer per location."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This evolution makes IoT infrastructure self-managing. For businesses scaling globally, that means fewer manual interventions, faster performance, and higher uptime."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As GSMA SGP.32 adoption grows, orchestration becomes even more powerful, supporting over 193 million IoT eSIMs by 2028. Spenza’s orchestration layer already aligns with these standards, ensuring future-ready deployments."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why Spenza’s Model Works"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza is not just a reseller of carrier connectivity. It’s an enablement layer for anyone building an IoT service, MVNO, or OEM product."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here’s what stands out:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Neutrality: You choose networks, not Spenza. Scalability: Handle 1 device or 1 million with the same logic. Transparency: Unified billing, usage data, and cost reports. Speed: Instant provisioning and switching across 50+ countries. Integration: Works with existing M2M systems and CRMs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In short, Spenza redefines eSIM orchestration for IoT as both a technical and business enabler. It replaces manual SIM management with intelligent automation and gives control back to enterprises."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Learn how Spenza powers real IoT brands like Butlr, where orchestration, billing, and support unite to scale internationally, all inside Spenza’s IoT eSIM platform ."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "The Future of Global IoT Connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By 2030, most IoT devices will use orchestration-ready eSIMs based on GSMA SGP.32. That means enterprises that adopt orchestration early will scale faster and cheaper."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Future-ready IoT means:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Zero-touch onboarding: Devices activate with no manual SIM setup. AI-optimized performance: Networks chosen by algorithms, not admins. Hybrid coverage: Cellular, satellite, and private 5G blend automatically. Data sovereignty built in: Profiles shift per regulatory rule."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The IoT connectivity platform becomes a living system, automated, compliant, and self-learning."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza positions itself at the center of this transformation, enabling global IoT connectivity that feels invisible to users but intelligent underneath."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Conclusion: Stop Managing SIMs. Start Orchestrating Connectivity."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The IoT future isn’t about managing SIM cards, it’s about managing intelligence. Manually provisioning eSIMs can work for simpler deployments, but large and geographically distributed IoT fleets increasingly require automated orchestration to manage connectivity, profiles, compliance, and lifecycle operations at scale."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration is the difference between fragmented control and unified automation. It helps companies cut costs, ensure compliance, and operate globally, without touching a single device."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s platform turns that vision into action. It combines automation, neutrality, and compliance into one orchestration engine. If your global IoT deployment is growing too complex, it’s time to move beyond provisioning."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQ s"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It’s the control layer that automates how eSIM profiles are issued, switched, and managed across fleets of IoT devices using policy rules and automation."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration can simplify global IoT connectivity by automating profile management, carrier selection, connectivity policies, lifecycle operations, and monitoring. It can also reduce manual intervention when managing large fleets across multiple countries and networks."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Provisioning activates one profile. Orchestration manages thousands, switching between networks automatically to optimize cost, compliance, and performance."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration is most valuable for large, distributed, or long-life IoT deployments where devices operate across multiple countries, carriers, or regulatory environments and cannot be easily accessed for manual SIM or connectivity changes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This standard enables global scalability, compliance, and automation for IoT devices, the foundation for advanced eSIM orchestration."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s IoT connectivity platform manages multiple operators globally, letting devices switch profiles automatically to meet regional laws and costs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Its APIs and OSS/BSS framework integrate easily into existing enterprise or MVNO infrastructures."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Automation ensures each device always uses the most cost-effective carrier and plan, cutting expenses by up to 25% across regions."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. An eSIM orchestration platform can manage multiple carrier profiles and apply rules for connectivity selection, switching, provisioning, and lifecycle management across an IoT fleet, depending on the platform and carrier capabilities."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Automotive, logistics, healthcare, and energy sectors, or any that manage global IoT fleets, gain the most from Spenza’s orchestration platform."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Contact Spenza today to see how our eSIM orchestration platform simplifies everything, from deployment to scaling your global IoT fleet."
+        }
+      ],
+      "links": [
+        {
+          "text": "16.6 billion IoT devices",
+          "href": "https://iot-analytics.com/number-connected-iot-devices/"
+        },
+        {
+          "text": "how eSIM is transforming IoT connectivity",
+          "href": "/esim/esim-transforming-iot-connectivity/"
+        },
+        {
+          "text": "IoT connectivity platform",
+          "href": "/esim/iot-esim-connectivity/"
+        },
+        {
+          "text": "Many countries",
+          "href": "https://kaleidointelligence.com/global-iot-roaming/"
+        },
+        {
+          "text": "GSMA SGP.32",
+          "href": "/esim/iot-esim-introduction/"
+        },
+        {
+          "text": "Spenza’s IoT eSIM provider network",
+          "href": "/esim/iot-esim-providers/"
+        },
+        {
+          "text": "global IoT connectivity",
+          "href": "/esim/esim-global-connectivity/"
+        },
+        {
+          "text": "Spenza’s operator-neutral approach",
+          "href": "/esim/eliminate-carrier-lock-in-esim/"
+        },
+        {
+          "text": "how eSIM is transforming IoT connectivity",
+          "href": "/esim/esim-transforming-iot-connectivity/"
+        },
+        {
+          "text": "how Spenza eliminates carrier lock-in",
+          "href": "/esim/eliminate-carrier-lock-in-esim/"
+        },
+        {
+          "text": "193 million IoT eSIMs",
+          "href": "https://www.juniperresearch.com/researchstore/key-vertical-markets/esim-iot-m2m-market-report"
+        },
+        {
+          "text": "Spenza’s IoT eSIM platform",
+          "href": "/esim/iot-esim-connectivity/"
+        },
+        {
+          "text": "IoT devices will use orchestration-ready eSIMs",
+          "href": "/esim/iot-esim-trends/"
+        },
+        {
+          "text": "",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.choiceiot.com/blog/why-using-a-multi-carrier-platform-is-important-to-solution-providers/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.grandviewresearch.com/industry-analysis/managed-services-market?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "Contact Spenza today",
+          "href": "/contact/"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png",
+          "class": "attachment-full size-full wp-image-12910 webpexpress-processed",
+          "alt": "eSIM Orchestration for IoT: Benefits, Use Cases, and the Future of Global Connectivity",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png\" class=\"attachment-full size-full wp-image-12910 webpexpress-processed\" alt=\"eSIM Orchestration for IoT: Benefits, Use Cases, and the Future of Global Connectivity\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/image-21-1024x683.png",
+          "alt": "eSIM Orchestration for IoT: Benefits, Use Cases, and the Future of Global Connectivity",
+          "class": "wp-image-12911",
+          "style": "width:888px;height:auto",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/image-21-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/image-21-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/image-21-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/image-21.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/image-21-1024x683.png\" alt=\"eSIM Orchestration for IoT: Benefits, Use Cases, and the Future of Global Connectivity\" class=\"wp-image-12911\" style=\"width:888px;height:auto\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/image-21-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/image-21-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/image-21-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/image-21.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "762",
+          "height": "580",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/image-22.png",
+          "alt": "The Key Benefits: Why Orchestration Is a Strategic Capability",
+          "class": "wp-image-12913",
+          "style": "width:555px;height:auto",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/image-22.png 762w, https://media.spenza.com/wp-content/uploads/2025/10/image-22-300x228.png 300w",
+          "sizes": "(max-width: 762px) 100vw, 762px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"762\" height=\"580\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/image-22.png\" alt=\"The Key Benefits: Why Orchestration Is a Strategic Capability\" class=\"wp-image-12913\" style=\"width:555px;height:auto\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/image-22.png 762w, https://media.spenza.com/wp-content/uploads/2025/10/image-22-300x228.png 300w\" sizes=\"(max-width: 762px) 100vw, 762px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "537",
+          "height": "641",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/image-23.png",
+          "alt": "Use Cases: Where eSIM Orchestration Is Mission-Critical",
+          "class": "wp-image-12917",
+          "style": "width:444px;height:auto",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/image-23.png 537w, https://media.spenza.com/wp-content/uploads/2025/10/image-23-251x300.png 251w",
+          "sizes": "(max-width: 537px) 100vw, 537px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"537\" height=\"641\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/image-23.png\" alt=\"Use Cases: Where eSIM Orchestration Is Mission-Critical\" class=\"wp-image-12917\" style=\"width:444px;height:auto\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/image-23.png 537w, https://media.spenza.com/wp-content/uploads/2025/10/image-23-251x300.png 251w\" sizes=\"(max-width: 537px) 100vw, 537px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"earth-americas\", \"label\" : \"Earth Americas\", \"unicode\" : \"f57d\"}",
+            "title": "Cross-Country Complexity",
+            "text": "Scaling IoT deployments across multiple countries is challenging without automation."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+            "title": "What is eSIM Orchestration?",
+            "text": "eSIM orchestration functions as the control layer for intelligently managing eSIM profiles."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrows-spin\", \"label\" : \"Arrows Spin\", \"unicode\" : \"e4bb\"}",
+            "title": "From Manual to Automated Lifecycle",
+            "text": "It converts manual provisioning workflows into automated global lifecycle management for eSIMs."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"handshake-simple\", \"label\" : \"Handshake Simple\", \"unicode\" : \"f4c6\"}",
+            "title": "Global SKU Simplification",
+            "text": "With eSIM orchestration, you can handle one global SKU that works across any market."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Spenza’s Orchestration Platform",
+            "text": "Spenza provides this orchestration via APIs, automation and a neutral layer — built-in compliance and cost-optimization."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/esim/esim-orchestration-global-iot/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/esim/esim-orchestration-global-iot/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "eSIM Orchestration for IoT: Benefits and Use Cases",
+              "datePublished": "2025-10-31T07:03:16+00:00",
+              "dateModified": "2026-09-09T06:00:38+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/esim/esim-orchestration-global-iot/"
+              },
+              "wordCount": 2300,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/esim-orchestration-global-iot/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png",
+              "keywords": [
+                "carrier-agnostic profiles",
+                "cost optimisation",
+                "eSIM orchestration",
+                "fleet scalability",
+                "global IoT deployment",
+                "GSMA SGP.32",
+                "IoT",
+                "IoT connectivity management",
+                "multi-IMSI fallback",
+                "MVNO",
+                "Regulatory compliance",
+                "remote SIM provisioning",
+                "spenza"
+              ],
+              "articleSection": [
+                "eSIM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/esim/esim-orchestration-global-iot/",
+              "url": "https://spenza.com/esim/esim-orchestration-global-iot/",
+              "name": "eSIM Orchestration for IoT: Benefits and Use Cases - Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/esim/esim-orchestration-global-iot/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/esim-orchestration-global-iot/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png",
+              "datePublished": "2025-10-31T07:03:16+00:00",
+              "dateModified": "2026-09-09T06:00:38+00:00",
+              "description": "eSIM orchestration under SGP.32 automates global IoT connectivity. See how to cut costs, switch carriers over the air and scale a fleet from one platform.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/esim/esim-orchestration-global-iot/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/esim/esim-orchestration-global-iot/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/esim/esim-orchestration-global-iot/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "eSIM Orchestration for IoT: Benefits, Use Cases, and the Future of Global Connectivity"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/esim/esim-orchestration-global-iot/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "eSIM",
+                  "item": "https://spenza.com/category/esim/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "eSIM Orchestration for IoT: Benefits and Use Cases"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/esim/deploy-multi-network-esim-rsp-aggregation/",
+      "url": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/",
+      "status": 200,
+      "h1": [
+        "RSP Aggregation: Deploy Multi-Network eSIM Profiles"
+      ],
+      "bodyWords": 2300,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is RSP Aggregation?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Introduction"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "From Integration Debt to Aggregation Thinking"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "The Old Model: Built on Carrier Integrations"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "How Integration Debt Compounds at Scale"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Why Aggregation Became Necessary"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is RSP Aggregation and What Does It Really Solve?"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. Aggregation and Marketplace"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Orchestration and Policy Control"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. Management and Analytics"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "How RSP Aggregation Works Technically"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "RSP Aggregation vs Single-Vendor RSP"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why RSP Aggregation Matters in 2026"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "SGP.32: The Foundation for Scalable IoT eSIM"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Aggregation Enables in Practice"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. One Hardware SKU with Global Connectivity"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Built-In Resilience and Cost Control"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. Elimination of Unnecessary Markups"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "4. Simplified Operations at Scale"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "RSP Aggregation Platform Evaluation Checklist"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Spenza: Your Global RSP Aggregator"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What Spenza Provides"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Conclusion: Why RSP Aggregation Is Essential for Global IoT in 2026"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is RSP Aggregation?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP aggregation is an enterprise architecture that unifies multiple carrier Remote SIM Provisioning (RSP) platforms into a single management layer. It enables centralized eSIM provisioning, lifecycle management, policy-based carrier selection, and multi-network orchestration through one API instead of separate integrations with each mobile operator."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Introduction"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Managing a global IoT fleet has traditionally meant managing growing complexity . As enterprises expanded across regions, they were forced to juggle multiple Mobile Network Operator MNO relationships , each with its own commercial terms, technical integrations, and Remote SIM Provisioning (RSP) platforms . Every carrier introduced different APIs, profile formats, onboarding timelines, and operational constraints, making global scale synonymous with integration overhead."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By 2026, this approach is no longer sustainable."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The industry is shifting from a model built on integration to one driven by aggregation . Rather than connecting enterprise systems to numerous carrier backends, modern organizations deploy multi-network eSIM profiles through a single RSP aggregation platform. This allows global connectivity to be managed as a software-defined utility instead of fragmented telecom infrastructure."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This blog explains what RSP aggregation is, how modern deployments operate under the latest GSMA standards , and why aggregation has become a must-have architecture for global IoT and enterprise connectivity. It also shows how Spenza functions as the orchestration layer that makes this model practical and scalable in real-world deployments."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "From Integration Debt to Aggregation Thinking"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "The Old Model: Built on Carrier Integrations"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For years, deploying eSIM connectivity across multiple carriers required enterprises to integrate directly with each operator’s RSP infrastructure . Each new carrier relationship meant building and maintaining a separate technical and operational connection."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For example, supporting three carriers typically required:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Three separate SM-DP+ servers Three different API schemas Three onboarding and certification processes Three billing, reporting, and reconciliation models"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As deployments expanded across regions, roaming partners, and device variants, this approach created what many teams now recognize as integration debt ."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "How Integration Debt Compounds at Scale"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Every additional carrier increased:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Engineering effort to build and maintain integrations Testing complexity across devices and regions Operational risk from inconsistent workflows Long-term maintenance costs tied to versioning and upgrades"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For large IoT fleets with tens of thousands or millions of devices, this complexity was not just inconvenient. It was structural."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Direct carrier integrations were never designed to be replicated, versioned, and maintained at global scale. Each new operator added friction not only during initial deployment, but throughout the entire device lifecycle ."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Why Aggregation Became Necessary"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Solving this problem required a different architectural approach. Instead of embedding carrier specific logic into enterprise systems, leading organizations moved toward a single standardized control layer ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This shift from integration to aggregation removes carrier complexity from device and application teams, centralizes provisioning and lifecycle control, and enables global eSIM deployments to scale without multiplying operational burden."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is RSP Aggregation and What Does It Really Solve?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An RSP aggregation platform acts as a centralized control layer between your devices and the mobile network operators providing connectivity. Instead of integrating directly with each carrier’s subscription management system, enterprises connect to a single platform that manages all carrier relationships on their behalf."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "At its core, RSP aggregation delivers three essential functions:"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. Aggregation and Marketplace"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The platform consolidates wholesale connectivity plans and eSIM profiles from multiple MNOs into a single, unified catalog. Many platforms also simplify billing, offering a single invoice for multi-carrier deployments."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Orchestration and Policy Control"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP aggregation determines which carrier profile a device should receive based on geography , cost , quality of service , or failover rules . It also manages over-the-air lifecycle events , including activation, switching, suspension, and decommissioning."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. Management and Analytics"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The platform provides a single pane of glass for device inventory, usage, spend, alerts, and diagnostics. Integration with telecom expense management and billing systems ensures operational efficiency and visibility across the fleet."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "How RSP Aggregation Works Technically"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Think of it as a multi-carrier control plane for eSIMs. It understands carrier-specific profile formats, regulatory requirements, and operational processes, keeping devices connected, secure, and compliant throughout their lifecycle."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Technically, an RSP aggregation platform:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Integrates with multiple carrier SM-DP+ backends Operates as a unified eSIM IoT Manager (eIM) under the GSMA SGP.32 standard Exposes a single, consistent API to enterprise systems Orchestrates profile selection, secure delivery, switching, and retirement Abstracts carrier-specific complexity away from device and application teams"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This architecture allows enterprises to scale multi-network eSIM deployments without increasing operational burden, making global IoT connectivity faster, simpler, and more reliable."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "RSP Aggregation vs Single-Vendor RSP"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Not all eSIM solutions are created equal. Choosing between a single-vendor RSP and a full RSP aggregation platform can have a major impact on scalability, cost, and operational efficiency."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Capability Single-Vendor RSP (one MNO) RSP Aggregation Platform Carrier Choice Locked to the host MNO Mix and match multiple MNOs for maximum flexibility Failover and Optimization Limited Automated carrier switching based on rules and policies Global Coverage Depends on the host MNO High, leveraging the collective coverage of multiple operators Procurement and Billing Multiple contracts required for multi-carrier setups Consolidated marketplace with a single bill option Time to Scale Longer due to per-operator integration Faster thanks to centralized integrations",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Capability</th>\n<th>Single-Vendor RSP (one MNO)</th>\n<th>RSP Aggregation Platform</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Carrier Choice</strong></td>\n<td>Locked to the host MNO</td>\n<td>Mix and match multiple MNOs for maximum flexibility</td>\n</tr>\n<tr>\n<td><strong>Failover and Optimization</strong></td>\n<td>Limited</td>\n<td>Automated carrier switching based on rules and policies</td>\n</tr>\n<tr>\n<td><strong>Global Coverage</strong></td>\n<td>Depends on the host MNO</td>\n<td>High, leveraging the collective coverage of multiple operators</td>\n</tr>\n<tr>\n<td><strong>Procurement and Billing</strong></td>\n<td>Multiple contracts required for multi-carrier setups</td>\n<td>Consolidated marketplace with a single bill option</td>\n</tr>\n<tr>\n<td><strong>Time to Scale</strong></td>\n<td>Longer due to per-operator integration</td>\n<td>Faster thanks to centralized integrations</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP aggregation platforms combine the flexibility of many carriers with the operational simplicity enterprises need. By centralizing orchestration, policy control, and lifecycle management, aggregation transforms connectivity from a fragmented set of contracts into a scalable, software-driven platform ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why RSP Aggregation Matters in 2026"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By now, enterprises expect IT infrastructure to behave like cloud services: programmable, flexible, policy-driven, and observable. Connectivity should be no different."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yet many teams still treat networks as fixed artifacts — decided at manufacture and never changed. That approach is costly and brittle:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Devices shipped with a single carrier may underperform in parts of the world where that carrier is weak. Legacy roaming frameworks can violate local regulatory requirements in places like Brazil or India. Manual switching and contract renegotiations slow product launches and inflate operating costs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The right orchestration layer changes this. RSP aggregation makes connectivity:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "programmable — carrier decisions are policy-driven, not hardcoded, adaptive — profiles can change as conditions evolve, vendor-neutral — no lock-in to one operator, replaceable over the air — no physical SIM swaps."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "SGP.32: The Foundation for Scalable IoT eSIM"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Key to modern IoT deployments is the GSMA’s SGP.32 standard , which was built specifically for unattended devices like sensors, meters, and industrial endpoints. Under SGP.32:"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Devices start with a lightweight bootstrap profile just to get online. They connect to a centralized orchestration platform (called an eIM ). That platform selects and pushes the right carrier profile OTA. Over time, profiles can switch as policies or conditions change — without truck rolls or user interaction."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This zero-touch provisioning model is the only practical way to deploy millions of devices globally and manage them through a full lifecycle."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Your devices support eUICC and a compliant IoT Profile Assistant (IPA) A global bootstrap profile is available, even at low bandwidth Your orchestration layer can act as an SGP.32-compliant eIM Profile switching policies are defined before large-scale rollout"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Aggregation Enables in Practice"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The SGP.32 push model demonstrates how provisioning works. Aggregation, however, determines whether connectivity can scale, transforming it from a limitation into a strategic capability for global IoT deployments in 2026."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. One Hardware SKU with Global Connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Manufacturers no longer need region-specific SIM variants. One device and one global eSIM are enough, while carrier selection can be deferred until deployment or even years later. This approach reduces inventory complexity and accelerates time to market."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Built-In Resilience and Cost Control"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Carrier outages or price changes no longer require manual intervention. With smart policies:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Devices automatically switch to preferred networks Cost thresholds trigger plan changes Fallback logic protects uptime without manual oversight"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. Elimination of Unnecessary Markups"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Many aggregation platforms support Bring Your Own Network (BYON) models. Enterprises can maintain direct carrier contracts and avoid reseller markups. This transparency reduces effective costs and preserves commercial leverage over time."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "4. Simplified Operations at Scale"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As fleets grow, managing multiple carrier portals, fragmented invoices, and manual audits becomes expensive. Aggregation platforms provide a single pane of glass, unified reporting, and policy-based automation."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Analyst research from Gartner indicates enterprises can waste 20 to 30 percent of wireless spend due to unused subscriptions and billing errors. RSP aggregation platforms reduce audit effort by 50 percent or more by combining orchestration with centralized analytics. The real value lies in a platform’s ability to automate, optimize, and scale connectivity across global fleets, not just basic RSP enablement."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "RSP Aggregation Platform Evaluation Checklist"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "When choosing an RSP aggregation platform, it’s important to focus on flexibility, automation, and control. A strong platform should make integration simple, support multiple carriers, allow policy and profile changes without hassle, and provide visibility into your fleet and costs. Use the checklist below to evaluate key capabilities."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Supports a single API for all integrations Works with multiple carriers without bias Allows policy changes via software (no redeployment needed) Enables over-the-air provisioning and updates Lets you use your own carrier contracts Provides fleet-wide analytics and reporting Allows profile or plan changes long after deployment Supports fully automated orchestration via API Offers control over costs and margins"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Spenza: Your Global RSP Aggregator"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza is designed for organizations that operate connected devices at scale and need flexibility without operational overhead . It serves as a centralized orchestration layer , abstracting carrier complexity and allowing connectivity to be managed as a programmable system rather than a collection of operator portals and contracts."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What Spenza Provides"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "1. Unified API for All SM-DP+ Platforms Manage Tier-1 mobile network operators and regional carriers through a single interface, eliminating carrier-by-carrier integrations. Spenza’s unified API lets teams integrate provisioning, automation, and lifecycle workflows directly into their systems."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "2. SGP.32-Native Provisioning for Headless Devices Spenza supports push-based provisioning aligned with the GSMA SGP.32 standard , enabling zero-touch activation , profile switching, and lifecycle management for sensors, meters, trackers, and embedded devices deployed in the field."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "3. Policy-Driven Lifecycle Control Connectivity decisions are governed by rules based on location, usage, performance, cost, or compliance . Operations teams can automate profile switching, optimization, suspension, and retirement across thousands or millions of devices without manual intervention."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "4. Operator-Neutral BYON Model Spenza allows device vendors, enterprises, and service providers to bring their own network contracts , preserving commercial leverage while simplifying operations and avoiding margin stacking. This operator-neutral approach ensures centralized control across heterogeneous carrier environments."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These capabilities allow Spenza to operationalize RSP aggregation in real-world deployments, helping teams reduce complexity , retain full control , and adapt connectivity dynamically throughout the device lifecycle ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Conclusion: Why RSP Aggregation Is Essential for Global IoT in 2026"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Managing global IoT connectivity has evolved from integration headaches to aggregation-driven efficiency . Enterprises can no longer rely on direct carrier integrations for each region, device, or network. The result was growing integration debt , slower deployments, and higher operational costs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP aggregation platforms solve this challenge by providing a centralized control layer that unifies multi-carrier eSIM provisioning, automates lifecycle management, and enforces policy-driven connectivity . With support for the GSMA SGP.32 standard , modern IoT fleets can achieve zero-touch provisioning , dynamic profile switching, and global coverage without manual intervention."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By using a platform like Spenza , organizations gain:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Unified API access to all SM-DP+ platforms, eliminating carrier-by-carrier integrations Policy-driven automation for activation, optimization, suspension, and retirement Operator-neutral BYON support , preserving commercial leverage while simplifying operations Real-time analytics and control across global fleets"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The combination of aggregation, orchestration, and analytics transforms IoT connectivity into a scalable, programmable utility . Enterprises can reduce complexity, accelerate time-to-market, control costs, and ensure resilience across devices and regions."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In 2026, RSP aggregation is no longer optional . It is a strategic capability that turns connectivity from a fragmented challenge into a competitive advantage for global IoT deployments. Choosing the right aggregation platform ensures your organization can scale intelligently, respond to changing conditions, and unlock the full potential of multi-network eSIM connectivity ."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP aggregation is a platform that unifies multi‑carrier eSIM provisioning, lifecycle management, and policies so enterprises can manage connectivity from one control layer instead of multiple carrier systems."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "SGP.32 is a GSMA standard designed for headless IoT devices that enables remote push‑based provisioning and profile switching without physical interaction, supporting large‑scale global fleets."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes, aggregation platforms simplify billing, unify contracts, automate network failover, and centralize analytics, which helps lower operational overhead and reduce telecom spend."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes, unlike single‑vendor solutions locked to one MNO, aggregation allows enterprises to mix and match multiple mobile network operators for broader coverage and resilience."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes, any multi‑region or multi‑carrier IoT deployment benefits from aggregation, as it simplifies connectivity management and scales operations without added complexity."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza provides a unified API, policy‑driven orchestration, SGP.32 native provisioning, and operator‑neutral BYON support, enabling enterprises to deploy and manage multi‑network eSIM connectivity at scale with centralized control."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Ready to simplify global IoT connectivity and eliminate operational complexity? Contact Spenza to discover how our platform can accelerate your growth."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        }
+      ],
+      "links": [
+        {
+          "text": "Remote SIM Provisioning (RSP) platforms",
+          "href": "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/"
+        },
+        {
+          "text": "eSIM connectivity",
+          "href": "/esim/iot-esim-introduction/"
+        },
+        {
+          "text": "large IoT fleets",
+          "href": "/telecom/fleet-management-integrated-connectivity-platform/"
+        },
+        {
+          "text": "SGP.32 standard",
+          "href": "/esim/sgp-22-vs-sgp-32-esim-standards-guide/"
+        },
+        {
+          "text": "GSMA’s SGP.32 standard",
+          "href": "/esim/sgp-32-new-esim-standard/"
+        },
+        {
+          "text": "Gartner",
+          "href": "https://www.gartner.com/en/documents/5929907"
+        },
+        {
+          "text": "bring their own network contracts",
+          "href": "/spenza-product/unlock-operational-efficiency-with-spenza-iot-aggregation-platform/"
+        },
+        {
+          "text": "",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.choiceiot.com/blog/why-using-a-multi-carrier-platform-is-important-to-solution-providers/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.grandviewresearch.com/industry-analysis/managed-services-market?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "Contact Spenza",
+          "href": "https://calendly.com/spenza/discovery"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-us/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png",
+          "class": "attachment-full size-full wp-image-14665 webpexpress-processed",
+          "alt": "How to Deploy Multi-Network eSIM Profiles with RSP Aggregation Platforms",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png\" class=\"attachment-full size-full wp-image-14665 webpexpress-processed\" alt=\"How to Deploy Multi-Network eSIM Profiles with RSP Aggregation Platforms\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "744",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale.png",
+          "alt": "Illustration showing global operations connected across regions, representing coordinated connectivity at enterprise scale.\n",
+          "class": "wp-image-14672",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale-300x218.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale-768x558.png 768w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"744\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale.png\" alt=\"Illustration showing global operations connected across regions, representing coordinated connectivity at enterprise scale.\n\" class=\"wp-image-14672\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale-300x218.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/Connectivity-at-Global-Scale-768x558.png 768w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-1024x683.png",
+          "alt": "RSP aggregation platform architecture showing eSIM devices connected to a centralized orchestration layer integrating multiple mobile network operators.\n",
+          "class": "wp-image-14677",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-1024x683.png\" alt=\"RSP aggregation platform architecture showing eSIM devices connected to a centralized orchestration layer integrating multiple mobile network operators.\n\" class=\"wp-image-14677\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/RSP-Aggregation-Architecture.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "428",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-1024x428.png",
+          "alt": "SGP.32 push workflow showing bootstrap connectivity, profile provisioning, over-the-air installation, and lifecycle switching for IoT devices.\n",
+          "class": "wp-image-14684",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-1024x428.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-300x125.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-768x321.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"428\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-1024x428.png\" alt=\"SGP.32 push workflow showing bootstrap connectivity, profile provisioning, over-the-air installation, and lifecycle switching for IoT devices.\n\" class=\"wp-image-14684\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-1024x428.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-300x125.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow-768x321.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/SGP.32-Workflow.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "531",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-1024x531.png",
+          "alt": "Illustration showing global connectivity evolving from fragmented telecom integrations to a unified, software-based platform that simplifies control and scaling.",
+          "class": "wp-image-14704",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-1024x531.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-300x156.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-768x398.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity.png 1408w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"531\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-1024x531.png\" alt=\"Illustration showing global connectivity evolving from fragmented telecom integrations to a unified, software-based platform that simplifies control and scaling.\" class=\"wp-image-14704\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-1024x531.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-300x156.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity-768x398.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/Simplified-Connectivity.png 1408w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "460",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-1024x460.png",
+          "alt": " Spenza as a centralized RSP aggregation layer orchestrating multi-network eSIM connectivity across devices and carriers.\n",
+          "class": "wp-image-14700",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-1024x460.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-300x135.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-768x345.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-1536x689.png 1536w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"460\" src=\"https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-1024x460.png\" alt=\" Spenza as a centralized RSP aggregation layer orchestrating multi-network eSIM connectivity across devices and carriers.\n\" class=\"wp-image-14700\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-1024x460.png 1024w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-300x135.png 300w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-768x345.png 768w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image-1536x689.png 1536w, https://media.spenza.com/wp-content/uploads/2026/02/Spenza-RSP-Image.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+            "title": "The Limit of eSIM",
+            "text": "eSIM removes the need for physical SIM cards but does not solve the complexity of multi-carrier management at a global scale without a central control layer."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hexagon-nodes\", \"label\" : \"Hexagon Nodes\", \"unicode\" : \"e699\"}",
+            "title": "Why RSP Aggregation Matters",
+            "text": "RSP aggregation unifies multiple carrier provisioning systems into one control plane so enterprises can manage connectivity centrally. This reduces engineering overhead and accelerates deployment timelines."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"robot\", \"label\" : \"Robot\", \"unicode\" : \"f544\"}",
+            "title": "The Role of SGP.32 in IoT",
+            "text": "SGP.32 enables push based provisioning for headless IoT devices so profiles can be installed and switched over the air without user interaction. This is essential for large scale deployments with long lifecycles."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"industry\", \"label\" : \"Industry\", \"unicode\" : \"f275\"}",
+            "title": "Business Benefits of Aggregation",
+            "text": "With aggregation you get global SKU simplification, automated fallback for resilience, and lower operational cost through policy driven control. Connectivity becomes programmable and more efficient."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Spenza Makes Aggregation Practical",
+            "text": "Spenza provides a unified API, SGP.32 native orchestration, policy based automation, and operator neutral BYON support so enterprises can implement multi network eSIM deployments at scale."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "RSP Aggregation: Deploy Multi-Network eSIM Profiles",
+              "datePublished": "2026-02-06T10:23:04+00:00",
+              "dateModified": "2026-08-06T06:54:21+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/"
+              },
+              "wordCount": 2060,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png",
+              "keywords": [
+                "multi-network eSIM",
+                "OTA eSIM management",
+                "RSP aggregation platform",
+                "seamless carrier switching**",
+                "separated by commas: **eSIM provisioning",
+                "spenza"
+              ],
+              "articleSection": [
+                "eSIM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/",
+              "url": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/",
+              "name": "RSP Aggregation: Deploy Multi-Network eSIM Profiles- Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png",
+              "datePublished": "2026-02-06T10:23:04+00:00",
+              "dateModified": "2026-08-06T06:54:21+00:00",
+              "description": "RSP aggregation platforms deploy multi-network eSIM profiles with secure OTA provisioning, carrier switching and global coverage from one console.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2026/02/How-to-Deploy-Multi-Network-eSIM-Profiles-with-RSP-Aggregation-Platforms.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "How to Deploy Multi-Network eSIM Profiles with RSP Aggregation Platforms"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/esim/deploy-multi-network-esim-rsp-aggregation/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "eSIM",
+                  "item": "https://spenza.com/category/esim/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "RSP Aggregation: Deploy Multi-Network eSIM Profiles"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/esim/what-is-esim-orchestration/",
+      "url": "https://spenza.com/esim/what-is-esim-orchestration/",
+      "status": 200,
+      "h1": [
+        "What Is eSIM Orchestration? The 2026 Guide"
+      ],
+      "bodyWords": 2599,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is eSIM Orchestration and Why Has It Become So Important?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Is eSIM Orchestration Different From a CMP or RSP?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "eSIM Orchestration vs eSIM Management: A Subtle but Important Difference"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How SGP.32 Enables eSIM Orchestration: Architecture Explained"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Do You Actually Need eSIM Orchestration?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Does eSIM Orchestration Actually Do: The Core Capabilities"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Operational Automation"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Policy Control"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Fleet Operations"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Limitations of SGP.32"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. Cross-provider interoperability is still developing."
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Data sovereignty rules add complexity."
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. DIY deployments carry real risk."
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How to Choose an eSIM Orchestration Platform: What to Look For (and How Spenza Fits)"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration is the intelligent control layer that coordinates cellular connectivity across multiple carriers and devices from a single platform. It manages eSIM profiles , network selection , connectivity policies , and automatic failover across an entire fleet. It determines which carrier and rate plan should be used, executes profile changes over the air using SGP.32 where supported, and validates the outcome. In practice, eSIM orchestration sits above traditional remote SIM provisioning (RSP) and connectivity management , providing centralized, policy-driven control of enterprise connectivity."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Modern businesses rarely rely on a single mobile network anymore. Connected vehicles travel across borders, healthcare devices require years of uninterrupted service, and retailers manage thousands of payment terminals across diverse locations. As deployments grow, manual multi-carrier eSIM management quickly becomes unsustainable. Devices go offline, carrier agreements change, coverage gaps appear, and some devices stay connected to the wrong network without anyone noticing."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This is precisely the problem eSIM orchestration was built to solve. It is the operational layer that turns a collection of eSIM-capable devices into a governable, intelligent, and resilient network. While technologies like eSIM and Remote SIM Provisioning (RSP) have made it possible to switch network profiles remotely, they only solve part of the challenge."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As enterprise IoT deployments continue to grow, this orchestration layer is becoming just as important as the eSIM itself. In this guide, you’ll learn what eSIM orchestration is, how it differs from eSIM management, Connectivity Management Platforms (CMPs) , and Remote SIM Provisioning, how the new GSMA SGP.32 standard supports orchestration, and why businesses are increasingly treating orchestration as the foundation of resilient multi-carrier connectivity."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is eSIM Orchestration and Why Has It Become So Important?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As fleets grew from hundreds of devices to tens of thousands, the challenge was no longer activating connectivity . It was managing connectivity intelligently ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Think of eSIM orchestration the way you think about air traffic control. Individual planes (your devices) are perfectly capable of flying on their own. But without a central control system deciding which runway to use, which route to take, and when to reroute due to weather, the whole system breaks down at scale."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration works the same way for connected devices. It sits above your individual SIM profiles and carrier connections, and it makes intelligent, policy-driven decisions about which carrier a device should connect to, when to switch, and what to do if something goes wrong. Rather than treating every SIM profile as an isolated asset, orchestration views the entire deployment as one connected system with centralized policies and automation."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This category gained serious momentum after the GSMA introduced SGP.32 , the eSIM standard built specifically for IoT devices. Before SGP.32, managing eSIM profiles on headless devices (devices without a screen or human interaction) was genuinely difficult. SGP.32 changed the plumbing. Orchestration is what makes that plumbing intelligent."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Is eSIM Orchestration Different From a CMP or RSP?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This is where most people get confused, and understandably so. The terms get used interchangeably, but they describe very different things. Here is a clear breakdown:"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Aspect RSP (Remote SIM Provisioning) CMP (Connectivity Management Platform) eSIM Orchestration What It Is The mechanism for downloading and switching eSIM profiles remotely. A platform for managing SIM inventory, connectivity, usage, and telecom expenses. The intelligent control layer that coordinates connectivity across devices, carriers, and policies. Primary Scope Individual eSIM profile operations. Visibility and management across one or more carriers. End-to-end, multi-carrier coordination and automation across the entire device fleet. Answers the Question How do I provision or switch an eSIM profile? What is happening across my SIM estate? Which carrier should this device use now, and what should happen if conditions change? Carrier Approach Typically carrier-specific. Often tied to one or a limited set of carriers. Operator-neutral and designed for multi-carrier environments. Level of Intelligence Low. Executes profile operations. Medium. Monitors, reports, and provides operational visibility. High. Applies policies, automates decisions, executes changes, and validates outcomes. Role in SGP.32 Uses SGP.32 to provision and manage eSIM profiles. May leverage SGP.32 data for monitoring and reporting. Acts as the orchestration layer that coordinates the complete SGP.32 ecosystem.",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Aspect</th>\n<th>RSP (Remote SIM Provisioning)</th>\n<th>CMP (Connectivity Management Platform)</th>\n<th>eSIM Orchestration</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>What It Is</td>\n<td>The mechanism for downloading and switching eSIM profiles remotely.</td>\n<td>A platform for managing SIM inventory, connectivity, usage, and telecom expenses.</td>\n<td>The intelligent control layer that coordinates connectivity across devices, carriers, and policies.</td>\n</tr>\n<tr>\n<td>Primary Scope</td>\n<td>Individual eSIM profile operations.</td>\n<td>Visibility and management across one or more carriers.</td>\n<td>End-to-end, multi-carrier coordination and automation across the entire device fleet.</td>\n</tr>\n<tr>\n<td>Answers the Question</td>\n<td>How do I provision or switch an eSIM profile?</td>\n<td>What is happening across my SIM estate?</td>\n<td>Which carrier should this device use now, and what should happen if conditions change?</td>\n</tr>\n<tr>\n<td>Carrier Approach</td>\n<td>Typically carrier-specific.</td>\n<td>Often tied to one or a limited set of carriers.</td>\n<td>Operator-neutral and designed for multi-carrier environments.</td>\n</tr>\n<tr>\n<td>Level of Intelligence</td>\n<td>Low. Executes profile operations.</td>\n<td>Medium. Monitors, reports, and provides operational visibility.</td>\n<td>High. Applies policies, automates decisions, executes changes, and validates outcomes.</td>\n</tr>\n<tr>\n<td>Role in SGP.32</td>\n<td>Uses SGP.32 to provision and manage eSIM profiles.</td>\n<td>May leverage SGP.32 data for monitoring and reporting.</td>\n<td>Acts as the orchestration layer that coordinates the complete SGP.32 ecosystem.</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "They all work together, but they operate at different levels. You need RSP to move profiles. You may use a CMP to track usage. But orchestration is what makes your entire fleet behave as one coordinated system."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP is like the postal system that delivers the letter. A CMP is the mailroom manager who tracks what has been sent and received. eSIM orchestration is the logistics director who decides what to send, when, by which route, and what to do if a package gets lost."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For a deeper look at connectivity management platforms, see Spenza’s guide to leading IoT connectivity management platforms."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Having a Remote SIM Provisioning (RSP) solution does not necessarily mean you have eSIM orchestration . Many organizations assume their existing provisioning platform automatically handles carrier switching, but that is rarely the case. Carrier selection logic , fallback policies , and post-switch validation are orchestration capabilities, whereas provisioning simply installs or updates eSIM profiles."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "eSIM Orchestration vs eSIM Management: A Subtle but Important Difference"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM management operates at the profile level. It ensures each individual eSIM profile is correctly configured, active, and functional. Think of it as device-level housekeeping."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration operates at the fleet level. It coordinates carrier selection, policy enforcement, failover, and outcome validation across your entire estate of devices. It does not just ask “Is this profile healthy?” It asks, “Is this device on the best available network for its location, data usage, and cost profile right now?”"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here is a practical example. Imagine a fleet of 5,000 environmental sensors deployed across Europe and Southeast Asia. eSIM management makes sure each sensor has a valid, active profile. eSIM orchestration is what notices that sensors in Thailand are burning through expensive roaming data on a European carrier, automatically switches them to a regional provider, confirms the switch was successful, and flags the five devices where the switch failed for manual review."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Same devices. Entirely different level of control."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How SGP.32 Enables eSIM Orchestration: Architecture Explained"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "SGP.32 is the GSMA standard that makes server-driven eSIM management possible for IoT devices. Unlike the consumer eSIM standard (SGP.22), which relies on a user actively downloading a profile, SGP.32 lets your management system push profile changes to headless devices in the field."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here are the four key components you need to know:"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eIM (eSIM IoT Manager): This is the fleet-side component. It coordinates profile lifecycle operations across your entire device estate, including downloading, enabling, disabling, and switching profiles. Think of it as the conductor of the orchestra."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Do you need an eIM? While enterprises rarely interact with an eIM directly, it becomes increasingly important as deployments grow. Small, single-carrier deployments may not require a dedicated eIM, but organizations managing multi-carrier or multi-country IoT fleets typically rely on one to coordinate profile operations across thousands of devices from a central point."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "IPA (IoT Profile Assistant): This lives on the device itself. It securely receives and executes the instructions the eIM sends. It runs either on the device’s software layer (IPAd) or is embedded directly in the chip (IPAe)."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "SM-DP+ (Subscription Manager Data Preparation Plus): This is where carrier profiles are prepared and stored before being delivered to devices. It is reused from the consumer eSIM infrastructure and works behind the scenes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSO (eSIM Orchestrator): This is the role that ties everything together. The eSO operates the entire SGP.32 environment, including the eIM, SM-DP+, and IPA integration, and exposes it through a unified platform. This is the orchestration layer."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The key change with SGP.32 is the move from a pull model (device requests a profile) to a push model (system sends a profile to the device). For large IoT deployments, this is a fundamental change. Devices do not need human intervention to change networks. The orchestration system handles it."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For a detailed comparison of the two standards, see Spenza’s SGP.22 vs SGP.32 guide ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "SGP.32 standardizes the mechanism for delivering and managing eSIM profiles . It does not standardize the operational intelligence that sits above it. Decisions such as which carrier to use , when to switch profiles , and how to handle failures or exceptions remain the responsibility of the orchestration platform , not the standard itself. As industry analysts have noted, SGP.32 is not a “magic wand” for solving the operational complexity of global, multi-country IoT deployments."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Do You Actually Need eSIM Orchestration?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Not every deployment does. Here is an honest breakdown."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You likely need orchestration if:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "You are managing devices across more than one country or carrier. Your devices are long-life or unattended (sensors, trackers, industrial equipment). You need an automated failover if a carrier goes down. You have cost control requirements across different regions. Your team cannot manually intervene on individual devices at scale."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You may not need full orchestration if:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "You have a small, single-carrier deployment in one region. Your devices are short-lived or easily accessible for manual updates. You are in early-stage testing with fewer than a few hundred devices."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A good rule of thumb: if carrier failure on a subset of your devices would cause a real business problem, and if fixing it manually is not feasible at your scale, orchestration is not a luxury. It is infrastructure."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For more context on how to evaluate connectivity options and avoid carrier lock-in, Spenza’s guide to eliminating carrier lock-in is a useful starting point."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Does eSIM Orchestration Actually Do: The Core Capabilities"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Once you have an orchestration layer in place, here is what it handles day to day:"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Operational Automation"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Dynamic carrier selection: The platform evaluates available carriers for each device based on location, signal quality, cost, and policy rules, and connects devices to the best option."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Automated failover: If a carrier becomes unavailable or degrades below a defined threshold, the orchestration system switches the device to a backup carrier without human intervention."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Policy Control"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Policy enforcement: You define the rules. The orchestration layer enforces them. For example, “never use roaming if a local carrier is available” or “cap monthly data spend per device at a defined limit.”"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Location-aware profile switching: As devices move between regions, the system detects location changes and pushes the appropriate carrier profile automatically."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Fleet Operations"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Exception handling: When a switch fails or a device behaves unexpectedly, the orchestration layer flags it, logs the event, and can trigger remediation workflows."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM Lifecycle management: From provisioning a new device to retiring an old one, orchestration manages the full eSIM lifecycle across the fleet."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Unified billing and analytics: All carrier usage, spend, and performance data is consolidated into a single view, regardless of how many carriers are active across the fleet."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A company like Butlr.io , which deploys spatial intelligence sensors across multiple countries, requires high-bandwidth connectivity in regions with very different carrier ecosystems. Without eSIM orchestration , managing connectivity through separate carrier portals would create significant operational overhead. With orchestration, a centralized platform can automate regional carrier selection , consolidate billing , monitor connectivity across the fleet, and automatically detect and flag anomalies , allowing operations teams to manage global deployments far more efficiently."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Limitations of SGP.32"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "SGP.32 is a meaningful standard. But it has real-world limits that are worth understanding before you build your architecture around it."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. Cross-provider interoperability is still developing."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Not every carrier has fully implemented SGP.32 support, and device compatibility also varies. Before planning a seamless multi-carrier deployment, confirm that your target carriers, device hardware, and eSIM ecosystem all support the required capabilities."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Data sovereignty rules add complexity."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In regions such as the EU, Brazil, and India, regulations governing where subscriber data is processed and stored influence how orchestration platforms are designed and operated. While orchestration simplifies connectivity management, it cannot eliminate these compliance requirements."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. DIY deployments carry real risk."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Building an orchestration layer on top of raw SGP.32 infrastructure is possible, but mistakes can leave devices stranded without a remote recovery path. According to GSMA industry guidance, IoT deployments with limited remote management capabilities often face higher operational costs throughout the device lifecycle."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Orchestration platforms exist precisely to handle these failure modes, with built-in guardrails, fallback logic, and validation steps that a DIY implementation would need to build from scratch."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How to Choose an eSIM Orchestration Platform: What to Look For (and How Spenza Fits)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "When evaluating platforms, here are the criteria that matter:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Operator-neutral: The platform should work with multiple carriers without favoring one over another."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "SGP.22 and SGP.32 support: Consumer and IoT eSIM standards should both be handled from a single control plane."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "API-first architecture: Your orchestration layer should integrate cleanly with your existing systems."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Automated failover: Not just monitoring, but an actual automated response to carrier failures."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Unified billing: One bill, regardless of how many carriers are active."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Analytics and reporting: Visibility into usage, spend, and performance across the entire fleet."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza is an eSIM orchestration platform built around exactly these requirements. It is operator-neutral and multi-carrier by design, unifies SGP.22 and SGP.32 behind a single control plane, and includes eIM integration, location-aware profile switching, automated failover, and unified billing. Because Spenza is not tied to any single carrier, it acts as a genuine advocate for the best connectivity outcome rather than a reseller of a preferred network."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For organizations that are also thinking about how their connectivity strategy connects to broader telecom expense management , Spenza’s platform covers that journey from cost control through to full MVNO enablement. You can also explore how multi-IMSI compares to eUICC for a broader view of your technology options."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As enterprises expand connected device deployments across regions and carriers, connectivity management becomes an operational challenge rather than a provisioning one. eSIM orchestration keeps devices connected, enforces business policies, and simplifies operations through a centralized control layer that makes large-scale deployments easier to manage."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As SGP.32 adoption grows and carrier ecosystems mature, organizations that embrace policy-driven, multi-carrier orchestration will be better positioned to improve resilience, control costs, and adapt to changing business and regulatory requirements. For connected products at scale, orchestration is rapidly becoming a foundational capability."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If you are evaluating how orchestration fits into your connectivity strategy, see Spenza’s orchestration platform in action or explore the full guide to eSIM orchestration for IoT use cases as your next step."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM orchestration is the centralized orchestration layer that automates carrier selection, profile lifecycle management, and connectivity policies across an entire fleet of connected devices."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A CMP provides visibility into SIMs, usage, and connectivity, while eSIM orchestration adds policy-based automation, multi-carrier coordination, and intelligent decision-making."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "No. RSP is the mechanism for securely downloading and managing eSIM profiles, while orchestration decides which profiles to use, when to switch, and verifies that changes succeed."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM management focuses on individual profile lifecycle operations, while orchestration coordinates carriers, policies, automation, and connectivity across the entire device fleet."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An eSIM IoT Manager (eIM) is the SGP.32 component that coordinates profile operations across connected IoT devices and enables centralized fleet management."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Not necessarily. SGP.32 enables standardized IoT orchestration, but many orchestration platforms also support existing standards like SGP.22 to manage mixed device deployments."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Ready to orchestrate connectivity across multiple carriers from one platform? Book a demo to see Spenza in action."
+        }
+      ],
+      "links": [
+        {
+          "text": "eSIM",
+          "href": "/esim/iot-esim-introduction/"
+        },
+        {
+          "text": "Remote SIM Provisioning (RSP)",
+          "href": "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/"
+        },
+        {
+          "text": "Connectivity Management Platforms (CMPs)",
+          "href": "/telecom/what-is-connectivity-management-platform-cmp/"
+        },
+        {
+          "text": "GSMA introduced SGP.32",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/gsma_resources/sgp-32-v1-3/"
+        },
+        {
+          "text": "Spenza’s SGP.22 vs SGP.32 guide",
+          "href": "/esim/sgp-22-vs-sgp-32-esim-standards-guide/"
+        },
+        {
+          "text": "Spenza’s guide to eliminating carrier lock-in",
+          "href": "/esim/eliminate-carrier-lock-in-esim/"
+        },
+        {
+          "text": "telecom expense management",
+          "href": "/tem/tem/"
+        },
+        {
+          "text": "how multi-IMSI compares to eUICC",
+          "href": "/esim/multi-imsi-vs-euicc-guide-iot/"
+        },
+        {
+          "text": "Spenza’s orchestration platform",
+          "href": "/"
+        },
+        {
+          "text": "eSIM orchestration for IoT use cases",
+          "href": "/esim/esim-orchestration-global-iot/"
+        },
+        {
+          "text": "",
+          "href": "https://www.choiceiot.com/blog/why-using-a-multi-carrier-platform-is-important-to-solution-providers/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.grandviewresearch.com/industry-analysis/managed-services-market?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "Book a demo",
+          "href": "https://calendly.com/spenza/discovery"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-us/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png",
+          "class": "attachment-full size-full wp-image-20585 webpexpress-processed",
+          "alt": "What Is eSIM Orchestration? The 2026 Guide",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png\" class=\"attachment-full size-full wp-image-20585 webpexpress-processed\" alt=\"What Is eSIM Orchestration? The 2026 Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1672",
+          "height": "941",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image.png",
+          "alt": "Enterprise devices connected to multiple mobile carriers through a centralized eSIM orchestration layer. ",
+          "class": "wp-image-20586",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image.png 1672w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-1536x864.png 1536w",
+          "sizes": "(max-width: 1672px) 100vw, 1672px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1672\" height=\"941\" src=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image.png\" alt=\"Enterprise devices connected to multiple mobile carriers through a centralized eSIM orchestration layer. \" class=\"wp-image-20586\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image.png 1672w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-Hero-Image-1536x864.png 1536w\" sizes=\"(max-width: 1672px) 100vw, 1672px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "576",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-1024x576.png",
+          "alt": "Layer diagram showing Remote SIM Provisioning, Connectivity Management Platform, and eSIM Orchestration as three separate layers. ",
+          "class": "wp-image-20588",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack.png 1672w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"576\" src=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-1024x576.png\" alt=\"Layer diagram showing Remote SIM Provisioning, Connectivity Management Platform, and eSIM Orchestration as three separate layers. \" class=\"wp-image-20588\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Connectivity-Stack.png 1672w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-1024x683.png",
+          "alt": "Technical architecture diagram illustrating how enterprise applications interact with the eSIM Orchestrator (eSO), eSIM IoT Manager (eIM), SM-DP+, IoT Profile Assistant (IPA), and connected IoT devices within the GSMA SGP.32 ecosystem.\n",
+          "class": "wp-image-20589",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-1024x683.png\" alt=\"Technical architecture diagram illustrating how enterprise applications interact with the eSIM Orchestrator (eSO), eSIM IoT Manager (eIM), SM-DP+, IoT Profile Assistant (IPA), and connected IoT devices within the GSMA SGP.32 ecosystem.\n\" class=\"wp-image-20589\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-SGP.32-Enterprise-Architecture.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "576",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-1024x576.png",
+          "alt": "Comparison showing fragmented enterprise connectivity management versus centralized eSIM orchestration across multiple carriers and devices.\n",
+          "class": "wp-image-20591",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO.png 1672w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"576\" src=\"https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-1024x576.png\" alt=\"Comparison showing fragmented enterprise connectivity management versus centralized eSIM orchestration across multiple carriers and devices.\n\" class=\"wp-image-20591\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/07/With-eSO-vs.-Without-eSO.png 1672w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "576",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-1024x576.png",
+          "alt": "Illustration showing Spenza providing one operator-neutral platform for managing connectivity across multiple mobile carriers. \n",
+          "class": "wp-image-20592",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza.png 1672w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"576\" src=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-1024x576.png\" alt=\"Illustration showing Spenza providing one operator-neutral platform for managing connectivity across multiple mobile carriers. \n\" class=\"wp-image-20592\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza-1536x864.png 1536w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-Orchestration-with-Spenza.png 1672w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "eSIM orchestration is the intelligent control layer that automates connectivity across multiple carriers, devices, and regions using centralized policies. While SGP.32 enables remote eSIM profile management for IoT, orchestration decides when, why, and how profiles should switch. It helps enterprises improve resilience, reduce costs, automate failover, and manage large IoT fleets without manual intervention.",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+            "title": "eSIM Orchestration Goes Beyond eSIM Management",
+            "text": "Unlike basic eSIM management or Remote SIM Provisioning (RSP), orchestration coordinates connectivity across an entire fleet. It makes policy-driven decisions on carrier selection, profile switching, and network optimization."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"robot\", \"label\" : \"Robot\", \"unicode\" : \"f544\"}",
+            "title": "SGP.32 Enables, But Doesn't Replace Orchestration",
+            "text": "SGP.32 provides the technical framework for remotely managing IoT eSIM profiles. However, the intelligence for choosing carriers, enforcing policies, and validating profile changes comes from the orchestration platform."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"up-right-and-down-left-from-center\", \"label\" : \"Up Right And Down Left From Center\", \"unicode\" : \"f424\"}",
+            "title": "Built for Large-Scale, Multi-Carrier IoT Deployments",
+            "text": "Organizations operating across multiple countries or networks benefit from automated carrier switching, failover, and centralized visibility. This reduces manual effort while improving connectivity reliability."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
+            "title": "Automation Improves Cost, Reliability, and Operations",
+            "text": "An orchestration platform continuously applies business policies, detects connectivity issues, switches networks when needed, and consolidates usage and billing into a single operational view."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Choosing the Right Platform Matters",
+            "text": "An effective eSIM orchestration platform should be operator-neutral, support both SGP.22 and SGP.32, offer API integrations, automated failover, unified billing, and analytics to simplify enterprise connectivity management."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/esim/what-is-esim-orchestration/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/esim/what-is-esim-orchestration/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "What Is eSIM Orchestration? The 2026 Guide",
+              "datePublished": "2026-07-10T06:37:34+00:00",
+              "dateModified": "2026-07-10T06:37:36+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/esim/what-is-esim-orchestration/"
+              },
+              "wordCount": 2411,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/what-is-esim-orchestration/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png",
+              "keywords": [
+                "Carrier Switching",
+                "Connectivity Management Platform (CMP)",
+                "Enterprise IoT Connectivity",
+                "eSIM IoT Manager (eIM)",
+                "eSIM management",
+                "eSIM orchestration",
+                "IoT connectivity",
+                "Multi-Carrier eSIM",
+                "Remote SIM Provisioning (RSP)",
+                "SGP.32"
+              ],
+              "articleSection": [
+                "eSIM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/esim/what-is-esim-orchestration/",
+              "url": "https://spenza.com/esim/what-is-esim-orchestration/",
+              "name": "What Is eSIM Orchestration? The 2026 Guide - Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/esim/what-is-esim-orchestration/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/what-is-esim-orchestration/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png",
+              "datePublished": "2026-07-10T06:37:34+00:00",
+              "dateModified": "2026-07-10T06:37:36+00:00",
+              "description": "eSIM orchestration explained: how multi-carrier profile control works, how it differs from a CMP, and why SGP.32 made it the 2026 battleground.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/esim/what-is-esim-orchestration/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/esim/what-is-esim-orchestration/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/esim/what-is-esim-orchestration/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2026/07/What-Is-eSIM-Orchestration-The-2026-Guide-to-Multi-Carrier-Control.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "What Is eSIM Orchestration? The 2026 Guide"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/esim/what-is-esim-orchestration/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "eSIM",
+                  "item": "https://spenza.com/category/esim/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "What Is eSIM Orchestration? The 2026 Guide"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

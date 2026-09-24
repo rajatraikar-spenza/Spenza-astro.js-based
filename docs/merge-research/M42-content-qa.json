@@ -1,0 +1,51 @@
+{
+  "cluster": "M42",
+  "before": [
+    {
+      "path": "/esim/esim-orchestration-global-iot/",
+      "bodyWords": 2596,
+      "tldrWords": 85
+    },
+    {
+      "path": "/esim/deploy-multi-network-esim-rsp-aggregation/",
+      "bodyWords": 2300,
+      "tldrWords": 160
+    },
+    {
+      "path": "/esim/what-is-esim-orchestration/",
+      "bodyWords": 2599,
+      "tldrWords": 218
+    }
+  ],
+  "combinedBeforeWords": 7958,
+  "bodyWords": 2374,
+  "tldrWords": 134,
+  "totalWords": 2508,
+  "internal": [
+    "/esim/esim/",
+    "/connected-devices/",
+    "/esim/esim-for-enterprises-business-enabler-2025/",
+    "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/esim/iot-esim-introduction/",
+    "/spenza-product/butlr-iot-spenza-casestudy/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2023/12/SGP.22-v3.1.pdf",
+    "https://www.simplexwireless.com/2025/12/09/lessons-learned-while-going-through-the-sgp-32-esim-journey/",
+    "https://kigen.com/resources/blog/sgp-32-reality-check-is-iot-esim-ready/"
+  ],
+  "images": {
+    "reused": 3,
+    "generated": 1
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: versioned module/eUICC/firmware/IPA/eIM/SM-DP+ and operator-profile compatibility matrix plus redacted successful and failed multi-profile campaign traces, including offline recovery and application validation, from product and delivery engineering.]",
+    "[EVIDENCE NEEDED: Butlr deployment cohort, dated regional milestones and redacted operations screenshot with publication approval, from the account owner and customer marketing.]",
+    "[EVIDENCE NEEDED: matched campaign usage, carrier invoices, support and recovery costs, service interruption measurements and final subscription closure records, from fleet operations and finance.]"
+  ],
+  "informationGain": 7
+}

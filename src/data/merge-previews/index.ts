@@ -88,11 +88,80 @@ import m28Content from './esim-for-enterprises-business-enabler-2025.html?raw';
 import m30Content from './iot-esim-introduction.html?raw';
 import m33Content from './esim-vs-traditional-sims.html?raw';
 import m36Content from './esim-for-smart-devices-2025.html?raw';
+import m42Content from './esim-orchestration-global-iot.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "esim-orchestration-global-iot": {
+  "slug": "esim-orchestration-global-iot",
+  "category": "esim",
+  "cluster": "M42: eSIM orchestration",
+  "title": "eSIM Orchestration for IoT: Architecture and Operations",
+  "seoTitle": "eSIM Orchestration for IoT: Architecture and Operations",
+  "seoDescription": "Plan IoT eSIM orchestration with clear policy ownership, SGP.32 architecture, RSP aggregation, recovery checks and evidence for each profile change.",
+  "excerpt": "Separate policy decisions from remote provisioning, then evaluate aggregation, recovery and service verification across a multi-carrier IoT fleet.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "eSIM orchestration joins authorized connectivity decisions with profile operations, service verification and exception handling. RSP aggregation can normalize supported carrier integrations, while SGP.32 supplies IoT profile-management mechanisms that differ from consumer SGP.22. Neither a common API nor multiple stored profiles guarantees service recovery. Evaluate a versioned device configuration, test failures and verify application behavior before expanding a campaign. The published Butlr case supports regional operational coordination, not an unrecorded protocol implementation.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Start with the workflow",
+        "text": "Assign policy, provisioning, service and billing responsibilities."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Keep architectures distinct",
+        "text": "Verify the consumer or IoT components required by each device."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Bound the aggregation scope",
+        "text": "Confirm supported carriers, operations and commercial agreements."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Prove recovery behavior",
+        "text": "Test unavailable devices, failed changes and delayed reconnection."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Accept recorded outcomes",
+        "text": "Require profile, network, application and commercial records for the pilot."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/10/eSIM-Orchestration-for-IoT.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png\" class=\"attachment-full size-full wp-image-12910 webpexpress-processed\" alt=\"eSIM Orchestration for IoT: Benefits, Use Cases, and the Future of Global Connectivity\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/eSIM-Orchestration-for-IoT.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "eSIM Orchestration for IoT: Architecture and Operations",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-10-31T07:03:16+00:00",
+  "updatedDate": "2026-09-24T07:00:09.818Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2596,
+  "donors": [
+    {
+      "path": "/esim/deploy-multi-network-esim-rsp-aggregation/",
+      "title": "RSP Aggregation: Deploy Multi-Network eSIM Profiles",
+      "clicks": 151,
+      "contributes": "Repeated RSP basics and unsupported automatic switching claims"
+    },
+    {
+      "path": "/esim/what-is-esim-orchestration/",
+      "title": "What Is eSIM Orchestration? The 2026 Guide",
+      "clicks": 57,
+      "contributes": "Repeated RSP basics and unsupported automatic switching claims"
+    }
+  ],
+  "content": m42Content
+},
   "esim-for-smart-devices-2025": {
   "slug": "esim-for-smart-devices-2025",
   "category": "esim",
