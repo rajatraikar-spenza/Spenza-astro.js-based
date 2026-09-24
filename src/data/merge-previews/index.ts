@@ -87,11 +87,80 @@ import m14Content from './esim-only-mvnos-2025.html?raw';
 import m28Content from './esim-for-enterprises-business-enabler-2025.html?raw';
 import m30Content from './iot-esim-introduction.html?raw';
 import m33Content from './esim-vs-traditional-sims.html?raw';
+import m36Content from './esim-for-smart-devices-2025.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "esim-for-smart-devices-2025": {
+  "slug": "esim-for-smart-devices-2025",
+  "category": "esim",
+  "cluster": "M36: OEM eSIM deployment",
+  "title": "eSIM for OEMs: Smart Device Design and Launch Guide",
+  "seoTitle": "eSIM for OEMs: Smart Device Design and Launch Guide",
+  "seoDescription": "Design eSIM-enabled smart devices around compatible modules, provisioning ownership, regional service, activation evidence and a sustainable OEM service model.",
+  "excerpt": "Connect hardware and SKU choices with profile provisioning, customer onboarding and the responsibilities of running a recurring connectivity service.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "eSIM for OEMs connects remote profile management with the design and operation of a smart-device service. Start with compatible modules, eUICC software and the correct consumer or IoT provisioning architecture. A shared hardware SKU remains conditional on radio, approval and service requirements. Assign factory, platform, carrier and support responsibilities, then verify first use, recovery and retirement. The approved Angel Watch case supports regional plans and bundled onboarding; it does not supply a universal attach-rate or launch-time benchmark.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Validate the complete product",
+        "text": "Radio, firmware, profiles and target-market service must fit together."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Assign every handoff",
+        "text": "Name the OEM, platform, carrier and support responsibilities."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Test the full lifecycle",
+        "text": "Include failed setup, replacement, returns and cancellation."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Measure separate states",
+        "text": "Distinguish eligible devices, working service and collected revenue."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Use the published case precisely",
+        "text": "Angel Watch demonstrates device-specific plans and bundled onboarding, with further metrics requiring approved records."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product.png\" class=\"attachment-full size-full wp-image-20599 webpexpress-processed\" alt=\"eSIM for OEMs: The 2026 Embedded Connectivity Guide\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/07/eSIM-for-OEMs-Embed-Connectivity-in-Your-Product.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "eSIM for OEMs: Smart Device Design and Launch Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-03-21T07:24:00+00:00",
+  "updatedDate": "2026-09-24T06:50:00.356Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2358,
+  "donors": [
+    {
+      "path": "/esim/embedded-connectivity-reshaping-tech-2025/",
+      "title": "How Embedded Connectivity Is Reshaping Tech Products in 2026",
+      "clicks": 3,
+      "contributes": "OEM device requirements, embedded connectivity and SKU considerations. Source sections to inspect: Deliver Seamless Out-of-Box Connectivity; Create Recurring Revenue From Connectivity; Build Loyalty With Connected Products; Embed Connectivity Across Industries"
+    },
+    {
+      "path": "/esim/esim-for-oems/",
+      "title": "eSIM for OEMs: The 2026 Embedded Connectivity Guide",
+      "clicks": 0,
+      "contributes": "OEM device requirements, embedded connectivity and SKU considerations. Source sections to inspect: eSIM Is Becoming the Standard for OEMs; Key Benefits of Embedded Connectivity; Managing Connectivity Throughout; Multi-Carrier eSIM Enables Global Deployments"
+    }
+  ],
+  "content": m36Content
+},
   "esim-vs-traditional-sims": {
   "slug": "esim-vs-traditional-sims",
   "category": "esim",

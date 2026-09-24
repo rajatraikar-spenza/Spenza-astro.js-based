@@ -1,0 +1,53 @@
+{
+  "cluster": "M36",
+  "before": [
+    {
+      "path": "/esim/esim-for-smart-devices-2025/",
+      "bodyWords": 2358,
+      "tldrWords": 266
+    },
+    {
+      "path": "/esim/embedded-connectivity-reshaping-tech-2025/",
+      "bodyWords": 1765,
+      "tldrWords": 4
+    },
+    {
+      "path": "/esim/esim-for-oems/",
+      "bodyWords": 2236,
+      "tldrWords": 224
+    }
+  ],
+  "combinedBeforeWords": 6853,
+  "bodyWords": 2440,
+  "tldrWords": 146,
+  "totalWords": 2586,
+  "internal": [
+    "/esim/esim/",
+    "/connected-devices/",
+    "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "/esim/iot-esim-introduction/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/esim/esim-for-enterprises-business-enabler-2025/",
+    "/telecom/angel-watch-iot-business-casestudy/"
+  ],
+  "external": [
+    "https://trustedconnectivity.valid.com/knowledge-hub/esim-for-oems-device-manufacturers/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2023/12/SGP.22-v3.1.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://support.apple.com/en-us/119601",
+    "https://support.google.com/googlepixelwatch/answer/13541778",
+    "https://www.telit.com/next-esim-factory-provisioning/"
+  ],
+  "images": {
+    "reused": 1,
+    "generated": 3
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: supported OEM module/eUICC/firmware/architecture/carrier matrix and redacted factory-to-first-use provisioning plus failure-recovery trace, from product and manufacturing engineering.]",
+    "[EVIDENCE NEEDED: Angel Watch eligible device cohort, dated rollout milestones, measured attach-rate numerator and denominator if that claim is desired, and redacted operations screenshot with publication approval, from the account owner and customer marketing.]",
+    "[EVIDENCE NEEDED: OEM subscription cohort revenue, activation, support, refunds, retention and contribution records with observation periods, from growth, operations and finance.]"
+  ],
+  "informationGain": 7
+}

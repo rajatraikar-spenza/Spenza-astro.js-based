@@ -1,0 +1,185 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What does eSIM enable for an OEM?",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Choose modules and SKUs around the complete product",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 54,
+      "idCount": 1
+    },
+    {
+      "text": "Match architecture and service eligibility to the device category",
+      "id": "elementor-toc__heading-anchor-7",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Assign provisioning ownership from factory to support",
+      "id": "elementor-toc__heading-anchor-6",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Test first use, replacement and retirement as one lifecycle",
+      "id": "elementor-toc__heading-anchor-9",
+      "openingWords": 52,
+      "idCount": 1
+    },
+    {
+      "text": "Measure commercialization with defined service states",
+      "id": "commercialization",
+      "openingWords": 52,
+      "idCount": 1
+    },
+    {
+      "text": "Apply the Angel Watch lesson to a scoped OEM pilot",
+      "id": "elementor-toc__heading-anchor-8",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "eSIM for OEMs FAQs",
+      "id": "FAQs",
+      "openingWords": 49,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    50,
+    50,
+    48,
+    50,
+    49,
+    50
+  ],
+  "calloutWords": [
+    34,
+    30,
+    35,
+    33,
+    37
+  ],
+  "images": [
+    {
+      "src": "http://localhost:4321/blog-media/oem-esim/sku-boundaries.png",
+      "currentSrc": "http://localhost:4321/blog-media/oem-esim/sku-boundaries.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "OEM global SKU limits include radio design, product approval and service support"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/oem-esim/provisioning-owners.png",
+      "currentSrc": "http://localhost:4321/blog-media/oem-esim/provisioning-owners.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "OEM, platform partner and carrier have distinct provisioning responsibilities"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/oem-esim/commercial-states.png",
+      "currentSrc": "http://localhost:4321/blog-media/oem-esim/commercial-states.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "OEM connectivity measurement separates eligible devices, working service and paying subscriptions"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What does eSIM enable for an OEM?",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "Choose modules and SKUs around the complete product",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "Match architecture and service eligibility to the device category",
+      "href": "#elementor-toc__heading-anchor-7"
+    },
+    {
+      "text": "Assign provisioning ownership from factory to support",
+      "href": "#elementor-toc__heading-anchor-6"
+    },
+    {
+      "text": "Test first use, replacement and retirement as one lifecycle",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "Measure commercialization with defined service states",
+      "href": "#commercialization"
+    },
+    {
+      "text": "Apply the Angel Watch lesson to a scoped OEM pilot",
+      "href": "#elementor-toc__heading-anchor-8"
+    },
+    {
+      "text": "eSIM for OEMs FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}
