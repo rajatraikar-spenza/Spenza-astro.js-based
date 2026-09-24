@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-09-24",
+  "hub": "eSIM & Provisioning",
+  "gate": {
+    "passed": 7,
+    "total": 7
+  },
+  "build": {
+    "pages": 927,
+    "astroErrors": 0,
+    "astroWarnings": 0,
+    "existingHints": 72
+  },
+  "dist": {
+    "files": 1837,
+    "html": 927,
+    "localAssetReferences": 625,
+    "mediaHostReferences": 21583,
+    "missingAssets": 0,
+    "strandedMedia": 0
+  },
+  "informationGain": {
+    "M01": 7,
+    "M14": 7,
+    "M28": 7,
+    "M30": 7,
+    "M33": 7,
+    "M36": 7,
+    "M42": 7
+  },
+  "wordCounts": {
+    "before": 45260,
+    "after": 17503
+  },
+  "images": {
+    "reused": 13,
+    "newCompositions": 15
+  },
+  "authorFlips": []
+}

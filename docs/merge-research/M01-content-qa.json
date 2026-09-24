@@ -43,5 +43,10 @@
   },
   "author": "Spenza",
   "flipped": false,
-  "evidence": []
+  "evidence": [
+    "[EVIDENCE NEEDED: exact supported eUICC/module/firmware, IPA or LPA and server-version compatibility matrix, from product engineering.]",
+    "[EVIDENCE NEEDED: redacted provisioning trace including bootstrap, download, enable, network registration, application check and one failed-operation recovery, from delivery engineering.]",
+    "[EVIDENCE NEEDED: approved device cohort, dated deployment milestones and redacted operations screenshot for the Angel Watch example, from the account owner and customer marketing.]"
+  ],
+  "informationGain": 7
 }
