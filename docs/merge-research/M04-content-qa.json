@@ -1,0 +1,58 @@
+{
+  "cluster": "M04",
+  "before": [
+    {
+      "path": "/telecom/iot-connectivity-types-guide-2025/",
+      "bodyWords": 2423,
+      "tldrWords": 280
+    },
+    {
+      "path": "/iot/iot-connectivity-comparison/",
+      "bodyWords": 3027,
+      "tldrWords": 212
+    },
+    {
+      "path": "/esim/iot-connectivity-solutions/",
+      "bodyWords": 2705,
+      "tldrWords": 105
+    },
+    {
+      "path": "/telecom/choosing-iot-device-connectivity-2025/",
+      "bodyWords": 3084,
+      "tldrWords": 203
+    }
+  ],
+  "combinedBeforeWords": 12039,
+  "bodyWords": 2246,
+  "tldrWords": 130,
+  "totalWords": 2376,
+  "internal": [
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/iot-solutions/",
+    "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
+    "/telecom/what-is-connectivity-management-platform-cmp/",
+    "/telecom/iot-connectivity-management-platform/",
+    "/spenza-product/butlr-iot-spenza-casestudy/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/wp-content/uploads/2022/10/Mobile-IOT-Deployment-Guide-October-2022.pdf",
+    "https://lora-alliance.org/about-lorawan-old/",
+    "https://www.bluetooth.com/learn-about-bluetooth/key-attributes/range/",
+    "https://csa-iot.org/all-solutions/matter/matter-faq/",
+    "https://www.etsi.org/deliver/etsi_tr/121900_121999/121917/17.00.01_60/tr_121917v170001p.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/gsma_resources/energy-efficiency-mobile-iot/"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: anonymized fleet usage and coverage/power/application pilot results with test conditions, from fleet operations and engineering]",
+    "[EVIDENCE NEEDED: supported module/band/operator architecture matrix approved for the offered service, from product and delivery engineering]",
+    "[EVIDENCE NEEDED: approved Butlr deployment cohort, dated regional milestones and redacted operations screenshot, from the account owner and customer marketing]"
+  ],
+  "informationGain": 7
+}

@@ -89,11 +89,86 @@ import m30Content from './iot-esim-introduction.html?raw';
 import m33Content from './esim-vs-traditional-sims.html?raw';
 import m36Content from './esim-for-smart-devices-2025.html?raw';
 import m42Content from './esim-orchestration-global-iot.html?raw';
+import m04Content from './iot-connectivity-types-guide-2025.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "iot-connectivity-types-guide-2025": {
+  "slug": "iot-connectivity-types-guide-2025",
+  "category": "telecom",
+  "cluster": "M04: IoT connectivity selection",
+  "title": "IoT Connectivity Types: Compare Networks and Choose a Stack",
+  "seoTitle": "IoT Connectivity Types: A Practical Selection Guide",
+  "seoDescription": "Compare IoT connectivity types by coverage, power, mobility and operating cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.",
+  "excerpt": "Choose a connectivity stack by device requirements, service support and field evidence, with a comparison matrix and deployment acceptance checklist.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "IoT connectivity types include cellular, noncellular LPWAN, local wireless, satellite and wired connections. Choose a complete device-to-application path using coverage, power, payload, mobility and ownership requirements. Verify the exact modem and service together; eSIM cannot add radio capability. Include gateways, support and migration in the cost model. A field pilot should prove useful delivery and operating control, not just a successful connection. The published Butlr case illustrates regional service coordination, not a universal radio recommendation.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Define the application",
+        "text": "Record payloads, command timing, mobility and power limits."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Compare complete paths",
+        "text": "Include local gateways and their upstream connections."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Verify the offered service",
+        "text": "Check bands, operators, roaming and supported features."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Price the lifecycle",
+        "text": "Assign infrastructure, support and migration responsibilities."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Accept field evidence",
+        "text": "Retain delivery, power, incident and cost records."
+      }
+    ]
+  },
+  "featuredImage": "/blog-media/iot-connectivity-types/IoT-Connectivity-Types-How-to-Choose.png",
+  "featuredImageMarkup": "<picture><source srcset=\"/blog-media/iot-connectivity-types/IoT-Connectivity-Types-How-to-Choose.webp\" type=\"image/webp\"><img src=\"/blog-media/iot-connectivity-types/IoT-Connectivity-Types-How-to-Choose.png\" alt=\"IoT Connectivity Types: Compare Networks and Choose a Stack\" width=\"1280\" height=\"720\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "IoT Connectivity Types: Compare Networks and Choose a Stack",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-01-07T10:07:00+00:00",
+  "updatedDate": "2026-09-24T07:50:47.265Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2423,
+  "donors": [
+    {
+      "path": "/iot/iot-connectivity-comparison/",
+      "title": "IoT Connectivity 2026: Cellular, LPWAN and NTN Compared",
+      "clicks": 6,
+      "contributes": "Radio comparisons, decision criteria and device requirements. Source sections to inspect: Choose Connectivity Based on the Use Case; LPWAN and NTN Extend IoT Coverage; eSIM Enables Flexible IoT Connectivity; Future-Proof the Connectivity Stack"
+    },
+    {
+      "path": "/esim/iot-connectivity-solutions/",
+      "title": "IoT Connectivity Solutions in 2026: A Buyer's Guide",
+      "clicks": 1,
+      "contributes": "Radio comparisons, decision criteria and device requirements. Source sections to inspect: Connectivity defines success; Technology depends on context; Networks work together; Decisions need a framework"
+    },
+    {
+      "path": "/telecom/choosing-iot-device-connectivity-2025/",
+      "title": "IoT Device Connectivity: A 2026 Buyer's Guide",
+      "clicks": 2,
+      "contributes": "Radio comparisons, decision criteria and device requirements. Source sections to inspect: Match Connectivity to the Use Case; Choose Between Wi-Fi, BLE, Zigbee, and LPWAN; Use Cellular IoT for Scalable Deployments; Future-Proof IoT Connectivity with eSIM"
+    }
+  ],
+  "content": m04Content
+},
   "esim-orchestration-global-iot": {
   "slug": "esim-orchestration-global-iot",
   "category": "esim",
