@@ -1,0 +1,65 @@
+{
+  "cluster": "M25",
+  "before": [
+    {
+      "path": "/telecom/iot-connectivity-cost-guide-2025/",
+      "bodyWords": 3004,
+      "tldrWords": 116
+    },
+    {
+      "path": "/telecom/iot-fleet-cost-management-2025/",
+      "bodyWords": 1970,
+      "tldrWords": 279
+    },
+    {
+      "path": "/esim/iot-data-plans-cost-optimization/",
+      "bodyWords": 2769,
+      "tldrWords": 136
+    },
+    {
+      "path": "/telecom/choosing-iot-connectivity-plan/",
+      "bodyWords": 1407,
+      "tldrWords": 77
+    },
+    {
+      "path": "/telecom/iot-connectivity/",
+      "bodyWords": 1368,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 11130,
+  "bodyWords": 2421,
+  "tldrWords": 123,
+  "totalWords": 2544,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/iot-solutions/",
+    "/iot/fleet-automotive-iot-connectivity-costs/",
+    "/iot/global-iot-connectivity-2026/",
+    "/telecom/iot-connectivity-management-platform/",
+    "/telecom/cellular-identifiers-iccid-imsi-imei-eid-msisdn-tac-guide/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://www.1nce.com/en-us/1nce-connect/pricing",
+    "https://aws.amazon.com/iot-core/pricing/",
+    "https://developers.soracom.io/en/docs/reference/data-usage-calculation/",
+    "https://iot.telenor.com/offering/iot-complete/pricing/",
+    "https://developers.soracom.io/en/docs/air/subscriber-status/",
+    "https://developers.soracom.io/en/docs/account/billing/"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: anonymized fleet usage distribution with billing periods, eligible pools, invoices and an approved before/after cost baseline, from finance and fleet operations]",
+    "[EVIDENCE NEEDED: supported lifecycle and usage-control trace, operator-approved architecture and redacted operations screenshot, from product and delivery engineering]",
+    "[EVIDENCE NEEDED: approved cohort and dated milestones for the published Butlr regional rollout, from the account owner and customer marketing]"
+  ],
+  "informationGain": 7
+}
