@@ -95,6 +95,17 @@ Take an existing hero as the base, generate **only the right-hand art panel**
 (square-ish, ~1100×900, no text, no logo, no border), set the title in the
 template, export 1280×720. Full geometry in §5 of the reference.
 
+**The title is the part that fails.** Set it at **weight 700 or heavier**, with
+a **cap height of at least 40px** on the 1280 canvas, filling **440 to 600px**
+of the left column. A high-contrast serif at regular weight and 20px cap height
+turns to hairlines and greys out at thumbnail size, which is where a featured
+image is actually seen. Use Playfair Display, Prata, Bodoni Moda or Libre
+Baskerville at 700+, never condensed.
+
+Before accepting a hero, scale it to 320px wide and look at it. If strokes
+disappear, raise the weight or shorten the title. **Never shrink the type to
+fit the words.**
+
 Name it after the post title in Title-Case-Hyphenated.
 
 ## Step 6 — Optimise what comes back

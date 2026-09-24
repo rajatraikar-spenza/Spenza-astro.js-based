@@ -167,9 +167,37 @@ Measured across four 2026 posts, the frame is pixel-identical:
 | `spenza.com` badge | **x=501–777, y=648–691. Identical on every post.** |
 | Art panel | right-aligned to x≈1207, between 446 and 578 wide, 348 to 515 tall, vertically centred in the upper portion |
 
+### The title is where this goes wrong
+
 **Title:** all caps, high-contrast serif, near-black, left-aligned, maximum
-three lines. It is the post title, shortened if needed — it is read at
+three lines. It is the post title, shortened if needed, because it is read at
 thumbnail size.
+
+A high-contrast serif set light and small is the single most common failure
+here. The thin strokes of a Didone are hairlines by design; at 28px they thin
+to almost nothing and the word breaks up. Measured against the live heroes,
+generated ones have come in at roughly half the size they should be and a
+fraction of the weight.
+
+| Property | Required | What failed |
+| :------- | :------- | :---------- |
+| Weight | **700 or heavier.** Never regular or light. | 400 weight — hairlines vanished |
+| Cap height | **40px minimum** on a 1280 canvas | ~20px, unreadable at thumbnail |
+| Line height | 48 to 60px per line at 1280 | 38px, cramped |
+| Block width | **fills 440 to 600px** of the left column | 341 to 388px, floating in dead space |
+| Left edge | x = 72 | correct |
+| Lines | 3 maximum | correct |
+
+**Safe faces at 700+:** Playfair Display, Prata, Bodoni Moda, Libre Baskerville.
+All are high-contrast serifs that hold up bold. Do not set any of them below
+700, and do not use a condensed cut.
+
+**Check it the way a reader will.** Scale the finished hero to 320px wide and
+look at it. If the thin strokes disappear or the words grey out, the weight is
+too low or the size too small. That is the test, not how it looks at full size.
+
+If the title will not fit three lines at 40px cap height, **shorten the title**.
+Do not shrink the type to fit the words.
 
 **"LEARN MORE" pill:** solid brand orange, white letterspaced caps, fully
 rounded ends.
