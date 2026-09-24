@@ -85,13 +85,13 @@
       "alt": "Cellular options range from small sensor messages to mobile and higher-data applications"
     },
     {
-      "src": "http://localhost:4321/blog-media/iot-connectivity-types/pilot-evidence.png",
-      "currentSrc": "http://localhost:4321/blog-media/iot-connectivity-types/pilot-evidence.webp",
+      "src": "http://localhost:4321/blog-media/iot-connectivity-types/local-link-backhaul-cutaway.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-connectivity-types/local-link-backhaul-cutaway.webp",
       "natural": [
         1600,
         900
       ],
-      "alt": "Accept lab capability, field service and operating-control evidence before fleet rollout"
+      "alt": "Local sensor links converge on a gateway and depend on a separate backhaul path to the application"
     }
   ],
   "tldrCards": 5,
@@ -170,6 +170,11 @@
       },
       {
         "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
         "scroll": 580,
         "overflow": "auto"
       },
