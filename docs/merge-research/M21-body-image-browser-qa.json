@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/mvne-explained/separable-service-contributions.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvne-explained/separable-service-contributions.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvne-explained/incident-context-loop.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvne-explained/incident-context-loop.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvne-explained/reseller-account-hierarchy.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvne-explained/reseller-account-hierarchy.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
