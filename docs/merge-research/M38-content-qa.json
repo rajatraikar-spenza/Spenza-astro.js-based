@@ -1,0 +1,47 @@
+{
+  "cluster": "M38",
+  "before": [
+    {
+      "path": "/esim/smart-city-iot-connectivity-playbook-2026/",
+      "bodyWords": 2504,
+      "tldrWords": 102
+    },
+    {
+      "path": "/mvno/mvno-opportunities-smart-cities-urban-iot/",
+      "bodyWords": 2499,
+      "tldrWords": 162
+    }
+  ],
+  "combinedBeforeWords": 5267,
+  "bodyWords": 2244,
+  "tldrWords": 127,
+  "totalWords": 2371,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
+    "/iot-solutions/",
+    "/telecom/what-is-connectivity-management-platform-cmp/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/wp-content/uploads/2026/02/Mobile-IoT-Deployment-Guide-digital-1.pdf",
+    "https://lora-alliance.org/about-lorawan/",
+    "https://csrc.nist.gov/pubs/ir/8259/a/final",
+    "https://csrc.nist.gov/pubs/sp/800/213/final"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: anonymized municipal fleet usage, site coverage and outage-recovery observations with operator-approved architecture and redacted operations screenshot, from Spenza engineering and the municipal deployment owner]",
+    "[EVIDENCE NEEDED: complete municipal lifecycle cost comparison and current contract integration/exit conditions, from customer procurement and finance]",
+    "[EVIDENCE NEEDED: approved Butlr cohort size and dated rollout milestones, from the Butlr account owner]"
+  ],
+  "informationGain": 7
+}

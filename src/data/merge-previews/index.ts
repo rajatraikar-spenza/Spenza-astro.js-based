@@ -98,11 +98,74 @@ import m29Content from './what-is-connectivity-management-platform-cmp.html?raw'
 import m32Content from './mvno-iot-connectivity.html?raw';
 import m34Content from './global-iot-connectivity-2026.html?raw';
 import m35Content from './iot-sim-cards-guide.html?raw';
+import m38Content from './smart-city-iot-connectivity-playbook-2026.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "smart-city-iot-connectivity-playbook-2026": {
+  "slug": "smart-city-iot-connectivity-playbook-2026",
+  "category": "esim",
+  "cluster": "M38: Smart-city connectivity",
+  "title": "Smart City IoT Connectivity: A Procurement Playbook",
+  "seoTitle": "Smart City IoT Connectivity: Procurement and Operations",
+  "seoDescription": "Plan smart city IoT connectivity by service need. Compare network options, BYON contracts, lifecycle costs, coverage tests and operating responsibilities.",
+  "excerpt": "Build a municipal connectivity plan around service outcomes, accountable suppliers and tested recovery.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Smart city IoT connectivity links municipal devices to the systems that use their data. Select networks for each service’s power, mobility, coverage and recovery needs. Confirm who owns devices, applications, subscriptions and incident response. BYON can preserve supported carrier relationships, but integration and contractual authority still need checking. Compare complete lifecycle costs and test installed devices through application delivery. A multi-network offer or centralized dashboard does not by itself establish public-safety performance, device security or long-term service continuity.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Start with the service",
+        "text": "Define useful data and tolerated interruption."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Assign every handoff",
+        "text": "Separate network, device and application owners."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Check BYON scope",
+        "text": "Confirm contract authority and supported actions."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Test installed sites",
+        "text": "Include failures and application recovery."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Fund the lifecycle",
+        "text": "Budget maintenance, support and eventual exit."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions.png\" class=\"attachment-full size-full wp-image-14048 webpexpress-processed\" alt=\"Smart City IoT Connectivity Playbook (2026): Challenges and Solutions\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/12/Smart-City-IoT-Connectivity-Playbook-2026-Challenges-and-Solutions.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Smart City IoT Connectivity: A Procurement Playbook",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-03-08T06:05:00+00:00",
+  "updatedDate": "2026-09-24T09:39:33.654Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 2504,
+  "donors": [
+    {
+      "path": "/mvno/mvno-opportunities-smart-cities-urban-iot/",
+      "title": "MVNO Opportunities in Smart Cities and Urban IoT (2026)",
+      "clicks": 3,
+      "contributes": "Municipal use cases and operating requirements. Source sections to inspect: Why 2025 Is a Breakout Year for Smart City Connectivity; Why Smart City Connectivity Requires More Than a Standard MNO; The Limitations of a Single MNO; Why MVNOs Win in Smart City Connectivity"
+    }
+  ],
+  "content": m38Content
+},
   "iot-sim-cards-guide": {
   "slug": "iot-sim-cards-guide",
   "category": "esim",

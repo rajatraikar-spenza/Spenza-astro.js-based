@@ -1,0 +1,170 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "Which Network Fits Each Municipal Service?",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "How Do BYON and Supplier Roles Work?",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "How Should Coverage and Recovery Be Tested?",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 47,
+      "idCount": 1
+    },
+    {
+      "text": "What Should the Procurement and Cost Model Include?",
+      "id": "procurement",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Who Owns Security and the Device Lifecycle?",
+      "id": "elementor-toc__heading-anchor-4",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "What Does Spenza’s Published Evidence Support?",
+      "id": "elementor-toc__heading-anchor-6",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "Smart City IoT Connectivity FAQs",
+      "id": "FAQs",
+      "openingWords": 51,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    50,
+    51,
+    50,
+    49,
+    49,
+    54
+  ],
+  "calloutWords": [
+    22,
+    30,
+    28,
+    29,
+    25
+  ],
+  "images": [
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2025/12/Untitled-design-1024x953.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2025/12/Untitled-design-1024x953.png",
+      "natural": [
+        1024,
+        953
+      ],
+      "alt": "Citywide IoT operations must address fragmented contracts, coverage, inventory and security requirements"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/smart-city-connectivity/service-acceptance.png",
+      "currentSrc": "http://localhost:4321/blog-media/smart-city-connectivity/service-acceptance.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Municipal acceptance checks the installed site, network, application recovery and operations owner"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/smart-city-connectivity/control-boundaries.png",
+      "currentSrc": "http://localhost:4321/blog-media/smart-city-connectivity/control-boundaries.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Connectivity operations and device or application management need distinct accountable owners"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "Which Network Fits Each Municipal Service?",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "How Do BYON and Supplier Roles Work?",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "How Should Coverage and Recovery Be Tested?",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "What Should the Procurement and Cost Model Include?",
+      "href": "#procurement"
+    },
+    {
+      "text": "Who Owns Security and the Device Lifecycle?",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "What Does Spenza’s Published Evidence Support?",
+      "href": "#elementor-toc__heading-anchor-6"
+    },
+    {
+      "text": "Smart City IoT Connectivity FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}
