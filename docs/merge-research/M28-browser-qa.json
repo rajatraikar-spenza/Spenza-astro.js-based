@@ -1,0 +1,185 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What does enterprise eSIM management include?",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 47,
+      "idCount": 1
+    },
+    {
+      "text": "Separate employee mobility from unattended IoT",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Make enrollment and provisioning independently testable",
+      "id": "elementor-toc__heading-anchor-4",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Set number, privacy and roaming policy before rollout",
+      "id": "elementor-toc__heading-anchor-8",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Control spend with ownership and invoice reconciliation",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "Close device access, carrier service and billing separately",
+      "id": "offboarding",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Use a scoped pilot and relevant customer evidence",
+      "id": "elementor-toc__heading-anchor-9",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Enterprise eSIM management FAQs",
+      "id": "FAQs",
+      "openingWords": 51,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    49,
+    48,
+    49,
+    49,
+    50,
+    50
+  ],
+  "calloutWords": [
+    33,
+    31,
+    35,
+    32,
+    40
+  ],
+  "images": [
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2025/08/Business-eSIM-Hero-1024x576.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2025/08/Business-eSIM-Hero-1024x576.png",
+      "natural": [
+        1024,
+        576
+      ],
+      "alt": "Enterprise eSIM deployment spans employee phones, laptops and unattended connected equipment"
+    },
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/07/All-in-one-CMP-Spenza-1024x683.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2026/07/All-in-one-CMP-Spenza-1024x683.png",
+      "natural": [
+        1024,
+        683
+      ],
+      "alt": "Spenza connectivity management overview across carriers and business device populations"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/enterprise-esim/offboarding-controls.png",
+      "currentSrc": "http://localhost:4321/blog-media/enterprise-esim/offboarding-controls.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Offboarding requires separate confirmation of device access, carrier service and final invoice"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What does enterprise eSIM management include?",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "Separate employee mobility from unattended IoT",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "Make enrollment and provisioning independently testable",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "Set number, privacy and roaming policy before rollout",
+      "href": "#elementor-toc__heading-anchor-8"
+    },
+    {
+      "text": "Control spend with ownership and invoice reconciliation",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "Close device access, carrier service and billing separately",
+      "href": "#offboarding"
+    },
+    {
+      "text": "Use a scoped pilot and relevant customer evidence",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "Enterprise eSIM management FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}

@@ -84,11 +84,86 @@ import m23Content from './top-mvno-marketing-strategies.html?raw';
 import m27Content from './subscriber-management-system-guide.html?raw';
 import m01Content from './what-is-remote-sim-provisioning-rsp-guide-2026.html?raw';
 import m14Content from './esim-only-mvnos-2025.html?raw';
+import m28Content from './esim-for-enterprises-business-enabler-2025.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "esim-for-enterprises-business-enabler-2025": {
+  "slug": "esim-for-enterprises-business-enabler-2025",
+  "category": "esim",
+  "cluster": "M28: Enterprise eSIM management",
+  "title": "Enterprise eSIM Management: Deployment and Cost Control",
+  "seoTitle": "Enterprise eSIM Management: Deployment and Cost Control",
+  "seoDescription": "Plan enterprise eSIM deployment across employee devices and IoT, with clear enrollment, roaming, offboarding and cost-control responsibilities for each team.",
+  "excerpt": "Separate employee mobility from IoT provisioning, then connect device enrollment, carrier service and financial controls across the eSIM lifecycle.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Enterprise eSIM management connects eligible devices, carrier subscriptions and financial ownership across the service lifecycle. Separate employee phones and laptops from unattended IoT because enrollment, privacy and provisioning architecture differ. Confirm working service independently of policy delivery. Set number ownership, roaming and cost-center rules before rollout, then close device access, carrier service and billing separately at exit. The published Butlr case supports regional IoT operations, not a universal employee-device workflow.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Separate device cohorts",
+        "text": "BYOD, corporate devices and IoT require different controls."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Verify working service",
+        "text": "A delivered policy is not a completed activation."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Assign cost ownership",
+        "text": "Connect each line to an approver and cost center."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Close every system",
+        "text": "Confirm access, carrier action and the final invoice."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Use scoped customer evidence",
+        "text": "Butlr demonstrates regional IoT operations; employee enrollment needs its own validation."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026.png\" class=\"attachment-full size-full wp-image-20417 webpexpress-processed\" alt=\"eSIM for Business &amp; Enterprise: A Business Enabler (2026 Guide)\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/08/eSIM-for-Business-The-Enterprise-Connectivity-Guide-2026.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Enterprise eSIM Management: Deployment and Cost Control",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-07-03T05:17:18+00:00",
+  "updatedDate": "2026-09-24T06:25:32.628Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 3260,
+  "donors": [
+    {
+      "path": "/esim/esim-enterprise-byod/",
+      "title": "eSIM for Enterprise: Why BYOD Works Better With It",
+      "clicks": 5,
+      "contributes": "Enterprise business case, BYOD workflow and onboarding lessons. Source sections to inspect: What is eSIM?; What is BYOD?; How is eSIM helpful to enterprises?; How do eSIM and BYOD combine to add value"
+    },
+    {
+      "path": "/esim/esim-global-connectivity/",
+      "title": "Why eSIM Connectivity Is the Future for Business",
+      "clicks": 1,
+      "contributes": "Enterprise business case, BYOD workflow and onboarding lessons. Source sections to inspect: Table of Contents; Introduction; What Would You Get by the End of the Article?; What is an eSIM?"
+    },
+    {
+      "path": "/esim/esim-transformation/",
+      "title": "eSIM Changes Everything: The Business Case Explained",
+      "clicks": 2,
+      "contributes": "Enterprise business case, BYOD workflow and onboarding lessons"
+    }
+  ],
+  "content": m28Content
+},
   "esim-only-mvnos-2025": {
   "slug": "esim-only-mvnos-2025",
   "category": "esim",

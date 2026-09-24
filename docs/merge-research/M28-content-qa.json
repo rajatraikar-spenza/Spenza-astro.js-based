@@ -1,0 +1,57 @@
+{
+  "cluster": "M28",
+  "before": [
+    {
+      "path": "/esim/esim-for-enterprises-business-enabler-2025/",
+      "bodyWords": 3260,
+      "tldrWords": 239
+    },
+    {
+      "path": "/esim/esim-enterprise-byod/",
+      "bodyWords": 986,
+      "tldrWords": 4
+    },
+    {
+      "path": "/esim/esim-global-connectivity/",
+      "bodyWords": 1944,
+      "tldrWords": 4
+    },
+    {
+      "path": "/esim/esim-transformation/",
+      "bodyWords": 344,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 6785,
+  "bodyWords": 2283,
+  "tldrWords": 134,
+  "totalWords": 2417,
+  "internal": [
+    "/esim/esim/",
+    "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "/connected-devices/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/esim/iot-esim-providers/",
+    "/spenza-product/butlr-iot-spenza-casestudy/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2023/12/SGP.22-v3.1.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://learn.microsoft.com/en-us/intune/device-configuration/templates/configure-esim-download-server",
+    "https://support.apple.com/guide/deployment/a-device-management-service-deploy-devices-dep12504a832/web",
+    "https://support.apple.com/en-euro/guide/deployment/dep23db2037d/web",
+    "https://support.apple.com/en-us/109317"
+  ],
+  "images": {
+    "reused": 3,
+    "generated": 1
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: supported employee device/OS/enrollment/carrier matrix and redacted provisioning plus offboarding trace, from product engineering and IT operations.]",
+    "[EVIDENCE NEEDED: matched usage, carrier invoices, cost-center allocation and final-bill reconciliation for an enterprise cohort, from finance and telecom operations.]",
+    "[EVIDENCE NEEDED: Butlr deployment cohort, dated regional milestones and redacted operations screenshot approved for reuse, from the account owner and customer marketing.]"
+  ],
+  "informationGain": 7
+}
