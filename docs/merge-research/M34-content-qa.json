@@ -1,0 +1,53 @@
+{
+  "cluster": "M34",
+  "before": [
+    {
+      "path": "/iot/global-iot-connectivity-2026/",
+      "bodyWords": 3092,
+      "tldrWords": 156
+    },
+    {
+      "path": "/mvno/global-iot-mvno-connectivity/",
+      "bodyWords": 2046,
+      "tldrWords": 4
+    },
+    {
+      "path": "/telecom/iot-regional-plan-flexibility/",
+      "bodyWords": 735,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 6037,
+  "bodyWords": 2243,
+  "tldrWords": 124,
+  "totalWords": 2367,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot-solutions/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/telecom/what-is-connectivity-management-platform-cmp/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://iot.telenor.com/technologies/connectivity/sgp32-roaming-local-profiles/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://docs.things.1global.com/docs/network/",
+    "https://www.gsma.com/solutions-and-impact/industries/smart-mobility/gsma_resources/iot-guide-global-iot-regulations/",
+    "https://developers.soracom.io/en/docs/air/basic-connectivity/"
+  ],
+  "images": {
+    "reused": 1,
+    "generated": 3
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: country-by-country service eligibility, operator-approved routing/profile architecture and applicable dated legal approval for the target fleet, from host operators and the customer compliance owner]",
+    "[EVIDENCE NEEDED: representative cross-border failover and profile recovery traces with redacted operations screenshot, from Spenza engineering and fleet operations]",
+    "[EVIDENCE NEEDED: regional usage distribution and reconciled plan costs for the same fleet cohort, from customer operations and finance]",
+    "[EVIDENCE NEEDED: approved Butlr cohort size and dated rollout milestones, from the Butlr account owner]"
+  ],
+  "informationGain": 7
+}

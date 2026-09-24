@@ -96,11 +96,80 @@ import m24Content from './fleet-automotive-iot-connectivity-costs.html?raw';
 import m25Content from './iot-connectivity-cost-guide-2025.html?raw';
 import m29Content from './what-is-connectivity-management-platform-cmp.html?raw';
 import m32Content from './mvno-iot-connectivity.html?raw';
+import m34Content from './global-iot-connectivity-2026.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "global-iot-connectivity-2026": {
+  "slug": "global-iot-connectivity-2026",
+  "category": "iot",
+  "cluster": "M34: Global IoT operations",
+  "title": "Global IoT Connectivity: Roaming, Profiles and Rollout",
+  "seoTitle": "Global IoT Connectivity: Roaming, Profiles and Rollout",
+  "seoDescription": "Plan global IoT connectivity across roaming, local profiles and regional rules. Test routing, recovery, inventory and costs before expanding a fleet.",
+  "excerpt": "Separate service eligibility, profile identity and traffic routing, then validate the complete regional workflow.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Global IoT connectivity combines network access and operating processes across the countries required by a product. Choose roaming and local profiles against the actual service, device and deployment duration. Keep subscription identity separate from traffic routing and application location. Record regional requirements with dated evidence and named owners, then test recovery through application delivery. Compare complete regional costs for the same fleet cohort. A broad coverage map or an eSIM label does not replace those checks.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Define the footprint",
+        "text": "Record countries, devices and operating duration."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Separate architecture choices",
+        "text": "Identity and routing answer different questions."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Keep dated evidence",
+        "text": "Approve the actual regional service scope."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Prove recovery",
+        "text": "Confirm application delivery after the failure."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Compare complete costs",
+        "text": "Include profiles, inventory and operating work."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/05/Global-IoT.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Global-IoT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Global-IoT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Global-IoT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Global-IoT.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/Global-IoT.png\" class=\"attachment-full size-full wp-image-9091 webpexpress-processed\" alt=\"Global IoT: MVNOs' Edge in International Connectivity\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/Global-IoT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/Global-IoT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/Global-IoT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/Global-IoT.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Global IoT Connectivity: Roaming, Profiles and Rollout",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-06-12T10:42:37+00:00",
+  "updatedDate": "2026-09-24T09:22:47.235Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 3092,
+  "donors": [
+    {
+      "path": "/mvno/global-iot-mvno-connectivity/",
+      "title": "Global IoT: MVNOs' Edge in International Connectivity",
+      "clicks": 0,
+      "contributes": "Regional plan constraints and cross-border operating requirements. Source sections to inspect: Table of Contents; Introduction; The Real Struggle with Global IoT Connectivity; MVNOs in the Global IoT Ecosystem"
+    },
+    {
+      "path": "/telecom/iot-regional-plan-flexibility/",
+      "title": "Regional Plan Flexibility Matters for IoT Providers",
+      "clicks": 0,
+      "contributes": "Regional plan constraints and cross-border operating requirements. Source sections to inspect: The Challenges of Regional IoT Deployments; The Advantages of Regional Plan Flexibility; Why Choose Spenza to Simplify Your Regional IoT Strategy?; Empower Your IoT Operations with Regional Flexibility"
+    }
+  ],
+  "content": m34Content
+},
   "mvno-iot-connectivity": {
   "slug": "mvno-iot-connectivity",
   "category": "mvno",
