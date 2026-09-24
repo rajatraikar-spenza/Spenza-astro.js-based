@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/oem-esim/product-constraint-gates.png",
+      "currentSrc": "http://localhost:4321/blog-media/oem-esim/product-constraint-gates.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/oem-esim/provisioning-responsibility-handoffs.png",
+      "currentSrc": "http://localhost:4321/blog-media/oem-esim/provisioning-responsibility-handoffs.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/oem-esim/hardware-to-paying-service.png",
+      "currentSrc": "http://localhost:4321/blog-media/oem-esim/hardware-to-paying-service.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
