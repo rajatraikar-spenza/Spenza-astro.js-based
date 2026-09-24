@@ -1,0 +1,51 @@
+{
+  "cluster": "M30",
+  "before": [
+    {
+      "path": "/esim/iot-esim-introduction/",
+      "bodyWords": 1821,
+      "tldrWords": 4
+    },
+    {
+      "path": "/esim/esim-transforming-iot-connectivity/",
+      "bodyWords": 1646,
+      "tldrWords": 4
+    },
+    {
+      "path": "/esim/iot-esim-connectivity/",
+      "bodyWords": 2322,
+      "tldrWords": 0
+    }
+  ],
+  "combinedBeforeWords": 5797,
+  "bodyWords": 2426,
+  "tldrWords": 142,
+  "totalWords": 2568,
+  "internal": [
+    "/esim/esim/",
+    "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "/connected-devices/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/esim/iot-esim-providers/",
+    "/esim/esim-for-enterprises-business-enabler-2025/",
+    "/spenza-product/butlr-iot-spenza-casestudy/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2023/12/SGP.22-v3.1.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://docs.monogoto.io/getting-started/sim-cards/sgp.32",
+    "https://kigen.com/resources/blog/sgp-32-reality-check-what-to-look-for-in-iot-esims/"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "Vinaychandra Bharadwaj",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: supported module/eUICC/firmware/IPA/eIM/operator-profile matrix and redacted successful provisioning plus recovery traces, from product and delivery engineering.]",
+    "[EVIDENCE NEEDED: Butlr device cohort, dated regional deployment milestones and a redacted fleet-operations screenshot approved for publication, from the account owner and customer marketing.]",
+    "[EVIDENCE NEEDED: device-lifecycle cost ledger covering provisioning, support, dormant service and retirement for a defined cohort, from finance and fleet operations.]"
+  ],
+  "informationGain": 7
+}

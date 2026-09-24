@@ -85,11 +85,80 @@ import m27Content from './subscriber-management-system-guide.html?raw';
 import m01Content from './what-is-remote-sim-provisioning-rsp-guide-2026.html?raw';
 import m14Content from './esim-only-mvnos-2025.html?raw';
 import m28Content from './esim-for-enterprises-business-enabler-2025.html?raw';
+import m30Content from './iot-esim-introduction.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "iot-esim-introduction": {
+  "slug": "iot-esim-introduction",
+  "category": "esim",
+  "cluster": "M30: IoT eSIM introduction",
+  "title": "eSIM for IoT: Architecture, Use Cases and Deployment Guide",
+  "seoTitle": "eSIM for IoT: Architecture, Use Cases and Deployment Guide",
+  "seoDescription": "Understand eSIM for IoT, distinguish SGP.22 from SGP.32, and plan device compatibility, provisioning, recovery and lifecycle operations before deployment.",
+  "excerpt": "Connect IoT eSIM architecture to device compatibility, industry requirements and the evidence needed to operate a fleet throughout its lifecycle.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "eSIM for IoT enables supported operator profiles to be managed remotely on an eUICC, reducing the need for physical SIM replacement. Successful deployment still requires compatible hardware and firmware, an authorized service and a usable provisioning path. Distinguish the consumer SGP.22 architecture from IoT SGP.32, then test profile operations, working application connectivity and recovery separately. The approved Butlr case supports regional IoT operations; it does not establish a particular provisioning specification or a universal fleet result.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Separate capability and packaging",
+        "text": "A soldered component alone does not prove remote provisioning support."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Name the architecture",
+        "text": "Verify the actual provisioning components and their responsibilities."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Test the first connection",
+        "text": "Confirm bootstrap reachability and an authorized operational profile."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Prove recovery",
+        "text": "Observe failures and the supported route back to service."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Operate the full lifecycle",
+        "text": "Link asset, profile, service, usage and billing records through retirement."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/04/Blog-Thumbnail.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Blog-Thumbnail-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Blog-Thumbnail-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Blog-Thumbnail-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Blog-Thumbnail.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Blog-Thumbnail.png\" class=\"attachment-full size-full wp-image-8372 webpexpress-processed\" alt=\"Introduction to eSIM in IoT connectivity\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Blog-Thumbnail-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Blog-Thumbnail-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Blog-Thumbnail-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Blog-Thumbnail.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "eSIM for IoT: Architecture, Use Cases and Deployment Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-04-11T07:09:18+00:00",
+  "updatedDate": "2026-09-24T06:32:58.496Z",
+  "authorSlug": "vinay",
+  "authorName": "Vinaychandra Bharadwaj",
+  "authorBio": "",
+  "destinationWords": 1821,
+  "donors": [
+    {
+      "path": "/esim/esim-transforming-iot-connectivity/",
+      "title": "IoT Device Management With eSIM: Global Connectivity",
+      "clicks": 2,
+      "contributes": "Useful industry examples, remote management and device lifecycle constraints. Source sections to inspect: What is eSIM Technology, and Why is It Essential for IoT?; Key Benefits of eSIM for Global IoT Connectivity; Here are some more IoT-Specific Benefits of eSIM; Top Challenges of Using eSIM for IoT Device Connectivity"
+    },
+    {
+      "path": "/esim/iot-esim-connectivity/",
+      "title": "eSIM for IoT: Use Cases Across Industries",
+      "clicks": 6,
+      "contributes": "Useful industry examples, remote management and device lifecycle constraints. Source sections to inspect: Table of Contents; How eSIM Fits in the IoT Environment; eSIM in IoT Deployment; How Spenza Can Enable eSIM Usage – A Real World Example"
+    }
+  ],
+  "content": m30Content
+},
   "esim-for-enterprises-business-enabler-2025": {
   "slug": "esim-for-enterprises-business-enabler-2025",
   "category": "esim",
