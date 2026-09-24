@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/cellular-iot-radio/reporting-energy-cycle.png",
+      "currentSrc": "http://localhost:4321/blog-media/cellular-iot-radio/reporting-energy-cycle.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/cellular-iot-radio/mobility-observation-path.png",
+      "currentSrc": "http://localhost:4321/blog-media/cellular-iot-radio/mobility-observation-path.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
