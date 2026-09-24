@@ -83,11 +83,80 @@ import m22Content from './what-is-telecom-as-a-service-taas.html?raw';
 import m23Content from './top-mvno-marketing-strategies.html?raw';
 import m27Content from './subscriber-management-system-guide.html?raw';
 import m01Content from './what-is-remote-sim-provisioning-rsp-guide-2026.html?raw';
+import m14Content from './esim-only-mvnos-2025.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "esim-only-mvnos-2025": {
+  "slug": "esim-only-mvnos-2025",
+  "category": "esim",
+  "cluster": "M14: Digital-first eSIM MVNO",
+  "title": "eSIM-Only MVNOs: Activation, Economics and Retention Guide",
+  "seoTitle": "eSIM-Only MVNOs: Activation, Economics and Retention Guide",
+  "seoDescription": "Build an eSIM-only MVNO around eligible devices, verified activation, realistic unit economics and retention, with clear carrier and support responsibilities.",
+  "excerpt": "Choose eSIM-only or hybrid distribution using device eligibility, activation evidence and the real cost of serving an active line.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "An eSIM-only MVNO distributes mobile service through downloadable profiles instead of shipping physical SIM cards. The model fits verified compatible devices and a supported digital customer journey. It still needs host-network access, activation support, billing and recovery. Compare eSIM-only with hybrid distribution using actual eligibility and the cost of exceptions. Separate profile installation from working service, and measure retention with matched cohorts. The published RocketPhone case demonstrates an enterprise MVNO integration, not proof of an exclusively eSIM-only estate.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Check eligibility first",
+        "text": "Confirm device, carrier and service compatibility before checkout."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Verify usable service",
+        "text": "Payment and profile delivery are not completed activation."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Count exception costs",
+        "text": "Include support, refunds and recovery in unit economics."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Measure retention fairly",
+        "text": "Compare equivalent activation cohorts over the same observation period."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Keep network promises specific",
+        "text": "5G, voice, roaming and transfer features depend on the supported device, plan and carrier agreement."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-2.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-2-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-2-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-2-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/06/Blog-Thumbnails-2.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-2.png\" class=\"attachment-full size-full wp-image-9822 webpexpress-processed\" alt=\"eSIM-Only MVNOs\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-2-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-2-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-2-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/06/Blog-Thumbnails-2.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "eSIM-Only MVNOs: Activation, Economics and Retention Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-06-20T16:13:00+00:00",
+  "updatedDate": "2026-09-24T06:14:13.208Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 1952,
+  "donors": [
+    {
+      "path": "/mvno/esim-mvno-disruption/",
+      "title": "eSIM MVNO Disruption: What Changes in 2026",
+      "clicks": 27,
+      "contributes": "Digital onboarding, eSIM operating implications and 5G offer considerations. Source sections to inspect: Table of Contents; Introduction; What Is eSIM and Why Operators Are Replacing Old SIMs; How eSIM for MVNO Solves Old Problems and Adds New Advantages"
+    },
+    {
+      "path": "/mvno/esim-5g-mvno-2025/",
+      "title": "eSIM 5G Strategy: How MVNOs Can Win in 2026",
+      "clicks": 3,
+      "contributes": "Digital onboarding, eSIM operating implications and 5G offer considerations. Source sections to inspect: eSIM and 5G Are Transforming the MVNO Business Model; Lower Costs and Faster Customer Onboarding Drive Growth; 5G Unlocks New Revenue Through Enterprise and IoT Services; Early Adoption Creates a Competitive Advantage"
+    }
+  ],
+  "content": m14Content
+},
   "what-is-remote-sim-provisioning-rsp-guide-2026": {
   "slug": "what-is-remote-sim-provisioning-rsp-guide-2026",
   "category": "esim",

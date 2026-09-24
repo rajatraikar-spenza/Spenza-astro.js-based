@@ -1,0 +1,53 @@
+{
+  "cluster": "M14",
+  "before": [
+    {
+      "path": "/esim/esim-only-mvnos-2025/",
+      "bodyWords": 1952,
+      "tldrWords": 252
+    },
+    {
+      "path": "/mvno/esim-mvno-disruption/",
+      "bodyWords": 1843,
+      "tldrWords": 4
+    },
+    {
+      "path": "/mvno/esim-5g-mvno-2025/",
+      "bodyWords": 2418,
+      "tldrWords": 283
+    }
+  ],
+  "combinedBeforeWords": 6752,
+  "bodyWords": 2305,
+  "tldrWords": 146,
+  "totalWords": 2451,
+  "internal": [
+    "/esim/esim/",
+    "/mvno/mvno/",
+    "/connected-devices/",
+    "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/esim/esim-for-enterprises-business-enabler-2025/",
+    "/spenza-product/rocketphone-case-study/",
+    "/esim-compatibility-checker/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2023/12/SGP.22-v3.1.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://support.apple.com/en-us/118669",
+    "https://support.apple.com/en-us/108383",
+    "https://support.apple.com/en-us/109317"
+  ],
+  "images": {
+    "reused": 1,
+    "generated": 3
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: exact device/OS/carrier/service eligibility matrix and successful plus failed activation traces, from product and delivery engineering.]",
+    "[EVIDENCE NEEDED: matched activation, support, refund and retention cohorts with cost definitions, from operations and finance.]",
+    "[EVIDENCE NEEDED: RocketPhone deployment cohort, dated milestones and redacted operations screenshot, from the account owner and customer marketing.]"
+  ],
+  "informationGain": 7
+}

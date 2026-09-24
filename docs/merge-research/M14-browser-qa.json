@@ -1,0 +1,185 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What is an eSIM-only MVNO?",
+      "id": "MVNO",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "When should you choose eSIM-only or hybrid distribution?",
+      "id": "Model",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "How should digital activation work?",
+      "id": "activation",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "How do eSIM-only MVNO economics change?",
+      "id": "economics",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "What do network access and 5G actually change?",
+      "id": "network-constraints",
+      "openingWords": 52,
+      "idCount": 1
+    },
+    {
+      "text": "How should an eSIM-only MVNO measure retention?",
+      "id": "retention",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "What does a complete launch look like in practice?",
+      "id": "Spenza",
+      "openingWords": 47,
+      "idCount": 1
+    },
+    {
+      "text": "FAQs",
+      "id": "FAQs",
+      "openingWords": 46,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    51,
+    53,
+    53,
+    50,
+    51,
+    53
+  ],
+  "calloutWords": [
+    26,
+    26,
+    29,
+    25,
+    35
+  ],
+  "images": [
+    {
+      "src": "http://localhost:4321/blog-media/esim-only-mvno/distribution-models.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-only-mvno/distribution-models.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "eSIM-only MVNO, hybrid and physical-first models fit different device populations"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/esim-only-mvno/activation-checkpoints.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-only-mvno/activation-checkpoints.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Eligible device, installed profile and working service are separate activation checkpoints"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/esim-only-mvno/unit-economics.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-only-mvno/unit-economics.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Active-line economics include collected revenue, delivery costs and exception handling"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What is an eSIM-only MVNO?",
+      "href": "#MVNO"
+    },
+    {
+      "text": "When should you choose eSIM-only or hybrid distribution?",
+      "href": "#Model"
+    },
+    {
+      "text": "How should digital activation work?",
+      "href": "#activation"
+    },
+    {
+      "text": "How do eSIM-only MVNO economics change?",
+      "href": "#economics"
+    },
+    {
+      "text": "What do network access and 5G actually change?",
+      "href": "#network-constraints"
+    },
+    {
+      "text": "How should an eSIM-only MVNO measure retention?",
+      "href": "#retention"
+    },
+    {
+      "text": "What does a complete launch look like in practice?",
+      "href": "#Spenza"
+    },
+    {
+      "text": "FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}
