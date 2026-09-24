@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/global-iot/identity-versus-data-route.png",
+      "currentSrc": "http://localhost:4321/blog-media/global-iot/identity-versus-data-route.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/global-iot/deployment-record-review.png",
+      "currentSrc": "http://localhost:4321/blog-media/global-iot/deployment-record-review.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/global-iot/alternate-path-and-application-proof.png",
+      "currentSrc": "http://localhost:4321/blog-media/global-iot/alternate-path-and-application-proof.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
