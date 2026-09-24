@@ -82,11 +82,80 @@ import m21Content from './mvne-explained.html?raw';
 import m22Content from './what-is-telecom-as-a-service-taas.html?raw';
 import m23Content from './top-mvno-marketing-strategies.html?raw';
 import m27Content from './subscriber-management-system-guide.html?raw';
+import m01Content from './what-is-remote-sim-provisioning-rsp-guide-2026.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "what-is-remote-sim-provisioning-rsp-guide-2026": {
+  "slug": "what-is-remote-sim-provisioning-rsp-guide-2026",
+  "category": "esim",
+  "cluster": "M01: Remote SIM provisioning",
+  "title": "Remote SIM Provisioning: Architecture and Rollout Guide",
+  "seoTitle": "Remote SIM Provisioning: Architecture and Rollout Guide",
+  "seoDescription": "Understand remote SIM provisioning, compare consumer and IoT architectures, and plan bootstrap connectivity, profile recovery and fleet acceptance checks.",
+  "excerpt": "Separate profile installation from usable service, then choose the right architecture and prove the recovery path before scaling.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Remote SIM provisioning securely downloads and manages operator profiles on a compatible eUICC. Choose the architecture around the device: SGP.22 serves consumer provisioning, while SGP.32 adds the IPA and eIM arrangement for IoT. Confirm the exact supported versions and bootstrap connection. Treat installation, profile enabling, network registration and application readiness as separate checks. The practical benefit is fewer connectivity changes requiring physical access; costs, recovery and support still need a scoped deployment plan.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Choose the architecture",
+        "text": "Keep consumer, IoT and legacy M2M components distinct."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Prove bootstrap reachability",
+        "text": "Confirm the initial connection can reach the required provisioning services."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Check usable service",
+        "text": "Verify profile state, network registration and the application endpoint."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Plan failure recovery",
+        "text": "Test interrupted operations and assign an accountable support owner."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Connect provisioning to operations",
+        "text": "Match confirmed service to customer onboarding, the intended plan and the billing-start condition."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png\" class=\"attachment-full size-full wp-image-14087 webpexpress-processed\" alt=\"What Is Remote SIM Provisioning (RSP)? How It Works in 2026 for IoT &amp; Enterprise\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Remote SIM Provisioning: Architecture and Rollout Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-12-19T06:59:03+00:00",
+  "updatedDate": "2026-09-24T06:05:36.478Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2509,
+  "donors": [
+    {
+      "path": "/esim/what-is-remote-esim-provisioning/",
+      "title": "What Is Remote eSIM Provisioning? A Practical Guide",
+      "clicks": 25,
+      "contributes": "Consumer/IoT provisioning distinctions, workflow and global-management examples. Source sections to inspect: From Plastic SIMs to eSIMs; Instant Global Device Rollouts; Scalable IoT, Simplified; The New Standard"
+    },
+    {
+      "path": "/esim/iot-management-remote-esim-provisioning/",
+      "title": "Global IoT Management With Remote eSIM Provisioning",
+      "clicks": 0,
+      "contributes": "Consumer/IoT provisioning distinctions, workflow and global-management examples. Source sections to inspect: Connect Devices Instantly; Save Time and Money; Scale Effortlessly with Spenza; Table of Contents"
+    }
+  ],
+  "content": m01Content
+},
   "subscriber-management-system-guide": {
   "slug": "subscriber-management-system-guide",
   "category": "mvno",

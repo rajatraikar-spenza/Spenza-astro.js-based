@@ -1,0 +1,47 @@
+{
+  "cluster": "M01",
+  "before": [
+    {
+      "path": "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+      "bodyWords": 2509,
+      "tldrWords": 117
+    },
+    {
+      "path": "/esim/what-is-remote-esim-provisioning/",
+      "bodyWords": 2792,
+      "tldrWords": 98
+    },
+    {
+      "path": "/esim/iot-management-remote-esim-provisioning/",
+      "bodyWords": 1728,
+      "tldrWords": 66
+    }
+  ],
+  "combinedBeforeWords": 7310,
+  "bodyWords": 2280,
+  "tldrWords": 142,
+  "totalWords": 2422,
+  "internal": [
+    "/esim/esim/",
+    "/connected-devices/",
+    "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "/esim/esim-for-enterprises-business-enabler-2025/",
+    "/telecom/angel-watch-iot-business-casestudy/",
+    "/esim/esim-orchestration-global-iot/",
+    "/esim-compatibility-checker/"
+  ],
+  "external": [
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2023/12/SGP.22-v3.1.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/embedded-sim/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/esim-specification/",
+    "https://support.apple.com/en-us/118669"
+  ],
+  "images": {
+    "reused": 2,
+    "generated": 2
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": []
+}

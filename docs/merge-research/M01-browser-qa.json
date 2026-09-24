@@ -1,0 +1,185 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What Is Remote SIM Provisioning (RSP)?",
+      "id": "elementor-toc__heading-anchor-2",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "Core Components of RSP Architecture",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 47,
+      "idCount": 1
+    },
+    {
+      "text": "How Remote SIM Provisioning Works",
+      "id": "elementor-toc__heading-anchor-4",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "What changes in deployment cost and effort?",
+      "id": "deployment-effort",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Security and Compliance Considerations",
+      "id": "elementor-toc__heading-anchor-6",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "How Spenza Simplifies RSP Implementation",
+      "id": "elementor-toc__heading-anchor-8",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "Deployment Checklist for Enterprise Teams",
+      "id": "elementor-toc__heading-anchor-9",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "FAQs",
+      "id": "FAQs",
+      "openingWords": 46,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    51,
+    52,
+    55,
+    50,
+    53,
+    52
+  ],
+  "calloutWords": [
+    22,
+    29,
+    29,
+    39,
+    25
+  ],
+  "images": [
+    {
+      "src": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-architectures.png",
+      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-architectures.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Remote SIM provisioning uses distinct consumer, IoT and legacy M2M component arrangements"
+    },
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-1024x576.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-1024x576.png",
+      "natural": [
+        1024,
+        576
+      ],
+      "alt": "A bootstrap profile supplies initial connectivity before an operational profile is installed"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-acceptance.png",
+      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-acceptance.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Profile installation, network registration and application reachability need separate checks"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What Is Remote SIM Provisioning (RSP)?",
+      "href": "#elementor-toc__heading-anchor-2"
+    },
+    {
+      "text": "Core Components of RSP Architecture",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "How Remote SIM Provisioning Works",
+      "href": "#elementor-toc__heading-anchor-4"
+    },
+    {
+      "text": "What changes in deployment cost and effort?",
+      "href": "#deployment-effort"
+    },
+    {
+      "text": "Security and Compliance Considerations",
+      "href": "#elementor-toc__heading-anchor-6"
+    },
+    {
+      "text": "How Spenza Simplifies RSP Implementation",
+      "href": "#elementor-toc__heading-anchor-8"
+    },
+    {
+      "text": "Deployment Checklist for Enterprise Teams",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}

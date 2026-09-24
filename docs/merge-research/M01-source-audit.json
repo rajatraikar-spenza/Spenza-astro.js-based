@@ -1,0 +1,2828 @@
+{
+  "cluster": "M01",
+  "fetchedAt": "2026-09-24T05:53:02.734Z",
+  "method": "Fresh public destination and donor HTML; parse5 selects exact article widget, first featured widget excludes related cards. Body count includes lists, tables and captions; excludes shell and separate ACF TLDR.",
+  "sources": [
+    {
+      "path": "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+      "url": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+      "status": 200,
+      "h1": [
+        "What Is Remote SIM Provisioning (RSP)? A 2026 Guide"
+      ],
+      "bodyWords": 2509,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Will You Get by the End of This Article?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is Remote SIM Provisioning (RSP)?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Core Components of RSP Architecture"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "eUICC – The Embedded Universal Integrated Circuit Card"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Subscription Manager – Data Preparation (SM-DP+)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Subscription Manager – Secure Routing (SM-SR)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "SIM IoT Remote Manager (eIM)"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Local Profile Assistant (LPA)"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Remote SIM Provisioning Works"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Evolution from M2M to SGP.32: The IoT Standard"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Legacy M2M Standard – SGP.02"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Current IoT Standard – SGP.31/32"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "SGP.02 vs SGP.32 Comparison:"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Security and Compliance Considerations"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Security Architecture"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Data Privacy and Regulatory Compliance"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Real-World Applications in 2026"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "IoT Device Deployment at Scale"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Automotive and Connected Vehicles"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Fleet Management and Logistics"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Global Roaming and Multi-Carrier Flexibility"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Consumer Devices and Wearables"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Spenza Simplifies RSP Implementation"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Unified IoT Connectivity Management"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Bring Your Own Network Plus Marketplace Model"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Branded eSIM Marketplace Distribution"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Procure-to-Pay Automation"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Deployment Checklist for Enterprise Teams"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The way organizations manage connectivity for their devices is undergoing a fundamental transformation. Physical SIM cards that once required manual installation, replacement, and logistics coordination are giving way to digital profiles that can be deployed, managed, and switched remotely through Remote SIM Provisioning. For IoT companies managing thousands of connected sensors, automotive manufacturers deploying connected vehicles globally, or MVNOs launching mobile services, RSP eliminates operational bottlenecks, reduces deployment costs, and provides the flexibility to adapt connectivity strategies without touching a single device."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In 2026, the Remote SIM Provisioning landscape is mature and widely adopted. The GSMA SGP.32 standard drives adoption across enterprise IoT deployments, with automotive, logistics, and smart city sectors leading implementation. Organizations that understand RSP and adopt compliant solutions position themselves to benefit from seamless global connectivity, simplified operations, and substantial cost reductions."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Will You Get by the End of This Article?"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Technical architecture – Understand the core components behind RSP including eUICC, SM-DP+, SM-SR, and eIM End-to-end provisioning process – Learn how profiles are prepared, encrypted, transmitted, and activated on devices Standards evolution – Discover the specific standards (SGP.02 vs SGP.32) that make modern IoT deployments possible Real-world applications – Explore how industries like automotive, logistics, and consumer electronics leverage RSP Practical deployment checklist – Get a step-by-step implementation guide for enterprise rollouts"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is Remote SIM Provisioning (RSP)?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote SIM Provisioning is the GSMA-standardized process that allows organizations to install, activate, deactivate, switch, or delete mobile operator profiles on an embedded SIM over the air, eliminating the need for physical SIM card swaps or manual interventions."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Instead of shipping physical cards to each device location, enterprises can now manage SIM profiles digitally through secure over-the-air protocols."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The technology replaces traditional physical SIM cards with eUICC chips that can store multiple operator profiles and switch between them remotely. This capability transforms connectivity management from a hardware logistics challenge into a software orchestration task, providing unprecedented flexibility in managing global device connectivity without requiring physical access to deployed equipment."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP represents a paradigm shift for enterprise teams. A logistics company operating tracking devices across fifty countries no longer needs to maintain separate SIM inventories for each region. An automotive manufacturer can load connectivity profiles during vehicle production and update them remotely after delivery. An MVNO can activate new subscriber profiles instantly without shipping physical cards. These capabilities fundamentally simplify operations and reduce deployment costs across the connectivity lifecycle."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Core Components of RSP Architecture"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The RSP architecture consists of several essential components working together to enable secure profile management. Understanding these elements helps enterprise teams plan implementations and evaluate vendor solutions effectively."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "eUICC – The Embedded Universal Integrated Circuit Card"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The eUICC replaces traditional SIM cards as the foundation of RSP technology. This embedded chip stores multiple operator profiles and manages their lifecycle. Unlike physical SIMs that represent a single operator relationship, eUICC devices support multiple profiles that can be activated, deactivated, or switched based on connectivity needs. The chip includes secure elements that protect cryptographic keys and ensure profile integrity throughout the provisioning process."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Subscription Manager – Data Preparation (SM-DP+)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The SM-DP+ component protects, prepares, and stores SIM profiles in a secure database. When provisioning is required, the SM-DP+ encrypts the corresponding eSIM profile and prepares it for download to target devices. Enterprise teams typically interact with SM-DP+ platforms through connectivity provider portals or integrated management systems."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Subscription Manager – Secure Routing (SM-SR)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The SM-SR manages secure communication links between eUICC devices and the SM-DP+ platform. It handles profile enabling, disabling, and deletion operations while ensuring all communications remain encrypted and protected against unauthorized access."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "SIM IoT Remote Manager (eIM)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Introduced in the SGP.32 standard, the eIM acts as an intermediary orchestrator that simplifies enterprise control over profile management. Rather than relying on complex operator integrations, the eIM allows enterprises to directly manage and switch SIM profiles across their device fleets, standardizing profile orchestration independently of individual operator systems."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Local Profile Assistant (LPA)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The LPA operates on the device side, managing the download and installation of profiles onto the eUICC. It handles communication between the device and the SM-DP+ platform, ensuring secure profile transfer and activation. In consumer devices, the LPA typically operates through a user interface that displays available profiles. In M2M and IoT applications, the LPA functions autonomously based on remote triggers and configurations."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Remote SIM Provisioning Works"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The RSP process follows a secure sequence that ensures profile integrity from preparation through activation. Understanding this workflow helps enterprise teams plan deployments and troubleshoot connectivity issues when they arise."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The RSP provisioning workflow consists of five key steps:"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Provisioning request initiated – When a device requires a new SIM profile, the process begins with a provisioning request. This request can originate from user action in consumer applications or from automated triggers in IoT deployments. Profile selection – The operator or IoT management platform selects the appropriate eSIM profile from the SM-DP+ database based on device location, service requirements, and organizational policies. Profile encryption and transmission – The selected profile is encrypted using cryptographic keys unique to the target eUICC, ensuring only the intended device can decrypt and install the profile. The encrypted profile is transmitted via secure over-the-air protocols using Transport Layer Security encryption. Authentication and installation – The device receives the encrypted profile and verifies its authenticity through cryptographic authentication. Once verified, the LPA downloads the complete profile to the eUICC and activates it according to provisioning instructions. Ongoing lifecycle management – Throughout the profile lifecycle, the RSP infrastructure continues to monitor and manage the eSIM. Organizations can push software updates, switch between installed profiles, or delete profiles that are no longer needed."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Evolution from M2M to SGP.32: The IoT Standard"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The RSP landscape has evolved significantly to address enterprise IoT requirements. Understanding this evolution helps organizations choose appropriate standards for their deployment scenarios."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Legacy M2M Standard – SGP.02"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The original SGP.02 standard optimized RSP for M2M applications but relied on SMS-based triggers and complex operator integrations. Organizations deploying devices on NBIoT networks encountered significant challenges because these networks lack SMS support."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Key limitations of SGP.02:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "SMS dependency excludes NBIoT and LPWAN networks Proprietary operator interfaces create vendor lock-in Complex migrations when switching connectivity providers Operational disruptions during provider transitions"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Current IoT Standard – SGP.31/32"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Released by the GSMA in May 2023, SGP.32 represents a breakthrough for enterprise IoT deployments designed for network-constrained and user-interface-constrained devices."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "SGP.02 vs SGP.32 Comparison:"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Feature SGP.02 (Legacy) SGP.32 (Current) Trigger Method SMS-based IP-based Network Support Limited (no NB-IoT) Full LPWAN support Vendor Lock-in High (proprietary APIs) Eliminated via eIM Power Efficiency Standard Optimized (asynchronous) Integration Complex, operator-specific Standardized interfaces Device Sleep Mode Not supported Fully supported",
+          "html": "<table class=\"mw-table\">\n<thead>\n<tr>\n<th>Feature</th>\n<th>SGP.02 (Legacy)</th>\n<th>SGP.32 (Current)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Trigger Method</td>\n<td>SMS-based</td>\n<td>IP-based</td>\n</tr>\n<tr>\n<td>Network Support</td>\n<td>Limited (no NB-IoT)</td>\n<td>Full LPWAN support</td>\n</tr>\n<tr>\n<td>Vendor Lock-in</td>\n<td>High (proprietary APIs)</td>\n<td>Eliminated via eIM</td>\n</tr>\n<tr>\n<td>Power Efficiency</td>\n<td>Standard</td>\n<td>Optimized (asynchronous)</td>\n</tr>\n<tr>\n<td>Integration</td>\n<td>Complex, operator-specific</td>\n<td>Standardized interfaces</td>\n</tr>\n<tr>\n<td>Device Sleep Mode</td>\n<td>Not supported</td>\n<td>Fully supported</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "SGP.32 removes SMS requirements entirely, enabling compatibility with NBIoT and LPWAN networks. It implements IP-based communication protocols and supports asynchronous device operations, allowing battery-powered IoT devices to receive provisioning commands while in sleep mode."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Key advantages of SGP.32 for enterprise deployments:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Network flexibility without SMS dependencies across NBIoT, LTE-M, and LPWAN technologies Reduced integration complexity through standardized eIM interfaces Lower power consumption through asynchronous provisioning support Faster deployment timelines without operator-specific integrations Enhanced vendor independence for seamless provider switching"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By 2026, SGP.32 establishes itself as the dominant standard for enterprise IoT deployments."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Security and Compliance Considerations"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP security relies on multiple protection layers that enterprises must understand when evaluating solutions and planning deployments."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Security Architecture"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "At the protocol level, RSP uses Transport Layer Security encryption for all communications. The GSMA Security Accreditation Scheme provides certification for SM-DP+ implementations and eUICC production facilities."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Cryptographic authentication is mandatory in SGP.32 systems, preventing unauthorized profile installations or modifications."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP Security Layers:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Protocol Level : TLS encryption for all communications Authentication : Mandatory cryptographic verification Certification : GSMA Security Accreditation Scheme (SAS) Key Management : Hardware Security Module (HSM) protection Access Control : Authorization-based profile provisioning"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Data Privacy and Regulatory Compliance"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Organizations must address compliance requirements including data protection regulations, local telecom laws, and privacy standards. Hardware Security Modules provide enhanced protection for sensitive cryptographic keys used in provisioning processes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Enterprise teams should verify that RSP vendors maintain appropriate security certifications and comply with regional regulatory requirements."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Real-World Applications in 2026"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP delivers measurable benefits across diverse industries and deployment scenarios."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "IoT Device Deployment at Scale"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Organizations deploying large numbers of IoT devices use RSP to eliminate traditional logistical challenges. Companies now provision devices remotely after installation in the field. A smart city project deploying environmental sensors can ship devices with inactive eUICC chips and activate profiles once sensors are installed."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Automotive and Connected Vehicles"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The automotive industry leads RSP adoption. Vehicle manufacturers leverage complementary technologies to deliver seamless connectivity experiences."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In-Factory Profile Provisioning enables automakers to load eSIM profiles during vehicle manufacturing, allowing vehicles to be “Born Connected” with global-ready connectivity. This eliminates the need for different inventory stock-keeping units for different countries."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Once vehicles reach their destinations, connectivity profiles can be updated remotely through RSP, allowing manufacturers to adapt to regional regulations or customer preferences without vehicle recalls."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Fleet Management and Logistics"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies operating global logistics networks use RSP to enable seamless connectivity management. As shipments cross borders, IoT tracking devices are automatically provisioned to local carrier networks. A logistics company tracking refrigerated pharmaceutical shipments can ensure devices automatically connect to optimal local networks in each region."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Global Roaming and Multi-Carrier Flexibility"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP enables enterprises to manage multiple carrier profiles on a single device. Organizations can optimize costs by switching between carriers based on coverage quality or pricing structures. An enterprise operating industrial equipment can maintain profiles from multiple carriers on each device for automatic failover."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Consumer Devices and Wearables"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The consumer device market represents a rapidly growing segment for RSP adoption."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Key consumer applications include:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Connected smartwatches – Parents activate cellular service through companion apps within minutes Tablets – Single hardware models sell globally with operator selection during setup Travel connectivity – International travelers download local operator profiles instantly New form factors – Ultra-thin smartphones eliminate SIM card slots for smaller designs"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Spenza Simplifies RSP Implementation"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Organizations need platforms that simplify procurement, orchestration, and ongoing management across multiple connectivity providers."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Unified IoT Connectivity Management"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza provides an operator-neutral aggregation platform that brings together multiple IoT connectivity providers under a single management interface."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s unified connectivity management delivers:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Consolidated visibility across all connectivity providers Automated bulk operations for provisioning and profile management Custom reporting for usage analysis and cost optimization Multi-country invoice reconciliation and payment processing API integrations with existing enterprise systems"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Bring Your Own Network Plus Marketplace Model"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza supports a “bring your own network” approach where organizations leverage existing carrier relationships while gaining access to additional coverage options. Organizations can source custom plans from multiple operators and manage them within the Spenza platform."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Branded eSIM Marketplace Distribution"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For MVNOs and device manufacturers, Spenza enables white-label eSIM marketplace capabilities. Organizations can offer mobile plans directly to end users through branded applications, leveraging RSP for instant profile provisioning."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Procure-to-Pay Automation"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza handles the complete connectivity lifecycle from procurement through payment, automating invoice reconciliation and providing spend visibility. Enterprise teams gain visibility into connectivity costs by device, location, and provider."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Deployment Checklist for Enterprise Teams"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Successfully implementing RSP requires careful planning and systematic execution. This checklist guides enterprise teams through the key decision points and preparation steps."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Deployment Phase Key Activities Considerations Requirements Definition Document device types, deployment locations, connectivity needs Identify bandwidth requirements, roaming needs, network type preferences (4G/5G/LPWAN) Standard Selection Choose appropriate RSP standard (SGP.02 vs SGP.32) SGP.32 recommended for new IoT deployments; evaluate device compatibility Vendor Evaluation Assess connectivity providers and management platforms Verify GSMA certification, security accreditation, geographic coverage Security Planning Define encryption requirements, key management approach Determine HSM requirements, audit logging needs, compliance obligations Integration Design Plan API integrations, data flows, automation workflows Document existing systems, define integration points, specify data exchange formats Pilot Deployment Test provisioning workflows with limited device subset Validate profile switching, measure provisioning time, test failure scenarios Monitoring Setup Implement connectivity monitoring, alerting, reporting Define KPIs, establish baseline metrics, configure automated alerts Scale Preparation Plan rollout schedule, support processes, documentation Train support staff, document troubleshooting procedures, establish escalation paths Ongoing Optimization Review connectivity costs, coverage quality, provider performance Schedule quarterly reviews, track cost per device, evaluate alternative providers",
+          "html": "<table class=\"mw-table\">\n<thead>\n<tr>\n<th>Deployment Phase</th>\n<th>Key Activities</th>\n<th>Considerations</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Requirements Definition</td>\n<td>Document device types, deployment locations, connectivity needs</td>\n<td>Identify bandwidth requirements, roaming needs, network type preferences (4G/5G/LPWAN)</td>\n</tr>\n<tr>\n<td>Standard Selection</td>\n<td>Choose appropriate RSP standard (SGP.02 vs SGP.32)</td>\n<td>SGP.32 recommended for new IoT deployments; evaluate device compatibility</td>\n</tr>\n<tr>\n<td>Vendor Evaluation</td>\n<td>Assess connectivity providers and management platforms</td>\n<td>Verify GSMA certification, security accreditation, geographic coverage</td>\n</tr>\n<tr>\n<td>Security Planning</td>\n<td>Define encryption requirements, key management approach</td>\n<td>Determine HSM requirements, audit logging needs, compliance obligations</td>\n</tr>\n<tr>\n<td>Integration Design</td>\n<td>Plan API integrations, data flows, automation workflows</td>\n<td>Document existing systems, define integration points, specify data exchange formats</td>\n</tr>\n<tr>\n<td>Pilot Deployment</td>\n<td>Test provisioning workflows with limited device subset</td>\n<td>Validate profile switching, measure provisioning time, test failure scenarios</td>\n</tr>\n<tr>\n<td>Monitoring Setup</td>\n<td>Implement connectivity monitoring, alerting, reporting</td>\n<td>Define KPIs, establish baseline metrics, configure automated alerts</td>\n</tr>\n<tr>\n<td>Scale Preparation</td>\n<td>Plan rollout schedule, support processes, documentation</td>\n<td>Train support staff, document troubleshooting procedures, establish escalation paths</td>\n</tr>\n<tr>\n<td>Ongoing Optimization</td>\n<td>Review connectivity costs, coverage quality, provider performance</td>\n<td>Schedule quarterly reviews, track cost per device, evaluate alternative providers</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Organizations should begin with a limited pilot deployment to validate provisioning workflows and measure actual performance before scaling to full production."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Conclusion"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote SIM Provisioning represents a transformational shift in how organizations manage device connectivity. By 2026, SGP.32 establishes itself as the standard for enterprise IoT deployments, with automotive, logistics, and smart city sectors leading adoption."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP capabilities increasingly define competitive advantage in connectivity management. The technology eliminates traditional constraints while opening new possibilities for global operations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "We are looking forward to hearing from you about your RSP implementation journey. If your organization needs support with IoT connectivity management or branded eSIM marketplace opportunities, Spenza provides the platform capabilities to simplify deployment."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP is the process and standard for remotely managing SIM profiles, while eSIM is the embedded SIM hardware (eUICC) that stores those profiles; both are needed together for remote connectivity."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "No, RSP requires devices with eUICC-based eSIM hardware, so legacy devices with only removable SIM slots cannot use it directly; migration usually happens during hardware refresh cycles."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "SGP.02 is for legacy M2M and depends on SMS triggers and operator-specific integrations, while SGP.32 is optimized for modern IoT with IP-based flows, support for low-power asynchronous devices, and a standardized eIM layer to reduce vendor lock-in."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "RSP uses TLS-encrypted communication, strong cryptographic authentication, GSMA-certified platforms and production, and Hardware Security Modules to protect keys, greatly reducing the risk of unauthorized profile access or changes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes, eUICC chips can hold multiple operator profiles at once, allowing enterprises to switch remotely between carriers for coverage, cost, or performance without downloading new profiles each time."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza provides an operator-neutral platform that centralizes eSIM management, allowing enterprises to provision, switch, and monitor multiple SIM profiles across global device fleets. It supports bulk operations, API integrations, cost tracking, and even branded eSIM marketplaces, making RSP deployment faster, more scalable, and easier to manage compared to handling multiple carrier-specific systems."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Ready to simplify your IoT connectivity with Remote SIM Provisioning? Contact Spenza today to explore how our platform can streamline eSIM management, enable global deployments, and optimize costs for your enterprise."
+        }
+      ],
+      "links": [
+        {
+          "text": "GSMA",
+          "href": "https://www.gsma.com/"
+        },
+        {
+          "text": "MVNO",
+          "href": "/mvno/mvno/"
+        },
+        {
+          "text": "eSIM",
+          "href": "/esim/iot-esim-introduction/"
+        },
+        {
+          "text": "SGP.02",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/gsma_resources/sgp-02-remote-provisioning-architecture-for-embedded-uicc-technical-specification-v4-3/"
+        },
+        {
+          "text": "NBIoT",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/narrow-band-internet-of-things-nb-iot/"
+        },
+        {
+          "text": "SGP.32",
+          "href": "/esim/sgp-32-new-esim-standard/"
+        },
+        {
+          "text": "GSMA Security Accreditation Scheme",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/security-analysis-of-the-consumer-remote-sim-provisioning-protocol/"
+        },
+        {
+          "text": "Hardware Security Module",
+          "href": "https://en.wikipedia.org/wiki/Hardware_security_module"
+        },
+        {
+          "text": "Spenza",
+          "href": "/"
+        },
+        {
+          "text": "",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.choiceiot.com/blog/why-using-a-multi-carrier-platform-is-important-to-solution-providers/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.grandviewresearch.com/industry-analysis/managed-services-market?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://soracom.io/iot-definitions/what-is-sgp-32/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "Contact Spenza today",
+          "href": "https://calendly.com/spenza/discovery"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png",
+          "class": "attachment-full size-full wp-image-14087 webpexpress-processed",
+          "alt": "What Is Remote SIM Provisioning (RSP)? How It Works in 2026 for IoT & Enterprise",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png\" class=\"attachment-full size-full wp-image-14087 webpexpress-processed\" alt=\"What Is Remote SIM Provisioning (RSP)? How It Works in 2026 for IoT &amp; Enterprise\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "576",
+          "class": "wp-image-14094",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-1024x576.png",
+          "alt": "What Is Remote SIM Provisioning (RSP)? How It Works in 2026 for IoT & Enterprise",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails.png 1280w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"576\" class=\"wp-image-14094\" src=\"https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-1024x576.png\" alt=\"What Is Remote SIM Provisioning (RSP)? How It Works in 2026 for IoT &amp; Enterprise\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails.png 1280w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "555",
+          "height": "293",
+          "class": "wp-image-14100",
+          "style": "width: 555px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/12/image-6.png",
+          "alt": "Remote SIM provisioning architecture",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/12/image-6.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/image-6-300x158.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/image-6-768x406.png 768w",
+          "sizes": "(max-width: 555px) 100vw, 555px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"555\" height=\"293\" class=\"wp-image-14100\" style=\"width: 555px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/12/image-6.png\" alt=\"Remote SIM provisioning architecture\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/12/image-6.png 1024w, https://media.spenza.com/wp-content/uploads/2025/12/image-6-300x158.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/image-6-768x406.png 768w\" sizes=\"(max-width: 555px) 100vw, 555px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "555",
+          "height": "393",
+          "class": "wp-image-14104",
+          "style": "width: 555px;",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/12/image-7.png",
+          "alt": "How Remote SIM Provisioning Works",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/12/image-7.png 984w, https://media.spenza.com/wp-content/uploads/2025/12/image-7-300x212.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/image-7-768x543.png 768w",
+          "sizes": "(max-width: 555px) 100vw, 555px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"555\" height=\"393\" class=\"wp-image-14104\" style=\"width: 555px;\" src=\"https://media.spenza.com/wp-content/uploads/2025/12/image-7.png\" alt=\"How Remote SIM Provisioning Works\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/12/image-7.png 984w, https://media.spenza.com/wp-content/uploads/2025/12/image-7-300x212.png 300w, https://media.spenza.com/wp-content/uploads/2025/12/image-7-768x543.png 768w\" sizes=\"(max-width: 555px) 100vw, 555px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "Remote SIM Provisioning (RSP) in 2026",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+            "title": "Software-Driven SIM Management",
+            "text": "RSP replaces physical SIM logistics with software control, enabling remote installation, switching, and management of operator profiles on eSIM (eUICC) devices."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
+            "title": "SGP.32: The IoT Standard for 2026",
+            "text": "SGP.32 enables IP-based, low-power, asynchronous provisioning across NB-IoT, LTE-M, and LPWAN—eliminating SMS dependency and vendor lock-in."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wave-square\", \"label\" : \"Wave Square\", \"unicode\" : \"f83e\"}",
+            "title": "Core RSP Architecture Components",
+            "text": "eUICC, SM-DP+, SM-SR, and eIM ensure secure profile preparation, encrypted delivery, lifecycle management, and standardized orchestration."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield\", \"label\" : \"Shield\", \"unicode\" : \"f132\"}",
+            "title": "Enterprise-Grade Security by Design",
+            "text": "RSP follows GSMA-grade security using TLS encryption, cryptographic authentication, certified platforms, and HSM-based key management."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Spenza Simplifies RSP at Scale",
+            "text": "Spenza provides operator-neutral RSP management with bulk provisioning, cost visibility, API integrations, and branded eSIM marketplace capabilities for enterprises and MVNOs."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "What Is Remote SIM Provisioning (RSP)? A 2026 Guide",
+              "datePublished": "2025-12-19T06:59:03+00:00",
+              "dateModified": "2026-07-14T07:54:55+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/"
+              },
+              "wordCount": 2251,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png",
+              "keywords": [
+                "eSIM",
+                "IoT",
+                "remote SIM provisioning",
+                "RSP"
+              ],
+              "articleSection": [
+                "eSIM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+              "url": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+              "name": "What Is Remote SIM Provisioning (RSP)? A 2026 Guide- Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png",
+              "datePublished": "2025-12-19T06:59:03+00:00",
+              "dateModified": "2026-07-14T07:54:55+00:00",
+              "description": "Learn how Remote SIM Provisioning (RSP) enables OTA eSIM management with GSMA SGP.32 in 2026, including SM-DP+, eIM, and branded connectivity.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/12/What-Is-Remote-SIM-Provisioning-RSP.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "What Is Remote SIM Provisioning (RSP)? How It Works in 2026 for IoT & Enterprise"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/esim/what-is-remote-sim-provisioning-rsp-guide-2026/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "eSIM",
+                  "item": "https://spenza.com/category/esim/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "What Is Remote SIM Provisioning (RSP)? A 2026 Guide"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/esim/what-is-remote-esim-provisioning/",
+      "url": "https://spenza.com/esim/what-is-remote-esim-provisioning/",
+      "status": 200,
+      "h1": [
+        "What Is Remote eSIM Provisioning? A Practical Guide"
+      ],
+      "bodyWords": 2792,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Problem with Physical SIM Card"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is Remote eSIM Provisioning?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Does Remote eSIM Provisioning Work?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Remote eSIM Provisioning vs Physical SIM Cards"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Benefits of Remote eSIM Provisioning for IoT, Enterprises & Global Deployments"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Zero Touch Creates Faster Rollouts"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Digital Control Replaces SIM Handling"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Local Profiles for Global Markets"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Reduced Field Costs"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Spenza’s Role in Stronger Provisioning"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why Remote eSIM Provisioning Is Important for Large-Scale IoT Deployments"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is eSIM Orchestration? (And How It Complements Remote Provisioning)"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Remote eSIM Provisioning Use Cases"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Fleet Tracking"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Smart Manufacturing"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Retail and Payments"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Agriculture and Remote Assets"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Logistics and Cold Chain"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Remote eSIM Provisioning Challenges No One Talks About"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Spenza Simplifies Remote eSIM Provisioning With Multi-Carrier Global Coverage"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Future of Remote eSIM Provisioning: iSIM, 5G, and AI-Driven Connectivity"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why Remote eSIM Provisioning Now Sits at the Center of Global Connectivity"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQ s"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIM provisioning is the process of remotely activating and managing an embedded SIM (eUICC) on a device without a physical SIM card. It securely downloads a carrier profile over-the-air (OTA), enabling the device to connect instantly to a mobile network."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Problem with Physical SIM Card"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "What slows a business that tries to deploy thousands of devices across different regions? A physical SIM card forces long processes, because each rollout needs shipping, storage, labeling, tracking, and onsite handling."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These steps waste time, drain teams, and break momentum. They also grow more painful as global connectivity expands, and today the world already runs 16.6 billion connected devices . Every new device creates more demand for a faster activation model."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning solves this challenge by shifting activation into an over-the-air process that removes physical cards from the equation. This guide explains how the method works and why it matters for teams that want scale."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is Remote eSIM Provisioning?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning is a digital process that installs a carrier profile or operator plan onto the embedded SIM inside a device . The process replaces plastic SIM steps with secure, encrypted transfers that happen through software. Devices hold an eUICC chip , which lets them receive, store, and activate multiple plans through controlled, over-the-air commands."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This method works with eSIM provisioning rules that the GSMA maintains. These rules set the security model, the encryption used during installation, and the interactions between the device and the subscription manager. This forms a predictable system that supports global IoT connectivity without hardware changes."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The adoption of remote eSIM provisioning grows quickly because more IoT devices ship with embedded SIM hardware. The installed base of eSIM-capable IoT modules reached 650 million units ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The base concepts behind the embedded SIM and its role in remote eSIM provisioning stay clear when viewed through the simple explanation Spenza shares in its IoT eSIM introduction guide ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning also supports one hardware design for many markets. A company can build a single device model, ship it globally, and load the correct local plan during activation. It removes regional variations and reduces manufacturing work. This is one of the most practical eSIM benefits for companies that scale."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Does Remote eSIM Provisioning Work?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning follows a structured sequence that aligns with GSMA SGP.32 . The device includes an eUICC , which acts as the secure chip ready for new plans. When the device powers on, the platform triggers a request linked to the carrier plan assigned to that device."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The carrier creates the encrypted profile and stores it in a protected server. From there, the profile moves to the device through verified channels. Once installed, the plan becomes active, and the device connects to the network instantly."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This explains how eSIM works in simple terms. It links the embedded SIM with a secure cloud manager that delivers the operator profile through software rather than through a physical card."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A deeper version of this breakdown sits inside Spenza’s own guide on remote eSIM provisioning , where the flow connects with device lifecycle and orchestration systems."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Key parts of the process include:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Encrypted profile creation Secure delivery to the device Instant activation Support for profile switching Support for multi-operator setups Local network selection without physical swaps"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This structure removes friction across the entire fleet."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Tag devices in your system before shipping . Clear tracking makes remote eSIM provisioning smoother and reduces activation delays ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Remote eSIM Provisioning vs Physical SIM Cards"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Physical SIM cards force manual action. Remote eSIM provisioning replaces that with software. The difference becomes noticeable when companies enter new countries or handle large fleets."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Physical SIM cards require stocking, shipping, distribution, and field labor. Remote eSIM provisioning requires none of that. It also reduces mistakes, shipping delays, and hardware handling."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Factor Remote eSIM Provisioning Physical SIM Cards Setup Over-the-air digital process Manual insertion Network Switching Software command Remove and replace card Global Expansion One device model works everywhere Region-specific SIMs Inventory No physical stock Stored SIM packs Security Encrypted delivery Card exposure in transit Speed Instant activation Slow shipping cycles",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Factor</th>\n<th>Remote eSIM Provisioning</th>\n<th>Physical SIM Cards</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Setup</td>\n<td>Over-the-air digital process</td>\n<td>Manual insertion</td>\n</tr>\n<tr>\n<td>Network Switching</td>\n<td>Software command</td>\n<td>Remove and replace card</td>\n</tr>\n<tr>\n<td>Global Expansion</td>\n<td>One device model works everywhere</td>\n<td>Region-specific SIMs</td>\n</tr>\n<tr>\n<td>Inventory</td>\n<td>No physical stock</td>\n<td>Stored SIM packs</td>\n</tr>\n<tr>\n<td>Security</td>\n<td>Encrypted delivery</td>\n<td>Card exposure in transit</td>\n</tr>\n<tr>\n<td>Speed</td>\n<td>Instant activation</td>\n<td>Slow shipping cycles</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This table shows why companies now compare eSIM vs physical SIM when building modern IoT strategies."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning enables devices to be activated and managed entirely through digital workflows , eliminating the need for physical SIM cards. This not only accelerates global IoT deployments , but also empowers businesses with flexible network options , enhanced scalability , and a faster time-to-market — all without the delays of hardware logistics."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Benefits of Remote eSIM Provisioning for IoT, Enterprises & Global Deployments"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning delivers a faster approach for IoT, field devices, and enterprise assets. It supports teams that deploy sensors, trackers, vehicles, kiosks, gateways, and tablets in many countries. Because the method sets device activation as a digital flow, companies reduce delays and manage everything through one system."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Zero Touch Creates Faster Rollouts"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning helps companies activate fleets without shipping SIM cards or scheduling technicians. Plans move over the air, and devices boot with the right profile. This cuts delays and keeps deployment timelines steady even when teams work across many regions. Teams often include a few simple steps inside their activation playbook:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Assign device Push profile Verify connection Begin operations"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Shorter steps raise deployment speed without stressing staff. The global eSIM market already passed USD 10.68 billion in 2024 and is expected to reach USD 21.75 billion by 2030, based on a report from Bonafide Research . This growth reflects how many companies now replace physical SIM handling with digital provisioning to keep operational costs manageable."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Digital Control Replaces SIM Handling"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning gives teams visibility and control through one dashboard. They trigger profile installation, enable new plans, or switch networks without local access. This turns network control into a simple workflow. Many companies place this into their routine operations because it:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Removes onsite work Reduces errors Speeds network selection"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Everything happens through software, which keeps the entire fleet consistent."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Local Profiles for Global Markets"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning supports expansion by installing local carrier profiles when devices enter new countries. Devices connect quickly because the eUICC stores multiple plans . The process helps companies move into new regions with fewer steps. This also improves global IoT connectivity because devices choose networks with strong coverage."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies usually follow a pattern here:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Ship device Power device Deliver local plan Begin activity instantly"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This reduces downtime and improves connection reliability."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Reduced Field Costs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning helps companies cut labor because devices receive plans and updates digitally. Support teams fix issues remotely instead of sending staff to swap SIM cards."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This creates cost stability during growth. It also improves uptime because devices stay on the network while updates move through encrypted channels."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Spenza’s Role in Stronger Provisioning"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning becomes more effective when orchestration surrounds it. Spenza’s platform manages activation, switching, and network choices across many carriers."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The system adds logic that supports large deployments, keeps devices stable, and gives teams predictable performance during scale. This flow aligns well with the broader needs of IoT teams."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why Remote eSIM Provisioning Is Important for Large-Scale IoT Deployments"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Large IoT deployments demand fast rollouts, flexible networks, and strong control . Remote eSIM provisioning helps companies meet these needs by turning activation into a digital event rather than a physical one. Today, over 120 countries support commercial eSIM connectivity. This wider support makes remote eSIM provisioning easier to rely on for cross-border operations."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies use one device model, ship it to any region, and load the correct plan in moments. This removes delays that appear when dealing with SIM packs and regional logistics."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning matters because global IoT connectivity grows fast . Teams work across borders, and device fleets travel to remote zones. The old physical model slows everything down. The digital model keeps fleets ready for new conditions, new operators, and new coverage needs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies rely on it because they want:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Quick activation across many countries A single hardware design Centralized control Secure plan delivery Smooth operator switching"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These needs grow as fleets expand."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is eSIM Orchestration? (And How It Complements Remote Provisioning)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning activates profiles. eSIM orchestration manages everything that surrounds activation. It builds the rules, logic, network choices, switching conditions, and policies that devices follow. When combined, the two systems create a complete control layer for IoT deployments."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Orchestration also helps teams operate large fleets with predictable behavior. They see each device, track its status, and update its plan during movement. This helps teams avoid downtime and keep devices online across many markets."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The practical side of orchestration aligns well with the device-management approach Spenza describes in its eSIM enterprise BYOD guide ."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Remote eSIM Provisioning Use Cases"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning supports many industries because every industry now depends on stable, global IoT connectivity. Devices move, change zones, cross borders, and operate in remote locations. Physical SIMs slow this work. Digital provisioning supports it."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Fleet Tracking"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Vehicles cross regions daily. Remote eSIM provisioning keeps trackers active by delivering new plans instantly. Devices switch networks without gaps , and fleets maintain visibility across long routes. Teams see consistent performance because the device selects strong networks."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Smart Manufacturing"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Factories depend on sensors, controllers, and data streams. Remote eSIM provisioning supports this by allowing devices to receive plans without shutting equipment down. Machines stay active. Plants maintain flow. Teams change profiles quickly when coverage needs to shift."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Retail and Payments"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Payment terminals must stay online during peak hours. Remote eSIM provisioning activates devices without in-store labor. Terminals stay connected, and teams resolve issues through digital actions. This keeps stores productive."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Agriculture and Remote Assets"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Field equipment and sensors operate far from support staff. Remote eSIM provisioning helps teams manage devices across large areas. They send plan updates without driving out, keeping sensors productive across soil, crops, livestock, and equipment."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Logistics and Cold Chain"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Shipments move across regions with strict conditions. Remote eSIM provisioning supports sensors that monitor temperature, location, and timing. Devices switch networks across borders, keeping shipments visible during long travel cycles."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Remote eSIM Provisioning Challenges No One Talks About"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning solves many long-standing problems, but it still presents hidden barriers that companies must understand early. These challenges appear inside global deployments, low-power hardware, and complex operator environments. They also show up when teams try to maintain clean workflows across thousands of devices."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Some challenges come from device readiness. Not every device includes an eUICC, and not every eUICC supports advanced features. Other challenges come from poor operator support, missing APIs, and slow regional adoption of digital provisioning. These issues matter because remote eSIM provisioning depends on consistent behavior across systems, carriers, and devices."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Teams face a few common friction points:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Limited device compatibility Older operator systems Region-specific rules Poor documentation from hardware vendors Profile download failures caused by weak signal"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These friction points often resolve when teams use orchestration systems that handle retries, profile management, and logic paths. But companies still need clarity on what these challenges look like in real deployments."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Challenge Impact Why It Appears Inconsistent device support Activation errors Different eUICC versions across devices Slow profile downloads Delayed rollouts Weak signal during bootstrap stage Regional compliance gaps Deployment pauses Local policy changes Operator limitations Fewer profile choices Carriers with older systems Lifecycle confusion Lost time Teams juggling too many steps manually",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Challenge</th>\n<th>Impact</th>\n<th>Why It Appears</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Inconsistent device support</td>\n<td>Activation errors</td>\n<td>Different eUICC versions across devices</td>\n</tr>\n<tr>\n<td>Slow profile downloads</td>\n<td>Delayed rollouts</td>\n<td>Weak signal during bootstrap stage</td>\n</tr>\n<tr>\n<td>Regional compliance gaps</td>\n<td>Deployment pauses</td>\n<td>Local policy changes</td>\n</tr>\n<tr>\n<td>Operator limitations</td>\n<td>Fewer profile choices</td>\n<td>Carriers with older systems</td>\n</tr>\n<tr>\n<td>Lifecycle confusion</td>\n<td>Lost time</td>\n<td>Teams juggling too many steps manually</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning works well once the system aligns, but companies benefit when they plan for these early. The digital nature of eSIM provisioning still requires strong oversight, predictable workflows, and clear responsibility across teams."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Spenza Simplifies Remote eSIM Provisioning With Multi-Carrier Global Coverage"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning works best when it sits inside a strong orchestration layer. Spenza builds that layer. The platform connects remote eSIM provisioning, eSIM provisioning, network choices, and lifecycle control into one hub that supports global IoT connectivity without slow processes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza uses a single interface where teams activate devices, switch profiles, assign carriers, and monitor connection quality. The system also uses logic that selects the right operator per region , which reduces manual configuration and shortens deployment time. As remote eSIM provisioning installs new plans, Spenza handles the routing, selection, and optimization automatically."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies choose Spenza because the platform supports:"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Multi-carrier activation flows Local profiles for international rollouts Automated switching across regions Clear visibility across all devices Strong policy controls Scalable orchestration for large fleets"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "These functions help teams manage many countries, many carriers, and many device types without building a custom network stack."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza also fits into a simple ecosystem because it works with one hardware design. Companies ship devices globally, and the eUICC receives new plans as soon as the device powers on. The system reduces manual tasks and keeps deployments stable."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Future of Remote eSIM Provisioning: iSIM, 5G, and AI-Driven Connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning sets the foundation for the next generation of connected devices. The direction points toward integrated SIMs, smarter networks, and AI-based connectivity decisions. As networks shift toward 5G and narrowband models, devices need faster provisioning and smarter logic."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The next evolution— iSIM —moves the secure element inside the device’s chipset. Instead of a soldered eUICC , the SIM lives in the processor. This reduces cost, saves space, and increases security. iSIM works with the same provisioning model, so remote eSIM provisioning becomes remote iSIM provisioning over time."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "5G also changes expectations. Devices move faster , roam across borders frequently, and need stable attachments to new networks. Remote eSIM provisioning supports this by delivering operator profiles fast and preparing devices for new coverage requirements."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "AI plays a role by predicting which carrier a device should use next. It reads signal trends, movement patterns, and network behavior. It recommends the right moment to switch profiles. Combined with orchestration, the system becomes smoother because decisions move away from manual actions."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning remains the foundation that makes all of this possible."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why Remote eSIM Provisioning Now Sits at the Center of Global Connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning removes the physical steps that held companies back for years. It turns activation into a digital event that fits with modern IoT needs. Companies build one hardware design, install one embedded SIM, and use a secure digital workflow to assign networks across dozens of region s. This gives IT teams control without field labor and prepares fleets for global expansion without friction."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The method also supports eSIM provisioning and aligns with GSMA SGP.32 , which helps devices stay ready for updates, new plans, and new carriers. This strengthens global IoT connectivity at every stage."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As more devices rely on cellular service in factories, vehicles, farms, stores, and remote sites, the need for simple over-the-air provisioning grows even stronger. The shift toward iSIM, smarter networks, and AI-driven decisions only pushes this forward."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "So now the real question becomes simple, are you ready to let your devices connect smarter from day one?"
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQ s"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The device usually contains a bootstrap profile that gives it minimal service. Once it connects, the system delivers the correct operator plan over the air and activates the full service."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Devices switch networks through software commands. The platform sends a new profile, and the device activates it instantly without physical work or field labor."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. The eUICC stores multiple profiles, and the orchestration system selects the right one per region. This helps global fleets stay connected across many countries."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Profiles travel through encrypted channels, and the secure chip stores sensitive data. Because nothing ships physically, criminals cannot intercept or swap cards."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It removes slow steps tied to physical SIMs, cuts inventory management, and gives teams a single interface for activation, switching, and monitoring across large device fleets."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The device needs an eUICC, the correct firmware, and support for GSMA SGP.32. After that, the entire provisioning flow works through software."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Devices store multiple profiles, so they switch to better networks when needed. This helps sensors, trackers, and gateways maintain strong service even outside cities."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Want instant activation and reliable global reach for your IoT devices? Reach out to Spenza and use remote eSIM provisioning with orchestration built for real scale."
+        }
+      ],
+      "links": [
+        {
+          "text": "16.6 billion",
+          "href": "https://iot-analytics.com/number-connected-iot-devices/"
+        },
+        {
+          "text": "embedded SIM",
+          "href": "/esim/esim/"
+        },
+        {
+          "text": "650 million units",
+          "href": "https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/"
+        },
+        {
+          "text": "IoT eSIM introduction guide",
+          "href": "/esim/iot-esim-introduction/"
+        },
+        {
+          "text": "remote eSIM provisioning",
+          "href": "/esim/iot-management-remote-esim-provisioning/"
+        },
+        {
+          "text": "Bonafide Research",
+          "href": "https://www.bonafideresearch.com/press/251009821/global-esim-market"
+        },
+        {
+          "text": "120 countries",
+          "href": "https://www.trasna.io/blog/the-state-of-the-esim-market"
+        },
+        {
+          "text": "eSIM orchestration",
+          "href": "/esim/esim-orchestration-global-iot/"
+        },
+        {
+          "text": "eSIM enterprise BYOD guide",
+          "href": "/esim/esim-enterprise-byod/"
+        },
+        {
+          "text": "iSIM",
+          "href": "/esim/isim-vs-esim/"
+        },
+        {
+          "text": "GSMA SGP.32",
+          "href": "/esim/sgp-32-new-esim-standard/"
+        },
+        {
+          "text": "",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.choiceiot.com/blog/why-using-a-multi-carrier-platform-is-important-to-solution-providers/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.grandviewresearch.com/industry-analysis/managed-services-market?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "Reach out to Spenza",
+          "href": "https://calendly.com/spenza/discovery"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png",
+          "class": "attachment-full size-full wp-image-13503 webpexpress-processed",
+          "alt": "What is Remote eSIM Provisioning?",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/What-is-Remote-eSIM-Provisioning-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/What-is-Remote-eSIM-Provisioning-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/What-is-Remote-eSIM-Provisioning-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png\" class=\"attachment-full size-full wp-image-13503 webpexpress-processed\" alt=\"What is Remote eSIM Provisioning?\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/11/image-9-1024x683.png",
+          "alt": "Remote eSIM Provisioning?",
+          "class": "wp-image-13506",
+          "style": "width:888px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/11/image-9-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/11/image-9-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/11/image-9-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/11/image-9.png 1536w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2025/11/image-9-1024x683.png\" alt=\"Remote eSIM Provisioning?\" class=\"wp-image-13506\" style=\"width:888px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/11/image-9-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/11/image-9-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/11/image-9-768x512.png 768w, https://media.spenza.com/wp-content/uploads/2025/11/image-9.png 1536w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "751",
+          "height": "577",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/11/image-10.png",
+          "alt": "Remote eSIM Provisioning Cycle",
+          "class": "wp-image-13514",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/11/image-10.png 751w, https://media.spenza.com/wp-content/uploads/2025/11/image-10-300x230.png 300w",
+          "sizes": "(max-width: 751px) 100vw, 751px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"751\" height=\"577\" src=\"https://media.spenza.com/wp-content/uploads/2025/11/image-10.png\" alt=\"Remote eSIM Provisioning Cycle\" class=\"wp-image-13514\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/11/image-10.png 751w, https://media.spenza.com/wp-content/uploads/2025/11/image-10-300x230.png 300w\" sizes=\"(max-width: 751px) 100vw, 751px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "460",
+          "height": "617",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/11/image-11.png",
+          "alt": "Remote eSIM provisioning process",
+          "class": "wp-image-13527",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/11/image-11.png 460w, https://media.spenza.com/wp-content/uploads/2025/11/image-11-224x300.png 224w",
+          "sizes": "(max-width: 460px) 100vw, 460px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"460\" height=\"617\" src=\"https://media.spenza.com/wp-content/uploads/2025/11/image-11.png\" alt=\"Remote eSIM provisioning process\" class=\"wp-image-13527\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/11/image-11.png 460w, https://media.spenza.com/wp-content/uploads/2025/11/image-11-224x300.png 224w\" sizes=\"(max-width: 460px) 100vw, 460px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "943",
+          "height": "533",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/11/image-12.png",
+          "alt": "Remote eSIM Provisioning Use Cases",
+          "class": "wp-image-13528",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/11/image-12.png 943w, https://media.spenza.com/wp-content/uploads/2025/11/image-12-300x170.png 300w, https://media.spenza.com/wp-content/uploads/2025/11/image-12-768x434.png 768w",
+          "sizes": "(max-width: 943px) 100vw, 943px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"943\" height=\"533\" src=\"https://media.spenza.com/wp-content/uploads/2025/11/image-12.png\" alt=\"Remote eSIM Provisioning Use Cases\" class=\"wp-image-13528\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/11/image-12.png 943w, https://media.spenza.com/wp-content/uploads/2025/11/image-12-300x170.png 300w, https://media.spenza.com/wp-content/uploads/2025/11/image-12-768x434.png 768w\" sizes=\"(max-width: 943px) 100vw, 943px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "696",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-1024x696.png",
+          "alt": "Spenza Simplifies Remote eSIM Provisioning",
+          "class": "wp-image-12752",
+          "style": "width:555px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-1024x696.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-300x204.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-768x522.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-1536x1044.png 1536w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-2048x1392.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"696\" src=\"https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-1024x696.png\" alt=\"Spenza Simplifies Remote eSIM Provisioning\" class=\"wp-image-12752\" style=\"width:555px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-1024x696.png 1024w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-300x204.png 300w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-768x522.png 768w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-1536x1044.png 1536w, https://media.spenza.com/wp-content/uploads/2025/10/Spenza-MVNE-2048x1392.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
+            "title": "From Plastic SIMs to eSIMs",
+            "text": "Remote eSIM turns activation into a software task, sending secure profiles to devices worldwide—no hardware needed."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"globe\", \"label\" : \"Globe\", \"unicode\" : \"f0ac\"}",
+            "title": "Instant Global Device Rollouts",
+            "text": "Skip shipping delays and manual swaps; activate and manage large fleets remotely in real time."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrows-up-to-line\", \"label\" : \"Arrows Up To Line\", \"unicode\" : \"e4c2\"}",
+            "title": "Scalable IoT, Simplified",
+            "text": "One provisioning method manages multiple markets, networks, and device behavior effortlessly."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"plus\", \"label\" : \"Plus\", \"unicode\" : \"2b\"}",
+            "title": "The New Standard",
+            "text": "GSMA SGP.32-compliant, allowing over-the-air updates, plan changes, and rapid operator switching."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Spenza-Powered Orchestration",
+            "text": "Remote eSIM provisioning becomes stronger inside Spenza’s orchestration system, where the platform manages activation, switching, and network decisions across many carriers with consistent control."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "What Is Remote eSIM Provisioning? A Practical Guide",
+              "datePublished": "2025-11-14T10:14:50+00:00",
+              "dateModified": "2026-08-26T05:09:07+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/"
+              },
+              "wordCount": 2516,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png",
+              "keywords": [
+                "eSIM",
+                "eSIM benefits",
+                "eSIM global connectivity",
+                "eUICC profile management",
+                "GSMA eSIM provisioning",
+                "GSMA SGP.32",
+                "IoT eSIM management",
+                "Remote eSIM Provisioning",
+                "secure remote SIM provisioning",
+                "zero‑touch eSIM activation"
+              ],
+              "articleSection": [
+                "eSIM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/",
+              "url": "https://spenza.com/esim/what-is-remote-esim-provisioning/",
+              "name": "What Is Remote eSIM Provisioning? A Practical Guide- Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png",
+              "datePublished": "2025-11-14T10:14:50+00:00",
+              "dateModified": "2026-08-26T05:09:07+00:00",
+              "description": "Remote eSIM provisioning delivers instant, secure global connectivity to IoT and enterprise devices with no physical SIM swap and no truck rolls.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/esim/what-is-remote-esim-provisioning/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/11/What-is-Remote-eSIM-Provisioning.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "What is Remote eSIM Provisioning?"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/esim/what-is-remote-esim-provisioning/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "eSIM",
+                  "item": "https://spenza.com/category/esim/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "What Is Remote eSIM Provisioning? A Practical Guide"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/esim/iot-management-remote-esim-provisioning/",
+      "url": "https://spenza.com/esim/iot-management-remote-esim-provisioning/",
+      "status": 200,
+      "h1": [
+        "Global IoT Management With Remote eSIM Provisioning"
+      ],
+      "bodyWords": 1728,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Table of Contents"
+        },
+        {
+          "level": "h2",
+          "id": "Introduction",
+          "text": "Introduction"
+        },
+        {
+          "level": "h2",
+          "id": "Provisioning",
+          "text": "Understanding Remote eSIM Provisioning"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Physical SIM vs Remote eSIM: Why This Tech Is Different"
+        },
+        {
+          "level": "h2",
+          "id": "Benefits",
+          "text": "Core Benefits: Why It’s a Big Deal for Global IoT"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "No More Physical Limits"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Real Global Scaling"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Total Flexibility and Control"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Simpler Operations"
+        },
+        {
+          "level": "h2",
+          "id": "Remote",
+          "text": "How Remote eSIM Drives Real Business Outcomes"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Faster Time-to-Market"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Lower Costs, Higher Efficiency"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Longer Device Lifecycles"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Reduced Operational Complexity"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Better Regulatory Compliance"
+        },
+        {
+          "level": "h2",
+          "id": "Spenza",
+          "text": "Why Choose Spenza"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Case Study: Angel Watch Enhances Global Reach with Spenza"
+        },
+        {
+          "level": "h2",
+          "id": "Conclusion",
+          "text": "Conclusion: The Future is Remotely Managed"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Table of Contents"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Introduction Understanding Remote eSIM Provisioning Physical SIM vs Remote eSIM: Why This Tech Is Different Core Benefits: Why It’s a Big Deal for Global IoT No More Physical Limits Real Global Scaling Total Flexibility and Control Simpler Operations How Remote eSIM Drives Real Business Outcomes Faster Time-to-Market Lower Costs, Higher Efficiency Longer Device Lifecycles Reduced Operational Complexity Better Regulatory Compliance Why Choose Spenza Conclusion FAQs"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": "Introduction",
+          "text": "Introduction"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In the world of connected devices, speed, flexibility, and control are no longer nice-to-haves, they’re table stakes. And when it comes to global IoT connectivity, traditional SIMs are holding businesses back. Swapping plastic cards to connect IoT devices across regions just doesn’t cut it anymore. Remote eSIM provisioning flips this outdated model on its head."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Imagine managing thousands of devices across countries, networks, and use cases, all from one place. No physical access. No delays. No mess. That’s the promise of remote eSIM provisioning, and it’s changing how enterprises handle global IoT management at scale."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As more connected devices hit the market, businesses need scalable IoT solutions that work across geographies and networks without physical interaction. Remote eSIM provisioning simplifies IoT connectivity while reducing operational chaos. And with Spenza, an IoT connectivity aggregation platform, companies can connect, manage, and scale IoT deployments like never before. Let’s break it down."
+        },
+        {
+          "tag": "h2",
+          "id": "Provisioning",
+          "text": "Understanding Remote eSIM Provisioning"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning means pushing mobile operator profiles directly to devices over the air. No SIM swapping. No manual setup. You assign a network profile to an IoT device and it just works. From anywhere."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Think of it like software updates, but for connectivity."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can activate, switch, or update network carriers on IoT devices remotely. That means logistics and hardware teams don’t need to get involved just to change a carrier plan. Whether your devices are in New York, Berlin, or Singapore, you handle it all centrally. That’s why remote eSIM provisioning sits at the center of modern IoT device management."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It also helps with compliance, since you can easily align with local regulations without shipping new SIMs or having boots on the ground."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The result? A smoother path to launching new IoT projects globally."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Physical SIM vs Remote eSIM: Why This Tech Is Different"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Old ways don’t support new needs. Let’s compare."
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Feature Physical SIMs Remote eSIM Provisioning Installation Manual, requires physical access Remote, over-the-air Scalability Low, logistics-heavy High, ideal for global IoT Network Switching Requires new SIM Remote profile download Cost of Deployment High (shipping, labor) Lower (zero-touch setup) Device Downtime High during SIM swap Minimal with OTA updates Support for Unattended Devices Poor Excellent Lifecycle Management Fragmented Centralized and simple",
+          "html": "<table style=\"width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; border: 1px solid #ccc; text-align: left;\">\n<thead style=\"background-color: #e6f7ff; color: #005780; font-weight: bold;\">\n<tr>\n<th style=\"padding: 10px; border: 1px solid #ccc;\">Feature</th>\n<th style=\"padding: 10px; border: 1px solid #ccc;\">Physical SIMs</th>\n<th style=\"padding: 10px; border: 1px solid #ccc;\">Remote eSIM Provisioning</th>\n</tr>\n</thead>\n<tbody>\n<tr style=\"background-color: #f9f9f9;\">\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Installation</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Manual, requires physical access</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Remote, over-the-air</td>\n</tr>\n<tr style=\"background-color: #ffffff;\">\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Scalability</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Low, logistics-heavy</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">High, ideal for global IoT</td>\n</tr>\n<tr style=\"background-color: #f9f9f9;\">\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Network Switching</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Requires new SIM</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Remote profile download</td>\n</tr>\n<tr style=\"background-color: #ffffff;\">\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Cost of Deployment</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">High (shipping, labor)</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Lower (zero-touch setup)</td>\n</tr>\n<tr style=\"background-color: #f9f9f9;\">\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Device Downtime</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">High during SIM swap</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Minimal with OTA updates</td>\n</tr>\n<tr style=\"background-color: #ffffff;\">\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Support for Unattended Devices</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Poor</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Excellent</td>\n</tr>\n<tr style=\"background-color: #f9f9f9;\">\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Lifecycle Management</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Fragmented</td>\n<td style=\"padding: 8px; border: 1px solid #ccc;\">Centralized and simple</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With physical SIMs, you’re bound by hardware. Each time you need a network change, someone must touch the device. That doesn’t scale, especially when you’re managing thousands of sensors, trackers, or smart meters."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Consumer eSIMs fixed part of the problem. But they still need a screen or some user interaction. That’s not possible with most IoT devices. Remote eSIM provisioning, however, removes that barrier completely."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can even push Over-the-Air (OTA updates IoT) to devices in the field, reducing travel, risk, and time-to-resolution."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If you’re still weighing SIM vs eSIM for IoT, this comparison breaks it down clearly ."
+        },
+        {
+          "tag": "h2",
+          "id": "Benefits",
+          "text": "Core Benefits: Why It’s a Big Deal for Global IoT"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "IoT companies face pressure from all sides: faster launches, lower costs, and better performance. Remote eSIM provisioning supports all three. Here’s how."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "No More Physical Limits"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "When you’re sending devices to 30 countries, installing physical SIMs for each market adds delays. Worse, if a SIM card fails or a network isn’t reliable, you’re stuck."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning eliminates that. You send one device with an eSIM, then push the right carrier profile once it reaches its location. No swaps. No shipping back. You solve problems from your desk."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Real Global Scaling"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Want to deploy 10,000 IoT sensors across six continents? You don’t need six different telecom contracts or SIM cards."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote SIM management lets you maintain global IoT connectivity without juggling vendors or teams. 37% of IoT connections will use eSIM by 2030. That’s not surprising, because it works. With Spenza, you bulk upload subscriptions, map them to devices, and simulate contracts. That’s how global IoT management should feel, instant, accurate, and manageable."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Total Flexibility and Control"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You’re no longer locked to one carrier. If a provider’s service degrades, you switch remotely. If a device crosses borders, you switch profiles on the go. That’s especially useful for asset tracking, connected vehicles, or wearable tech. Devices are mobile. Your control panel should be, too."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "And remote SIM management doesn’t stop at activation. It supports lifecycle events, suspensions, deactivations, renewals, all without touching the device."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Simpler Operations"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Support calls, logistics delays, and failed setups cost money. With eSIM benefits for IoT, your devices are connected from day one. OTA updates IoT let you fix issues or push new settings instantly. Remote eSIM provisioning is changing how businesses handle IoT rollout. It removes the need for physical SIM swaps and enables faster network changes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Operations teams can spend time optimizing, not troubleshooting. This is where platforms like Spenza shine. Spenza lets you update SIMs, phone lines, and plans in bulk across carriers and platforms. No guesswork. Just control."
+        },
+        {
+          "tag": "h2",
+          "id": "Remote",
+          "text": "How Remote eSIM Drives Real Business Outcomes"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies aren’t adopting remote eSIM provisioning because it sounds nice. They’re doing it because it makes dollars and sense."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Faster Time-to-Market"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Getting to market first matters. If you spend months organizing logistics and SIM activation, your competitors pass you. With remote SIM management, provisioning happens in seconds, not days. IoT projects launch faster, giving you a head start."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In 2024 alone, global eSIM smartphone connections reached nearly 600 million , three times more than in 2022. That speed shows the shift is already underway."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Lower Costs, Higher Efficiency"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Shipping SIMs, sending technicians, and replacing faulty hardware eats your margins."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning means:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "No shipping costs No human error in SIM insertion Fewer support tickets"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "And yes, it’s cheaper for end-users too. In 2024, eSIM travelers paid $5.50/GB on average, traditional roaming? $8.57/GB. The savings stack up."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Cost savings go beyond logistics. Choosing the right connectivity plan also matters. Explore various eSIM pricing models tailored for IoT to make smarter cost decisions across your deployments."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Longer Device Lifecycles"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "IoT devices often stay in the field for 5–10 years. If your connectivity plan is stuck with one operator, you’re in trouble."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning extends device value. You can push new profiles and keep connectivity strong without rolling trucks. That means better ROI and longer hardware lifespans."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "When you use Spenza, you also see all your SIMs, devices, users, and plans in one view. One dashboard replaces twenty spreadsheets."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Reduced Operational Complexity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote eSIM provisioning trims the fat from day-to-day operations. No SIM cards to manage, no technicians dispatched for simple network issues, and no paperwork juggling multiple carrier agreements. Everything’s digital and centralized. With fewer moving parts, teams focus on performance—not manual fixes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Remote SIM management means updates, renewals, and even deactivations happen in bulk. You don’t touch the hardware, but you stay fully in control. That kind of operational simplicity doesn’t just save time—it cuts errors and avoids bottlenecks."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "And platforms like Spenza make this all even smoother by syncing your data, devices, and subscriptions in one place."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Better Regulatory Compliance"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Cross-border deployments come with tricky regulations. One market might need local carrier profiles, while another restricts roaming. Remote eSIM provisioning solves this instantly. You can assign region-specific network profiles to devices from a central dashboard, staying fully compliant without any legal scramble."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If regulations change, you push a new profile—done. No need to pull devices or worry about legal gaps. It also helps during audits. You always know which SIM, plan, and carrier is tied to each device. For companies scaling globally, staying compliant without slowing down is a big win. That’s another reason why remote eSIMs matter."
+        },
+        {
+          "tag": "h2",
+          "id": "Spenza",
+          "text": "Why Choose Spenza"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza helps IoT teams handle complexity like pros. Whether you manage 50 devices or 50,000, Spenza lets you connect, control, and optimize your subscriptions in one place."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Import and map eSIMs, devices, users, and plans Simulate and compare operator contracts Bulk update subscriptions and plans Handle OTA updates IoT across all networks"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Think of it as your control tower for global IoT connectivity. With Spenza, remote eSIM provisioning becomes more than a buzzword, it becomes reality."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "eSIMs help reduce launch delays and remove market-entry barriers. Here’s how eSIM tech is reshaping global IoT connectivity and giving companies a competitive edge."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Case Study: Angel Watch Enhances Global Reach with Spenza"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Angel Watch , a company specializing in children’s smartwatches, faced challenges with expensive traditional mobile plans and limited regional flexibility. By partnering with Spenza,"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "They achieved:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Custom Mobile Plans: Tailored, region-specific plans reduced costs for their low-bandwidth devices. Streamlined Onboarding: Bundling and reselling mobile plans via their Shopify store simplified the onboarding process. Global Market Reach: Spenza’s platform enabled expansion into new markets with minimal overhead, facilitating rapid scalability."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This collaboration led to significant operational cost reductions, improved efficiency, and enhanced customer satisfaction."
+        },
+        {
+          "tag": "h2",
+          "id": "Conclusion",
+          "text": "Conclusion: The Future is Remotely Managed"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "IoT businesses need tech that scales. Remote eSIM provisioning helps you connect devices globally without the hassle of physical SIMs or contracts tied to one country. It’s flexible, fast, and fully remote. You reduce costs, move quicker, and gain full control of your global IoT management strategy."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It’s the process of downloading and activating network profiles on a device without inserting a physical SIM. It works over the air and is ideal for IoT."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. eSIMs support multiple carrier profiles. You can switch profiles remotely to maintain connectivity worldwide."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Remote eSIM provisioning allows you to scale without handling devices physically. It’s cheaper, faster, and easier to manage."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza lets you upload, manage, and control all your SIMs and devices. It simulates operator contracts and handles bulk updates easily."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. eSIMs use strong encryption and follow GSMA standards. Plus, remote provisioning is safer than mailing physical SIMs."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "If you’re tired of SIM logistics and manual updates, it’s time to talk to Spenza. Consult Spenza today and make remote eSIM provisioning your IoT edge."
+        }
+      ],
+      "links": [
+        {
+          "text": "Introduction",
+          "href": "#Introduction"
+        },
+        {
+          "text": "Understanding Remote eSIM Provisioning",
+          "href": "#Provisioning"
+        },
+        {
+          "text": "Core Benefits: Why It’s a Big Deal for Global IoT",
+          "href": "#Benefits"
+        },
+        {
+          "text": "How Remote eSIM Drives Real Business Outcomes",
+          "href": "#Remote"
+        },
+        {
+          "text": "Why Choose Spenza",
+          "href": "#Spenza"
+        },
+        {
+          "text": "Conclusion",
+          "href": "#Conclusion"
+        },
+        {
+          "text": "FAQs",
+          "href": "#FAQs"
+        },
+        {
+          "text": "eSIM",
+          "href": "/blog/iot-esim-introduction/"
+        },
+        {
+          "text": "this comparison breaks it down clearly",
+          "href": "/blog/sim-vs-esim-iot/"
+        },
+        {
+          "text": "37% of IoT connections",
+          "href": "https://www.statista.com/statistics/1491278/operator-expected-share-of-iot-connections-using-isim-or-esim/"
+        },
+        {
+          "text": "600 million",
+          "href": "https://www.statista.com/statistics/1491470/number-of-esim-smartphone-connections-globally/"
+        },
+        {
+          "text": "$5.50/GB",
+          "href": "https://www.statista.com/statistics/1491487/global-travel-esim-spend/"
+        },
+        {
+          "text": "Explore various eSIM pricing models tailored for IoT",
+          "href": "/blog/iot-esim-pricing-models/"
+        },
+        {
+          "text": "Here’s how eSIM tech is reshaping global IoT connectivity",
+          "href": "/blog/how-esim-technology-is-transforming-iot-connectivity/"
+        },
+        {
+          "text": "Angel Watch",
+          "href": "/blog/how-angel-watch-scaled-its-iot-business-with-spenza/"
+        },
+        {
+          "text": "Consult Spenza today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png",
+          "class": "attachment-full size-full wp-image-8722 webpexpress-processed",
+          "alt": "Transform Global IoT Management with Remote eSIM Provisioning",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Global-IoT-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Global-IoT-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Global-IoT-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/04/Global-IoT.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png\" class=\"attachment-full size-full wp-image-8722 webpexpress-processed\" alt=\"Transform Global IoT Management with Remote eSIM Provisioning\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1536",
+          "height": "1024",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg.png",
+          "alt": "",
+          "class": "wp-image-8737",
+          "style": "width:999px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg.png 1536w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg-768x512.png 768w",
+          "sizes": "(max-width: 1536px) 100vw, 1536px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1536\" height=\"1024\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg.png\" alt=\"\" class=\"wp-image-8737\" style=\"width:999px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg.png 1536w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXdmaIUFxiwQOdgIr3HzaN851AzXreraF4zBD2s85XuTSw90FlD_WnlLYL6n3FwRTQTQf1IOU3GShOMxO6XdSw7R1BsJBZMdyWLomc_Zo2kEQBCnDeL2sxaCBy9ePKJwC5Dt-goCyg-768x512.png 768w\" sizes=\"(max-width: 1536px) 100vw, 1536px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1536",
+          "height": "1024",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw.png",
+          "alt": "eSIM",
+          "class": "wp-image-8738",
+          "style": "width:897px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw.png 1536w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw-768x512.png 768w",
+          "sizes": "(max-width: 1536px) 100vw, 1536px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1536\" height=\"1024\" src=\"https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw.png\" alt=\"eSIM\" class=\"wp-image-8738\" style=\"width:897px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw.png 1536w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw-300x200.png 300w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw-1024x683.png 1024w, https://media.spenza.com/wp-content/uploads/2025/04/AD_4nXfZU_oBafiG0r0vgOzmMgWRvUY54XghSLk6vMif9ACpnH8rzbgRxTy8jaKy64O1fCkCQypJH-URTX4geszkEpfePtABgcqqfHKEWhRQpRPPMCODfD8DCMh29ysjsN5bNtV44e0iXw-768x512.png 768w\" sizes=\"(max-width: 1536px) 100vw, 1536px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"brands\", \"id\" : \"connectdevelop\", \"label\" : \"Connect Develop\", \"unicode\" : \"f20e\"}",
+            "title": "Connect Devices Instantly",
+            "text": "Remote eSIM lets you activate and manage IoT devices globally—no physical SIM swaps needed."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"coins\", \"label\" : \"Coins\", \"unicode\" : \"f51e\"}",
+            "title": "Save Time and Money",
+            "text": "Cut shipping, downtime, and operational headaches while switching carriers remotely."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"forward\", \"label\" : \"Forward\", \"unicode\" : \"f04e\"}",
+            "title": "Scale Effortlessly with Spenza",
+            "text": "Spenza centralizes device, SIM, and plan management. Bulk updates, OTA provisioning, and operator contract simulations make global IoT deployments faster, smarter, and fully controllable from one platform."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "Global IoT Management With Remote eSIM Provisioning",
+              "datePublished": "2025-05-25T15:49:00+00:00",
+              "dateModified": "2026-07-17T05:43:52+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/"
+              },
+              "wordCount": 1646,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png",
+              "keywords": [
+                "eSIM",
+                "Global IoT Management",
+                "IoT",
+                "Remote eSIM Provisioning",
+                "spenza",
+                "spenzademo"
+              ],
+              "articleSection": [
+                "eSIM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/",
+              "url": "https://spenza.com/esim/iot-management-remote-esim-provisioning/",
+              "name": "Global IoT Management With Remote eSIM Provisioning",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png",
+              "datePublished": "2025-05-25T15:49:00+00:00",
+              "dateModified": "2026-07-17T05:43:52+00:00",
+              "description": "Remote eSIM provisioning simplifies global IoT management: switch carriers over the air, cut roaming spend and drop truck rolls from your rollout plan.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/esim/iot-management-remote-esim-provisioning/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/04/Global-IoT.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "Transform Global IoT Management with Remote eSIM Provisioning"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/esim/iot-management-remote-esim-provisioning/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "eSIM",
+                  "item": "https://spenza.com/category/esim/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Global IoT Management With Remote eSIM Provisioning"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
