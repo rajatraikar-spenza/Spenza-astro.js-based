@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/esim-only-mvno/digital-physical-fulfilment.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-only-mvno/digital-physical-fulfilment.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/esim-only-mvno/eligibility-to-working-service.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-only-mvno/eligibility-to-working-service.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/esim-only-mvno/revenue-cost-deductions.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-only-mvno/revenue-cost-deductions.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
