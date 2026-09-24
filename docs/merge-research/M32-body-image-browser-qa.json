@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/iot-mvno/factory-to-retirement.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-mvno/factory-to-retirement.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/iot-mvno/revenue-and-service-deductions.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-mvno/revenue-and-service-deductions.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/iot-mvno/cohort-acceptance-thread.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-mvno/cohort-acceptance-thread.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
