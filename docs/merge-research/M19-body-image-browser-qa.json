@@ -1,0 +1,54 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/mvno-trends/funding-flows.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-trends/funding-flows.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvno-trends/observation-to-pilot.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-trends/observation-to-pilot.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvno-trends/enterprise-call-and-control.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-trends/enterprise-call-and-control.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
