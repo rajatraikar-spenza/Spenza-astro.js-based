@@ -1,0 +1,33 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/launch-mvno-setup/release-review-branches.png",
+      "currentSrc": "http://localhost:4321/blog-media/launch-mvno-setup/release-review-branches.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
