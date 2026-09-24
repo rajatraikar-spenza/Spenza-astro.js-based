@@ -1,0 +1,46 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/iot-esim-introduction/profile-delivery-and-management.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-esim-introduction/profile-delivery-and-management.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/iot-esim-introduction/deployment-and-recovery-loop.png",
+      "currentSrc": "http://localhost:4321/blog-media/iot-esim-introduction/deployment-and-recovery-loop.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 359,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
