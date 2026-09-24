@@ -1,0 +1,47 @@
+{
+  "cluster": "M33",
+  "before": [
+    {
+      "path": "/esim/esim-vs-traditional-sims/",
+      "bodyWords": 1528,
+      "tldrWords": 4
+    },
+    {
+      "path": "/esim/sim-vs-esim-iot/",
+      "bodyWords": 2269,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 3805,
+  "bodyWords": 2415,
+  "tldrWords": 136,
+  "totalWords": 2551,
+  "internal": [
+    "/esim/esim/",
+    "/esim/esim-for-enterprises-business-enabler-2025/",
+    "/connected-devices/",
+    "/esim/sgp-22-vs-sgp-32-esim-standards-guide/",
+    "/esim/iot-esim-introduction/",
+    "/esim-compatibility-checker/",
+    "/spenza-product/rocketphone-case-study/"
+  ],
+  "external": [
+    "https://iot.telenor.com/technologies/connectivity/esim/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2023/12/SGP.22-v3.1.pdf",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://support.apple.com/en-us/118669",
+    "https://support.apple.com/en-us/102421"
+  ],
+  "images": {
+    "reused": 1,
+    "generated": 3
+  },
+  "author": "SivaSai",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: supported phone/module/eUICC/firmware/carrier matrix and redacted physical-to-eSIM migration plus recovery trace, from product and delivery engineering.]",
+    "[EVIDENCE NEEDED: matched physical-SIM and eSIM cohort costs including fulfillment, support, field visits, service and retirement, from finance and operations.]",
+    "[EVIDENCE NEEDED: RocketPhone device cohort, dated deployment milestones and redacted operations screenshot approved for publication, from the account owner and customer marketing.]"
+  ],
+  "informationGain": 7
+}

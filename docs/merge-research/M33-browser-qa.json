@@ -1,0 +1,185 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What changes between eSIM and a traditional physical SIM?",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Compare the business workflow, not just the SIM format",
+      "id": "elementor-toc__heading-anchor-9",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Choose IoT capability around access and product lifetime",
+      "id": "elementor-toc__heading-anchor-11",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "Compare security and recovery without absolute claims",
+      "id": "security",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "Compare full lifecycle cost and environmental scope",
+      "id": "elementor-toc__heading-anchor-10",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Migrate by compatibility, service confirmation and closure",
+      "id": "migration",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Use a customer example without claiming universal superiority",
+      "id": "elementor-toc__heading-anchor-12",
+      "openingWords": 56,
+      "idCount": 1
+    },
+    {
+      "text": "eSIM versus physical SIM FAQs",
+      "id": "FAQs",
+      "openingWords": 49,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    49,
+    50,
+    52,
+    49,
+    51,
+    51
+  ],
+  "calloutWords": [
+    36,
+    31,
+    31,
+    37,
+    41
+  ],
+  "images": [
+    {
+      "src": "http://localhost:4321/blog-media/esim-vs-physical-sim/three-decisions.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-vs-physical-sim/three-decisions.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "SIM selection separates physical form factor, profile capability and carrier service"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/esim-vs-physical-sim/deployment-choice.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-vs-physical-sim/deployment-choice.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Physical SIM, eSIM and hybrid fleets require different supported operating processes"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/esim-vs-physical-sim/lifecycle-cost.png",
+      "currentSrc": "http://localhost:4321/blog-media/esim-vs-physical-sim/lifecycle-cost.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "SIM lifecycle cost includes acquisition, operation and retirement"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What changes between eSIM and a traditional physical SIM?",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "Compare the business workflow, not just the SIM format",
+      "href": "#elementor-toc__heading-anchor-9"
+    },
+    {
+      "text": "Choose IoT capability around access and product lifetime",
+      "href": "#elementor-toc__heading-anchor-11"
+    },
+    {
+      "text": "Compare security and recovery without absolute claims",
+      "href": "#security"
+    },
+    {
+      "text": "Compare full lifecycle cost and environmental scope",
+      "href": "#elementor-toc__heading-anchor-10"
+    },
+    {
+      "text": "Migrate by compatibility, service confirmation and closure",
+      "href": "#migration"
+    },
+    {
+      "text": "Use a customer example without claiming universal superiority",
+      "href": "#elementor-toc__heading-anchor-12"
+    },
+    {
+      "text": "eSIM versus physical SIM FAQs",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}
