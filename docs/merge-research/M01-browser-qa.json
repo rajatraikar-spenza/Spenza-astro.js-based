@@ -68,13 +68,13 @@
   ],
   "images": [
     {
-      "src": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-architectures.png",
-      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-architectures.webp",
+      "src": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-profile-hardware-cutaway.png",
+      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-profile-hardware-cutaway.webp",
       "natural": [
         1600,
         900
       ],
-      "alt": "Remote SIM provisioning uses distinct consumer, IoT and legacy M2M component arrangements"
+      "alt": "Remote SIM provisioning changes profiles in an eUICC; the modem and antenna remain separate hardware."
     },
     {
       "src": "https://media.spenza.com/wp-content/uploads/2025/12/Blog-Thumbnails-1024x576.png",
@@ -86,13 +86,13 @@
       "alt": "A bootstrap profile supplies initial connectivity before an operational profile is installed"
     },
     {
-      "src": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-acceptance.png",
-      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-acceptance.webp",
+      "src": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-service-recovery-loop.png",
+      "currentSrc": "http://localhost:4321/blog-media/remote-sim-provisioning/rsp-service-recovery-loop.webp",
       "natural": [
         1600,
         900
       ],
-      "alt": "Profile installation, network registration and application reachability need separate checks"
+      "alt": "Verify service after a profile change; inspect failures and use the supported recovery path before retrying."
     }
   ],
   "tldrCards": 5,
@@ -164,6 +164,11 @@
     "width": 390,
     "scrollWidth": 390,
     "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
       {
         "width": 357,
         "scroll": 580,

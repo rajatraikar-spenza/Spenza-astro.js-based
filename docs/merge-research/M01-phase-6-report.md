@@ -2,7 +2,7 @@
 
 Preview: http://localhost:4321/preview/merged/what-is-remote-sim-provisioning-rsp-guide-2026/
 
-Three posts consolidated. Before: 7,029 body words plus 281 ACF words = 7,310. After: 2,280 body plus 142 TL;DR = 2,422. Author Spenza / isimplexity, no flip. Author-only byline; no separate reviewer by user decision. Original publication date retained. Information gain remains 7.
+Three posts consolidated. Before: 7,029 body words plus 281 ACF words = 7,310. After the body-image revision: 2,342 body plus 142 TL;DR = 2,484. Author Spenza / isimplexity, no flip. Author-only byline; no separate reviewer by user decision. Original publication date retained. Information gain remains 7.
 
 ## Output E: link handoff
 
@@ -51,3 +51,6 @@ All13 candidates inspected. Two reused assets (hero and bootstrap figure) use ex
 Editorial gate PASS. Astro check:0 errors,0 warnings,72 existing hints. Five TL;DR cards with icons, breadcrumb, related grid and TOC present. No unfilled slots. Robots noindex,nofollow. Eight H2 openings46 to51 words, six FAQ answers50 to55, five callouts22 to39. Native FAQ click/Enter/Space toggle and no-JavaScript behavior verified. At390px document width390; tables scroll inside357px containers. Mobile FAQ screenshot inspected. CSS optimizer completed; unrelated existing bundle churn excluded.
 
 Publication, redirects, donor removal, media upload and inbound edits remain unexecuted. Preview status is not publication approval.
+
+
+Body-image revision, 24 September 2026: the original architecture and acceptance card images are superseded. See M01-body-image-rework.md for deletions, replacement tables, the two new mechanism illustrations and current visual checks. Historical research and the original image plan describe the earlier preview. Information gain remains 7.
