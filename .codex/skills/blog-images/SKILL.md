@@ -95,16 +95,17 @@ Take an existing hero as the base, generate **only the right-hand art panel**
 (square-ish, ~1100×900, no text, no logo, no border), set the title in the
 template, export 1280×720. Full geometry in §5 of the reference.
 
-**The title is the part that fails.** Set it at **weight 700 or heavier**, with
-a **cap height of at least 40px** on the 1280 canvas, filling **440 to 600px**
-of the left column. A high-contrast serif at regular weight and 20px cap height
-turns to hairlines and greys out at thumbnail size, which is where a featured
-image is actually seen. Use Playfair Display, Prata, Bodoni Moda or Libre
-Baskerville at 700+, never condensed.
+**The title face is [Rhodium Libre](https://fonts.google.com/specimen/Rhodium+Libre).**
+Not a substitute. Weight 400, which is the only weight it has, all caps, cap
+height **40px minimum** on the 1280 canvas, filling **440 to 600px** of the
+left column.
 
-Before accepting a hero, scale it to 320px wide and look at it. If strokes
-disappear, raise the weight or shorten the title. **Never shrink the type to
-fit the words.**
+Fetch it once:
+`curl -s -o /tmp/RhodiumLibre.ttf "https://fonts.gstatic.com/s/rhodiumlibre/v21/1q2AY5adA0tn_ukeHcQHqpx6pEQ.ttf"`
+
+Before accepting a hero, scale it to 320px wide and look at it. **That is the
+test.** If strokes grey out, raise the cap height or shorten the title. There
+is no heavier weight to reach for, and switching face is not an option.
 
 Name it after the post title in Title-Case-Hyphenated.
 
