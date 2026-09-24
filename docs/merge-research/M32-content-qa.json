@@ -1,0 +1,54 @@
+{
+  "cluster": "M32",
+  "before": [
+    {
+      "path": "/mvno/mvno-iot-connectivity/",
+      "bodyWords": 2700,
+      "tldrWords": 4
+    },
+    {
+      "path": "/mvno/iot-mvno-esim/",
+      "bodyWords": 2201,
+      "tldrWords": 274
+    },
+    {
+      "path": "/mvno/iot-mvno-industrial-automation/",
+      "bodyWords": 2115,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 7298,
+  "bodyWords": 2293,
+  "tldrWords": 125,
+  "totalWords": 2418,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot-solutions/",
+    "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/spenza-product/rocketphone-case-study/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://webbingsolutions.com/mno-vs-mvno/",
+    "https://www.gsma.com/solutions-and-impact/industries/smart-mobility/gsma_resources/mobile-iot-deployment-guide/",
+    "https://docs.things.1global.com/docs/network/",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/wp-content/uploads/2024/06/SGP.32-v1.2.pdf",
+    "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+  ],
+  "images": {
+    "reused": 1,
+    "generated": 3
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: anonymized fleet usage distribution, invoices, support effort and contribution assumptions, from customer operations and finance]",
+    "[EVIDENCE NEEDED: operator-approved IoT MVNO architecture, tested coverage and recovery trace with redacted operations screenshot, from Spenza engineering and the host operator]",
+    "[EVIDENCE NEEDED: approved Butlr cohort size and dated rollout milestones, from the Butlr account owner]"
+  ],
+  "informationGain": 7
+}

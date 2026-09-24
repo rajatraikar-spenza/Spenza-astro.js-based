@@ -95,11 +95,80 @@ import m17Content from './nb-iot-vs-lte-m-vs-5g-redcap.html?raw';
 import m24Content from './fleet-automotive-iot-connectivity-costs.html?raw';
 import m25Content from './iot-connectivity-cost-guide-2025.html?raw';
 import m29Content from './what-is-connectivity-management-platform-cmp.html?raw';
+import m32Content from './mvno-iot-connectivity.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "mvno-iot-connectivity": {
+  "slug": "mvno-iot-connectivity",
+  "category": "mvno",
+  "cluster": "M32: IoT MVNO operating model",
+  "title": "IoT MVNO Guide: Operating Models, Costs and Contracts",
+  "seoTitle": "IoT MVNO Guide: Operating Models, Costs and Contracts",
+  "seoDescription": "Compare IoT MVNO operating models, fleet economics, carrier contracts and eSIM requirements. Build an industrial connectivity offer with a tested scope.",
+  "excerpt": "Design an IoT connectivity service around device lifecycles, complete costs and responsibilities that can be verified.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "An IoT MVNO sells cellular connectivity for connected devices through access supplied by mobile network operators. Its operating model should match the fleet lifecycle, application requirements and support responsibilities. Compare the complete delivery cost, not only wholesale data. Verify the actual device, network access and provisioning architecture before promising coverage or remote changes. Published customer cases can establish a relevant scope, while your own pilot must confirm application delivery, recovery, subscription records and correct charges.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Define the service",
+        "text": "Start with the device and customer task."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Map responsibilities",
+        "text": "Identify radio, core and application owners."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Model fleet costs",
+        "text": "Include support, inventory and commitments."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Test actual conditions",
+        "text": "Prove coverage and recovery for the device."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Accept the complete offer",
+        "text": "Reconcile service outcomes and billing records."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-6.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-6-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-6-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-6-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/Blog-Thumbnails-6.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-6.png\" class=\"attachment-full size-full wp-image-8958 webpexpress-processed\" alt=\"How IoT MVNOs Are Powering Automation in Industry 4.0\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-6-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-6-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-6-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/Blog-Thumbnails-6.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "IoT MVNO Guide: Operating Models, Costs and Contracts",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-06-13T11:28:37+00:00",
+  "updatedDate": "2026-09-24T09:14:32.642Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2700,
+  "donors": [
+    {
+      "path": "/mvno/iot-mvno-esim/",
+      "title": "MVNO eSIM: How Embedded SIMs Reshape IoT Services",
+      "clicks": 4,
+      "contributes": "Industrial and eSIM examples relevant to selling IoT connectivity. Source sections to inspect: eSIM Makes IoT Connectivity More Flexible and Scalable; eSIM Solves the Biggest Challenges of IoT Deployments; Successful eSIM Adoption Requires the Right Implementation Strategy; eSIM Creates New Business Opportunities for MVNOs"
+    },
+    {
+      "path": "/mvno/iot-mvno-industrial-automation/",
+      "title": "How IoT MVNOs Are Powering Automation in Industry 4.0",
+      "clicks": 1,
+      "contributes": "Industrial and eSIM examples relevant to selling IoT connectivity. Source sections to inspect: Enable Reliable Industrial Connectivity; Use Multi-Carrier Networks for Resilience; Manage IoT Devices From One Platform; Scale Automation With Secure, Flexible Connectivity"
+    }
+  ],
+  "content": m32Content
+},
   "what-is-connectivity-management-platform-cmp": {
   "slug": "what-is-connectivity-management-platform-cmp",
   "category": "telecom",
