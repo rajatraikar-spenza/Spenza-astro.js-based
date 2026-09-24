@@ -1,0 +1,184 @@
+{
+  "robots": "noindex, nofollow",
+  "unfilledSlots": false,
+  "h2": [
+    {
+      "text": "What fleet and vehicle connectivity has to handle",
+      "id": "elementor-toc__heading-anchor-1",
+      "openingWords": 49,
+      "idCount": 1
+    },
+    {
+      "text": "How should fleet IoT connectivity costs be calculated?",
+      "id": "elementor-toc__heading-anchor-2",
+      "openingWords": 47,
+      "idCount": 1
+    },
+    {
+      "text": "How should coverage and failover for moving assets be tested?",
+      "id": "elementor-toc__heading-anchor-5",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "What must happen after a fleet connection fails?",
+      "id": "recovery",
+      "openingWords": 51,
+      "idCount": 1
+    },
+    {
+      "text": "How do border crossings and network sunsets change the plan?",
+      "id": "elementor-toc__heading-anchor-3",
+      "openingWords": 52,
+      "idCount": 1
+    },
+    {
+      "text": "What belongs in fleet SIM management and operational ownership?",
+      "id": "elementor-toc__heading-anchor-7",
+      "openingWords": 48,
+      "idCount": 1
+    },
+    {
+      "text": "What should a fleet pilot prove before rollout?",
+      "id": "elementor-toc__heading-anchor-8",
+      "openingWords": 50,
+      "idCount": 1
+    },
+    {
+      "text": "Frequently asked questions",
+      "id": "FAQs",
+      "openingWords": 47,
+      "idCount": 1
+    }
+  ],
+  "faqWords": [
+    49,
+    50,
+    49,
+    51,
+    54,
+    49
+  ],
+  "calloutWords": [
+    25,
+    26,
+    26,
+    34
+  ],
+  "images": [
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2026/08/image-4.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2026/08/image-4.png",
+      "natural": [
+        817,
+        314
+      ],
+      "alt": "Fleet IoT connectivity costs reflect several services sharing vehicle connectivity"
+    },
+    {
+      "src": "http://localhost:4321/blog-media/fleet-connectivity/recovery-record.png",
+      "currentSrc": "http://localhost:4321/blog-media/fleet-connectivity/recovery-record.webp",
+      "natural": [
+        1600,
+        900
+      ],
+      "alt": "Detect stale data, reconnect, replay eligible events and verify application recovery"
+    },
+    {
+      "src": "https://media.spenza.com/wp-content/uploads/2025/10/image-25.png",
+      "currentSrc": "https://media.spenza.com/wp-content/uploads/2025/10/image-25.png",
+      "natural": [
+        888,
+        545
+      ],
+      "alt": "Shared connectivity operations connect isolated network oversight with fleet responsibilities"
+    }
+  ],
+  "tldrCards": 5,
+  "tldrIcons": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "breadcrumb": true,
+  "related": true,
+  "toc": [
+    {
+      "text": "TL;DR / At-a-Glance Summary",
+      "href": "#elementor-toc__heading-anchor-0"
+    },
+    {
+      "text": "What fleet and vehicle connectivity has to handle",
+      "href": "#elementor-toc__heading-anchor-1"
+    },
+    {
+      "text": "How should fleet IoT connectivity costs be calculated?",
+      "href": "#elementor-toc__heading-anchor-2"
+    },
+    {
+      "text": "How should coverage and failover for moving assets be tested?",
+      "href": "#elementor-toc__heading-anchor-5"
+    },
+    {
+      "text": "What must happen after a fleet connection fails?",
+      "href": "#recovery"
+    },
+    {
+      "text": "How do border crossings and network sunsets change the plan?",
+      "href": "#elementor-toc__heading-anchor-3"
+    },
+    {
+      "text": "What belongs in fleet SIM management and operational ownership?",
+      "href": "#elementor-toc__heading-anchor-7"
+    },
+    {
+      "text": "What should a fleet pilot prove before rollout?",
+      "href": "#elementor-toc__heading-anchor-8"
+    },
+    {
+      "text": "Frequently asked questions",
+      "href": "#FAQs"
+    },
+    {
+      "text": "Related  Articles",
+      "href": "#merge-preview-shell-2"
+    },
+    {
+      "text": "Subscribe for Smarter Connectivity Insights",
+      "href": "#merge-preview-shell-3"
+    },
+    {
+      "text": "Homepage Popup",
+      "href": "#merge-preview-shell-4"
+    }
+  ],
+  "canonical": null,
+  "faqClick": true,
+  "openSymbol": "\"−\"",
+  "keyboard": true,
+  "keyboardClose": false,
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  },
+  "noJs": true
+}

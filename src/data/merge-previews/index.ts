@@ -92,11 +92,80 @@ import m42Content from './esim-orchestration-global-iot.html?raw';
 import m04Content from './iot-connectivity-types-guide-2025.html?raw';
 import m09Content from './top-iot-trends.html?raw';
 import m17Content from './nb-iot-vs-lte-m-vs-5g-redcap.html?raw';
+import m24Content from './fleet-automotive-iot-connectivity-costs.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "fleet-automotive-iot-connectivity-costs": {
+  "slug": "fleet-automotive-iot-connectivity-costs",
+  "category": "iot",
+  "cluster": "M24: Fleet connectivity operations",
+  "title": "Fleet IoT Connectivity Costs: Coverage and Failover Guide",
+  "seoTitle": "Fleet IoT Connectivity Costs: Coverage and Failover Guide",
+  "seoDescription": "Model fleet IoT connectivity costs by vehicle, route and workload. Compare coverage, pooled plans and recovery evidence before committing to deployment.",
+  "excerpt": "Build a fleet connectivity budget and acceptance test around real workloads, routes and recovery ownership.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Fleet IoT connectivity costs depend on connected modules, application workload, route exposure and operating support. Calculate costs per vehicle and per subscription, with hardware and cloud charges shown separately. Coverage maps and multi-network access do not guarantee application continuity. Test route conditions, buffered-event recovery and service changes on the intended configuration. Remote eSIM provisioning can change supported subscriptions, but it cannot upgrade radio hardware. Approve rollout from documented application, commercial and support evidence.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Define the cost scope",
+        "text": "Count modules and billable subscriptions per vehicle."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Test the route",
+        "text": "Use the actual installation and service."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Verify recovery",
+        "text": "Check freshness, gaps and duplicates."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Plan lifecycle changes",
+        "text": "Separate profile flexibility from radio capability."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Assign operating ownership",
+        "text": "Name who acts and who confirms the result."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover.png\" class=\"attachment-full size-full wp-image-22126 webpexpress-processed\" alt=\"Fleet &amp; Automotive IoT Connectivity: Cost, Coverage, Failover\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/08/Fleet-Automotive-IoT-Connectivity-Cost-Coverage-Failover.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Fleet IoT Connectivity Costs: Coverage and Failover Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-08-13T07:24:20+00:00",
+  "updatedDate": "2026-09-24T08:29:46.705Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2245,
+  "donors": [
+    {
+      "path": "/esim/esim-multi-network-auto-transport/",
+      "title": "eSIM for Auto Transport: Multi-Network Connectivity Trends",
+      "clicks": 4,
+      "contributes": "Vehicle connectivity requirements, cost drivers and failover scenarios. Source sections to inspect: Always-On Connectivity Is Now Fleet Infrastructure; eSIM Enables Scalable, Global Fleet Connectivity; Multi-Network Access Prevents Dead Zones; Compliance & Cost Optimization Drive ROI"
+    },
+    {
+      "path": "/telecom/fleet-management-integrated-connectivity-platform/",
+      "title": "Fleet Management Needs an Integrated Connectivity Layer",
+      "clicks": 0,
+      "contributes": "Vehicle connectivity requirements, cost drivers and failover scenarios. Source sections to inspect: Real-Time Visibility Without Gaps; Seamless Connectivity as a Core Asset; Unified Platform, Less Admin Burden; Full Ownership of the Customer Experience"
+    }
+  ],
+  "content": m24Content
+},
   "nb-iot-vs-lte-m-vs-5g-redcap": {
   "slug": "nb-iot-vs-lte-m-vs-5g-redcap",
   "category": "esim",

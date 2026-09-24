@@ -1,0 +1,54 @@
+{
+  "cluster": "M24",
+  "before": [
+    {
+      "path": "/iot/fleet-automotive-iot-connectivity-costs/",
+      "bodyWords": 2245,
+      "tldrWords": 205
+    },
+    {
+      "path": "/esim/esim-multi-network-auto-transport/",
+      "bodyWords": 2156,
+      "tldrWords": 153
+    },
+    {
+      "path": "/telecom/fleet-management-integrated-connectivity-platform/",
+      "bodyWords": 2442,
+      "tldrWords": 130
+    }
+  ],
+  "combinedBeforeWords": 7331,
+  "bodyWords": 2449,
+  "tldrWords": 124,
+  "totalWords": 2573,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/iot/iot-sensors-types-connectivity/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/iot-solutions/",
+    "/esim/nb-iot-vs-lte-m-vs-5g-redcap/",
+    "/iot/global-iot-connectivity-2026/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/plan-your-deployment.html",
+    "https://help.bdc.fcc.gov/hc/en-us/articles/10467446103579-How-to-Use-the-FCC-s-National-Broadband-Map",
+    "https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html",
+    "https://www.gsma.com/solutions-and-impact/technologies/esim/gsma_resources/sgp-32-v1-2/",
+    "https://static.nhtsa.gov/odi/tsbs/2021/MC-10203450-0001.pdf",
+    "https://www.nhtsa.gov/sites/nhtsa.gov/files/2022-09/cybersecurity-best-practices-safety-modern-vehicles-2022-tag.pdf"
+  ],
+  "images": {
+    "reused": 3,
+    "generated": 1
+  },
+  "author": "Spenza",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: anonymized fleet usage by vehicle, installed module, route and service with invoice reconciliation, from fleet operations and finance]",
+    "[EVIDENCE NEEDED: operator-approved fleet architecture, route coverage and failure-recovery traces plus a redacted operations screenshot, from product and delivery engineering]",
+    "[EVIDENCE NEEDED: approved cohort and dated milestones for the published Butlr regional rollout, from the account owner and customer marketing]"
+  ],
+  "informationGain": 7
+}
