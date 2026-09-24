@@ -1,0 +1,33 @@
+{
+  "images": [
+    {
+      "src": "/blog-media/mvno-us-launch/independent-product-scope-choices.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-us-launch/independent-product-scope-choices.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvno-us-launch/us-mvno-contribution-and-cash-timing.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-us-launch/us-mvno-contribution-and-cash-timing.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    },
+    {
+      "src": "/blog-media/mvno-us-launch/mvno-us-launch-10-step-path.png",
+      "currentSrc": "http://localhost:4321/blog-media/mvno-us-launch/mvno-us-launch-10-step-path.webp",
+      "natural": [
+        1600,
+        900
+      ]
+    }
+  ],
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": []
+  }
+}
