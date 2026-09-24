@@ -100,11 +100,74 @@ import m34Content from './global-iot-connectivity-2026.html?raw';
 import m35Content from './iot-sim-cards-guide.html?raw';
 import m38Content from './smart-city-iot-connectivity-playbook-2026.html?raw';
 import m39Content from './leading-iot-connectivity-management-platforms.html?raw';
+import m44Content from './must-attend-iot-and-mvno-events-in-2026.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "must-attend-iot-and-mvno-events-in-2026": {
+  "slug": "must-attend-iot-and-mvno-events-in-2026",
+  "category": "telecom",
+  "cluster": "M44: Industry events",
+  "title": "IoT and MVNO Events 2026: Dates and Planning Guide",
+  "seoTitle": "IoT and MVNO Events 2026: Verified Dates and Planning",
+  "seoDescription": "Find verified IoT and MVNO events for 2026, with upcoming and completed dates. Match audiences to your goals and plan meetings, costs and useful follow-up.",
+  "excerpt": "A dated conference shortlist with organizer sources and a practical plan for vendor conversations.",
+  "templateBlocks": {
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "IoT and MVNO events in 2026 bring together device teams, connectivity providers and telecom partners. As of September 24, this shortlist has three upcoming events: Futurecom, IoT Tech Expo Europe and MVNO Nation Europe. Five completed editions remain useful for research and follow-up. Check organizer dates, venue and pass access before booking. Choose the audience that matches a real business decision, prepare specific questions and budget for follow-up. Attendance and vendor demonstrations do not establish deployment readiness or guaranteed commercial returns.",
+    "twoCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}",
+        "title": "Check the edition",
+        "text": "Separate upcoming dates from completed events."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}",
+        "title": "Choose the audience",
+        "text": "Match meetings to a business decision."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"circle-check\"}",
+        "title": "Prepare an evidence brief",
+        "text": "State the fleet scope and open questions."
+      },
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"users\"}",
+        "title": "Budget the full commitment",
+        "text": "Include staff time and follow-up work."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}",
+        "title": "Verify after the meeting",
+        "text": "Turn claims into documents and acceptance tests."
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook.png\" class=\"attachment-full size-full wp-image-14324 webpexpress-processed\" alt=\"Must-Attend IoT and MVNO Events in 2026\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/01/Top-IoT-MVNO-Events-to-Attend-in-2026A2P-Messaging-Adapts-for-Satellite-Cellular-The-2026-Playbook.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "IoT and MVNO Events 2026: Dates and Planning Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-01-09T10:13:23+00:00",
+  "updatedDate": "2026-09-24T09:57:02.877Z",
+  "authorSlug": "vinay",
+  "authorName": "Vinaychandra Bharadwaj",
+  "authorBio": "",
+  "destinationWords": 2689,
+  "donors": [
+    {
+      "path": "/telecom/iot-events/",
+      "title": "The Best IoT Events to Look Out For in 2026: Full List",
+      "clicks": 7,
+      "contributes": "Relevant event dates, audiences and planning detail. Source sections to inspect: January: CES; February: IoT Tech Expo Global; IoT Evolution Expo; March: MWC Barcelona"
+    }
+  ],
+  "content": m44Content
+},
   "leading-iot-connectivity-management-platforms": {
   "slug": "leading-iot-connectivity-management-platforms",
   "category": "esim",

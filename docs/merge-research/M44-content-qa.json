@@ -1,0 +1,51 @@
+{
+  "cluster": "M44",
+  "before": [
+    {
+      "path": "/telecom/must-attend-iot-and-mvno-events-in-2026/",
+      "bodyWords": 2689,
+      "tldrWords": 0
+    },
+    {
+      "path": "/telecom/iot-events/",
+      "bodyWords": 2001,
+      "tldrWords": 4
+    }
+  ],
+  "combinedBeforeWords": 4694,
+  "bodyWords": 2469,
+  "tldrWords": 135,
+  "totalWords": 2604,
+  "internal": [
+    "/telecom/iot-connectivity-types-guide-2025/",
+    "/mvno/mvno/",
+    "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
+    "/telecom/iot-connectivity-cost-guide-2025/",
+    "/telecom/what-is-connectivity-management-platform-cmp/",
+    "/esim/leading-iot-connectivity-management-platforms/",
+    "/spenza-product/butlr-iot-spenza-casestudy/",
+    "/spenza-product/rocketphone-case-study/",
+    "/contact-us/"
+  ],
+  "external": [
+    "https://www.futurecom.com.br/en/",
+    "https://www.iottechexpo.com/europe/",
+    "https://www.mvnonation.com/europe/",
+    "https://www.ces.tech/press-releases/what-not-to-miss-at-ces-2026",
+    "https://www.mwcbarcelona.com/get-in-touch",
+    "https://www.embedded-world.de/en/press/press-releases/2026/03/embedded-world-2026-closing-report",
+    "https://mvnos.informaconnect.com/world/2026/exhibitorreg",
+    "https://www.thethingsconference.com/"
+  ],
+  "images": {
+    "reused": 1,
+    "generated": 3
+  },
+  "author": "Vinaychandra Bharadwaj",
+  "flipped": false,
+  "evidence": [
+    "[EVIDENCE NEEDED: approved Spenza event attendance or speaking schedule and a named contact for meeting arrangements, from Spenza marketing and partnerships]",
+    "[EVIDENCE NEEDED: one approved event-originated customer or partner outcome with dated follow-up milestones and attributable result, from Spenza partnerships and the account owner]"
+  ],
+  "informationGain": 7
+}
