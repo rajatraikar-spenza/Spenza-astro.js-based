@@ -117,3 +117,18 @@ Snippet: Smart city IoT connectivity links municipal devices to the systems that
 Outline: intro/M04; usecase/radiotable; BYON/operatorroles; sitecoverage/failuretesting+figure; procurement/costtable; lifecycle/security+boundaryfigure; Spenza/Butlr/conclusion;riskillustrationinroles;sixFAQs. SevenH2,twotables,fivecallouts,threeCTAs,threebody+hero. Target2300to2700words.
 
 Measured SEO title55characters, description154characters.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (55 characters): Smart City IoT Connectivity: Procurement and Operations
+- Alternate 1 (52 characters): Smart City IoT Connectivity: Networks and Governance
+- Alternate 2 (52 characters): Smart City IoT Connectivity: Cost and Service Design
+- H1 and OG title: Smart City IoT Connectivity: A Procurement Playbook
+- Meta and OG description (154 characters): Plan smart city IoT connectivity by service need. Compare network options, BYON contracts, lifecycle costs, coverage tests and operating responsibilities.
+- Excerpt: Build a municipal connectivity plan around service outcomes, accountable suppliers and tested recovery.
+- Destination: /esim/smart-city-iot-connectivity-playbook-2026/
+- Category: esim
+- Final article length: 2371 words including the TL;DR.

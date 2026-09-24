@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/mvno-iot-connectivity/
 
 ## Outputs A and E
 
-H1/SEO/OG: IoT MVNO Guide: Operating Models, Costs and Contracts
+H1/OG: IoT MVNO Guide: Operating Models, Costs and Contracts
+SEO: IoT MVNO Guide: Operating Models, Costs and Contracts
 Description: Compare IoT MVNO operating models, fleet economics, carrier contracts and eSIM requirements. Build an industrial connectivity offer with a tested scope.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

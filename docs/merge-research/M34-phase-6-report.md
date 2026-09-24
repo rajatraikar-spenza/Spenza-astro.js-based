@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/global-iot-connectivity-2026/
 
 ## Outputs A and E
 
-H1/SEO/OG: Global IoT Connectivity: Roaming, Profiles and Rollout
+H1/OG: Global IoT Connectivity: Roaming, Profiles and Rollout
+SEO: Global IoT Connectivity: Roaming, Profiles and Rollout
 Description: Plan global IoT connectivity across roaming, local profiles and regional rules. Test routing, recovery, inventory and costs before expanding a fleet.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

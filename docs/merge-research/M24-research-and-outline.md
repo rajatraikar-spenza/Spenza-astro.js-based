@@ -140,3 +140,18 @@ Radioanchor6alias incoverage. All original anchors retained. Intro100to150words 
 Editable Figma frame43:2: four equal cards left to right, Detect/Stale application data, Reconnect/Approved network path, Replay/Buffered events, Verify/Freshness and gaps. Creambackground,inktext,orangeoutlines;1600x900. Footer: A network attachment alone does not close the incident. No uptime number, customer result or fixed timing. Export inspected with all text fitting. Article labels this a proposed acceptance sequence.
 
 Published diagram aspect ratios are retained to preserve the source graphic and CDN reference; no crop is applied to its labels. The new diagram uses1600x900.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (57 characters): Fleet IoT Connectivity Costs: Coverage and Failover Guide
+- Alternate 1 (53 characters): Fleet IoT Connectivity Costs: A Practical Buyer Guide
+- Alternate 2 (51 characters): Fleet IoT Connectivity: Cost, Coverage and Recovery
+- H1 and OG title: Fleet IoT Connectivity Costs: Coverage and Failover Guide
+- Meta and OG description (152 characters): Model fleet IoT connectivity costs by vehicle, route and workload. Compare coverage, pooled plans and recovery evidence before committing to deployment.
+- Excerpt: Build a fleet connectivity budget and acceptance test around real workloads, routes and recovery ownership.
+- Destination: /iot/fleet-automotive-iot-connectivity-costs/
+- Category: iot
+- Final article length: 2573 words including the TL;DR.

@@ -137,3 +137,18 @@ Outline: intro and M04 pillar; IoT operating model(Growth) with consumer compari
 Measured metadata: title53characters, description152characters.
 
 Native composition briefs: four white cards on1600x900cream, orange outline and near-black Inter labels. Lifecycle: Factory/Test service/Record identity; Warehouse/Track inventory/Check fees; Deployment/Activate service/Verify application; Retirement/Stop charges/Preserve records. Costs: Access/Subscriptions/Metered usage; Platform/Provisioning/Integration; Support/Incidents/Escalations; Commitments/Minimum spend/Service credits. Acceptance: Contract/Scope/Responsibility; Device/Connection/Recovery; Application/Message receipt/Expected outcome; Invoice/Correct cohort/Agreed charges. No customer screenshot or invented measurement. Figma nodes46:2,46:17,46:32.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (53 characters): IoT MVNO Guide: Operating Models, Costs and Contracts
+- Alternate 1 (54 characters): IoT MVNO Operating Models: A Guide for Fleet Providers
+- Alternate 2 (51 characters): IoT MVNO Economics: Costs, Contracts and Operations
+- H1 and OG title: IoT MVNO Guide: Operating Models, Costs and Contracts
+- Meta and OG description (152 characters): Compare IoT MVNO operating models, fleet economics, carrier contracts and eSIM requirements. Build an industrial connectivity offer with a tested scope.
+- Excerpt: Design an IoT connectivity service around device lifecycles, complete costs and responsibilities that can be verified.
+- Destination: /mvno/mvno-iot-connectivity/
+- Category: mvno
+- Final article length: 2418 words including the TL;DR.

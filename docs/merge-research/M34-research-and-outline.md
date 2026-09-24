@@ -123,3 +123,18 @@ Measured metadata: title54characters, description149characters.
 Native composition briefs:1600x900cream, white panels, orange outlines, Inter near-black labels. Identity/routing comparison: Subscription identity/Operator profile/Service agreement/Eligible networks versus Actual data path/Network breakout/Application hosting/Logs and backups. Country record: Scope/Country/Use and duration; Service/Provider/Profile and plan; Evidence/Source date/Scoped approval; Ownership/Named owner/Review trigger. Recovery: Failure/Defined fault/Shared dependencies; Alternative/Eligible network/Supported action; Connection/Restored session/Measured interruption; Application/Expected receipt/Loss and duplicates. No fabricated legal map, product screenshot or metric. Figma47:2,47:11,47:26.
 
 Verification correction: old GSMA2024PDF URL is now404. Article links the current Smart Mobility resource landing page instead, read via web research and dated30August2024. No country-specific rule derived from an unread PDF.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (54 characters): Global IoT Connectivity: Roaming, Profiles and Rollout
+- Alternate 1 (52 characters): Global IoT Connectivity: A Regional Deployment Guide
+- Alternate 2 (53 characters): Global IoT Connectivity: Compare Roaming and Profiles
+- H1 and OG title: Global IoT Connectivity: Roaming, Profiles and Rollout
+- Meta and OG description (149 characters): Plan global IoT connectivity across roaming, local profiles and regional rules. Test routing, recovery, inventory and costs before expanding a fleet.
+- Excerpt: Separate service eligibility, profile identity and traffic routing, then validate the complete regional workflow.
+- Destination: /iot/global-iot-connectivity-2026/
+- Category: iot
+- Final article length: 2367 words including the TL;DR.

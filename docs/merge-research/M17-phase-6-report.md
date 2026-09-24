@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/nb-iot-vs-lte-m-vs-5g-redcap/
 
 ## Outputs A and E
 
-H1/SEO/OG: NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide
+H1/OG: NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide
+SEO: NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide
 Description: Compare NB-IoT vs LTE-M vs 5G RedCap by radio capability, power, mobility and carrier support. Use a field-test checklist before committing your fleet.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

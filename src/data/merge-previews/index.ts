@@ -878,7 +878,7 @@ export const MERGE_PREVIEWS: Record<string, MergePreview> = {
   "cluster": "M04: IoT connectivity selection",
   "title": "IoT Connectivity Types: Compare Networks and Choose a Stack",
   "seoTitle": "IoT Connectivity Types: A Practical Selection Guide",
-  "seoDescription": "Compare IoT connectivity types by coverage, power, mobility and operating cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.",
+  "seoDescription": "Compare IoT connectivity types by coverage, power, mobility and total cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.",
   "excerpt": "Choose a connectivity stack by device requirements, service support and field evidence, with a comparison matrix and deployment acceptance checklist.",
   "templateBlocks": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",

@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/fleet-automotive-iot-connectivity-
 
 ## Outputs A and E
 
-H1/SEO/OG: Fleet IoT Connectivity Costs: Coverage and Failover Guide
+H1/OG: Fleet IoT Connectivity Costs: Coverage and Failover Guide
+SEO: Fleet IoT Connectivity Costs: Coverage and Failover Guide
 Description: Model fleet IoT connectivity costs by vehicle, route and workload. Compare coverage, pooled plans and recovery evidence before committing to deployment.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

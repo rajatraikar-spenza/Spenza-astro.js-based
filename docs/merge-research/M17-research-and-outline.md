@@ -122,3 +122,18 @@ Snippet query:NB-IoT vs LTE-M vs5GRedCap. Format:comparisonparagraph/table. Exac
 |FAQs /12|Voice,updates,battery,NRupgrade,NTN,SKU|Six40to70wordanswers|320|
 
 Intro100to150words;1introalias,2definitionsalias,8usecasealias,11conclusionalias. EveryH2opening40to60words namesentity. Threebodyfigures pluspublishedhero,threeHTMLtables,fourcallouts,threeCTAs. FAQnativeplus/minusUI. OutputFexistingArticle/Breadcrumb delta, no reviewer or duplicate graph. Unattended authorization replaces approval stop. Proceed toPhase5.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (53 characters): NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide
+- Alternate 1 (51 characters): NB-IoT vs LTE-M vs 5G RedCap: Compare Radio Options
+- Alternate 2 (54 characters): NB-IoT vs LTE-M vs 5G RedCap: Power and Mobility Guide
+- H1 and OG title: NB-IoT vs LTE-M vs 5G RedCap: A Field Selection Guide
+- Meta and OG description (151 characters): Compare NB-IoT vs LTE-M vs 5G RedCap by radio capability, power, mobility and carrier support. Use a field-test checklist before committing your fleet.
+- Excerpt: Choose a cellular IoT radio using versioned capabilities, supported service and comparable field measurements.
+- Destination: /esim/nb-iot-vs-lte-m-vs-5g-redcap/
+- Category: esim
+- Final article length: 2488 words including the TL;DR.

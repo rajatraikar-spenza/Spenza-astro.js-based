@@ -208,3 +208,18 @@ Intro100 to150words, M04 pillar link. H2s: definition and CMP/MDM table(anchor1)
 Measured metadata: primary title 52 characters; description 149 characters.
 
 Native diagram composition briefs: 1600x900 warm cream canvas, white panels, near-black Inter type and orange borders. Boundary comparison: CMP / SIM inventory / Carrier actions / Usage and billing versus Device management / Firmware and settings / Device agent / Installation result. Workflow: Request / Identity / Permission; Provider / Accepted / Pending or failed; Confirm / Final state / Source timestamp; Validate / Service outcome / Exception owner. No product screenshot, metric, logo or decorative stock imagery. Editable Figma nodes45:2 and45:11; export PNG and WebP inspected.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (52 characters): Connectivity Management Platform: Scope and Workflow
+- Alternate 1 (51 characters): What Is a Connectivity Management Platform? A Guide
+- Alternate 2 (50 characters): Connectivity Management Platforms: Scope and Costs
+- H1 and OG title: Connectivity Management Platform: Scope and Workflow
+- Meta and OG description (149 characters): Learn what a connectivity management platform controls, how SIM lifecycle workflows work, and how to separate CMP, eSIM and device management duties.
+- Excerpt: Separate SIM control from device software, then test a CMP through a complete carrier workflow.
+- Destination: /telecom/what-is-connectivity-management-platform-cmp/
+- Category: telecom
+- Final article length: 2388 words including the TL;DR.

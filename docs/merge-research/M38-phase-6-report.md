@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/smart-city-iot-connectivity-playbo
 
 ## Outputs A and E
 
-H1/SEO/OG: Smart City IoT Connectivity: A Procurement Playbook
+H1/OG: Smart City IoT Connectivity: A Procurement Playbook
+SEO: Smart City IoT Connectivity: Procurement and Operations
 Description: Plan smart city IoT connectivity by service need. Compare network options, BYON contracts, lifecycle costs, coverage tests and operating responsibilities.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

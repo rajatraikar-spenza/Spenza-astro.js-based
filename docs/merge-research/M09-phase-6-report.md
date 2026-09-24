@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/top-iot-trends/
 
 ## Outputs A and E
 
-H1/SEO/OG: IoT Connectivity Trends 2026: What Ships and What to Test
+H1/OG: IoT Connectivity Trends 2026: What Ships and What to Test
+SEO: IoT Connectivity Trends 2026: What Ships and What to Test
 Description: Evaluate IoT connectivity trends in 2026 with dated eSIM, iSIM, satellite and edge evidence, plus a checklist for cost, security and deployment.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

@@ -109,3 +109,18 @@ Snippet: IoT SIM cards hold the subscriber credentials used to authenticate cell
 Outline: intro/M04; definition; formfactor/grade comparison+figure; profilearchitecture/SGPdistinctions; globalSIMservice+applicationsfigure; plancontracts table; selection/lifecycle+figure; Spenza/Butlr+conclusion; sixFAQ. EightH2,twotables,fivecallouts,threeCTAs,threebodyfiguresplushero. Target2300to2700words. No per-cluster approval under user process change.
 
 Measured metadata: title54characters, description154characters. GSMA specification403to automated link client, verified through primary web research.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (54 characters): IoT SIM Cards: Form Factors, Profiles and Plan Choices
+- Alternate 1 (52 characters): IoT SIM Cards: Choose Hardware, Profiles and Service
+- Alternate 2 (50 characters): IoT SIM Card Guide: Costs and Lifecycle Operations
+- H1 and OG title: IoT SIM Cards: Form Factors, Profiles and Plan Choices
+- Meta and OG description (154 characters): Choose IoT SIM cards by device fit, profile capability and service terms. Compare form factors, global access, plan costs and lifecycle acceptance checks.
+- Excerpt: Separate the physical SIM, its profile capabilities and the service contract before committing a fleet.
+- Destination: /esim/iot-sim-cards-guide/
+- Category: esim
+- Final article length: 2383 words including the TL;DR.

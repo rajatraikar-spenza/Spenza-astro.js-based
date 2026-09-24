@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/what-is-connectivity-management-pl
 
 ## Outputs A and E
 
-H1/SEO/OG: Connectivity Management Platform: Scope and Workflow
+H1/OG: Connectivity Management Platform: Scope and Workflow
+SEO: Connectivity Management Platform: Scope and Workflow
 Description: Learn what a connectivity management platform controls, how SIM lifecycle workflows work, and how to separate CMP, eSIM and device management duties.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

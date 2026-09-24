@@ -1,0 +1,271 @@
+{
+  "checkedAt": "2026-09-24",
+  "branch": "blog-automation",
+  "hubGate": "12/12 PASS",
+  "allGate": "31/31 PASS",
+  "astro": {
+    "errors": 0,
+    "warnings": 0,
+    "existingHints": 72
+  },
+  "build": {
+    "pages": 939,
+    "result": "PASS",
+    "mediaOrigin": "https://media.spenza.com",
+    "noindex": true
+  },
+  "distribution": {
+    "result": "PASS",
+    "files": 1903,
+    "html": 939,
+    "distinctLocalAssetRefs": 679,
+    "mediaHostRefs": 22116,
+    "missing": 0,
+    "stranded": 0
+  },
+  "openSourceRequests": 37,
+  "clusters": [
+    {
+      "id": "M04",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2246,
+      "tldrWords": 130,
+      "totalWords": 2376,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 2, SivaSai 2 of 4 posts"
+      },
+      "images": {
+        "reused": 2,
+        "generated": 2
+      }
+    },
+    {
+      "id": "M09",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2272,
+      "tldrWords": 132,
+      "totalWords": 2404,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, SivaSai 1, Vinaychandra Bharadwaj 1 of 4 posts",
+        "flippedFrom": "SivaSai"
+      },
+      "images": {
+        "reused": 1,
+        "generated": 3
+      }
+    },
+    {
+      "id": "M17",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2368,
+      "tldrWords": 120,
+      "totalWords": 2488,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2 of 2 posts"
+      },
+      "images": {
+        "reused": 2,
+        "generated": 2
+      }
+    },
+    {
+      "id": "M24",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2449,
+      "tldrWords": 124,
+      "totalWords": 2573,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, Vinaychandra Bharadwaj 1 of 3 posts"
+      },
+      "images": {
+        "reused": 3,
+        "generated": 1
+      }
+    },
+    {
+      "id": "M25",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2421,
+      "tldrWords": 123,
+      "totalWords": 2544,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 3, Spenza 1, Vinaychandra Bharadwaj 1 of 5 posts"
+      },
+      "images": {
+        "reused": 2,
+        "generated": 2
+      }
+    },
+    {
+      "id": "M29",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2260,
+      "tldrWords": 128,
+      "totalWords": 2388,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 6, Spenza 2 of 8 posts",
+        "flippedFrom": "Spenza"
+      },
+      "images": {
+        "reused": 2,
+        "generated": 2
+      }
+    },
+    {
+      "id": "M32",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2293,
+      "tldrWords": 125,
+      "totalWords": 2418,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "tie, destination author wins: Spenza 1, SivaSai 1, Vinaychandra Bharadwaj 1 of 3 posts"
+      },
+      "images": {
+        "reused": 1,
+        "generated": 3
+      }
+    },
+    {
+      "id": "M34",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2243,
+      "tldrWords": 124,
+      "totalWords": 2367,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Spenza",
+        "slug": "isimplexity",
+        "basis": "majority: Spenza 2, Vinaychandra Bharadwaj 1 of 3 posts"
+      },
+      "images": {
+        "reused": 1,
+        "generated": 3
+      }
+    },
+    {
+      "id": "M35",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2255,
+      "tldrWords": 128,
+      "totalWords": 2383,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "tie, destination author wins: SivaSai 1, Spenza 1 of 2 posts"
+      },
+      "images": {
+        "reused": 2,
+        "generated": 2
+      }
+    },
+    {
+      "id": "M38",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2244,
+      "tldrWords": 127,
+      "totalWords": 2371,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "SivaSai",
+        "slug": "sivasai",
+        "basis": "majority: SivaSai 2 of 2 posts"
+      },
+      "images": {
+        "reused": 2,
+        "generated": 2
+      }
+    },
+    {
+      "id": "M39",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2306,
+      "tldrWords": 126,
+      "totalWords": 2432,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "tie, destination author wins: Vinaychandra Bharadwaj 1, SivaSai 1 of 2 posts"
+      },
+      "images": {
+        "reused": 2,
+        "generated": 2
+      }
+    },
+    {
+      "id": "M44",
+      "status": "preview",
+      "informationGain": 7,
+      "bodyWords": 2469,
+      "tldrWords": 135,
+      "totalWords": 2604,
+      "evidenceMarkersInArticle": 0,
+      "editorialReviewBlocks": 0,
+      "gate": "PASS",
+      "author": {
+        "name": "Vinaychandra Bharadwaj",
+        "slug": "vinay",
+        "basis": "majority: Vinaychandra Bharadwaj 2 of 2 posts"
+      },
+      "images": {
+        "reused": 1,
+        "generated": 3
+      }
+    }
+  ]
+}

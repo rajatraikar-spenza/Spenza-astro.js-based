@@ -190,3 +190,18 @@ Intro100to150wordsM04pillarlink;allH2answers40to60words;3tables,4callouts,3CTAs,
 ## New image briefs
 
 Figma44:2 two equal cream/white cards: Per-device bucket/Separate allowance/Separate overage andSharedpool/Combinedusage/Pooloverage. TitleIndividual allowances andsharedallowances;footerComparethesameworkloadunderbothcontracts. Orangeoutlines,inkInter,1600x900,under40words,nopriceorclaimofwinner. Figma44:11fourcardsUsage/Meteredtraffic,Rating/Contractrules,Invoice/Billedcharges,Review/Explaindifferences;footertopreserveidentifiers,billingperiods,adjustments. Bothinspectedafterexport.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (54 characters): IoT Connectivity Cost Guide: Plans, Pools and Overages
+- Alternate 1 (53 characters): IoT Connectivity Costs: Compare Plans and Fleet Usage
+- Alternate 2 (52 characters): IoT Connectivity Cost Guide: Build a Complete Budget
+- H1 and OG title: IoT Connectivity Cost Guide: Plans, Pools and Overages
+- Meta and OG description (153 characters): Build an IoT connectivity cost model covering SIM fees, pooled data, overages, roaming and operations. Compare public rates with clear fleet assumptions.
+- Excerpt: Model the full cost of connected devices, compare plan structures and reconcile usage with the invoice.
+- Destination: /telecom/iot-connectivity-cost-guide-2025/
+- Category: telecom
+- Final article length: 2544 words including the TL;DR.

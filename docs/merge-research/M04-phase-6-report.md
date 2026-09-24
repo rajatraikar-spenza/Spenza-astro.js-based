@@ -8,7 +8,7 @@ Preview: http://localhost:4321/preview/merged/iot-connectivity-types-guide-2025/
 
 H1/OG: IoT Connectivity Types: Compare Networks and Choose a Stack
 SEO title: IoT Connectivity Types: A Practical Selection Guide
-Description: Compare IoT connectivity types by coverage, power, mobility and operating cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.
+Description: Compare IoT connectivity types by coverage, power, mobility and total cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 
 Proposed redirects, unexecuted:

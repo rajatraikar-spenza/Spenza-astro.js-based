@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/leading-iot-connectivity-managemen
 
 ## Outputs A and E
 
-H1/SEO/OG: Best IoT Connectivity Management Platforms: Buyer Comparison
+H1/OG: Best IoT Connectivity Management Platforms: Buyer Comparison
+SEO: Best IoT Connectivity Management Platforms Compared
 Description: Compare IoT connectivity management platforms by documented scope, carrier fit, APIs and contracts. Use lifecycle tests to build a defensible shortlist.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

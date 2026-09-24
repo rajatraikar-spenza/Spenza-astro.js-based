@@ -6,7 +6,8 @@ Preview: http://localhost:4321/preview/merged/iot-connectivity-cost-guide-2025/
 
 ## Outputs A and E
 
-H1/SEO/OG: IoT Connectivity Cost Guide: Plans, Pools and Overages
+H1/OG: IoT Connectivity Cost Guide: Plans, Pools and Overages
+SEO: IoT Connectivity Cost Guide: Plans, Pools and Overages
 Description: Build an IoT connectivity cost model covering SIM fees, pooled data, overages, roaming and operations. Compare public rates with clear fleet assumptions.
 Metadata alternatives, measured counts, snippet and merge decisions are in the research-and-outline artifact. Internal/external link lists are in content-qa.json, URL results in link-check.json.
 

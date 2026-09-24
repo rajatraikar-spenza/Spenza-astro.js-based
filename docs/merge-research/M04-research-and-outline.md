@@ -165,7 +165,7 @@ H1: IoT Connectivity Types: Compare Networks and Choose a Stack
 SEO title: IoT Connectivity Types: A Practical Selection Guide
 Alternative: IoT Connectivity Types Compared: Choose Your Network
 Alternative: How to Choose IoT Connectivity Types for Your Fleet
-Description: Compare IoT connectivity types by coverage, power, mobility and operating cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.
+Description: Compare IoT connectivity types by coverage, power, mobility and total cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.
 Slug/category unchanged. OG uses H1 and description, with title-specific fixed-template hero. Keywords: IoT connectivity types; cellular IoT; LPWAN; LTE-M; NB-IoT; RedCap; local networks; satellite IoT; connectivity selection. FAQ is editorial fan-out, not claimed PAA.
 
 Snippet target: IoT connectivity types include cellular networks, noncellular low-power wide-area networks, local wireless links, satellite services and wired connections. Choose among them by payload, power budget, mobility, site access and operating responsibilities. A radio specification narrows the shortlist; supported service and field tests determine whether the complete deployment works.
@@ -186,3 +186,18 @@ Intro100to150words, definition and top-spoke cost/sensor links. Body approximate
 |FAQs /FAQs|Six distinct buyer questions with40to70wordanswers|Coverage,eSIM,sleep,multiple radios,sunsets,security|350|
 
 Native details/summary FAQ with plus/minus UI. Fourtofive brief callouts. Author-only manifest. Schema is existing Article/Breadcrumb delta only, no new graph or reviewer. Research evidence requests stay outside article prose. User unattended-loop instruction supersedes outline approval stop. Proceed to writing.
+
+
+### Final metadata verification
+
+This is the final Output A metadata record; it supersedes earlier draft alternatives. Counts include spaces.
+
+- Recommended SEO title (51 characters): IoT Connectivity Types: A Practical Selection Guide
+- Alternate 1 (52 characters): IoT Connectivity Types Compared: Choose Your Network
+- Alternate 2 (51 characters): How to Choose IoT Connectivity Types for Your Fleet
+- H1 and OG title: IoT Connectivity Types: Compare Networks and Choose a Stack
+- Meta and OG description (155 characters): Compare IoT connectivity types by coverage, power, mobility and total cost. Choose cellular, LPWAN, local or satellite service with a field-test checklist.
+- Excerpt: Choose a connectivity stack by device requirements, service support and field evidence, with a comparison matrix and deployment acceptance checklist.
+- Destination: /telecom/iot-connectivity-types-guide-2025/
+- Category: telecom
+- Final article length: 2376 words including the TL;DR.
