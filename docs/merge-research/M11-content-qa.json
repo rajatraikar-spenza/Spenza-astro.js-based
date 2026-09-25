@@ -1,0 +1,77 @@
+{
+  "cluster": "M11",
+  "beforeBodyWords": 6830,
+  "destinationBodyWords": 1772,
+  "afterBodyWords": 2154,
+  "afterIncludingTldr": 2289,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "What does a white-label telecom reseller actually sell?",
+      "words": 51
+    },
+    {
+      "heading": "How do you calculate reseller contribution?",
+      "words": 50
+    },
+    {
+      "heading": "Which responsibilities stay with the reseller?",
+      "words": 48
+    },
+    {
+      "heading": "What must work before the first customer order?",
+      "words": 50
+    },
+    {
+      "heading": "What does a published deployment establish?",
+      "words": 48
+    },
+    {
+      "heading": "Which reseller path should you take next?",
+      "words": 50
+    },
+    {
+      "heading": "White-label telecom reseller FAQs",
+      "words": 49
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does white labelling make a reseller an MVNO?",
+      "words": 46
+    },
+    {
+      "question": "Can a reseller set any retail price?",
+      "words": 46
+    },
+    {
+      "question": "Who owns the customer relationship if the supplier changes?",
+      "words": 45
+    },
+    {
+      "question": "Can one reseller offer voice and data-only plans?",
+      "words": 48
+    },
+    {
+      "question": "Does an eSIM remove all fulfilment work?",
+      "words": 47
+    },
+    {
+      "question": "What is the safest way to compare supplier quotes?",
+      "words": 46
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 9,
+  "externalSources": 4,
+  "author": {
+    "name": "SivaSai",
+    "slug": "sivasai",
+    "basis": "majority: SivaSai 3, Vinaychandra Bharadwaj 1 of 4 posts"
+  },
+  "seoTitleLength": 53,
+  "metaDescriptionLength": 153,
+  "informationGain": 7
+}

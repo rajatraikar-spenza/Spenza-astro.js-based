@@ -80,7 +80,9 @@ function checks(cluster, html) {
     ['internal links 6-10', internal.size >= 6 && internal.size <= 10, internal.size],
     ['external links 4-8', external.size >= 4 && external.size <= 8, external.size],
     ['FAQ questions 6-8', faqQuestions.length >= 6 && faqQuestions.length <= 8, faqQuestions.length],
-    ['figures 3-5', (body.match(/<figure/g) || []).length >= 3 && (body.match(/<figure/g) || []).length <= 5, (body.match(/<figure/g) || []).length],
+    // Image count is an editorial decision (25 September 2026 instruction).
+    // Validate the figures present without encouraging padding to a quota.
+    ['figures have images and alt text', [...body.matchAll(/<figure\b[^>]*>[\s\S]*?<\/figure>/g)].every(([figure]) => /<img\b[^>]*\bsrc="[^"]+"/.test(figure) && /<img\b[^>]*\balt="[^"]+"/.test(figure)), (body.match(/<figure\b/g) || []).length],
     ['no banned words', banned.length === 0, banned.join(', ') || 'none'],
     ['no links to any donor', donorLinks.length === 0, donorLinks.join(', ') || 'none'],
     ['every H2 answer-first', pronounOpeners.length === 0, pronounOpeners.join('; ') || 'ok'],

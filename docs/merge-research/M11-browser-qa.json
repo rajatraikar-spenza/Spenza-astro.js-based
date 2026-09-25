@@ -1,0 +1,97 @@
+{
+  "title": "White-Label Telecom Reseller: Models and Launch Guide",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Choose the model",
+    "Calculate contribution",
+    "Assign responsibility",
+    "Test the complete journey",
+    "Use scoped evidence"
+  ],
+  "h2": [
+    {
+      "id": "Telecom",
+      "text": "What does a white-label telecom reseller actually sell?"
+    },
+    {
+      "id": "Strategies",
+      "text": "How do you calculate reseller contribution?"
+    },
+    {
+      "id": "Challenges",
+      "text": "Which responsibilities stay with the reseller?"
+    },
+    {
+      "id": "launch-checklist",
+      "text": "What must work before the first customer order?"
+    },
+    {
+      "id": "Spenza",
+      "text": "What does a published deployment establish?"
+    },
+    {
+      "id": "Conclusion",
+      "text": "Which reseller path should you take next?"
+    },
+    {
+      "id": "FAQs",
+      "text": "White-label telecom reseller FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/telecom-reseller/reseller-service-handoffs.png",
+      "currentSrc": "http://localhost:4321/blog-media/telecom-reseller/reseller-service-handoffs.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/telecom-reseller/reseller-contribution-flow.png",
+      "currentSrc": "http://localhost:4321/blog-media/telecom-reseller/reseller-contribution-flow.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#Telecom",
+    "#Strategies",
+    "#Challenges",
+    "#launch-checklist",
+    "#Spenza",
+    "#Conclusion",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "SivaSai",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
