@@ -1,0 +1,77 @@
+{
+  "cluster": "M41",
+  "beforeBodyWords": 3700,
+  "destinationBodyWords": 2437,
+  "afterBodyWords": 2152,
+  "afterIncludingTldr": 2298,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "Which travel SIM option fits your trip?",
+      "words": 52
+    },
+    {
+      "heading": "What should you check before paying?",
+      "words": 54
+    },
+    {
+      "heading": "When should you install and start the plan?",
+      "words": 53
+    },
+    {
+      "heading": "How do you keep your home line under control?",
+      "words": 54
+    },
+    {
+      "heading": "What should you do if service fails?",
+      "words": 53
+    },
+    {
+      "heading": "What should travel sellers prove before offering a plan?",
+      "words": 55
+    },
+    {
+      "heading": "Travel eSIM and physical SIM FAQs",
+      "words": 49
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is a travel eSIM always cheaper than an airport SIM?",
+      "words": 50
+    },
+    {
+      "question": "Can I install a travel eSIM before departure?",
+      "words": 51
+    },
+    {
+      "question": "Will a travel eSIM keep my home number working?",
+      "words": 50
+    },
+    {
+      "question": "Do I need a physical SIM to get a local number?",
+      "words": 49
+    },
+    {
+      "question": "Does a physical SIM provide better coverage?",
+      "words": 52
+    },
+    {
+      "question": "Can I get a refund if the eSIM does not work?",
+      "words": 51
+    }
+  ],
+  "tables": 3,
+  "figures": 1,
+  "internalLinks": 6,
+  "externalSources": 5,
+  "author": {
+    "name": "SivaSai",
+    "slug": "sivasai",
+    "basis": "majority: SivaSai 2 of 2 posts"
+  },
+  "seoTitleLength": 54,
+  "metaDescriptionLength": 153,
+  "informationGain": 7
+}

@@ -105,11 +105,74 @@ import m11Content from './white-label-telecom-reseller-guide.html?raw';
 import m15Content from './resell-data-plans-shopify.html?raw';
 import m20Content from './telecom-msp-white-label-solutions-2025.html?raw';
 import m26Content from './mobile-esim-plans.html?raw';
+import m41Content from './esim-vs-physical-sim-airport-decision.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "esim-vs-physical-sim-airport-decision": {
+  "slug": "esim-vs-physical-sim-airport-decision",
+  "category": "esim",
+  "cluster": "M41",
+  "title": "Travel eSIM vs Physical SIM: Make the Airport Decision Before You Fly",
+  "seoTitle": "Travel eSIM vs Physical SIM: Make the Airport Decision",
+  "seoDescription": "Compare travel eSIM and physical SIM choices by device, coverage, validity, calls and refunds. Prepare before flying without assuming either is cheapest.",
+  "excerpt": "Choose a travel plan by device support, service terms and arrival needs, then prepare a clear setup and refund path.",
+  "templateBlocks": {
+    "tldrHeading": "The airport SIM decision at a glance",
+    "tldrDescription": "Choose a travel eSIM or physical SIM by the phone and plan, not by a universal price or speed claim. Verify device support, carrier restrictions, every destination and any need for calls or SMS. Check what starts validity before installing a profile. Keep the receipt and support instructions available offline, and review home-line roaming separately from travel data. Businesses selling the offer also need a tested delivery and refund path.",
+    "twoCol": [
+      {
+        "title": "Start with the device",
+        "text": "Confirm the exact model, regional variant and permission to use the provider.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}"
+      },
+      {
+        "title": "Compare the whole trip",
+        "text": "Check countries, allowance, validity, voice, hotspot and likely top-ups.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"globe\"}"
+      },
+      {
+        "title": "Read the start rule",
+        "text": "Installation and connection can trigger different plan-validity policies.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"clock\"}"
+      },
+      {
+        "title": "Control both lines",
+        "text": "Travel data does not make home-line calls and messages free.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"sim-card\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Keep a recovery path",
+        "text": "Save the receipt, setup instructions and seller’s support and refund terms.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"life-ring\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces.png\" class=\"attachment-full size-full wp-image-17261 webpexpress-processed\" alt=\"SIM vs eSIM : The Airport Decision Every Traveler Faces\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Travel eSIM vs Physical SIM: Make the Airport Decision Before You Fly",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-05-04T10:11:05+00:00",
+  "updatedDate": "2026-09-25T06:32:27.975Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 2437,
+  "donors": [
+    {
+      "path": "/esim/esim-for-travellers/",
+      "title": "eSIM for Travelers: Why Gen Z Is Switching",
+      "clicks": 6,
+      "contributes": "Traveler decision context and setup considerations. Source sections to inspect: Enjoy Seamless Digital Connectivity; Use One Device Across Multiple Countries; Reduce Roaming Costs and Travel Hassles; Choose a More Sustainable Travel Option"
+    }
+  ],
+  "content": m41Content
+},
   "mobile-esim-plans": {
   "slug": "mobile-esim-plans",
   "category": "telecom",

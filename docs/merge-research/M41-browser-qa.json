@@ -1,0 +1,91 @@
+{
+  "title": "Travel eSIM vs Physical SIM: Make the Airport Decision",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Start with the device",
+    "Compare the whole trip",
+    "Read the start rule",
+    "Control both lines",
+    "Keep a recovery path"
+  ],
+  "h2": [
+    {
+      "id": "travel-sim-choice",
+      "text": "Which travel SIM option fits your trip?"
+    },
+    {
+      "id": "before-purchase",
+      "text": "What should you check before paying?"
+    },
+    {
+      "id": "installation-and-validity",
+      "text": "When should you install and start the plan?"
+    },
+    {
+      "id": "home-line",
+      "text": "How do you keep your home line under control?"
+    },
+    {
+      "id": "service-and-refunds",
+      "text": "What should you do if service fails?"
+    },
+    {
+      "id": "travel-seller-proof",
+      "text": "What should travel sellers prove before offering a plan?"
+    },
+    {
+      "id": "FAQs",
+      "text": "Travel eSIM and physical SIM FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/travel-sim-choice/travel-esim-two-clocks.png",
+      "currentSrc": "http://localhost:4321/blog-media/travel-sim-choice/travel-esim-two-clocks.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#travel-sim-choice",
+    "#before-purchase",
+    "#installation-and-validity",
+    "#home-line",
+    "#service-and-refunds",
+    "#travel-seller-proof",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "SivaSai",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
