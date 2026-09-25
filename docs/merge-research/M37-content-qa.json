@@ -1,0 +1,77 @@
+{
+  "cluster": "M37",
+  "beforeBodyWords": 5801,
+  "destinationBodyWords": 2734,
+  "afterBodyWords": 2302,
+  "afterIncludingTldr": 2444,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "When does BYOD fit better than a company device?",
+      "words": 53
+    },
+    {
+      "heading": "Which BYOD controls protect work data and employee privacy?",
+      "words": 50
+    },
+    {
+      "heading": "What risks should the BYOD policy assign to named owners?",
+      "words": 52
+    },
+    {
+      "heading": "How should onboarding and policy approval work?",
+      "words": 52
+    },
+    {
+      "heading": "How do you compare BYOD costs fairly?",
+      "words": 53
+    },
+    {
+      "heading": "What must BYOD offboarding remove and preserve?",
+      "words": 54
+    },
+    {
+      "heading": "BYOD benefits, risks and best practices FAQs",
+      "words": 50
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can employees decline to use their personal phone?",
+      "words": 51
+    },
+    {
+      "question": "Does a company-paid eSIM make a phone company-owned?",
+      "words": 51
+    },
+    {
+      "question": "Can IT read personal messages under BYOD?",
+      "words": 51
+    },
+    {
+      "question": "Is app management enough without device enrollment?",
+      "words": 50
+    },
+    {
+      "question": "Will BYOD always reduce employer costs?",
+      "words": 50
+    },
+    {
+      "question": "What should happen when an employee replaces a phone?",
+      "words": 51
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 8,
+  "externalSources": 5,
+  "author": {
+    "name": "Spenza",
+    "slug": "isimplexity",
+    "basis": "majority: Spenza 2, SivaSai 1 of 3 posts"
+  },
+  "seoTitleLength": 55,
+  "metaDescriptionLength": 147,
+  "informationGain": 7
+}

@@ -1,0 +1,97 @@
+{
+  "title": "BYOD Benefits, Risks and Best Practices: A Policy Guide",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Choose by role",
+    "Separate the controls",
+    "Make privacy visible",
+    "Count the whole cost",
+    "Prove the exit"
+  ],
+  "h2": [
+    {
+      "id": "BYOD",
+      "text": "When does BYOD fit better than a company device?"
+    },
+    {
+      "id": "control-boundaries",
+      "text": "Which BYOD controls protect work data and employee privacy?"
+    },
+    {
+      "id": "Challenges",
+      "text": "What risks should the BYOD policy assign to named owners?"
+    },
+    {
+      "id": "Best",
+      "text": "How should onboarding and policy approval work?"
+    },
+    {
+      "id": "Benefits",
+      "text": "How do you compare BYOD costs fairly?"
+    },
+    {
+      "id": "offboarding",
+      "text": "What must BYOD offboarding remove and preserve?"
+    },
+    {
+      "id": "FAQs",
+      "text": "BYOD benefits, risks and best practices FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/byod-policy/byod-control-boundaries.png",
+      "currentSrc": "http://localhost:4321/blog-media/byod-policy/byod-control-boundaries.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/byod-policy/byod-offboarding-branches.png",
+      "currentSrc": "http://localhost:4321/blog-media/byod-policy/byod-offboarding-branches.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#BYOD",
+    "#control-boundaries",
+    "#Challenges",
+    "#Best",
+    "#Benefits",
+    "#offboarding",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "Spenza",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

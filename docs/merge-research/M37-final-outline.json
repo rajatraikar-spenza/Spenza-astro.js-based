@@ -1,0 +1,138 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "BYOD Benefits, Risks and Best Practices for Enterprise Teams",
+  "sections": [
+    {
+      "heading": "When does BYOD fit better than a company device?",
+      "answer": "BYOD fits roles whose work can be supported safely on eligible personal devices, with clear employee choices and support limits. A company-owned device may fit better when the role needs tighter control, specialized hardware or predictable replacement. Device ownership and mobile-service liability are separate decisions, so document who owns and pays for each.",
+      "words": 289,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "review your enterprise mobile estate"
+        }
+      ]
+    },
+    {
+      "heading": "Which BYOD controls protect work data and employee privacy?",
+      "answer": "BYOD protection combines identity controls, supported device or app management and a clear mobile-service policy. These controls have different jobs: identity governs access, managed apps govern work data, and the mobile subscription supplies connectivity. A corporate eSIM does not automatically isolate applications, direct only work traffic or establish privacy compliance.",
+      "words": 275,
+      "h3": [],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://support.apple.com/guide/deployment/user-enrollment-and-device-management-dep23db2037d/web",
+          "anchor": "Apple’s User Enrollment guidance"
+        },
+        {
+          "url": "https://support.google.com/work/android/answer/6191949?hl=en",
+          "anchor": "Android Work Profile guidance"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/intune/app-management/protection/overview",
+          "anchor": "Microsoft’s app-protection overview"
+        },
+        {
+          "url": "/esim/dual-sim-esim/",
+          "anchor": "business dual-SIM guide"
+        }
+      ]
+    },
+    {
+      "heading": "What risks should the BYOD policy assign to named owners?",
+      "answer": "A BYOD risk assessment should connect each failure to a control, an accountable team and evidence that the control works. Avoid calling a device safe simply because it enrolled successfully. Review software support, access, data movement, lost-device response and privacy together, then document the remaining risk accepted for each permitted work scenario.",
+      "words": 276,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://csrc.nist.gov/pubs/sp/800/124/r2/final",
+          "anchor": "NIST’s mobile-device lifecycle guidance"
+        }
+      ]
+    },
+    {
+      "heading": "How should onboarding and policy approval work?",
+      "answer": "BYOD onboarding should prove that the employee, device, applications and service meet the approved policy before routine access begins. Start with a limited role group, explain the management boundary and test a useful work task. Record exceptions and recovery steps so the pilot demonstrates supportability rather than merely counting successful profile installations.",
+      "words": 361,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.ncsc.gov.uk/collection/device-security-guidance/bring-your-own-device",
+          "anchor": "NCSC’s BYOD guidance"
+        },
+        {
+          "url": "/byod/mvno-locked-phone-challenge-guide/",
+          "anchor": "carrier-lock and compatibility guide"
+        },
+        {
+          "url": "/telecom/mobile-data-plan-ipad/",
+          "anchor": "iPad mobile-plan guide"
+        },
+        {
+          "url": "/mobility-policy/",
+          "anchor": "mobility policy resource"
+        }
+      ]
+    },
+    {
+      "heading": "How do you compare BYOD costs fairly?",
+      "answer": "BYOD cost comparison should include hardware, mobile service, management tools, administration, support and exceptions for the same employee cohort and period. Removing a company device purchase changes one cost category; it does not prove the whole program is cheaper. Use approved contract and operating inputs, then compare the resulting service employees actually receive.",
+      "words": 226,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/telecom/connectivity-as-a-benefit/",
+          "anchor": "employee connectivity benefit guide"
+        },
+        {
+          "url": "/telecom/mobile-plan-management-simplified/",
+          "anchor": "mobile plan management"
+        },
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone enterprise case"
+        }
+      ]
+    },
+    {
+      "heading": "What must BYOD offboarding remove and preserve?",
+      "answer": "BYOD offboarding must address company access, managed work data and the work subscription as separate actions while respecting the employee’s personal device and content. Confirm each action’s completion and any pending state. Decide the work number’s disposition before canceling service, because identity removal, data removal and carrier termination do not automatically trigger one another.",
+      "words": 304,
+      "h3": [],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "review the mobility operating model"
+        }
+      ]
+    },
+    {
+      "heading": "BYOD benefits, risks and best practices FAQs",
+      "answer": "BYOD decisions depend on the work, the device and the organization’s approved controls. The questions below clarify ownership, privacy, cost and exit choices that commonly arise during planning. Treat the answers as a decision framework, then confirm platform behavior and employer-specific terms with the teams responsible for the actual deployment.",
+      "words": 399,
+      "h3": [
+        "Can employees decline to use their personal phone?",
+        "Does a company-paid eSIM make a phone company-owned?",
+        "Can IT read personal messages under BYOD?",
+        "Is app management enough without device enrollment?",
+        "Will BYOD always reduce employer costs?",
+        "What should happen when an employee replaces a phone?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}
