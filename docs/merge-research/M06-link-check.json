@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-09-25T08:02:36.179Z",
+  "links": [
+    {
+      "url": "/tem/business-mobile-cost-quality/",
+      "status": 200,
+      "final": "https://spenza.com/tem/business-mobile-cost-quality/"
+    },
+    {
+      "url": "https://etma.org/what-is-telecom-expense-management-2/",
+      "status": 200,
+      "final": "https://etma.org/what-is-telecom-expense-management-2/"
+    },
+    {
+      "url": "https://www.tmforum.org/learn/certification/assessments/optimize-revenue-assurance/",
+      "status": 403,
+      "final": "https://www.tmforum.org/learn/certification/assessments/optimize-revenue-assurance/"
+    },
+    {
+      "url": "/mvno/mvno-telecom-reseller-revenue-leakage/",
+      "status": 200,
+      "final": "https://spenza.com/mvno/mvno-telecom-reseller-revenue-leakage/"
+    },
+    {
+      "url": "https://www.finops.org/framework/capabilities/data-ingestion/",
+      "status": 200,
+      "final": "https://www.finops.org/framework/capabilities/data-ingestion/"
+    },
+    {
+      "url": "/telecom/mobile-plan-management-simplified/",
+      "status": 200,
+      "final": "https://spenza.com/telecom/mobile-plan-management-simplified/"
+    },
+    {
+      "url": "/connectivity-revenue-optimization/",
+      "status": 200,
+      "final": "https://spenza.com/voice-observability-solution/"
+    },
+    {
+      "url": "https://framework.finops.org/framework/capabilities/allocation/",
+      "status": 200,
+      "final": "https://framework.finops.org/framework/capabilities/allocation/"
+    },
+    {
+      "url": "/spenza-product/rocketphone-case-study/",
+      "status": 200,
+      "final": "https://spenza.com/spenza-product/rocketphone-case-study/"
+    },
+    {
+      "url": "/tem/telecom-compliance-audits/",
+      "status": 200,
+      "final": "https://spenza.com/tem/telecom-compliance-audits/"
+    },
+    {
+      "url": "/tem/telecom-expense-management-implementation/",
+      "status": 200,
+      "final": "https://spenza.com/tem/telecom-expense-management-implementation/"
+    },
+    {
+      "url": "/contact-us/",
+      "status": 200,
+      "final": "https://spenza.com/contact-us/"
+    }
+  ],
+  "verificationNotes": [
+    "TM Forum direct probe 403; page content independently opened through web access, Revenue Assurance Maturity Model paragraph verified 25 September 2026."
+  ]
+}

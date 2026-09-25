@@ -1,0 +1,73 @@
+{
+  "cluster": "M06",
+  "beforeBodyWords": 11213,
+  "destinationBodyWords": 3738,
+  "afterBodyWords": 2252,
+  "afterIncludingTldr": 2389,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "Telecom Expense Management (TEM) Definition",
+      "words": 47
+    },
+    {
+      "heading": "Benefits of Telecom Expense Management Software",
+      "words": 49
+    },
+    {
+      "heading": "How do parent-child accounts keep costs traceable?",
+      "words": 49
+    },
+    {
+      "heading": "What counts as a verified telecom audit result?",
+      "words": 52
+    },
+    {
+      "heading": "Implementing TEM in Your Business",
+      "words": 50
+    },
+    {
+      "heading": "FAQs about telecom expense management",
+      "words": 49
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can a spreadsheet support a TEM program?",
+      "words": 52
+    },
+    {
+      "question": "Does TEM replace mobile device management?",
+      "words": 50
+    },
+    {
+      "question": "Can artificial intelligence approve telecom invoices automatically?",
+      "words": 51
+    },
+    {
+      "question": "How much money should a buyer expect to recover?",
+      "words": 51
+    },
+    {
+      "question": "Should a company outsource every TEM activity?",
+      "words": 54
+    },
+    {
+      "question": "Which data should stay available after a supplier change?",
+      "words": 50
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 8,
+  "externalSources": 4,
+  "author": {
+    "name": "Vinaychandra Bharadwaj",
+    "slug": "vinay",
+    "basis": "tie, destination author wins: Vinaychandra Bharadwaj 2, SivaSai 2 of 4 posts"
+  },
+  "seoTitleLength": 52,
+  "metaDescriptionLength": 155,
+  "informationGain": 7
+}

@@ -1,0 +1,92 @@
+{
+  "title": "Telecom Expense Management: Controls and Buyer Guide",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Match the records",
+    "Keep owners visible",
+    "Separate the disciplines",
+    "Verify the outcome",
+    "Test before expanding"
+  ],
+  "h2": [
+    {
+      "id": "definition",
+      "text": "Telecom Expense Management (TEM) Definition"
+    },
+    {
+      "id": "Benefits",
+      "text": "Benefits of Telecom Expense Management Software"
+    },
+    {
+      "id": "allocation",
+      "text": "How do parent-child accounts keep costs traceable?"
+    },
+    {
+      "id": "audit-results",
+      "text": "What counts as a verified telecom audit result?"
+    },
+    {
+      "id": "Implementing",
+      "text": "Implementing TEM in Your Business"
+    },
+    {
+      "id": "FAQs",
+      "text": "FAQs about telecom expense management"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/telecom-expense-management/tem-record-alignment.png",
+      "currentSrc": "http://localhost:4321/blog-media/telecom-expense-management/tem-record-alignment.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/telecom-expense-management/tem-allocation-branches.png",
+      "currentSrc": "http://localhost:4321/blog-media/telecom-expense-management/tem-allocation-branches.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#definition",
+    "#Benefits",
+    "#allocation",
+    "#audit-results",
+    "#Implementing",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "Vinaychandra Bharadwaj",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

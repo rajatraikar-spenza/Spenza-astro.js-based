@@ -1,0 +1,125 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "What Is Telecom Expense Management? A Buyer's Guide",
+  "sections": [
+    {
+      "heading": "Telecom Expense Management (TEM) Definition",
+      "answer": "Telecom expense management is an ongoing control process for the services an organization buys. TEM connects ordering, inventory, contracts, usage, invoices, approvals and changes. The process continues after an audit: every new line, cancellation or contract amendment must reach the records used to approve the next bill.",
+      "words": 322,
+      "h3": [
+        "Follow the service through its lifecycle"
+      ],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://etma.org/what-is-telecom-expense-management-2/",
+          "anchor": "ETMA definition and focus areas"
+        },
+        {
+          "url": "https://www.tmforum.org/learn/certification/assessments/optimize-revenue-assurance/",
+          "anchor": "TM Forum's revenue assurance model"
+        },
+        {
+          "url": "/mvno/mvno-telecom-reseller-revenue-leakage/",
+          "anchor": "reseller revenue leakage guide"
+        }
+      ]
+    },
+    {
+      "heading": "Benefits of Telecom Expense Management Software",
+      "answer": "Telecom expense management software can make billing decisions traceable when the underlying records are complete. The practical benefits are consistent service ownership, repeatable invoice checks and visible exception status. Savings depend on actual findings and completed actions; neither a software subscription nor a detected mismatch establishes a financial result.",
+      "words": 347,
+      "h3": [
+        "Validate records before automating decisions"
+      ],
+      "tables": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://www.finops.org/framework/capabilities/data-ingestion/",
+          "anchor": "FinOps data ingestion capability"
+        },
+        {
+          "url": "/telecom/mobile-plan-management-simplified/",
+          "anchor": "mobile plan management"
+        },
+        {
+          "url": "/connectivity-revenue-optimization/",
+          "anchor": "connectivity revenue and spend controls"
+        }
+      ]
+    },
+    {
+      "heading": "How do parent-child accounts keep costs traceable?",
+      "answer": "Parent-child accounts organize telecom costs by enterprise, partner, department or customer while preserving the source charge. A reporting hierarchy determines where a cost appears; the supplier contract determines who owes payment. Keep those rules separate so a department allocation never becomes an unsupported assumption about liability or invoice settlement.",
+      "words": 320,
+      "h3": [
+        "Connect allocation to mobility policy"
+      ],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://framework.finops.org/framework/capabilities/allocation/",
+          "anchor": "FinOps allocation capability"
+        },
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone enterprise MVNO case"
+        }
+      ]
+    },
+    {
+      "heading": "What counts as a verified telecom audit result?",
+      "answer": "A verified telecom audit result connects a finding to supporting records, an approved resolution and financial confirmation. A suspected overcharge remains an exception until the relevant terms and service facts are checked. An accepted dispute becomes a recovered amount only when Finance confirms the actual credit or refund and its accounting treatment.",
+      "words": 267,
+      "h3": [
+        "Follow a cancellation through to the next bill"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/tem/telecom-compliance-audits/",
+          "anchor": "telecom audit checklist"
+        }
+      ]
+    },
+    {
+      "heading": "Implementing TEM in Your Business",
+      "answer": "Implementing telecom expense management starts with a bounded service population, reliable source records and named decision owners. Choose software or managed support by the work your team can perform. Accept the first rollout only when representative invoices, changes, allocations and exceptions can be traced through the process without unexplained gaps.",
+      "words": 364,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/tem/telecom-expense-management-implementation/",
+          "anchor": "TEM implementation guide"
+        }
+      ]
+    },
+    {
+      "heading": "FAQs about telecom expense management",
+      "answer": "Telecom expense management decisions depend on service scope, available records and operating ownership. The following answers address common boundaries that affect a purchase or rollout. Use the answers to narrow your requirements, then confirm the specific supplier, account and jurisdiction before treating a feature or financial outcome as established.",
+      "words": 482,
+      "h3": [
+        "Can a spreadsheet support a TEM program?",
+        "Does TEM replace mobile device management?",
+        "Can artificial intelligence approve telecom invoices automatically?",
+        "How much money should a buyer expect to recover?",
+        "Should a company outsource every TEM activity?",
+        "Which data should stay available after a supplier change?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "Discuss your TEM requirements"
+        }
+      ]
+    }
+  ]
+}

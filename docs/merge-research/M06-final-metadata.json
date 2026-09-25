@@ -1,0 +1,68 @@
+{
+  "cluster": "M06",
+  "recommended": {
+    "text": "Telecom Expense Management: Controls and Buyer Guide",
+    "characters": 52
+  },
+  "alternates": [
+    {
+      "text": "What Is Telecom Expense Management? A Practical Guide",
+      "characters": 53
+    },
+    {
+      "text": "Telecom Expense Management Guide: From Bills to Proof",
+      "characters": 53
+    }
+  ],
+  "h1": "What Is Telecom Expense Management? A Buyer's Guide",
+  "slug": "what-is-telecom-expense-management-tem",
+  "category": "tem",
+  "tags": [
+    "telecom expense management",
+    "invoice validation",
+    "cost allocation",
+    "revenue assurance"
+  ],
+  "description": {
+    "text": "Understand telecom expense management, match invoices to contracts and services, and choose practical controls for allocation, audits and daily operations.",
+    "characters": 155
+  },
+  "keyword": "what is telecom expense management",
+  "secondaryKeywords": [
+    "telecom expense management",
+    "invoice validation",
+    "cost allocation",
+    "revenue assurance"
+  ],
+  "intent": "Definition and mid-funnel evaluation",
+  "reader": "Telecom finance, revenue assurance, procurement and operations",
+  "snippet": {
+    "query": "What is telecom expense management?",
+    "format": "paragraph",
+    "exactText": "Telecom expense management (TEM) combines service inventory, contract management, invoice checks, cost allocation and supplier follow-up. TEM gives finance and operations teams a way to explain what they pay for, identify differences and document the outcome. A useful program connects each charge to a service, an owner and applicable terms."
+  },
+  "bodyWords": 2252,
+  "wordsIncludingTldr": 2389,
+  "ogTitle": "What Is Telecom Expense Management? A Buyer's Guide",
+  "ogDescription": "Understand telecom expense management, match invoices to contracts and services, and choose practical controls for allocation, audits and daily operations.",
+  "excerpt": "Connect services, contracts and invoices, assign accountable owners, and distinguish an exception from a verified financial result.",
+  "images": [
+    {
+      "purpose": "Reused published hero, unchanged URL and srcset",
+      "url": "https://media.spenza.com/wp-content/uploads/2021/04/18.png",
+      "alt": "What Is Telecom Expense Management? A Buyer's Guide"
+    },
+    {
+      "purpose": "Conceptual record alignment: verify service identity, dates and terms before treating a difference as an error.",
+      "filename": "/blog-media/telecom-expense-management/tem-record-alignment.png",
+      "webp": "/blog-media/telecom-expense-management/tem-record-alignment.webp",
+      "alt": "Telecom expense management validates the same service across contract, invoice and inventory records."
+    },
+    {
+      "purpose": "One source bill can support several cost allocations. The reporting split does not change the contractual payer.",
+      "filename": "/blog-media/telecom-expense-management/tem-allocation-branches.png",
+      "webp": "/blog-media/telecom-expense-management/tem-allocation-branches.webp",
+      "alt": "Department allocations remain traceable to one original supplier invoice."
+    }
+  ]
+}
