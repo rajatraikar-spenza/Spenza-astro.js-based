@@ -1,0 +1,77 @@
+{
+  "cluster": "M15",
+  "beforeBodyWords": 4919,
+  "destinationBodyWords": 2594,
+  "afterBodyWords": 2217,
+  "afterIncludingTldr": 2350,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "What does Shopify handle, and what needs a connectivity platform?",
+      "words": 50
+    },
+    {
+      "heading": "How should data plans be represented in the catalogue?",
+      "words": 51
+    },
+    {
+      "heading": "How does a purchase become a working service?",
+      "words": 52
+    },
+    {
+      "heading": "How should fulfilment failures be handled?",
+      "words": 50
+    },
+    {
+      "heading": "What are the limits around refunds and recurring billing?",
+      "words": 52
+    },
+    {
+      "heading": "What evidence should support a Shopify launch?",
+      "words": 51
+    },
+    {
+      "heading": "Shopify data-plan resale FAQs",
+      "words": 50
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can a device and data plan share one checkout?",
+      "words": 48
+    },
+    {
+      "question": "Does receiving a QR code mean the eSIM is active?",
+      "words": 47
+    },
+    {
+      "question": "Can the same customer buy another plan?",
+      "words": 48
+    },
+    {
+      "question": "Does refunding an order automatically stop the mobile service?",
+      "words": 46
+    },
+    {
+      "question": "Is a no-code Shopify launch always possible?",
+      "words": 49
+    },
+    {
+      "question": "Can every data plan become a monthly subscription?",
+      "words": 49
+    }
+  ],
+  "tables": 3,
+  "figures": 1,
+  "internalLinks": 8,
+  "externalSources": 4,
+  "author": {
+    "name": "SivaSai",
+    "slug": "sivasai",
+    "basis": "majority: SivaSai 2 of 2 posts"
+  },
+  "seoTitleLength": 54,
+  "metaDescriptionLength": 153,
+  "informationGain": 7
+}

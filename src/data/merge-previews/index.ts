@@ -102,11 +102,74 @@ import m38Content from './smart-city-iot-connectivity-playbook-2026.html?raw';
 import m39Content from './leading-iot-connectivity-management-platforms.html?raw';
 import m44Content from './must-attend-iot-and-mvno-events-in-2026.html?raw';
 import m11Content from './white-label-telecom-reseller-guide.html?raw';
+import m15Content from './resell-data-plans-shopify.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "resell-data-plans-shopify": {
+  "slug": "resell-data-plans-shopify",
+  "category": "mvno",
+  "cluster": "M15",
+  "title": "How to Resell Data Plans on Shopify",
+  "seoTitle": "Resell Data Plans on Shopify: Setup and Delivery Guide",
+  "seoDescription": "Resell data plans on Shopify with a clear catalogue, activation flow, refund policy and renewal checks. Learn what to test before taking customer orders.",
+  "excerpt": "Connect a Shopify order to the right mobile service and handle delivery failures, refunds and renewals deliberately.",
+  "templateBlocks": {
+    "tldrHeading": "Shopify data-plan resale at a glance",
+    "tldrDescription": "Reselling data plans on Shopify connects a commerce order to a separately managed mobile service. Define catalogue mappings, payment conditions and delivery responsibilities before taking orders. Track allocation, installation and connection as separate states, and test exceptions as carefully as successful purchases. Recurring billing, refunds and service cancellation need coordinated policies across the store and connectivity provider.",
+    "twoCol": [
+      {
+        "title": "Map the catalogue",
+        "text": "Connect each sellable variant to an approved supplier offer and its terms.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"tags\"}"
+      },
+      {
+        "title": "Separate the states",
+        "text": "Paid, allocated, installed and connected each need their own evidence.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"link\"}"
+      },
+      {
+        "title": "Recover safely",
+        "text": "Replay notifications without allocating duplicate services; reconcile uncertain results.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"rotate\"}"
+      },
+      {
+        "title": "Coordinate money and service",
+        "text": "A refund does not automatically cancel connectivity or generate a supplier credit.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"receipt\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Use the relevant case",
+        "text": "Angel Watch documents Shopify plan bundling; validate your specific configuration separately.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"clipboard-check\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify.png\" class=\"attachment-full size-full wp-image-9186 webpexpress-processed\" alt=\"How to Resell Internet/Data Plans on Shopify\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "How to Resell Data Plans on Shopify",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-05-28T09:57:25+00:00",
+  "updatedDate": "2026-09-25T06:06:22.010Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 2594,
+  "donors": [
+    {
+      "path": "/mvno/mvno-shopify-launch/",
+      "title": "Shopify MVNO Launch: Go Live in Days With Spenza",
+      "clicks": 22,
+      "contributes": "Store setup and plan fulfillment flow. Source sections to inspect: Shopify Makes MVNO Launches Faster and Simpler; Spenza Handles the Telecom Backend; Launch an MVNO in Days With a Proven Process; Shopify and Spenza Deliver Real Business Results"
+    }
+  ],
+  "content": m15Content
+},
   "white-label-telecom-reseller-guide": {
   "slug": "white-label-telecom-reseller-guide",
   "category": "telecom",

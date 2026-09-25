@@ -1,0 +1,91 @@
+{
+  "title": "Resell Data Plans on Shopify: Setup and Delivery Guide",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Map the catalogue",
+    "Separate the states",
+    "Recover safely",
+    "Coordinate money and service",
+    "Use the relevant case"
+  ],
+  "h2": [
+    {
+      "id": "Resell",
+      "text": "What does Shopify handle, and what needs a connectivity platform?"
+    },
+    {
+      "id": "catalogue",
+      "text": "How should data plans be represented in the catalogue?"
+    },
+    {
+      "id": "Shopify",
+      "text": "How does a purchase become a working service?"
+    },
+    {
+      "id": "Hurdles",
+      "text": "How should fulfilment failures be handled?"
+    },
+    {
+      "id": "billing-refunds",
+      "text": "What are the limits around refunds and recurring billing?"
+    },
+    {
+      "id": "Spenza",
+      "text": "What evidence should support a Shopify launch?"
+    },
+    {
+      "id": "FAQs",
+      "text": "Shopify data-plan resale FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/shopify-data-plans/shopify-order-service-states.png",
+      "currentSrc": "http://localhost:4321/blog-media/shopify-data-plans/shopify-order-service-states.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#Resell",
+    "#catalogue",
+    "#Shopify",
+    "#Hurdles",
+    "#billing-refunds",
+    "#Spenza",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "SivaSai",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
