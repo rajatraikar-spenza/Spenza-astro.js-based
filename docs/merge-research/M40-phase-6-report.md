@@ -16,7 +16,9 @@ All 9 source candidates inspected; keep/reject reasons and live srcsets in M40-i
 
 ## Output F: schema delta only
 
-At eventual publication, update the existing Yoast Article headline to “Connectivity as a Benefit: Policy, Costs and Rollout”, description to the final SEO description, wordCount to 2374, dateModified to the actual publication date, and keywords to the approved article topics. Retain Article/WebPage/BreadcrumbList/Organization/Person identities and datePublished. No reviewer property. No replacement graph. FAQPage is optional only if it mirrors the six visible questions and existing output does not already supply it; rich-result eligibility is not promised. Preview intentionally emits no schema graph.
+At eventual publication, update the existing Yoast Article headline to “Connectivity as a Benefit: Policy, Costs and Rollout”, description to the final SEO description, wordCount to 2374, dateModified to the actual publication date, and keywords to the approved article topics. Retain Article/WebPage/BreadcrumbList/Organization/Person identities and datePublished. The destination author changes from SivaSai to the resolved Spenza/isimplexity account: update the existing Article author reference and associated author metadata to match that byline through Yoast. Preserve graph identities only where the represented entity is unchanged; do not invent a person or reviewer. No reviewer property. No replacement graph. FAQPage is optional only if it mirrors the six visible questions and existing output does not already supply it; rich-result eligibility is not promised. Preview intentionally emits no schema graph.
+
+The selected featured asset differs from the former destination hero: update the existing Yoast image/thumbnail references and their ImageObject metadata to match the final manifest at publication, without adding a duplicate graph.
 
 ## Output E: proposed consolidation and inbound links
 

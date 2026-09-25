@@ -18,6 +18,8 @@ All 13 source candidates inspected; keep/reject reasons and live srcsets in M37-
 
 At eventual publication, update the existing Yoast Article headline to “BYOD Benefits, Risks and Best Practices for Enterprise Teams”, description to the final SEO description, wordCount to 2444, dateModified to the actual publication date, and keywords to the approved article topics. Retain Article/WebPage/BreadcrumbList/Organization/Person identities and datePublished. No reviewer property. No replacement graph. FAQPage is optional only if it mirrors the six visible questions and existing output does not already supply it; rich-result eligibility is not promised. Preview intentionally emits no schema graph.
 
+The selected featured asset differs from the former destination hero: update the existing Yoast image/thumbnail references and their ImageObject metadata to match the final manifest at publication, without adding a duplicate graph.
+
 ## Output E: proposed consolidation and inbound links
 
 - /byod/byod/ -> /byod/byod-in-2025-benefits-risks-and-best-practices/
