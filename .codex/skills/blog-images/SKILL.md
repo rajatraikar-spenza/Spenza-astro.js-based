@@ -94,6 +94,15 @@ behind the subject and a shadow side. Orange is a five-stop ramp
 (`#C63600 #FF4500 #FF6F39 #FF8E64`), not one flat swatch. **`#9B2A00` is
 excluded — too dark, reads brown at illustration scale. Never use it.**
 
+**Text colour follows the background, strictly.** White `#FAFAFA` on orange or
+any dark field; ink `#282829` on a light field. Never a mid-grey for the words
+the image exists to say.
+
+**Do not set text directly on `#FF4500`.** It is the one stop that clears
+neither colour comfortably: 3.30 against white, 4.28 against ink. Put the text
+on an off-white card, or deepen the patch behind it to `#C63600` and use white.
+Full contrast table in §3 of the reference.
+
 Pick the composition type from §8: **A** comparison, **B** process/timeline,
 **C** hierarchy/ladder, **D** evidence strip, **E** concept hero.
 

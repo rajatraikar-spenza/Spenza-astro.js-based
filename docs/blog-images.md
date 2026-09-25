@@ -123,6 +123,34 @@ quarters of the palette, and that is most of why the early diagrams looked thin.
 rather than orange at illustration scale and drags the whole frame dark.
 `#C63600` is the darkest stop we use. Do not reintroduce it.
 
+### Text colour is decided by the background, not by taste
+
+**On orange or any dark field, text is white `#FAFAFA`. On a light field, text
+is ink `#282829`.** No exceptions, no mid-greys for body text inside an image.
+
+Measured contrast, so this is checkable rather than a matter of opinion:
+
+| Background | `#FAFAFA` white | `#282829` ink | Use |
+| :--------- | --------------: | ------------: | :-- |
+| `#C63600` orange deep | **5.12** | 2.76 | white |
+| `#FF4500` Spenza orange | 3.30 | 4.28 | **see below** |
+| `#FF6F39` orange light | 2.65 | **5.32** | ink |
+| `#FF8E64` orange pale | 2.16 | **6.53** | ink |
+| `#282829` ink | **14.11** | 1.00 | white |
+| `#FAFAFA` off-white | 1.00 | **14.11** | ink |
+
+**The primary orange is the awkward one.** `#FF4500` clears neither colour at
+the 4.5 threshold for normal text. Image text is large by our own spec, so the
+applicable threshold is 3:1 and both technically pass, but white sits at 3.30
+and that is too close to the line to rely on.
+
+So: **do not set text directly on `#FF4500`.** Put it on an off-white card, or
+deepen the patch behind it to `#C63600` and set it in white. Either is one
+extra shape and removes the problem.
+
+**Secondary labels** may use slate `#7B8898`, but only on a light field, and
+never for the one sentence the image exists to communicate.
+
 **Cool neutrals, not warm.** `#7B8898` and `#96989A` are blue-grey. They sit
 against orange without muddying it. Do not substitute a warm grey.
 
@@ -492,6 +520,8 @@ A merged article's images are not done until step 4 passes.
 - [ ] **It has depth**: grain, a glow behind the subject, a shadow side.
 - [ ] **It is not boxes-plus-text.** If it is, delete it and write an HTML table.
 - [ ] Orange is used as the four-stop ramp, not one flat swatch.
+- [ ] **Text is white `#FAFAFA` on orange or dark, ink `#282829` on light.**
+- [ ] **No text sits directly on `#FF4500`** — card it or deepen to `#C63600`.
 - [ ] `#9B2A00` does not appear anywhere. It is excluded for being too dark.
 - [ ] Geometric sans throughout; no serifs, no rounded faces.
 - [ ] Every word in the image is spelled correctly — read it twice.
