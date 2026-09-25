@@ -1,0 +1,77 @@
+{
+  "cluster": "M31",
+  "beforeBodyWords": 2487,
+  "destinationBodyWords": 1076,
+  "afterBodyWords": 2223,
+  "afterIncludingTldr": 2361,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "What does mobile plan management cover?",
+      "words": 54
+    },
+    {
+      "heading": "Which records connect a line to its owner and bill?",
+      "words": 52
+    },
+    {
+      "heading": "How do you choose and review the mobile plan?",
+      "words": 52
+    },
+    {
+      "heading": "How should service changes move through operations?",
+      "words": 52
+    },
+    {
+      "heading": "How do you reconcile usage and invoices?",
+      "words": 54
+    },
+    {
+      "heading": "What should a mobile-plan platform prove in a pilot?",
+      "words": 55
+    },
+    {
+      "heading": "Mobile plan management FAQs",
+      "words": 50
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can we keep our existing mobile carriers?",
+      "words": 50
+    },
+    {
+      "question": "Does a zero-usage line need to be canceled?",
+      "words": 49
+    },
+    {
+      "question": "Is mobile plan management the same as MDM?",
+      "words": 50
+    },
+    {
+      "question": "Can a usage alert guarantee there will be no overage?",
+      "words": 51
+    },
+    {
+      "question": "When is a canceled line financially closed?",
+      "words": 53
+    },
+    {
+      "question": "How should we measure an optimization result?",
+      "words": 53
+    }
+  ],
+  "tables": 3,
+  "figures": 3,
+  "internalLinks": 7,
+  "externalSources": 4,
+  "author": {
+    "name": "Vinaychandra Bharadwaj",
+    "slug": "vinay",
+    "basis": "tie, destination author wins: Vinaychandra Bharadwaj 1, SivaSai 1 of 2 posts"
+  },
+  "seoTitleLength": 54,
+  "metaDescriptionLength": 153,
+  "informationGain": 7
+}

@@ -107,11 +107,74 @@ import m20Content from './telecom-msp-white-label-solutions-2025.html?raw';
 import m26Content from './mobile-esim-plans.html?raw';
 import m41Content from './esim-vs-physical-sim-airport-decision.html?raw';
 import m37Content from './byod-in-2025-benefits-risks-and-best-practices.html?raw';
+import m31Content from './mobile-plan-management-simplified.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "mobile-plan-management-simplified": {
+  "slug": "mobile-plan-management-simplified",
+  "category": "telecom",
+  "cluster": "M31",
+  "title": "Mobile Plan Management: An Enterprise Operations Guide",
+  "seoTitle": "Mobile Plan Management: An Enterprise Operations Guide",
+  "seoDescription": "Manage enterprise mobile plans with line ownership, controlled changes, usage reviews and invoice checks. Connect mobile service operations with finance.",
+  "excerpt": "Connect employees, mobile services and invoices so every plan change has an owner and a verified result.",
+  "templateBlocks": {
+    "tldrHeading": "Mobile plan management at a glance",
+    "tldrDescription": "Mobile plan management connects service ownership, plan terms, usage and billing across the employee lifecycle. Keep a stable record for each subscription and distinguish an approved request from provider confirmation and the billed result. Review pooled and individual usage with the business purpose in view. Compare costs for the same cohort and period, and ask a platform to demonstrate its actual carrier workflows before extending the rollout.",
+    "twoCol": [
+      {
+        "title": "Know the owner",
+        "text": "Link each service to a business purpose, accountable owner and contract.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"id-card\"}"
+      },
+      {
+        "title": "Show the real state",
+        "text": "Keep requested, provider-confirmed and billed results separate.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"arrows-rotate\"}"
+      },
+      {
+        "title": "Review the right plan",
+        "text": "Compare coverage, allowance, travel needs and the full contract.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"sim-card\"}"
+      },
+      {
+        "title": "Reconcile the charge",
+        "text": "Match invoices and credits to the service and effective terms.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"file-invoice\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Prove the workflow",
+        "text": "Test incomplete data, failed changes and restricted actions during the pilot.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2024/12/30.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/12/30.png\" class=\"attachment-full size-full wp-image-6923 webpexpress-processed\" alt=\"Mobile Plan Management: How to Simplify Wireless Ops\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/12/30-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/30-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/30-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/30.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Mobile Plan Management: An Enterprise Operations Guide",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2024-09-24T10:25:49+00:00",
+  "updatedDate": "2026-09-25T07:16:18.238Z",
+  "authorSlug": "vinay",
+  "authorName": "Vinaychandra Bharadwaj",
+  "authorBio": "",
+  "destinationWords": 1076,
+  "donors": [
+    {
+      "path": "/tem/wireless-connectivity-management-enterprises/",
+      "title": "MVNO and Enterprise Wireless Connectivity Management",
+      "clicks": 6,
+      "contributes": "Wireless operations and enterprise management requirements. Source sections to inspect: What is Wireless Connectivity Management?; The Role of Telecom Expense Management (TEM); Key Components of Wireless Connectivity Management; Setting Up Your Enterprise Wireless Network"
+    }
+  ],
+  "content": m31Content
+},
   "byod-in-2025-benefits-risks-and-best-practices": {
   "slug": "byod-in-2025-benefits-risks-and-best-practices",
   "category": "byod",

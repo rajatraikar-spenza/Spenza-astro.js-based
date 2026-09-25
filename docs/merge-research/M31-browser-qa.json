@@ -1,0 +1,103 @@
+{
+  "title": "Mobile Plan Management: An Enterprise Operations Guide",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Know the owner",
+    "Show the real state",
+    "Review the right plan",
+    "Reconcile the charge",
+    "Prove the workflow"
+  ],
+  "h2": [
+    {
+      "id": "management-scope",
+      "text": "What does mobile plan management cover?"
+    },
+    {
+      "id": "service-record",
+      "text": "Which records connect a line to its owner and bill?"
+    },
+    {
+      "id": "plan-fit",
+      "text": "How do you choose and review the mobile plan?"
+    },
+    {
+      "id": "service-changes",
+      "text": "How should service changes move through operations?"
+    },
+    {
+      "id": "invoice-reconciliation",
+      "text": "How do you reconcile usage and invoices?"
+    },
+    {
+      "id": "platform-pilot",
+      "text": "What should a mobile-plan platform prove in a pilot?"
+    },
+    {
+      "id": "FAQs",
+      "text": "Mobile plan management FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/mobile-plan-operations/mobile-service-record-joins.png",
+      "currentSrc": "http://localhost:4321/blog-media/mobile-plan-operations/mobile-service-record-joins.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/mobile-plan-operations/shared-data-pool-visibility.png",
+      "currentSrc": "http://localhost:4321/blog-media/mobile-plan-operations/shared-data-pool-visibility.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/mobile-plan-operations/mobile-change-three-states.png",
+      "currentSrc": "http://localhost:4321/blog-media/mobile-plan-operations/mobile-change-three-states.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#management-scope",
+    "#service-record",
+    "#plan-fit",
+    "#service-changes",
+    "#invoice-reconciliation",
+    "#platform-pilot",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "Vinaychandra Bharadwaj",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

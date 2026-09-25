@@ -1,0 +1,68 @@
+{
+  "cluster": "M31",
+  "images": [
+    {
+      "kind": "featured",
+      "width": "1280",
+      "height": "720",
+      "src": "https://media.spenza.com/wp-content/uploads/2024/12/30.png",
+      "class": "attachment-full size-full wp-image-6923 webpexpress-processed",
+      "alt": "Mobile Plan Management: How to Simplify Wireless Ops",
+      "srcset": "https://media.spenza.com/wp-content/uploads/2024/12/30-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/30-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/30-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/30.png 1280w",
+      "sizes": "(max-width: 1280px) 100vw, 1280px",
+      "fetchpriority": "high",
+      "decoding": "async",
+      "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/30.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/12/30.png\" class=\"attachment-full size-full wp-image-6923 webpexpress-processed\" alt=\"Mobile Plan Management: How to Simplify Wireless Ops\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/12/30-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/30-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/30-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/30.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+      "path": "/telecom/mobile-plan-management-simplified/",
+      "decision": "keep",
+      "reason": "Keep destination title-specific published hero and its live srcset; directly matches plan-management scope."
+    },
+    {
+      "kind": "featured",
+      "width": "1280",
+      "height": "720",
+      "src": "https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8.png",
+      "class": "attachment-full size-full wp-image-7068 webpexpress-processed",
+      "alt": "A Beginner's Guide to Wireless Connectivity Management for Enterprises",
+      "srcset": "https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8.png 1280w",
+      "sizes": "(max-width: 1280px) 100vw, 1280px",
+      "fetchpriority": "high",
+      "decoding": "async",
+      "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-8-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-8-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-8-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-8.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8.png\" class=\"attachment-full size-full wp-image-7068 webpexpress-processed\" alt=\"A Beginner's Guide to Wireless Connectivity Management for Enterprises\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-8.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+      "path": "/tem/wireless-connectivity-management-enterprises/",
+      "decision": "reject",
+      "reason": "Donor hero emphasizes broad wireless infrastructure; destination hero is more precise."
+    },
+    {
+      "kind": "body",
+      "loading": "lazy",
+      "decoding": "async",
+      "width": "1024",
+      "height": "1024",
+      "class": "wp-image-7061",
+      "style": "width: 432px; height: auto;",
+      "src": "https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-1024x1024.jpg",
+      "alt": "wireless connectivity management",
+      "srcset": "https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-1024x1024.jpg 1024w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-300x300.jpg 300w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-150x150.jpg 150w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-768x768.jpg 768w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-1536x1536.jpg 1536w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-2048x2048.jpg 2048w",
+      "sizes": "(max-width: 1024px) 100vw, 1024px",
+      "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"1024\" class=\"wp-image-7061\" style=\"width: 432px; height: auto;\" src=\"https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-1024x1024.jpg\" alt=\"wireless connectivity management\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-1024x1024.jpg 1024w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-300x300.jpg 300w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-150x150.jpg 150w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-768x768.jpg 768w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-1536x1536.jpg 1536w, https://media.spenza.com/wp-content/uploads/2025/01/6372434_25372-2048x2048.jpg 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">",
+      "path": "/tem/wireless-connectivity-management-enterprises/",
+      "decision": "reject",
+      "reason": "Square blue infrastructure scene conflates office networking, satellites and mobile plans; no enterprise service-to-invoice relationship."
+    }
+  ],
+  "newSlots": [
+    {
+      "name": "mobile-service-record-joins",
+      "purpose": "Show how employee, subscription and contract identities join into the service record used for invoice matching."
+    },
+    {
+      "name": "mobile-change-three-states",
+      "purpose": "Make approval, provider confirmation and billed result distinct events with visible handoffs."
+    },
+    {
+      "name": "shared-data-pool-visibility",
+      "purpose": "Show individual lines drawing from one shared allowance, with each line still separately visible; illustrates aggregate versus per-line oversight."
+    }
+  ]
+}

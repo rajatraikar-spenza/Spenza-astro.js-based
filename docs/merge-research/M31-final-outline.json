@@ -1,0 +1,126 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "Mobile Plan Management: An Enterprise Operations Guide",
+  "sections": [
+    {
+      "heading": "What does mobile plan management cover?",
+      "answer": "Mobile plan management covers the commercial and operational lifecycle of employee mobile subscriptions, including ownership, plan selection, changes, usage review and billing. It overlaps with telecom expense management but does not replace endpoint security or office network administration. Define the required scope before comparing platforms, because similar product labels can describe different operating responsibilities.",
+      "words": 248,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://csrc.nist.gov/pubs/sp/800/124/r2/final",
+          "anchor": "NIST’s mobile-device guidance"
+        },
+        {
+          "url": "/contact-us/",
+          "anchor": "review your mobile operating scope"
+        }
+      ]
+    },
+    {
+      "heading": "Which records connect a line to its owner and bill?",
+      "answer": "A mobile-service inventory needs a stable subscription reference linked to an accountable owner, the applicable plan and the billing account. Add the business purpose and effective dates so changes can be understood later. Keep source and refresh information visible: an old carrier export should not appear as a confirmed current service state.",
+      "words": 281,
+      "h3": [],
+      "tables": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://www.finops.org/framework/capabilities/data-ingestion/",
+          "anchor": "FinOps data-ingestion guidance"
+        }
+      ]
+    },
+    {
+      "heading": "How do you choose and review the mobile plan?",
+      "answer": "Mobile-plan selection should match the employee’s work location, device, travel, voice and data requirements against the actual product terms. Review usage over a relevant period and account for known changes in work. A low recent usage figure is a prompt to investigate, not proof that a line or its allowance is unnecessary.",
+      "words": 243,
+      "h3": [],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "/esim/dual-sim-esim/",
+          "anchor": "business dual-SIM setup guide"
+        },
+        {
+          "url": "/telecom/connectivity-as-a-benefit/",
+          "anchor": "connectivity benefit guide"
+        }
+      ]
+    },
+    {
+      "heading": "How should service changes move through operations?",
+      "answer": "A mobile-service change should move from an authorized request to provider confirmation and then to a verified operational and billing result. Keep those states separate. An approved ticket does not prove the carrier applied the change, and a successful service update does not prove the next invoice reflects the agreed effective date.",
+      "words": 262,
+      "h3": [],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://etma.org/wp-content/uploads/2021/08/ETMA_TEM_BPO_RFP_Revised_05-2021.pdf",
+          "anchor": "ETMA expense-management RFP guide"
+        },
+        {
+          "url": "/mobility-policy/",
+          "anchor": "mobility policy resource"
+        }
+      ]
+    },
+    {
+      "heading": "How do you reconcile usage and invoices?",
+      "answer": "Mobile invoice reconciliation compares billed services and charges with the approved inventory, contract terms and confirmed changes for the relevant period. Usage supports that review but may arrive on a different schedule. Keep estimated consumption, final billed amounts and approved credits distinct so a dashboard does not turn incomplete information into an accounting conclusion.",
+      "words": 260,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.finops.org/framework/capabilities/allocation/",
+          "anchor": "FinOps cost-allocation guidance"
+        },
+        {
+          "url": "/tem/what-is-telecom-expense-management-tem/",
+          "anchor": "telecom expense management guide"
+        }
+      ]
+    },
+    {
+      "heading": "What should a mobile-plan platform prove in a pilot?",
+      "answer": "A mobile-plan platform should demonstrate that its data, permissions and provider workflows support the enterprise’s actual carriers and use cases. Test a representative service record, a failed change and an invoice exception before expanding. A unified interface is useful only when the underlying records are current enough and each unresolved action has an accountable owner.",
+      "words": 361,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone enterprise case"
+        },
+        {
+          "url": "/contact-us/",
+          "anchor": "review the next mobility rollout"
+        }
+      ]
+    },
+    {
+      "heading": "Mobile plan management FAQs",
+      "answer": "Mobile plan management questions usually involve ownership, data quality and the difference between requested and completed actions. The answers below address those operational boundaries. Confirm the supported capabilities and contract terms for your providers, then test the workflow with the teams responsible for service delivery, employee support and financial reconciliation.",
+      "words": 403,
+      "h3": [
+        "Can we keep our existing mobile carriers?",
+        "Does a zero-usage line need to be canceled?",
+        "Is mobile plan management the same as MDM?",
+        "Can a usage alert guarantee there will be no overage?",
+        "When is a canceled line financially closed?",
+        "How should we measure an optimization result?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}

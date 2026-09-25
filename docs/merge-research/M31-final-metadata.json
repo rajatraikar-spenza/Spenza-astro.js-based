@@ -1,0 +1,74 @@
+{
+  "cluster": "M31",
+  "recommended": {
+    "text": "Mobile Plan Management: An Enterprise Operations Guide",
+    "characters": 54
+  },
+  "alternates": [
+    {
+      "text": "Mobile Plan Management: Inventory, Changes and Billing",
+      "characters": 54
+    },
+    {
+      "text": "Enterprise Mobile Plan Management: A Practical Guide",
+      "characters": 52
+    }
+  ],
+  "h1": "Mobile Plan Management: An Enterprise Operations Guide",
+  "slug": "mobile-plan-management-simplified",
+  "category": "telecom",
+  "tags": [
+    "mobile plan management",
+    "enterprise mobility",
+    "wireless expenses",
+    "SIM inventory"
+  ],
+  "description": {
+    "text": "Manage enterprise mobile plans with line ownership, controlled changes, usage reviews and invoice checks. Connect mobile service operations with finance.",
+    "characters": 153
+  },
+  "keyword": "mobile plan management",
+  "secondaryKeywords": [
+    "mobile plan management",
+    "enterprise mobility",
+    "wireless expenses",
+    "SIM inventory"
+  ],
+  "intent": "Run enterprise mobile subscriptions through ownership, changes, usage review and invoice reconciliation.",
+  "reader": "Enterprise IT, procurement, finance and HR mobility stakeholders",
+  "snippet": {
+    "query": "What is mobile plan management?",
+    "format": "paragraph",
+    "exactText": "Mobile plan management connects each business mobile service to its owner, approved plan, usage and invoice. Enterprise teams use that record to activate lines, control changes, review costs and retire services when needs change. The goal is a supported, accountable mobile service, not simply a dashboard containing several carriers’ bills."
+  },
+  "bodyWords": 2223,
+  "wordsIncludingTldr": 2361,
+  "ogTitle": "Mobile Plan Management: An Enterprise Operations Guide",
+  "ogDescription": "Manage enterprise mobile plans with line ownership, controlled changes, usage reviews and invoice checks. Connect mobile service operations with finance.",
+  "excerpt": "Connect employees, mobile services and invoices so every plan change has an owner and a verified result.",
+  "images": [
+    {
+      "purpose": "Reused published hero, unchanged URL and srcset",
+      "url": "https://media.spenza.com/wp-content/uploads/2024/12/30.png",
+      "alt": "Mobile Plan Management: An Enterprise Operations Guide"
+    },
+    {
+      "purpose": "A conceptual record join. Retain source identifiers so each billed service can be traced to its owner and applicable terms.",
+      "filename": "/blog-media/mobile-plan-operations/mobile-service-record-joins.png",
+      "webp": "/blog-media/mobile-plan-operations/mobile-service-record-joins.webp",
+      "alt": "Mobile plan management links employees, subscriptions and contracts to the service record and invoice."
+    },
+    {
+      "purpose": "Conceptual change states. The hourglasses indicate possible delay, not a promised processing time.",
+      "filename": "/blog-media/mobile-plan-operations/mobile-change-three-states.png",
+      "webp": "/blog-media/mobile-plan-operations/mobile-change-three-states.webp",
+      "alt": "Approval, provider confirmation and bill verification are separate stages of a mobile-plan change."
+    },
+    {
+      "purpose": "Conceptual pooling relationship. Liquid levels and gauge positions are illustrative, not usage data or product limits.",
+      "filename": "/blog-media/mobile-plan-operations/shared-data-pool-visibility.png",
+      "webp": "/blog-media/mobile-plan-operations/shared-data-pool-visibility.webp",
+      "alt": "A shared data allowance needs both aggregate pool monitoring and visibility of each participating line."
+    }
+  ]
+}
