@@ -103,11 +103,74 @@ import m39Content from './leading-iot-connectivity-management-platforms.html?raw
 import m44Content from './must-attend-iot-and-mvno-events-in-2026.html?raw';
 import m11Content from './white-label-telecom-reseller-guide.html?raw';
 import m15Content from './resell-data-plans-shopify.html?raw';
+import m20Content from './telecom-msp-white-label-solutions-2025.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "telecom-msp-white-label-solutions-2025": {
+  "slug": "telecom-msp-white-label-solutions-2025",
+  "category": "telecom",
+  "cluster": "M20",
+  "title": "White-Label Connectivity for MSPs: Quote, Support and Bill",
+  "seoTitle": "White-Label Connectivity for MSPs: An Operations Guide",
+  "seoDescription": "Design white-label connectivity for MSPs with clear bundles, customer boundaries, ticket ownership, billing checks and a customer offboarding process.",
+  "excerpt": "Build an MSP connectivity service your teams can quote, support, reconcile and hand over when a customer leaves.",
+  "templateBlocks": {
+    "tldrHeading": "MSP connectivity operations at a glance",
+    "tldrDescription": "White-label connectivity lets an MSP package upstream telecom services under its own brand. A workable offer still needs clear service boundaries, commercial assumptions and named operating owners. Define what the customer buys, how separate accounts are protected, who handles incidents and how bills are reconciled. Test customer exit alongside onboarding before expanding the service to a wider customer base.",
+    "twoCol": [
+      {
+        "title": "Bound the bundle",
+        "text": "Separate connectivity, managed operations and device administration in the service schedule.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}"
+      },
+      {
+        "title": "Quote the work",
+        "text": "Include implementation, support, usage exposure and supplier commitments.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"file-invoice\"}"
+      },
+      {
+        "title": "Assign ticket owners",
+        "text": "Distinguish customer communication from the authority to resolve the fault.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"headset\"}"
+      },
+      {
+        "title": "Protect customer boundaries",
+        "text": "Verify tenant-scoped permissions through the interface and APIs.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"shield-halved\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Accept the full lifecycle",
+        "text": "Reconcile invoices and prove customer offboarding as well as activation.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"clipboard-check\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-9.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-9-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-9-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-9-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/01/Blog-Thumbnails-9.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-9.png\" class=\"attachment-full size-full wp-image-7077 webpexpress-processed\" alt=\"Business Mobile Marketplace\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-9-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-9-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-9-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-9.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "White-Label Connectivity for MSPs: Quote, Support and Bill",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-10-17T09:41:28+00:00",
+  "updatedDate": "2026-09-25T06:13:20.139Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2692,
+  "donors": [
+    {
+      "path": "/telecom/white-label-connectivity-solutions-for-msps/",
+      "title": "White-Label Connectivity for MSPs: A Launch Guide",
+      "clicks": 9,
+      "contributes": "MSP onboarding, white-label responsibilities and recurring service packaging. Source sections to inspect: What Are White-Label Connectivity Solutions?; Why White-Label Connectivity Solutions Are on the Rise; The Big Picture; Key Benefits of Spenza’s White-Label Connectivity Platform"
+    }
+  ],
+  "content": m20Content
+},
   "resell-data-plans-shopify": {
   "slug": "resell-data-plans-shopify",
   "category": "mvno",

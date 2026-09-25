@@ -1,0 +1,91 @@
+{
+  "title": "White-Label Connectivity for MSPs: An Operations Guide",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Bound the bundle",
+    "Quote the work",
+    "Assign ticket owners",
+    "Protect customer boundaries",
+    "Accept the full lifecycle"
+  ],
+  "h2": [
+    {
+      "id": "service-bundle",
+      "text": "What belongs in an MSP connectivity bundle?"
+    },
+    {
+      "id": "quoting",
+      "text": "How should an MSP quote white-label connectivity?"
+    },
+    {
+      "id": "ticket-ownership",
+      "text": "Who owns a connectivity incident?"
+    },
+    {
+      "id": "customer-boundaries",
+      "text": "How should customer accounts and permissions be separated?"
+    },
+    {
+      "id": "billing",
+      "text": "How do quoting, usage and billing stay aligned?"
+    },
+    {
+      "id": "offboarding",
+      "text": "What should customer offboarding and launch acceptance include?"
+    },
+    {
+      "id": "FAQs",
+      "text": "White-label connectivity for MSPs FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/msp-connectivity/msp-customer-boundaries.png",
+      "currentSrc": "http://localhost:4321/blog-media/msp-connectivity/msp-customer-boundaries.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#service-bundle",
+    "#quoting",
+    "#ticket-ownership",
+    "#customer-boundaries",
+    "#billing",
+    "#offboarding",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "Spenza",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

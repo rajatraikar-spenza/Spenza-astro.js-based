@@ -1,0 +1,77 @@
+{
+  "cluster": "M20",
+  "beforeBodyWords": 4668,
+  "destinationBodyWords": 2692,
+  "afterBodyWords": 2176,
+  "afterIncludingTldr": 2304,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "What belongs in an MSP connectivity bundle?",
+      "words": 52
+    },
+    {
+      "heading": "How should an MSP quote white-label connectivity?",
+      "words": 50
+    },
+    {
+      "heading": "Who owns a connectivity incident?",
+      "words": 51
+    },
+    {
+      "heading": "How should customer accounts and permissions be separated?",
+      "words": 50
+    },
+    {
+      "heading": "How do quoting, usage and billing stay aligned?",
+      "words": 50
+    },
+    {
+      "heading": "What should customer offboarding and launch acceptance include?",
+      "words": 51
+    },
+    {
+      "heading": "White-label connectivity for MSPs FAQs",
+      "words": 51
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does white labelling guarantee ownership of the customer?",
+      "words": 47
+    },
+    {
+      "question": "Can an MSP keep an existing carrier agreement?",
+      "words": 47
+    },
+    {
+      "question": "Does multi-network access provide automatic failover?",
+      "words": 48
+    },
+    {
+      "question": "Should customers contact the carrier directly?",
+      "words": 48
+    },
+    {
+      "question": "Can one invoice cover several connectivity services?",
+      "words": 46
+    },
+    {
+      "question": "Does SIM management include endpoint security?",
+      "words": 49
+    }
+  ],
+  "tables": 3,
+  "figures": 1,
+  "internalLinks": 9,
+  "externalSources": 4,
+  "author": {
+    "name": "Spenza",
+    "slug": "isimplexity",
+    "basis": "tie, destination author wins: Spenza 1, Vinaychandra Bharadwaj 1 of 2 posts"
+  },
+  "seoTitleLength": 54,
+  "metaDescriptionLength": 150,
+  "informationGain": 7
+}
