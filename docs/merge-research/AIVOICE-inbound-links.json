@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-09-25T08:55:51.392Z",
+  "method": "All built non-preview HTML anchors in current dist snapshot; includes body, navigation, archive and related-card references. Local snapshot, not fresh live-site crawl. No links or redirects changed.",
+  "htmlFiles": 952,
+  "matches": [
+    {
+      "page": "/telecom/skype-retirement-2025-migration-strategy/",
+      "href": "/telecom/skype-shutdown-explained/",
+      "anchor": "Skype Shutdown Explained guide",
+      "source": "/telecom/skype-shutdown-explained/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/2025/05/02/",
+      "href": "/telecom/skype-shutdown-explained/",
+      "anchor": "May 2, 2025 Why Skype Is Shutting Down and What Comes Next Skype is fading by May 2025. Discover the reasons behind Skype shutting down and learn how to migrate or port your US Skype number. Read More SivaSai",
+      "source": "/telecom/skype-shutdown-explained/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/2025/11/28/",
+      "href": "/telecom/skype-retirement-2025-migration-strategy/",
+      "anchor": "November 28, 2025 How Companies Are Coping with Skype’s Retirement Skype's retirement lands in May 2026 for consumers, with Skype for Business Server support ending in October 2026. Read More SivaSai",
+      "source": "/telecom/skype-retirement-2025-migration-strategy/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/sitemap/",
+      "href": "/telecom/skype-retirement-2025-migration-strategy/",
+      "anchor": "How Companies Are Coping with Skype’s Retirement",
+      "source": "/telecom/skype-retirement-2025-migration-strategy/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/sitemap/",
+      "href": "/telecom/skype-shutdown-explained/",
+      "anchor": "Why Skype Is Shutting Down and What Comes Next",
+      "source": "/telecom/skype-shutdown-explained/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/category/telecom/page/7/",
+      "href": "/telecom/skype-shutdown-explained/",
+      "anchor": "May 2, 2025 Why Skype Is Shutting Down and What Comes Next Skype is fading by May 2025. Discover the reasons behind Skype shutting down and learn how to migrate or port your US Skype number. Read More SivaSai",
+      "source": "/telecom/skype-shutdown-explained/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/category/telecom/page/4/",
+      "href": "/telecom/skype-retirement-2025-migration-strategy/",
+      "anchor": "November 28, 2025 How Companies Are Coping with Skype’s Retirement Skype’s retirement lands in May 2026 for consumers, with Skype for Business Server support ending in October 2026. Read More SivaSai",
+      "source": "/telecom/skype-retirement-2025-migration-strategy/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/blog/page/14/",
+      "href": "/telecom/skype-retirement-2025-migration-strategy/",
+      "anchor": "Telecom November 28, 2025 How Companies Are Coping with Skype’s Retirement Skype’s retirement lands in May 2026 for consumers, with Skype for Business Server support ending in October 2026. Read More",
+      "source": "/telecom/skype-retirement-2025-migration-strategy/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/blog/page/20/",
+      "href": "/telecom/skype-shutdown-explained/",
+      "anchor": "Telecom May 2, 2025 Why Skype Is Shutting Down and What Comes Next Skype is fading by May 2025. Discover the reasons behind Skype shutting down and learn how to migrate or port your US Skype number. Read More",
+      "source": "/telecom/skype-shutdown-explained/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/blog/skype-retirement-2025-migration-strategy/",
+      "href": "/telecom/skype-retirement-2025-migration-strategy/",
+      "anchor": "/telecom/skype-retirement-2025-migration-strategy/",
+      "source": "/telecom/skype-retirement-2025-migration-strategy/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    },
+    {
+      "page": "/blog/skype-shutdown-explained/",
+      "href": "/telecom/skype-shutdown-explained/",
+      "anchor": "/telecom/skype-shutdown-explained/",
+      "source": "/telecom/skype-shutdown-explained/",
+      "cluster": "M05",
+      "destination": "/telecom/skype-alternatives/"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# Telecom Spend & Revenue Assurance: consolidated evidence requests
+
+25 September 2026. M06, M10 and M13 are previews. **Information gain remains 7 on every cluster.** The articles contain no savings promise, assumed recovery, tax classification or claim of legal compliance. These requests remain outside article prose.
+
+**Decision:** No separate technical reviewer. Author-only byline by decision, 23 September 2026. Adding a named reviewer later is an improvement, not a correction. Use the precomputed majority author unchanged; no reviewer property in schema.
+
+Approved published cases were checked first in FINAL-published-case-audit.json. RocketPhone establishes documented billing and enterprise MVNO scope; Butlr establishes its published regional operations and plan/billing context. Daito and Angel Watch do not establish a TEM recovery outcome. None supplies a matched invoice baseline, a verified credit or the audit record requested below. Published capabilities are already used within their scope.
+
+| Ask | What is needed | Who supplies it | Clusters supported |
+|---|---|---|---|
+| Matched billing and audit evidence pack | [EVIDENCE NEEDED: approved redacted invoices, effective contract/rate records, service inventory and usage ledger for one defined cohort and period, with exceptions, supplier responses and verified posted adjustments; include the baseline and implementation effort for M06, matched before/after plan scope for M10, and a completed checklist plus recovery trail for M13, from Finance and the customer account owner] Keep suspected errors, supplier acceptance, posted credits and future cost avoidance separate. Include a no-error or rejected finding where applicable. | Finance and customer account owner, with customer publication approval | M06, M10, M13 |
+| Operational workflow and permissions | [EVIDENCE NEEDED: redacted allocation and exception workflow screens, access/approval controls and a trace showing how a finding changes state and closes, from Product and Engineering] Preserve the effective configuration, timestamps, responsible roles and actual outcome; a generic dashboard is insufficient. | Product and Engineering | M06, M13 |
+| Plan-change and service-quality acceptance | [EVIDENCE NEEDED: redacted plan-change log and measured application/coverage acceptance for the proposed employee and worksite scope, from Product and Engineering] Join the change to the relevant line and billing period, and show unsuccessful as well as accepted tests. | Product and Engineering, with customer mobility operations | M10 |
+| Specialist assessment of a proposed audit finding | [EVIDENCE NEEDED: service-specific and jurisdiction-specific legal/tax assessment of the proposed finding and recovery wording, from qualified telecom legal and tax specialists] Supply the service, contracting entities, affected periods, relevant terms and billing facts. This is not a technical-reviewer byline credit or a generic declaration of compliance. | Qualified telecom legal/tax specialists; Finance and contract owner supply facts | M13 |
+
+M13 preserves the donor's practical checklist utility in the article, an editable CSV and a printable two-page PDF. The empty checklist is a tool, not evidence that an audit occurred. No request closes and no score increases because that tool exists.

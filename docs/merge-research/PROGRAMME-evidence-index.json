@@ -1,0 +1,373 @@
+{
+  "canonicalHubTables": 7,
+  "canonicalAskRows": 46,
+  "consolidatedRequests": 43,
+  "sourceRowCoverage": "All current canonical rows accounted for; row numbers refer to data rows, not Markdown file lines. Historical reviewer requests are superseded, not open.",
+  "byOwner": {
+    "Customer account, delivery and customer approval": [
+      {
+        "ask": "**RocketPhone deployment package.** Approved subscriber/device cohort with eligible, deployed and active definitions, measurement date and launch-versus-current service/region scope; dated start/end milestones and excluded prerequisites. Add a redacted onboarding/profile/voice operations screenshot with configuration, capture date and publication permission. The published case already establishes the qualitative implementation; do not recreate it or infer Skype recovery, launch duration or an undocumented GSMA version.",
+        "owner": "RocketPhone account and delivery/project owners; customer marketing and customer approver",
+        "ids": "M02, M03, M05, M08, M12, M14, M19, M21, M23, M33",
+        "sources": [
+          "MVNO:3",
+          "ESIM:3",
+          "ESIM:4",
+          "AIVOICE:2"
+        ]
+      },
+      {
+        "ask": "**Butlr deployment package.** Approved sensor/device cohort and regional/service scope, measurement date, dated regional start/end milestones and excluded prerequisites matching the published rollout. Supply a relevant redacted regional/profile operations screenshot, capture date, configuration context and publication permission. Preserve what each milestone measures; the published regional result is not proof of a complete MVNO launch or an undocumented fleet benchmark.",
+        "owner": "Butlr account and delivery owners; customer marketing and customer approver",
+        "ids": "M04, M09, M17, M24, M25, M28, M29, M30, M32, M34, M35, M38, M39, M42",
+        "sources": [
+          "ESIM:3",
+          "ESIM:4",
+          "IOT:1"
+        ]
+      },
+      {
+        "ask": "**Angel Watch deployment package.** Approved eligible, deployed and active device/subscriber cohort, measurement date, regional/service scope, dated start/end events and excluded prerequisites. Supply a redacted onboarding/profile-management operations screenshot with capture date, tested configuration and publication permission. Existing marketing illustrations do not prove a current workflow. The optional attach-rate request remains separately listed under growth.",
+        "owner": "Angel Watch account and delivery owners; customer marketing and customer approver",
+        "ids": "M01, M36",
+        "sources": [
+          "ESIM:3",
+          "ESIM:4"
+        ]
+      },
+      {
+        "ask": "**IMZ approved deployment package.** Publishable implemented storefront, service, markets, billing and reseller scope; customer/device cohort and dated milestones where claimed, with permission for case wording. Do not imply a US deployment, launch duration or unreported outcome.",
+        "owner": "IMZ account owner, customer marketing and approved customer owner",
+        "ids": "M07, M15, M16",
+        "sources": [
+          "MVNO:4",
+          "RESELLER:4"
+        ]
+      },
+      {
+        "ask": "**Daito cohort and dated milestones (1).** Approved deployment cohort size and defined, dated implementation start/end milestones.",
+        "owner": "Daito delivery lead and approved customer owner",
+        "ids": "M27",
+        "sources": [
+          "MVNO:5"
+        ]
+      },
+      {
+        "ask": "**Completed launch record (2).** Approved service scope, subscriber/device cohort, dated start/end milestones, prerequisites and excluded work. Define what launched and distinguish configured accounts from accepted service.",
+        "owner": "Spenza delivery owner and approved customer owner",
+        "ids": "M16, M18",
+        "sources": [
+          "MVNO:6"
+        ]
+      },
+      {
+        "ask": "**Comparable TaaS operating baseline (1).** Approved before/after operational record, deployment scope, device/subscriber cohort and dated start/end milestones for the workflow being compared.",
+        "owner": "Spenza delivery and approved customer owner",
+        "ids": "M22",
+        "sources": [
+          "MVNO:7"
+        ]
+      }
+    ],
+    "Product, engineering and operational delivery": [
+      {
+        "ask": "**Redacted operations screenshots (9).** Capture date, relevant scope and permission to publish. Show billing/reseller administration for M03, onboarding or cohort operations for M23, and the relevant operational workflow for M02, M08, M12, M19, M21, M22 and M27. Preserve enough context to understand the screen without exposing customer data.",
+        "owner": "Spenza product and delivery owners, with customer permission where applicable",
+        "ids": "M02, M03, M08, M12, M19, M21, M22, M23, M27",
+        "sources": [
+          "MVNO:1"
+        ]
+      },
+      {
+        "ask": "**Current setup screens and labels (1).** Redacted account, catalog, checkout and provisioning screenshots, with exact current interface labels and approved scope. The archived examples do not establish the current interface.",
+        "owner": "Spenza product and delivery",
+        "ids": "M18",
+        "sources": [
+          "MVNO:2"
+        ]
+      },
+      {
+        "ask": "**Billing and provisioning evidence (4).** M03: redacted usage-event-to-invoice trace, adjustments and timing conditions. M12: completed provider acceptance worksheet with request/event/billing trace. M16: cancellation request/completion record, matching invoice and approved explanation. M27: provisioning/event/billing trace and observed operations metric baseline. Use consistent anonymized identifiers, actual outcomes and applicable charging rules; include exceptions.",
+        "owner": "Spenza engineering and delivery; billing engineering for M03; finance for the M16 invoice reconciliation",
+        "ids": "M03, M12, M16, M27",
+        "sources": [
+          "MVNO:8"
+        ]
+      },
+      {
+        "ask": "**Responsibility map and activation handoff (2).** Approved completed map naming performing and escalation teams, plus a redacted activation incident or failed-activation handoff trace. Show who acted, what was handed over and how the outcome was established.",
+        "owner": "Spenza delivery/support for M08; engineering/delivery for M21",
+        "ids": "M08, M21",
+        "sources": [
+          "MVNO:9"
+        ]
+      },
+      {
+        "ask": "**Versioned device and service compatibility matrix.** Exact eUICC, module/phone, firmware/OS, carrier and service eligibility. Record LPA for consumer SGP.22, or IPA location, eIM and profile source/server versions for IoT SGP.32 as applicable. Include enterprise enrollment mode for M28, physical-to-eSIM migration support for M33, OEM architecture/factory configuration for M36, and multi-profile campaign combinations for M42. Do not infer support from a different vendor's demo.",
+        "owner": "Product engineering; IT operations for M28; manufacturing engineering for M36; delivery engineering for deployed configurations",
+        "ids": "M01, M14, M28, M30, M33, M36, M42",
+        "sources": [
+          "ESIM:1"
+        ]
+      },
+      {
+        "ask": "**Redacted provisioning and recovery traces.** Correlated device/request identifiers, timestamps and actual outcomes for bootstrap or initial access, profile download/enablement, network registration and application validation. Include one successful and one failed/recovered operation. Add consumer activation failures for M14, enterprise offboarding for M28, physical-to-eSIM migration for M33, factory-to-first-use handoff for M36, and offline recovery, retries and partial multi-profile campaign completion for M42. Record the tested configuration and acceptance conditions.",
+        "owner": "Delivery and product engineering; IT operations for M28; manufacturing engineering for M36",
+        "ids": "M01, M14, M28, M30, M33, M36, M42",
+        "sources": [
+          "ESIM:2"
+        ]
+      },
+      {
+        "ask": "Representative fleet and field observations: Anonymized usage distribution and adoption baseline, dated test conditions, devices/modules/firmware, sites/routes/countries, payload and application delivery results. Include radio conditions, sleep timers, mobility, power measurements and outage/recovery observations where relevant. The M17 comparison requires comparable NB-IoT, LTE-M and RedCap conditions rather than unrelated datasheet peaks.",
+        "owner": "Fleet/customer operations and device engineering; municipal deployment owner for M38",
+        "ids": "M04, M09, M17, M24, M25, M32, M34, M35, M38",
+        "sources": [
+          "IOT:2"
+        ]
+      },
+      {
+        "ask": "Supported deployment architecture: A dated, operator-approved matrix of SIM part, module, bands, firmware, service availability, profile/provisioning architecture and routing for the offered scope. Identify carrier, country and product dependencies. M39 additionally needs a dated supported-carrier/API capability matrix. M38 needs the approved municipal system boundaries.",
+        "owner": "Spenza product and delivery engineering, host operators and customer engineering; municipal deployment owner for M38",
+        "ids": "M04, M09, M17, M24, M25, M32, M34, M35, M38, M39",
+        "sources": [
+          "IOT:3"
+        ]
+      },
+      {
+        "ask": "Execution traces and operations screenshots: Redacted operations views tied to the stated scope, with versioned automation/lifecycle actions, provider timestamps, partial failures, retries and recovery. Include usage controls, route/cross-border recovery, provisioning and retirement, or billing reconciliation as applicable. Distinguish a documented supported operation from a roadmap claim. A generic dashboard screenshot alone cannot establish these behaviours.",
+        "owner": "Spenza product/delivery engineering and the responsible fleet operations team; host operators where their logs or actions are required",
+        "ids": "M09, M17, M24, M25, M29, M32, M34, M35, M38, M39",
+        "sources": [
+          "IOT:4"
+        ]
+      },
+      {
+        "ask": "Redacted order-to-service and recovery walkthrough: one approved checkout-to-provisioning-to-installation-to-usable-service record with supported configuration, failure/refund handling and confirmed support owners; include Shopify duplicate events and renewal outcomes, and travel installation/connection recovery where those channels are claimed, from product delivery, commerce/travel integration engineering and support operations",
+        "owner": "Product delivery and commerce/travel integration engineering; support operations confirms escalation and refund ownership",
+        "ids": "M11, M15, M41",
+        "sources": [
+          "RESELLER:2"
+        ]
+      },
+      {
+        "ask": "MSP customer boundaries and exit proof: redacted customer-isolation test, delegated-role matrix, incident escalation record and customer offboarding trace for the proposed configuration, from platform engineering and support operations",
+        "owner": "Platform engineering and support operations",
+        "ids": "M20",
+        "sources": [
+          "RESELLER:3"
+        ]
+      },
+      {
+        "ask": "Loyalty redemption and data-purpose record: redacted member redemption-to-usable-service walkthrough and approved event/data-purpose map, from product engineering and the privacy owner",
+        "owner": "Product engineering and privacy owner",
+        "ids": "M26",
+        "sources": [
+          "RESELLER:6"
+        ]
+      },
+      {
+        "ask": "Redacted lifecycle and reconciliation record: approved enrollment and exit trace joining identity access, managed work data and mobile subscription actions; include employee-to-line-to-contract-to-invoice mapping, a failed or delayed change, provider confirmation and final billed result, from enterprise IT, mobility operations and finance",
+        "owner": "Enterprise IT and mobility operations; finance supplies invoice reconciliation",
+        "ids": "M37, M31, M40",
+        "sources": [
+          "BYOD:2"
+        ]
+      },
+      {
+        "ask": "Actual configuration and device acceptance tests: documented provider actions, data-feed freshness and permission/audit behavior for the proposed configuration; plus redacted model, regional variant, OS and carrier-pair tests for dual-SIM calls, messages, data switching and recovery, from platform engineering, mobility operations and the carrier operations owner",
+        "owner": "Platform engineering and mobility operations; carrier operations owner confirms supported service behavior",
+        "ids": "M31, M43",
+        "sources": [
+          "BYOD:3"
+        ]
+      },
+      {
+        "ask": "Operational workflow and permissions: redacted allocation and exception workflow screens, access/approval controls and a trace showing how a finding changes state and closes, from Product and Engineering Preserve the effective configuration, timestamps, responsible roles and actual outcome; a generic dashboard is insufficient.",
+        "owner": "Product and Engineering",
+        "ids": "M06, M13",
+        "sources": [
+          "TEM:2"
+        ]
+      },
+      {
+        "ask": "Plan-change and service-quality acceptance: redacted plan-change log and measured application/coverage acceptance for the proposed employee and worksite scope, from Product and Engineering Join the change to the relevant line and billing period, and show unsuccessful as well as accepted tests.",
+        "owner": "Product and Engineering, with customer mobility operations",
+        "ids": "M10",
+        "sources": [
+          "TEM:3"
+        ]
+      },
+      {
+        "ask": "Supported calling configuration and acceptance record: redacted supported number inventory and call-flow acceptance trace, including current carrier, caller-ID behaviour, SMS scope, human fallback and an observed failure/recovery, from Product and voice engineering Include tested platform/endpoint versions, route direction, timestamps, operator dependencies and actual successful/failed outcomes. The requested engineering record does not create a separate reviewer credit.",
+        "owner": "Product and voice engineering, with carrier and customer operations where required",
+        "ids": "M05",
+        "sources": [
+          "AIVOICE:1"
+        ]
+      }
+    ],
+    "Finance, procurement and commercial operations": [
+      {
+        "ask": "**Enterprise and device-lifecycle cost records.** M28: matched usage, carrier invoices, cost-center allocation and final-bill reconciliation. M30: provisioning, support, dormant service and retirement ledger. M33: comparable physical-SIM and eSIM fulfillment, support, field visits, service and retirement costs. M42: matched campaign usage, invoices, support/recovery costs, service interruption measurements and final subscription closure. State cohort boundaries, dates and cost definitions.",
+        "owner": "Finance and telecom/fleet operations",
+        "ids": "M28, M30, M33, M42",
+        "sources": [
+          "ESIM:6"
+        ]
+      },
+      {
+        "ask": "Reconciled commercial and operational baseline: Anonymized invoices tied to the same cohort, period and usage distribution; eligible pools, regional rates, activation/recurring/overage/termination charges, support effort and contribution assumptions. Provide matched before/after cost and operations-effort baselines for M25/M29 rather than comparing unrelated fleets. Preserve scope and assumptions for any savings claim.",
+        "owner": "Customer operations and finance; fleet operations for route/vehicle or usage attribution",
+        "ids": "M24, M25, M29, M32, M34, M35",
+        "sources": [
+          "IOT:5"
+        ]
+      },
+      {
+        "ask": "Comparable procurement inputs: Current provider quotes against the same fleet usage and service assumptions; complete lifecycle costs. For municipal procurement include integration responsibilities, contract terms and exit conditions. For M39 distinguish missing public documentation from a confirmed absent capability.",
+        "owner": "Customer procurement and finance, supported by the shortlisted providers",
+        "ids": "M38, M39",
+        "sources": [
+          "IOT:6"
+        ]
+      },
+      {
+        "ask": "Commercial pack for a scoped offer: approved supplier rate card and minimum commitments; charge trigger; payment, support, refund and replacement costs; settlement timing; MSP quote-to-wholesale-to-retail invoice reconciliation; loyalty funding and reversal/expiry terms; travel partner settlement/refund economics. Identify the applicable product and contract version rather than using one assumed margin across channels, from finance with the channel account owner, partnerships and channel operations",
+        "owner": "Finance leads; channel account owner/partnerships confirm contracts; channel operations supplies MSP service schedule and invoice mapping",
+        "ids": "M11, M15, M20, M26, M41",
+        "sources": [
+          "RESELLER:1"
+        ]
+      },
+      {
+        "ask": "Comparable cost and usage record: approved baseline and post-change cost/usage records for the same employee cohort, period and supplied service; document hardware, plans, roaming, tooling, fees, implementation, support, claims administration, changes, replacement and exception costs, from procurement and finance",
+        "owner": "Procurement and finance",
+        "ids": "M37, M31, M40, M43",
+        "sources": [
+          "BYOD:4"
+        ]
+      },
+      {
+        "ask": "Matched billing and audit evidence pack: approved redacted invoices, effective contract/rate records, service inventory and usage ledger for one defined cohort and period, with exceptions, supplier responses and verified posted adjustments; include the baseline and implementation effort for M06, matched before/after plan scope for M10, and a completed checklist plus recovery trail for M13, from Finance and the customer account owner Keep suspected errors, supplier acceptance, posted credits and future cost avoidance separate. Include a no-error or rejected finding where applicable.",
+        "owner": "Finance and customer account owner, with customer publication approval",
+        "ids": "M06, M10, M13",
+        "sources": [
+          "TEM:1"
+        ]
+      }
+    ],
+    "Growth and product analytics": [
+      {
+        "ask": "**Acquisition, retention and contribution records (2).** M19: cohort-level acquisition, active use, retention and contribution for a relevant offer. M23: acquisition-channel costs, customer/subscription cohort definitions, activation completion, equal-age retention, contribution and campaign dates. Customer approval is required for publishable results.",
+        "owner": "Spenza growth/finance and approved customer owner",
+        "ids": "M19, M23",
+        "sources": [
+          "MVNO:10"
+        ]
+      },
+      {
+        "ask": "**Activation, retention and commercial contribution records.** Matched observation periods and cohort definitions; activation completion, support, refunds and retention with cost definitions for M14. For M36 add subscription revenue and contribution, distinguishing eligible devices, working service and paying subscriptions.",
+        "owner": "Growth, operations and finance",
+        "ids": "M14, M36",
+        "sources": [
+          "ESIM:5"
+        ]
+      },
+      {
+        "ask": "**Angel Watch attach-rate evidence, only if that claim is desired.** Approved eligible-device denominator, subscription numerator, measurement period and service definition. The donor graphic's 80% rate is excluded because the approved published case does not establish it. No attach-rate number is needed to retain the current qualitative case.",
+        "owner": "Angel Watch account owner and customer marketing, supported by growth/operations records",
+        "ids": "M36",
+        "sources": [
+          "ESIM:7"
+        ]
+      },
+      {
+        "ask": "Loyalty outcome measurement: approved pilot cohort, eligibility and exposure counts, claim/activation/use records, observation dates and a defensible comparison group or explicit observational limitation, from loyalty product analytics and the account owner",
+        "owner": "Loyalty product analytics and account owner",
+        "ids": "M26",
+        "sources": [
+          "RESELLER:5"
+        ]
+      }
+    ],
+    "Enterprise IT, HR and privacy policy": [
+      {
+        "ask": "Approved employee policy: anonymized approved mobility and connectivity-benefit policy covering eligibility, employee alternatives, funding/contributions, number and subscription ownership, support, management visibility, privacy boundaries, selective work-data removal and dual-SIM onboarding/offboarding, from enterprise IT and HR/privacy owners",
+        "owner": "Enterprise IT and HR/privacy owners; program owner confirms benefit contribution rules",
+        "ids": "M37, M40, M43",
+        "sources": [
+          "BYOD:1"
+        ]
+      }
+    ],
+    "Qualified legal, tax and compliance owners": [
+      {
+        "ask": "**Service-specific legal and tax review (1).** Dated review of the described service/entity model, applicable filing and contribution treatment, wireless 911 and broadband-label scope, and state/local tax caveats. Record the reviewed scope and required corrections. This is specialist evidence, not an article technical-reviewer credit.",
+        "owner": "Qualified telecom legal/tax specialist",
+        "ids": "M16",
+        "sources": [
+          "MVNO:11"
+        ]
+      },
+      {
+        "ask": "Country eligibility and legal conditions: Country-by-country service eligibility and applicable dated legal approval for the actual target fleet, together with the operator-approved routing/profile design. General regulatory guidance is not approval for a particular deployment.",
+        "owner": "Host operators and the customer's compliance owner",
+        "ids": "M34",
+        "sources": [
+          "IOT:7"
+        ]
+      },
+      {
+        "ask": "Service-specific tax treatment: service-specific tax review, from a qualified specialist Provide actual business purpose, contract holder, funding/payment flow, employee contributions and participating jurisdictions. The review must address the proposed arrangement and employee communications, not a generic product label.",
+        "owner": "Qualified tax specialist, with payroll and finance supplying the facts",
+        "ids": "M40",
+        "sources": [
+          "BYOD:5"
+        ]
+      },
+      {
+        "ask": "Reimbursement and employment policy: jurisdiction-specific reimbursement and employment-policy review for participating locations, from employment counsel Include required work use, employee alternatives, contribution rules, after-hours expectations and policy communications.",
+        "owner": "Employment counsel, supported by HR",
+        "ids": "M40",
+        "sources": [
+          "BYOD:6"
+        ]
+      },
+      {
+        "ask": "Specialist assessment of a proposed audit finding: service-specific and jurisdiction-specific legal/tax assessment of the proposed finding and recovery wording, from qualified telecom legal and tax specialists Supply the service, contracting entities, affected periods, relevant terms and billing facts. This is not a technical-reviewer byline credit or a generic declaration of compliance.",
+        "owner": "Qualified telecom legal/tax specialists; Finance and contract owner supply facts",
+        "ids": "M13",
+        "sources": [
+          "TEM:4"
+        ]
+      },
+      {
+        "ask": "Service-specific policy assessment: service-specific recording, emergency-calling and messaging-policy assessment for the proposed jurisdictions, from qualified telecom counsel and the customer privacy owner Include the proposed service configuration, user locations, recording/retention decisions and responsible operators.",
+        "owner": "Qualified telecom counsel and customer privacy owner",
+        "ids": "M05",
+        "sources": [
+          "AIVOICE:3"
+        ]
+      }
+    ],
+    "Marketing and partnerships": [
+      {
+        "ask": "Confirmed Spenza event participation: Approved attendance or speaking schedule and a named contact for meeting arrangements. Identify the edition and dates; the article currently announces no booth, speaking slot or attendance commitment.",
+        "owner": "Spenza marketing and partnerships",
+        "ids": "M44",
+        "sources": [
+          "IOT:8"
+        ]
+      },
+      {
+        "ask": "Attributable event outcome: One approved customer or partner outcome originating at an event, with dated follow-up milestones and an attributable result. Do not infer conference return from a meeting count or an unrelated published case.",
+        "owner": "Spenza partnerships and the relevant account owner, with customer approval where required",
+        "ids": "M44",
+        "sources": [
+          "IOT:9"
+        ]
+      }
+    ]
+  }
+}
