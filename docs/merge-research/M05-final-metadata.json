@@ -1,0 +1,68 @@
+{
+  "cluster": "M05",
+  "recommended": {
+    "text": "Skype Alternatives for Business: Calls and Continuity",
+    "characters": 53
+  },
+  "alternates": [
+    {
+      "text": "Skype Alternatives: A Business Calling Decision Guide",
+      "characters": 53
+    },
+    {
+      "text": "Business Skype Alternatives: Numbers and Phone Systems",
+      "characters": 54
+    }
+  ],
+  "h1": "Skype Alternatives for Business: Calls, Numbers and Continuity",
+  "slug": "skype-alternatives",
+  "category": "telecom",
+  "tags": [
+    "Skype alternatives for business",
+    "business phone systems",
+    "number continuity",
+    "voice migration"
+  ],
+  "description": {
+    "text": "Compare Skype alternatives for business calls, meetings and phone numbers. Check retirement limits, test call routes and plan a supported replacement.",
+    "characters": 150
+  },
+  "keyword": "Skype alternatives for business",
+  "secondaryKeywords": [
+    "Skype alternatives for business",
+    "business phone systems",
+    "number continuity",
+    "voice migration"
+  ],
+  "intent": "Commercial investigation and post-retirement operational remediation",
+  "reader": "Voice AI builders, agencies and enterprise automation teams",
+  "snippet": {
+    "query": "What are the best Skype alternatives for business?",
+    "format": "paragraph",
+    "exactText": "Skype alternatives for business should replace the work your team actually does: meetings, ordinary phone calls, customer support or mobile calling connected to business software. Start with the service, then choose the application. A familiar chat interface does not establish that a customer can reach your number or that an important call reaches the right person."
+  },
+  "bodyWords": 2241,
+  "wordsIncludingTldr": 2385,
+  "ogTitle": "Skype Alternatives for Business: Calls, Numbers and Continuity",
+  "ogDescription": "Compare Skype alternatives for business calls, meetings and phone numbers. Check retirement limits, test call routes and plan a supported replacement.",
+  "excerpt": "Choose business calling after Skype by service scope, current number status and tested continuity, with a practical migration checklist.",
+  "images": [
+    {
+      "purpose": "Reused published hero, unchanged URL and srcset",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement.png",
+      "alt": "Skype Alternatives for Business: Calls, Numbers and Continuity"
+    },
+    {
+      "purpose": "Conceptual service path: a collaboration surface and a working public telephone route are separate acceptance tasks.",
+      "filename": "/blog-media/skype-alternatives/business-calling-service-path.png",
+      "webp": "/blog-media/skype-alternatives/business-calling-service-path.webp",
+      "alt": "A public number connects through a carrier to a phone and human fallback, with a separate meeting application."
+    },
+    {
+      "purpose": "Topology comparison only. An extra network hop is visible here; performance and security suitability require deployment-specific tests.",
+      "filename": "/blog-media/skype-alternatives/voice-network-detour.png",
+      "webp": "/blog-media/skype-alternatives/voice-network-detour.webp",
+      "alt": "A laptop reaches a calling cloud through either an office network detour or a direct path."
+    }
+  ]
+}

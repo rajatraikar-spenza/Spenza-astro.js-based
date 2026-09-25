@@ -1,0 +1,82 @@
+{
+  "cluster": "M05",
+  "beforeBodyWords": 7878,
+  "destinationBodyWords": 2247,
+  "afterBodyWords": 2241,
+  "afterIncludingTldr": 2385,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "Is Skype for Business still supported?",
+      "words": 51
+    },
+    {
+      "heading": "Skype replacement: communication app vs phone number replacement",
+      "words": 52
+    },
+    {
+      "heading": "What are the best Skype alternatives for business?",
+      "words": 52
+    },
+    {
+      "heading": "What you should consider in a replacement",
+      "words": 52
+    },
+    {
+      "heading": "How to test the replacement before wider use",
+      "words": 50
+    },
+    {
+      "heading": "What Spenza adds to business calling",
+      "words": 54
+    },
+    {
+      "heading": "Migration checklist for a supported service",
+      "words": 52
+    },
+    {
+      "heading": "Frequently asked questions",
+      "words": 51
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Teams Free replace a business phone system?",
+      "words": 52
+    },
+    {
+      "question": "Can I still port an untransferred Skype Number?",
+      "words": 49
+    },
+    {
+      "question": "Can I still use the old Skype history-export process?",
+      "words": 50
+    },
+    {
+      "question": "Must every business upgrade its network after Skype?",
+      "words": 50
+    },
+    {
+      "question": "Does an eSIM guarantee better business call quality?",
+      "words": 50
+    },
+    {
+      "question": "What should I test when calls go to an AI agent?",
+      "words": 49
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 8,
+  "externalSources": 7,
+  "author": {
+    "name": "SivaSai",
+    "slug": "sivasai",
+    "basis": "majority: SivaSai 2, Spenza 1 of 3 posts",
+    "flippedFrom": "Spenza"
+  },
+  "seoTitleLength": 53,
+  "metaDescriptionLength": 150,
+  "informationGain": 7
+}

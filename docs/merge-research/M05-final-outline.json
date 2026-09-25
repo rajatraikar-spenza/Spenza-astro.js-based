@@ -1,0 +1,156 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "Skype Alternatives for Business: Calls, Numbers and Continuity",
+  "sections": [
+    {
+      "heading": "Is Skype for Business still supported?",
+      "answer": "Skype support depends on the exact product and edition. Consumer Skype and Skype for Business Online retired, while older server editions reached their support deadlines. Skype for Business Subscription Edition remains a supported product. Identify the installed service before deciding whether the next step is replacement, an upgrade or operational cleanup.",
+      "words": 177,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://support.microsoft.com/en-us/skype/skype-is-retiring-in-may-2025-what-you-need-to-know",
+          "anchor": "Microsoft’s current Skype retirement notice"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/lifecycle/products/skype-for-business-online",
+          "anchor": "Online lifecycle"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/lifecycle/products/skype-for-business-server-2019",
+          "anchor": "Server 2019 lifecycle"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/lifecycle/products/skype-for-business-subscription-edition",
+          "anchor": "Subscription Edition lifecycle"
+        }
+      ]
+    },
+    {
+      "heading": "Skype replacement: communication app vs phone number replacement",
+      "answer": "A Skype replacement can address an application, a telephone service or both. Meetings and chat connect people inside a software environment. A public phone number depends on carrier routing, account ownership and the receiving service. Evaluate these layers separately so a successful application login does not conceal a broken customer contact route.",
+      "words": 211,
+      "h3": [],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "/telecom/why-ai-agents-need-real-phone-numbers/",
+          "anchor": "why AI agents need real phone numbers"
+        }
+      ]
+    },
+    {
+      "heading": "What are the best Skype alternatives for business?",
+      "answer": "Business Skype alternatives should be shortlisted by calling requirements, existing software and administrative ownership. Teams Phone, Zoom Phone and Google Voice provide business telephone options with different deployment choices. Spenza addresses mobile connectivity and number-related workflows. Compare the required service configuration and eligibility, rather than ranking unlike products by a single score.",
+      "words": 311,
+      "h3": [
+        "Microsoft Teams Phone",
+        "Zoom Phone",
+        "Google Voice for business"
+      ],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/what-is-phone-system-in-office-365",
+          "anchor": "Microsoft’s Teams Phone documentation"
+        },
+        {
+          "url": "https://www.zoom.com/en/products/voip-phone/",
+          "anchor": "Zoom Phone"
+        },
+        {
+          "url": "https://workspace.google.com/products/voice/",
+          "anchor": "Google Voice"
+        }
+      ]
+    },
+    {
+      "heading": "What you should consider in a replacement",
+      "answer": "A business calling replacement needs a named owner for the number, account, route and user experience. Begin with an inventory that connects these records. Then check each requirement against the offered service and contract. A familiar brand, working demonstration or available phone number cannot establish suitability for every country, message or workflow.",
+      "words": 235,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/telecom/non-voip-vs-voip-numbers/",
+          "anchor": "non-VoIP and VoIP number comparison"
+        }
+      ]
+    },
+    {
+      "heading": "How to test the replacement before wider use",
+      "answer": "A replacement calling service should pass a defined acceptance test across the routes and working conditions that matter. Check both successful calls and failure handling. Record the account, endpoint, network and time for each observation. Use those records to diagnose a problem before buying more capacity or widening the rollout.",
+      "words": 289,
+      "h3": [],
+      "tables": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "/telecom/voip-phone-number-warm-up-testing/",
+          "anchor": "phone-number testing guide"
+        },
+        {
+          "url": "/ai-phone-number/",
+          "anchor": "AI phone-number assessment"
+        }
+      ]
+    },
+    {
+      "heading": "What Spenza adds to business calling",
+      "answer": "Spenza’s relevant role is connecting mobile service and numbers to business workflows where the deployment requires that integration. The published RocketPhone case documents an enterprise MVNO approach for conversation intelligence tied to Salesforce. The case supports a concrete integration discussion, but it does not establish a Skype migration result or a recovered retired number.",
+      "words": 224,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone enterprise MVNO case"
+        },
+        {
+          "url": "/spenza-product/daito-case-study/",
+          "anchor": "Daito case"
+        },
+        {
+          "url": "/mvno/become-your-own-mvno-ai-ucaas/",
+          "anchor": "the MVNO model for AI and UCaaS providers"
+        }
+      ]
+    },
+    {
+      "heading": "Migration checklist for a supported service",
+      "answer": "A business communication migration is ready for wider use when the required service works, ownership is clear and unresolved exceptions have an agreed response. Use a small, representative pilot before expanding. Close the project against recorded outcomes, rather than against application installation, purchased licences or a calendar date chosen without service evidence.",
+      "words": 240,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "Spenza connectivity discussion"
+        }
+      ]
+    },
+    {
+      "heading": "Frequently asked questions",
+      "answer": "Skype replacement questions usually concern product support, public numbers and the difference between meetings and phone service. The answers below separate those decisions. Confirm any account-specific action with the current provider, and use the service’s actual configuration when testing it. A general product description does not settle a particular deployment’s requirements.",
+      "words": 403,
+      "h3": [
+        "Does Teams Free replace a business phone system?",
+        "Can I still port an untransferred Skype Number?",
+        "Can I still use the old Skype history-export process?",
+        "Must every business upgrade its network after Skype?",
+        "Does an eSIM guarantee better business call quality?",
+        "What should I test when calls go to an AI agent?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}

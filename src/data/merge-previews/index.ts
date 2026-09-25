@@ -113,11 +113,80 @@ import m43Content from './dual-sim-esim.html?raw';
 import m06Content from './what-is-telecom-expense-management-tem.html?raw';
 import m10Content from './business-mobile-cost-quality.html?raw';
 import m13Content from './telecom-compliance-audits.html?raw';
+import m05Content from './skype-alternatives.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "skype-alternatives": {
+  "slug": "skype-alternatives",
+  "category": "telecom",
+  "title": "Skype Alternatives for Business: Calls, Numbers and Continuity",
+  "seoTitle": "Skype Alternatives for Business: Calls and Continuity",
+  "seoDescription": "Compare Skype alternatives for business calls, meetings and phone numbers. Check retirement limits, test call routes and plan a supported replacement.",
+  "cluster": "M05",
+  "excerpt": "Choose business calling after Skype by service scope, current number status and tested continuity, with a practical migration checklist.",
+  "templateBlocks": {
+    "tldrHeading": "Skype alternatives at a glance",
+    "tldrDescription": "Choose a Skype replacement by the work it must support: meetings, ordinary telephone calls, customer handling or mobile conversations connected to business software. Check the exact retired product and the current state of every number. Compare phone services separately from collaboration apps, then test the proposed routes, devices and fallback. Published customer evidence can explain an integration approach, but it does not establish a recovery promise, a migration duration or an outcome for your deployment.",
+    "twoCol": [
+      {
+        "title": "Identify the service",
+        "text": "Distinguish retired Skype services from supported server editions.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}"
+      },
+      {
+        "title": "Check number status",
+        "text": "Separate an active current-carrier number from an untransferred Skype Number.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"phone\"}"
+      },
+      {
+        "title": "Choose by workflow",
+        "text": "Compare meetings, public calling and mobile integration as distinct tasks.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"filter\"}"
+      },
+      {
+        "title": "Test both directions",
+        "text": "Verify routes, identity, transfers and failure handling with recorded results.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"arrows-rotate\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Close with evidence",
+        "text": "Expand only after ownership, service acceptance and open issues are documented.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"clipboard-check\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement.png\" class=\"attachment-full size-full wp-image-13780 webpexpress-processed\" alt=\"How Companies Are Coping with Skype’s Retirement\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/11/How-Companies-Are-Coping-with-Skypes-Retirement.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Skype Alternatives for Business: Calls, Numbers and Continuity",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2025-05-29T07:23:14+00:00",
+  "updatedDate": "2026-09-25T08:49:15.101Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 2247,
+  "donors": [
+    {
+      "path": "/telecom/skype-shutdown-explained/",
+      "title": "Why Skype Is Shutting Down and What Comes Next",
+      "clicks": 6,
+      "contributes": "Migration requirements and historically accurate retirement context. Source sections to inspect: Why Skype Is Being Retired; Choose the Right Skype Alternative; Protect Your Skype Number; Move Beyond Traditional Communication Tools"
+    },
+    {
+      "path": "/telecom/skype-retirement-2025-migration-strategy/",
+      "title": "How Companies Are Coping with Skype’s Retirement",
+      "clicks": 1,
+      "contributes": "Migration requirements and historically accurate retirement context. Source sections to inspect: Skype Shutdown Timeline; More Than Just an App Replacement; Skype Becomes a Security Risk; Migration Requires Real Planning"
+    }
+  ],
+  "content": m05Content
+},
   "telecom-compliance-audits": {
   "slug": "telecom-compliance-audits",
   "category": "tem",

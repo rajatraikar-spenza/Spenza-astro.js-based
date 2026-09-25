@@ -1,0 +1,102 @@
+{
+  "title": "Skype Alternatives for Business: Calls and Continuity",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Identify the service",
+    "Check number status",
+    "Choose by workflow",
+    "Test both directions",
+    "Close with evidence"
+  ],
+  "h2": [
+    {
+      "id": "Skype",
+      "text": "Is Skype for Business still supported?"
+    },
+    {
+      "id": "skype-replacement-communication-app-vs-phone-number-replacement",
+      "text": "Skype replacement: communication app vs phone number replacement"
+    },
+    {
+      "id": "Alternatives",
+      "text": "What are the best Skype alternatives for business?"
+    },
+    {
+      "id": "Replacement",
+      "text": "What you should consider in a replacement"
+    },
+    {
+      "id": "test-the-replacement-before-wider-use",
+      "text": "How to test the replacement before wider use"
+    },
+    {
+      "id": "spenza-business-calling-role",
+      "text": "What Spenza adds to business calling"
+    },
+    {
+      "id": "Conclusion",
+      "text": "Migration checklist for a supported service"
+    },
+    {
+      "id": "FAQs",
+      "text": "Frequently asked questions"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/skype-alternatives/business-calling-service-path.png",
+      "currentSrc": "http://localhost:4321/blog-media/skype-alternatives/business-calling-service-path.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/skype-alternatives/voice-network-detour.png",
+      "currentSrc": "http://localhost:4321/blog-media/skype-alternatives/voice-network-detour.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#Skype",
+    "#skype-replacement-communication-app-vs-phone-number-replacement",
+    "#Alternatives",
+    "#Replacement",
+    "#test-the-replacement-before-wider-use",
+    "#spenza-business-calling-role",
+    "#Conclusion",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "SivaSai",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
