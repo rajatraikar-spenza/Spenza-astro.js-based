@@ -1,0 +1,74 @@
+{
+  "cluster": "M10",
+  "beforeBodyWords": 8501,
+  "destinationBodyWords": 3563,
+  "afterBodyWords": 2286,
+  "afterIncludingTldr": 2430,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "Where does business mobile spending go?",
+      "words": 51
+    },
+    {
+      "heading": "How should service inventory and role-based plans work?",
+      "words": 51
+    },
+    {
+      "heading": "When do pooling and roaming options fit?",
+      "words": 48
+    },
+    {
+      "heading": "How do you test mobile service quality?",
+      "words": 49
+    },
+    {
+      "heading": "What belongs in a monthly mobile cost review?",
+      "words": 50
+    },
+    {
+      "heading": "FAQs about business mobile cost optimization",
+      "words": 48
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should every employee receive an unlimited plan?",
+      "words": 52
+    },
+    {
+      "question": "Does eSIM make changing carriers cost-free?",
+      "words": 51
+    },
+    {
+      "question": "How long should a line be inactive before cancellation?",
+      "words": 51
+    },
+    {
+      "question": "Are all unexpected invoice fees billing errors?",
+      "words": 53
+    },
+    {
+      "question": "Can usage alerts prevent every overage?",
+      "words": 52
+    },
+    {
+      "question": "When should a team renegotiate instead of switching?",
+      "words": 55
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 9,
+  "externalSources": 4,
+  "author": {
+    "name": "SivaSai",
+    "slug": "sivasai",
+    "basis": "majority: SivaSai 2, Spenza 1, Vinaychandra Bharadwaj 1 of 4 posts",
+    "flippedFrom": "Spenza"
+  },
+  "seoTitleLength": 52,
+  "metaDescriptionLength": 150,
+  "informationGain": 7
+}

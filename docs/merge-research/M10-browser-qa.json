@@ -1,0 +1,92 @@
+{
+  "title": "Business Mobile Cost Optimization: Plans and Quality",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Start with ownership",
+    "Match the workload",
+    "Check the boundaries",
+    "Test service quality",
+    "Review the outcome"
+  ],
+  "h2": [
+    {
+      "id": "mobile-cost",
+      "text": "Where does business mobile spending go?"
+    },
+    {
+      "id": "inventory",
+      "text": "How should service inventory and role-based plans work?"
+    },
+    {
+      "id": "pooling-roaming",
+      "text": "When do pooling and roaming options fit?"
+    },
+    {
+      "id": "quality",
+      "text": "How do you test mobile service quality?"
+    },
+    {
+      "id": "monthly-review",
+      "text": "What belongs in a monthly mobile cost review?"
+    },
+    {
+      "id": "FAQs",
+      "text": "FAQs about business mobile cost optimization"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/business-mobile-cost/mobile-pool-shared-capacity.png",
+      "currentSrc": "http://localhost:4321/blog-media/business-mobile-cost/mobile-pool-shared-capacity.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/business-mobile-cost/mobile-coverage-worksites.png",
+      "currentSrc": "http://localhost:4321/blog-media/business-mobile-cost/mobile-coverage-worksites.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#mobile-cost",
+    "#inventory",
+    "#pooling-roaming",
+    "#quality",
+    "#monthly-review",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "SivaSai",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "Business Mobile Cost Optimization Without Losing Quality",
+  "sections": [
+    {
+      "heading": "Where does business mobile spending go?",
+      "answer": "Business mobile spending includes service charges, devices, add-ons, usage-based fees and the effort required to operate the program. Cost optimization begins by separating those categories and identifying their owners. Keep service quality alongside the financial baseline so a plan change cannot appear successful merely because support work moved to another team.",
+      "words": 314,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "connectivity billing review"
+        }
+      ]
+    },
+    {
+      "heading": "How should service inventory and role-based plans work?",
+      "answer": "A mobile service inventory should connect every billed line to its user or device, purpose, location, plan and lifecycle status. Role-based plans then follow measured work requirements rather than job-title assumptions. Review both ordinary and unusual usage before changing an allowance, and confirm why a quiet line exists before removing it.",
+      "words": 326,
+      "h3": [
+        "Distinguish unused from intentionally idle"
+      ],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/telecom/mobile-plan-management-simplified/",
+          "anchor": "mobile plan lifecycle management"
+        },
+        {
+          "url": "/byod/byod-in-2025-benefits-risks-and-best-practices/",
+          "anchor": "enterprise BYOD policy guide"
+        }
+      ]
+    },
+    {
+      "heading": "When do pooling and roaming options fit?",
+      "answer": "Data pooling can fit groups whose usage varies across lines within the same eligible plan arrangement. Pooling shares an allowance; pooling does not reduce the group's underlying traffic. Roaming options require a separate check of destinations, trip duration, calling, hotspot use and account terms before the traveler leaves.",
+      "words": 379,
+      "h3": [
+        "Test the busy period, not only the average",
+        "Separate international calling from roaming"
+      ],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://www.business.att.com/products/wireless-plans.html",
+          "anchor": "AT&T's business plan details"
+        },
+        {
+          "url": "https://www.verizon.com/support/mobile-hotspot-faqs/",
+          "anchor": "Verizon's mobile hotspot documentation"
+        },
+        {
+          "url": "https://www.business.att.com/products/international-travel-plans-for-business.html",
+          "anchor": "AT&T's business travel options"
+        },
+        {
+          "url": "/spenza-product/butlr-iot-spenza-casestudy/",
+          "anchor": "Butlr connectivity case"
+        },
+        {
+          "url": "/connectivity-revenue-optimization/",
+          "anchor": "connectivity spend platform discussion"
+        }
+      ]
+    },
+    {
+      "heading": "How do you test mobile service quality?",
+      "answer": "Mobile service quality should be tested against the tasks, devices and places the business depends on. Coverage maps help shortlist operators, but maps cannot prove indoor application performance for a particular team. Record a repeatable baseline, test the proposed service under comparable conditions and agree what failure requires rollback.",
+      "words": 293,
+      "h3": [
+        "Define the acceptance test before selecting a carrier"
+      ],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://help.bdc.fcc.gov/hc/en-us/articles/10467446103579-How-to-Use-the-FCC-s-National-Broadband-Map",
+          "anchor": "FCC National Broadband Map guidance"
+        }
+      ]
+    },
+    {
+      "heading": "What belongs in a monthly mobile cost review?",
+      "answer": "A monthly mobile cost review should reconcile the service inventory, explain usage changes, validate contract rates and confirm the outcome of approved actions. Review cost and quality together. Separate proposed opportunities from implemented changes and posted financial adjustments so leadership can see both the decision and the evidence supporting it.",
+      "words": 334,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/tem/telecom-compliance-audits/",
+          "anchor": "telecom audit checklist"
+        },
+        {
+          "url": "/tem/telecom-expense-management-implementation/",
+          "anchor": "TEM implementation guide"
+        },
+        {
+          "url": "/mvno/mvno-telecom-reseller-revenue-leakage/",
+          "anchor": "revenue leakage control guide"
+        }
+      ]
+    },
+    {
+      "heading": "FAQs about business mobile cost optimization",
+      "answer": "Business mobile cost optimization depends on contract terms, work requirements and reliable service records. The following answers address common purchasing and operating assumptions. Confirm account eligibility and device support before acting, and keep financial opportunities separate from verified outcomes when presenting the business case to Finance or leadership.",
+      "words": 487,
+      "h3": [
+        "Should every employee receive an unlimited plan?",
+        "Does eSIM make changing carriers cost-free?",
+        "How long should a line be inactive before cancellation?",
+        "Are all unexpected invoice fees billing errors?",
+        "Can usage alerts prevent every overage?",
+        "When should a team renegotiate instead of switching?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "Review your mobile service requirements"
+        }
+      ]
+    }
+  ]
+}

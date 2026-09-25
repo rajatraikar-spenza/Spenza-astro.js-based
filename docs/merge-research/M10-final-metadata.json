@@ -1,0 +1,68 @@
+{
+  "cluster": "M10",
+  "recommended": {
+    "text": "Business Mobile Cost Optimization: Plans and Quality",
+    "characters": 52
+  },
+  "alternates": [
+    {
+      "text": "Business Mobile Cost and Quality: A Practical Playbook",
+      "characters": 54
+    },
+    {
+      "text": "Optimize Business Mobile Costs with Evidence and Tests",
+      "characters": 54
+    }
+  ],
+  "h1": "Business Mobile Cost Optimization Without Losing Quality",
+  "slug": "business-mobile-cost-quality",
+  "category": "tem",
+  "tags": [
+    "business mobile cost optimization",
+    "wireless expense management",
+    "data pooling",
+    "mobile service quality"
+  ],
+  "description": {
+    "text": "Control business mobile costs with service inventories, role-based plans, pooling, roaming checks and a monthly review that tests service quality too.",
+    "characters": 150
+  },
+  "keyword": "business mobile cost optimization",
+  "secondaryKeywords": [
+    "business mobile cost optimization",
+    "wireless expense management",
+    "data pooling",
+    "mobile service quality"
+  ],
+  "intent": "Operational and commercial evaluation, middle funnel",
+  "reader": "Telecom finance, revenue assurance, procurement and operations",
+  "snippet": {
+    "query": "What is business mobile cost optimization?",
+    "format": "paragraph",
+    "exactText": "Business mobile cost optimization matches paid services to the work employees and devices actually perform. The process checks inventory, usage, plans, roaming, contracts and support effort while testing service quality. A lower invoice is useful only when the change preserves required coverage, calling, application access and operational support."
+  },
+  "bodyWords": 2286,
+  "wordsIncludingTldr": 2430,
+  "ogTitle": "Business Mobile Cost Optimization Without Losing Quality",
+  "ogDescription": "Control business mobile costs with service inventories, role-based plans, pooling, roaming checks and a monthly review that tests service quality too.",
+  "excerpt": "Match mobile plans to measured work, test coverage and pooling, and verify cost changes against the same service population.",
+  "images": [
+    {
+      "purpose": "Reused published hero, unchanged URL and srcset",
+      "url": "https://media.spenza.com/wp-content/uploads/2021/04/22.png",
+      "alt": "Business Mobile Cost Optimization Without Losing Quality"
+    },
+    {
+      "purpose": "Conceptual shared capacity, not measured traffic. Pooling redistributes allowances; synchronized usage can still exhaust the pool.",
+      "filename": "/blog-media/business-mobile-cost/mobile-pool-shared-capacity.png",
+      "webp": "/blog-media/business-mobile-cost/mobile-pool-shared-capacity.webp",
+      "alt": "Business mobile cost optimization tests how several devices consume one finite shared data allowance."
+    },
+    {
+      "purpose": "Conceptual worksite cutaway. Test the device and application at actual locations; this is not a carrier coverage map.",
+      "filename": "/blog-media/business-mobile-cost/mobile-coverage-worksites.png",
+      "webp": "/blog-media/business-mobile-cost/mobile-coverage-worksites.webp",
+      "alt": "A broad outdoor coverage footprint does not prove service inside a warehouse or along every work route."
+    }
+  ]
+}

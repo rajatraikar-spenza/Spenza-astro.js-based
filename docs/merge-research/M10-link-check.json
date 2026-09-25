@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-09-25T08:10:00.014Z",
+  "links": [
+    {
+      "url": "/tem/what-is-telecom-expense-management-tem/",
+      "status": 200,
+      "final": "https://spenza.com/tem/what-is-telecom-expense-management-tem/"
+    },
+    {
+      "url": "/contact-us/",
+      "status": 200,
+      "final": "https://spenza.com/contact-us/"
+    },
+    {
+      "url": "/telecom/mobile-plan-management-simplified/",
+      "status": 200,
+      "final": "https://spenza.com/telecom/mobile-plan-management-simplified/"
+    },
+    {
+      "url": "/byod/byod-in-2025-benefits-risks-and-best-practices/",
+      "status": 200,
+      "final": "https://spenza.com/byod/byod-in-2025-benefits-risks-and-best-practices/"
+    },
+    {
+      "url": "https://www.business.att.com/products/wireless-plans.html",
+      "status": 200,
+      "final": "https://www.business.att.com/products/wireless-plans.html"
+    },
+    {
+      "url": "https://www.verizon.com/support/mobile-hotspot-faqs/",
+      "status": 200,
+      "final": "https://www.verizon.com/support/mobile-hotspot-faqs/"
+    },
+    {
+      "url": "https://www.business.att.com/products/international-travel-plans-for-business.html",
+      "status": 200,
+      "final": "https://www.business.att.com/products/international-travel-plans-for-business.html"
+    },
+    {
+      "url": "/spenza-product/butlr-iot-spenza-casestudy/",
+      "status": 200,
+      "final": "https://spenza.com/spenza-product/butlr-iot-spenza-casestudy/"
+    },
+    {
+      "url": "/connectivity-revenue-optimization/",
+      "status": 200,
+      "final": "https://spenza.com/voice-observability-solution/"
+    },
+    {
+      "url": "https://help.bdc.fcc.gov/hc/en-us/articles/10467446103579-How-to-Use-the-FCC-s-National-Broadband-Map",
+      "status": 403,
+      "final": "https://help.bdc.fcc.gov/hc/en-us/articles/10467446103579-How-to-Use-the-FCC-s-National-Broadband-Map"
+    },
+    {
+      "url": "/tem/telecom-compliance-audits/",
+      "status": 200,
+      "final": "https://spenza.com/tem/telecom-compliance-audits/"
+    },
+    {
+      "url": "/tem/telecom-expense-management-implementation/",
+      "status": 200,
+      "final": "https://spenza.com/tem/telecom-expense-management-implementation/"
+    },
+    {
+      "url": "/mvno/mvno-telecom-reseller-revenue-leakage/",
+      "status": 200,
+      "final": "https://spenza.com/mvno/mvno-telecom-reseller-revenue-leakage/"
+    }
+  ],
+  "verificationNotes": [
+    "FCC BDC direct request returned 403; the same official page was opened through web access and the outdoor stationary/in-vehicle distinction read on 25 September 2026."
+  ]
+}
