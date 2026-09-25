@@ -1,0 +1,77 @@
+{
+  "cluster": "M43",
+  "beforeBodyWords": 2951,
+  "destinationBodyWords": 2500,
+  "afterBodyWords": 2400,
+  "afterIncludingTldr": 2534,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "Why Dual-SIM with eSIM Matters for Business",
+      "words": 55
+    },
+    {
+      "heading": "Physical SIM vs eSIM Explained",
+      "words": 53
+    },
+    {
+      "heading": "How do you set work and personal line defaults?",
+      "words": 54
+    },
+    {
+      "heading": "How do billing and roaming work with two lines?",
+      "words": 53
+    },
+    {
+      "heading": "Benefits and Limitations of Dual-SIM with eSIM",
+      "words": 54
+    },
+    {
+      "heading": "How do you support and retire a dual-SIM setup?",
+      "words": 52
+    },
+    {
+      "heading": "Dual-SIM business FAQs",
+      "words": 50
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the two lines use different carriers?",
+      "words": 51
+    },
+    {
+      "question": "Can three stored profiles all stay active?",
+      "words": 51
+    },
+    {
+      "question": "Does a data-only eSIM add a second phone number?",
+      "words": 51
+    },
+    {
+      "question": "Does deleting an eSIM cancel its bill?",
+      "words": 50
+    },
+    {
+      "question": "Can personal apps use the work data allowance?",
+      "words": 52
+    },
+    {
+      "question": "What happens when an employee changes phones?",
+      "words": 52
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 7,
+  "externalSources": 6,
+  "author": {
+    "name": "Spenza",
+    "slug": "isimplexity",
+    "basis": "tie, destination author wins: Spenza 1, Vinaychandra Bharadwaj 1 of 2 posts"
+  },
+  "seoTitleLength": 53,
+  "metaDescriptionLength": 155,
+  "informationGain": 7
+}

@@ -1,0 +1,68 @@
+{
+  "cluster": "M43",
+  "recommended": {
+    "text": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+    "characters": 53
+  },
+  "alternates": [
+    {
+      "text": "Dual SIM with eSIM: A Business Setup and Support Guide",
+      "characters": 54
+    },
+    {
+      "text": "Business Dual-SIM Setup: Compatibility, Data and Costs",
+      "characters": 54
+    }
+  ],
+  "h1": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+  "slug": "dual-sim-esim",
+  "category": "esim",
+  "tags": [
+    "dual SIM",
+    "eSIM for business",
+    "enterprise mobility",
+    "work and personal lines"
+  ],
+  "description": {
+    "text": "Set up dual SIM and eSIM for business with device checks, work and personal line defaults, roaming controls, billing ownership and practical support steps.",
+    "characters": 155
+  },
+  "keyword": "dual SIM eSIM for business",
+  "secondaryKeywords": [
+    "dual SIM",
+    "eSIM for business",
+    "enterprise mobility",
+    "work and personal lines"
+  ],
+  "intent": "Configure and operate work/personal mobile subscriptions with verified compatibility, defaults, billing and support.",
+  "reader": "Enterprise IT, procurement, finance and HR mobility stakeholders",
+  "snippet": {
+    "query": "What is dual SIM eSIM for business?",
+    "format": "paragraph",
+    "exactText": "Dual SIM with eSIM for business lets a compatible phone use separate mobile subscriptions for work, personal use or travel. The setup may combine a physical SIM and an eSIM, or supported dual eSIM profiles. Separate lines give you service choices, but they do not automatically separate apps, work data or device-management permissions."
+  },
+  "bodyWords": 2400,
+  "wordsIncludingTldr": 2534,
+  "ogTitle": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+  "ogDescription": "Set up dual SIM and eSIM for business with device checks, work and personal line defaults, roaming controls, billing ownership and practical support steps.",
+  "excerpt": "Check the device, set each line default and connect dual-SIM service choices to billing, privacy and employee support.",
+  "images": [
+    {
+      "purpose": "Reused published hero, unchanged URL and srcset",
+      "url": "https://media.spenza.com/wp-content/uploads/2021/04/26.png",
+      "alt": "Dual SIM eSIM for Business: Setup, Billing and Limits"
+    },
+    {
+      "purpose": "Conceptual line selectors, not a device screenshot. Available controls and switching behavior depend on the phone and carrier.",
+      "filename": "/blog-media/dual-sim-business/dual-sim-defaults-control.png",
+      "webp": "/blog-media/dual-sim-business/dual-sim-defaults-control.webp",
+      "alt": "Dual SIM eSIM for business needs separate choices for call and message identity and the mobile-data route."
+    },
+    {
+      "purpose": "Two subscriptions share a device failure point. Different carriers do not provide independent handset redundancy.",
+      "filename": "/blog-media/dual-sim-business/dual-sim-shared-device.png",
+      "webp": "/blog-media/dual-sim-business/dual-sim-shared-device.webp",
+      "alt": "Work and personal subscriptions both depend on one phone and its shared battery and hardware."
+    }
+  ]
+}

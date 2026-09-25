@@ -1,0 +1,97 @@
+{
+  "title": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Check the combination",
+    "Set each default",
+    "Follow the charge",
+    "Keep controls distinct",
+    "Test failure and exit"
+  ],
+  "h2": [
+    {
+      "id": "viewer-a0j21",
+      "text": "Why Dual-SIM with eSIM Matters for Business"
+    },
+    {
+      "id": "viewer-6ip9s",
+      "text": "Physical SIM vs eSIM Explained"
+    },
+    {
+      "id": "line-defaults",
+      "text": "How do you set work and personal line defaults?"
+    },
+    {
+      "id": "billing-roaming",
+      "text": "How do billing and roaming work with two lines?"
+    },
+    {
+      "id": "dual-sim-limitations",
+      "text": "Benefits and Limitations of Dual-SIM with eSIM"
+    },
+    {
+      "id": "support-lifecycle",
+      "text": "How do you support and retire a dual-SIM setup?"
+    },
+    {
+      "id": "FAQs",
+      "text": "Dual-SIM business FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/dual-sim-business/dual-sim-defaults-control.png",
+      "currentSrc": "http://localhost:4321/blog-media/dual-sim-business/dual-sim-defaults-control.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/dual-sim-business/dual-sim-shared-device.png",
+      "currentSrc": "http://localhost:4321/blog-media/dual-sim-business/dual-sim-shared-device.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#viewer-a0j21",
+    "#viewer-6ip9s",
+    "#line-defaults",
+    "#billing-roaming",
+    "#dual-sim-limitations",
+    "#support-lifecycle",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "Spenza",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

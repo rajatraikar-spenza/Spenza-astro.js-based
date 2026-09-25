@@ -109,11 +109,74 @@ import m41Content from './esim-vs-physical-sim-airport-decision.html?raw';
 import m37Content from './byod-in-2025-benefits-risks-and-best-practices.html?raw';
 import m31Content from './mobile-plan-management-simplified.html?raw';
 import m40Content from './connectivity-as-a-benefit.html?raw';
+import m43Content from './dual-sim-esim.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "dual-sim-esim": {
+  "slug": "dual-sim-esim",
+  "category": "esim",
+  "cluster": "M43",
+  "title": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+  "seoTitle": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+  "seoDescription": "Set up dual SIM and eSIM for business with device checks, work and personal line defaults, roaming controls, billing ownership and practical support steps.",
+  "excerpt": "Check the device, set each line default and connect dual-SIM service choices to billing, privacy and employee support.",
+  "templateBlocks": {
+    "tldrHeading": "Business dual-SIM setup at a glance",
+    "tldrDescription": "Dual SIM with eSIM lets a compatible phone use separate mobile subscriptions for work, personal use or travel. Confirm the exact device, software and carrier combination, then set call, message and data defaults deliberately. Separate lines do not automatically separate apps or protect work data. Check each plan’s billing and roaming terms, and test activation, recovery and exit before expanding an employee rollout. Both lines still depend on the same phone.",
+    "twoCol": [
+      {
+        "title": "Check the combination",
+        "text": "Verify model, region, software, carriers and active-line limits.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"mobile-screen\"}"
+      },
+      {
+        "title": "Set each default",
+        "text": "Check calls, messages, data and any switching behavior.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"sliders\"}"
+      },
+      {
+        "title": "Follow the charge",
+        "text": "Separate product terms, line ownership and actual usage.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"file-invoice\"}"
+      },
+      {
+        "title": "Keep controls distinct",
+        "text": "A second subscription is not an app privacy boundary.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"shield-halved\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Test failure and exit",
+        "text": "Document recovery, number disposition and final service charges.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2021/04/26.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/26-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/26-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/26-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/26.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2021/04/26.png\" class=\"attachment-full size-full wp-image-6909 webpexpress-processed\" alt=\"Dual-SIM with eSIM for business\" srcset=\"https://media.spenza.com/wp-content/uploads/2021/04/26-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2021/04/26-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2021/04/26-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2021/04/26.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-01-06T09:46:30+00:00",
+  "updatedDate": "2026-09-25T07:35:00.302Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 2500,
+  "donors": [
+    {
+      "path": "/telecom/dual-esim-support-iphone-13/",
+      "title": "Dual eSIM Support on iPhone: Plastic SIM Is Dead",
+      "clicks": 0,
+      "contributes": "Relevant compatibility and dual-profile setup considerations"
+    }
+  ],
+  "content": m43Content
+},
   "connectivity-as-a-benefit": {
   "slug": "connectivity-as-a-benefit",
   "category": "telecom",

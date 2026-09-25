@@ -1,0 +1,133 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "Dual SIM eSIM for Business: Setup, Billing and Limits",
+  "sections": [
+    {
+      "heading": "Why Dual-SIM with eSIM Matters for Business",
+      "answer": "Dual SIM with eSIM gives a business a separate mobile service on a compatible phone without necessarily issuing another handset. Employees can retain a personal subscription while using an approved work line. The value depends on the device, service terms and support process, especially where a role requires reliable incoming calls or clear number ownership.",
+      "words": 208,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "review your enterprise mobile estate"
+        }
+      ]
+    },
+    {
+      "heading": "Physical SIM vs eSIM Explained",
+      "answer": "Physical SIM plus eSIM and dual eSIM are different configurations, and support depends on the exact phone variant, software and carriers. Storing several profiles does not mean all can operate together. Verify the required combination before purchase or activation, including any carrier lock and whether the work plan permits the intended dual-line use.",
+      "words": 253,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://support.apple.com/en-us/109317",
+          "anchor": "Apple’s dual-SIM instructions"
+        },
+        {
+          "url": "https://support.google.com/pixelphone/answer/9449293?hl=en",
+          "anchor": "Google’s Pixel dual-SIM guide"
+        },
+        {
+          "url": "https://www.samsung.com/us/support/answer/ANS10001619/",
+          "anchor": "Samsung’s SIM setup guidance"
+        },
+        {
+          "url": "/telecom/mobile-data-plan-ipad/",
+          "anchor": "iPad mobile plan guide"
+        }
+      ]
+    },
+    {
+      "heading": "How do you set work and personal line defaults?",
+      "answer": "A business dual-SIM setup needs explicit choices for outgoing calls, messages and mobile data. Label the subscriptions clearly, then check the selected line in the phone’s calling and messaging interfaces. Review any automatic data-switching option separately, because a preferred work number does not mean every app uses the work subscription for its data connection.",
+      "words": 342,
+      "h3": [],
+      "tables": 0,
+      "figures": 1,
+      "links": []
+    },
+    {
+      "heading": "How do billing and roaming work with two lines?",
+      "answer": "Dual-SIM billing follows the subscribed products and the services each line actually carries. Separate subscriptions can have separate payers, allowances and roaming terms. Choosing a travel line for mobile data does not establish that calls, messages or the other line are free, and a phone’s data-switching settings can affect which allowance is used.",
+      "words": 315,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.telstra.com.au/content/dam/tcom/lego/2024/small-business/pdf/TelstraBusinessTravelGuide.pdf",
+          "anchor": "Telstra’s business roaming guide"
+        },
+        {
+          "url": "/telecom/mobile-plan-management-simplified/",
+          "anchor": "mobile service reconciliation workflow"
+        },
+        {
+          "url": "/spenza-product/how-to-top-up-your-spenza-account/",
+          "anchor": "account top-up guide"
+        }
+      ]
+    },
+    {
+      "heading": "Benefits and Limitations of Dual-SIM with eSIM",
+      "answer": "Dual SIM can separate subscription identities while reducing the need to carry another phone, but both lines still depend on the same device. Battery loss, damage or theft can affect access to both services. App privacy and business-data controls require their own configuration; the presence of a second SIM does not provide that separation.",
+      "words": 265,
+      "h3": [],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://support.google.com/work/android/answer/7502354?hl=en",
+          "anchor": "Android’s work-profile policy documentation"
+        },
+        {
+          "url": "/mobility-policy/",
+          "anchor": "mobility policy template"
+        }
+      ]
+    },
+    {
+      "heading": "How do you support and retire a dual-SIM setup?",
+      "answer": "Dual-SIM support should identify the affected subscription and service before changing profiles or resetting the device. Check compatibility, activation state, line selection and provider status in order. Retirement also needs a provider-confirmed service decision, number disposition and separate work-access actions; deleting a profile from the phone is not a complete offboarding process.",
+      "words": 457,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://support.apple.com/en-us/118227",
+          "anchor": "Apple’s eSIM deletion guidance"
+        },
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone enterprise MVNO case"
+        },
+        {
+          "url": "/contact-us/",
+          "anchor": "Review your dual-SIM rollout"
+        }
+      ]
+    },
+    {
+      "heading": "Dual-SIM business FAQs",
+      "answer": "Dual-SIM business questions often confuse stored profiles, enabled lines, included services and app behavior. Treat those as separate checks. The answers below describe the operating boundaries; the final setup must still follow the exact phone, carrier and employer policy. Record any model-specific exception in the employee support instructions before rollout.",
+      "words": 402,
+      "h3": [
+        "Can the two lines use different carriers?",
+        "Can three stored profiles all stay active?",
+        "Does a data-only eSIM add a second phone number?",
+        "Does deleting an eSIM cancel its bill?",
+        "Can personal apps use the work data allowance?",
+        "What happens when an employee changes phones?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}
