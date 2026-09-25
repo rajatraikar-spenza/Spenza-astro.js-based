@@ -1,0 +1,134 @@
+{
+  "cluster": "M41",
+  "note": "Final implemented outline, reconciled after writing. Word counts are observed allocations, not a claim that final counts were known in phase 4.",
+  "h1": "Travel eSIM vs Physical SIM: Make the Airport Decision Before You Fly",
+  "sections": [
+    {
+      "heading": "Which travel SIM option fits your trip?",
+      "answer": "The right travel SIM combines a compatible device with the services your itinerary requires. An eSIM changes how a mobile profile reaches the phone; it does not automatically change the network, price or included features. Compare a travel eSIM, a local physical SIM and your existing roaming option against the same requirements.",
+      "bodyWords": 296,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/esim/esim-vs-traditional-sims/",
+          "anchor": "general eSIM and physical SIM comparison"
+        },
+        {
+          "url": "/telecom/sim-card-types-form-factors/",
+          "anchor": "SIM form-factor guide"
+        }
+      ]
+    },
+    {
+      "heading": "What should you check before paying?",
+      "answer": "A travel plan should pass device, coverage, service and timing checks before you buy it. Confirm the exact phone model and regional variant, any carrier restriction, the countries included and the features you need. Then compare the full purchase terms, including top-ups and support, rather than treating the headline allowance as the entire product.",
+      "bodyWords": 331,
+      "h3": [],
+      "tables": 1,
+      "callouts": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://support.apple.com/en-gb/118227",
+          "anchor": "Apple’s international eSIM guidance"
+        },
+        {
+          "url": "/byod/mvno-locked-phone-challenge-guide/",
+          "anchor": "carrier-lock guide"
+        },
+        {
+          "url": "https://www.singtel.com/personal/products-services/mobile/prepaid-plans/hi-tourist/tnc",
+          "anchor": "Singtel’s tourist-plan terms"
+        }
+      ]
+    },
+    {
+      "heading": "When should you install and start the plan?",
+      "answer": "Travel eSIM installation and plan validity are different events, and the provider decides whether they happen together. Read the selected plan’s start rule before downloading its profile. Preparing on a reliable connection can reduce arrival work, but early installation is unsuitable if it starts a validity period you need to preserve for travel.",
+      "bodyWords": 284,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://www.airalo.com/help/getting-started-with-airalo/E8DFWD88SHUX/esim/EQOCBMXDPSB2",
+          "anchor": "Airalo’s validity guidance"
+        }
+      ]
+    },
+    {
+      "heading": "How do you keep your home line under control?",
+      "answer": "A home line and a travel line can serve different purposes on a supported dual-SIM phone, but both need deliberate settings. Select the intended line for mobile data and decide whether the home line should remain available for calls or messages. Keeping that line active can still create charges under the home carrier’s terms.",
+      "bodyWords": 224,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://support.apple.com/en-ie/109317",
+          "anchor": "Apple’s dual-SIM instructions"
+        }
+      ]
+    },
+    {
+      "heading": "What should you do if service fails?",
+      "answer": "A failed travel connection needs diagnosis before a replacement purchase. Establish whether the problem concerns delivery, installation, network access or the plan’s allowance and validity. Keep the purchase reference and relevant settings available for the seller, then follow the product’s support and refund process rather than assuming an installed profile proves usable service.",
+      "bodyWords": 257,
+      "h3": [],
+      "tables": 1,
+      "callouts": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.airalo.com/legal/terms-of-use",
+          "anchor": "Airalo’s service terms"
+        }
+      ]
+    },
+    {
+      "heading": "What should travel sellers prove before offering a plan?",
+      "answer": "A travel seller should prove that a customer can move from payment to installation and usable connectivity, with a clear owner for failures and refunds. Product availability alone does not establish the customer experience. Test the selected devices, plan terms and support handoffs before presenting a connectivity offer as a dependable part of a trip.",
+      "bodyWords": 169,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/blog/angel-watch-iot-business-casestudy/",
+          "anchor": "Angel Watch case"
+        },
+        {
+          "url": "/telecom/white-label-telecom-reseller-guide/",
+          "anchor": "white-label telecom reseller guide"
+        },
+        {
+          "url": "/travel-esim/",
+          "anchor": "review a travel connectivity offer with Spenza"
+        }
+      ]
+    },
+    {
+      "heading": "Travel eSIM and physical SIM FAQs",
+      "answer": "Travel SIM questions usually turn on the selected device, plan and seller rather than the SIM format alone. The answers below clarify common purchase and arrival decisions. Confirm changing coverage, service features and refund conditions against the offer you intend to buy, and retain those details with your receipt.",
+      "bodyWords": 408,
+      "h3": [
+        "Is a travel eSIM always cheaper than an airport SIM?",
+        "Can I install a travel eSIM before departure?",
+        "Will a travel eSIM keep my home number working?",
+        "Do I need a physical SIM to get a local number?",
+        "Does a physical SIM provide better coverage?",
+        "Can I get a refund if the eSIM does not work?"
+      ],
+      "tables": 0,
+      "callouts": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}

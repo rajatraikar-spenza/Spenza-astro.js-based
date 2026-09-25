@@ -1,0 +1,64 @@
+{
+  "cluster": "M41",
+  "recommended": {
+    "text": "Travel eSIM vs Physical SIM: Make the Airport Decision",
+    "characters": 54
+  },
+  "alternates": [
+    {
+      "text": "Travel eSIM vs Physical SIM: Choose Before Your Flight",
+      "characters": 54
+    },
+    {
+      "text": "Airport SIM or Travel eSIM: Check the Plan Before Flying",
+      "characters": 56
+    }
+  ],
+  "h1": "Travel eSIM vs Physical SIM: Make the Airport Decision Before You Fly",
+  "slug": "esim-vs-physical-sim-airport-decision",
+  "category": "esim",
+  "tags": [
+    "travel eSIM",
+    "physical SIM",
+    "airport connectivity",
+    "travel preparation"
+  ],
+  "query": "Should I buy a travel eSIM or a physical SIM at the airport?",
+  "reader": "Traveller comparing a purchase; optional travel seller guidance",
+  "intent": "Informational and purchase comparison",
+  "description": {
+    "text": "Compare travel eSIM and physical SIM choices by device, coverage, validity, calls and refunds. Prepare before flying without assuming either is cheapest.",
+    "characters": 153
+  },
+  "keyword": "travel eSIM vs physical SIM",
+  "secondaryKeywords": [
+    "travel eSIM",
+    "physical SIM",
+    "airport connectivity",
+    "travel preparation"
+  ],
+  "snippet": {
+    "query": "Should I buy a travel eSIM or a physical SIM at the airport?",
+    "format": "paragraph",
+    "exactText": "A travel eSIM is useful when your phone supports it and the plan covers your trip; a physical SIM remains an option when digital installation is unavailable or a suitable local offer fits better. Choose by device compatibility, coverage, calls, validity and total trip cost, rather than assuming either format always wins.",
+    "words": 52
+  },
+  "bodyWords": 2152,
+  "wordsIncludingTldr": 2298,
+  "ogTitle": "Travel eSIM vs Physical SIM: Make the Airport Decision Before You Fly",
+  "ogDescription": "Compare travel eSIM and physical SIM choices by device, coverage, validity, calls and refunds. Prepare before flying without assuming either is cheapest.",
+  "excerpt": "Choose a travel plan by device support, service terms and arrival needs, then prepare a clear setup and refund path.",
+  "images": [
+    {
+      "purpose": "Published title-specific hero, referenced without local copy",
+      "url": "https://media.spenza.com/wp-content/uploads/2026/04/SIM-vs-eSIM-The-Airport-Decision-Every-Traveler-Faces.png",
+      "alt": "Travel eSIM vs Physical SIM: Make the Airport Decision Before You Fly"
+    },
+    {
+      "purpose": "Distinguish installation from plan validity: some plans start at installation, others on a supported network. The branch is the useful visual relationship.",
+      "filename": "/blog-media/travel-sim-choice/travel-esim-two-clocks.png",
+      "webp": "/blog-media/travel-sim-choice/travel-esim-two-clocks.webp",
+      "alt": "Travel eSIM validity may start at installation or on a supported network; check the chosen plan."
+    }
+  ]
+}

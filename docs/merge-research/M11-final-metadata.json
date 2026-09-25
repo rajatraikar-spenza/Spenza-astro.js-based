@@ -1,0 +1,70 @@
+{
+  "cluster": "M11",
+  "recommended": {
+    "text": "White-Label Telecom Reseller: Models and Launch Guide",
+    "characters": 53
+  },
+  "alternates": [
+    {
+      "text": "White-Label Telecom Reseller: Costs and Responsibilities",
+      "characters": 56
+    },
+    {
+      "text": "White-Label Telecom Reseller: Build a Viable Service",
+      "characters": 52
+    }
+  ],
+  "h1": "White-Label Telecom Reseller: Models, Margins and Launch",
+  "slug": "white-label-telecom-reseller-guide",
+  "category": "telecom",
+  "tags": [
+    "telecom reseller",
+    "white-label connectivity",
+    "channel economics",
+    "service operations"
+  ],
+  "query": "What is a white-label telecom reseller?",
+  "reader": "Reseller, ISP, MSP or embedded-connectivity business owner",
+  "intent": "Commercial investigation; middle funnel",
+  "description": {
+    "text": "Build a white-label telecom reseller offer with commercial terms, a margin worksheet, support responsibilities and checks before the first customer sale.",
+    "characters": 153
+  },
+  "keyword": "white label telecom reseller",
+  "secondaryKeywords": [
+    "telecom reseller",
+    "white-label connectivity",
+    "channel economics",
+    "service operations"
+  ],
+  "snippet": {
+    "query": "What is a white-label telecom reseller?",
+    "format": "paragraph",
+    "exactText": "A white-label telecom reseller sells connectivity under its own brand while an upstream provider supplies the network services and supporting platform. The reseller’s commercial responsibility depends on its agreement: branding alone does not establish who bills customers, handles complaints, funds refunds or carries a minimum purchase commitment.",
+    "words": 47
+  },
+  "bodyWords": 2154,
+  "wordsIncludingTldr": 2289,
+  "ogTitle": "White-Label Telecom Reseller: Models, Margins and Launch",
+  "ogDescription": "Build a white-label telecom reseller offer with commercial terms, a margin worksheet, support responsibilities and checks before the first customer sale.",
+  "excerpt": "Define the reseller model, calculate contribution and prove the customer journey before launching branded connectivity.",
+  "images": [
+    {
+      "purpose": "Published title-specific hero, referenced without local copy",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/02/Blog-Thumbnails-8.png",
+      "alt": "White-Label Telecom Reseller: Models, Margins and Launch"
+    },
+    {
+      "purpose": "The service chain and customer support path need explicit owners; arrows show roles, not a technical network topology.",
+      "filename": "/blog-media/telecom-reseller/reseller-service-handoffs.png",
+      "webp": "/blog-media/telecom-reseller/reseller-service-handoffs.webp",
+      "alt": "Network and platform deliver service while the reseller owns the retail relationship and support handoff."
+    },
+    {
+      "purpose": "A conceptual contribution flow. Branch widths and coin counts are illustrative, not measured financial proportions.",
+      "filename": "/blog-media/telecom-reseller/reseller-contribution-flow.png",
+      "webp": "/blog-media/telecom-reseller/reseller-contribution-flow.webp",
+      "alt": "Service revenue funds wholesale and operating costs before contribution remains."
+    }
+  ]
+}

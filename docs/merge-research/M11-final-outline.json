@@ -1,0 +1,142 @@
+{
+  "cluster": "M11",
+  "note": "Final implemented outline, reconciled after writing. Word counts are observed allocations, not a claim that final counts were known in phase 4.",
+  "h1": "White-Label Telecom Reseller: Models, Margins and Launch",
+  "sections": [
+    {
+      "heading": "What does a white-label telecom reseller actually sell?",
+      "answer": "A white-label telecom reseller packages an upstream connectivity service into a branded customer offer. The offer might include mobile data, voice, broadband or connectivity bundled with a device. Product branding, retail pricing and service ownership are separate decisions, so compare the agreement and customer journey before treating two programmes as equivalent.",
+      "bodyWords": 279,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://www.telzlink.com/products/white-label",
+          "anchor": "TelzLink’s white-label description"
+        },
+        {
+          "url": "https://zephyrtelecomms.com/white-label/",
+          "anchor": "Zephyr describes hosted, co-hosted and self-managed deployments"
+        }
+      ]
+    },
+    {
+      "heading": "How do you calculate reseller contribution?",
+      "answer": "Reseller contribution is service revenue less the direct costs of delivering and supporting the offer. The difference between retail price and wholesale rate is only a starting point. Include platform charges, payment costs, support, refunds and contractual commitments before deciding whether a plan can support customer acquisition and business overhead.",
+      "bodyWords": 346,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "/mvno-calculator/",
+          "anchor": "MVNO launch cost calculator"
+        }
+      ]
+    },
+    {
+      "heading": "Which responsibilities stay with the reseller?",
+      "answer": "Reseller responsibilities must cover the complete customer journey, including failures between systems. The brand usually receives the complaint even when another company controls the network. Assign a named owner for customer communication, technical escalation, billing correction and closure, and confirm which upstream team can perform each corrective action.",
+      "bodyWords": 315,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.ofcom.org.uk/phones-and-broadband/accessibility/general-conditions-of-entitlement",
+          "anchor": "Ofcom’s General Conditions"
+        }
+      ]
+    },
+    {
+      "heading": "What must work before the first customer order?",
+      "answer": "A reseller launch is ready when the team can complete a purchase, deliver the right service, explain its status and recover a failed transaction. A branded checkout is one component. Test the links between payment, provisioning, customer instructions, usage records and cancellation before expanding the offer to a wider audience.",
+      "bodyWords": 299,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/byod/mvno-locked-phone-challenge-guide/",
+          "anchor": "carrier-lock and BYOD guide"
+        },
+        {
+          "url": "/telecom/sim-card-types-form-factors/",
+          "anchor": "SIM form-factor guide"
+        },
+        {
+          "url": "https://shopify.dev/docs/apps/build/webhooks",
+          "anchor": "Shopify’s webhook documentation"
+        },
+        {
+          "url": "/mvno/resell-data-plans-shopify/",
+          "anchor": "Shopify data-plan implementation guide"
+        },
+        {
+          "url": "/telecom/telecom-msp-white-label-solutions-2025/",
+          "anchor": "MSP white-label guide"
+        }
+      ]
+    },
+    {
+      "heading": "What does a published deployment establish?",
+      "answer": "A published deployment can establish delivered capabilities and the customer problem they addressed. It cannot establish an unrelated reseller’s margin, launch duration or support performance. RocketPhone is a relevant example because its branded mobile service combined connectivity with an existing software product and included a multi-tier distribution model.",
+      "bodyWords": 195,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone enterprise MVNO case study"
+        }
+      ]
+    },
+    {
+      "heading": "Which reseller path should you take next?",
+      "answer": "The next reseller decision should follow the customer’s job and the operational work your team can own. A travel-data catalogue, an MSP service and connectivity embedded in software need different fulfilment and support processes. Select the narrowest workable offer, establish its contribution model and prove recovery before broadening the catalogue.",
+      "bodyWords": 164,
+      "h3": [],
+      "tables": 0,
+      "callouts": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/telecom/mobile-esim-plans/",
+          "anchor": "mobile eSIM plan guide"
+        },
+        {
+          "url": "/esim/esim-vs-physical-sim-airport-decision/",
+          "anchor": "airport eSIM versus physical SIM decision guide"
+        },
+        {
+          "url": "/mvne/",
+          "anchor": "Spenza’s MVNE team"
+        }
+      ]
+    },
+    {
+      "heading": "White-label telecom reseller FAQs",
+      "answer": "White-label telecom reseller decisions turn on seller identity, service scope and contractual responsibilities. The answers below address common boundaries rather than guaranteed commercial terms. Confirm the agreement for the product and country you intend to sell, and test the customer journey against those terms before accepting a launch commitment.",
+      "bodyWords": 375,
+      "h3": [
+        "Does white labelling make a reseller an MVNO?",
+        "Can a reseller set any retail price?",
+        "Who owns the customer relationship if the supplier changes?",
+        "Can one reseller offer voice and data-only plans?",
+        "Does an eSIM remove all fulfilment work?",
+        "What is the safest way to compare supplier quotes?"
+      ],
+      "tables": 0,
+      "callouts": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}

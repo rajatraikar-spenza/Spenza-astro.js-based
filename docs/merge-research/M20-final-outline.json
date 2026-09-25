@@ -1,0 +1,142 @@
+{
+  "cluster": "M20",
+  "note": "Final implemented outline, reconciled after writing. Word counts are observed allocations, not a claim that final counts were known in phase 4.",
+  "h1": "White-Label Connectivity for MSPs: Quote, Support and Bill",
+  "sections": [
+    {
+      "heading": "What belongs in an MSP connectivity bundle?",
+      "answer": "An MSP connectivity bundle should name the service, customer environment and management tasks included in the price. Separate network access from installation, monitoring, device administration and support. A customer may buy them together, but each component needs an owner and acceptance condition so an attractive package does not hide an unsupported promise.",
+      "bodyWords": 300,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.whitelabelcomm.com/managed-service-providers/",
+          "anchor": "White Label Communications describes an MSP cloud-communications offer"
+        },
+        {
+          "url": "/mvno/mvne-provider-selection/",
+          "anchor": "MVNE provider selection guide"
+        },
+        {
+          "url": "/mvne/",
+          "anchor": "review the platform scope for your MSP offer"
+        }
+      ]
+    },
+    {
+      "heading": "How should an MSP quote white-label connectivity?",
+      "answer": "An MSP quote should connect the customer’s required service to the supplier’s charge basis and the MSP’s operating work. Identify recurring charges, setup tasks, usage exposure, minimum commitments and exclusions. Calculate contribution using the costs of the actual bundle rather than applying a generic margin percentage to a wholesale rate.",
+      "bodyWords": 258,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/byod/mvno-locked-phone-challenge-guide/",
+          "anchor": "carrier-lock and BYOD guide"
+        },
+        {
+          "url": "/telecom/sim-card-types-form-factors/",
+          "anchor": "SIM form-factor guide"
+        },
+        {
+          "url": "/mvno-calculator/",
+          "anchor": "launch cost calculator"
+        }
+      ]
+    },
+    {
+      "heading": "Who owns a connectivity incident?",
+      "answer": "A connectivity incident needs one customer-facing owner and a separate record of who can fix the underlying fault. The MSP may communicate with the customer while a carrier or platform team controls recovery. Define those handoffs, escalation information and update expectations before selling the service, including incidents outside normal support hours.",
+      "bodyWords": 314,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.ofcom.org.uk/phones-and-broadband/accessibility/general-conditions-of-entitlement",
+          "anchor": "Ofcom’s General Conditions"
+        }
+      ]
+    },
+    {
+      "heading": "How should customer accounts and permissions be separated?",
+      "answer": "MSP customer accounts need enforceable boundaries around subscriptions, usage, invoices and administrative actions. A shared portal can provide an MSP overview while limiting each customer to its own resources. Test those boundaries through both the interface and APIs; changing the logo or hiding another customer’s name is not sufficient evidence.",
+      "bodyWords": 235,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://docs.aws.amazon.com/whitepapers/latest/saas-architecture-fundamentals/tenant-isolation.html",
+          "anchor": "AWS distinguishes tenant isolation from authentication"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/partner-center/customers/gdap-introduction",
+          "anchor": "Microsoft’s granular delegated administration model"
+        }
+      ]
+    },
+    {
+      "heading": "How do quoting, usage and billing stay aligned?",
+      "answer": "MSP billing stays explainable when the accepted quote, active services, supplier charges and customer invoice can be reconciled. Preserve the customer and service identifiers through every system. Record effective dates for rate changes and adjustments so finance can explain why a charge belongs to a particular customer and billing period.",
+      "bodyWords": 242,
+      "h3": [],
+      "tables": 0,
+      "callouts": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/mvno/mvno-billing-platforms/",
+          "anchor": "billing platform guide"
+        }
+      ]
+    },
+    {
+      "heading": "What should customer offboarding and launch acceptance include?",
+      "answer": "MSP offboarding should establish who can authorise the change, what services will transfer or terminate, which records will be exported and when access ends. Agree the procedure during onboarding. A pilot is incomplete until the team can close the relationship as carefully as it can create an account and activate service.",
+      "bodyWords": 291,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone case"
+        },
+        {
+          "url": "/spenza-product/butlr-iot-spenza-casestudy/",
+          "anchor": "Butlr case"
+        },
+        {
+          "url": "/mvne/",
+          "anchor": "Spenza’s MVNE team"
+        }
+      ]
+    },
+    {
+      "heading": "White-label connectivity for MSPs FAQs",
+      "answer": "White-label connectivity for MSPs combines a branded customer offer with upstream infrastructure and platform services. The details depend on the product and agreement, so compare operational boundaries before comparing promises. These answers clarify common questions about customer ownership, network choice, support and billing without assuming one arrangement applies to every MSP.",
+      "bodyWords": 377,
+      "h3": [
+        "Does white labelling guarantee ownership of the customer?",
+        "Can an MSP keep an existing carrier agreement?",
+        "Does multi-network access provide automatic failover?",
+        "Should customers contact the carrier directly?",
+        "Can one invoice cover several connectivity services?",
+        "Does SIM management include endpoint security?"
+      ],
+      "tables": 0,
+      "callouts": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}

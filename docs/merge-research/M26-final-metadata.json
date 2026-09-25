@@ -1,0 +1,64 @@
+{
+  "cluster": "M26",
+  "recommended": {
+    "text": "Connectivity Loyalty Programs: Design Useful eSIM Rewards",
+    "characters": 57
+  },
+  "alternates": [
+    {
+      "text": "Connectivity Loyalty Programs: Costs and Measurement",
+      "characters": 52
+    },
+    {
+      "text": "Mobile eSIM Loyalty Rewards: Design a Useful Benefit",
+      "characters": 52
+    }
+  ],
+  "h1": "Connectivity Loyalty Programs: eSIM Rewards That Can Be Measured",
+  "slug": "mobile-esim-plans",
+  "category": "telecom",
+  "tags": [
+    "loyalty programmes",
+    "eSIM rewards",
+    "embedded connectivity",
+    "customer retention"
+  ],
+  "query": "What are connectivity loyalty programs?",
+  "reader": "Loyalty or product lead in travel, membership, fintech or device brands",
+  "intent": "Programme design; middle funnel",
+  "description": {
+    "text": "Design connectivity loyalty programs with eSIM terms, redemption flows, costs and measurement. Separate useful rewards from unproven retention claims.",
+    "characters": 150
+  },
+  "keyword": "connectivity loyalty programs",
+  "secondaryKeywords": [
+    "loyalty programmes",
+    "eSIM rewards",
+    "embedded connectivity",
+    "customer retention"
+  ],
+  "snippet": {
+    "query": "What are connectivity loyalty programs?",
+    "format": "paragraph",
+    "exactText": "Connectivity loyalty programs give eligible members mobile service as a reward, a points redemption or an included membership benefit. Branded mobile eSIM plans can deliver that benefit through an app or portal, but the programme still needs clear coverage, eligibility, redemption and support rules. Providing data does not, by itself, prove higher retention.",
+    "words": 53
+  },
+  "bodyWords": 2173,
+  "wordsIncludingTldr": 2306,
+  "ogTitle": "Connectivity Loyalty Programs: eSIM Rewards That Can Be Measured",
+  "ogDescription": "Design connectivity loyalty programs with eSIM terms, redemption flows, costs and measurement. Separate useful rewards from unproven retention claims.",
+  "excerpt": "Build an eSIM reward around member needs, dependable redemption and a pilot that measures costs and outcomes separately.",
+  "images": [
+    {
+      "purpose": "Published title-specific hero, referenced without local copy",
+      "url": "https://media.spenza.com/wp-content/uploads/2024/12/31.png",
+      "alt": "Connectivity Loyalty Programs: eSIM Rewards That Can Be Measured"
+    },
+    {
+      "purpose": "A conceptual reward journey. Eligibility, claim and usable service are separate events; measurement does not imply a retention result.",
+      "filename": "/blog-media/loyalty-connectivity/loyalty-entitlement-journey.png",
+      "webp": "/blog-media/loyalty-connectivity/loyalty-entitlement-journey.webp",
+      "alt": "Connectivity loyalty programs must turn eligible membership into a claimed reward and usable service."
+    }
+  ]
+}

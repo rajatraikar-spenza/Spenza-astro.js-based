@@ -1,0 +1,64 @@
+{
+  "cluster": "M15",
+  "recommended": {
+    "text": "Resell Data Plans on Shopify: Setup and Delivery Guide",
+    "characters": 54
+  },
+  "alternates": [
+    {
+      "text": "Resell Data Plans on Shopify: Orders to Activation Guide",
+      "characters": 56
+    },
+    {
+      "text": "Shopify Data Plan Resale: Setup, Refunds and Renewals",
+      "characters": 53
+    }
+  ],
+  "h1": "How to Resell Data Plans on Shopify",
+  "slug": "resell-data-plans-shopify",
+  "category": "mvno",
+  "tags": [
+    "Shopify",
+    "data-plan resale",
+    "eSIM provisioning",
+    "digital commerce"
+  ],
+  "query": "How do you resell data plans on Shopify?",
+  "reader": "Commerce owner and integration lead",
+  "intent": "Implementation research; middle to bottom funnel",
+  "description": {
+    "text": "Resell data plans on Shopify with a clear catalogue, activation flow, refund policy and renewal checks. Learn what to test before taking customer orders.",
+    "characters": 153
+  },
+  "keyword": "resell data plans on Shopify",
+  "secondaryKeywords": [
+    "Shopify",
+    "data-plan resale",
+    "eSIM provisioning",
+    "digital commerce"
+  ],
+  "snippet": {
+    "query": "How do you resell data plans on Shopify?",
+    "format": "paragraph",
+    "exactText": "To resell data plans on Shopify, connect a product catalogue and checkout to a connectivity provider that can allocate and manage the purchased service. Map each variant to the correct supplier offer, deliver installation instructions, and reconcile the order with service status. Payment alone does not prove that the customer is connected.",
+    "words": 52
+  },
+  "bodyWords": 2217,
+  "wordsIncludingTldr": 2350,
+  "ogTitle": "How to Resell Data Plans on Shopify",
+  "ogDescription": "Resell data plans on Shopify with a clear catalogue, activation flow, refund policy and renewal checks. Learn what to test before taking customer orders.",
+  "excerpt": "Connect a Shopify order to the right mobile service and handle delivery failures, refunds and renewals deliberately.",
+  "images": [
+    {
+      "purpose": "Published title-specific hero, referenced without local copy",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/05/How-to-Resell-InternetData-Plans-on-Shopify.png",
+      "alt": "How to Resell Data Plans on Shopify"
+    },
+    {
+      "purpose": "Conceptual service states. Support recovery should preserve the original order and avoid a duplicate allocation.",
+      "filename": "/blog-media/shopify-data-plans/shopify-order-service-states.png",
+      "webp": "/blog-media/shopify-data-plans/shopify-order-service-states.webp",
+      "alt": "Resell data plans on Shopify by tracking payment, allocation, installation and connection separately."
+    }
+  ]
+}

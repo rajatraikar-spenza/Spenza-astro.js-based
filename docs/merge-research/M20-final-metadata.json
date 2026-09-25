@@ -1,0 +1,64 @@
+{
+  "cluster": "M20",
+  "recommended": {
+    "text": "White-Label Connectivity for MSPs: An Operations Guide",
+    "characters": 54
+  },
+  "alternates": [
+    {
+      "text": "White-Label Connectivity for MSPs: Quote to Offboard",
+      "characters": 52
+    },
+    {
+      "text": "Telecom MSP White-Label Services: An Operating Guide",
+      "characters": 52
+    }
+  ],
+  "h1": "White-Label Connectivity for MSPs: Quote, Support and Bill",
+  "slug": "telecom-msp-white-label-solutions-2025",
+  "category": "telecom",
+  "tags": [
+    "MSP",
+    "white-label connectivity",
+    "service operations",
+    "telecom billing"
+  ],
+  "query": "What is white-label connectivity for MSPs?",
+  "reader": "MSP service owner and operations lead",
+  "intent": "Commercial investigation; middle funnel",
+  "description": {
+    "text": "Design white-label connectivity for MSPs with clear bundles, customer boundaries, ticket ownership, billing checks and a customer offboarding process.",
+    "characters": 150
+  },
+  "keyword": "white label connectivity for MSPs",
+  "secondaryKeywords": [
+    "MSP",
+    "white-label connectivity",
+    "service operations",
+    "telecom billing"
+  ],
+  "snippet": {
+    "query": "What is white-label connectivity for MSPs?",
+    "format": "paragraph",
+    "exactText": "White-label connectivity for MSPs lets a managed service provider offer branded mobile, IoT, broadband or voice services using an upstream provider’s infrastructure. The MSP still needs a defined operating model for quoting, customer access, support, billing and exit. A branded portal alone does not establish those responsibilities or guarantee a particular margin.",
+    "words": 52
+  },
+  "bodyWords": 2176,
+  "wordsIncludingTldr": 2304,
+  "ogTitle": "White-Label Connectivity for MSPs: Quote, Support and Bill",
+  "ogDescription": "Design white-label connectivity for MSPs with clear bundles, customer boundaries, ticket ownership, billing checks and a customer offboarding process.",
+  "excerpt": "Build an MSP connectivity service your teams can quote, support, reconcile and hand over when a customer leaves.",
+  "images": [
+    {
+      "purpose": "Published title-specific hero, referenced without local copy",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/01/Blog-Thumbnails-9.png",
+      "alt": "White-Label Connectivity for MSPs: Quote, Support and Bill"
+    },
+    {
+      "purpose": "Conceptual account boundaries. The illustration describes the acceptance requirement, not a security certification or deployed architecture.",
+      "filename": "/blog-media/msp-connectivity/msp-customer-boundaries.png",
+      "webp": "/blog-media/msp-connectivity/msp-customer-boundaries.webp",
+      "alt": "White-label connectivity for MSPs needs separate customer records and permissions under shared administration."
+    }
+  ]
+}

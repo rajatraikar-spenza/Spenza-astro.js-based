@@ -8,8 +8,6 @@ Registered status: preview. Author: SivaSai / sivasai; no flip. Author-only byli
 
 Before: 3700 combined live body words (2 posts). After: 2298 words including the merged TL;DR (2152 body words). 0 em dashes, 0 en dashes, 6 internal destinations, 5 external sources, 3 tables, 1 body figures. Exact H2/FAQ answer lengths and metadata lengths: M41-content-qa.json. Link responses: M41-link-check.json.
 
-Editorial scorecard: intent 9; structure 9; technical scope 8; evidence attribution 8; information gain **7, held**; clarity 9; linking 9; image usefulness 8. These are editorial judgments, not automated or comparative supplier scores. The missing first-hand evidence remains in the research artifact and consolidated hub request document.
-
 Gate and Astro results are recorded after the final validation below. Browser validation is in M41-browser-qa.json: five TL;DR cards with icons, loaded images, responsive tables, click/keyboard FAQ expansion, noindex/nofollow, no canonical or extra schema graph, no unresolved slots.
 
 ## Image handoff
@@ -24,7 +22,7 @@ At eventual publication, update the existing Yoast Article headline to “Travel
 
 - /esim/esim-for-travellers/ -> /esim/esim-vs-physical-sim-airport-decision/
 
-These are proposed future mappings only. No redirects or WordPress changes made. Search inbound references to each donor before publication, then point them directly to the destination. Current article links avoid every donor in the full merge plan. Preserve existing destination/category and retained heading anchors documented in the Merge Map.
+These are proposed future mappings only. No redirects or WordPress changes made. The observed built-site inbound references are inventoried in RESELLER-inbound-links.json; refresh that inventory before publication, then point those links directly to the destination. Current article links avoid every donor in the full merge plan. Preserve existing destination/category and retained heading anchors documented in the Merge Map.
 
 ## Output G: QA scorecard
 
@@ -44,3 +42,7 @@ These are proposed future mappings only. No redirects or WordPress changes made.
 | Merge completeness | 8 | Preserves useful checklist and setup intent; removes unsupported claims |
 
 Final validation: merge:qa M41 PASS; Astro 0 errors, 0 warnings, 72 existing hints. Browser PASS after final edits. PNG/WebP visually inspected after optimisation, labels intact. CSS optimisation completed; unrelated baseline bundle churn excluded. Full hub link inventory and consolidated requests follow in the final handoff.
+
+Final handoff: [Output A](M41-final-metadata.json), [final implemented Output C](M41-final-outline.json), [Output E](M41-link-plan.md), [consolidated human inputs](RESELLER-evidence-requests.md). These final metadata values supersede draft wording/counts in phase 4. Scores are editorial judgments; information gain remains 7 and is accepted for preview under the current user instruction.
+
+Post-publication actions, deferred: execute the approved redirect and inbound-link plan, remove retired source URLs from the sitemap, request destination indexing in GSC, submit to Bing through IndexNow, then measure at 14, 28 and 56 days. Current run performs none of these publishing actions.

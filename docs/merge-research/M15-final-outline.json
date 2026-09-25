@@ -1,0 +1,137 @@
+{
+  "cluster": "M15",
+  "note": "Final implemented outline, reconciled after writing. Word counts are observed allocations, not a claim that final counts were known in phase 4.",
+  "h1": "How to Resell Data Plans on Shopify",
+  "sections": [
+    {
+      "heading": "What does Shopify handle, and what needs a connectivity platform?",
+      "answer": "Shopify handles the commerce side of a data-plan offer: product presentation, checkout, orders and supported payment workflows. A connectivity platform supplies the service-side operations defined in its contract. The integration must connect those records without treating a successful checkout, an allocated subscription and a working device as the same event.",
+      "bodyWords": 198,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://help.shopify.com/en/manual/products/digital-service-product",
+          "anchor": "Shopify supports digital products and services"
+        },
+        {
+          "url": "/mvne/",
+          "anchor": "review the connectivity platform scope"
+        }
+      ]
+    },
+    {
+      "heading": "How should data plans be represented in the catalogue?",
+      "answer": "A Shopify data-plan catalogue needs a stable mapping between each sellable variant and its supplier offer. Describe the service the buyer receives, including coverage, allowance, validity and device requirements. Store the supplier reference and version separately from the public product name so a merchandising change cannot silently change the provisioned service.",
+      "bodyWords": 290,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/byod/mvno-locked-phone-challenge-guide/",
+          "anchor": "BYOD carrier-lock guide"
+        },
+        {
+          "url": "/telecom/sim-card-types-form-factors/",
+          "anchor": "SIM types and form factors"
+        },
+        {
+          "url": "/telecom/mobile-esim-plans/",
+          "anchor": "mobile eSIM plan guide"
+        }
+      ]
+    },
+    {
+      "heading": "How does a purchase become a working service?",
+      "answer": "A data-plan purchase becomes a working service through separate payment, allocation, delivery, installation and connection steps. The exact flow depends on the provider and device. Keep an auditable link between the Shopify order line and the resulting subscription, and expose a clear pending or failed state when a step has not completed.",
+      "bodyWords": 300,
+      "h3": [],
+      "tables": 0,
+      "callouts": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://shopify.dev/docs/apps/build/webhooks",
+          "anchor": "Shopify’s webhook documentation"
+        },
+        {
+          "url": "/mvno/subscriber-management-system-guide/",
+          "anchor": "subscriber management guide"
+        }
+      ]
+    },
+    {
+      "heading": "How should fulfilment failures be handled?",
+      "answer": "Fulfilment failures need an explicit recovery path that preserves the original order and prevents duplicate service allocation. Record the failed step, current provider state and next owner. Give customers a meaningful update while the issue is investigated, and avoid asking them to repurchase merely because an integration response was delayed.",
+      "bodyWords": 280,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": []
+    },
+    {
+      "heading": "What are the limits around refunds and recurring billing?",
+      "answer": "A Shopify refund, a subscription cancellation and a telecom service termination are separate actions. A merchant must coordinate them according to the product terms and applicable requirements. Recurring commerce charges also need a defined relationship to connectivity renewal; a successful payment cannot guarantee that a bundle, number or service entitlement renewed correctly.",
+      "bodyWords": 336,
+      "h3": [],
+      "tables": 1,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://help.shopify.com/en/manual/payments/shopify-payments/refunds-troubleshooting",
+          "anchor": "Shopify documents pending and failed refund states"
+        },
+        {
+          "url": "https://shopify.dev/docs/apps/build/purchase-options/subscriptions",
+          "anchor": "Shopify subscriptions"
+        },
+        {
+          "url": "/mvno-calculator/",
+          "anchor": "launch cost calculator"
+        }
+      ]
+    },
+    {
+      "heading": "What evidence should support a Shopify launch?",
+      "answer": "A Shopify connectivity launch should be supported by a scoped customer example and a tested transaction flow for the proposed configuration. Published platform capabilities help establish relevance, but acceptance requires evidence from your own catalogue, payment setup and support process. Keep documented outcomes separate from assumptions about launch speed or profitability.",
+      "bodyWords": 263,
+      "h3": [],
+      "tables": 0,
+      "callouts": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/blog/angel-watch-iot-business-casestudy/",
+          "anchor": "Angel Watch case study"
+        },
+        {
+          "url": "/mvne/",
+          "anchor": "Spenza’s connectivity team"
+        }
+      ]
+    },
+    {
+      "heading": "Shopify data-plan resale FAQs",
+      "answer": "Shopify data-plan resale depends on the service product and integration, not just the storefront theme. The following answers address purchase, delivery and lifecycle boundaries that often cause confusion. Confirm the supported behaviour for the chosen provider and device, and keep customer-facing promises consistent with the tested configuration and commercial agreement.",
+      "bodyWords": 387,
+      "h3": [
+        "Can a device and data plan share one checkout?",
+        "Does receiving a QR code mean the eSIM is active?",
+        "Can the same customer buy another plan?",
+        "Does refunding an order automatically stop the mobile service?",
+        "Is a no-code Shopify launch always possible?",
+        "Can every data plan become a monthly subscription?"
+      ],
+      "tables": 0,
+      "callouts": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}
