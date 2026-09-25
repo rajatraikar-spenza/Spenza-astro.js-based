@@ -104,11 +104,74 @@ import m44Content from './must-attend-iot-and-mvno-events-in-2026.html?raw';
 import m11Content from './white-label-telecom-reseller-guide.html?raw';
 import m15Content from './resell-data-plans-shopify.html?raw';
 import m20Content from './telecom-msp-white-label-solutions-2025.html?raw';
+import m26Content from './mobile-esim-plans.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "mobile-esim-plans": {
+  "slug": "mobile-esim-plans",
+  "category": "telecom",
+  "cluster": "M26",
+  "title": "Connectivity Loyalty Programs: eSIM Rewards That Can Be Measured",
+  "seoTitle": "Connectivity Loyalty Programs: Design Useful eSIM Rewards",
+  "seoDescription": "Design connectivity loyalty programs with eSIM terms, redemption flows, costs and measurement. Separate useful rewards from unproven retention claims.",
+  "excerpt": "Build an eSIM reward around member needs, dependable redemption and a pilot that measures costs and outcomes separately.",
+  "templateBlocks": {
+    "tldrHeading": "Connectivity loyalty programmes at a glance",
+    "tldrDescription": "Connectivity loyalty programmes turn mobile service into a member benefit through points, subscriptions or qualifying purchases. The reward needs clear eligibility, service terms and a dependable redemption process. Measure whether members can use the benefit and what delivery costs before claiming retention or revenue gains. Published device-connectivity cases support deployment capabilities, but a loyalty outcome needs its own approved evidence.",
+    "twoCol": [
+      {
+        "title": "Choose the benefit",
+        "text": "Separate points redemption, included membership data and purchase-linked rewards.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"gift\"}"
+      },
+      {
+        "title": "Explain the terms",
+        "text": "State coverage, allowance, validity, compatibility and any paid continuation.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}"
+      },
+      {
+        "title": "Track usable service",
+        "text": "A claimed entitlement is different from installed and working connectivity.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"signal\"}"
+      },
+      {
+        "title": "Measure the full cost",
+        "text": "Include supplier charges, delivery, support and adjustments with a clear denominator.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"calculator\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Prove the business outcome",
+        "text": "Use a defined cohort and comparison method before attributing retention gains.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"chart-line\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2024/12/31.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/12/31.png\" class=\"attachment-full size-full wp-image-6924 webpexpress-processed\" alt=\"Monetizing Brand Loyalty with Spenza Mobile eSIM Plans\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/12/31-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/31-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/31-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/31.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Connectivity Loyalty Programs: eSIM Rewards That Can Be Measured",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-04-07T05:18:00+00:00",
+  "updatedDate": "2026-09-25T06:20:42.271Z",
+  "authorSlug": "vinay",
+  "authorName": "Vinaychandra Bharadwaj",
+  "authorBio": "",
+  "destinationWords": 1455,
+  "donors": [
+    {
+      "path": "/telecom/esim-data-plans/",
+      "title": "eSIM Data Plans: Reinventing Loyalty Programs",
+      "clicks": 4,
+      "contributes": "Brand loyalty offer examples and data bundle mechanics. Source sections to inspect: The Limitations of Traditional Loyalty Rewards; eSIM Data Plans: A Transformative Tool for Loyalty Programs; Technology Advantages of eSIM Integration; Insights-Driven Engagement"
+    }
+  ],
+  "content": m26Content
+},
   "telecom-msp-white-label-solutions-2025": {
   "slug": "telecom-msp-white-label-solutions-2025",
   "category": "telecom",

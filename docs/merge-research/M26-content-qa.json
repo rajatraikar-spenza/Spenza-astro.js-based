@@ -1,0 +1,77 @@
+{
+  "cluster": "M26",
+  "beforeBodyWords": 2543,
+  "destinationBodyWords": 1455,
+  "afterBodyWords": 2173,
+  "afterIncludingTldr": 2306,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "Which connectivity loyalty model fits the member need?",
+      "words": 51
+    },
+    {
+      "heading": "What must the eSIM reward terms explain?",
+      "words": 51
+    },
+    {
+      "heading": "How does a reward become usable connectivity?",
+      "words": 52
+    },
+    {
+      "heading": "How should the programme’s cost be calculated?",
+      "words": 52
+    },
+    {
+      "heading": "How can the team measure loyalty without overstating the result?",
+      "words": 50
+    },
+    {
+      "heading": "What data and published evidence should support the pilot?",
+      "words": 52
+    },
+    {
+      "heading": "Connectivity loyalty programs FAQs",
+      "words": 51
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is a branded eSIM reward the same as a retail data discount?",
+      "words": 48
+    },
+    {
+      "question": "Does a data reward include calls and SMS?",
+      "words": 46
+    },
+    {
+      "question": "Should points be restored after an installation failure?",
+      "words": 48
+    },
+    {
+      "question": "Can an included reward automatically become a paid plan?",
+      "words": 47
+    },
+    {
+      "question": "Does a higher claim rate prove improved retention?",
+      "words": 46
+    },
+    {
+      "question": "Must every member receive the same data reward?",
+      "words": 48
+    }
+  ],
+  "tables": 3,
+  "figures": 1,
+  "internalLinks": 8,
+  "externalSources": 4,
+  "author": {
+    "name": "Vinaychandra Bharadwaj",
+    "slug": "vinay",
+    "basis": "majority: Vinaychandra Bharadwaj 2 of 2 posts"
+  },
+  "seoTitleLength": 57,
+  "metaDescriptionLength": 150,
+  "informationGain": 7
+}

@@ -1,0 +1,59 @@
+{
+  "cluster": "M26",
+  "images": [
+    {
+      "kind": "featured",
+      "width": "1280",
+      "height": "720",
+      "src": "https://media.spenza.com/wp-content/uploads/2024/12/31.png",
+      "class": "attachment-full size-full wp-image-6924 webpexpress-processed",
+      "alt": "Monetizing Brand Loyalty with Spenza Mobile eSIM Plans",
+      "srcset": "https://media.spenza.com/wp-content/uploads/2024/12/31-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/31-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/31-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/31.png 1280w",
+      "sizes": "(max-width: 1280px) 100vw, 1280px",
+      "fetchpriority": "high",
+      "decoding": "async",
+      "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/12/31.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/12/31.png\" class=\"attachment-full size-full wp-image-6924 webpexpress-processed\" alt=\"Monetizing Brand Loyalty with Spenza Mobile eSIM Plans\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/12/31-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/12/31-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/12/31-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/12/31.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+      "path": "/telecom/mobile-esim-plans/",
+      "decision": "keep",
+      "reason": "Keep destination published hero: branded mobile plans and loyalty match the retained intent."
+    },
+    {
+      "kind": "body",
+      "loading": "lazy",
+      "decoding": "async",
+      "src": "https://media.spenza.com/wp-content/uploads/2024/09/pexels-jacob-2102693-26559664-1-1024x679.jpg",
+      "alt": "Monetizing Brand Loyalty: Leveraging Spenza for Building a Mobile eSIM Business",
+      "class": "uag-image-6173",
+      "width": "1024",
+      "height": "683",
+      "title": "",
+      "role": "img",
+      "markup": "<img loading=\"lazy\" decoding=\"async\" src=\"https://media.spenza.com/wp-content/uploads/2024/09/pexels-jacob-2102693-26559664-1-1024x679.jpg\" alt=\"Monetizing Brand Loyalty: Leveraging Spenza for Building a Mobile eSIM Business\" class=\"uag-image-6173\" width=\"1024\" height=\"683\" title=\"\" role=\"img\">",
+      "path": "/telecom/mobile-esim-plans/",
+      "decision": "reject",
+      "reason": "Reject: travel-object stock photograph adds no reward mechanics."
+    },
+    {
+      "kind": "featured",
+      "width": "1280",
+      "height": "720",
+      "src": "https://media.spenza.com/wp-content/uploads/2024/09/4.png",
+      "class": "attachment-full size-full wp-image-6597 webpexpress-processed",
+      "alt": "eSIM Data Plans: Reinventing Loyalty Programs",
+      "srcset": "https://media.spenza.com/wp-content/uploads/2024/09/4-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/09/4-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/09/4-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/09/4.png 1280w",
+      "sizes": "(max-width: 1280px) 100vw, 1280px",
+      "fetchpriority": "high",
+      "decoding": "async",
+      "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/09/4-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/09/4-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/09/4-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2024/09/4.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2024/09/4.png\" class=\"attachment-full size-full wp-image-6597 webpexpress-processed\" alt=\"eSIM Data Plans: Reinventing Loyalty Programs\" srcset=\"https://media.spenza.com/wp-content/uploads/2024/09/4-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2024/09/4-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2024/09/4-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2024/09/4.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+      "path": "/telecom/esim-data-plans/",
+      "decision": "reject",
+      "reason": "Reject: duplicate donor loyalty hero; destination hero already covers the merged scope."
+    }
+  ],
+  "newSlots": [
+    {
+      "name": "loyalty-entitlement-journey",
+      "teaches": "A member benefit must become a claimed entitlement and usable connectivity before it can be evaluated as a reward."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "title": "Connectivity Loyalty Programs: Design Useful eSIM Rewards",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Choose the benefit",
+    "Explain the terms",
+    "Track usable service",
+    "Measure the full cost",
+    "Prove the business outcome"
+  ],
+  "h2": [
+    {
+      "id": "reward-models",
+      "text": "Which connectivity loyalty model fits the member need?"
+    },
+    {
+      "id": "reward-terms",
+      "text": "What must the eSIM reward terms explain?"
+    },
+    {
+      "id": "redemption",
+      "text": "How does a reward become usable connectivity?"
+    },
+    {
+      "id": "programme-cost",
+      "text": "How should the programme’s cost be calculated?"
+    },
+    {
+      "id": "measurement",
+      "text": "How can the team measure loyalty without overstating the result?"
+    },
+    {
+      "id": "data-and-proof",
+      "text": "What data and published evidence should support the pilot?"
+    },
+    {
+      "id": "FAQs",
+      "text": "Connectivity loyalty programs FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/loyalty-connectivity/loyalty-entitlement-journey.png",
+      "currentSrc": "http://localhost:4321/blog-media/loyalty-connectivity/loyalty-entitlement-journey.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#reward-models",
+    "#reward-terms",
+    "#redemption",
+    "#programme-cost",
+    "#measurement",
+    "#data-and-proof",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "Vinaychandra Bharadwaj",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
