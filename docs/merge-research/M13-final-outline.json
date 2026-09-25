@@ -1,0 +1,136 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "Telecom Expense Audit: Workflow and Downloadable Checklist",
+  "sections": [
+    {
+      "heading": "What does a telecom expense audit establish?",
+      "answer": "A telecom expense audit establishes whether selected charges agree with the evidence available for a defined service population and period. The audit can identify missing records, unsupported charges or necessary corrections. A billing review does not certify legal compliance, establish tax treatment or guarantee that a supplier will accept a requested refund.",
+      "words": 263,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://etma.org/what-is-telecom-expense-management-2/",
+          "anchor": "ETMA expense-management scope"
+        },
+        {
+          "url": "https://www.irs.gov/publications/p510",
+          "anchor": "IRS Publication 510"
+        },
+        {
+          "url": "/contact-us/",
+          "anchor": "connectivity billing review"
+        }
+      ]
+    },
+    {
+      "heading": "Which records make an invoice test reproducible?",
+      "answer": "A reproducible telecom invoice test needs the original charge, the terms effective for its service period and an independent service record. Preserve identifiers and dates across all three. Add order or cancellation evidence when a change affects the charge, and keep the analyst's interpretation separate from the underlying documents.",
+      "words": 277,
+      "h3": [
+        "Match identifiers before testing arithmetic"
+      ],
+      "tables": 0,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://www.finops.org/framework/capabilities/data-ingestion/",
+          "anchor": "FinOps data ingestion framework"
+        }
+      ]
+    },
+    {
+      "heading": "Telecom Expense Audit Checklist",
+      "answer": "The telecom expense audit checklist below preserves seven practical activities, from invoice collection through ongoing governance. Complete each check for the agreed population and record its evidence, owner and outcome. A checked box should mean the work was documented, not that the account necessarily contains an error or produces a saving.",
+      "words": 411,
+      "h3": [
+        "1. Collect and organize invoices",
+        "2. Verify invoice accuracy",
+        "3. Analyze usage and plan fit",
+        "4. Review vendor contracts",
+        "5. Reconcile equipment and services",
+        "6. Test tooling and operating responsibility",
+        "7. Continue monitoring and governance"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/blog-downloads/telecom-expense-audit-checklist.csv",
+          "anchor": "Download the editable CSV"
+        },
+        {
+          "url": "/blog-downloads/telecom-expense-audit-checklist.pdf",
+          "anchor": "printable audit checklist PDF"
+        },
+        {
+          "url": "/tem/business-mobile-cost-quality/",
+          "anchor": "business mobile cost guide"
+        }
+      ]
+    },
+    {
+      "heading": "How do findings become verified corrections?",
+      "answer": "Telecom audit findings become verified corrections through investigation, approval, supplier action and reconciliation. Keep each stage separate because a proposed dispute can be rejected or only partly accepted. Close a financial finding when the actual adjustment is matched to its original charge and Finance confirms the recorded outcome.",
+      "words": 373,
+      "h3": [
+        "Worked example: a charge after a cancellation request"
+      ],
+      "tables": 1,
+      "figures": 0,
+      "links": []
+    },
+    {
+      "heading": "How to Keep Telecom Costs Down After the Audit",
+      "answer": "Ongoing telecom expense control keeps the audit's records and decisions current as services change. Assign owners for inventory updates, invoice checks, contract dates and unresolved supplier work. Repeat the relevant checks on later billing periods; an initial correction does not establish that the same problem cannot return.",
+      "words": 317,
+      "h3": [],
+      "tables": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "https://www.gao.gov/greenbook",
+          "anchor": "GAO Green Book"
+        },
+        {
+          "url": "/spenza-product/butlr-iot-spenza-casestudy/",
+          "anchor": "Butlr regional connectivity case"
+        },
+        {
+          "url": "/connectivity-revenue-optimization/",
+          "anchor": "connectivity billing controls"
+        },
+        {
+          "url": "/tem/telecom-expense-management-implementation/",
+          "anchor": "TEM implementation guide"
+        },
+        {
+          "url": "/mvno/mvno-telecom-reseller-revenue-leakage/",
+          "anchor": "provider revenue assurance"
+        }
+      ]
+    },
+    {
+      "heading": "FAQs about telecom expense audits",
+      "answer": "Telecom expense audit requirements depend on the service, contract, review period and evidence available. The following answers clarify practical choices without assuming a standard recovery rate or universal dispute rule. Define those conditions with the responsible owners before approving service changes, making a financial claim or interpreting a compliance issue.",
+      "words": 479,
+      "h3": [
+        "How far back should the audit review invoices?",
+        "Does an unused line automatically qualify for a refund?",
+        "Can a telecom audit find no billing errors?",
+        "Should disputed invoices simply go unpaid?",
+        "Can automation replace the audit team?",
+        "How often should the checklist be repeated?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "Plan a scoped billing review"
+        }
+      ]
+    }
+  ]
+}

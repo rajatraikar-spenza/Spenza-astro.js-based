@@ -112,11 +112,74 @@ import m40Content from './connectivity-as-a-benefit.html?raw';
 import m43Content from './dual-sim-esim.html?raw';
 import m06Content from './what-is-telecom-expense-management-tem.html?raw';
 import m10Content from './business-mobile-cost-quality.html?raw';
+import m13Content from './telecom-compliance-audits.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "telecom-compliance-audits": {
+  "slug": "telecom-compliance-audits",
+  "category": "tem",
+  "title": "Telecom Expense Audit: Workflow and Downloadable Checklist",
+  "seoTitle": "Telecom Expense Audit: Checklist and Evidence Workflow",
+  "seoDescription": "Run a telecom expense audit with contract and invoice checks, a downloadable checklist, an exception log and evidence to confirm each completed correction.",
+  "cluster": "M13",
+  "excerpt": "Use one practical checklist to connect invoices, contracts, services and verified corrections, with editable CSV and printable PDF copies.",
+  "templateBlocks": {
+    "tldrHeading": "Telecom expense audit at a glance",
+    "tldrDescription": "A telecom expense audit compares billed charges with applicable contracts, service inventory and usage evidence. Define the population and period, follow the checklist, and attach source records to every finding. Keep suspected errors, supplier acceptance and posted adjustments separate. The downloadable CSV and PDF preserve the same checks for team use. Billing validation does not establish legal compliance or tax treatment, and no recovery amount should be assumed before the relevant outcome is verified.",
+    "twoCol": [
+      {
+        "title": "Define the scope",
+        "text": "Name the accounts, periods, services and exclusions before reviewing charges.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"filter\"}"
+      },
+      {
+        "title": "Keep the source trail",
+        "text": "Attach the invoice, applicable terms and independent service record.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"paperclip\"}"
+      },
+      {
+        "title": "Use the checklist",
+        "text": "Fourteen checks cover seven activities, with editable and printable copies.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}"
+      },
+      {
+        "title": "Close with evidence",
+        "text": "Match the actual supplier action and financial adjustment to the finding.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"receipt\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Carry controls forward",
+        "text": "Keep unresolved work, record ownership and later billing checks visible.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"arrows-rotate\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png\" class=\"attachment-full size-full wp-image-8048 webpexpress-processed\" alt=\"How to perform a telecom expense audit - A checklist\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Telecom Expense Audit: Workflow and Downloadable Checklist",
+  "featuredImageWidth": 1280,
+  "featuredImageHeight": 720,
+  "publishedDate": "2026-03-11T10:31:03+00:00",
+  "updatedDate": "2026-09-25T08:18:47.393Z",
+  "authorSlug": "sivasai",
+  "authorName": "SivaSai",
+  "authorBio": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO & AI Search | Email Campaigns & Funnels | AI-driven B2B SaaS Growth",
+  "destinationWords": 3161,
+  "donors": [
+    {
+      "path": "/tem/telecom-expense-audit-checklist/",
+      "title": "TEM Audit Checklist: How to Run a Telecom Expense Audit",
+      "clicks": 14,
+      "contributes": "Actionable checklist and evidence collection requirements. Source sections to inspect: Table of Contents; Introduction; Why Perform a Telecom Expense Audit?; Telecom Expense Audit Checklist"
+    }
+  ],
+  "content": m13Content
+},
   "business-mobile-cost-quality": {
   "slug": "business-mobile-cost-quality",
   "category": "tem",

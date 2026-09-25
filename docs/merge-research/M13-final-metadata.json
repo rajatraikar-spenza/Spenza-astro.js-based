@@ -1,0 +1,68 @@
+{
+  "cluster": "M13",
+  "recommended": {
+    "text": "Telecom Expense Audit: Checklist and Evidence Workflow",
+    "characters": 54
+  },
+  "alternates": [
+    {
+      "text": "Telecom Expense Audit Guide: From Checklist to Credits",
+      "characters": 54
+    },
+    {
+      "text": "Telecom Audit Checklist for Billing and Contract Checks",
+      "characters": 55
+    }
+  ],
+  "h1": "Telecom Expense Audit: Workflow and Downloadable Checklist",
+  "slug": "telecom-compliance-audits",
+  "category": "tem",
+  "tags": [
+    "telecom expense audit",
+    "telecom audit checklist",
+    "billing reconciliation",
+    "recovery tracking"
+  ],
+  "description": {
+    "text": "Run a telecom expense audit with contract and invoice checks, a downloadable checklist, an exception log and evidence to confirm each completed correction.",
+    "characters": 155
+  },
+  "keyword": "telecom expense audit",
+  "secondaryKeywords": [
+    "telecom expense audit",
+    "telecom audit checklist",
+    "billing reconciliation",
+    "recovery tracking"
+  ],
+  "intent": "Practical informational workflow and mid-funnel evaluation",
+  "reader": "Telecom finance, revenue assurance, procurement and operations",
+  "snippet": {
+    "query": "What is a telecom expense audit?",
+    "format": "paragraph",
+    "exactText": "A telecom expense audit checks billed services against applicable contracts, service inventory and usage records. The audit documents differences, assigns investigation and follows approved corrections through supplier confirmation and financial reconciliation. A useful audit produces evidence for each finding, rather than assuming every unusual charge is an error or a recoverable amount."
+  },
+  "bodyWords": 2265,
+  "wordsIncludingTldr": 2411,
+  "ogTitle": "Telecom Expense Audit: Workflow and Downloadable Checklist",
+  "ogDescription": "Run a telecom expense audit with contract and invoice checks, a downloadable checklist, an exception log and evidence to confirm each completed correction.",
+  "excerpt": "Use one practical checklist to connect invoices, contracts, services and verified corrections, with editable CSV and printable PDF copies.",
+  "images": [
+    {
+      "purpose": "Reused published hero, unchanged URL and srcset",
+      "url": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png",
+      "alt": "Telecom Expense Audit: Workflow and Downloadable Checklist"
+    },
+    {
+      "purpose": "Conceptual evidence pack. Keep source facts and supplier responses attached to the specific finding; the illustration is not a customer record.",
+      "filename": "/blog-media/telecom-expense-audit/audit-evidence-dossier.png",
+      "webp": "/blog-media/telecom-expense-audit/audit-evidence-dossier.webp",
+      "alt": "A telecom expense audit finding stays attached to its invoice, contract, service record and supplier response."
+    },
+    {
+      "purpose": "A snapshot covers its defined period. Later invoices still need reconciliation after a service or contract changes.",
+      "filename": "/blog-media/telecom-expense-audit/audit-snapshot-continuity.png",
+      "webp": "/blog-media/telecom-expense-audit/audit-snapshot-continuity.webp",
+      "alt": "An audit inspects one period while continuing controls follow the same service through later billing cycles."
+    }
+  ]
+}

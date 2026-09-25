@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-09-25T08:19:57.548Z",
+  "ids": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A13",
+    "A14"
+  ],
+  "click": true,
+  "keyboard": true,
+  "downloads": [
+    {
+      "type": "csv",
+      "filename": "telecom-expense-audit-checklist.csv",
+      "bytes": 2165
+    },
+    {
+      "type": "pdf",
+      "filename": "telecom-expense-audit-checklist.pdf",
+      "bytes": 89360
+    }
+  ],
+  "pdfPages": 2,
+  "pdfVisualCheck": "Both rendered A4 pages inspected: all 14 IDs present, no clipping, writing fields and scope caveat readable.",
+  "consistency": "All fourteen checks identical in HTML, CSV and printable source."
+}

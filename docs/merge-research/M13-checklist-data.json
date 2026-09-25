@@ -1,0 +1,71 @@
+{
+  "version": "2026-09-25",
+  "checks": [
+    {
+      "id": "A01",
+      "check": "List suppliers, accounts, service types, review dates and exclusions; reconcile expected invoices to received files."
+    },
+    {
+      "id": "A02",
+      "check": "Attach original invoice detail, applicable contracts, amendments and order records using consistent references."
+    },
+    {
+      "id": "A03",
+      "check": "Match each tested line to service identity, billing period, quantity, units, rate and applicable discount."
+    },
+    {
+      "id": "A04",
+      "check": "Investigate duplicate-looking charges, unapproved add-ons and unexplained adjustments; log missing evidence and specialist questions."
+    },
+    {
+      "id": "A05",
+      "check": "Compare usage with the actual allowance, pooling and roaming terms, including unusual operating periods."
+    },
+    {
+      "id": "A06",
+      "check": "Confirm low-use services with their owners; distinguish standby, seasonal, missing-data and retired-service cases."
+    },
+    {
+      "id": "A07",
+      "check": "Record effective dates, commitments, renewal conditions, notice requirements and the applicable dispute procedure."
+    },
+    {
+      "id": "A08",
+      "check": "Route uncertain contract, tax or regulatory interpretations to qualified specialists before asserting an error or entitlement."
+    },
+    {
+      "id": "A09",
+      "check": "Map billed services to active users, devices or sites; retain identifiers for transferred and retired assets."
+    },
+    {
+      "id": "A10",
+      "check": "Compare cancellation requests with supplier acknowledgments, completion dates and subsequent charges before closing the task."
+    },
+    {
+      "id": "A11",
+      "check": "Test import completeness, record matching, exception handling, permissions and export using representative source files."
+    },
+    {
+      "id": "A12",
+      "check": "Assign who investigates, approves, submits disputes, changes services and reconciles the financial outcome."
+    },
+    {
+      "id": "A13",
+      "check": "Track each finding through supplier response and verified resolution; separate requested, accepted and posted adjustments."
+    },
+    {
+      "id": "A14",
+      "check": "Schedule the next review, update control rules and retain unresolved exceptions with an owner and next action."
+    }
+  ],
+  "columns": [
+    "Status",
+    "Owner",
+    "Scope and period",
+    "Evidence references",
+    "Finding or result",
+    "Next action and due date",
+    "Approval reference"
+  ],
+  "note": "Same 14 IDs in HTML, CSV and PDF; on-page checkbox state is intentionally temporary."
+}

@@ -1,0 +1,1594 @@
+{
+  "cluster": "M13",
+  "fetchedAt": "2026-09-25T08:11:23.410Z",
+  "method": "Fresh public destination and donor HTML; parse5 selects exact article widget, first featured widget excludes related cards. Body count includes lists, tables and captions; excludes shell and separate ACF TLDR.",
+  "sources": [
+    {
+      "path": "/tem/telecom-compliance-audits/",
+      "url": "https://spenza.com/tem/telecom-compliance-audits/",
+      "status": 200,
+      "h1": [
+        "Telecom Expense Audit: How to Cut Telecom Costs in 2026"
+      ],
+      "bodyWords": 3161,
+      "headings": [
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What Is a Telecom Expense Audit?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why Your Business Probably Needs a Telecom Expense Audit"
+        },
+        {
+          "level": "h2",
+          "id": "Telecom",
+          "text": "The Hidden Costs That Telecom Expense Audits Actually Find"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. Billing errors and overcharges"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Zombie assets"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. Contract problems"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "4. Tax and surcharge mistakes"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Immediate vs Long Term Savings From a Telecom Expense Audit"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How to Run a Telecom Expense Audit Step by Step"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "1. Collect every invoice and contract"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "2. Build a complete telecom inventory"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "3. Compare billed rates to contract terms"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "4. Analyze actual usage"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "5. Check taxes and regulatory fees"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "6. Quantify everything and prioritize"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "7. Execute corrections and follow up"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Kind of ROI Should You Expect?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Telecom Expense Management Market Trends"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How to Keep Telecom Costs Down After the Audit"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Keep one centralized inventory"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Use audit data when negotiating contracts"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Put governance controls in place"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Automate invoice processing"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How to Choose a Telecom Expense Audit Partner"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Spenza Handles Telecom Expense Audits"
+        },
+        {
+          "level": "h2",
+          "id": "Conclusion",
+          "text": "Bottom Line"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom Expense Management (TEM) is the strategic process of monitoring, auditing, and optimizing an organization’s voice, data, wireless, and cloud service expenses. It spans the entire lifecycle of telecom assets, from procurement to retirement , with the goal of reducing waste, improving operational efficiency, and controlling costs. Modern TEM programs often rely on SaaS-based platforms to centralize vendor billing and simplify management across multiple services and providers."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Most businesses overpay on telecom . Not by a little, but by a lot. Industry figures put the rate at around 30% , and nearly 80% of telecom invoices have at least one billing error sitting in them. A telecom expense audit is how you find those errors, eliminate unused services , and get your telecom budget pointing in the right direction again."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The problem is that telecom bills are ugly. They are long and dense , full of coded line items , and split across multiple vendors . Nobody on your IT or finance team wakes up wanting to audit them . So the errors pile up. A $400 per month mistake runs for two years and suddenly you have lost nearly $10,000 on a single line item. Multiply that across a company with dozens of accounts , and the numbers get serious fast ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This guide covers how a telecom expense audit actually works, what it usually finds , how much you can expect to save , and what to do after the audit so the savings stick. It is written for IT directors , finance teams , and operations leaders who are tired of guessing whether their telecom spending is right."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What Is a Telecom Expense Audit?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A telecom expense audit is a line-by-line examination of your company’s telecom bills, contracts, inventory, and usage data. You are looking for five things: billing errors, unused services, contract violations, tax mistakes, and areas where you can downsize or renegotiate."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This goes well beyond paying invoices on time. Paying an invoice on time just means the carrier got your money quickly, it says nothing about whether the charges were correct. An audit compares every billed rate against the contracted rate, checks whether disconnected services are still showing up on the bill, and flags lines where usage is zero or nearly zero."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here is what a proper audit covers:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Invoice and billing validation. Every line item on every telecom invoice gets checked against contract terms. This is where you catch duplicate charges, wrong rate plans, and features billed without authorization. Contract analysis. Are your negotiated discounts actually being applied? Are you past the contract end date and paying month-to-month at higher rates? These are common and expensive mistakes. Inventory reconciliation. Match what the carrier says you have against what you actually use. Landlines for offices that closed, mobile lines for employees who left, circuits to locations that were decommissioned—all of these cost money if they are still active. Usage analysis. Pull actual usage data and compare it to what you are paying for. Look for data plans that are far larger than needed, conference bridges nobody dials into, and international add-ons on domestic-only lines. Tax and surcharge review. Telecom taxes vary by jurisdiction and service type. Carriers sometimes classify services incorrectly or apply the wrong tax rate. These errors add up."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The end product is a report that quantifies every problem found, estimates the dollar impact, and recommends specific corrective actions. Some companies do this internally. Most bring in a telecom expense management ( TEM ) provider or a specialized auditing service because the carrier-specific knowledge required is hard to build in-house."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why Your Business Probably Needs a Telecom Expense Audit"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom spending typically accounts for 3–4% of a company’s revenue. For a $100M business, that is $3–4 million a year. Even a 20% error rate on a number that large means $600K–$800K going to waste annually. And telecom environments have only gotten more complicated in the last few years."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A few reasons the problem is worse now than it used to be:"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "More vendors, more confusion. Companies today run a mix of mobile carriers, cloud phone systems, SD-WAN providers, UCaaS platforms, IoT connectivity, and legacy landlines. Each one bills differently. Each one has its own contract terms. The more fragmented the telecom environment, the easier it is for errors to hide. Remote work made things messier. When offices were the center of operations, managing telecom was at least centralized. Now employees are spread across cities and countries with company-paid devices and data plans. International roaming charges, duplicate home-office circuits, and unused mobile lines pile up without anyone noticing. Carrier billing systems make mistakes at scale. Telecom providers are running massive, sometimes decades-old billing platforms. Discounts get applied to the wrong account. Cancellation orders get lost in a queue. A pricing migration happens and your rates do not come along. These are systemic issues, not one-off glitches. Contracts auto-renew quietly. Many telecom contracts have automatic renewal clauses. If nobody is watching the calendar, you get locked into rates that were competitive in 2022 but are well above current market pricing. The carrier is not going to call and let you know."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Without a regular audit process, these problems compound. A $500/month error that runs for three years costs $18,000. Spread that pattern across 50 accounts and you are looking at real money."
+        },
+        {
+          "tag": "h2",
+          "id": "Telecom",
+          "text": "The Hidden Costs That Telecom Expense Audits Actually Find"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom services often come with hidden costs that can be hard to spot. Here are some common issues:"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Here is what shows up again and again when companies run a telecom expense audit for the first time."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. Billing errors and overcharges"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Studies consistently show that 7–12% of telecom charges contain errors. The common ones: wrong rate plans applied to lines, features nobody ordered showing up as monthly charges, the same circuit billed twice under different account numbers, and bills continuing months after a service was cancelled. Telecom bills can run hundreds of pages. Nobody catches this stuff by skimming."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Zombie assets"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This is the industry term for services you are paying for but nobody is using. A landline assigned to an employee who left two years ago. A mobile line for a device in someone’s desk drawer. A data circuit to a branch that closed last quarter. Software licenses that were never deactivated. These things persist because nobody has a complete picture of what is active. Poor inventory management is the root cause, and it costs more than most companies expect."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. Contract problems"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Minimum spend penalties when you are under commitment. Auto-renewals at worse terms than the original deal. SLA violations where the carrier failed to perform but never issued credits. Disputes from ambiguous contract language. For organizations with dozens of telecom contracts across multiple carriers, these issues get expensive quickly."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "4. Tax and surcharge mistakes"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom taxation is complicated. Rates vary by state, city, and service type. Carriers sometimes misclassify a service or apply the wrong jurisdiction’s tax rate. Most finance teams do not have the telecom tax expertise to catch this, so it just gets paid month after month."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Immediate vs Long Term Savings From a Telecom Expense Audit"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An audit produces two kinds of cost savings opportunities. Some you can capture within weeks. Others require contract renegotiations or structural changes that take a few months to implement."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Timeline What You Fix What That Looks Like Immediate Billing error recovery File disputes and obtain retroactive credits from carriers for overcharges Immediate Unused service elimination Cancel zombie lines, redundant services, and orphaned equipment Immediate Tax corrections Fix misclassified services and incorrect surcharges on telecom bills Immediate Contract enforcement Force carriers to honor the rates and discounts in signed agreements Long-term Contract renegotiation Use audit data to negotiate better pricing at renewal Long-term Service rationalization Consolidate vendors and standardize plans to reduce complexity and cost Long-term Governance controls Approval workflows that prevent unauthorized service orders going forward Long-term Technology migration Move from legacy systems to modern alternatives like VoIP, UCaaS, and SD-WAN",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Timeline</th>\n<th>What You Fix</th>\n<th>What That Looks Like</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Immediate</strong></td>\n<td>Billing error recovery</td>\n<td>File disputes and obtain retroactive credits from carriers for overcharges</td>\n</tr>\n<tr>\n<td><strong>Immediate</strong></td>\n<td>Unused service elimination</td>\n<td>Cancel zombie lines, redundant services, and orphaned equipment</td>\n</tr>\n<tr>\n<td><strong>Immediate</strong></td>\n<td>Tax corrections</td>\n<td>Fix misclassified services and incorrect surcharges on telecom bills</td>\n</tr>\n<tr>\n<td><strong>Immediate</strong></td>\n<td>Contract enforcement</td>\n<td>Force carriers to honor the rates and discounts in signed agreements</td>\n</tr>\n<tr>\n<td><strong>Long-term</strong></td>\n<td>Contract renegotiation</td>\n<td>Use audit data to negotiate better pricing at renewal</td>\n</tr>\n<tr>\n<td><strong>Long-term</strong></td>\n<td>Service rationalization</td>\n<td>Consolidate vendors and standardize plans to reduce complexity and cost</td>\n</tr>\n<tr>\n<td><strong>Long-term</strong></td>\n<td>Governance controls</td>\n<td>Approval workflows that prevent unauthorized service orders going forward</td>\n</tr>\n<tr>\n<td><strong>Long-term</strong></td>\n<td>Technology migration</td>\n<td>Move from legacy systems to modern alternatives like VoIP, UCaaS, and SD-WAN</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How to Run a Telecom Expense Audit Step by Step"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Whether you handle this in-house or bring in an outside firm, the audit process follows the same basic structure. Here are the seven steps that actually produce results."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "1. Collect every invoice and contract"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Gather 12–24 months of telecom invoices across all vendors, plus every active contract, service order, and rate sheet. Wireline, wireless, internet, cloud platforms, conferencing, all of it. If telecom spending is scattered across departments, this step alone can take a week. But you cannot audit what you have not collected."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "2. Build a complete telecom inventory"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "List every telecom asset and service your company pays for: phone lines, mobile devices, data circuits, SIP trunks, UCaaS seats, software licenses. For each one, record the carrier, account number, monthly cost, contract end date, and whether it is actually being used. This inventory is the backbone of the whole audit."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "3. Compare billed rates to contract terms"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Go line by line. Is the billed rate matching the contracted rate? Were the negotiated discounts applied? Are there charges for services that were supposed to be disconnected? This is the most time-consuming step and where most billing errors surface. Pay extra attention to anything that coincides with a contract renewal or a carrier system migration, those transitions are where rates tend to break."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "4. Analyze actual usage"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Pull usage data and compare it to what you are paying for. You are looking for mobile lines with zero or near-zero usage, data circuits running at a fraction of capacity, conference bridges that never get dialed, and international plans on lines that only make domestic calls. This is where you identify areas to downsize, consolidate, or cut."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "5. Check taxes and regulatory fees"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Verify that every tax and surcharge on your telecom invoices is accurate. Make sure service classifications are correct, jurisdictional rates match your actual locations, and that you are not paying fees that do not apply to your service type. Tax errors are common and often worth thousands per year."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "6. Quantify everything and prioritize"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For every issue, document the specifics: what the error is, how long it has been running, the monthly dollar impact, and the total overpayment. Then rank findings by size and ease of correction. Immediate recoveries (billing credits, service cancellations) go first. Longer-term items (contract renegotiation, vendor consolidation) get scheduled for the next 90 days."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "7. Execute corrections and follow up"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "File disputes with carriers for billing errors. Submit disconnect orders for unused services. Open contract renegotiations where your audit data gives you leverage. Then—and this is the part people skip, verify that the corrections actually took effect. Carrier dispute resolution can take weeks, and disconnect orders sometimes fall through the cracks. Check the next two billing cycles to confirm credits posted and services were actually removed."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Kind of ROI Should You Expect?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The returns from telecom expense audits are well documented at this point:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Retroactive recovery: Organizations typically get back 8–12% of audited telecom spending by finding billing errors and contract violations. On a $1M annual telecom spend, that is $80K–$120K recovered. Ongoing cost reduction: After fixing the immediate problems, ongoing savings of 15–25% are common through service optimization, cutting redundant services, and renegotiating telecom contracts. Less admin overhead: Automating invoice validation and centralizing telecom management means your finance and IT teams spend fewer hours dealing with telecom bills every month. Reduced compliance risk: Catching regulatory gaps early is cheaper than paying fines later."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "One-time audits fix what is broken today. Continuous telecom expense management (TEM) prevents new problems from forming. Companies that combine an initial audit with ongoing TEM programs typically report sustained cost reductions of 15–35% year over year . The first audit uncovers immediate savings, while continuous management ensures those gains compound instead of slowly disappearing over time."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Telecom Expense Management Market Trends"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The global telecom expense management market reached roughly $4.95 billion in 2025 and is projected to hit $5.67 billion in 2026, according to Mordor Intelligence and other research firms. Growth is running at about 14 percent per year, with the market expected to nearly double to $9.64 billion by 2030."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Several factors are driving this growth. 5G deployments are making telecom environments more complex, IoT devices are proliferating, and hybrid work arrangements are here to stay. Cloud-hosted TEM platforms now account for about 70 percent of the market, while managed services, where an outside team handles telecom expense management, are the fastest-growing segment."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "What does this mean for your business? Telecom is becoming more complex, not less. Companies that actively manage telecom spending are the ones keeping costs under control. The rest risk overpaying and hoping nobody notices."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How to Keep Telecom Costs Down After the Audit"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "An audit is a snapshot. If you do not change how you manage telecom going forward, the same problems will return within 12–18 months. Here is what works for the long term."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Keep one centralized inventory"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Maintain a single, updated record of every telecom asset, service, and contract. Reconcile it monthly against carrier invoices. When someone leaves the company or an office closes, make sure the disconnect happens that same month—not six months later when someone finally notices the line item on a bill."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Use audit data when negotiating contracts"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Your audit findings are leverage. You now know exactly what you spend, what you actually use, and where market rates sit. Use competitive bidding. Build in technology refresh clauses. Avoid long commitments unless the carrier gives you pricing that justifies being locked in. Telecom contracts should work for you, not the other way around."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Put governance controls in place"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Require approvals before anyone orders a new telecom service. Set up automated alerts for spending spikes. Assign someone specific to own telecom expense management. Without these controls, new unnecessary expenses will accumulate just as fast as the old ones did."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Automate invoice processing"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Manual invoice review does not scale, and it is boring work that people rush through. TEM software can automate charge validation, flag discrepancies in real time, track contract renewal dates, and generate reports your finance team can actually use. Automation catches errors faster and cheaper than a person with a spreadsheet."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How to Choose a Telecom Expense Audit Partner"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Not every company has the in-house expertise to do this well. If you are evaluating outside help, here is what actually matters:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "They execute, not just report. Some audit firms hand you a PDF of findings and wish you luck. The good ones file carrier disputes, manage the disconnect process, and handle contract renegotiations on your behalf. Carrier relationships. Providers who work with carriers regularly can resolve billing disputes faster. They know the right people to call and the right forms to file. Industry experience. The telecom challenges in healthcare are different from retail. Your auditing service should know your sector’s specific compliance requirements and spending patterns. Ongoing support. A one-time audit is useful, but ongoing telecom expense management is where the real long-term value lives. Look for a partner that sticks around after the initial review. Transparent pricing. Many TEM providers work on shared-savings models—they get paid from the savings they find, which means zero upfront cost for you. That is a good alignment of incentives."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Spenza Handles Telecom Expense Audits"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s TEM solution covers the full lifecycle of telecom management, from the initial audit through ongoing monitoring and optimization. Their team and platform handle:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Bill auditing and analysis: Automated and manual review of telecom bills to catch errors, overcharges, and cost savings opportunities. Invoice validation: Making sure telecom invoices are correct and paid on time so you avoid late fees and service interruptions. Contract optimization: Renegotiating telecom contracts using audit data and current market benchmarks. Inventory tracking: Maintaining a real-time view of every telecom asset and service in the organization. Compliance monitoring: Checking that telecom practices meet the regulatory requirements for your industry. Ongoing management: Continuous oversight so telecom spending does not drift back up after the audit."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "As a real-world example : Butlr.io had IoT operations in multiple countries with high costs and inefficient data plans. After partnering with Spenza, they gained clear visibility into global telecom spending , eliminated costly unlimited plans, and significantly reduced connectivity costs by using tailored mobile plans and a unified platform for management."
+        },
+        {
+          "tag": "h2",
+          "id": "Conclusion",
+          "text": "Bottom Line"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A telecom expense audit is one of the highest-ROI things a business can do with its operations budget. The typical outcome is a 15–35% reduction in telecom costs, combining immediate billing corrections with longer-term contract and service optimization."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If your organization has not run a telecom expense audit in the past year, you are almost certainly overpaying. The billing errors are there. The zombie services are there. The contract terms that no longer make sense are there. The only question is how long you want to keep paying for them."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It is a systematic review of your organization’s telecom bills, contracts, inventory, and usage data. The goal is to identify billing errors, eliminate unused services, verify that carriers are honoring contract terms, and find cost savings opportunities across all telecom spending."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom expense management solutions help businesses track and control spending, optimize service usage, and negotiate better contracts."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Organizations should conduct comprehensive telecom audits annually, with continuous monitoring between audits to prevent inefficiencies."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Most organizations see savings of 15–35% on their total telecom spending. Immediate savings come from correcting billing errors and canceling unused services. Additional savings follow from renegotiating telecom contracts and consolidating vendors."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A telecom audit is a point-in-time review that finds and fixes problems. Telecom expense management (TEM) is an ongoing practice that continuously monitors and optimizes telecom spending. Most companies start with an audit, then move into TEM to keep the improvements from eroding."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Organizations can expect immediate recovery of billing errors, reduced telecom expenses by 15-35%, and improved forecasting accuracy."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "You can do it internally if your team has the time and telecom-specific expertise. But most companies get better results from a specialized auditing service because those firms have deeper carrier knowledge, purpose-built tools, and experience negotiating disputes. Many work on shared-savings models, so there is no upfront cost."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Everything: mobile plans, landlines, VoIP, internet circuits, WAN, cloud communication platforms, conferencing services, managed services, and all associated taxes and surcharges. If a carrier is sending you a bill for it, it should be part of the audit."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Uncover Hidden Telecom Savings Today: Schedule Your Free TEM Audit with Spenza and Discover How Much You Could Save on Telecom Expenses."
+        }
+      ],
+      "links": [
+        {
+          "text": "TEM",
+          "href": "/tem/tem/"
+        },
+        {
+          "text": "global telecom expense management market",
+          "href": "https://www.grandviewresearch.com/industry-analysis/telecom-expense-management-market-report"
+        },
+        {
+          "text": "5G deployments",
+          "href": "/telecom/impact-5g-enterprise/"
+        },
+        {
+          "text": "Butlr.io",
+          "href": "/spenza-product/butlr-iot-spenza-casestudy/"
+        },
+        {
+          "text": "Schedule Your Free TEM Audit",
+          "href": "https://calendly.com/spenza/discovery"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png",
+          "class": "attachment-full size-full wp-image-8117 webpexpress-processed",
+          "alt": "What Are the Hidden Costs and Regulatory Compliance in Telecom Expense Management Audits?",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-9-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-9-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-9-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-9.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png\" class=\"attachment-full size-full wp-image-8117 webpexpress-processed\" alt=\"What Are the Hidden Costs and Regulatory Compliance in Telecom Expense Management Audits?\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "640",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw.png",
+          "alt": "Telecom Expense Management Audit",
+          "class": "wp-image-8135",
+          "style": "width:1024px;height:auto",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw-300x188.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw-768x480.png 768w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"640\" src=\"https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw.png\" alt=\"Telecom Expense Management Audit\" class=\"wp-image-8135\" style=\"width:1024px;height:auto\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw-300x188.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/AD_4nXe_G835Im0SvAcE_0Ta11dfdlfUonm83_BPjNhA9v2_ufHS11YfHdMQoDMY176wWKq3AyPZZ6OuyYHgBJgHKhQjClx3uTmBAfToOD8ngobR3dCWM4lFEaoL1uHWZeOZpl6RLblGyw-768x480.png 768w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "768",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-1024x768.png",
+          "alt": "Hidden Costs",
+          "class": "wp-image-8121",
+          "style": "width:670px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-1024x768.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-300x225.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-768x576.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-1536x1152.png 1536w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-2048x1536.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"768\" src=\"https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-1024x768.png\" alt=\"Hidden Costs\" class=\"wp-image-8121\" style=\"width:670px\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-1024x768.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-300x225.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-768x576.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-1536x1152.png 1536w, https://media.spenza.com/wp-content/uploads/2025/03/What-are-the-Hidden-Costs-Behind-Telecom-Services_-visual-selection-2048x1536.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
+            "title": "Why Telecom Audits Matter",
+            "text": "Businesses often overpay 15–35% on telecom bills due to errors, unused services, and contract issues. Regular audits uncover these hidden costs."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"key\", \"label\" : \"Key\", \"unicode\" : \"f084\"}",
+            "title": "Key Audit Benefits",
+            "text": "Identify billing mistakes, zombie assets, tax errors, and contract violations to recover money and optimize ongoing spending."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"stairs\", \"label\" : \"Stairs\", \"unicode\" : \"e289\"}",
+            "title": "Step-by-Step Audit Process",
+            "text": "Collect invoices, build a full inventory, compare bills to contracts, analyze usage, review taxes, prioritize issues, and execute corrections."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hand-holding-dollar\", \"label\" : \"Hand Holding Dollar\", \"unicode\" : \"f4c0\"}",
+            "title": "Long-Term Savings & ROI",
+            "text": "Immediate savings come from error recovery and service cuts, while ongoing TEM programs sustain 15–35% annual cost reduction."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Spenza’s Advantage",
+            "text": "Spenza manages audits from start to finish, covering bill validation and contract optimization, while maintaining continuous telecom cost control and compliance."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/tem/telecom-compliance-audits/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/tem/telecom-compliance-audits/"
+              },
+              "author": {
+                "name": "SivaSai",
+                "@id": "https://spenza.com/#/schema/person/1e3d01b217300c2230b9747116185ede"
+              },
+              "headline": "Telecom Expense Audit: How to Cut Telecom Costs in 2026",
+              "datePublished": "2026-03-11T10:31:03+00:00",
+              "dateModified": "2026-08-26T05:21:20+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/tem/telecom-compliance-audits/"
+              },
+              "wordCount": 2809,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/tem/telecom-compliance-audits/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png",
+              "keywords": [
+                "hidden telecom costs",
+                "telecom audit services",
+                "telecom bill analysis",
+                "Telecom Cost Reduction",
+                "Telecom Expense Management",
+                "telecom expense management audit",
+                "telecom expense optimization",
+                "Telecom management",
+                "telecom regulatory compliance",
+                "telecom savings opportunities",
+                "TEM audit",
+                "TEM compliance",
+                "wireless telecom expense management"
+              ],
+              "articleSection": [
+                "TEM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/tem/telecom-compliance-audits/",
+              "url": "https://spenza.com/tem/telecom-compliance-audits/",
+              "name": "Telecom Expense Audit: How to Cut Telecom Costs in 2026 - Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/tem/telecom-compliance-audits/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/tem/telecom-compliance-audits/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png",
+              "datePublished": "2026-03-11T10:31:03+00:00",
+              "dateModified": "2026-08-26T05:21:20+00:00",
+              "description": "A telecom expense audit uncovers billing errors and unused services, cutting costs by 15 to 35 percent. Follow the step-by-step process for 2026.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/tem/telecom-compliance-audits/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/tem/telecom-compliance-audits/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/tem/telecom-compliance-audits/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-9.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "What Are the Hidden Costs and Regulatory Compliance in Telecom Expense Management Audits?"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/tem/telecom-compliance-audits/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "TEM",
+                  "item": "https://spenza.com/category/tem/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Telecom Expense Audit: How to Cut Telecom Costs in 2026"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/1e3d01b217300c2230b9747116185ede",
+              "name": "SivaSai",
+              "description": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO &amp; AI Search | Email Campaigns &amp; Funnels | AI-driven B2B SaaS Growth",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/sivasai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/tem/telecom-expense-audit-checklist/",
+      "url": "https://spenza.com/tem/telecom-expense-audit-checklist/",
+      "status": 200,
+      "h1": [
+        "TEM Audit Checklist: How to Run a Telecom Expense Audit"
+      ],
+      "bodyWords": 1757,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Table of Contents"
+        },
+        {
+          "level": "h2",
+          "id": "Introduction",
+          "text": "Introduction"
+        },
+        {
+          "level": "h2",
+          "id": "Audit",
+          "text": "Why Perform a Telecom Expense Audit?"
+        },
+        {
+          "level": "h2",
+          "id": "Checklist",
+          "text": "Telecom Expense Audit Checklist"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "1. Collect and organize telecom invoices"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "Best Practices for Organizing Invoices:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "2. Verify Invoice Accuracy & Identify Billing Errors"
+        },
+        {
+          "level": "h5",
+          "id": null,
+          "text": "Common Billing Errors to Watch For:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "How to Detect & Dispute Errors:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "3. Analyze Usage Trends & Optimize Service Plans"
+        },
+        {
+          "level": "h5",
+          "id": null,
+          "text": "Key Usage Areas to Examine:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "How to Optimize Plans & Reduce Costs:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "4. Review Vendor Contracts & Renegotiate Terms"
+        },
+        {
+          "level": "h5",
+          "id": null,
+          "text": "Key Contract Elements to Evaluate:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "Negotiation Strategies:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "5. Conduct an Equipment & Asset Inventory"
+        },
+        {
+          "level": "h5",
+          "id": null,
+          "text": "Inventory Checklist:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "Cost-Saving Measures:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "6. Implement a Telecom Expense Management (TEM) Solution"
+        },
+        {
+          "level": "h5",
+          "id": null,
+          "text": "Benefits of a TEM Solution:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "How TEM Solutions Save Money:"
+        },
+        {
+          "level": "h4",
+          "id": null,
+          "text": "7. Set Up Ongoing Expense Monitoring & Governance"
+        },
+        {
+          "level": "h5",
+          "id": null,
+          "text": "Best Practices for Long-Term Cost Control:"
+        },
+        {
+          "level": "h2",
+          "id": "Spenza-TEM",
+          "text": "How Spenza Can Help Optimize Your Telecom Expenses"
+        },
+        {
+          "level": "h2",
+          "id": "Final",
+          "text": "Final Thoughts"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Table of Contents"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Introduction Why Telecom Expenses Matter The Cost of Unmonitored Telecom Spending Benefits of a Telecom Expense Audit Why Perform a Telecom Expense Audit? Detect Billing Mistakes & Overcharges Eliminate Unused & Underused Services Streamline Contracts & Vendor Arrangements Prevent Telecom Fraud & Unauthorized Use Improve Budget Management & Cost Estimation Telecom Expense Audit Checklist Step 1: Collect & Organize Telecom Invoices Step 2: Verify Invoice Accuracy & Identify Billing Errors Step 3: Analyze Usage Trends & Optimize Service Plans Step 4: Review Vendor Contracts & Renegotiate Terms Step 5: Conduct an Equipment & Asset Inventory Step 6: Implement a Telecom Expense Management (TEM) Solution Step 7: Set Up Ongoing Expense Monitoring & Governance How Spenza Can Help Optimize Your Telecom Expenses Automating Invoice Validation Providing Real-Time Usage Insights Streamlining Vendor Management AI-Driven Cost Optimization Final Thoughts FAQs"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": "Introduction",
+          "text": "Introduction"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom charges usually account for a big percentage of the operational budget of a company but are among the least optimized cost segments. Businesses often end up overpaying for services, carrying old plans, and not capturing cost-reducing options merely because they fail to monitor telecom charges periodically."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A telecom expense audit is a formal procedure that enables businesses to discover errors in billing, remove unwanted fees, negotiate optimal contracts, and enhance general cost efficiency. Be it corporate cellular plans, Internet services, or Voice over Internet Protocol devices, a proper audit can reveal trapped savings and stop wasteful expenses."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "In this guide, we will take you through a step-by-step checklist to perform an effective telecom expense audit. Through these best practices, your business can get telecom costs under control, hold vendors accountable, and have a cost management strategy that lasts."
+        },
+        {
+          "tag": "h2",
+          "id": "Audit",
+          "text": "Why Perform a Telecom Expense Audit?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Let’s discuss why a telecom expense audit is crucial for companies of any size before we jump into the audit checklist:"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "1. Detect billing mistakes and overcharges Telecom bills are complicated, and mistakes are more prevalent than you realize. Errors like double charges, incorrect rates, and unauthorized services can drive costs through the roof."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "2. Eliminate Unused and Underused Services Most companies still pay for unused phone lines, data plans, and subscriptions. Termination of such services can translate to instant savings."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "3. Streamline Contracts & Vendor Arrangements Telecom providers often launch new pricing schemes and promotions. Companies that do not renegotiate contracts risk being stuck with old, costly plans."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "4. Prevent Telecom Fraud & Unauthorized Use Unlawful telecom activity, such as unauthorized international calling or data consumption, can result in surprise charges. An audit identifies anomalies and possible security threats."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "5. Better Budget Management & Cost Estimation With a clear knowledge of telecom charges, companies are able to manage budgets more efficiently and make rational financial decisions on future investments in telecom infrastructure."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A telecom expense audit is not merely a matter of checking invoices—it’s about having complete visibility into your telecom expenditure, maximizing your usage, and cutting out inefficiencies. What follows is a step-by-step, in-depth guide to assist you in performing a comprehensive audit and maximizing cost savings."
+        },
+        {
+          "tag": "h2",
+          "id": "Checklist",
+          "text": "Telecom Expense Audit Checklist"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "1. Collect and organize telecom invoices"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Before analyzing expenses, you need a complete picture of all telecom-related costs. Start by gathering:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Mobile services – Corporate cell phones, employee plans, roaming charges. Internet services – Fiber, broadband, leased lines, satellite internet. Voice services – VoIP, landlines, PBX systems, toll-free numbers. Cloud-based telecom services – Video conferencing, virtual call centers, remote work communication tools. IoT connectivity expenses – SIM cards, connected devices, machine-to-machine (M2M) services."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Best Practices for Organizing Invoices:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Consolidate all invoices from the past 12–24 months in a digital format for easy reference. Store records in a centralized repository (e.g., a shared drive, TEM platform, or accounting software). Categorize invoices by vendor, service type, and department to track spending patterns effectively. Ensure that contract agreements are stored alongside invoices for quick comparisons."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By organizing invoices efficiently, you streamline the auditing process and reduce the chances of missing any hidden costs."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "2. Verify Invoice Accuracy & Identify Billing Errors"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom billing errors are surprisingly common and can lead to significant overpayments . A detailed invoice review should include:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Duplicate Charges – The same service billed multiple times across different months. Incorrect Rates – Charges that don’t match your contracted rates or promotional discounts. Unapproved Services – Charges for add-ons or services that were never authorized. Hidden Fees & Surcharges – Unexplained regulatory fees, maintenance costs, or miscellaneous charges."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "How to Detect & Dispute Errors:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Compare invoices with contract agreements to ensure accurate pricing. Use TEM software to automate invoice validation and flag inconsistencies. Request detailed breakdowns from vendors to clarify unclear charges. Contact providers immediately to dispute errors and request refunds."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Catching even small billing errors can lead to thousands of dollars in recovered costs over time."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "3. Analyze Usage Trends & Optimize Service Plans"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Once invoices are verified, analyzing actual usage helps determine whether your business is paying for unnecessary services ."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Underutilized Lines & Services – Identify inactive SIM cards, phone lines, and accounts with minimal activity. Mobile Data & Call Consumption – Ensure that employee plans align with actual usage patterns (e.g., avoid paying for unlimited data if not needed). Roaming & International Usage – Check for excessive roaming charges and consider alternatives like eSIM data plans for international business travel. Cloud & VoIP Usage – Assess whether all VoIP or cloud communication licenses are actively used ."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "How to Optimize Plans & Reduce Costs:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Downgrade unused or underutilized services to lower-cost plans. Negotiate bulk discounts if you identify high-volume usage patterns . Explore multi-carrier options to ensure you’re using the most cost-effective provider in each region."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "By fine-tuning service plans, companies can maximize telecom efficiency while reducing wasteful spending."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "4. Review Vendor Contracts & Renegotiate Terms"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Many businesses overpay for telecom services simply because they fail to renegotiate their contracts. Telecom providers frequently update pricing plans, offer discounts, and introduce better bundles —but only if you ask for them."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Contract Expiration Dates – Identify upcoming renewals and proactively renegotiate. Outdated Pricing Plans – Ensure your company is on the best available plan . Hidden Clauses & Fees – Scrutinize fine print for unnecessary charges that can be removed . Competitive Offers – Research alternative vendors to leverage better pricing."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Negotiation Strategies:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Benchmark pricing against competitors before negotiating. Request volume discounts if you manage multiple accounts or have significant data needs. Ask for contract flexibility (e.g., month-to-month agreements instead of long-term lock-ins)."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Proactively managing telecom contracts can lead to significant cost reductions over time."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "5. Conduct an Equipment & Asset Inventory"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Beyond service plans, businesses waste money on outdated or unused telecom hardware ."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Unused Desk Phones & SIM Cards – Disconnect inactive landlines and employee devices . Aging & Obsolete Equipment – Replace outdated PBX systems, routers, and modems with cost-efficient alternatives. IoT & Connected Devices – Review M2M SIM card usage to ensure all active devices are necessary."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "Cost-Saving Measures:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Implement device buyback or recycling programs for unused equipment. Use cloud-based phone systems (VoIP) instead of physical PBX infrastructure . Consolidate telecom hardware across departments to reduce redundant devices ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Keeping telecom assets in check prevents unnecessary capital expenses."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "6. Implement a Telecom Expense Management (TEM) Solution"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Manually tracking telecom expenses can be overwhelming. A Telecom Expense Management (TEM) platform simplifies the process by automating cost control ."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Automated Invoice Processing & Validation – Reduce errors and save time. Real-Time Usage Monitoring – Detects anomalies before they become costly mistakes . Multi-Carrier Optimization – Compare costs across multiple providers for the best deals."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "How TEM Solutions Save Money:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Eliminate redundant services automatically. Provide cost optimization recommendations based on analytics. Simplify vendor negotiations with detailed expense reports."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A TEM system ensures telecom cost control is an ongoing, data-driven process ."
+        },
+        {
+          "tag": "h4",
+          "id": null,
+          "text": "7. Set Up Ongoing Expense Monitoring & Governance"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A one-time audit is not enough —telecom expenses should be monitored continuously ."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Conduct audits quarterly or semi-annually to stay ahead of errors. Set up real-time alerts for unusual charges. Establish internal telecom cost policies (e.g., limiting international roaming). Train employees on responsible telecom usage to prevent unnecessary expenses."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A structured governance strategy ensures telecom cost optimization is sustainable over the long term."
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": "Spenza-TEM",
+          "text": "How Spenza Can Help Optimize Your Telecom Expenses"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Performing a manual telecom expense audit can be time-consuming, complex, and prone to errors. Spenza’s AI-powered TEM platform simplifies telecom cost management by:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Automating invoice validation to detect overcharges and discrepancies. Providing real-time usage insights to prevent excessive spending. Streamlining vendor management to optimize multi-carrier expenses. Delivering AI-driven cost optimization recommendations based on usage trends."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With Spenza, businesses can eliminate telecom waste, reduce operational costs, and gain full transparency into their telecom expenses—all without the hassle of manual audits."
+        },
+        {
+          "tag": "h2",
+          "id": "Final",
+          "text": "Final Thoughts"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A telecom expense audit is vital for any organization that wants to gain control of its telecom expenditures, enhance efficiency, and make the most out of budget distribution. By utilizing this comprehensive checklist, organizations are able to pinpoint cost inefficiencies, streamline vendor contracts, and guarantee long-term savings. But real telecom expense management isn’t about just one audit. It’s about constant monitoring and automation. With Spenza’s powerful TEM platform, companies can remain ahead of the curve on telecom expenses, avoid financial waste, and reveal long-term operating efficiencies."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "It’s recommended to conduct an audit at least annually , but businesses with high telecom costs should do it quarterly to prevent overbilling and wasteful spending."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Common issues include duplicate charges, incorrect rate plans, and unauthorized services . Identifying and disputing these errors can lead to significant cost savings ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza’s TEM platform automates invoice validation, monitors real-time usage, and provides cost-saving recommendations, making telecom expense audits faster and more accurate ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes! Audits provide clear data on usage trends , allowing businesses to renegotiate contracts for lower rates and better terms ."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Absolutely. Spenza enables businesses to manage multiple carriers from a single platform , ensuring cost efficiency and seamless connectivity ."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "If your business is ready to reduce telecom spend and maximize expenditure, Spenza is your one-stop ally. Get in touch with us today and discover how our solutions can revolutionize your telecom cost management approach."
+        }
+      ],
+      "links": [
+        {
+          "text": "Introduction",
+          "href": "#Introduction"
+        },
+        {
+          "text": "Why Perform a Telecom Expense Audit?",
+          "href": "#Audit"
+        },
+        {
+          "text": "Telecom Expense Audit Checklist",
+          "href": "#Checklist"
+        },
+        {
+          "text": "How Spenza Can Help Optimize Your Telecom Expenses",
+          "href": "#Spenza-TEM"
+        },
+        {
+          "text": "Final Thoughts",
+          "href": "#Final"
+        },
+        {
+          "text": "FAQs",
+          "href": "#FAQs"
+        },
+        {
+          "text": "telecom expense",
+          "href": "/telecom-expense-management-tem-system/"
+        },
+        {
+          "text": "touch with us",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-the-telecom-expense-management-experts/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png",
+          "class": "attachment-full size-full wp-image-8048 webpexpress-processed",
+          "alt": "How to perform a telecom expense audit - A checklist",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2025/03/Blog-Thumbnails-2-1.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png\" class=\"attachment-full size-full wp-image-8048 webpexpress-processed\" alt=\"How to perform a telecom expense audit - A checklist\" srcset=\"https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "decoding": "async",
+          "src": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf5Z2MF_A9kWOKg9thDTGtX6v-b3Z27VCZ1iz9b4VkyNRJHLh4Tki0F9qeW3vfbT5QgRwWFzXbz02YV3Zn1xpeq8ryI0Cr0N4CekYr33ZL7lJ-sQdmqpgQIGljs-wBJzLOysZ2v?key=weijaq8P24rAcfW5BYYhPXCj",
+          "alt": "TEM Audit",
+          "style": "width:800px",
+          "markup": "<img decoding=\"async\" src=\"https://lh7-rt.googleusercontent.com/docsz/AD_4nXf5Z2MF_A9kWOKg9thDTGtX6v-b3Z27VCZ1iz9b4VkyNRJHLh4Tki0F9qeW3vfbT5QgRwWFzXbz02YV3Zn1xpeq8ryI0Cr0N4CekYr33ZL7lJ-sQdmqpgQIGljs-wBJzLOysZ2v?key=weijaq8P24rAcfW5BYYhPXCj\" alt=\"TEM Audit\" style=\"width:800px\">"
+        },
+        {
+          "kind": "body",
+          "decoding": "async",
+          "src": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdacD7g-odayhsFAY5SAMhojaeB1GCnvtBAoFLO8933Wd505RyJZDYDM1O1QEZM5JmBT_87NAJJekecqjUfBbriPzsSv3CWD0R1o5D7v43mazl_MtFKCYjl_jw0ItLa2hzsk3wYSg?key=weijaq8P24rAcfW5BYYhPXCj",
+          "alt": "TEM Audit",
+          "style": "width:777px",
+          "markup": "<img decoding=\"async\" src=\"https://lh7-rt.googleusercontent.com/docsz/AD_4nXdacD7g-odayhsFAY5SAMhojaeB1GCnvtBAoFLO8933Wd505RyJZDYDM1O1QEZM5JmBT_87NAJJekecqjUfBbriPzsSv3CWD0R1o5D7v43mazl_MtFKCYjl_jw0ItLa2hzsk3wYSg?key=weijaq8P24rAcfW5BYYhPXCj\" alt=\"TEM Audit\" style=\"width:777px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [],
+        "oneCol": []
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/"
+              },
+              "author": {
+                "name": "Vinaychandra Bharadwaj",
+                "@id": "https://spenza.com/#/schema/person/8af131519fcab7abfd58d31e8c90acf8"
+              },
+              "headline": "TEM Audit Checklist: How to Run a Telecom Expense Audit",
+              "datePublished": "2025-03-27T06:47:16+00:00",
+              "dateModified": "2026-07-17T05:59:14+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/"
+              },
+              "wordCount": 1577,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png",
+              "keywords": [
+                "spenza",
+                "Telecom Expense Management",
+                "TEM",
+                "wireless telecom expense management"
+              ],
+              "articleSection": [
+                "TEM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/",
+              "url": "https://spenza.com/tem/telecom-expense-audit-checklist/",
+              "name": "TEM Audit Checklist: How to Run a Telecom Expense Audit - Spenza TEM Audit Checklist: How to Run a Telecom Expense Audit",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png",
+              "datePublished": "2025-03-27T06:47:16+00:00",
+              "dateModified": "2026-07-17T05:59:14+00:00",
+              "description": "A TEM audit checklist for finance and IT: find hidden charges, unused lines and rate errors, then build the recovery case. Step by step for 2026.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/tem/telecom-expense-audit-checklist/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2025/03/Blog-Thumbnails-2-1.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "How to perform a telecom expense audit - A checklist"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/tem/telecom-expense-audit-checklist/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "TEM",
+                  "item": "https://spenza.com/category/tem/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "TEM Audit Checklist: How to Run a Telecom Expense Audit"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/8af131519fcab7abfd58d31e8c90acf8",
+              "name": "Vinaychandra Bharadwaj",
+              "sameAs": [
+                "https://iSimplexity.com"
+              ],
+              "url": "https://spenza.com/author/vinay/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

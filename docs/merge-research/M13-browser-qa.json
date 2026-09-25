@@ -1,0 +1,92 @@
+{
+  "title": "Telecom Expense Audit: Checklist and Evidence Workflow",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Define the scope",
+    "Keep the source trail",
+    "Use the checklist",
+    "Close with evidence",
+    "Carry controls forward"
+  ],
+  "h2": [
+    {
+      "id": "audit-scope",
+      "text": "What does a telecom expense audit establish?"
+    },
+    {
+      "id": "audit-inputs",
+      "text": "Which records make an invoice test reproducible?"
+    },
+    {
+      "id": "Checklist",
+      "text": "Telecom Expense Audit Checklist"
+    },
+    {
+      "id": "Telecom",
+      "text": "How do findings become verified corrections?"
+    },
+    {
+      "id": "ongoing",
+      "text": "How to Keep Telecom Costs Down After the Audit"
+    },
+    {
+      "id": "FAQs",
+      "text": "FAQs about telecom expense audits"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/telecom-expense-audit/audit-evidence-dossier.png",
+      "currentSrc": "http://localhost:4321/blog-media/telecom-expense-audit/audit-evidence-dossier.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/telecom-expense-audit/audit-snapshot-continuity.png",
+      "currentSrc": "http://localhost:4321/blog-media/telecom-expense-audit/audit-snapshot-continuity.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#audit-scope",
+    "#audit-inputs",
+    "#Checklist",
+    "#Telecom",
+    "#ongoing",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "SivaSai",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}

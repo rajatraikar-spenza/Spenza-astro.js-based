@@ -1,0 +1,73 @@
+{
+  "cluster": "M13",
+  "beforeBodyWords": 4918,
+  "destinationBodyWords": 3161,
+  "afterBodyWords": 2265,
+  "afterIncludingTldr": 2411,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "What does a telecom expense audit establish?",
+      "words": 52
+    },
+    {
+      "heading": "Which records make an invoice test reproducible?",
+      "words": 49
+    },
+    {
+      "heading": "Telecom Expense Audit Checklist",
+      "words": 51
+    },
+    {
+      "heading": "How do findings become verified corrections?",
+      "words": 48
+    },
+    {
+      "heading": "How to Keep Telecom Costs Down After the Audit",
+      "words": 47
+    },
+    {
+      "heading": "FAQs about telecom expense audits",
+      "words": 50
+    }
+  ],
+  "faq": [
+    {
+      "question": "How far back should the audit review invoices?",
+      "words": 52
+    },
+    {
+      "question": "Does an unused line automatically qualify for a refund?",
+      "words": 51
+    },
+    {
+      "question": "Can a telecom audit find no billing errors?",
+      "words": 51
+    },
+    {
+      "question": "Should disputed invoices simply go unpaid?",
+      "words": 51
+    },
+    {
+      "question": "Can automation replace the audit team?",
+      "words": 51
+    },
+    {
+      "question": "How often should the checklist be repeated?",
+      "words": 52
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 9,
+  "externalSources": 4,
+  "author": {
+    "name": "SivaSai",
+    "slug": "sivasai",
+    "basis": "tie, destination author wins: SivaSai 1, Vinaychandra Bharadwaj 1 of 2 posts"
+  },
+  "seoTitleLength": 54,
+  "metaDescriptionLength": 155,
+  "informationGain": 7
+}
