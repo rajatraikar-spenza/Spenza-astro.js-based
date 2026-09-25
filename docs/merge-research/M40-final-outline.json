@@ -1,0 +1,126 @@
+{
+  "note": "Implemented outline reconciled after writing; word allocations measured after writing, not forecast.",
+  "h1": "Connectivity as a Benefit: Policy, Costs and Rollout",
+  "sections": [
+    {
+      "heading": "What is connectivity as a benefit?",
+      "answer": "Connectivity as a benefit organizes mobile-service access around an employee group and its needs. The offer can include a selected plan catalog, an employer contribution, enrollment support and ongoing administration. The label describes a delivery model, not a tax classification, device-management capability or promise that every employee will spend less.",
+      "words": 202,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/contact-us/",
+          "anchor": "review a connectivity benefit design"
+        }
+      ]
+    },
+    {
+      "heading": "Which funding model fits your workforce?",
+      "answer": "Connectivity benefit funding can be employee-paid, shared or employer-paid. Choose the model against the program’s purpose, the employee’s required work and the administration you can support. A stipend or reimbursement can also remain appropriate for some groups. Compare the actual arrangements instead of assuming a managed plan is always the better choice.",
+      "words": 295,
+      "h3": [],
+      "tables": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "/telecom/mobile-plan-management-simplified/",
+          "anchor": "mobile plan management workflow"
+        }
+      ]
+    },
+    {
+      "heading": "What belongs in the employee mobility policy?",
+      "answer": "An employee mobility policy should define eligibility, covered service, contributions, device requirements, support, privacy and what happens when participation ends. Explain the employee’s responsibilities before enrollment. Where personal devices are involved, the funding agreement and the device-management notice should describe distinct decisions rather than implying that payment grants unrestricted access to the phone.",
+      "words": 297,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.priv.gc.ca/en/privacy-topics/employers-and-employees/mobile-devices-and-online-services-at-work/gd_byod_201508/",
+          "anchor": "Canadian privacy commissioner’s BYOD guide"
+        },
+        {
+          "url": "https://csrc.nist.gov/pubs/sp/1800/22/final",
+          "anchor": "NIST’s BYOD practice guide"
+        },
+        {
+          "url": "/esim/dual-sim-esim/",
+          "anchor": "dual-SIM setup guide"
+        },
+        {
+          "url": "/mobility-policy/",
+          "anchor": "mobility policy resource"
+        }
+      ]
+    },
+    {
+      "heading": "How do you compare the full operating cost?",
+      "answer": "Connectivity benefit cost includes the employer’s service contribution and the work required to enroll, support, change and settle the program. Reimbursement processing is part of that work, but managed service has administration too. Compare the same employee cohort, service scope and period before claiming one model is less expensive than another.",
+      "words": 331,
+      "h3": [],
+      "tables": 1,
+      "figures": 1,
+      "links": [
+        {
+          "url": "/tem/what-is-telecom-expense-management-tem/",
+          "anchor": "telecom expense management guide"
+        }
+      ]
+    },
+    {
+      "heading": "What needs specialist review before launch?",
+      "answer": "A connectivity benefit needs service-specific review of tax, payroll, reimbursement and employment-policy questions in the participating jurisdictions. The program’s name cannot settle those questions. Give qualified specialists the actual contract, payment flow, business purpose and employee locations, then record the approved treatment before using it in payroll, employee communications or a financial comparison.",
+      "words": 174,
+      "h3": [],
+      "tables": 0,
+      "figures": 0,
+      "links": [
+        {
+          "url": "https://www.irs.gov/publications/p15b",
+          "anchor": "IRS employer fringe-benefit guidance"
+        },
+        {
+          "url": "https://www.gov.uk/expenses-and-benefits-mobile-phones",
+          "anchor": "GOV.UK mobile-phone benefits guidance"
+        }
+      ]
+    },
+    {
+      "heading": "How should HR, finance and IT pilot the program?",
+      "answer": "A connectivity benefit pilot should test the employee journey and the operating records together. Select a defined group with a clear business purpose, then follow enrollment, use, support, settlement and exit. Set acceptance criteria before starting, and expand when the responsible teams can explain both successful service delivery and unresolved exceptions.",
+      "words": 400,
+      "h3": [],
+      "tables": 1,
+      "figures": 0,
+      "links": [
+        {
+          "url": "/spenza-product/rocketphone-case-study/",
+          "anchor": "RocketPhone enterprise MVNO case"
+        },
+        {
+          "url": "/contact-us/",
+          "anchor": "Review your benefit pilot scope"
+        }
+      ]
+    },
+    {
+      "heading": "Connectivity benefit FAQs",
+      "answer": "Connectivity benefit questions often turn on employee choice, service ownership and the difference between a funded plan and a managed device. The answers below address those boundaries without assigning a tax result. Apply the approved policy to the actual contract and employee group, and resolve location-specific questions with the responsible specialists.",
+      "words": 397,
+      "h3": [
+        "Is a mobile stipend always the wrong choice?",
+        "Can employees use their own phones?",
+        "Can an employee keep a personal phone number?",
+        "What happens when an employee leaves the program?",
+        "Should the benefit include international travel?",
+        "Does an employer-paid plan require constant availability?"
+      ],
+      "tables": 0,
+      "figures": 0,
+      "links": []
+    }
+  ]
+}

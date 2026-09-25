@@ -108,11 +108,80 @@ import m26Content from './mobile-esim-plans.html?raw';
 import m41Content from './esim-vs-physical-sim-airport-decision.html?raw';
 import m37Content from './byod-in-2025-benefits-risks-and-best-practices.html?raw';
 import m31Content from './mobile-plan-management-simplified.html?raw';
+import m40Content from './connectivity-as-a-benefit.html?raw';
 import mvnoDefinition from './mvno.html?raw';
 import launchMvnoUsGuide from './launch-mvno-us-guide.html?raw';
 import whiteLabelMvnoLaunchGuide from './white-label-mvno-launch-guide-2025.html?raw';
 
 export const MERGE_PREVIEWS: Record<string, MergePreview> = {
+  "connectivity-as-a-benefit": {
+  "slug": "connectivity-as-a-benefit",
+  "category": "telecom",
+  "cluster": "M40",
+  "title": "Connectivity as a Benefit: Policy, Costs and Rollout",
+  "seoTitle": "Connectivity as a Benefit: Policy, Costs and Rollout",
+  "seoDescription": "Design connectivity as a benefit with clear funding, employee eligibility, privacy boundaries and operating costs. Build a pilot your teams can assess.",
+  "excerpt": "Compare funding models, employee policy, full operating cost and pilot evidence for an employer-arranged mobile benefit.",
+  "templateBlocks": {
+    "tldrHeading": "Connectivity benefits at a glance",
+    "tldrDescription": "Connectivity as a benefit gives employees access to mobile service through an employer-arranged offer and policy. Decide who qualifies, who pays, who owns the subscription and what support is included. Keep device controls separate from service funding. Compare the complete operating cost for the same employee group, and obtain service-specific specialist review before assigning tax or payroll treatment. Pilot enrollment, support, settlement and exit before extending the program.",
+    "twoCol": [
+      {
+        "title": "Define the purpose",
+        "text": "Separate optional benefits from service required for a role.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"bullseye\"}"
+      },
+      {
+        "title": "Choose the funding",
+        "text": "Record employee, shared or employer payment responsibilities.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"wallet\"}"
+      },
+      {
+        "title": "Explain the boundaries",
+        "text": "Make ownership, privacy, support and alternatives clear.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"shield-halved\"}"
+      },
+      {
+        "title": "Count the whole effort",
+        "text": "Include claims, support, changes and transition work.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"calculator\"}"
+      }
+    ],
+    "oneCol": [
+      {
+        "title": "Prove the journey",
+        "text": "Test enrollment through final settlement with accountable owners.",
+        "icon": "{\"family\": \"classic\", \"style\": \"solid\", \"id\": \"list-check\"}"
+      }
+    ]
+  },
+  "featuredImage": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+  "featuredImageMarkup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png.webp 1024w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png\" class=\"attachment-full size-full wp-image-4433 webpexpress-processed\" alt=\"A user scanning their fingerprint on a mobile device for biometric authentication, showcasing security technology in action.\" srcset=\"https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png 300w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png 768w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png 1024w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>",
+  "featuredImageAlt": "Connectivity as a Benefit: Policy, Costs and Rollout",
+  "featuredImageWidth": 1024,
+  "featuredImageHeight": 683,
+  "publishedDate": "2026-03-15T11:11:00+00:00",
+  "updatedDate": "2026-09-25T07:26:58.563Z",
+  "authorSlug": "isimplexity",
+  "authorName": "Spenza",
+  "authorBio": "",
+  "destinationWords": 3058,
+  "donors": [
+    {
+      "path": "/tem/hidden-mobile-service-costs/",
+      "title": "The Hidden Costs of Expensing Mobile Services",
+      "clicks": 0,
+      "contributes": "Policy-design insight and reimbursement administration costs. Source sections to inspect: Mobile Expense Reimbursement Has Hidden Costs; Compare Total Costs, Not Just Plan Prices; Bulk Pricing Can Reduce Mobile Spend; Centralized Management Improves Cost Efficiency"
+    },
+    {
+      "path": "/telecom/employee-mobile-service/",
+      "title": "Offering Mobile Service to Employees: Key Considerations",
+      "clicks": 0,
+      "contributes": "Policy-design insight and reimbursement administration costs"
+    }
+  ],
+  "content": m40Content
+},
   "mobile-plan-management-simplified": {
   "slug": "mobile-plan-management-simplified",
   "category": "telecom",

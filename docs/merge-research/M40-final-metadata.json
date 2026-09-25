@@ -1,0 +1,68 @@
+{
+  "cluster": "M40",
+  "recommended": {
+    "text": "Connectivity as a Benefit: Policy, Costs and Rollout",
+    "characters": 52
+  },
+  "alternates": [
+    {
+      "text": "Connectivity as a Benefit: An Enterprise Policy Guide",
+      "characters": 53
+    },
+    {
+      "text": "Employee Connectivity Benefits: Funding and Operations",
+      "characters": 54
+    }
+  ],
+  "h1": "Connectivity as a Benefit: Policy, Costs and Rollout",
+  "slug": "connectivity-as-a-benefit",
+  "category": "telecom",
+  "tags": [
+    "connectivity as a benefit",
+    "employee mobile benefits",
+    "reimbursement",
+    "mobility policy"
+  ],
+  "description": {
+    "text": "Design connectivity as a benefit with clear funding, employee eligibility, privacy boundaries and operating costs. Build a pilot your teams can assess.",
+    "characters": 151
+  },
+  "keyword": "connectivity as a benefit",
+  "secondaryKeywords": [
+    "connectivity as a benefit",
+    "employee mobile benefits",
+    "reimbursement",
+    "mobility policy"
+  ],
+  "intent": "Evaluate and implement an employer-arranged mobile benefit with defined funding and operating responsibilities.",
+  "reader": "Enterprise IT, procurement, finance and HR mobility stakeholders",
+  "snippet": {
+    "query": "What is connectivity as a benefit?",
+    "format": "paragraph",
+    "exactText": "Connectivity as a benefit is an employer-arranged program that gives employees access to mobile service under a defined funding and support policy. Employees, employers or both may pay for the service. The program needs clear eligibility, subscription ownership, privacy boundaries and exit rules before a discounted plan becomes a useful workplace benefit."
+  },
+  "bodyWords": 2247,
+  "wordsIncludingTldr": 2374,
+  "ogTitle": "Connectivity as a Benefit: Policy, Costs and Rollout",
+  "ogDescription": "Design connectivity as a benefit with clear funding, employee eligibility, privacy boundaries and operating costs. Build a pilot your teams can assess.",
+  "excerpt": "Compare funding models, employee policy, full operating cost and pilot evidence for an employer-arranged mobile benefit.",
+  "images": [
+    {
+      "purpose": "Reused published hero, unchanged URL and srcset",
+      "url": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+      "alt": "Connectivity as a Benefit: Policy, Costs and Rollout"
+    },
+    {
+      "purpose": "Conceptual funding paths. Payment responsibility does not establish subscription ownership, relative cost or tax treatment.",
+      "filename": "/blog-media/connectivity-benefit/connectivity-benefit-funding-paths.png",
+      "webp": "/blog-media/connectivity-benefit/connectivity-benefit-funding-paths.webp",
+      "alt": "Connectivity as a benefit can use employee, shared or employer funding with different payment paths."
+    },
+    {
+      "purpose": "Conceptual operating-cost relationship, not to scale. No size or position represents a measured share of program cost.",
+      "filename": "/blog-media/connectivity-benefit/connectivity-benefit-operating-costs.png",
+      "webp": "/blog-media/connectivity-benefit/connectivity-benefit-operating-costs.webp",
+      "alt": "The mobile plan charge is visible while claims, support and service changes add operating work."
+    }
+  ]
+}

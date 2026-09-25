@@ -1,0 +1,78 @@
+{
+  "cluster": "M40",
+  "beforeBodyWords": 4955,
+  "destinationBodyWords": 3058,
+  "afterBodyWords": 2247,
+  "afterIncludingTldr": 2374,
+  "emDashes": 0,
+  "enDashes": 0,
+  "h2s": [
+    {
+      "heading": "What is connectivity as a benefit?",
+      "words": 50
+    },
+    {
+      "heading": "Which funding model fits your workforce?",
+      "words": 52
+    },
+    {
+      "heading": "What belongs in the employee mobility policy?",
+      "words": 53
+    },
+    {
+      "heading": "How do you compare the full operating cost?",
+      "words": 51
+    },
+    {
+      "heading": "What needs specialist review before launch?",
+      "words": 53
+    },
+    {
+      "heading": "How should HR, finance and IT pilot the program?",
+      "words": 51
+    },
+    {
+      "heading": "Connectivity benefit FAQs",
+      "words": 51
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is a mobile stipend always the wrong choice?",
+      "words": 49
+    },
+    {
+      "question": "Can employees use their own phones?",
+      "words": 50
+    },
+    {
+      "question": "Can an employee keep a personal phone number?",
+      "words": 50
+    },
+    {
+      "question": "What happens when an employee leaves the program?",
+      "words": 50
+    },
+    {
+      "question": "Should the benefit include international travel?",
+      "words": 51
+    },
+    {
+      "question": "Does an employer-paid plan require constant availability?",
+      "words": 53
+    }
+  ],
+  "tables": 3,
+  "figures": 2,
+  "internalLinks": 7,
+  "externalSources": 4,
+  "author": {
+    "name": "Spenza",
+    "slug": "isimplexity",
+    "basis": "majority: Spenza 2, SivaSai 1 of 3 posts",
+    "flippedFrom": "SivaSai"
+  },
+  "seoTitleLength": 52,
+  "metaDescriptionLength": 151,
+  "informationGain": 7
+}

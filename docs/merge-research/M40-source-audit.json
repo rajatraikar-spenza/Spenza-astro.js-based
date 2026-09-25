@@ -1,0 +1,1703 @@
+{
+  "cluster": "M40",
+  "fetchedAt": "2026-09-25T07:20:22.643Z",
+  "method": "Fresh public destination and donor HTML; parse5 selects exact article widget, first featured widget excludes related cards. Body count includes lists, tables and captions; excludes shell and separate ACF TLDR.",
+  "sources": [
+    {
+      "path": "/telecom/connectivity-as-a-benefit/",
+      "url": "https://spenza.com/telecom/connectivity-as-a-benefit/",
+      "status": 200,
+      "h1": [
+        "Connectivity as a Benefit: Why Your Stipend is Failing"
+      ],
+      "bodyWords": 3058,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "$40.20/mo"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "25–40%"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "$4.88M"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Stipend Tax Trap: How IRS Tax Costs Are Burning Your Money"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Mobile Stipend Compliance Risk Across 11 States"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Hidden BYOD Security Risk Behind Mobile Stipend Programs"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Mobile Stipends Create a Frontline Connectivity Gap and Reduce Productivity"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Six Ways Mobile Stipends Reduce Frontline Productivity"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Connectivity as a Benefit (CaaB): A Modern Mobile Stipend Solution"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Three Common CaaB Design Patterns"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Core CaaB Program Components"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Stipend vs. Connectivity as a Benefit: The Full Comparison"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "How Spenza Powers Connectivity as a Benefit at Enterprise Scale"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What HR Gets"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What Finance Gets"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "What IT and Security Get"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "60–90 Day Implementation Playbook for HR, Finance, and IT"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Step 1: Segment the Workforce"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Step 2: Define the Benefit Design"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Step 3: Pilot with 200–500 Employees"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "Step 4: Roll Out with a Governance Checklist"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "The Bottom Line: End Tax Waste from Stipends and Deliver Real Value"
+        },
+        {
+          "level": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Your company spends $3 million a year on mobile stipends for 5,000 frontline employees. A third of that budget evaporates in taxes before a single worker can use it. The rest lands in personal bank accounts, often spent on bills, not data plans, while nurses, delivery drivers, and factory workers still show up to work with cracked screens and dead batteries, unable to reliably log in, chart patients, or confirm routes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This is the Stipend Trap . And in 2026, forward-thinking HR and Finance leaders are moving past it. A new model has emerged: Connectivity as a Benefit (CaaB) . It replaces the taxable cash mobile stipend with a managed, employer-branded mobile program that provides better devices and better plans at a fraction of the cost, with full tax advantages, enterprise mobile management, and zero administrative overhead."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The data is unambiguous: the average enterprise mobile stipend is $40–$50 per employee per month, yet actual employee connectivity costs run $126–$209 per month when phone and internet are combined. Employers are covering 20–32% of the real cost while bearing 100% of the compliance risk, the payroll tax burden, and the workforce productivity loss from under connected workers."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If your organization still runs a cell phone reimbursement policy or flat cash stipend, this guide is for"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "$40.20/mo"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Average enterprise BYOD stipend paid"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "25–40%"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Of every stipend dollar lost to tax before employees spend it"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "$4.88M"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Average cost of a single data breach from unmanaged BYOD devices"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Stipend Tax Trap: How IRS Tax Costs Are Burning Your Money"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Ask your payroll team how much of your employee mobile stipend actually reaches employee pockets. The answer will be uncomfortable."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A $100 cash stipend is classified by the IRS as supplemental wages, fully taxable. After a 22% federal income tax withholding, 7.65% FICA, and an average 5% state income tax, the employee receives roughly $65–$75 . The company simultaneously pays an additional 7.65% employer-side FICA on top. For a 5,000-person workforce on a $50/month mobile stipend policy:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Gross annual program cost: $3,000,000 Employee FICA + income tax lost: ~$900,000–$1,200,000 Employer FICA surcharge: ~$229,500 Effective value received by workers: $1.5M–$1.8M out of $3M spent"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The alternative, a properly structured managed connectivity program , qualifies as a non-taxable working condition fringe benefit under IRS Notice 2011-72 and Publication 15-B when provided primarily for substantial business reasons. The employee pays zero tax. The employer pays zero FICA. The full dollar of value reaches the worker."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "That is the CaaB tax advantage, and it is the single fastest ROI lever available to HR and Finance teams running a BYOD stipend policy today."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Mobile Stipend Compliance Risk Across 11 States"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Most HR teams running a mobile device stipend policy have a silent legal liability they are not aware of. Eleven states plus Washington D.C. and Seattle now mandate that employers reimburse employees for work-related expenses, including mobile phone use. California (Labor Code § 2802), Illinois, Iowa, Massachusetts, Minnesota, Montana, New Hampshire, New York, North Dakota, Pennsylvania, South Dakota, and D.C. all have active statutes."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A flat cell phone reimbursement policy does not automatically satisfy these statutes. The requirement in California, for example, is to reimburse a “reasonable percentage” of actual costs, not a fixed amount. If an employee uses their personal phone 60% for work, the employer owes 60% of the actual bill. If a $50 stipend does not cover that, the employee can sue for the difference. Class action exposure is real."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A managed CaaB program eliminates this exposure entirely. When the employer provides the corporate mobile plan and pays the carrier directly, there is no “ reimbursement ” obligation. The device and connectivity are employer property used for work. Compliance is structural, not procedural."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Hidden BYOD Security Risk Behind Mobile Stipend Programs"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "When your company pays a mobile stipend , it funds a device it cannot see, manage, or secure. That device then connects to patient records, logistics platforms, payroll systems, and proprietary data. The BYOD security risks are severe, and most enterprises are dramatically underestimating them."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "80–90% of ransomware attacks originated from unmanaged personal devices 48% of organizations reported data breaches linked to unmanaged BYOD devices in the past 12 months $4.88 million is the average total cost of a data breach in 2024 Over 80% of organizations use BYOD ; 70% of those involve unmanaged devices"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For healthcare organizations specifically, a breach involving patient data on an unmanaged personal device is not just expensive, it is a HIPAA violation with regulatory fines layered on top of remediation costs. HHS has clarified that HIPAA protections generally do not apply to health information once accessed through or stored on personal cell phones. That expands your risk surface beyond your managed systems."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The NIST BYOD guidance highlights the need for standards-based controls to meet security and privacy needs in BYOD deployments. If your current approach is a stipend plus a policy document, you have a control gap. A managed enterprise mobile management program provides MDM integration, remote wipe capability, enforced OS baseline standards, and full audit trails, closing the gap that BYOD policy risks create."
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Device Baseline Supported OS versions Device encryption enabled Screen lock enforced Secure authentication Access Baseline Role-based access controls Least-privilege principle applied Multi-factor authentication compatible with frontline devices Data Baseline Prevent sensitive data from persisting on unmanaged or personal devices Incident Baseline Clear procedures for lost devices Steps for credential compromise Offboarding processes"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Mobile Stipends Create a Frontline Connectivity Gap and Reduce Productivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The employee phone reimbursement model was designed for desk workers with corporate laptops who occasionally use their phone for email. It was never architected for the 2.7 billion deskless workers who constitute 80% of the global workforce and for whom the smartphone is the primary, often the only, work computer. Only 23% of frontline workers currently have access to the digital tools they need for their roles"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Six Ways Mobile Stipends Reduce Frontline Productivity"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Clock-in failure and wage disputes A phone that cannot authenticate reliably (dead battery, outdated OS, broken camera for QR, weak data) creates missed punches and correction cycles that consume supervisor time, create payroll noise, and increase compliance exposure. Charting and documentation slowdowns In healthcare and home health, a cracked screen or low-storage device is not an inconvenience. It blocks chart completion and pushes work to the end of shift, increasing overtime and error rates. Dispatch and route volatility For fleets and field service teams, connectivity gaps translate into missed updates, late arrivals, and manual phone trees. The stipend still gets paid, but the service level agreement suffers. MFA and security app friction Security controls assume modern devices: up-to-date OS, biometrics, secure enclaves, and app compatibility. Stipends concentrate users on the oldest devices, exactly where MFA breaks and shadow IT starts. Hidden IT help desk load When mobile access fails, employees do not file a ticket labeled ‘ stipend failure. ‘ They file VPN issues, app bugs, password resets, and access incidents. Stipends shift cost into IT and Operations where it is invisible in telecom expense management reporting. Retention signal failure BCG reports that 53% of deskless workers feel burned out and 43% are actively looking for new jobs. Frontline workers judge benefits by what improves daily life. Cash disappears into bills. A reliable phone and plan shows up every shift. That distinction matters."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Healthcare 16.1M frontline workers need HIPAA-compliant mobile access to patient charts, medication records, and timekeeping. — Stipend: No compliance guarantee — Managed CaaB plan: Encrypted, MDM-enrolled, audit-logged connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Logistics 73% annual turnover (Fountain, 2025) means constant onboarding for new hires. — Stipend: Weeks to activate connectivity — Managed CaaB plan: eSIM provisioning activates in minutes and deactivates instantly at offboarding"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Manufacturing 2M projected unfilled jobs by 2030 (Manufacturing Institute) — Stipend: Not a recruitment differentiator — Managed CaaB plan: Tangible recruitment tool and employee retention advantage"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Connectivity as a Benefit (CaaB): A Modern Mobile Stipend Solution"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Connectivity as a Benefit (CaaB) transforms the traditional cash mobile stipend into a managed, employer-sponsored program. Instead of giving employees money and relying on them to choose the right plan, CaaB provides access to discounted mobile plans and optional devices through a controlled, branded experience."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The program includes governance, reporting, and automated settlement, offering a structured, tax-advantaged solution that ensures employees stay connected while giving employers visibility and control."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Three Common CaaB Design Patterns"
+        },
+        {
+          "tag": "ol",
+          "id": null,
+          "text": "Employee-paid with enterprise-discounted pricing: Employees pay for the plan, but the enterprise unlocks better pricing and a simpler experience. This is popular when HR wants to offer a benefit without adding recurring cost. Employer-subsidized tier: The enterprise pays a fixed subsidy ($10–$20) and employees pay the remainder. This balances cost control with meaningful impact and makes the benefit feel tangible. Role-based employer-paid connectivity: For roles where connectivity is required to perform the job, such as dispatch, clinical coordination, or field service, the employer covers the full plan and uses governance to ensure compliance. This treats connectivity as operational infrastructure."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Core CaaB Program Components"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Discounted plan catalog: $25–$30/month for unlimited data via government and enterprise-subsidized pricing tiers that are inaccessible to individuals Optional device access: new devices, certified refurbished devices, or BYOD activation with guardrails and MDM enrollment Enrollment and billing workflows: eliminate manual HR and IT administration Governance layer: track who is enrolled, what plan is active, who paid, who is subsidized, and handle exceptions Security posture controls: reduce unmanaged endpoints, ensure cleaner offboarding, and consistently mitigate BYOD security risks"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Stipend vs. Connectivity as a Benefit: The Full Comparison"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "table",
+          "id": null,
+          "text": "Dimension / Criteria Cash Stipend / BYOD (Status Quo) Connectivity as a Benefit (CaaB) Why It Matters Monthly Cost / Employee $50–$100 (taxable) $25–$30 (managed, tax-advantaged) CaaB cuts cost 40–50% and eliminates tax waste Tax Efficiency 25–40% lost to FICA & income tax 100% non-taxable fringe benefit (IRS Notice 2011-72) Tax friction can erase stipend savings Device Quality / Reliability Employee’s aged or cracked phone New or certified enterprise device Old devices block MFA, EHR, and workforce apps Security & Compliance Unmanaged — zero IT visibility MDM-managed, HIPAA/SOC 2 ready Unmanaged devices increase breach risk ($4.88M avg, IBM 2024) State Law Compliance Manual — risk across 11+ states Auto-compliant across all jurisdictions CA Labor Code §2802 requires reimbursement of reasonable costs HR Admin Burden High — manual tracking & payroll Zero-touch — automated settlement Reduces operational workload and errors Employee Experience Transactional cash perk Tangible, branded career investment Better tools improve retention and morale Enterprise Mobile Management (EMM) None — reactive IT Full MDM, audit trails, remote wipe Offboarding and device control improve security posture Data Breach Risk $4.88M avg exposure Managed fleet — risk minimized Reduces operational and financial risk Operator Pricing Retail rate ($50–$80/mo/line) Gov’t-subsidized / negotiated ($25–$30/mo/line) Cost savings and predictability Retention Signal Low — indistinguishable from wages High — perceived career investment Enhances employee loyalty and engagement",
+          "html": "<table class=\"responsive-table\">\n<thead>\n<tr>\n<th>Dimension / Criteria</th>\n<th>Cash Stipend / BYOD (Status Quo)</th>\n<th>Connectivity as a Benefit (CaaB)</th>\n<th>Why It Matters</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Monthly Cost / Employee</strong></td>\n<td>$50–$100 (taxable)</td>\n<td>$25–$30 (managed, tax-advantaged)</td>\n<td>CaaB cuts cost 40–50% and eliminates tax waste</td>\n</tr>\n<tr>\n<td><strong>Tax Efficiency</strong></td>\n<td>25–40% lost to FICA &amp; income tax</td>\n<td>100% non-taxable fringe benefit (IRS Notice 2011-72)</td>\n<td>Tax friction can erase stipend savings</td>\n</tr>\n<tr>\n<td><strong>Device Quality / Reliability</strong></td>\n<td>Employee’s aged or cracked phone</td>\n<td>New or certified enterprise device</td>\n<td>Old devices block MFA, EHR, and workforce apps</td>\n</tr>\n<tr>\n<td><strong>Security &amp; Compliance</strong></td>\n<td>Unmanaged — zero IT visibility</td>\n<td>MDM-managed, HIPAA/SOC 2 ready</td>\n<td>Unmanaged devices increase breach risk ($4.88M avg, IBM 2024)</td>\n</tr>\n<tr>\n<td><strong>State Law Compliance</strong></td>\n<td>Manual — risk across 11+ states</td>\n<td>Auto-compliant across all jurisdictions</td>\n<td>CA Labor Code §2802 requires reimbursement of reasonable costs</td>\n</tr>\n<tr>\n<td><strong>HR Admin Burden</strong></td>\n<td>High — manual tracking &amp; payroll</td>\n<td>Zero-touch — automated settlement</td>\n<td>Reduces operational workload and errors</td>\n</tr>\n<tr>\n<td><strong>Employee Experience</strong></td>\n<td>Transactional cash perk</td>\n<td>Tangible, branded career investment</td>\n<td>Better tools improve retention and morale</td>\n</tr>\n<tr>\n<td><strong>Enterprise Mobile Management (EMM)</strong></td>\n<td>None — reactive IT</td>\n<td>Full MDM, audit trails, remote wipe</td>\n<td>Offboarding and device control improve security posture</td>\n</tr>\n<tr>\n<td><strong>Data Breach Risk</strong></td>\n<td>$4.88M avg exposure</td>\n<td>Managed fleet — risk minimized</td>\n<td>Reduces operational and financial risk</td>\n</tr>\n<tr>\n<td><strong>Operator Pricing</strong></td>\n<td>Retail rate ($50–$80/mo/line)</td>\n<td>Gov’t-subsidized / negotiated ($25–$30/mo/line)</td>\n<td>Cost savings and predictability</td>\n</tr>\n<tr>\n<td><strong>Retention Signal</strong></td>\n<td>Low — indistinguishable from wages</td>\n<td>High — perceived career investment</td>\n<td>Enhances employee loyalty and engagement</td>\n</tr>\n</tbody>\n</table>"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Current stipend spend: $50/month × 5,000 employees = $3,000,000 per year"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "CaaB managed plan spend: $28/month × 5,000 employees = $1,680,000 per year"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Annual savings before tax advantage: $1,320,000 (44% cost reduction)"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Tax savings: Eliminating FICA payroll tax on stipends adds approximately $229,500 per year in additional savings."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Total 3-year CaaB advantage vs. stipend: More than $4.6 million , plus the added benefits of compliance protection and reduced security liability."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "How Spenza Powers Connectivity as a Benefit at Enterprise Scale"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza is the “Stripe for connectivity” — a B2B SaaS platform built by telecom veterans from GigSky and Truphone that provides the complete digital infrastructure to launch and operate a CaaB program without adding a single hour to your HR team’s workload. Spenza functions as a Stripe-plus-Shopify operating model for enterprise connectivity , consolidating multi-carrier management, automated billing, and a white-label employee portal into one platform."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What HR Gets"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Branded end-user portal: employees enroll, choose plans from a discounted catalog, and optionally purchase devices using their own credit cards Participation analytics: opt-in rates, enrollment by department or location, and adoption vs. employees still on legacy stipends Policy-driven workflows: eligibility rules, offboarding triggers, and communications that look like HR, not a carrier’s billing department"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What Finance Gets"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "A single settlement layer: consolidated reporting across operators with simplified reconciliation Visibility into who paid, who did not, and where subsidies are applied, clean telecom expense management at enterprise scale Controls to prevent stranded services and unmanaged recurring charges after employee departure"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "What IT and Security Get"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "More consistent device and access posture across the workforce, fewer edge-case devices that break MFA and secure apps MDM-enrolled, HIPAA/SOC 2-ready fleet with remote wipe and full audit trail capability Cleaner offboarding: eSIM deactivation at departure eliminates stranded access risk"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A stipend is an expense. Connectivity as a Benefit is an investment. Instead of simply reimbursing phone bills, organizations provide a structured connectivity benefit that strengthens retention, improves operational productivity, and reduces compliance exposure. When implemented strategically, it often pays for itself through tax savings, risk reduction, and better workforce enablement, while signaling to deskless employees that the tools they rely on are a priority rather than an afterthought."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "60–90 Day Implementation Playbook for HR, Finance, and IT"
+        },
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Step 1: Segment the Workforce"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Identify critical workflows: EHR access, dispatch, field service, scanning, secure messaging, time tracking Map connectivity patterns: on-site Wi-Fi dependent vs. always-on cellular required Assess device constraints: shared devices, rugged devices, camera requirements, MFA compatibility needs"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Step 2: Define the Benefit Design"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Choose subsidy model: employer-sponsored, employee-paid, or split structure Choose device model: BYOD only, certified refurbished option, or new device option Set eligibility and offboarding rules, what happens to the corporate mobile plan when an employee leaves"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Step 3: Pilot with 200–500 Employees"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Pick one or two high-impact roles: nursing units, dispatch teams, warehouse operations Track: opt-in rate, time tracking success, app failure rates, help desk tickets, absenteeism tied to access issues Quantify: stipend reduction, avoided downtime, fewer compliance exceptions"
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "Step 4: Roll Out with a Governance Checklist"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Enrollment rules: eligibility, waiting periods, offboarding triggers Plan governance: approved plan list, role-based exceptions, escalation path Billing governance: who pays what, failed payment handling, reporting cadence Security governance: minimum device posture, access controls, incident response path Employee communications: one-page explainer and a manager FAQ"
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "The Bottom Line: End Tax Waste from Stipends and Deliver Real Value"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The $50 mobile stipend made sense in 2015, when smartphones were novelties and BYOD was an experiment. In 2026, for a healthcare system with 10,000 nurses, a logistics company with 8,000 drivers, or a manufacturer with 6,000 floor workers, the mobile device stipend policy is a structural liability: tax-inefficient, compliance-exposing, security-blind, and invisible to the employees it is supposed to benefit."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Connectivity as a Benefit is the structural solution. It converts a taxable payroll line into a tax-advantaged fringe benefit. It replaces BYOD policy risks with MDM-managed, auditable devices. It replaces compliance exposure with structural legal protection. And it replaces an invisible cash transfer with a tangible, branded benefit that employees actually perceive as care."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The question is not whether your organization can afford to make this shift. The question is how much longer you can afford not to."
+        },
+        {
+          "tag": "h2",
+          "id": "FAQs",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Connectivity as a Benefit or CaaB is an employer-sponsored mobile program that provides employees with discounted mobile plans and optional devices. Unlike cash stipends, CaaB programs are fully managed, include governance, reporting, and automated billing settlement, and qualify as non-taxable working condition fringe benefits under IRS Notice 2011-72."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Mobile stipends are classified by the IRS as supplemental wages. They are subject to federal income tax, Social Security and Medicare taxes, and applicable state taxes. This means employees can lose 25 to 40 percent of every stipend dollar before using it for mobile services. A properly managed CaaB plan avoids this tax burden entirely."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Frontline employees using personal stipend-funded devices often face connectivity failures due to old hardware and unreliable plans. CaaB provides employer-vetted enterprise devices with unlimited mobile plans, ensuring secure, reliable connectivity. This eliminates delays in time-tracking, route confirmation, patient charting, and HR document completion."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Unlike a cash stipend, CaaB devices are enrolled in mobile device management systems. This allows IT teams to enforce security policies, remote-wipe lost or offboarded devices, require multi-factor authentication, and comply with regulations such as HIPAA. Managed devices reduce exposure to ransomware attacks originating from unmanaged personal devices."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The average U.S. mobile stipend is $40 to $50 per employee per month. A managed CaaB plan, such as those offered through platforms like Spenza, provides unlimited data at $25 to $30 per month. CaaB reduces costs by 40 to 50 percent while delivering better service quality, enterprise device management, and full tax advantages."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Studies by Oxford Economics and Samsung show that companies providing employer-managed devices have turnover below 10 percent, significantly lower than BYOD-only organizations. Deskless workers see CaaB as a tangible career investment, increasing engagement and reducing preventable turnover."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Spenza is a platform that delivers managed Connectivity as a Benefit programs. It provides enterprise-grade devices, subsidized unlimited mobile plans, automated billing, reporting dashboards for HR and Finance, and mobile device management integration. Spenza enables organizations to reduce costs, improve workforce productivity, and offer a fully tax-efficient connectivity benefit."
+        },
+        {
+          "tag": "p",
+          "id": "start",
+          "text": "Ready to Replace Your Stipend with a Program That Actually Works? Book a free Connectivity Benefit Assessment with the Spenza team today."
+        }
+      ],
+      "links": [
+        {
+          "text": "connectivity costs",
+          "href": "https://news.samsung.com/us/byod-bring-your-own-device-preventing-businesses-maximizing-value-of-mobile/#:~:text=While%20smartphones%20have%20become%20increasingly,cost%20as%20a%20significant%20factor."
+        },
+        {
+          "text": "ransomware attacks",
+          "href": "https://news.microsoft.com/source/asia/features/securing-our-digital-world-together-with-the-support-of-ai/"
+        },
+        {
+          "text": "reported data breaches",
+          "href": "https://www.hypori.com/blog/the-hidden-cost-of-byod"
+        },
+        {
+          "text": "cost of a data breach",
+          "href": "https://www.ibm.com/think/insights/whats-new-2024-cost-of-a-data-breach-report"
+        },
+        {
+          "text": "80% of organizations use BYOD",
+          "href": "https://jumpcloud.com/blog/byod-statistics"
+        },
+        {
+          "text": "BYOD policy risks",
+          "href": "/byod/byod-in-2025-benefits-risks-and-best-practices/"
+        },
+        {
+          "text": "23% of frontline workers",
+          "href": "https://www.deloitte.com/us/en/services/consulting/blogs/human-capital/frontline-worker-technologies-for-productivity.html"
+        },
+        {
+          "text": "telecom expense management",
+          "href": "/tem/what-is-telecom-expense-management-tem/"
+        },
+        {
+          "text": "BCG reports",
+          "href": "https://www.bcg.com/publications/2024/facing-deskless-labor-shortage-with-technology"
+        },
+        {
+          "text": "",
+          "href": "https://www.gsma.com/solutions-and-impact/technologies/esim/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.choiceiot.com/blog/why-using-a-multi-carrier-platform-is-important-to-solution-providers/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.grandviewresearch.com/industry-analysis/managed-services-market?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "",
+          "href": "/telecom/white-label-connectivity-solutions-for-msps/?utm_source=chatgpt.com"
+        },
+        {
+          "text": "Book a free Connectivity Benefit Assessment",
+          "href": "https://calendly.com/spenza/discovery"
+        },
+        {
+          "text": "Contact Us Today",
+          "href": "/contact-us/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png",
+          "class": "attachment-full size-full wp-image-16252 webpexpress-processed",
+          "alt": "Stop Mobile Stipend Waste: How Connectivity as a Benefit Boosts Productivity & Reduces Risk",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png\" class=\"attachment-full size-full wp-image-16252 webpexpress-processed\" alt=\"Stop Mobile Stipend Waste: How Connectivity as a Benefit Boosts Productivity &amp; Reduces Risk\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "471",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-1024x471.jpeg",
+          "alt": "Connectivity as a Benefit: Why Your $50 Stipend is Failing",
+          "class": "wp-image-16254",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-1024x471.jpeg 1024w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-300x138.jpeg 300w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-768x353.jpeg 768w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-1536x707.jpeg 1536w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM.jpeg 1600w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"471\" src=\"https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-1024x471.jpeg\" alt=\"Connectivity as a Benefit: Why Your $50 Stipend is Failing\" class=\"wp-image-16254\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-1024x471.jpeg 1024w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-300x138.jpeg 300w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-768x353.jpeg 768w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM-1536x707.jpeg 1536w, https://media.spenza.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-01-at-8.14.16-PM.jpeg 1600w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "536",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-1024x536.png",
+          "alt": "The Hidden BYOD Security Risk Behind Mobile Stipend Programs",
+          "class": "wp-image-16272",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-1024x536.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-300x157.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-768x402.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-1536x803.png 1536w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-2048x1071.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"536\" src=\"https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-1024x536.png\" alt=\"The Hidden BYOD Security Risk Behind Mobile Stipend Programs\" class=\"wp-image-16272\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-1024x536.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-300x157.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-768x402.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-1536x803.png 1536w, https://media.spenza.com/wp-content/uploads/2026/03/BYOD-Risks-2048x1071.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "536",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-1024x536.png",
+          "alt": "Six Ways Mobile Stipends Reduce Frontline Productivity",
+          "class": "wp-image-16273",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-1024x536.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-300x157.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-768x402.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-1536x803.png 1536w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-2048x1071.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"536\" src=\"https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-1024x536.png\" alt=\"Six Ways Mobile Stipends Reduce Frontline Productivity\" class=\"wp-image-16273\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-1024x536.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-300x157.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-768x402.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-1536x803.png 1536w, https://media.spenza.com/wp-content/uploads/2026/03/Six-Ways-Mobile-Stipends-Reduce-Frontline-Productivity-2048x1071.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "536",
+          "src": "https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-1024x536.png",
+          "alt": "60–90 Day Implementation Playbook for HR, Finance, and IT\n",
+          "class": "wp-image-16275",
+          "style": "width:666px",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-1024x536.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-300x157.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-768x402.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-1536x803.png 1536w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-2048x1071.png 2048w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"536\" src=\"https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-1024x536.png\" alt=\"60–90 Day Implementation Playbook for HR, Finance, and IT\n\" class=\"wp-image-16275\" style=\"width:666px\" srcset=\"https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-1024x536.png 1024w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-300x157.png 300w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-768x402.png 768w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-1536x803.png 1536w, https://media.spenza.com/wp-content/uploads/2026/03/60–90-Day-Implementation-Playbook-for-HR-Finance-and-IT-2048x1071.png 2048w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"file-invoice\", \"label\" : \"File Invoice\", \"unicode\" : \"f570\"}",
+            "title": "The Stipend Tax Trap",
+            "text": "Cash mobile stipends are taxable, often losing 25–40% to payroll taxes before employees can use them, while employers pay extra FICA costs."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield-halved\", \"label\" : \"Shield Halved\", \"unicode\" : \"f3ed\"}",
+            "title": "The Compliance Risk",
+            "text": "Flat stipends fail to meet mobile reimbursement laws in 11 states plus D.C. and Seattle, exposing companies to potential class actions."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"thumbs-down\", \"label\" : \"Thumbs Down\", \"unicode\" : \"f165\"}",
+            "title": "Productivity Loss on the Frontline",
+            "text": "Old or broken devices, weak data plans, and BYOD limitations slow clock-ins, charting, dispatch, and HR workflows, reducing workforce efficiency."
+          },
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
+            "title": "Connectivity as a Benefit (CaaB) Solution",
+            "text": "A managed, employer-sponsored program delivers devices and plans at half the cost, tax-free, with enterprise management, compliance coverage, and measurable ROI."
+          }
+        ],
+        "oneCol": [
+          {
+            "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
+            "title": "Spenza Powers CaaB Programs",
+            "text": "Spenza provides a comprehensive enterprise platform for CaaB that includes device provisioning, plan management, automated billing, and MDM integration, eliminating administrative overhead while maximizing cost savings and security."
+          }
+        ]
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/"
+              },
+              "author": {
+                "name": "SivaSai",
+                "@id": "https://spenza.com/#/schema/person/1e3d01b217300c2230b9747116185ede"
+              },
+              "headline": "Connectivity as a Benefit: Why Your Stipend is Failing",
+              "datePublished": "2026-03-15T11:11:00+00:00",
+              "dateModified": "2026-07-17T04:56:47+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/"
+              },
+              "wordCount": 2584,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png",
+              "keywords": [
+                "Connectivity-as-a-Benefit",
+                "eliminate mobile stipend",
+                "enterprise mobile benefits",
+                "eSIM",
+                "healthcare employee retention",
+                "HR tech connectivity",
+                "managed business mobile plans.",
+                "MVNO",
+                "spenza"
+              ],
+              "articleSection": [
+                "Telecom"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/",
+              "url": "https://spenza.com/telecom/connectivity-as-a-benefit/",
+              "name": "Connectivity as a Benefit: Why Your Stipend is Failing - Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png",
+              "datePublished": "2026-03-15T11:11:00+00:00",
+              "dateModified": "2026-07-17T04:56:47+00:00",
+              "description": "Connectivity as a Benefit vs mobile stipends: employer-owned lines remove taxable reimbursements, cut admin, and give IT control over every device.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/telecom/connectivity-as-a-benefit/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2026/03/Stop-Mobile-Stipend-Waste-How-Connectivity-as-a-Benefit-Boosts-Productivity-Reduces-Risk.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "Stop Mobile Stipend Waste: How Connectivity as a Benefit Boosts Productivity & Reduces Risk"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/telecom/connectivity-as-a-benefit/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Telecom",
+                  "item": "https://spenza.com/category/telecom/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Connectivity as a Benefit: Why Your Stipend is Failing"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/1e3d01b217300c2230b9747116185ede",
+              "name": "SivaSai",
+              "description": "Founder’s Office | Engineer → Marketer | Scaled Organic to 500K+ Impressions | SEO &amp; AI Search | Email Campaigns &amp; Funnels | AI-driven B2B SaaS Growth",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/sivasai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/tem/hidden-mobile-service-costs/",
+      "url": "https://spenza.com/tem/hidden-mobile-service-costs/",
+      "status": 200,
+      "h1": [
+        "The Hidden Costs of Expensing Mobile Services"
+      ],
+      "bodyWords": 1580,
+      "headings": [
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Is Telecom Expense Management (TEM)?"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "Why Expensing Mobile Services Can Cost More Than Expected"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "BYOD vs. Company-Paid Mobile Service vs. Managed Connectivity"
+        },
+        {
+          "level": "h3",
+          "id": "viewer-lli2",
+          "text": "Service Comparison Business Case"
+        },
+        {
+          "level": "h3",
+          "id": "viewer-ci2cr",
+          "text": "Background & Assumptions"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "What Modern Mobile Expense Management Should Cover"
+        },
+        {
+          "level": "h3",
+          "id": "viewer-3hgsn",
+          "text": "In-House Option"
+        },
+        {
+          "level": "h3",
+          "id": null,
+          "text": "The Hidden Cost of BYOD Reimbursement"
+        },
+        {
+          "level": "h3",
+          "id": "viewer-9tc9j",
+          "text": "iSimplexity Option"
+        },
+        {
+          "level": "h2",
+          "id": null,
+          "text": "From Expense Reimbursement to Telecom Cost Optimization"
+        }
+      ],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Is Telecom Expense Management (TEM)?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom Expense Management (TEM) is the process of managing, analyzing, and optimizing an organization’s telecom and mobile services, including service inventory, contracts, usage, invoices, expenses, and payments. TEM helps businesses identify billing errors, control unnecessary spending, and improve visibility into telecom costs."
+        },
+        {
+          "tag": "p",
+          "id": "viewer-7v1cd",
+          "text": "When companies face pressure to reduce costs as margins get squeezed, one of the areas that often faces scrutiny is mobile phone service. Mobile operators are notorious for making billing and service plans complicated and continuing to charge premium rates when lower cost alternatives are available. Some companies even consider eliminating mobile service altogether due to the cost and complexity of managing the service."
+        },
+        {
+          "tag": "p",
+          "id": "viewer-bn13m",
+          "text": "The financial calculation that goes into this decision is often more nuanced than just “we pay X, let’s get rid of that cost.” Mobile services are an essential part of modern business both for customer accessibility and the flexibility to work from anywhere. Companies that have offered company-paid service in the past are loath to totally eliminate the benefit as employees will rightly see this as a pay cut and be less likely to respond outside of office hours. Businesses often arrive at the compromise solution of allowing employees to expense their personal mobile service."
+        },
+        {
+          "tag": "p",
+          "id": "viewer-9tg8s",
+          "text": "While this may seem like the best of both worlds – employees can pick the service they want and the company doesn’t have to manage it – that approach has hidden costs that companies often overlook. I’ve done a quick calculation of the typical time and effort required to process an expense report:"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": "viewer-3i91g",
+          "text": "$49 per month just to process the expense report! And that’s on top of whatever the reimbursement is."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "Why Expensing Mobile Services Can Cost More Than Expected"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Employee mobile reimbursement can shift costs rather than eliminate them. A BYOD expense model may require finance and HR teams to manage reimbursement policies, employee claims, approvals, exceptions, tax treatment, and payment records. It can also reduce the company’s visibility into mobile service inventory and usage."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A centralized mobility management model can instead combine service procurement, employee eligibility, billing, expense controls, usage visibility, and cost allocation in one workflow. Modern TEM platforms also use automation and analytics to identify unused services, billing anomalies, and opportunities to optimize mobile spend."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "BYOD vs. Company-Paid Mobile Service vs. Managed Connectivity"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies generally have three approaches to employee mobile services:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Company-paid mobile service: The company purchases and manages mobile plans directly. This provides stronger control and visibility but requires internal administration. BYOD with employee reimbursement: Employees use personal plans and submit expenses. This reduces direct service administration but introduces reimbursement processing and can limit centralized visibility. Managed connectivity: A centralized platform manages mobile plans, billing, usage, policies, and employee connectivity while reducing manual administration."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The right model depends on workforce size, mobility requirements, reimbursement policies, security needs, and the level of cost and usage control the company requires."
+        },
+        {
+          "tag": "h3",
+          "id": "viewer-lli2",
+          "text": "Service Comparison Business Case"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-24ng2",
+          "text": "When these processing costs are added to the overall spend, the business case for eliminating company-provided service is eroded. But what if there was a solution that provided the cost savings, eliminated the hassles of dealing with operators and provided employees with the freedom to select any of the 3 major operators? Read on and see what the iSimplexity solution can provide."
+        },
+        {
+          "tag": "p",
+          "id": "viewer-3cms3",
+          "text": "Let’s take a look at a 100 person company and assess how the business case on the various models pencils out…"
+        },
+        {
+          "tag": "h3",
+          "id": "viewer-ci2cr",
+          "text": "Background & Assumptions"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-bn2vg",
+          "text": "Our company of 100 people has one person fully dedicated to managing the mobile service, dealing with employee devices, etc. Let’s say that person’s salary is $65,000, so a fully loaded salary + benefits would be $84,500. By moving to a BYO plan and letting employees expense the service, the company could eliminate that position and save the $84K."
+        },
+        {
+          "tag": "p",
+          "id": "viewer-ch6g3",
+          "text": "A company with 100 lines of service should be able to achieve a 20% discount over standard consumer plans. The typical unlimited consumer plan is $65, so the company would pay $52, a savings of $13 per line per month."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "What Modern Mobile Expense Management Should Cover"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A modern mobile expense management program should cover more than reimbursement processing. Key areas include:"
+        },
+        {
+          "tag": "ul",
+          "id": null,
+          "text": "Inventory visibility: Know which users, devices, SIMs, and services are active. Usage monitoring: Identify underused, unused, or unusually expensive services. Invoice validation: Compare billed charges against contracted services and expected usage. Cost allocation: Assign mobile expenses to employees, departments, projects, or business units. Policy enforcement: Apply company rules for plans, spending limits, reimbursements, and upgrades. Lifecycle management: Manage orders, changes, suspensions, replacements, and disconnects. Reporting and analytics: Track spending trends and identify optimization opportunities."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "This broader approach reflects how modern TEM platforms combine expense management with inventory, usage, invoice, procurement, and cost-optimization workflows."
+        },
+        {
+          "tag": "p",
+          "id": "viewer-b1grv",
+          "text": "Here’s the in-house vs expensing comparison:"
+        },
+        {
+          "tag": "h3",
+          "id": "viewer-3hgsn",
+          "text": "In-House Option"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-bf451",
+          "text": "Annual mobile service – $52/line/mo x 12 x 100 = $62,400"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-cm300",
+          "text": "In-house management – $84,500"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-3tapm",
+          "text": "Total cost – $146,900"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-22h9d",
+          "text": "Expensing Option"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-5r9p0",
+          "text": "Annual mobile service – $65/line/mo x 12 x 100 = $78,000"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-2l1cm",
+          "text": "Expense Processing – $49.38 x 12 x 100 = $59,256"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-flqtt",
+          "text": "Total cost – $137,256"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-1bdqs",
+          "text": "Savings of $9,644. And if you had a slightly lower salary for your mobile service manager, the savings would completely evaporate. Not exactly a strong business case."
+        },
+        {
+          "tag": "h3",
+          "id": null,
+          "text": "The Hidden Cost of BYOD Reimbursement"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The cost of BYOD reimbursement is not limited to the amount reimbursed to employees. Organizations also need to account for the administrative effort required to review claims, enforce policies, process payments, resolve exceptions, and maintain accurate records."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For larger mobile programs, these activities can become a recurring operational workload. Automating reimbursement rules, approvals, expense validation, and cost allocation can reduce that burden while giving finance and IT teams better visibility into mobile spending"
+        },
+        {
+          "tag": "h3",
+          "id": "viewer-9tc9j",
+          "text": "iSimplexity Option"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-79ars",
+          "text": "Now what if a company could reduce those overhead costs and still offer the bulk discounted service? With iSimplexity, here’s what the savings would look like:"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-cupnj",
+          "text": "Mobile Service (Unlimited voice, text, data with 5 GB high speed) – $30 x 12 x 100 = $36,000"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-84c73",
+          "text": "iSimplexity Service Fees Platinum Plan – $10 x 12 x 100 = $12,000"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-e73vd",
+          "text": "Total cost – $46,400"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-6kqhq",
+          "text": "Company cost savings vs in-house plan – $146,900 – $46,400 = $100,500"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-3bfs9",
+          "text": "Company cost savings vs expensing plan – $137,256 – $46,400 = $90,856"
+        },
+        {
+          "tag": "p",
+          "id": "viewer-477ng",
+          "text": "Now those are numbers that can make a real difference to a company. When considering alternative mobile service options, take a look at iSimplexity, we might be the best option out there!"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A managed connectivity model can combine centralized mobile plan management, billing, usage visibility, policy controls, and expense administration without requiring the company to build and maintain the entire operational process internally."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "For example, Spenza provides centralized connectivity management for businesses, including telecom expense management, usage reporting, and cost optimization. The platform is designed to help organizations identify mobile and connectivity waste and manage plans centrally."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The actual savings will vary by workforce size, carrier rates, plan structure, reimbursement policy, and existing administrative costs. Companies should therefore calculate total cost of ownership using their own current mobile spend and operational workload rather than relying on a fixed savings estimate."
+        },
+        {
+          "tag": "h2",
+          "id": null,
+          "text": "From Expense Reimbursement to Telecom Cost Optimization"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "The bigger opportunity is to treat mobile connectivity as a managed business expense rather than simply an employee reimbursement. A centralized approach can connect mobile inventory, service plans, usage, invoices, and cost controls so finance and IT teams can see where money is being spent and where services can be consolidated or optimized."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Modern TEM platforms increasingly combine invoice management, inventory visibility, usage analytics, procurement workflows, cost allocation, and automated expense controls in one system"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Telecom Expense Management (TEM) covers the broader management of telecom services and spending, while Mobile Expense Management focuses specifically on mobile devices, cellular services, employee mobility costs, usage, and related expenses."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "BYOD is not automatically cheaper. While it can reduce direct company-paid mobile service costs, businesses may incur additional costs from employee reimbursements, expense processing, policy enforcement, administration, and reduced visibility into mobile services. The correct comparison should include the full cost of administration and reimbursement."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Companies can reduce reimbursement costs by establishing clear mobile policies, automating expense validation and approvals, monitoring usage, identifying unused services, and evaluating whether centralized company-managed connectivity is more cost-effective for specific employee groups."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A company should track mobile service inventory, active users and devices, plan costs, usage, invoices, reimbursements, contracts, spending by department, unused services, and policy exceptions. This gives finance and IT teams the information needed to control mobile spending."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Yes. Telecom expense management can identify unused or underused services, billing discrepancies, unnecessary plans, contract mismatches, and unusual spending patterns. Centralized reporting and automated controls can then help organizations reduce avoidable mobile costs."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "BYOD reimbursement compensates employees for eligible costs associated with their personal mobile services. Managed mobile services provide the company with greater centralized control over mobile plans, devices, usage, expenses, and lifecycle operations. Modern mobility platforms can also automate employee stipends and reimbursement workflows."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A TEM platform can analyze invoices, contracts, usage, inventory, and spending patterns to identify billing errors, unused services, cost spikes, contract mismatches, and opportunities to right-size mobile plans. Advanced platforms can also automate invoice validation and surface optimization recommendations."
+        }
+      ],
+      "links": [],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1280",
+          "height": "720",
+          "src": "https://media.spenza.com/wp-content/uploads/2021/04/21.png",
+          "class": "attachment-full size-full wp-image-6904 webpexpress-processed",
+          "alt": "Hidden Costs",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2021/04/21-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2021/04/21-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2021/04/21-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2021/04/21.png 1280w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/21-300x169.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/21-1024x576.png.webp 1024w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/21-768x432.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2021/04/21.png.webp 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1280\" height=\"720\" src=\"https://media.spenza.com/wp-content/uploads/2021/04/21.png\" class=\"attachment-full size-full wp-image-6904 webpexpress-processed\" alt=\"Hidden Costs\" srcset=\"https://media.spenza.com/wp-content/uploads/2021/04/21-300x169.png 300w, https://media.spenza.com/wp-content/uploads/2021/04/21-1024x576.png 1024w, https://media.spenza.com/wp-content/uploads/2021/04/21-768x432.png 768w, https://media.spenza.com/wp-content/uploads/2021/04/21.png 1280w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "width": "360",
+          "height": "326",
+          "class": "wp-image-215",
+          "src": "https://media.spenza.com/wp-content/uploads/2021/04/b05df5_cd8f859b3b2a4ebeb95a6e4244d1f1a0_mv2.jpg",
+          "alt": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2021/04/b05df5_cd8f859b3b2a4ebeb95a6e4244d1f1a0_mv2.jpg 360w, https://media.spenza.com/wp-content/uploads/2021/04/b05df5_cd8f859b3b2a4ebeb95a6e4244d1f1a0_mv2-300x272.jpg 300w",
+          "sizes": "(max-width: 360px) 100vw, 360px",
+          "markup": "<img fetchpriority=\"high\" decoding=\"async\" width=\"360\" height=\"326\" class=\"wp-image-215\" src=\"https://media.spenza.com/wp-content/uploads/2021/04/b05df5_cd8f859b3b2a4ebeb95a6e4244d1f1a0_mv2.jpg\" alt=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2021/04/b05df5_cd8f859b3b2a4ebeb95a6e4244d1f1a0_mv2.jpg 360w, https://media.spenza.com/wp-content/uploads/2021/04/b05df5_cd8f859b3b2a4ebeb95a6e4244d1f1a0_mv2-300x272.jpg 300w\" sizes=\"(max-width: 360px) 100vw, 360px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [],
+        "oneCol": []
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/tem/hidden-mobile-service-costs/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/tem/hidden-mobile-service-costs/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "The Hidden Costs of Expensing Mobile Services",
+              "datePublished": "2021-04-13T05:28:28+00:00",
+              "dateModified": "2026-08-20T08:10:08+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/tem/hidden-mobile-service-costs/"
+              },
+              "wordCount": 1226,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/tem/hidden-mobile-service-costs/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2021/04/21.png",
+              "keywords": [
+                "spenza",
+                "Telecom Expense Management",
+                "Telecom management",
+                "TEM",
+                "wireless telecom expense management"
+              ],
+              "articleSection": [
+                "TEM"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/tem/hidden-mobile-service-costs/",
+              "url": "https://spenza.com/tem/hidden-mobile-service-costs/",
+              "name": "The Hidden Costs of Expensing Mobile Services | Spenza",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/tem/hidden-mobile-service-costs/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/tem/hidden-mobile-service-costs/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2021/04/21.png",
+              "datePublished": "2021-04-13T05:28:28+00:00",
+              "dateModified": "2026-08-20T08:10:08+00:00",
+              "description": "Discover the hidden costs of expensing mobile services in Spenza's latest blog! Learn how to identify and mitigate these expenses for better budget management.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/tem/hidden-mobile-service-costs/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/tem/hidden-mobile-service-costs/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/tem/hidden-mobile-service-costs/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2021/04/21.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/21.png",
+              "width": 1280,
+              "height": 720,
+              "caption": "Hidden Costs"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/tem/hidden-mobile-service-costs/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "TEM",
+                  "item": "https://spenza.com/category/tem/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "The Hidden Costs of Expensing Mobile Services"
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/telecom/employee-mobile-service/",
+      "url": "https://spenza.com/telecom/employee-mobile-service/",
+      "status": 200,
+      "h1": [
+        "Offering Mobile Service to Employees: Key Considerations"
+      ],
+      "bodyWords": 317,
+      "headings": [],
+      "blocks": [
+        {
+          "tag": "figure",
+          "id": null,
+          "text": ""
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "What is your enterprise mobility policy?"
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "Growing companies face a number of challenges as they move from startup mode to a mid-sized business. Startups are notorious for having few policies and procedures and solely focusing on launching the product and bringing in those critical early customers. As you move out of the “everyone knows everyone” phase, putting in the right policies early will save longer-term headaches when your DIY procedures can’t support a large number of employees."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "A mobility policy, when properly implemented, can end up saving the company thousands by making clear what the business will and won’t support. While new top-of-the-line mobile phones can cost well over $1000, they are also very well built and can typically last a number of years, but I frequently hear stories from businesses without a formal mobile policy that their corporate phones suffer a rash of drops, damage and generally just disappear in the month following the launch of the latest iPhone. Funny how that happens."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "If you’ve never implemented a mobility policy from scratch it can be a daunting task, so we’ve pooled the collective experience of the iSimplexity management team to develop a general framework that you can use to get started building your company’s policy. A comprehensive mobility policy requires that the company look at over-using the service, device policy, porting-in and porting-out as well as roaming and international service."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "We’ve created two documents to help you develop your own mobility policy – a primer that provides a list of questions you should know the answers to before developing your policy along with implementation options; and a full mobility policy document template with wording you can use to create a custom policy for your company. Head to Mobility policy page to jumpstart your enterprise mobility management."
+        },
+        {
+          "tag": "p",
+          "id": null,
+          "text": "With iSimplexity , you can implement the corporate mobility policy. Refer to iSimplexity Telecom expense management SaaS for more details"
+        }
+      ],
+      "links": [
+        {
+          "text": "mobile phones",
+          "href": "/blog/byod-policies-can-save/"
+        },
+        {
+          "text": "Mobility policy page",
+          "href": "/mobility-policy/"
+        },
+        {
+          "text": "iSimplexity",
+          "href": "/"
+        },
+        {
+          "text": "iSimplexity Telecom expense management SaaS",
+          "href": "/telecom-expense-management-system-business-mobile-services-pricing/"
+        }
+      ],
+      "images": [
+        {
+          "kind": "featured",
+          "width": "1024",
+          "height": "683",
+          "src": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+          "class": "attachment-full size-full wp-image-4433 webpexpress-processed",
+          "alt": "A user scanning their fingerprint on a mobile device for biometric authentication, showcasing security technology in action.",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png 300w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png 768w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png 1024w",
+          "sizes": "(max-width: 1280px) 100vw, 1280px",
+          "fetchpriority": "high",
+          "decoding": "async",
+          "markup": "<picture><source srcset=\"https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png.webp 300w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png.webp 768w, https://media.spenza.com/wp-assets/wp-content/webp-express/webp-images/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png.webp 1024w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" type=\"image/webp\"><img width=\"1024\" height=\"683\" src=\"https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png\" class=\"attachment-full size-full wp-image-4433 webpexpress-processed\" alt=\"A user scanning their fingerprint on a mobile device for biometric authentication, showcasing security technology in action.\" srcset=\"https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png 300w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png 768w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png 1024w\" sizes=\"(max-width: 1280px) 100vw, 1280px\" fetchpriority=\"high\" decoding=\"async\"></picture>"
+        },
+        {
+          "kind": "body",
+          "loading": "lazy",
+          "decoding": "async",
+          "width": "1024",
+          "height": "683",
+          "class": "wp-image-4433",
+          "src": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+          "alt": "",
+          "srcset": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png 1024w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png 300w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png 768w",
+          "sizes": "(max-width: 1024px) 100vw, 1024px",
+          "markup": "<img loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"683\" class=\"wp-image-4433\" src=\"https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png\" alt=\"\" srcset=\"https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png 1024w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--300x200.png 300w, https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees--768x512.png 768w\" sizes=\"(max-width: 1024px) 100vw, 1024px\">"
+        }
+      ],
+      "tldr": {
+        "tldrHeading": "TL;DR / At-a-Glance Summary",
+        "tldrDescription": "",
+        "twoCol": [],
+        "oneCol": []
+      },
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Article",
+              "@id": "https://spenza.com/telecom/employee-mobile-service/#article",
+              "isPartOf": {
+                "@id": "https://spenza.com/telecom/employee-mobile-service/"
+              },
+              "author": {
+                "name": "Spenza",
+                "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f"
+              },
+              "headline": "Offering Mobile Service to Employees: Key Considerations ",
+              "datePublished": "2021-08-19T11:05:40+00:00",
+              "dateModified": "2026-07-17T06:30:14+00:00",
+              "mainEntityOfPage": {
+                "@id": "https://spenza.com/telecom/employee-mobile-service/"
+              },
+              "wordCount": 328,
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "image": {
+                "@id": "https://spenza.com/telecom/employee-mobile-service/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+              "articleSection": [
+                "Telecom"
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://spenza.com/telecom/employee-mobile-service/",
+              "url": "https://spenza.com/telecom/employee-mobile-service/",
+              "name": "Offering Mobile Service to Employees: Key Considerations",
+              "isPartOf": {
+                "@id": "https://spenza.com/#website"
+              },
+              "primaryImageOfPage": {
+                "@id": "https://spenza.com/telecom/employee-mobile-service/#primaryimage"
+              },
+              "image": {
+                "@id": "https://spenza.com/telecom/employee-mobile-service/#primaryimage"
+              },
+              "thumbnailUrl": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+              "datePublished": "2021-08-19T11:05:40+00:00",
+              "dateModified": "2026-07-17T06:30:14+00:00",
+              "description": "Offering mobile service to employees beats stipends on cost. Compare corporate-liable vs BYOD on tax treatment, control and total spend per head.",
+              "breadcrumb": {
+                "@id": "https://spenza.com/telecom/employee-mobile-service/#breadcrumb"
+              },
+              "inLanguage": "en-US",
+              "potentialAction": [
+                {
+                  "@type": "ReadAction",
+                  "target": [
+                    "https://spenza.com/telecom/employee-mobile-service/"
+                  ]
+                }
+              ]
+            },
+            {
+              "@type": "ImageObject",
+              "inLanguage": "en-US",
+              "@id": "https://spenza.com/telecom/employee-mobile-service/#primaryimage",
+              "url": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+              "contentUrl": "https://media.spenza.com/wp-content/uploads/2023/08/Thinking-about-offering-mobile-service-to-your-employees-.png",
+              "width": 1024,
+              "height": 683,
+              "caption": "A user scanning their fingerprint on a mobile device for biometric authentication, showcasing security technology in action."
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://spenza.com/telecom/employee-mobile-service/#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://spenza.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Telecom",
+                  "item": "https://spenza.com/category/telecom/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Offering Mobile Service to Employees: Key Considerations "
+                }
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://spenza.com/#website",
+              "url": "https://spenza.com/",
+              "name": "Spenza",
+              "description": "Connectivity as a Service | Business Mobile Services | Wireless Spend management",
+              "publisher": {
+                "@id": "https://spenza.com/#organization"
+              },
+              "potentialAction": [
+                {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://spenza.com/?s={search_term_string}"
+                  },
+                  "query-input": {
+                    "@type": "PropertyValueSpecification",
+                    "valueRequired": true,
+                    "valueName": "search_term_string"
+                  }
+                }
+              ],
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://spenza.com/#organization",
+              "name": "Spenza",
+              "url": "https://spenza.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://spenza.com/#/schema/logo/image/",
+                "url": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "contentUrl": "https://media.spenza.com/wp-content/uploads/2021/04/Spenza-logo-Hor.png.webp",
+                "width": 268,
+                "height": 136,
+                "caption": "Spenza"
+              },
+              "image": {
+                "@id": "https://spenza.com/#/schema/logo/image/"
+              }
+            },
+            {
+              "@type": "Person",
+              "@id": "https://spenza.com/#/schema/person/249c66e3f1819fb585cd8b69886d711f",
+              "name": "Spenza",
+              "sameAs": [
+                "https://spenza.com/"
+              ],
+              "url": "https://spenza.com/author/isimplexity/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

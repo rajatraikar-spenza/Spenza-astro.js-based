@@ -1,0 +1,97 @@
+{
+  "title": "Connectivity as a Benefit: Policy, Costs and Rollout",
+  "robots": "noindex, nofollow",
+  "canonical": false,
+  "jsonLd": 0,
+  "slots": false,
+  "cards": 5,
+  "icons": 5,
+  "cardTitles": [
+    "Define the purpose",
+    "Choose the funding",
+    "Explain the boundaries",
+    "Count the whole effort",
+    "Prove the journey"
+  ],
+  "h2": [
+    {
+      "id": "benefit-definition",
+      "text": "What is connectivity as a benefit?"
+    },
+    {
+      "id": "funding-models",
+      "text": "Which funding model fits your workforce?"
+    },
+    {
+      "id": "employee-policy",
+      "text": "What belongs in the employee mobility policy?"
+    },
+    {
+      "id": "operating-cost",
+      "text": "How do you compare the full operating cost?"
+    },
+    {
+      "id": "specialist-review",
+      "text": "What needs specialist review before launch?"
+    },
+    {
+      "id": "pilot-program",
+      "text": "How should HR, finance and IT pilot the program?"
+    },
+    {
+      "id": "FAQs",
+      "text": "Connectivity benefit FAQs"
+    }
+  ],
+  "images": [
+    {
+      "src": "/blog-media/connectivity-benefit/connectivity-benefit-funding-paths.png",
+      "currentSrc": "http://localhost:4321/blog-media/connectivity-benefit/connectivity-benefit-funding-paths.webp",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "src": "/blog-media/connectivity-benefit/connectivity-benefit-operating-costs.png",
+      "currentSrc": "http://localhost:4321/blog-media/connectivity-benefit/connectivity-benefit-operating-costs.webp",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "faq": 6,
+  "tocLinks": [
+    "#benefit-definition",
+    "#funding-models",
+    "#employee-policy",
+    "#operating-cost",
+    "#specialist-review",
+    "#pilot-program",
+    "#FAQs"
+  ],
+  "byline": true,
+  "breadcrumb": true,
+  "author": "Spenza",
+  "related": true,
+  "faqClick": true,
+  "faqKeyboard": true,
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "tables": [
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      },
+      {
+        "width": 357,
+        "scroll": 580,
+        "overflow": "auto"
+      }
+    ]
+  }
+}
