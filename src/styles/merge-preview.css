@@ -59,7 +59,7 @@
   min-width: 0;
   margin: 0;
   padding: 0;
-  font: 500 20px/1.2 Roboto, sans-serif;
+  font: 700 20px/1.2 Roboto, sans-serif;
   /* The mirrored global heading face is !important; match the live FAQ label. */
   font-family: Roboto, sans-serif !important;
   color: #262626;
@@ -112,4 +112,19 @@
 
 #merge-preview-content figure.wp-block-image figcaption {
   text-align: center;
+}
+
+/* Every heading in a merged article is bold.
+ * The mirrored theme renders h2 at weight 400 and the shared FAQ label at 500,
+ * so section headings read lighter than their body copy at a glance. The root
+ * id outranks the theme's class-level rules, and nothing here is !important,
+ * so a later per-cluster rule can still override a single heading if needed.
+ * proxima-nova ships a heavy face, so this is a real weight, not synthesised.
+ */
+#merge-preview-content h2,
+#merge-preview-content h3,
+#merge-preview-content h4,
+#merge-preview-content h5,
+#merge-preview-content h6 {
+  font-weight: 700;
 }
