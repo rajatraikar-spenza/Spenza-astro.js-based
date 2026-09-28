@@ -246,3 +246,71 @@ The workbook's 40 tabs. The ones that matter for this programme:
 
 Six clusters are marked **do not merge**. Check CANNIBALIZATION before assuming
 two similar posts should be combined.
+
+## 9. Publishing a cluster to WordPress
+
+A merged cluster goes live by **editing the destination post in WordPress at
+its existing URL**. Nothing moves: the slug, the publish date and the index
+entry are kept, so the page is re-crawled as an update rather than discovered
+as a new URL. WordPress saving the post fires a `repository_dispatch` that
+rebuilds and deploys within about two minutes.
+
+Publishing a whole hub means many saves, so **disable the workflow first**
+(`gh workflow disable publish.yml`), publish every cluster, then re-enable and
+run one build. Twelve dispatches racing each other on the same S3 deploy hash
+is avoidable risk.
+
+### What the publisher adds
+
+The repo body is not the published body. `npm run merge:publish` adds four
+things, and **each one was missed at least once while publishing the MVNO hub
+by hand — every one of them failed silently**, looking correct in the preview
+and wrong on the live site:
+
+| Added | Why the body cannot carry it |
+| :---- | :--------------------------- |
+| Absolute upload URLs | The loader rewrites only `https://<WP_HOST>/wp-content/uploads/` to `MEDIA_ORIGIN`. A repo-relative `/blog-media/…` path survives untouched and 404s. |
+| `merge-preview.css`, inlined | That stylesheet is scoped to `#merge-preview-content` and imported only by the preview route. Without it the live post keeps weight-400 headings and the old white/orange FAQ cards. |
+| The **Contact Us Today** button | The other 204 posts carry it; merged bodies do not. |
+| FAQPage (+ HowTo) JSON-LD | Yoast emits Article/WebPage/BreadcrumbList and knows nothing about the Q&As. |
+
+These are **gates, not steps**. `buildPayload` throws if the stylesheet stops
+bolding headings, if the CTA is missing, duplicated or points somewhere other
+than `/contact-us/`, if the JSON-LD is absent or fails its structural check, or
+if any `/blog-media/` or `/blog-resources/` path is left unrewritten. A payload
+that would reproduce one of those mistakes cannot be built.
+
+### Two traps that are not obvious
+
+- **`public/blog-resources/*` lives on the feature branch; CI builds `main`.**
+  A root-relative link to a download 404s in production and `wp:verify-dist`
+  fails the build on it. Upload those files to WordPress media *and* the media
+  bucket, then pass them in `resources`.
+- **Yoast can pin an old social image.** It is not in post meta and not exposed
+  over REST — it sits in Yoast's editor store. When a cluster changes its
+  featured image, `og:image` can keep serving the old one while the schema
+  graph correctly shows the new. Check `seo{opengraphImage}` over GraphQL after
+  publishing, and clear it from the post's Yoast Social tab if it disagrees.
+
+### Order
+
+Publish **least exposed first**, so a mistake lands on the cheapest page.
+`clustersForHub()` sorts by `gscClicks16m × 10 + googleAiImpressions +
+bingCitations ÷ 10`. For the MVNO hub that put M27 first and M03 last — note
+that M03 outranked M02 on risk because of 335 donor clicks, which the headline
+Bing numbers hide.
+
+### Verify
+
+`npm run merge:verify` checks the live pages, not the payload: prose parity
+against the approved preview, the bold rule, six grey FAQ cards with the first
+open, exactly one CTA after the closing paragraph pointing at `/contact-us/`,
+our FAQPage parsing **and Yoast's Article graph still intact**, no stray repo
+paths, and every media URL resolving. It exits non-zero, so it can gate a
+deploy.
+
+Two normalisations it applies on purpose: WordPress runs `wptexturize` on
+`the_content`, so straight quotes come back curly — that is site-wide
+behaviour, not content loss. And Yoast's JSON-LD tag carries a `class`, so a
+matcher that assumes the tag ends after `type` will report Yoast's graph as
+missing when it is present.

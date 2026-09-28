@@ -44,3 +44,6 @@ public/wp-assets/wp-content/webp-express/
 scripts/.cf-site-function.js
 scripts/.cf-redirects.json
 scripts/.cf-kvs-batches/
+
+# Payloads built by scripts/wp-publish-merge.mjs; regenerated on demand.
+.merge-publish/

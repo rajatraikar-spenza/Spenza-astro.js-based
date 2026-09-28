@@ -220,6 +220,30 @@ The merge itself is three acts and none belong to this skill:
 
 Hand those back with the Redirect Map and the Inbound Link Plan.
 
+### If you are asked to publish
+
+Publishing is `npm run merge:publish`, never hand-assembled markup. The repo
+body is **not** the published body: the publisher adds absolute upload URLs,
+inlines `src/styles/merge-preview.css`, appends the Contact Us Today button and
+emits the FAQPage/HowTo JSON-LD. Each of those was missed once when the MVNO
+hub was published by hand, and every one failed silently — right in the
+preview, wrong on the live site.
+
+They are enforced as gates, so a payload carrying one of those mistakes cannot
+be built. **Do not work around a gate.** If `merge:publish` throws, the payload
+is wrong; fix the input, never the check.
+
+    npm run merge:publish -- prep  <slug>              # what to upload first
+    npm run merge:publish -- build <slug> <resolved>   # writes the payload
+    npm run merge:verify -- <slug> …                   # checks the live page
+
+Then, in order: disable the deploy workflow, publish every cluster in the hub,
+re-enable, run one build, and finish with `npm run merge:verify`. Publish least
+exposed first. `docs/blog-merges.md` §9 has the detail, including the two traps
+that are not obvious — `public/blog-resources/*` existing only on the feature
+branch while CI deploys `main`, and Yoast pinning a stale `og:image` that is
+invisible over REST.
+
 ## Never
 
 - Run `npm run wp:content` or `npm run wp:resync`. They overwrite
@@ -227,6 +251,8 @@ Hand those back with the Redirect Map and the Inbound Link Plan.
   import.
 - Merge a cluster in the `doNotMerge` list.
 - Do two clusters in one run.
+- Hand-assemble a WordPress payload, or edit one to get past a
+  `merge:publish` gate. The gates encode mistakes that already shipped.
 - Change a post's slug or category as a side effect of a merge. Category moves
   are a separate change with a known blocker — `docs/blog-merges.md` §6.
 - Invent a statistic, customer, quote, price, benchmark or certification. Use
