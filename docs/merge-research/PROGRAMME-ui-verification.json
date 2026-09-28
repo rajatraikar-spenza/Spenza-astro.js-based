@@ -1,0 +1,372 @@
+{
+  "date": "2026-09-28",
+  "reference": "https://spenza.com/telecom/skype-alternatives/",
+  "testedServer": "http://127.0.0.1:4333",
+  "viewportWidths": [
+    1440,
+    390
+  ],
+  "checks": [
+    "Six native FAQ panels; first open on load",
+    "Click every panel and assert at most one open",
+    "Enter closes and Space opens",
+    "Open-state grey background, 20px corners, left icon, no right icon",
+    "Question typography and 20px padding",
+    "Every body image loaded, centered and aspect ratio retained",
+    "No page-wide horizontal overflow"
+  ],
+  "results": [
+    {
+      "cluster": "M01",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M02",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M03",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M04",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M05",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M06",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M07",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M08",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M09",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M10",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M11",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M12",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M13",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M14",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M15",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 1,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M16",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M17",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M18",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M19",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M20",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 1,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M21",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M22",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M23",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M24",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M25",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M26",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 1,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M27",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M28",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M29",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M30",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M31",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M32",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M33",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M34",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M35",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M36",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M37",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M38",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M39",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M40",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M41",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 1,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M42",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M43",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 2,
+      "maximumCenterOffsetPx": 0
+    },
+    {
+      "cluster": "M44",
+      "desktopPass": true,
+      "mobilePass": true,
+      "faqQuestions": 6,
+      "bodyImages": 3,
+      "maximumCenterOffsetPx": 0
+    }
+  ]
+}

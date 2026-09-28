@@ -18,6 +18,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import { MERGE_PREVIEWS } from '../../../data/merge-previews/index.ts';
 import wpAuthors from '../../../data/wp-authors.json';
 import { mergeReadingWords } from '../../../lib/merge-preview-text';
+import '../../../styles/merge-preview.css';
 
 export async function getStaticPaths() {
   const { MERGE_PREVIEWS } = await import('../../../data/merge-previews/index.ts');
@@ -167,7 +168,7 @@ const post = {
         `<meta property="og:description" content="${esc(preview.ogDescription ?? preview.excerpt)}">` +
         `<meta name="description" content="${esc(preview.seoDescription)}">`,
     },
-    content: banner + fragmentGuard + preview.content,
+    content: banner + fragmentGuard + `<div id="merge-preview-content" class="merge-preview-content">${preview.content}</div>`,
     // The TL;DR block, which the Elementor template renders above the article
     // from ACF fields rather than from the body.
     templateBlocks: preview.templateBlocks,
