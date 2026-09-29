@@ -216,6 +216,29 @@
   letter-spacing: -.02em;
 }
 
+/*
+   The Spenza wordmark standing in for the word in a heading: the letters of
+   the logo, without the mark (`/spenza-wordmark.svg`, cut from
+   `spenza-logo-vector.svg`). The SVG is cropped to the letters, so its height
+   is the cap height; sized in `em` it follows every heading's own clamp, and
+   sitting on the baseline it lines up with the words either side.
+*/
+.hm .hm-wordmark {
+  display: inline-block;
+  height: .66em; /* Bricolage Grotesque's cap height */
+  width: auto;
+  vertical-align: baseline;
+}
+
+/*
+   Beside Instrument Serif italic. Its capitals stand at .72em, but at that
+   height the heavy wordmark outweighed the light italic around it, so it is
+   set a step smaller.
+*/
+.hm .hm-h2 em .hm-wordmark {
+  height: .62em;
+}
+
 .hm .hm-lede {
   max-width: 480px;
   margin: 0;
@@ -2597,8 +2620,9 @@
 }
 
 /*
-   "See Spenza in action" stays on one line. Measured, the phrase is 8.43x its
-   font size wide — it was 9.45x while "Spenza" was set in the serif italic;
+   "See Spenza in action" stays on one line. Measured, the phrase is 8.83x its
+   font size wide with "Spenza" as the logo wordmark — 8.43x as a word, 9.45x
+   while it was set in the serif italic;
    the size follows the column it sits in — (100vw - 112px) x .55 beside the
    form, (100vw - 40px) once stacked — divided by that, with about 5% left
    over for a scrollbar, and capped at 62px, where the column stops growing.
@@ -2606,7 +2630,7 @@
 .hm .hm-cta-title {
   margin: 0 0 22px;
   font-family: var(--display) !important;
-  font-size: min(62px, calc((100vw - 112px) * .062));
+  font-size: min(62px, calc((100vw - 112px) * .059));
   white-space: nowrap;
   font-weight: 500;
   line-height: .96;
@@ -2617,7 +2641,7 @@
 
 @media (max-width: 960px) {
   .hm .hm-cta-title {
-    font-size: min(62px, calc((100vw - 40px) * .112));
+    font-size: min(62px, calc((100vw - 40px) * .107));
   }
 }
 
