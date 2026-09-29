@@ -128,3 +128,29 @@ body {
 :root :is(code, kbd, samp, pre) {
   font-family: var(--font-mono);
 }
+
+/*
+   "Spenza" in a heading, set as the logo's lettering (html-perf's
+   `brandWordmark`). The SVG is cropped to the letters, so its height is its
+   cap height: .66em is Bricolage Grotesque's, which every heading is set in,
+   and on the baseline it lines up with the words either side — the home
+   page's "See Spenza in action". In an orange phrase it follows the light
+   serif italic, and at full cap height the heavy lettering outweighed it, so
+   it is set a step smaller there, as in the home page's Customer Proof.
+*/
+/*
+   `:root img` because Elementor sizes every content image with
+   `.elementor img { height: auto; max-width: 100% }`, which out-ranks a bare
+   class and put the SVG back at its natural 187px.
+*/
+:root img.wp-wordmark {
+  display: inline-block;
+  height: .66em;
+  width: auto;
+  max-width: none;
+  vertical-align: baseline;
+}
+
+:root :is(.highlighted-text, .hero-highlight) img.wp-wordmark {
+  height: .62em;
+}

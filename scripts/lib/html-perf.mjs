@@ -68,6 +68,39 @@ export function siteFonts(html) {
 }
 
 /**
+ * Set the name "Spenza" in a heading as the logo's own lettering.
+ *
+ * The letters of the logo without its mark (`/spenza-wordmark.svg`), sized in
+ * styles/fonts.css to the heading's cap height, the way the home page's
+ * "See Spenza in action" and Customer Proof headings do it. `alt` keeps the
+ * word for screen readers, search and copy-paste.
+ *
+ * The site's own pages only, not the blog: it is applied to the non-blog
+ * partials by partial-rewrites-plugin, never to post bodies, archives or the
+ * blog index — which is also why it is not part of `applyHtmlPerf`.
+ *
+ * Headings only — `h1` to `h3`, the ones set at heading scale. Measured
+ * across the site, those run 23–40px; the `h4` that reads "Spenza" is the
+ * author byline on every post (16px), and a word that small is better read
+ * than drawn. Only the name itself is replaced: not a URL or address
+ * (`spenza.com`, `@spenza`), and not inside a tag's attributes. A possessive
+ * keeps its ending after the image.
+ */
+const WORDMARK = '<img class="wp-wordmark" src="/spenza-wordmark.svg" alt="Spenza" width="978" height="187" decoding="async" />';
+
+export function brandWordmark(html) {
+  return html.replace(/<h([1-3])\b([^>]*)>([\s\S]*?)<\/h\1>/gi, (heading, level, attrs, inner) => {
+    if (/\bwp-no-wordmark\b/.test(attrs) || inner.includes('wp-wordmark')) return heading;
+    const out = inner
+      .split(/(<[^>]*>)/)
+      .map(part => (part.startsWith('<') ? part
+        : part.replace(/(^|[^\w@.\/-])(Spenza|SPENZA)(?![\w@-]|\.[a-z])/g, (m, lead) => lead + WORDMARK)))
+      .join('');
+    return out === inner ? heading : `<h${level}${attrs}>${out}</h${level}>`;
+  });
+}
+
+/**
  * Serve Google's fonts from this origin instead of Google's.
  *
  * Each of these is a render-blocking request to a third party, which then names
