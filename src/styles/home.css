@@ -231,11 +231,11 @@
 }
 
 /*
-   Beside Instrument Serif italic. Its capitals stand at .72em, but at that
-   height the heavy wordmark outweighed the light italic around it, so it is
-   set a step smaller.
+   In the Customer Proof heading it follows the light serif italic, and at
+   full cap height the heavy wordmark outweighed it, so it is set a step
+   smaller.
 */
-.hm .hm-h2 em .hm-wordmark {
+.hm .hm-proof .hm-h2 .hm-wordmark {
   height: .62em;
 }
 
