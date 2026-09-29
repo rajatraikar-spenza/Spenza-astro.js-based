@@ -8,6 +8,7 @@
 // in posts, so a fix applied only to partials misses precisely the heaviest
 // pages. Hence one module, imported by both.
 import googleFonts from '../../src/data/wp-google-fonts.json' with { type: 'json' };
+import { rewriteFontsInMarkup, googleFontsUrlIsReplaced } from './font-tokens.mjs';
 import mediaManifest from '../../src/data/wp-media-manifest.json' with { type: 'json' };
 import { WEBP_PATH } from './config.mjs';
 
@@ -45,6 +46,25 @@ export function deferVideos(html) {
     out = out.replace(/\sautoplay(=(["'])[^"']*\2)?/, ' data-wp-autoplay');
     return out;
   });
+}
+
+/**
+ * Put the site's type on markup that arrives from WordPress.
+ *
+ * Post bodies bring their own fonts — inline `font-family` on spans and
+ * tables, <style> blocks naming Fraunces or Space Mono, and the Google Fonts
+ * stylesheets that load them. The families are rewritten to the site's tokens
+ * (see font-tokens.mjs), and a stylesheet is dropped once every family it
+ * requests has been replaced, since nothing on the page asks for its faces any
+ * more. One requesting a family the tokens do not cover is kept, and still
+ * works.
+ */
+export function siteFonts(html) {
+  const out = html.replace(
+    /<link\b[^>]*\bhref=["'](https:\/\/fonts\.googleapis\.com\/css2?\?[^"']+)["'][^>]*>\s*/g,
+    (tag, url) => (googleFontsUrlIsReplaced(url) ? '' : tag)
+  );
+  return rewriteFontsInMarkup(out);
 }
 
 /**
@@ -230,6 +250,6 @@ export function describeVagueLinks(html) {
 /** All of the above, in the order the rest of the pipeline expects. */
 export function applyHtmlPerf(html) {
   return offerWebp(describeVagueLinks(labelBareControls(
-    selfHostFonts(lazyIframes(deferVideos(html)))
+    selfHostFonts(siteFonts(lazyIframes(deferVideos(html))))
   )));
 }

@@ -275,6 +275,26 @@ function hoistImports(css, into) {
  * Sourced from the classList calls in wp-shim.js and public/scripts/page/*.js,
  * plus Swiper's own state classes — swiper.min.js ships on every page.
  */
+/**
+ * Pages whose bundles are maintained by hand and must not be regenerated.
+ *
+ * Both replaced their mirrored Elementor markup with hand-built markup, and a
+ * shared bundle is purged against the combined markup of every page using it
+ * — so regenerating withdraws selectors these pages still need. Measured on
+ * the font migration: `ai-phone-number` lost the demo popup's styling and
+ * half its Gravity Forms rules, the home page two `.eSim` rules. Their
+ * committed entries are carried over as they are; see the comment in
+ * `ai-phone-number.astro` before changing that.
+ */
+const PINNED = new Set(['index', 'ai-phone-number']);
+
+/**
+ * Pages with no mirrored markup that reuse another page's bundles, since the
+ * bundles only have to cover the chrome, which is identical. Without this a
+ * run drops the key and the page ships with no WordPress CSS at all.
+ */
+const ALIASES = { 'local-numbers': 'voice-observability-solution' };
+
 const SAFELIST = {
   standard: [
     'active', 'e-active', 'is-active', 'is-open', 'is-pinned', 'is-pinned-bottom',
@@ -508,6 +528,14 @@ for (const [key, e] of entries) {
   if (++m % 50 === 0) process.stdout.write(`  page bundles ${m}/${entries.size}\r`);
 }
 process.stdout.write(`  page bundles ${m}/${entries.size}\n`);
+
+const previous = JSON.parse(await fs.readFile(path.join(DATA, 'wp-css-bundles.json'), 'utf8').catch(() => '{}'));
+for (const key of PINNED) {
+  if (previous[key]) bundles[key] = previous[key];
+}
+for (const [alias, target] of Object.entries(ALIASES)) {
+  if (bundles[target]) bundles[alias] = bundles[target];
+}
 
 await fs.writeFile(
   path.join(DATA, 'wp-css-bundles.json'),

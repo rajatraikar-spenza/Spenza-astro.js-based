@@ -17,8 +17,10 @@ import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
 import demoPopupHtml from '../partials/chrome/demo-popup.html?raw';
 import Analytics from '../components/Analytics.astro';
+import FontPreload from '../components/FontPreload.astro';
 import { MEDIA_ORIGIN, NOINDEX, WP_FORMS_ORIGIN } from '../../scripts/lib/config.mjs';
 import { rewriteHead, withoutTitle, titleFrom } from '../../scripts/lib/wp-head.mjs';
+import '../styles/fonts.css';
 import '../styles/wp-polish.css';
 import '../styles/preferred-source.css';
 
@@ -150,6 +152,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
     <Analytics />
 
     <title>{pageTitle}</title>
+
+    <FontPreload />
 
     {/*
       Yoast's block carries the description, canonical, Open Graph, Twitter and

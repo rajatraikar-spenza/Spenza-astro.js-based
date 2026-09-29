@@ -44,8 +44,8 @@
   --ni-maxw: 1180px;
   --ni-gutter: 28px;
   --ni-section-y: 100px;
-  --ni-font: proxima-nova, sans-serif;
-  --ni-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  --ni-font: var(--font-sans);
+  --ni-mono: var(--font-mono);
 
   display: block;
   background: #fff;

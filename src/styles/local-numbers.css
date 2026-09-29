@@ -14,66 +14,14 @@
    section of this file answers the bare-element rules.
 
    Type is the design's — Geist, Bricolage Grotesque, Geist Mono and
-   Instrument Serif — served from the same self-hosted files as the home
-   page, so a visitor who has seen the home page already has them. Every
+   Instrument Serif — the site's own set, declared once in
+   styles/fonts.css, which every layout loads. Every
    `font-family` is `!important` to answer the bundle rule that sets
    `proxima-nova !important` on every paragraph, link and heading.
 
    Sizes are px, not rem: the site's root font size is 15px and the
    design was drawn against 16px.
 ═══════════════════════════════════════════════════════════════ */
-
-@font-face {
-  font-family: 'Instrument Serif';
-  src: url('../assets/home/instrument-serif-italic.woff2') format('woff2');
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Geist;
-  src: url('../assets/home/geist.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Bricolage Grotesque';
-  src: url('../assets/home/bricolage.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 200 800;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Geist Mono';
-  src: url('../assets/home/geist-mono.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-/*
-   Width-matched stand-ins, used for the moment before the webfonts arrive.
-   Arial set at Geist's and Bricolage's average advance (measured over this
-   page's own copy) wraps the hero's lines where the real fonts will, so
-   the swap does not re-flow the paragraphs and push the page down — which
-   it otherwise did, by 26px on a phone (CLS 0.016). Android has no Arial
-   and falls through to the system font, as before.
-*/
-@font-face {
-  font-family: 'Geist Fallback';
-  src: local('Arial'), local('ArialMT');
-  size-adjust: 102%;
-}
-
-@font-face {
-  font-family: 'Bricolage Fallback';
-  src: local('Arial'), local('ArialMT');
-  size-adjust: 106%;
-}
 
 /* ── tokens and base ───────────────────────────────────────────── */
 
@@ -93,10 +41,10 @@
   --peach-line: #f3d9cc;
   --sand-line: #e6e1d8;
   --card: #fff;
-  --display: 'Bricolage Grotesque', 'Bricolage Fallback', system-ui, sans-serif;
-  --sans: Geist, 'Geist Fallback', system-ui, -apple-system, sans-serif;
-  --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --serif: 'Instrument Serif', Georgia, serif;
+  --display: var(--font-display);
+  --sans: var(--font-sans);
+  --mono: var(--font-mono);
+  --serif: var(--font-serif);
 
   display: block;
   background: var(--bg);

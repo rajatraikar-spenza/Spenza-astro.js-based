@@ -18,8 +18,8 @@
   --blue:          #2563eb;
 
   /* Typography */
-  --font-body:   'Inter', system-ui, sans-serif;
-  --font-head:   'Outfit', 'Inter', sans-serif;
+  --font-body:   var(--font-sans);
+  --font-head:   var(--font-display);
   --font-mono:   'JetBrains Mono', monospace;
 
   /* Spacing */
@@ -59,7 +59,7 @@
 
    2. Every `font-family` is `!important`. One rule in the mirrored
       bundle reads `p, h1, h2, h3, h4, h5, h6, a { font-family:
-      proxima-nova, sans-serif !important }`, and `!important` beats
+      var(--font-sans) !important }`, and `!important` beats
       specificity — so without this the page's headings, paragraphs
       and links all fall back to a bare `sans-serif`, because
       WordPress never actually serves proxima-nova. That rule is the
@@ -1481,9 +1481,9 @@ html { scroll-behavior: smooth; }
    rest, including when that changes.
 ═══════════════════════════════════════════════════════════════ */
 .ai-lp {
-  --font-body: proxima-nova, sans-serif;
-  --font-head: proxima-nova, sans-serif;
-  --font-mono: proxima-nova, sans-serif;
+  --font-body: var(--font-sans);
+  --font-head: var(--font-sans);
+  --font-mono: var(--font-sans);
   --slate: #4e545d;
   --navy: #111827;
 }

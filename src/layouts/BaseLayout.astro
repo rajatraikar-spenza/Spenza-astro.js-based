@@ -1,13 +1,10 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import '../styles/fonts.css';
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
-import googleFonts from '../data/wp-google-fonts.json';
-
-/** The one Google Fonts request this layout makes; mirrored by `npm run wp:fonts`. */
-const FONT_CSS = 'https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap';
-
+import FontPreload from '../components/FontPreload.astro';
 
 interface Props {
   title?: string;
@@ -40,6 +37,7 @@ const {
       when it runs, so anything below it is time the recording does not have.
     */}
     <Analytics />
+    <FontPreload />
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
@@ -68,15 +66,6 @@ const {
     */}
     <meta name="robots" content="noindex, nofollow" />
 
-    {/*
-      Matches the live site's stack: Lexend Deca body, Manrope/Inter support.
-      Headings ask for proxima-nova first, which WordPress never actually
-      serves, so Manrope carries the fallback here.
-
-      Served from this origin — `npm run wp:fonts` mirrors the stylesheet and
-      its woff2 — so there is no preconnect to Google's two hosts either.
-    */}
-    <link rel="stylesheet" href={googleFonts[FONT_CSS] ?? FONT_CSS} />
 
     <slot name="head" />
   </head>

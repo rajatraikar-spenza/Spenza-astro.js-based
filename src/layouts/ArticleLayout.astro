@@ -22,6 +22,7 @@ import wpScripts from '../data/wp-scripts.json';
 import headerHtml from '../partials/chrome/header.html?raw';
 import footerHtml from '../partials/chrome/footer.html?raw';
 import Analytics from '../components/Analytics.astro';
+import FontPreload from '../components/FontPreload.astro';
 import { MEDIA_ORIGIN, toMediaOrigin, WP_FORMS_ORIGIN } from '../../scripts/lib/config.mjs';
 import { applyHtmlPerf } from '../../scripts/lib/html-perf.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
@@ -31,6 +32,7 @@ import { iconClass } from '../lib/acf-blocks.ts';
 import { removeWidget, replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
 import { renderLoopGrid, featuredImage as renderFeaturedImage, type LoopPost } from '../lib/loop-item.ts';
 import { decodeEntities } from '../lib/post-card.ts';
+import '../styles/fonts.css';
 import '../styles/wp-polish.css';
 import '../styles/preferred-source.css';
 
@@ -361,6 +363,7 @@ body = toMediaOrigin(applyHtmlPerf(body));
       when it runs, so anything below it is time the recording does not have.
     */}
     <Analytics />
+    <FontPreload />
 
     {/*
       Yoast's complete head: title, meta, Open Graph, and the Article /

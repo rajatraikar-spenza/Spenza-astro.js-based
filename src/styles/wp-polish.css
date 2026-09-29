@@ -1322,7 +1322,7 @@ body.wp-mirror.e-off-canvas__no-scroll {
   border-radius: 10px;
   cursor: pointer;
   color: #282828 !important;
-  font-family: Inter, Manrope, sans-serif !important;
+  font-family: var(--font-sans) !important;
   font-size: 15px !important;
   line-height: 30px !important;
   transition:
@@ -1393,7 +1393,7 @@ body.wp-mirror.e-off-canvas__no-scroll {
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   color: #282828;
-  font-family: Inter, Manrope, sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   line-height: 30px;
   text-align: left;
@@ -1471,7 +1471,7 @@ body.wp-mirror.e-off-canvas__no-scroll {
   padding: 10px 12px;
   border-radius: 8px;
   color: #282828;
-  font-family: Inter, Manrope, sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.35;
   cursor: pointer;

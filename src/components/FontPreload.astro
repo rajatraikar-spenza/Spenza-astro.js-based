@@ -1,0 +1,20 @@
+---
+/**
+ * Preloads the two faces every page sets above the fold — Geist for text,
+ * Bricolage Grotesque for headings — so they are requested with the HTML
+ * rather than after the stylesheet that names them has been parsed. The
+ * mono and serif faces are used lower down, or for a word or two, and load
+ * on demand.
+ *
+ * The URLs are the same hashed files `styles/fonts.css` points at (Vite
+ * names an asset by its content, whichever import reaches it), so the
+ * preload and the @font-face request are one download. `crossorigin` is
+ * required for fonts even from the same origin, or the preload is fetched
+ * in the wrong mode and thrown away.
+ */
+import geist from '../assets/fonts/geist.woff2?url';
+import bricolage from '../assets/fonts/bricolage.woff2?url';
+---
+
+<link rel="preload" href={geist} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={bricolage} as="font" type="font/woff2" crossorigin />
