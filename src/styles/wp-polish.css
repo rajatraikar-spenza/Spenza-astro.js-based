@@ -307,6 +307,21 @@
   direction: ltr;
 }
 
+/*
+   `overflow: visible` because a marquee is never a Swiper instance, so
+   Elementor's pre-init rule (`.swiper:not(.swiper-initialized) >
+   .swiper-wrapper { overflow: hidden }`) applies for good. The track is as
+   wide as its slides, so that clipped nothing sideways — only slides moved
+   off the track's line: the careers hero staggers its cards 64px up and
+   down, and lost that much off every card's top or bottom, rounded corners
+   and all. `.swiper` in the selector outranks the pre-init rule's three
+   classes whichever stylesheet loads last.
+*/
+.wp-mirror .wp-marquee.swiper > .swiper-wrapper,
+.wp-mirror .wp-marquee .swiper-wrapper {
+  overflow: visible;
+}
+
 .wp-mirror .wp-marquee .swiper-wrapper {
   direction: ltr;
   width: max-content;
