@@ -8,6 +8,7 @@
 // in posts, so a fix applied only to partials misses precisely the heaviest
 // pages. Hence one module, imported by both.
 import googleFonts from '../../src/data/wp-google-fonts.json' with { type: 'json' };
+import { rewriteFontsInMarkup, googleFontsUrlIsReplaced } from './font-tokens.mjs';
 import mediaManifest from '../../src/data/wp-media-manifest.json' with { type: 'json' };
 import { WEBP_PATH } from './config.mjs';
 
@@ -44,6 +45,58 @@ export function deferVideos(html) {
     if (!/\bpreload=/.test(out)) out = out.replace(/^<video\b/, '<video preload="none"');
     out = out.replace(/\sautoplay(=(["'])[^"']*\2)?/, ' data-wp-autoplay');
     return out;
+  });
+}
+
+/**
+ * Put the site's type on markup that arrives from WordPress.
+ *
+ * Post bodies bring their own fonts — inline `font-family` on spans and
+ * tables, <style> blocks naming Fraunces or Space Mono, and the Google Fonts
+ * stylesheets that load them. The families are rewritten to the site's tokens
+ * (see font-tokens.mjs), and a stylesheet is dropped once every family it
+ * requests has been replaced, since nothing on the page asks for its faces any
+ * more. One requesting a family the tokens do not cover is kept, and still
+ * works.
+ */
+export function siteFonts(html) {
+  const out = html.replace(
+    /<link\b[^>]*\bhref=["'](https:\/\/fonts\.googleapis\.com\/css2?\?[^"']+)["'][^>]*>\s*/g,
+    (tag, url) => (googleFontsUrlIsReplaced(url) ? '' : tag)
+  );
+  return rewriteFontsInMarkup(out);
+}
+
+/**
+ * Set the name "Spenza" in a heading as the logo's own lettering.
+ *
+ * The letters of the logo without its mark (`/spenza-wordmark.svg`), sized in
+ * styles/fonts.css to the heading's cap height, the way the home page's
+ * "See Spenza in action" and Customer Proof headings do it. `alt` keeps the
+ * word for screen readers, search and copy-paste.
+ *
+ * The site's own pages only, not the blog: it is applied to the non-blog
+ * partials by partial-rewrites-plugin, never to post bodies, archives or the
+ * blog index — which is also why it is not part of `applyHtmlPerf`.
+ *
+ * Headings only — `h1` to `h3`, the ones set at heading scale. Measured
+ * across the site, those run 23–40px; the `h4` that reads "Spenza" is the
+ * author byline on every post (16px), and a word that small is better read
+ * than drawn. Only the name itself is replaced: not a URL or address
+ * (`spenza.com`, `@spenza`), and not inside a tag's attributes. A possessive
+ * keeps its ending after the image.
+ */
+const WORDMARK = '<img class="wp-wordmark" src="/spenza-wordmark.svg" alt="Spenza" width="978" height="187" decoding="async" />';
+
+export function brandWordmark(html) {
+  return html.replace(/<h([1-3])\b([^>]*)>([\s\S]*?)<\/h\1>/gi, (heading, level, attrs, inner) => {
+    if (/\bwp-no-wordmark\b/.test(attrs) || inner.includes('wp-wordmark')) return heading;
+    const out = inner
+      .split(/(<[^>]*>)/)
+      .map(part => (part.startsWith('<') ? part
+        : part.replace(/(^|[^\w@.\/-])(Spenza|SPENZA)(?![\w@-]|\.[a-z])/g, (m, lead) => lead + WORDMARK)))
+      .join('');
+    return out === inner ? heading : `<h${level}${attrs}>${out}</h${level}>`;
   });
 }
 
@@ -230,6 +283,6 @@ export function describeVagueLinks(html) {
 /** All of the above, in the order the rest of the pipeline expects. */
 export function applyHtmlPerf(html) {
   return offerWebp(describeVagueLinks(labelBareControls(
-    selfHostFonts(lazyIframes(deferVideos(html)))
+    selfHostFonts(siteFonts(lazyIframes(deferVideos(html))))
   )));
 }

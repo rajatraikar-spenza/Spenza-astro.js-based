@@ -1,5 +1,8 @@
 # build output
-dist/
+/dist/
+# Only the build output. A bare `dist/` also matched vendored plugin assets —
+# Gravity Forms keeps its stylesheets in `assets/css/dist/` — so they were
+# never committed and `wp:optimize-css` silently built bundles without them.
 # generated types
 .astro/
 

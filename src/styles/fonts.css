@@ -1,0 +1,156 @@
+/* ═══════════════════════════════════════════════════════════════
+   The site's type — one set, everywhere.
+
+   Bricolage Grotesque for headings, Geist for everything read, Geist Mono
+   for labels and code, and Instrument Serif italic for the orange
+   highlighted words in headings. The home page's design, extended to the
+   whole site: imported by every layout, so each page loads the same five
+   self-hosted files and a visitor who has seen one page has them all.
+
+   Every other family the mirror carried — Roboto, Inter, Manrope, Lexend
+   Deca, General Sans, the never-loaded proxima-nova and the rest — was
+   rewritten at its source to one of the tokens below, so the tokens are
+   the only place a family is named. Icon fonts are untouched.
+═══════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: Geist;
+  src: url('../assets/fonts/geist.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('../assets/fonts/bricolage.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../assets/fonts/geist-mono.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../assets/fonts/instrument-serif-italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Upright, for the case-study quotes. */
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../assets/fonts/instrument-serif-regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/*
+   Width-matched stand-ins for the moment before the webfonts arrive: Arial
+   at Geist's and Bricolage's average advance, measured over real copy on
+   /local-numbers/, so lines wrap where the real fonts will and the swap
+   does not re-flow the page. Android has no Arial and falls through to the
+   system font.
+*/
+@font-face {
+  font-family: 'Geist Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 102%;
+}
+
+@font-face {
+  font-family: 'Bricolage Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 106%;
+}
+
+:root {
+  --font-sans: Geist, 'Geist Fallback', system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Bricolage Fallback', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/*
+   Roles. Everything is Geist by default — every family name in the mirrored
+   CSS now reads `var(--font-sans)` — so only the exceptions are named here.
+
+   Headings take the display face by tag, not by class: Elementor's heading
+   widget also renders `<p>` and `<span>` (a job description, a location
+   pill), and those are text. `!important` because the mirrored bundle sets
+   the body face `!important` on `p, h1…h6, a` on 461 pages; this sheet
+   loads after every bundle and `:root` puts it one class ahead, so it wins
+   that tie without reaching for more. A link inside a heading — every post
+   card title is `h3 > a` — is part of the heading.
+
+   The page designs that scope their own type (`.hm`, `.ln-lp`, `.ni-lp`,
+   the AI phone number page) out-rank these rules and keep their choices.
+*/
+body {
+  font-family: var(--font-sans);
+}
+
+:root :is(h1, h2, h3, h4, h5, h6),
+:root :is(h1, h2, h3, h4, h5, h6) a {
+  font-family: var(--font-display) !important;
+}
+
+/*
+   The orange words in headings: `.highlighted-text` (the gradient, in 17
+   page headings and every post's template) and `.hero-highlight` (the
+   marketing pages' hero lines). Instrument Serif has one weight, so the
+   heading's own is reset rather than faked. The gradient is painted with
+   `background-clip: text`, which only paints inside the box — and an italic
+   leans past its box on the right, so the last letter's tip would be cut.
+   The padding widens the painted box by that lean; the equal negative
+   margin keeps the words beside it where they were.
+*/
+:root .highlighted-text,
+:root .hero-highlight {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  padding-right: .1em;
+  margin-right: -.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+:root :is(code, kbd, samp, pre) {
+  font-family: var(--font-mono);
+}
+
+/*
+   "Spenza" in a heading, set as the logo's lettering (html-perf's
+   `brandWordmark`). The SVG is cropped to the letters, so its height is its
+   cap height: .66em is Bricolage Grotesque's, which every heading is set in,
+   and on the baseline it lines up with the words either side — the home
+   page's "See Spenza in action". In an orange phrase it follows the light
+   serif italic, and at full cap height the heavy lettering outweighed it, so
+   it is set a step smaller there, as in the home page's Customer Proof.
+*/
+/*
+   `:root img` because Elementor sizes every content image with
+   `.elementor img { height: auto; max-width: 100% }`, which out-ranks a bare
+   class and put the SVG back at its natural 187px.
+*/
+:root img.wp-wordmark {
+  display: inline-block;
+  height: .66em;
+  width: auto;
+  max-width: none;
+  vertical-align: baseline;
+}
+
+:root :is(.highlighted-text, .hero-highlight) img.wp-wordmark {
+  height: .62em;
+}

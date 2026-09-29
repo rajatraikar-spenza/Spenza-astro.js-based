@@ -73,7 +73,7 @@
  */
 .spenza-preferred,
 .spenza-preferred span {
-  font-family: Manrope, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .spenza-preferred::before,

@@ -46,9 +46,9 @@
    * site never serves that webfont — it only renders where the font is
    * installed locally — so the fallback stack carries most visitors.
    */
-  --font-family-heading: proxima-nova, 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-family-sans: 'Lexend Deca', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-family-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-family-heading: var(--font-sans);
+  --font-family-sans: var(--font-sans);
+  --font-family-ui: var(--font-sans);
 
   /* Font sizes — base is 15px on the live site, not 16px */
   --font-size-xs: 0.75rem;      /* 12px */
