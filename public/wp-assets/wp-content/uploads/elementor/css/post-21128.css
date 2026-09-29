@@ -57,11 +57,18 @@
     transition-timing-function: linear !important;
 }
 
-/* Lock image box size to 256x356 */
+/* Square image boxes: 356x356, 256x256 on phones */
 .slider-imgaes .swiper-slide,
 .slider-imgaes .swiper-slide-inner {
-    width: 256px !important;
+    width: 356px !important;
     height: 356px !important;
+}
+@media (max-width: 767px) {
+    .slider-imgaes .swiper-slide,
+    .slider-imgaes .swiper-slide-inner {
+        width: 256px !important;
+        height: 256px !important;
+    }
 }
 
 .slider-imgaes .swiper-slide img {
