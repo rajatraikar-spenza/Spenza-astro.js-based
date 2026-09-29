@@ -520,8 +520,11 @@
 
       // Autoplay with no delay is Elementor's continuously scrolling logo
       // strip, not a slideshow. It is driven by CSS rather than Swiper — see
-      // `setupMarquee` for why.
-      if (cfg.autoplay === 'yes' && autoplayDelay(cfg) === 0) {
+      // `setupMarquee` for why. So is a delay that is negligible beside the
+      // transition: the careers hero rests 100ms between 10s slides, which is
+      // a marquee in all but name, and as a Swiper loop it outran its own
+      // duplicates and scrolled into white space.
+      if (cfg.autoplay === 'yes' && isContinuous(cfg)) {
         node.dataset.shimMarquee = 'true';
         setupMarquee(node, cfg);
         return;
@@ -621,6 +624,12 @@
     return Number.isFinite(delay) ? delay : 0;
   }
 
+  /** A rest of under a tenth of the transition reads as continuous motion. */
+  function isContinuous(cfg) {
+    const delay = autoplayDelay(cfg);
+    return delay === 0 || delay * 10 <= (Number(cfg.speed) || 0);
+  }
+
   /* ------------------------------------------------------------- marquees */
 
   /**
@@ -664,9 +673,16 @@
       track.style.setProperty('--wp-marquee-direction', 'reverse');
     }
 
-    const build = () => {
+    const build = (repeatsHint = 0) => {
       const viewport = node.clientWidth;
       if (!viewport) return;
+      // A strip that is not clipped (the careers hero sets `overflow:
+      // visible`) shows its track across the whole window, so that is the
+      // width a pass has to cover.
+      const clipped = getComputedStyle(node).overflowX !== 'visible';
+      const coverage = clipped
+        ? viewport
+        : Math.max(viewport, document.documentElement.clientWidth);
 
       const per = Math.max(1, slidesPerView(cfg));
       const gap = slideSpacing(cfg);
@@ -674,7 +690,8 @@
 
       // One pass has to be at least a viewport wide, or translating by it
       // would expose the gap past the end of the second pass.
-      const repeats = Math.max(1, Math.ceil(viewport / (step * template.length)));
+      const repeats = repeatsHint ||
+        Math.max(1, Math.ceil(coverage / (step * template.length)));
       const pass = [];
       for (let i = 0; i < repeats; i++) template.forEach(el => pass.push(el.cloneNode(true)));
 
@@ -695,10 +712,22 @@
       });
       track.replaceChildren(...slides);
 
+      // Measure the pass rather than trusting `step`: page CSS can pin slide
+      // widths with `!important` (the careers hero fixes them at 256px), and
+      // then the computed distance is wrong and the loop jumps at every seam.
+      const distance = slides[pass.length].offsetLeft - slides[0].offsetLeft;
+      if (!repeatsHint && distance > 0 && distance < coverage) {
+        build(Math.ceil(coverage / (distance / repeats)));
+        return;
+      }
+
       // Elementor's `speed` is how long one slide takes to travel its own
       // width, so a pass of n slides takes n * speed — constant velocity
       // whatever the viewport.
-      track.style.setProperty('--wp-marquee-distance', `${Math.round(step * pass.length)}px`);
+      track.style.setProperty(
+        '--wp-marquee-distance',
+        `${distance > 0 ? distance : Math.round(step * pass.length)}px`
+      );
       track.style.setProperty(
         '--wp-marquee-duration',
         `${Math.round((Number(cfg.speed) || 5000) * pass.length)}ms`
@@ -763,6 +792,12 @@
       if (!buttons.length || !panels.length) return;
 
       const activate = index => {
+        // Elementor's CSS shows the first panel unconditionally until its own
+        // runtime marks the widget `e-activated`
+        // (`.e-n-tabs:not(.e-activated) > … > .e-con:first-child`). Without
+        // this the first tab's content stayed on screen under every other tab
+        // — on careers, all twelve jobs sat above each category's own list.
+        widget.querySelector('.e-n-tabs')?.classList.add('e-activated');
         buttons.forEach((b, i) => {
           b.setAttribute('aria-selected', String(i === index));
           b.classList.toggle('e-active', i === index);
@@ -895,6 +930,64 @@
       el.style.overflow = '';
       el.style.transition = '';
     }, 280);
+  }
+
+  /* -------------------------------------------------------- share buttons */
+
+  /**
+   * Elementor Pro's share buttons: the "Share Blog" row in every post's sticky
+   * sidebar. They are `div role="button"`s with no link in them — Elementor
+   * Pro's runtime builds the share URL on click, and that runtime is not part
+   * of the mirror, so all four icons did nothing.
+   *
+   * The network comes from the widget's own `elementor-share-btn_<network>`
+   * class. The page shared is the canonical URL rather than `location.href`,
+   * so a visitor who arrived with `utm_*` or `#section` shares the clean one.
+   */
+  const SHARE_URLS = {
+    facebook: (u) => `https://www.facebook.com/sharer/sharer.php?u=${u}`,
+    'x-twitter': (u, t) => `https://x.com/intent/tweet?url=${u}&text=${t}`,
+    twitter: (u, t) => `https://x.com/intent/tweet?url=${u}&text=${t}`,
+    linkedin: (u) => `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+    whatsapp: (u, t) => `https://api.whatsapp.com/send?text=${t}%20${u}`,
+    telegram: (u, t) => `https://t.me/share/url?url=${u}&text=${t}`,
+    reddit: (u, t) => `https://www.reddit.com/submit?url=${u}&title=${t}`,
+    email: (u, t) => `mailto:?subject=${t}&body=${u}`,
+  };
+
+  function initShareButtons() {
+    const buttons = document.querySelectorAll('.elementor-share-btn');
+    if (!buttons.length) return;
+
+    const canonical = document.querySelector('link[rel="canonical"]')?.href;
+    const title = document.querySelector('meta[property="og:title"]')?.content || document.title;
+    const url = encodeURIComponent(canonical || location.href.split('#')[0]);
+    const text = encodeURIComponent(title);
+
+    buttons.forEach(btn => {
+      const network = [...btn.classList]
+        .find(c => c.startsWith('elementor-share-btn_'))
+        ?.slice('elementor-share-btn_'.length);
+      const build = SHARE_URLS[network];
+      if (!build) return;
+      const href = build(url, text);
+
+      const share = e => {
+        e.preventDefault();
+        if (href.startsWith('mailto:')) {
+          location.href = href;
+          return;
+        }
+        // A sized window is what the networks' share dialogs are laid out
+        // for; `noopener` keeps the opened page from reaching back into ours.
+        window.open(href, '_blank', 'noopener,noreferrer,width=640,height=560');
+      };
+      on(btn, 'click', share);
+      on(btn, 'keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') share(e);
+      });
+      btn.style.cursor = 'pointer';
+    });
   }
 
   /* ------------------------------------------------------ table of contents */
@@ -1746,6 +1839,7 @@
     initTabs();
     initAccordions();
     initFaqBlocks();
+    initShareButtons();
     initTableOfContents();
     initSearch();
     initSelects();
