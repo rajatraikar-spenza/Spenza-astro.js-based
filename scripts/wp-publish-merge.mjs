@@ -35,9 +35,10 @@
  * `resolved.json` is written after the media upload step:
  *   { postId, authorId, featuredId, media: { "<wpFilename>": {id,url} }, resources: { "<repoPath>": "<url>" } }
  */
-import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, copyFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 import { loadMergePreviews } from './lib/merge-manifest.mjs';
 import { buildMergeSchema, assertSchemaSound } from './lib/merge-schema.mjs';
 import { WP_ORIGIN, SITE_URL } from './lib/config.mjs';
@@ -99,6 +100,45 @@ function localImages(body, slug, preview) {
     add(preview.featuredImage.replace(/\.png$/i, '.webp'));
   }
   return imgs;
+}
+
+/**
+ * WebP quality for body illustrations.
+ *
+ * The bodies ship `<picture>` with a WebP source, so WebP is what browsers
+ * actually fetch and the PNG is a fallback almost nobody sees. The generated
+ * WebP files sit around q90 and 200-280KB each; at q82 they are roughly half
+ * that with no visible change - checked on a text-heavy crop at 2x, where the
+ * letterforms and the orange gradient are indistinguishable, and mean absolute
+ * error moves only 2.60 -> 2.82 on a 0-255 scale.
+ *
+ * The PNGs are left exactly as generated. Measured on the same images, a
+ * lossless re-encode saves nothing and palette quantisation costs text quality
+ * for 5-16%, which is a bad trade on a file that is rarely requested.
+ */
+const WEBP_QUALITY = 82;
+
+/**
+ * Write an upload-ready copy of each image, re-encoding WebP and passing PNG
+ * through untouched. Done here rather than by hand so every future cluster is
+ * optimised without anyone remembering to do it.
+ */
+async function optimiseForUpload(uploads) {
+  const dir = join(REPO, '.merge-publish', 'optimised');
+  mkdirSync(dir, { recursive: true });
+  const out = [];
+  for (const u of uploads) {
+    const dest = join(dir, u.wpFilename);
+    const before = existsSync(u.absPath) ? statSync(u.absPath).size : 0;
+    if (/\.webp$/i.test(u.wpFilename) && before) {
+      await sharp(u.absPath).webp({ quality: WEBP_QUALITY, effort: 6 }).toFile(dest);
+    } else if (before) {
+      copyFileSync(u.absPath, dest);
+    }
+    const after = existsSync(dest) ? statSync(dest).size : 0;
+    out.push({ ...u, absPath: dest, sourcePath: u.absPath, bytesBefore: before, bytes: after });
+  }
+  return out;
 }
 
 function minifyCss(css) {
@@ -250,6 +290,15 @@ if (cmd === 'prep') {
   const preview = loadMergePreviews()[slug];
   if (!preview) throw new Error(`no manifest record for cluster ${slug}`);
   const imgs = localImages(preview.content, slug, preview);
+  const raw = imgs.map((i) => ({
+    absPath: join(REPO, 'public' + i.rel),
+    wpFilename: `${slug}-${i.file.toLowerCase()}`,
+    alt: i.alt,
+    missing: !existsSync(join(REPO, 'public' + i.rel)),
+  }));
+  const uploads = await optimiseForUpload(raw);
+  const before = uploads.reduce((n, u) => n + u.bytesBefore, 0);
+  const after = uploads.reduce((n, u) => n + u.bytes, 0);
   process.stdout.write(
     JSON.stringify(
       {
@@ -259,13 +308,14 @@ if (cmd === 'prep') {
         author: { name: preview.authorName, slug: preview.authorSlug },
         donors: preview.donors.map((d) => d.path),
         featured: { local: preview.featuredImage.startsWith('/blog-media/'), value: preview.featuredImage },
-        uploads: imgs.map((i) => ({
-          absPath: join(REPO, 'public' + i.rel),
-          wpFilename: `${slug}-${i.file.toLowerCase()}`,
-          alt: i.alt,
-          missing: !existsSync(join(REPO, 'public' + i.rel)),
-          bytes: existsSync(join(REPO, 'public' + i.rel)) ? statSync(join(REPO, 'public' + i.rel)).size : 0,
-        })),
+        optimisation: {
+          webpQuality: WEBP_QUALITY,
+          bytesBefore: before,
+          bytesAfter: after,
+          saved: before - after,
+          savedPct: before ? Math.round(((before - after) / before) * 100) : 0,
+        },
+        uploads,
       },
       null,
       1
