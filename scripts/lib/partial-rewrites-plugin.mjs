@@ -42,6 +42,22 @@ const API_DOCS_ITEM = `<li class="elementor-icon-list-item">
 								`;
 
 /**
+ * "Careers", directly under API Documentation.
+ *
+ * An internal page, so it opens in the same tab like the rest of the menu.
+ * Appended after the docs link rather than substituted for anything, so the
+ * left column gains a row; the markup copies its siblings' for the same
+ * reason as the docs link.
+ */
+const CAREERS_ITEM = `<li class="elementor-icon-list-item">
+											<a href="/careers/">
+
+											<span class="elementor-icon-list-text">Careers</span>
+											</a>
+									</li>
+								`;
+
+/**
  * "US Mobile Plans", dropped from Resources.
  *
  * Removed rather than substituted, because Support sits directly after it in
@@ -51,10 +67,13 @@ const API_DOCS_ITEM = `<li class="elementor-icon-list-item">
  */
 const RESOURCES_US_PLANS_ITEM = resourcesItem('/unlimited-data-plans-pricing/');
 
-/** Resources loses Business Roaming Plans and gains the docs link in its slot. */
+/**
+ * Resources loses Business Roaming Plans, gains the docs link in its slot, and
+ * Careers beneath it.
+ */
 function editResourcesMenu(html) {
   return html
-    .replace(RESOURCES_ROAMING_ITEM, () => API_DOCS_ITEM)
+    .replace(RESOURCES_ROAMING_ITEM, () => API_DOCS_ITEM + CAREERS_ITEM)
     .replace(RESOURCES_US_PLANS_ITEM, '');
 }
 
