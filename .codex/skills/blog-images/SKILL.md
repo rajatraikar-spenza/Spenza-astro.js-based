@@ -119,6 +119,13 @@ Take an existing hero as the base, generate **only the right-hand art panel**
 (square-ish, ~1100×900, no text, no logo, no border), set the title in the
 template, export 1280×720. Full geometry in §5 of the reference.
 
+**The panel is pale line art, not a colour field. §8 does not apply to it.**
+Near-white ground `rgb(248,243,242)`, 91–94% of the panel near-white, only
+2–4% strongly saturated, orange used for line work and small accents. The
+"colour field, never white" rule two sections down governs *body* images;
+briefing a hero panel with it produces a saturated block that is the odd one
+out in the related-posts grid. §5 has the numbers and the check.
+
 **The title face is [Rhodium Libre](https://fonts.google.com/specimen/Rhodium+Libre).**
 Not a substitute. Weight 400, which is the only weight it has, all caps, cap
 height **40px minimum** on the 1280 canvas, filling **440 to 600px** of the

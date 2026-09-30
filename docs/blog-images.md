@@ -195,6 +195,55 @@ Measured across four 2026 posts, the frame is pixel-identical:
 | `spenza.com` badge | **x=501–777, y=648–691. Identical on every post.** |
 | Art panel | right-aligned to x≈1207, between 446 and 578 wide, 348 to 515 tall, vertically centred in the upper portion |
 
+### The art panel is light, and §8 does not apply to it
+
+**A hero art panel is pale line art on a near-white ground. It is not a
+colour field.** §8 says every body image needs a colour field filling the
+frame and that white is heroes only — that rule governs *body* images, and
+applying it to a hero panel produces a saturated block that is immediately
+the odd one out in the related-posts grid.
+
+This is not hypothetical. The first hero built for
+`connectivity-as-a-benefit` was briefed with §8's rule by mistake and came
+back at 66% saturated, 20% near-white, against references running 2–4% and
+91–94%. Everything else about it — frame, title, panel box — was correct,
+so it looked fine in isolation and wrong beside its neighbours.
+
+Measured across the heroes generated in this programme:
+
+| Property | Value |
+| :------- | :---- |
+| Panel ground | warm near-white, **rgb(248,243,242) ± 3** |
+| Near-white pixels | **91–94%** of the panel |
+| Strongly saturated pixels | **2–4%** (treat 10% as the hard ceiling) |
+| Orange | line work, outlines, small filled accents, thin connectors |
+| Greys | cool only — `#7B8898`, `#96989A` |
+| Inside the panel | no text, no logo, no border |
+
+Style is flat-ish line illustration with open space around the elements,
+not a rendered scene with depth lighting. Depth, grain and glow belong to
+body images, not here.
+
+Check it rather than eyeball it — sample the panel's corner and count the
+pixels:
+
+```bash
+node --input-type=module -e "
+import sharp from 'sharp';
+const box = {left:687, top:160, width:520, height:430};   # measure yours first
+const s = sharp('hero.png').extract(box);
+const {data, info} = await s.raw().toBuffer({resolveWithObject:true});
+let sat=0, light=0, tot=0;
+for (let i=0; i<data.length; i+=info.channels) {
+  const [R,G,B]=[data[i],data[i+1],data[i+2]]; tot++;
+  const mx=Math.max(R,G,B), mn=Math.min(R,G,B);
+  if (mx>120 && mx-mn>90) sat++;
+  if (mn>225) light++;
+}
+console.log('saturated', Math.round(sat/tot*100)+'%', 'near-white', Math.round(light/tot*100)+'%');
+"
+```
+
 ### The title is where this goes wrong
 
 **Title:** all caps, high-contrast serif, near-black, left-aligned, maximum
@@ -370,7 +419,11 @@ showing flow, proportion, spatial relationship, or a thing in context.
 **Every body image must have all four of these:**
 
 1. **A colour field.** The frame is filled with a warm orange gradient, never
-   plain white. White is for the hero template only.
+   plain white. White is for the hero template only. **This rule is for body
+   images and must not be quoted at a hero art panel** — that panel is pale
+   line art on a near-white ground and is specified in §5. Briefing a hero
+   with this line has already produced one saturated block that had to be
+   regenerated.
 2. **An icon or object per concept.** A named thing the eye can grab. Not a
    label floating in a box.
 3. **Visible relationship.** Arrows, overlap, nesting, scale, a connecting path.
