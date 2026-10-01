@@ -19,7 +19,7 @@ import wpInlineStyles from '../data/wp-inline-styles.json';
 import wpPages from '../data/wp-pages.json';
 import wpCssBundles from '../data/wp-css-bundles.json';
 import wpScripts from '../data/wp-scripts.json';
-import headerHtml from '../partials/chrome/header.html?raw';
+import SiteNav from '../components/SiteNav.astro';
 import footerHtml from '../partials/chrome/footer.html?raw';
 import Analytics from '../components/Analytics.astro';
 import FontPreload from '../components/FontPreload.astro';
@@ -417,7 +417,7 @@ body = toMediaOrigin(applyHtmlPerf(body));
     */}
     <div class="wp-read-progress" aria-hidden="true"><span class="wp-read-progress__fill"></span></div>
 
-    <Fragment set:html={headerHtml} />
+    <SiteNav />
 
     <main id="wp-main">
       <Fragment set:html={body} />

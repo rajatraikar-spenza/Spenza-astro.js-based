@@ -1,0 +1,221 @@
+---
+/**
+ * The site navbar: a full-width bar that turns into a floating pill once the
+ * page scrolls, with four mega-menus and a mobile drawer.
+ *
+ * Content and design are the "spenza_site_page" navbar file's; the file drew
+ * it in the browser with placeholder links, and here it is rendered at build
+ * time with every link pointing at the page it names. The Solutions links
+ * follow the agreed map: each existing page is reached from one "by
+ * business" and one "by services" entry (`PAGES` below).
+ *
+ * Behaviour (pill on scroll, menus, drawer) is scripts/site-nav.js; styles
+ * are styles/site-nav.css, all scoped under `.sn`. Rendered by WpLayout and
+ * ArticleLayout as a direct child of <body>, which `position: sticky` needs.
+ */
+import '../styles/site-nav.css';
+
+/* ---------- destinations ---------- */
+const DOCS = 'https://docs.spenza.com';
+const YT = 'https://www.youtube.com/@spenzainc';
+const LOGIN = 'https://web.spenza.com/auth/login';
+const CONTACT = '/contact-us/';
+const CASE_STUDIES = '/category/spenza-product/';
+
+/** The existing page each Solutions entry lands on; several share a page. */
+const PAGES = {
+  iot: '/iot-solutions/',
+  devices: '/connected-devices/',
+  msp: '/mvne/',
+  voice: '/voice-observability-solution/',
+  numbers: '/local-numbers/',
+  travel: '/travel-esim/',
+};
+
+/* ---------- content, from the navbar file ---------- */
+/* layer = left-card label, eye = right-card eyebrow (when different)
+   flow = one-line flow shown instead of an API call
+   nopage: the hub has no product page yet, so no Explore link and the layer isn't a link */
+const HUBS = [
+  { id: 'telecom', lvl: 1, name: 'TelecomHub', href: '/telecomhub/', layer: 'Network access', hint: 'Operators, SIMs, eSIMs', blurb: 'Access 180+ operators, provision SIMs and eSIMs, and manage routing and connectivity through one API.', verb: 'PATCH', api: '/v1/sims/:id { routing: "auto" }' },
+  { id: 'control', lvl: 2, name: 'ControlHub', href: '/controlhub/', layer: 'Plans and billing', eye: 'Plans &amp; billing', hint: 'Pricing, usage, margins', blurb: 'Build custom plans, manage pricing and reseller billing, track margins, and optimize subscriptions as usage changes.', flow: ['WHOLESALE PLAN', 'YOUR PLAN', 'CUSTOMER'] },
+  { id: 'ux', lvl: 3, name: 'UXHub', href: '/uxhub/', layer: 'Customer experience', hint: 'Portal, checkout, self-service', blurb: 'Launch a branded self-service experience for plan purchase, activation, usage, billing, upgrades, and support.', flow: ['YOUR BRAND', 'PLANS', 'SELF-SERVICE', 'SUPPORT'] },
+  { id: 'agent', lvl: 4, name: 'AgentHub', layer: 'AI operations', hint: 'Agents, automation, workflows', blurb: 'AI agents that build plans, run network operations, support customers, reconcile billing, and handle compliance using live platform data.', flow: ['AGENT', 'LIVE DATA', 'ACTION', 'APPROVAL'], nopage: true },
+];
+
+/* Solutions: BIZ = who you are, SVC = what you need. */
+const BIZ = [
+  { name: 'IoT and device fleets', desc: 'Run thousands of devices across multiple carriers', ic: 'iot', href: PAGES.iot },
+  { name: 'Connected devices', desc: 'Sell a connectivity plan with your hardware', ic: 'device', href: PAGES.devices },
+  { name: 'MSPs and resellers', desc: 'Run an MVNO business with reseller billing', ic: 'reseller', href: PAGES.msp },
+  { name: 'UCaaS providers', desc: 'Catch mobile call failures before your users do', ic: 'ucaas', href: PAGES.voice },
+  { name: 'VoIP number providers', desc: 'Add MNO-backed mobile numbers with two-way SMS', ic: 'voip', href: PAGES.numbers },
+];
+const SVC = [
+  { name: 'Local numbers', desc: 'MNO-backed numbers for teams and AI voice agents', ic: 'number', href: PAGES.numbers },
+  { name: 'Local eSIMs', desc: 'Local-operator eSIMs for devices in each country', ic: 'esim', href: PAGES.devices },
+  { name: 'IoT services', desc: 'Multi-carrier SIMs with automatic routing', ic: 'iotsvc', href: PAGES.iot },
+  { name: 'Travel eSIM', desc: 'Launch branded eSIM plans in 180+ countries', ic: 'travel', href: PAGES.travel },
+  { name: 'Voice observability', desc: 'Test call delivery across mobile networks', ic: 'voice', href: PAGES.voice },
+];
+const CUST = [
+  { name: 'Butlr', what: 'Smart building sensors', big: '88% faster', line: 'to launch connectivity in a new country than their previous carrier process', short: '<strong>88% faster</strong> to launch a new country', runs: [1, 2], href: '/spenza-product/butlr-iot-spenza-casestudy/' },
+  { name: 'Angel Watch', what: "Kids' smartwatch", big: '1 checkout', line: 'for the watch and its plan, priced for a watch rather than a phone', short: '<strong>1 checkout</strong> for the watch and its plan', runs: [1, 3], href: '/telecom/angel-watch-iot-business-casestudy/' },
+  { name: 'RocketPhone', what: 'Conversation AI for Salesforce', big: '1 network', line: 'a branded business mobile network, with no telecom stack of their own', short: '<strong>1 network</strong>, branded, with no telecom stack', runs: [1, 3], href: '/spenza-product/rocketphone-case-study/' },
+];
+const MSPA = { name: 'MSP-A', desc: 'Global 4G proxy solutions', href: '/spenza-product/proxy-reseller-growth-spenza/' };
+const ALL_CASES = { name: 'All case studies', href: CASE_STUDIES };
+
+const RES = {
+  build: [
+    { name: 'API docs', desc: 'Guides and reference at docs.spenza.com', ic: 'code', href: DOCS, ext: true },
+    { name: 'MVNO Launch Academy', desc: 'Step-by-step guides to planning, launching, and scaling an MVNO', ic: 'academy', href: '/category/mvno/' },
+    { name: 'eSIM compatibility checker', desc: 'Check whether a device supports eSIM', ic: 'check', href: '/esim-compatibility-checker/' },
+  ],
+  learn: [
+    { name: 'Blog', desc: 'Guides on eSIM, MVNOs, BYOD, and telecom costs', ic: 'blog', href: '/blog/' },
+    { name: 'Video Zone', desc: 'Feature walkthroughs and how-to videos', ic: 'video', href: YT, ext: true },
+    { name: 'FAQ', desc: 'What buyers ask before a demo', ic: 'faq', href: '/faq/' },
+  ],
+  company: [
+    { name: 'About us', ic: 'about', href: '/about-us/' },
+    { name: 'Careers', ic: 'careers', href: '/careers/' },
+    { name: 'Support', ic: 'support', href: '/support/' },
+    { name: 'Contact us', ic: 'mail', href: CONTACT },
+  ],
+};
+const TOPICS = [
+  ['eSIM', '/category/esim/'],
+  ['MVNO', '/category/mvno/'],
+  ['BYOD', '/category/byod/'],
+  ['TEM', '/category/tem/'],
+  ['Telecom', '/category/telecom/'],
+  ['Platform updates', '/category/spenza-product/'],
+];
+
+/* ---------- menu icons (20x20, stroke = currentColor) ---------- */
+const IC = {
+  iot: '<rect x="6" y="6" width="8" height="8" rx="1.5"/><path d="M8.5 3v3M11.5 3v3M8.5 14v3M11.5 14v3M3 8.5h3M3 11.5h3M14 8.5h3M14 11.5h3"/>',
+  device: '<rect x="5.5" y="5" width="9" height="10" rx="2.5"/><path d="M7.5 5l.5-2.5h4l.5 2.5M7.5 15l.5 2.5h4l.5-2.5M10 7.8V10l1.4 1"/>',
+  ucaas: '<path d="M4.6 11V10a5.4 5.4 0 0 1 10.8 0v1"/><rect x="3" y="11" width="3.2" height="5" rx="1.2"/><rect x="13.8" y="11" width="3.2" height="5" rx="1.2"/><path d="M15.4 16v.3a2.2 2.2 0 0 1-2.2 2.2h-2.4"/>',
+  reseller: '<circle cx="10" cy="4.5" r="2"/><circle cx="4.5" cy="15.5" r="2"/><circle cx="15.5" cy="15.5" r="2"/><path d="M10 6.5V10M4.5 13.5V10h11v3.5"/>',
+  voip: '<path d="M8 3 6.5 17M13.5 3 12 17M3.5 7.5h14M2.5 12.5h14"/>',
+  number: '<path d="M5.6 3.5h2.1l1.2 3-1.6 1.1a8 8 0 0 0 4.1 4.1l1.1-1.6 3 1.2v2.1a1.6 1.6 0 0 1-1.7 1.6A12.6 12.6 0 0 1 4 5.2a1.6 1.6 0 0 1 1.6-1.7z"/>',
+  esim: '<path d="M6 2.5h5.5L15 6v10a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 16V4A1.5 1.5 0 0 1 6 2.5z"/><rect x="7" y="9" width="5.6" height="5.6" rx="1"/><path d="M9.8 9v5.6M7 11.8h5.6"/>',
+  iotsvc: '<rect x="3" y="11" width="14" height="6" rx="2"/><path d="M13.5 11V7M11.6 4.4a2.8 2.8 0 0 1 3.8 0M9.8 2.6a5.3 5.3 0 0 1 7.4 0"/><path d="M6.5 14h.01M9 14h.01" stroke-width="2.2"/>',
+  travel: '<circle cx="10" cy="10" r="7"/><path d="M3 10h14M10 3c1.9 2 2.9 4.3 2.9 7s-1 5-2.9 7c-1.9-2-2.9-4.3-2.9-7s1-5 2.9-7z"/>',
+  voice: '<path d="M2.5 10h2.4l2-5 3 10 2.4-7 1.5 2h3.7"/>',
+  code: '<path d="M6.5 6 2.5 10l4 4M13.5 6l4 4-4 4M11.3 4.5 8.7 15.5"/>',
+  check: '<rect x="5.5" y="2" width="9" height="16" rx="2"/><path d="M9 4.6h2M7.8 10.3l1.6 1.6 3-3.2"/>',
+  blog: '<path d="M5.5 2.5h5.8l3.7 3.7v9.8a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 16V4a1.5 1.5 0 0 1 1.5-1.5z"/><path d="M11 2.7v3.8h3.8M7 10h6M7 13h4"/>',
+  video: '<rect x="2.5" y="4.5" width="15" height="11" rx="3"/><path d="M8.6 7.6v4.8l4-2.4z" fill="currentColor"/>',
+  faq: '<circle cx="10" cy="10" r="7.5"/><path d="M7.8 7.9a2.3 2.3 0 1 1 3.3 2c-.7.4-1.1.9-1.1 1.6v.3M10 14.2h.01"/>',
+  about: '<circle cx="10" cy="10" r="7.5"/><path d="M10 9v4.6M10 6.4h.01"/>',
+  careers: '<rect x="2.5" y="6" width="15" height="10.5" rx="2"/><path d="M7.5 6V4.6a1.1 1.1 0 0 1 1.1-1.1h2.8a1.1 1.1 0 0 1 1.1 1.1V6M2.5 10.5h15"/>',
+  support: '<circle cx="10" cy="10" r="7.5"/><circle cx="10" cy="10" r="3"/><path d="M4.7 4.7l3.2 3.2M15.3 4.7l-3.2 3.2M4.7 15.3l3.2-3.2M15.3 15.3l-3.2-3.2"/>',
+  academy: '<path d="M10 4 2 8l8 4 8-4-8-4z"/><path d="M5.5 9.8v3.7c1.2 1.3 2.7 2 4.5 2s3.3-.7 4.5-2V9.8M18 8v4.5"/>',
+  mail: '<rect x="2.5" y="4.5" width="15" height="11" rx="2"/><path d="M3.2 5.6 10 11l6.8-5.4"/>',
+};
+const ico = (k: string) => `<svg class="sn-ico" viewBox="0 0 20 20" aria-hidden="true">${IC[k as keyof typeof IC]}</svg>`;
+
+/* ---------- hub icons: the Signal set ---------- */
+const ST = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+const spark = (cx: number, cy: number, r: number, k = .53) => {
+  const b = r * k, e = r * .07;
+  return `<path fill="currentColor" d="M${cx} ${cy - r}C${cx + e} ${cy - b} ${cx + b} ${cy - e} ${cx + r} ${cy}C${cx + b} ${cy + e} ${cx + e} ${cy + b} ${cx} ${cy + r}C${cx - e} ${cy + b} ${cx - b} ${cy + e} ${cx - r} ${cy}C${cx - b} ${cy - e} ${cx - e} ${cy - b} ${cx} ${cy - r}Z"/>`;
+};
+const SIG: Record<number, string> = {
+  1: `<circle cx="12" cy="12" r="2.3" fill="currentColor"/><path ${ST} d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4M4.9 4.9a10 10 0 0 0 0 14.2M19.1 4.9a10 10 0 0 1 0 14.2"/>`,
+  2: `<path ${ST} d="M3.5 8h3M11.5 8h9M3.5 16h9M17.5 16h3"/><circle ${ST} cx="9" cy="8" r="2.5"/><circle ${ST} cx="15" cy="16" r="2.5"/>`,
+  3: `<rect ${ST} x="3" y="4" width="18" height="15" rx="3"/><path ${ST} d="M3 8.5h18"/><path fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round" d="M10 10.8l6.2 2.5-3 .6-.6 3z"/>`,
+  4: spark(10.5, 13.5, 7.5) + spark(18.2, 5.8, 3, .6),
+};
+const hubIcon = (l: number) => `<svg class="sn-hm" viewBox="0 0 24 24" aria-hidden="true">${SIG[l]}</svg>`;
+const runsIcons = (ls: number[]) => [...ls].sort((a, b) => a - b).map(l => `<span class="sn-gbox sn-sm">${hubIcon(l)}</span>`).join('');
+
+/* ---------- helpers ---------- */
+const I = {
+  chev: '<svg class="sn-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  ext: '<svg class="sn-ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 3H9v4.5M9 3 3 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  burger: '<svg viewBox="0 0 20 20" aria-hidden="true"><path class="sn-l1" d="M3 7h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="sn-l2" d="M3 13h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+};
+const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+/** External links open in a new tab and say so; the site's own pages do not. */
+const target = (ext?: boolean) => (ext ? ' target="_blank" rel="noopener"' : '');
+
+type Item = { name: string; desc?: string; ic?: string; href: string; ext?: boolean };
+const mi = (it: Item) =>
+  `<a class="sn-mi" href="${it.href}"${target(it.ext)}>${it.ic ? `<span class="sn-gbox">${ico(it.ic)}</span>` : ''}<span><b>${it.name}${it.ext ? I.ext : ''}</b>${it.desc ? `<span class="sn-d">${it.desc}</span>` : ''}</span></a>`;
+const runsText = (r: number[]) => 'Runs on ' + [...r].sort().map(l => HUBS.find(h => h.lvl === l)!.name).join(' and ');
+const codeLine = (h: (typeof HUBS)[number]) => h.flow
+  ? `<code class="sn-code sn-flow">${h.flow.map(s => `<span class="sn-st">${s}</span>`).join('<span class="sn-arr" aria-hidden="true">→</span>')}</code>`
+  : `<code class="sn-code"><span class="sn-verb">${h.verb}</span> ${esc(h.api!)}</code>`;
+
+/* ---------- menu ---------- */
+const hubDetail = (h: (typeof HUBS)[number], on: boolean) =>
+  `<div class="sn-hub-detail" data-hub="${h.id}"${on ? '' : ' hidden'}><p class="sn-lay">${h.eye || h.layer}</p><h3>${h.name}</h3><p class="sn-bl">${h.blurb}</p>${codeLine(h)}${h.nopage ? '' : `<a class="sn-go" href="${h.href}">Explore ${h.name}</a>`}</div>`;
+const stackList = (desk = true) => `<p class="sn-cap">Your customers</p>
+  <div class="sn-layers">${[...HUBS].reverse().map(h => {
+    const cls = `sn-layer${desk && h.lvl === 1 ? ' is-on' : ''}${h.nopage ? ' sn-no-page' : ''}`;
+    const attrs = `data-hub="${h.id}" style="--i:${h.lvl - 1}"`;
+    const inner = `<span class="sn-gbox">${hubIcon(h.lvl)}</span><span class="sn-t"><b>${h.name}</b><span class="sn-l">${h.layer}</span></span><span class="sn-k">${h.hint}</span>`;
+    return h.nopage
+      ? `<div class="${cls}" ${attrs}${desk ? ' tabindex="0"' : ''}>${inner}</div>`
+      : `<a class="${cls}" href="${h.href}" ${attrs}>${inner}</a>`;
+  }).join('')}</div>
+  <p class="sn-cap">Operators in 180+ countries</p>`;
+
+const panes = `
+<div class="sn-pane" data-pane="platform">
+  <div class="sn-plat"><div class="sn-stack">${stackList()}</div><div class="sn-detail" aria-live="polite">${HUBS.map((h, i) => hubDetail(h, i === 0)).join('')}</div></div>
+  <div class="sn-panel-foot"><span>Four hubs on one data model, one API, and one invoice.</span><a href="${DOCS}" target="_blank" rel="noopener">Read the API docs${I.ext}</a></div>
+</div>
+<div class="sn-pane" data-pane="solutions">
+  <div class="sn-panel-in sn-sol">
+    <div><p class="sn-grp">By business</p>${BIZ.map(mi).join('')}</div>
+    <div><p class="sn-grp">By services</p>${SVC.map(mi).join('')}</div>
+  </div>
+  <div class="sn-panel-foot"><span>Not sure where you fit? Bring your line counts and target markets.</span><a href="${CONTACT}">Contact us</a></div>
+</div>
+<div class="sn-pane" data-pane="customers">
+  <div class="sn-cust">${CUST.map(c => `<a class="sn-story" href="${c.href}"><span class="sn-who"><b>${c.name}</b><span>${c.what}</span></span><span class="sn-big">${c.big}</span><span class="sn-ln">${c.line}</span><span class="sn-runs"><span class="sn-runmk">${runsIcons(c.runs)}</span>${runsText(c.runs)}</span><span class="sn-go">Read the story</span></a>`).join('')}
+    <div class="sn-more"><p class="sn-grp">More stories</p>${mi(MSPA)}${mi(ALL_CASES)}</div>
+  </div>
+</div>
+<div class="sn-pane" data-pane="resources">
+  <div class="sn-panel-in sn-res">
+    <div><p class="sn-grp">Build</p>${RES.build.map(mi).join('')}</div>
+    <div><p class="sn-grp">Learn</p>${mi(RES.learn[0])}<div class="sn-topics">${TOPICS.map(([t, href]) => `<a href="${href}">${t}</a>`).join('')}</div>${mi(RES.learn[1])}${mi(RES.learn[2])}</div>
+    <div><p class="sn-grp">Company</p><div class="sn-plain">${RES.company.map(c => `<a href="${c.href}"><span class="sn-gbox sn-sm">${ico(c.ic)}</span>${c.name}</a>`).join('')}</div></div>
+  </div>
+</div>
+<div class="sn-pane" data-pane="mobile">
+  <div class="sn-m-body">
+    <details open><summary>Platform${I.chev}</summary><div class="sn-m-in">${stackList(false)}</div></details>
+    <details><summary>Solutions${I.chev}</summary><div class="sn-m-in"><p class="sn-grp">By business</p>${BIZ.map(mi).join('')}<p class="sn-grp">By services</p>${SVC.map(mi).join('')}</div></details>
+    <details><summary>Customers${I.chev}</summary><div class="sn-m-in">${CUST.map(c => mi({ name: c.name, desc: c.short, href: c.href })).join('')}${mi(ALL_CASES)}</div></details>
+    <details><summary>Resources${I.chev}</summary><div class="sn-m-in">${[...RES.build, ...RES.learn].map(mi).join('')}</div></details>
+    <div class="sn-dr-cta"><a class="sn-btn sn-btn-ghost" href="${LOGIN}">Sign Up / Login</a><a class="sn-btn sn-btn-primary" href="${CONTACT}">Contact Us</a></div>
+  </div>
+</div>`;
+
+const trig = (label: string, id: string) =>
+  `<button class="sn-trigger" type="button" data-open="${id}" aria-expanded="false">${label}${I.chev}</button>`;
+---
+
+<div class="sn" data-site-nav>
+  <div class="sn-scrim"></div>
+  <div class="sn-shell">
+    <nav class="sn-nav" aria-label="Main">
+      <a class="sn-brand" href="/" aria-label="Spenza home"><span class="sn-logo"><img src="/spenza-logo-vector.svg" alt="" width="1264" height="428" /></span></a>
+      <div class="sn-links" set:html={trig('Platform', 'platform') + trig('Solutions', 'solutions') + trig('Customers', 'customers') + trig('Resources', 'resources')} />
+      <div class="sn-right">
+        <a class="sn-btn sn-btn-ghost sn-login" href={LOGIN}><span>Sign Up<span class="sn-login-x">&nbsp;/ Login</span></span></a>
+        <a class="sn-btn sn-btn-primary" href={CONTACT}>Contact Us</a>
+        <button class="sn-burger" type="button" aria-label="Open menu" aria-expanded="false" set:html={I.burger} />
+      </div>
+    </nav>
+    <div class="sn-sheet"><div class="sn-sheet-in" set:html={panes} /></div>
+  </div>
+</div>
+<script is:inline src="/scripts/site-nav.js" defer></script>
