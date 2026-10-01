@@ -85,12 +85,19 @@
   width: 100%;
   max-width: 100%;
   background-color: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
   border: 1px solid transparent;
   border-bottom-color: var(--sn-line);
   border-radius: 0;
-  box-shadow: 0 14px 34px -16px rgba(20, 22, 30, 0);
+  /* The pill's three shadow layers, transparent, so the shadow fades in
+     rather than switching on. */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0),
+    0 0 0 1px rgba(28, 25, 23, 0),
+    0 10px 15px -3px rgba(0, 0, 0, 0),
+    0 4px 6px -4px rgba(0, 0, 0, 0);
+  /* The bar resizes itself on every frame of the change; containing its
+     layout keeps that work inside the bar instead of the whole page. */
+  contain: layout style;
   transition:
     max-width var(--sn-nd) var(--sn-ne),
     translate var(--sn-nd) var(--sn-ne),
@@ -103,10 +110,23 @@
 .sn.is-scrolled .sn-shell {
   translate: -50% 12px;
   max-width: 880px;
-  border-color: var(--sn-line);
+  border-color: transparent;
   border-radius: 28px;
-  background-color: rgba(255, 255, 255, .8);
-  box-shadow: 0 14px 34px -16px rgba(20, 22, 30, .3);
+  /* Frosted glass: a 20px blur, so anything scrolling underneath is a soft
+     wash of colour and never legible text; a saturation lift, which is what
+     makes it read as glass rather than a flat white panel; and white at 85%
+     on top. A bright hairline along the inside of the top edge catches the
+     light; the outer ring and drop shadow are esimcopilot.com's. The blur
+     only exists in the pill: at the top the bar is opaque, and blurring what
+     cannot be seen is the most expensive thing a bar can do. */
+  background-color: rgba(255, 255, 255, .85);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .7),
+    0 0 0 1px rgba(28, 25, 23, .06),
+    0 10px 15px -3px rgba(0, 0, 0, .08),
+    0 4px 6px -4px rgba(0, 0, 0, .08);
 }
 
 /* logo left, menu centred, buttons right */
@@ -907,8 +927,23 @@
     font-size: 13.5px;
   }
 
+  /* Same frosted glass on a phone — the 20px blur under white at 85% — so text
+     scrolling under the pill is a soft blur, never legible through it. The
+     inspiration's phone bar is a full-width strip, so its edge is borrowed:
+     a hairline border and a light shadow. */
   .sn.is-scrolled .sn-shell {
     max-width: calc(100% - 20px);
+    border-color: #D6D3D1;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .7),
+      0 0 0 1px rgba(28, 25, 23, 0),
+      0 1px 3px 0 rgba(0, 0, 0, .04),
+      0 1px 2px -1px rgba(0, 0, 0, .04);
+  }
+
+  /* The footer's 112px reads as oversized in a 62px bar on a phone. */
+  .sn .sn-logo img {
+    width: 80px;
   }
 
   .sn.is-scrolled .sn-nav {
