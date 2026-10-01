@@ -33,6 +33,9 @@
     if (name === 'platform' || name === 'mobile') {
       p.classList.remove('is-build'); void p.offsetWidth; p.classList.add('is-build');
     }
+    // Each time Platform opens it rests on the default hub again, whatever
+    // was hovered the last time it was open.
+    if (name === 'platform') showHub(defaultHub);
     cur = name;
     trigs.forEach(b => b.setAttribute('aria-expanded', String(b.dataset.open === name)));
     setBurger(name === 'mobile');
@@ -89,15 +92,18 @@
   /* hover a layer to see its hub */
   const layers = [...root.querySelectorAll('.sn-pane[data-pane="platform"] .sn-layer')];
   const details = [...root.querySelectorAll('.sn-pane[data-pane="platform"] .sn-hub-detail')];
-  let hub = 'telecom';
+  // The page's own hub, or UXHub (set per page by SiteNav.astro).
+  const defaultHub = root.dataset.defaultHub || 'ux';
+  let hub = defaultHub;
+  const showHub = id => {
+    if (hub === id) return;
+    hub = id;
+    layers.forEach(x => x.classList.toggle('is-on', x.dataset.hub === id));
+    details.forEach(d => { d.hidden = d.dataset.hub !== id; });
+    fit();
+  };
   layers.forEach(el => {
-    const act = () => {
-      if (hub === el.dataset.hub) return;
-      hub = el.dataset.hub;
-      layers.forEach(x => x.classList.toggle('is-on', x === el));
-      details.forEach(d => { d.hidden = d.dataset.hub !== hub; });
-      fit();
-    };
+    const act = () => showHub(el.dataset.hub);
     el.addEventListener('mouseenter', act);
     el.addEventListener('focus', act);
   });

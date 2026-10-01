@@ -40,8 +40,23 @@ const HUBS = [
   { id: 'telecom', lvl: 1, name: 'TelecomHub', href: '/telecomhub/', layer: 'Network access', hint: 'Operators, SIMs, eSIMs', blurb: 'Access 180+ operators, provision SIMs and eSIMs, and manage routing and connectivity through one API.', verb: 'PATCH', api: '/v1/sims/:id { routing: "auto" }' },
   { id: 'control', lvl: 2, name: 'ControlHub', href: '/controlhub/', layer: 'Plans and billing', eye: 'Plans &amp; billing', hint: 'Pricing, usage, margins', blurb: 'Build custom plans, manage pricing and reseller billing, track margins, and optimize subscriptions as usage changes.', flow: ['WHOLESALE PLAN', 'YOUR PLAN', 'CUSTOMER'] },
   { id: 'ux', lvl: 3, name: 'UXHub', href: '/uxhub/', layer: 'Customer experience', hint: 'Portal, checkout, self-service', blurb: 'Launch a branded self-service experience for plan purchase, activation, usage, billing, upgrades, and support.', flow: ['YOUR BRAND', 'PLANS', 'SELF-SERVICE', 'SUPPORT'] },
-  { id: 'agent', lvl: 4, name: 'AgentHub', layer: 'AI operations', hint: 'Agents, automation, workflows', blurb: 'AI agents that build plans, run network operations, support customers, reconcile billing, and handle compliance using live platform data.', flow: ['AGENT', 'LIVE DATA', 'ACTION', 'APPROVAL'], nopage: true },
+  // Kept, not shown: set `hidden` to false to put AgentHub back in the menu.
+  { id: 'agent', lvl: 4, name: 'AgentHub', layer: 'AI operations', hint: 'Agents, automation, workflows', blurb: 'AI agents that build plans, run network operations, support customers, reconcile billing, and handle compliance using live platform data.', flow: ['AGENT', 'LIVE DATA', 'ACTION', 'APPROVAL'], nopage: true, hidden: true },
 ];
+
+/** The hubs the Platform menu shows. */
+const SHOWN = HUBS.filter(h => !h.hidden);
+
+/**
+ * The hub the Platform menu opens on: the one whose page this is, so a
+ * visitor on /controlhub/ sees ControlHub; UXHub everywhere else. Worked out
+ * at build time, per page, so the right one is lit the moment the menu opens.
+ */
+const path = Astro.url.pathname;
+const DEFAULT_HUB = SHOWN.find(h => h.href && path.startsWith(h.href))?.id ?? 'ux';
+
+/** "Three hubs …" in the menu's footer, following the hubs actually shown. */
+const HUB_COUNT = ['No', 'One', 'Two', 'Three', 'Four', 'Five'][SHOWN.length] ?? String(SHOWN.length);
 
 /* Solutions: BIZ = who you are, SVC = what you need. */
 const BIZ = [
@@ -155,8 +170,8 @@ const codeLine = (h: (typeof HUBS)[number]) => h.flow
 const hubDetail = (h: (typeof HUBS)[number], on: boolean) =>
   `<div class="sn-hub-detail" data-hub="${h.id}"${on ? '' : ' hidden'}><p class="sn-lay">${h.eye || h.layer}</p><h3>${h.name}</h3><p class="sn-bl">${h.blurb}</p>${codeLine(h)}${h.nopage ? '' : `<a class="sn-go" href="${h.href}">Explore ${h.name}</a>`}</div>`;
 const stackList = (desk = true) => `<p class="sn-cap">Your customers</p>
-  <div class="sn-layers">${[...HUBS].reverse().map(h => {
-    const cls = `sn-layer${desk && h.lvl === 1 ? ' is-on' : ''}${h.nopage ? ' sn-no-page' : ''}`;
+  <div class="sn-layers">${[...SHOWN].reverse().map(h => {
+    const cls = `sn-layer${desk && h.id === DEFAULT_HUB ? ' is-on' : ''}${h.nopage ? ' sn-no-page' : ''}`;
     const attrs = `data-hub="${h.id}" style="--i:${h.lvl - 1}"`;
     const inner = `<span class="sn-gbox">${hubIcon(h.lvl)}</span><span class="sn-t"><b>${h.name}</b><span class="sn-l">${h.layer}</span></span><span class="sn-k">${h.hint}</span>`;
     return h.nopage
@@ -167,8 +182,8 @@ const stackList = (desk = true) => `<p class="sn-cap">Your customers</p>
 
 const panes = `
 <div class="sn-pane" data-pane="platform">
-  <div class="sn-plat"><div class="sn-stack">${stackList()}</div><div class="sn-detail" aria-live="polite">${HUBS.map((h, i) => hubDetail(h, i === 0)).join('')}</div></div>
-  <div class="sn-panel-foot"><span>Four hubs on one data model, one API, and one invoice.</span><a href="${DOCS}" target="_blank" rel="noopener">Read the API docs${I.ext}</a></div>
+  <div class="sn-plat"><div class="sn-stack">${stackList()}</div><div class="sn-detail" aria-live="polite">${SHOWN.map(h => hubDetail(h, h.id === DEFAULT_HUB)).join('')}</div></div>
+  <div class="sn-panel-foot"><span>${HUB_COUNT} hubs on one data model, one API, and one invoice.</span><a href="${DOCS}" target="_blank" rel="noopener">Read the API docs${I.ext}</a></div>
 </div>
 <div class="sn-pane" data-pane="solutions">
   <div class="sn-panel-in sn-sol">
@@ -203,7 +218,7 @@ const trig = (label: string, id: string) =>
   `<button class="sn-trigger" type="button" data-open="${id}" aria-expanded="false">${label}${I.chev}</button>`;
 ---
 
-<div class="sn" data-site-nav>
+<div class="sn" data-site-nav data-default-hub={DEFAULT_HUB}>
   <div class="sn-scrim"></div>
   <div class="sn-shell">
     <nav class="sn-nav" aria-label="Main">
