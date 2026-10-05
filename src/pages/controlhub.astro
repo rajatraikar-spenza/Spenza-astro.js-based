@@ -1,8 +1,49 @@
 ---
+/**
+ * /controlhub/ — Control Hub.
+ *
+ * Built from the "controlhub-redesign.html" design. Everything said at the top
+ * of `uxhub.astro` applies here too.
+ */
 import WpLayout from '../layouts/WpLayout.astro';
-import content from '../partials/controlhub.html?raw';
+import Hero from '../components/hub/controlhub/Hero.astro';
+import HubVideo from '../components/hub/HubVideo.astro';
+import Fit from '../components/hub/controlhub/Fit.astro';
+import Problem from '../components/hub/controlhub/Problem.astro';
+import Plans from '../components/hub/controlhub/Plans.astro';
+import Access from '../components/hub/controlhub/Access.astro';
+import Comparison from '../components/hub/controlhub/Comparison.astro';
+import AgentHub from '../components/hub/controlhub/AgentHub.astro';
+import HubNumbers from '../components/hub/HubNumbers.astro';
+import HubFaq from '../components/hub/HubFaq.astro';
+import HubTrust from '../components/hub/HubTrust.astro';
+import HubDemoCta from '../components/hub/HubDemoCta.astro';
+import { faqSchema } from '../data/hubs';
+import '../styles/hub.css';
+import '../styles/hub-controlhub.css';
 ---
 
-<WpLayout slug="controlhub">
-  <Fragment set:html={content} />
+<WpLayout slug="controlhub" demoPopup={false} swiper={false}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema('controlhub'))} />
+  </Fragment>
+
+  <div class="ux" id="controlhub">
+    <Hero />
+    <HubVideo hub="controlhub" />
+    <Fit />
+    <Problem />
+    <Plans />
+    <Access />
+    <Comparison />
+    <AgentHub />
+    <HubNumbers />
+    <HubFaq hub="controlhub" />
+    <HubTrust />
+    <HubDemoCta hub="controlhub" />
+  </div>
 </WpLayout>
+
+<script>
+  import '../scripts/hub.js';
+</script>

@@ -1,0 +1,81 @@
+---
+/** Telecom Hub: Run Operations on Autopilot */
+---
+
+<section class="sec" style="padding-bottom:72px">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:24px">
+      <h2 class="h2">Run Operations on <em class="s">Autopilot</em></h2>
+    </div>
+
+    <!-- 01 -->
+    <div class="feat rv" style="border-top:0">
+      <div class="feat-copy">
+        <span class="feat-num">01</span>
+        <span class="feat-tag">Automate Operations</span>
+        <h3>Automate Billing and Provisioning</h3>
+        <p>Create custom plans without writing code while automatically provisioning SIMs, applying billing rules, handling plan changes and managing subscriber lifecycle events to reduce manual operations by 80% with fewer support tickets, faster time-to-revenue and error-proof workflows.</p>
+      </div>
+      <div class="panel mk" aria-hidden="true">
+        <div class="panel-h"><span>telecomhub / plans</span><span class="st st--ok">auto</span></div>
+        <div class="stack">
+          <div class="box">
+            <div class="box-h"><b>Resell Plan 1</b><span class="seg"><span class="on">No code</span><span>API</span></span></div>
+            <div class="kv" style="font-size:11.5px"><div>Plan name<b>Unlimited 5G &middot; 30 days</b></div><div>Markets<b>US, GB, DE</b></div></div>
+            <div class="plan">
+              <div><small>Cost</small><b>$12</b></div>
+              <div><small>Markup</small><b>$8</b></div>
+              <div class="sell"><small>Sell</small><b>$20</b></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-h"><small>Subscriber lifecycle</small><small style="text-transform:none">sub_48213</small></div>
+            <div class="life">
+              <div class="ls"><i>&#10003;</i><span>SIM provisioned</span><em>09:14:02</em></div>
+              <div class="ls"><i>&#10003;</i><span>Billing rule applied</span><em>09:14:03</em></div>
+              <div class="ls"><i>&#10003;</i><span>Service activated</span><em>09:14:06</em></div>
+              <div class="ls run"><i>&#8635;</i><span>Plan change: 10 GB to Unlimited</span><em>running</em></div>
+              <div class="ls wait"><i>&middot;</i><span>Invoice issued</span><em>queued</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="feat feat--flip rv">
+      <div class="feat-copy">
+        <span class="feat-num">02</span>
+        <span class="feat-tag">Predict and Prevent</span>
+        <h3>Proactive Network Intelligence</h3>
+        <p>Machine learning monitors carriers 24/7 without manual intervention, detecting signal degradation, coverage gaps and capacity problems while predicting failures before they impact subscribers and sending real-time alerts for proactive troubleshooting to deliver 99.9% uptime.</p>
+      </div>
+      <div class="panel mk" aria-hidden="true">
+        <div class="panel-h"><span>telecomhub / network health</span><span class="live">24/7</span></div>
+        <div class="stack">
+          <div class="box">
+            <div class="box-h"><small>Signal quality &middot; Operator B</small><span class="legend"><span><i style="background:#ff4904"></i>actual</span><span><i style="background:#0f1420"></i>predicted</span></span></div>
+            <svg class="ch" viewBox="0 0 440 130">
+              <rect x="300" y="8" width="140" height="104" fill="rgba(255,73,4,.06)"/>
+              <line x1="300" y1="8" x2="300" y2="112" stroke="#ff4904" stroke-width="1" stroke-dasharray="3 3"/>
+              <text x="306" y="20">predicted dip</text>
+              <line class="grid" x1="0" y1="30" x2="440" y2="30"/><line class="grid" x1="0" y1="70" x2="440" y2="70"/><line class="grid" x1="0" y1="110" x2="440" y2="110"/>
+              <line x1="0" y1="80" x2="440" y2="80" stroke="#0f1420" stroke-opacity=".35" stroke-width="1"/>
+              <text x="4" y="94">threshold</text>
+              <path class="draw" d="M0 40 L25 36 L50 42 L75 38 L100 44 L125 40 L150 46 L175 42 L200 48 L225 46 L250 52 L275 56 L300 60" fill="none" stroke="#ff4904" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M300 60 L325 70 L350 84 L375 92 L400 88 L425 96 L440 98" fill="none" stroke="#0f1420" stroke-width="1.6" stroke-dasharray="4 4"/>
+              <circle cx="300" cy="60" r="4" fill="#ff4904"/>
+              <text x="0" y="126">-6h</text><text x="290" y="126">now</text><text x="414" y="126">+2h</text>
+            </svg>
+          </div>
+          <div class="alert"><i>!</i><div><b>Failure predicted before impact</b><span>Operator B &middot; EU-West &middot; 1,204 lines moved to Operator A</span></div></div>
+          <div class="health">
+            <div><small>Uptime</small><b>99.9%</b><span class="st st--ok">healthy</span></div>
+            <div><small>Coverage gaps</small><b>2</b><span class="st st--warn">watching</span></div>
+            <div><small>Capacity</small><b>71%</b><span class="st st--ok">normal</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

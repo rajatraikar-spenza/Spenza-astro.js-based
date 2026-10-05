@@ -1,0 +1,64 @@
+---
+/**
+ * The demo request at the foot of each hub page.
+ *
+ * The same form as the home page's "See Spenza in action": Gravity Forms 15,
+ * the "Get Started with Spenza" form the popup uses, laid out inline — work
+ * email (required) and phone or WhatsApp number (optional). hubspot-forms.js
+ * sends it to HubSpot's `#gform_15` form, where both fields are on the
+ * allowlist, so nothing is dropped; and replays it to WordPress so Gravity
+ * Forms stores the entry and sends form 15's notifications. On success the
+ * runtime replaces the form with its confirmation.
+ *
+ * The design drew a one-field form that went nowhere (`onsubmit="return
+ * false"`). Selected by `data-hs-form="15"` like the home page's, rather than
+ * `id="gform_15"`, which belongs to the popup wherever the popup renders.
+ * `state_15` is that form's own token; `ak_js` is restamped by the runtime at
+ * submit, so the 0 here is never what Akismet sees.
+ *
+ * No `<label>` above the fields: the placeholders say what goes in them, and
+ * `aria-label` gives each input the name a screen reader announces, which a
+ * placeholder alone does not reliably do.
+ *
+ * Counted in analytics as form 15, told apart from the popup by
+ * `placement: inline` and from the home page by the page it was sent from.
+ */
+import { HUBS, type HubKey } from '../../data/hubs';
+
+interface Props {
+  hub: HubKey;
+}
+
+const { hub } = Astro.props;
+const { cta } = HUBS[hub];
+const emailId = `${hub}-demo-email`;
+const phoneId = `${hub}-demo-phone`;
+---
+
+<section class="sec" id="demo">
+  <div class="wrap">
+    <div class="cta rv">
+      <div>
+        <h2 class="h2" set:html={cta.title} />
+        <p class="lede">{cta.lede}</p>
+      </div>
+      <form class="cta-form" data-hs-form="15" method="post" action="/" novalidate>
+        <input id={emailId} name="input_2" type="email" placeholder="Your Work Email" aria-label="Work email" autocomplete="email" aria-required="true" aria-invalid="false" />
+        <input id={phoneId} name="input_5" type="tel" placeholder="Phone Number / WhatsApp Number" aria-label="Phone or WhatsApp number" autocomplete="tel" aria-invalid="false" />
+        <button class="btn btn--acc" type="submit">Book a Free Demo</button>
+        <input type="hidden" name="gform_ajax" value="form_id=15&amp;title=1&amp;description=1&amp;tabindex=0" />
+        <input type="hidden" name="is_submit_15" value="1" />
+        <input type="hidden" name="gform_submit" value="15" />
+        <input type="hidden" name="gform_unique_id" value="" />
+        <input type="hidden" name="state_15" value="WyJbXSIsIjcwMWM3MTZjZjIwZjQzZTczYzBmMGYwYzU1NWFhMTc0Il0=" />
+        <input type="hidden" name="gform_target_page_number_15" value="0" />
+        <input type="hidden" name="gform_source_page_number_15" value="1" />
+        <input type="hidden" name="gform_field_values" value="" />
+        <p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_">
+          <label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label>
+          <input type="hidden" name="ak_js" value="0" />
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

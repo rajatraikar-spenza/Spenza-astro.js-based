@@ -1,0 +1,137 @@
+{
+  "uxhub": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 45.8,
+    "sources": [
+      {
+        "src": "/videos/hubs/uxhub.720.av1.4cdda9fb12.mp4",
+        "type": "video/mp4; codecs=\"av01.0.05M.10, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 2408194,
+        "vmaf": 97.24
+      },
+      {
+        "src": "/videos/hubs/uxhub.720.hevc.7c75501a95.mp4",
+        "type": "video/mp4; codecs=\"hvc1.1.6.L93.B0, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 2884090,
+        "vmaf": 96.97
+      },
+      {
+        "src": "/videos/hubs/uxhub.720.h264.0b712917f4.mp4",
+        "type": "video/mp4; codecs=\"avc1.64001f, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 4127012,
+        "vmaf": 96.54
+      },
+      {
+        "src": "/videos/hubs/uxhub.1080.av1.b888547278.mp4",
+        "type": "video/mp4; codecs=\"av01.0.08M.10, mp4a.40.2\"",
+        "bytes": 3786958,
+        "vmaf": 96.71
+      },
+      {
+        "src": "/videos/hubs/uxhub.1080.hevc.9e991af4c6.mp4",
+        "type": "video/mp4; codecs=\"hvc1.1.6.L120.B0, mp4a.40.2\"",
+        "bytes": 4863480,
+        "vmaf": 96.5
+      },
+      {
+        "src": "/videos/hubs/uxhub.1080.h264.cc6fb5f176.mp4",
+        "type": "video/mp4; codecs=\"avc1.640028, mp4a.40.2\"",
+        "bytes": 9204658
+      }
+    ]
+  },
+  "telecomhub": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 56,
+    "sources": [
+      {
+        "src": "/videos/hubs/telecomhub.720.av1.352160a9b3.mp4",
+        "type": "video/mp4; codecs=\"av01.0.05M.10, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 2700755,
+        "vmaf": 97.7
+      },
+      {
+        "src": "/videos/hubs/telecomhub.720.hevc.367bf0c2e9.mp4",
+        "type": "video/mp4; codecs=\"hvc1.1.6.L93.B0, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 3085884,
+        "vmaf": 97.31
+      },
+      {
+        "src": "/videos/hubs/telecomhub.720.h264.edcdbfd4d4.mp4",
+        "type": "video/mp4; codecs=\"avc1.64001f, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 4456043,
+        "vmaf": 97.09
+      },
+      {
+        "src": "/videos/hubs/telecomhub.1080.av1.8b6dbc39b9.mp4",
+        "type": "video/mp4; codecs=\"av01.0.08M.10, mp4a.40.2\"",
+        "bytes": 4301133,
+        "vmaf": 97.05
+      },
+      {
+        "src": "/videos/hubs/telecomhub.1080.hevc.c249c44290.mp4",
+        "type": "video/mp4; codecs=\"hvc1.1.6.L120.B0, mp4a.40.2\"",
+        "bytes": 5225318,
+        "vmaf": 96.74
+      },
+      {
+        "src": "/videos/hubs/telecomhub.1080.h264.c53650c9a7.mp4",
+        "type": "video/mp4; codecs=\"avc1.640028, mp4a.40.2\"",
+        "bytes": 9348253
+      }
+    ]
+  },
+  "controlhub": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 62.7,
+    "sources": [
+      {
+        "src": "/videos/hubs/controlhub.720.av1.6fb8887c09.mp4",
+        "type": "video/mp4; codecs=\"av01.0.05M.10, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 2777257,
+        "vmaf": 97.69
+      },
+      {
+        "src": "/videos/hubs/controlhub.720.hevc.2d4884e848.mp4",
+        "type": "video/mp4; codecs=\"hvc1.1.6.L93.B0, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 3166074,
+        "vmaf": 97.34
+      },
+      {
+        "src": "/videos/hubs/controlhub.720.h264.57754680d3.mp4",
+        "type": "video/mp4; codecs=\"avc1.64001f, mp4a.40.2\"",
+        "media": "(max-width: 767px)",
+        "bytes": 4791719,
+        "vmaf": 97.07
+      },
+      {
+        "src": "/videos/hubs/controlhub.1080.av1.b8c12a8825.mp4",
+        "type": "video/mp4; codecs=\"av01.0.08M.10, mp4a.40.2\"",
+        "bytes": 4511227,
+        "vmaf": 97.13
+      },
+      {
+        "src": "/videos/hubs/controlhub.1080.hevc.e41fe4df97.mp4",
+        "type": "video/mp4; codecs=\"hvc1.1.6.L120.B0, mp4a.40.2\"",
+        "bytes": 5159097,
+        "vmaf": 96.79
+      },
+      {
+        "src": "/videos/hubs/controlhub.1080.h264.4b59b4ceb6.mp4",
+        "type": "video/mp4; codecs=\"avc1.640028, mp4a.40.2\"",
+        "bytes": 9302605
+      }
+    ]
+  }
+}

@@ -1,8 +1,43 @@
 ---
+/**
+ * /telecomhub/ — Telecom Hub.
+ *
+ * Built from the "telecomhub-redesign.html" design. Everything said at the top
+ * of `uxhub.astro` applies here too.
+ */
 import WpLayout from '../layouts/WpLayout.astro';
-import content from '../partials/telecomhub.html?raw';
+import Hero from '../components/hub/telecomhub/Hero.astro';
+import HubVideo from '../components/hub/HubVideo.astro';
+import Questions from '../components/hub/telecomhub/Questions.astro';
+import Platform from '../components/hub/telecomhub/Platform.astro';
+import Operations from '../components/hub/telecomhub/Operations.astro';
+import HubNumbers from '../components/hub/HubNumbers.astro';
+import HubFaq from '../components/hub/HubFaq.astro';
+import HubTrust from '../components/hub/HubTrust.astro';
+import HubDemoCta from '../components/hub/HubDemoCta.astro';
+import { faqSchema } from '../data/hubs';
+import '../styles/hub.css';
+import '../styles/hub-telecomhub.css';
 ---
 
-<WpLayout slug="telecomhub">
-  <Fragment set:html={content} />
+<WpLayout slug="telecomhub" demoPopup={false} swiper={false}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema('telecomhub'))} />
+  </Fragment>
+
+  <div class="ux" id="telecomhub">
+    <Hero />
+    <HubVideo hub="telecomhub" />
+    <Questions />
+    <Platform />
+    <Operations />
+    <HubNumbers />
+    <HubFaq hub="telecomhub" />
+    <HubTrust />
+    <HubDemoCta hub="telecomhub" />
+  </div>
 </WpLayout>
+
+<script>
+  import '../scripts/hub.js';
+</script>

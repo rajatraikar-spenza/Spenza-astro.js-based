@@ -1,0 +1,121 @@
+---
+/**
+ * The product video, second section of every hub page.
+ *
+ * Nothing about the video downloads with the page. What renders is the
+ * design's poster — a button — and a `<template>` holding the `<video>` and
+ * its sources, which the browser parses but does not fetch. `scripts/hub.js`
+ * takes it from there:
+ *
+ *   - hover, focus or touch on the poster mounts the video behind it with
+ *     `preload="metadata"`, so the file's index is in hand before the click;
+ *   - the click plays it, with sound — it is the visitor's own gesture — and
+ *     the play button turns into a spinner;
+ *   - the poster fades only when the first frame is actually playing, so
+ *     there is never a black box in between;
+ *   - scrolling it mostly out of view pauses it, and it does not resume on
+ *     its own;
+ *   - at the end it offers a replay and the demo form.
+ *
+ * Which file plays is the browser's choice, made from the `<source>` list in
+ * order: the first whose `media` matches and whose codec it can decode. The
+ * list is written by `npm run hub:videos` — AV1, then HEVC, then H.264, at
+ * 720p for phones and 1080p for everything else. See that script for why.
+ *
+ * No download option: `controlslist="nodownload"` takes it out of the
+ * player's ⋮ menu in Chrome and Edge, and hub.js swallows the right-click menu
+ * with its "Save video as…". Safari and Firefox never offered one in their
+ * controls. This only removes the invitation — the files are public URLs and
+ * anyone determined can still fetch them.
+ *
+ * Without JavaScript the poster is hidden and the `<noscript>` player shows
+ * instead, still `preload="none"`.
+ */
+import manifest from '../../data/hub-videos.json';
+import { HUBS, type HubKey } from '../../data/hubs';
+
+interface Props {
+  hub: HubKey;
+}
+
+const { hub } = Astro.props;
+const { video } = HUBS[hub];
+const media = manifest[hub];
+const label = `${video.name.join('')} product video`;
+
+const seconds = Math.round(media.duration);
+const duration = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+
+// The fallback every browser plays: the 1080p H.264 file, which is the master.
+const direct = media.sources.at(-1)!.src;
+
+const { inputs, chip, outputs } = video.diagram;
+const inputY = [30, 90, 150, 210];
+const outputY = [53, 121, 189];
+---
+
+<section class="sec sec--white" id="video">
+  <div class="wrap">
+    <div class="vid-head rv">
+      <div>
+        <p class="eyebrow"><span class="eyebrow-brand"><img class="wp-wordmark" src="/spenza-wordmark.svg" alt="Spenza" width="978" height="187" decoding="async" /> {video.eyebrow}</span></p>
+        <h2 class="h2" set:html={video.title} />
+      </div>
+      <p class="lede">{video.lede}</p>
+    </div>
+    <div class="rv">
+      <div class="vid" data-hub-video data-title={label}>
+        <template>
+          <video controls controlslist="nodownload" playsinline preload="none" aria-label={label}>
+            {media.sources.map(s => <source src={s.src} type={s.type} media={s.media} />)}
+          </video>
+        </template>
+
+        <button class="poster" type="button" aria-label={`Play the ${label}, ${duration}`}>
+          <div class="pst-copy">
+            <small>Product overview</small>
+            <b>{video.name[0]}<em>{video.name[1]}</em></b>
+            <span>{video.tagline}</span>
+            <span class="pst-cta">
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" /></svg></span>
+              <em>Watch the overview</em>
+            </span>
+          </div>
+          <svg class="pst-art" viewBox="0 0 420 300" aria-hidden="true">
+            {inputs.map((name, i) => (
+              <g class="nd"><rect x="0" y={inputY[i]} width="110" height="34" rx="8" /><text x="14" y={inputY[i] + 22}>{name}</text></g>
+            ))}
+            {inputY.map((y, i) => (
+              <path class:list={['fl', { m: i === inputY.length - 1 }]} d={`M110 ${y + 17} C 160 ${y + 17}, 160 138, 190 138`} />
+            ))}
+            <rect x="190" y="96" width="100" height="84" rx="14" fill="#ff49041f" stroke="#ff4904" />
+            <text x="240" y="130" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#ffb08f">{chip[0]}</text>
+            <text x="240" y="152" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#ffffffb3">{chip[1]}</text>
+            <path class="fl" d="M290 138 C 320 138, 320 70, 340 70" /><path class="fl" d="M290 138 L 340 138" /><path class="fl" d="M290 138 C 320 138, 320 206, 340 206" />
+            {outputs.map((name, i) => (
+              <g class="nd"><rect x="340" y={outputY[i]} width="80" height="34" rx="8" /><text x="354" y={outputY[i] + 22}>{name}</text></g>
+            ))}
+          </svg>
+          <div class="pst-bar" aria-hidden="true">
+            <span>Product overview</span><span class="pst-track"></span><span>{duration}</span>
+          </div>
+        </button>
+
+        <div class="vid-end" hidden>
+          <button class="btn btn--line" type="button" data-replay>Watch again</button>
+          <a class="btn btn--acc" href="#demo">Book a Free Demo <i>&rarr;</i></a>
+        </div>
+
+        <p class="vid-err" role="alert" hidden>
+          This video could not be played here. <a href={direct}>Open it directly</a>.
+        </p>
+
+        <noscript>
+          <video controls controlslist="nodownload" playsinline preload="none" aria-label={label}>
+            {media.sources.map(s => <source src={s.src} type={s.type} media={s.media} />)}
+          </video>
+        </noscript>
+      </div>
+    </div>
+  </div>
+</section>
