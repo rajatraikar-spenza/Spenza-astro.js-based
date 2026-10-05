@@ -11,7 +11,8 @@
  *
  * Behaviour (pill on scroll, menus, drawer) is scripts/site-nav.js; styles
  * are styles/site-nav.css, all scoped under `.sn`. Rendered by WpLayout and
- * ArticleLayout as a direct child of <body>, which `position: sticky` needs.
+ * ArticleLayout as a direct child of <body>; the bar is fixed, and
+ * `.sn-spacer` holds its height in the page.
  */
 import '../styles/site-nav.css';
 
@@ -233,4 +234,5 @@ const trig = (label: string, id: string) =>
     <div class="sn-sheet"><div class="sn-sheet-in" set:html={panes} /></div>
   </div>
 </div>
+<div class="sn-spacer" aria-hidden="true"></div>
 <script is:inline src="/scripts/site-nav.js" defer></script>

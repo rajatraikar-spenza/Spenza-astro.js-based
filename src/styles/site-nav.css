@@ -25,8 +25,17 @@
   --sn-nd: .5s;
   --sn-ne: cubic-bezier(0, 0, .2, 1);
 
-  position: sticky;
+  /* Fixed, not sticky — the inspiration site's pattern, and the one Safari
+     keeps steady. Safari moves sticky elements on its scrolling thread, and
+     a sticky bar whose contents re-lay out on every frame of the bar → pill
+     change (as this one does) can be drawn at a stale offset mid-scroll: the
+     bar slid down into the page and jumped back when the scroll reversed.
+     A fixed bar is composited in place. `.sn-spacer` holds its 64px in the
+     page, so content starts exactly where it did under the sticky bar. */
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   height: 64px;
   font-family: var(--font-sans);
@@ -40,6 +49,11 @@
 
 .sn .sn-shell {
   pointer-events: auto;
+}
+
+/* The fixed bar's place in the page. */
+.sn-spacer {
+  height: 64px;
 }
 
 .sn *,
@@ -95,9 +109,6 @@
     0 0 0 1px rgba(28, 25, 23, 0),
     0 10px 15px -3px rgba(0, 0, 0, 0),
     0 4px 6px -4px rgba(0, 0, 0, 0);
-  /* The bar resizes itself on every frame of the change; containing its
-     layout keeps that work inside the bar instead of the whole page. */
-  contain: layout style;
   transition:
     max-width var(--sn-nd) var(--sn-ne),
     translate var(--sn-nd) var(--sn-ne),
