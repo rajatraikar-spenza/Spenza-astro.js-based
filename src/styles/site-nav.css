@@ -93,9 +93,17 @@
 .sn .sn-shell {
   position: absolute;
   z-index: 1;
+  /* Centred by layout — left and right at 0, auto margins — not by
+     `left: 50%; translate: -50%`. Safari runs a `translate` animation on its
+     compositor and resolves the -50% against the width the animation
+     *started* at, so while the width animated the pill slid in from the left
+     on the way down, and grew out from its old left edge on the way up. The
+     12px drop moves with `top` for the same reason: it stays on the same
+     layout step as the width, in every engine. */
   top: 0;
-  left: 50%;
-  translate: -50% 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 100%;
   max-width: 100%;
   background-color: rgba(255, 255, 255, 1);
@@ -111,7 +119,7 @@
     0 4px 6px -4px rgba(0, 0, 0, 0);
   transition:
     max-width var(--sn-nd) var(--sn-ne),
-    translate var(--sn-nd) var(--sn-ne),
+    top var(--sn-nd) var(--sn-ne),
     border-radius var(--sn-nd) var(--sn-ne),
     box-shadow var(--sn-nd) var(--sn-ne),
     background-color var(--sn-nd) var(--sn-ne),
@@ -119,7 +127,7 @@
 }
 
 .sn.is-scrolled .sn-shell {
-  translate: -50% 12px;
+  top: 12px;
   max-width: 880px;
   border-color: transparent;
   border-radius: 28px;
