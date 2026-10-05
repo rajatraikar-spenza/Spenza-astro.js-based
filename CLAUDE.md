@@ -261,6 +261,35 @@ and notifications; GA tells the two apart by `placement`.
   `public/vendor/` and fetched per format on demand — WordPress loads all
   1.28MB of them on every view of that page.
 
+## Hub pages (UX Hub, Telecom Hub, Control Hub)
+
+Built from components like the home page, not from partials:
+`components/hub/` (shared sections plus one folder per hub),
+`styles/hub.css` + `styles/hub-<hub>.css`, `scripts/hub.js`, and the copy
+shared components render in `data/hubs.ts`.
+
+- **The product videos never load with the page.** The poster is a button; a
+  `<template>` holds the `<video>`, hover/touch mounts it with
+  `preload="metadata"`, the click plays it. Don't add `preload`, `autoplay` or
+  a `poster` image to it — each one moves bytes back into page load.
+- Encoded by `npm run hub:videos -- "<folder with the masters>"`: AV1, HEVC
+  and H.264, 720p for phones and 1080p otherwise, each re-encode refused below
+  VMAF 95, the 1080p H.264 file being the master untouched. It rewrites
+  `public/videos/hubs/` and `data/hub-videos.json`. Names carry a digest and
+  `/videos/*` is cached for a year (`_headers` and the immutable pass in
+  `aws-site-host.sh`), so a new cut must go through the script, never be
+  copied over a file.
+- WordPress CSS is the home page's shared bundle plus the hubs' inline tier,
+  pinned in `wp-optimize-css.mjs`. The hubs' old bundles carried generic class
+  rules that hit this design; the home bundle was checked to have none.
+- The demo form is the home page's: Gravity Forms 15 (email + phone) by
+  `data-hs-form="15"`.
+- The player has no download option (`controlslist="nodownload"`, and the
+  right-click menu is suppressed).
+- Astro collapses whitespace in markup and reads `{}` as expressions, so the
+  one `white-space: pre` code sample (Telecom's Platform) is a string set as
+  HTML.
+
 ## Analytics
 
 **GA4 and Microsoft Clarity both load on page open, for every visitor, before

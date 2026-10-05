@@ -1,0 +1,1404 @@
+/* ═══════════════════════════════════════════════════════════════
+   Hub pages — UX Hub, Telecom Hub, Control Hub.
+
+   Layout, type and motion are the "<hub>-redesign.html" designs'. This
+   file holds every rule the three designs share; what one page alone
+   draws is in `hub-<page>.css`, loaded after this one, which is the
+   order the rules had in each design. A shared rule a page restated
+   later, to win over its own earlier rule, is restated there too.
+
+   Scoped to `.ux` like the design, because the pages render inside
+   WpLayout next to the Elementor/Astra bundle, which styles bare `p`,
+   `a`, `h1..h6`, `button`, `input`, `ul` and `table`. The section near
+   the end of this file answers those rules one by one.
+
+   Every `font-family` is `!important`, to answer the bundle rule that
+   sets the family `!important` on every `p`, `a` and heading. Families
+   are the site's tokens from fonts.css, never a name.
+═══════════════════════════════════════════════════════════════ */
+
+/* ── the designs' shared rules ─────────────────────────────────── */
+
+.ux {
+  --bg: #fbf9f6;
+  --bg2: #f5f1ea;
+  --ink: #0f1420;
+  --body: #3d4656;
+  --muted: #5b6472;
+  --acc: #ff4904;
+  --accdark: #d63a00;
+  --acctext: #c93600;
+  --accrgb: 255, 73, 4;
+  --green: #2fa36a;
+  --greentext: #17734a;
+  --rule: #0f14201f;
+  --rule2: #0f142014;
+  --peach: #fff2ed;
+  --peachline: #f3d9cc;
+  --sans: var(--font-sans);
+  --display: var(--font-display);
+  --serif: var(--font-serif);
+  --mono: var(--font-mono);
+  font-family: var(--sans) !important;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+.ux *,
+.ux *:before,
+.ux *:after {
+  box-sizing: border-box;
+}
+.ux {
+  background: var(--bg);
+  font-size: 16px;
+  line-height: normal;
+  overflow-x: clip;
+  display: block;
+}
+.ux ::selection {
+  background: rgba(var(--accrgb), 0.25);
+}
+.ux a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.ux :is(a, button, summary, input):focus-visible {
+  outline: 3px solid var(--acc);
+  outline-offset: 4px;
+}
+.ux .wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.ux .sec {
+  padding: 120px 0;
+}
+.ux .sec--white {
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.ux .sec--sand {
+  background: #f9f7f3;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.ux .mono {
+  font-family: var(--mono) !important;
+}
+.ux .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  font-family: var(--mono) !important;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.ux .eyebrow:before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--acc);
+  flex-shrink: 0;
+  transform-origin: 0;
+}
+.ux .h2 {
+  margin: 0;
+  font-family: var(--display) !important;
+  font-weight: 500;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.ux em.s {
+  font-family: var(--serif) !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--acctext);
+}
+.ux .lede {
+  margin: 0;
+  max-width: 480px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+.ux .head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 64px;
+}
+.ux .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  border-radius: 6px;
+  padding: 15px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--sans) !important;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.2s;
+}
+.ux .btn--acc {
+  background: var(--acc);
+  color: #fff;
+}
+.ux .btn--acc:hover {
+  background: var(--accdark);
+  color: #fff;
+}
+.ux .btn--line {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid #0f142038;
+  font-weight: 500;
+}
+.ux .btn--line:hover {
+  background: #fff;
+  border-color: var(--ink);
+}
+.ux .btn--ink {
+  background: var(--ink);
+  color: #fff;
+}
+.ux .btn--ink:hover {
+  background: var(--acc);
+  color: #fff;
+}
+.ux .btn i {
+  font-style: normal;
+  transition: transform 0.3s;
+}
+.ux .btn:hover i {
+  transform: translateX(4px);
+}
+.ux.js .rv {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ux.js .rv.in {
+  opacity: 1;
+  transform: none;
+}
+.ux.js .rv .eyebrow:before {
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s;
+}
+.ux.js .rv.in .eyebrow:before {
+  transform: scaleX(1);
+}
+@keyframes ux-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ux-dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+@keyframes ux-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--accrgb), 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--accrgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--accrgb), 0);
+  }
+}
+@keyframes ux-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes ux-grow {
+  from {
+    transform: scaleY(0.15);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes ux-ring {
+  from {
+    stroke-dashoffset: 264;
+  }
+}
+.ux .hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 62%);
+}
+.ux .hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--rule2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule2) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 78% 45%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 60% 70% at 78% 45%, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+.ux .hero-in {
+  position: relative;
+  z-index: 1;
+  padding: 88px 0 96px;
+}
+.ux .hero-grid {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 56px;
+  align-items: center;
+}
+.ux .hero .eyebrow {
+  margin: 0;
+}
+.ux .hero h1 {
+  margin: 22px 0 26px;
+  font-family: var(--display) !important;
+  font-weight: 500;
+  font-size: clamp(42px, 5.2vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.ux .hero h1 em.s {
+  letter-spacing: -0.02em;
+}
+.ux .hero-lede {
+  margin: 0 0 34px;
+  max-width: 560px;
+  font-size: clamp(17px, 1.35vw, 19.5px);
+  line-height: 1.55;
+  color: var(--body);
+  text-wrap: pretty;
+}
+.ux .hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ux .hero-copy > * {
+  animation: ux-up 0.9s both;
+}
+.ux .hero-copy > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.ux .hero-copy > *:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.ux .hero-copy > *:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.ux .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-family: var(--mono) !important;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+.ux .pill--ok {
+  background: #eaf6ef;
+  color: var(--greentext);
+}
+.ux .pill--ok:before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.ux .hero-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono) !important;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.ux .feat {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 72px;
+  align-items: center;
+  padding: 72px 0;
+  border-top: 1px solid var(--rule);
+}
+.ux .feat--flip .feat-copy {
+  order: 2;
+}
+.ux .feat-num {
+  display: block;
+  font-family: var(--display) !important;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--acc);
+  margin-bottom: 20px;
+}
+.ux .feat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--peachline);
+  background: var(--peach);
+  border-radius: 999px;
+  font-family: var(--mono) !important;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--acctext);
+  margin-bottom: 18px;
+}
+.ux .feat h3 {
+  margin: 0 0 14px;
+  font-family: var(--display) !important;
+  font-weight: 500;
+  font-size: clamp(26px, 2.5vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.ux .feat p {
+  margin: 0;
+  max-width: 470px;
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--body);
+  text-wrap: pretty;
+}
+.ux .panel {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 30px 60px -36px #0f14202e;
+  overflow: hidden;
+}
+.ux .panel:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#0f142012 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+.ux .panel > * {
+  position: relative;
+}
+.ux .panel-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-family: var(--mono) !important;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.ux .live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--acctext);
+}
+.ux .live:before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--acc);
+  animation: ux-pulse 2s infinite;
+}
+.ux .nums-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+.ux .stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid #e6e1d8;
+}
+.ux .stat {
+  position: relative;
+  padding: 40px 32px 8px;
+  border-left: 1px solid #e6e1d8;
+}
+.ux .stat:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.ux .stat:last-child {
+  padding-right: 0;
+}
+.ux .stat:before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  height: 2px;
+  width: 56px;
+  background: var(--acc);
+  transform: scaleX(0);
+  transform-origin: 0;
+  transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
+}
+.ux .stat:not(:first-child):before {
+  left: 32px;
+}
+.ux .rv.in .stat:before,
+.ux:not(.js) .stat:before {
+  transform: scaleX(1);
+}
+.ux .stat strong {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--display) !important;
+  font-weight: 600;
+  font-size: clamp(40px, 3.9vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #171717;
+  font-variant-numeric: tabular-nums;
+}
+.ux .stat strong sup,
+.ux .stat strong sub {
+  font-size: 0.5em;
+  letter-spacing: -0.02em;
+  vertical-align: baseline;
+  position: static;
+  color: var(--acctext);
+}
+.ux .stat strong sub {
+  margin-left: 6px;
+  font-size: 0.42em;
+  color: var(--muted);
+  font-weight: 500;
+}
+.ux .stat p {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #57534e;
+}
+.ux .spark {
+  display: block;
+  width: 100%;
+  height: 36px;
+  margin-top: 22px;
+}
+.ux .spark path {
+  fill: none;
+  stroke: var(--acc);
+  stroke-width: 1.5;
+}
+.ux .spark path.area {
+  fill: rgba(var(--accrgb), 0.08);
+  stroke: none;
+}
+.ux .faq {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+  align-items: start;
+}
+.ux .faq .h2 {
+  margin-bottom: 16px;
+}
+.ux .faq-more {
+  margin: 0;
+  max-width: 380px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+}
+.ux .faq-list {
+  border-top: 1px solid var(--rule);
+}
+.ux .faq-list details {
+  border-bottom: 1px solid var(--rule);
+}
+.ux .faq-list summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  min-height: 44px;
+  padding: 22px 0;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s;
+}
+.ux .faq-list summary::-webkit-details-marker {
+  display: none;
+}
+.ux .faq-list summary:hover {
+  color: var(--acctext);
+}
+.ux .faq-list summary i {
+  font-family: var(--mono) !important;
+  font-style: normal;
+  font-size: 18px;
+  color: var(--muted);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.ux .faq-list details[open] summary i {
+  transform: rotate(45deg);
+  color: var(--acctext);
+}
+.ux .faq-list details p {
+  margin: 0;
+  padding: 0 40px 24px 0;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--body);
+  animation: ux-up 0.35s both;
+}
+.ux .trust {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 72px;
+  align-items: center;
+}
+.ux .trust .lede {
+  margin: 22px 0 26px;
+  max-width: 500px;
+}
+.ux .checks {
+  list-style: none;
+  margin: 0 0 34px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  max-width: 500px;
+}
+.ux .checks li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  color: var(--ink);
+}
+.ux .checks li svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.ux .badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.ux .badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  aspect-ratio: 1/1.05;
+  padding: 16px 10px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  text-align: center;
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s,
+    border-color 0.35s;
+}
+.ux .badge:hover {
+  transform: translateY(-4px);
+  border-color: #0f142033;
+  box-shadow: 0 22px 46px #0f14201a;
+}
+.ux .badge img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.ux .badge span {
+  font-family: var(--mono) !important;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+.ux .badge--lock {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.ux .badge--lock svg {
+  width: 64px;
+  height: 64px;
+}
+.ux .cta {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+  padding-top: 56px;
+  border-top: 1px solid var(--ink);
+}
+.ux .cta .lede {
+  margin-top: 22px;
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+.ux .cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 6px;
+}
+.ux .cta-form label {
+  font-family: var(--mono) !important;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.ux .cta-form input {
+  width: 100%;
+  padding: 16px 16px;
+  border: 1px solid #0f142033;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+}
+.ux .cta-form input:focus {
+  outline: none;
+  border-color: var(--acc);
+  box-shadow: 0 0 0 3px rgba(var(--accrgb), 0.15);
+}
+.ux .cta-form .btn {
+  width: 100%;
+  padding: 17px;
+}
+.ux .cta-meta {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  font-family: var(--mono) !important;
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.ux .cta-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.ux .cta-meta span:before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--acc);
+}
+.ux .vid-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.ux .vid-head .lede {
+  max-width: 520px;
+}
+.ux .vid {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  box-shadow: 0 50px 90px -40px #0f142066;
+}
+.ux .vid video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #000;
+}
+.ux .poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+  text-align: left;
+  color: #fff;
+  font-family: var(--sans) !important;
+}
+.ux .poster:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#ffffff0d 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff0d 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 70% 50%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 80% at 70% 50%, #000, transparent 75%);
+}
+.ux .poster:after {
+  content: "";
+  position: absolute;
+  right: -12%;
+  top: -30%;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--accrgb), 0.35), rgba(var(--accrgb), 0) 65%);
+}
+.ux .pst-copy {
+  position: absolute;
+  left: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  max-width: 40%;
+}
+.ux .pst-copy small {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono) !important;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #ffffffa6;
+  text-transform: uppercase;
+}
+.ux .pst-copy small:before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--acc);
+}
+.ux .pst-copy b {
+  display: block;
+  margin: 18px 0 12px;
+  font-family: var(--display) !important;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+.ux .pst-copy b em {
+  font-family: var(--serif) !important;
+  font-style: italic;
+  font-weight: 400;
+  color: #ff8a5c;
+}
+.ux .pst-copy > span {
+  display: block;
+  font-size: clamp(13px, 1.2vw, 16px);
+  line-height: 1.5;
+  color: #ffffffb3;
+}
+.ux .pst-art {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46%;
+  z-index: 1;
+}
+.ux .pst-art .nd rect {
+  fill: #ffffff0f;
+  stroke: #ffffff29;
+}
+.ux .pst-art .nd text {
+  font-family: var(--mono) !important;
+  font-size: 11px;
+  fill: #ffffffcc;
+}
+.ux .pst-art .fl {
+  fill: none;
+  stroke: var(--acc);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 5;
+  animation: ux-dash 2.2s linear infinite;
+}
+.ux .pst-art .fl.m {
+  stroke: #ffffff40;
+}
+.ux .pst-cta {
+  display: flex !important;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+.ux .pst-cta em {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+.ux .play {
+  position: relative;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--acc);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 20px 40px -10px rgba(var(--accrgb), 0.6);
+  animation: ux-pulse 2.4s infinite;
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.2s;
+}
+.ux .play svg {
+  width: 26px;
+  height: 26px;
+  margin-left: 4px;
+  fill: #fff;
+}
+.ux .poster:hover .play {
+  transform: scale(1.08);
+  background: var(--accdark);
+}
+.ux .pst-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: linear-gradient(0deg, #0f1420e6, #0f142000);
+}
+.ux .pst-bar span {
+  font-family: var(--mono) !important;
+  font-size: 11px;
+  color: #ffffffb3;
+  white-space: nowrap;
+}
+.ux .pst-track {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: #ffffff26;
+}
+@media (max-width: 960px) {
+  .ux .vid-head {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .ux .pst-art {
+    display: none;
+  }
+  .ux .pst-copy {
+    max-width: 70%;
+    top: auto;
+    bottom: 22%;
+    transform: none;
+  }
+}
+@media (max-width: 640px) {
+  .ux .vid {
+    border-radius: 12px;
+    aspect-ratio: 4/5;
+  }
+  .ux .pst-copy {
+    left: 7%;
+    max-width: 86%;
+    bottom: 20%;
+  }
+  .ux .play {
+    width: 60px;
+    height: 60px;
+  }
+  .ux .play svg {
+    width: 22px;
+    height: 22px;
+  }
+  .ux .pst-copy {
+    bottom: 16%;
+  }
+  .ux .pst-bar {
+    padding: 12px 16px;
+  }
+}
+@media (max-width: 960px) {
+  .ux .sec {
+    padding: 88px 0;
+  }
+  .ux .hero-grid,
+  .ux .head,
+  .ux .feat,
+  .ux .faq,
+  .ux .trust,
+  .ux .cta {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .ux .feat {
+    gap: 36px;
+    padding: 56px 0;
+  }
+  .ux .feat--flip .feat-copy {
+    order: 0;
+  }
+  .ux .hero-in {
+    padding: 56px 0 72px;
+  }
+  .ux .nums-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .ux .stats {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 8px;
+  }
+  .ux .stat:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .ux .stat:nth-child(3):before {
+    left: 0;
+  }
+}
+@media (max-width: 640px) {
+  .ux .wrap {
+    padding: 0 16px;
+  }
+  .ux .sec {
+    padding: 72px 0;
+  }
+  .ux .hero h1 {
+    font-size: 43px;
+  }
+  .ux .feat-num {
+    font-size: 34px;
+  }
+  .ux .feat h3 {
+    font-size: 26px;
+  }
+  .ux .badge {
+    aspect-ratio: auto;
+    padding: 18px 10px;
+  }
+  .ux .badge img,
+  .ux .badge--lock svg {
+    width: 52px;
+    height: 52px;
+  }
+  .ux .hero-foot {
+    display: none;
+  }
+  .ux .stats {
+    grid-template-columns: 1fr;
+  }
+  .ux .stat,
+  .ux .stat:first-child,
+  .ux .stat:nth-child(3) {
+    border-left: 0;
+    padding: 32px 0 8px;
+  }
+  .ux .stat:before,
+  .ux .stat:not(:first-child):before {
+    left: 0;
+  }
+  .ux .badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ux *,
+  .ux *:before,
+  .ux *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .ux.js .rv {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── product video ─────────────────────────────────────────────── */
+
+/*
+   The poster is the design's; what follows is the player behind it. See
+   HubVideo.astro and scripts/hub.js for the sequence. The poster stays on
+   top until the video is actually playing, then fades, so there is never a
+   black frame between the click and the first picture.
+*/
+.ux .vid video {
+  z-index: 0;
+  object-fit: contain;
+}
+
+/*
+   Hover mounts the video behind the poster to start fetching it. The poster's
+   own background is transparent in the design, and the video's first frame is
+   mostly white, so without these two it washed the poster out on hover and
+   showed the native controls through it. The video stays invisible until it
+   is playing, and the poster paints its own ink ground.
+*/
+.ux .vid:not(.is-playing) video {
+  visibility: hidden;
+}
+
+/*
+   (0,3,0): the button reset below clears the background and resets the colour
+   on :hover at (0,2,0), which turned the poster white-on-white and the white
+   half of the product name ink-on-ink while the pointer was over it.
+*/
+.ux .vid .poster {
+  z-index: 1;
+  background-color: var(--ink);
+  color: #fff;
+  transition: opacity 0.45s ease, visibility 0s linear 0.45s;
+}
+
+.ux .vid.is-playing .poster {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* The pulse is a call to press; once pressed it becomes a spinner. */
+.ux .vid.is-loading .play {
+  animation: none;
+}
+
+.ux .vid.is-loading .play svg {
+  opacity: 0;
+}
+
+.ux .vid.is-loading .play:after {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 3px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ux-vid-spin 0.8s linear infinite;
+}
+
+@keyframes ux-vid-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* The track on the poster's bar carried chapter ticks; there are none now. */
+.ux .pst-track:after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background: var(--acc);
+  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ux .poster:hover .pst-track:after,
+.ux .poster:focus-visible .pst-track:after {
+  width: 12%;
+}
+
+/*
+   After the last frame: replay, or go and book the demo. The scrim stops
+   short of the native control bar and fades out above it, so the visitor can
+   still see and scrub the timeline; it lets clicks through anyway, and only
+   the two buttons take one.
+*/
+.ux .vid-end {
+  position: absolute;
+  inset: 0 0 64px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 24px;
+  /* Dark enough to quiet the video's own closing frame, which has a call to
+     action of its own that would otherwise read through these two. */
+  background: rgba(15, 20, 32, 0.8);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  -webkit-mask-image: linear-gradient(#000 calc(100% - 40px), transparent);
+  mask-image: linear-gradient(#000 calc(100% - 40px), transparent);
+  pointer-events: none;
+  animation: ux-up 0.35s both;
+}
+
+.ux .vid-end[hidden] {
+  display: none;
+}
+
+.ux .vid-end > * {
+  pointer-events: auto;
+}
+
+.ux .vid-end .btn--line {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.ux .vid-end .btn--line:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
+
+.ux .vid-err {
+  position: absolute;
+  inset: auto 24px 24px;
+  z-index: 3;
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ux .vid-err[hidden] {
+  display: none;
+}
+
+.ux .vid-err a {
+  color: var(--acctext);
+  text-decoration: underline;
+}
+
+/* Without JavaScript the poster cannot start anything: show the plain player. */
+.ux:not(.js) .poster {
+  display: none;
+}
+
+/*
+   On a phone the poster is drawn portrait, 4:5, for its copy to fit. The video
+   is landscape, so the box turns 16:9 once it plays rather than letterboxing
+   it into two black bands. The change follows the visitor's tap, which is why
+   it does not count as a layout shift.
+*/
+@media (max-width: 640px) {
+  .ux .vid.is-playing {
+    aspect-ratio: 16 / 9;
+  }
+
+  .ux .vid-end .btn {
+    padding: 12px 16px;
+  }
+}
+
+/*
+   The wordmark in the 12px uppercase label above each video heading. fonts.css
+   sets it to .66em, the cap height of a heading face, which at this size is an
+   8px logo nobody can read; here it is drawn at the label's full line, sitting
+   on the same baseline as the letters after it. (0,3,1), over fonts.css's
+   `:root img.wp-wordmark` at (0,2,1).
+*/
+.ux .eyebrow img.wp-wordmark {
+  height: 1.25em;
+  vertical-align: -0.24em;
+  margin-right: 0.15em;
+}
+
+/* ── inside the site layout ────────────────────────────────────── */
+
+/*
+   The bundle sets the family `!important` on every `p`, `a` and heading,
+   which would beat the family they inherit. Restating `inherit` at the same
+   importance hands it back; every rule above that names a family is more
+   specific, so it still wins.
+*/
+.ux :where(p, a, h1, h2, h3, h4, h5, h6) {
+  font-family: inherit !important;
+}
+
+/*
+   Element rules from the bundle that the design, drawn as a standalone page,
+   never had to answer. Each goes back to what the browser would have done
+   there. They are bare element selectors, so `.ux` beats them in either load
+   order, and every component rule above is more specific again.
+*/
+.ux :where(h1, h2, h3, h4, h5, h6) {
+  color: inherit;
+  clear: none;
+  font-size: revert;
+  line-height: inherit;
+}
+
+.ux :where(p) {
+  margin: revert;
+}
+
+.ux :where(ul, ol) {
+  margin: revert;
+  padding: revert;
+}
+
+.ux :where(a) {
+  transition: none;
+}
+
+.ux :where(img) {
+  vertical-align: revert;
+}
+
+.ux :where(table) {
+  width: revert;
+  margin: revert;
+  border: revert;
+  border-collapse: revert;
+  border-spacing: revert;
+}
+
+/*
+   Buttons start blank. The bundle gives every `button` Astra's blue fill,
+   white capitalised text and padding, and a second blue plus a colour change
+   on :hover and :focus at (0,1,1). These two rules answer both — the second
+   at (0,2,0) — and every button in the design restates what it wants at
+   (0,2,1) or more.
+*/
+.ux :where(button) {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: inherit;
+}
+
+.ux :where(button):is(:hover, :focus, :active) {
+  background-color: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+/*
+   The bundle turns a focused email field's border thin, dotted and the text
+   colour, at (0,2,1). The design only recolours it.
+*/
+.ux .cta-form input:focus {
+  border-style: solid;
+  border-width: 1px;
+}
+
+/*
+   The site header is fixed and 80px tall, so an in-page link (#demo) would
+   land its target underneath it.
+*/
+.ux [id] {
+  scroll-margin-top: 90px;
+}
+
+/*
+   The demo form in the states hubspot-forms.js puts it in. The field error is
+   inserted after the input, and the confirmation replaces the form; wp-polish
+   draws that as a black pill for the email bar, which is not what replaces a
+   form with its own button.
+*/
+.ux .cta-form .hs-field-error {
+  margin: -2px 0 0;
+  font-size: 13px;
+  color: #c02b0a;
+}
+
+.ux .cta-form .hs-form-error {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #c02b0a;
+}
+
+.wp-mirror .ux .hs-confirmation:not(:has(a.download_pdf, .form_title)) {
+  display: block;
+  max-width: none;
+  min-height: 0;
+  margin-top: 6px;
+  padding: 24px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+}

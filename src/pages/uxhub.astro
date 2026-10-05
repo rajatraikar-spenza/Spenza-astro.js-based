@@ -1,8 +1,54 @@
 ---
+/**
+ * /uxhub/ — UX Hub.
+ *
+ * Built in Astro from the "uxhub-redesign.html" design, the same way as the
+ * home page: sections are components, the three hub pages share
+ * `components/hub/` and `styles/hub.css`, and `scripts/hub.js` makes them
+ * interactive. It renders through `WpLayout`, so the header, footer,
+ * Analytics, Yoast's captured title and description, and the lead-capture
+ * runtime are the site's own.
+ *
+ * There is no partial for `WpLayout` to read, so it is told directly that
+ * nothing here opens the demo popup — every "book a demo" goes to the form at
+ * the foot of the page — and that there is no carousel.
+ *
+ * WordPress CSS: the home page's shared bundle plus the hubs' own inline tier,
+ * set in `wp-css-bundles.json` and pinned in scripts/wp-optimize-css.mjs. The
+ * bundles the old Elementor body needed were 300KB+ of rules for markup that
+ * is gone, and their generic class rules could land on this design's.
+ */
 import WpLayout from '../layouts/WpLayout.astro';
-import content from '../partials/uxhub.html?raw';
+import Hero from '../components/hub/uxhub/Hero.astro';
+import HubVideo from '../components/hub/HubVideo.astro';
+import Features from '../components/hub/uxhub/Features.astro';
+import Shopify from '../components/hub/uxhub/Shopify.astro';
+import HubNumbers from '../components/hub/HubNumbers.astro';
+import HubFaq from '../components/hub/HubFaq.astro';
+import HubTrust from '../components/hub/HubTrust.astro';
+import HubDemoCta from '../components/hub/HubDemoCta.astro';
+import { faqSchema } from '../data/hubs';
+import '../styles/hub.css';
+import '../styles/hub-uxhub.css';
 ---
 
-<WpLayout slug="uxhub">
-  <Fragment set:html={content} />
+<WpLayout slug="uxhub" demoPopup={false} swiper={false}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema('uxhub'))} />
+  </Fragment>
+
+  <div class="ux" id="uxhub">
+    <Hero />
+    <HubVideo hub="uxhub" />
+    <Features />
+    <Shopify />
+    <HubNumbers />
+    <HubFaq hub="uxhub" />
+    <HubTrust />
+    <HubDemoCta hub="uxhub" />
+  </div>
 </WpLayout>
+
+<script>
+  import '../scripts/hub.js';
+</script>

@@ -1,0 +1,100 @@
+---
+/** Control Hub: Everything You Need to Run Your Own Plans */
+---
+
+<section class="sec" style="padding-bottom:72px">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:24px">
+      <h2 class="h2">Everything You Need to <em class="s">Run Your Own Plans</em></h2>
+    </div>
+
+    <!-- 01 -->
+    <div class="feat rv" style="border-top:0">
+      <div class="feat-copy">
+        <span class="feat-num">01</span>
+        <span class="feat-tag">Build</span>
+        <h3>Custom Plans for Every Device</h3>
+        <p>Design prepaid, postpaid, or pay-as-you-go plans with limits on top of wholesale operator plans. Set data, voice, and SMS allowances for wearables, smartphones, telematics units, cameras, and any other device, then price them your way without writing code.</p>
+      </div>
+      <div class="panel mk" id="builder">
+        <div class="panel-h"><span>controlhub / plan builder</span><span class="st st--ok">no code</span></div>
+        <div class="dev" role="group" aria-label="Preview a plan by device type">
+          <button type="button" aria-pressed="true" data-d="wearable">Wearable</button>
+          <button type="button" aria-pressed="false" data-d="smartphone">Smartphone</button>
+          <button type="button" aria-pressed="false" data-d="telematics">Telematics</button>
+          <button type="button" aria-pressed="false" data-d="camera">Camera</button>
+        </div>
+        <div class="box" aria-live="polite">
+          <div class="box-h"><b id="pbName">Kids Watch 1 GB</b><span class="seg" id="pbBill"><span class="on">Prepaid</span><span>Postpaid</span><span>Pay as you go</span></span></div>
+          <div class="kv" style="font-size:11.5px"><div>Built on<b id="pbBase">Operator B &middot; LTE-M wholesale</b></div><div>Markets<b id="pbMk">US, GB</b></div></div>
+          <div class="alw"><div><small>Data</small><b id="pbData">1 GB</b></div><div><small>Voice</small><b id="pbVoice">100 min</b></div><div><small>SMS</small><b id="pbSms">100</b></div></div>
+          <div class="plan"><div><small>Cost</small><b id="pbCost">$3.10</b></div><div><small>Markup</small><b id="pbMu">$4.90</b></div><div class="sell"><small>Sell</small><b id="pbSell">$8.00</b></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="feat feat--flip rv">
+      <div class="feat-copy">
+        <span class="feat-num">02</span>
+        <span class="feat-tag">Bill and Resell</span>
+        <h3>Parent-Child Billing for Every Reseller</h3>
+        <p>Resell your plans through distributors, sub-distributors, and enterprise or retail customers. Every level gets its own plans, prices, and prepaid or postpaid terms, while Spenza rates usage, bills each level, and tracks markups and payouts from one place.</p>
+      </div>
+      <div class="panel mk" aria-hidden="true">
+        <div class="panel-h"><span>controlhub / billing hierarchy</span><span class="live">rating</span></div>
+        <div class="tree">
+          <div class="tn l1"><span><small>MSP &middot; you</small><b>Your company</b></span><span class="st st--acc">wholesale</span><span class="mu">base</span></div>
+          <div class="tn l2"><span><small>Distributor</small><b>Northwind Mobile</b></span><span class="st st--ok">postpaid</span><span class="mu">+18%</span></div>
+          <div class="tn l3"><span><small>Sub-distributor</small><b>Cedar Connect</b></span><span class="st st--acc">prepaid</span><span class="mu">+12%</span></div>
+          <div class="tn l4"><span><small>Enterprise</small><b>Fleet customer</b></span><span class="st st--ok">postpaid</span><span class="mu">+10%</span></div>
+          <div class="tn l4"><span><small>Retail</small><b>Direct subscribers</b></span><span class="st st--acc">prepaid</span><span class="mu">+22%</span></div>
+        </div>
+        <div class="health">
+          <div><small>Levels billed</small><b>4</b><span class="st st--ok">in sync</span></div>
+          <div><small>Invoices</small><b>2,140</b><span class="st st--off">this cycle</span></div>
+          <div><small>Payouts</small><b>$18.4k</b><span class="st st--acc">approved</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="feat rv">
+      <div class="feat-copy">
+        <span class="feat-num">03</span>
+        <span class="feat-tag">Optimize</span>
+        <h3>Real-Time Plan Optimization</h3>
+        <p>Map every customer plan to the operator plan that fits it best and choose which pool each plan activates in. When a device uses up its allowance, ControlHub can step it up automatically, for example from a 1 GB plan to a 2 GB plan, instead of letting it run into overage.</p>
+      </div>
+      <div class="panel mk" aria-hidden="true">
+        <div class="panel-h"><span>controlhub / plan mapping</span><span class="live">live</span></div>
+        <div class="stack">
+          <div class="box route">
+            <div class="box-h"><small>Your plans</small><small>Operator pools</small></div>
+            <svg viewBox="0 0 440 150">
+              <g class="n"><rect x="1" y="6" width="118" height="30" rx="7"/><text x="13" y="25">Watch 1 GB</text></g>
+              <g class="n"><rect x="1" y="60" width="118" height="30" rx="7"/><text x="13" y="79">Tracker 50 MB</text></g>
+              <g class="n"><rect x="1" y="114" width="118" height="30" rx="7"/><text x="13" y="133">Camera 10 GB</text></g>
+              <path class="f" d="M119 21 C 156 21, 156 75, 182 75"/><path class="f" d="M119 75 L 182 75"/><path class="f" d="M119 129 C 156 129, 156 75, 182 75"/>
+              <circle cx="220" cy="75" r="38" fill="#fff2ed" stroke="#f3d9cc"/><circle cx="220" cy="75" r="30" fill="#fff" stroke="#ff4904"/>
+              <path d="M220 54 l2.6 7.8 7.8 2.6 -7.8 2.6 -2.6 7.8 -2.6 -7.8 -7.8 -2.6 7.8 -2.6z" fill="#ff4904"/>
+              <text class="lb2" x="220" y="90" text-anchor="middle">BEST FIT</text>
+              <path class="f" d="M258 75 C 284 75, 284 21, 321 21"/><path class="f" d="M258 75 L 321 75"/><path class="f" d="M258 75 C 284 75, 284 129, 321 129"/>
+              <g class="n"><rect x="321" y="6" width="118" height="30" rx="7" style="stroke:#ff4904"/><text x="333" y="25">Operator B pool</text></g>
+              <g class="n"><rect x="321" y="60" width="118" height="30" rx="7" style="stroke:#ff4904"/><text x="333" y="79">Operator C pool</text></g>
+              <g class="n"><rect x="321" y="114" width="118" height="30" rx="7"/><text x="333" y="133">Operator A pool</text></g>
+            </svg>
+          </div>
+          <div class="box">
+            <div class="box-h"><small>Step-up rule &middot; line 8841</small><span class="st st--ok">auto</span></div>
+            <div class="life">
+              <div class="ls"><i>&#10003;</i><span>Usage reached 1 GB of 1 GB</span><em>14:02:11</em></div>
+              <div class="ls"><i>&#10003;</i><span>Moved to Watch 2 GB on Operator B pool</span><em>14:02:12</em></div>
+              <div class="ls run"><i>&#8635;</i><span>Rebalancing pool across 1,204 lines</span><em>running</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

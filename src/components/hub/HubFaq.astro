@@ -1,0 +1,32 @@
+---
+/**
+ * The FAQ. Rendered from `HUBS[hub].faq`, which the page also turns into its
+ * FAQPage schema, so what is shown and what is declared are one list.
+ *
+ * The first answer starts open, as in the design.
+ */
+import { HUBS, type HubKey } from '../../data/hubs';
+
+interface Props {
+  hub: HubKey;
+}
+
+const { faq } = HUBS[Astro.props.hub];
+---
+
+<section class="sec">
+  <div class="wrap faq rv">
+    <div>
+      <h2 class="h2">Frequently Asked <em class="s">Questions</em></h2>
+      <p class="faq-more">{faq.intro}</p>
+    </div>
+    <div class="faq-list">
+      {faq.items.map(([question, answer], i) => (
+        <details open={i === 0}>
+          <summary>{question}<i aria-hidden="true">+</i></summary>
+          <p>{answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

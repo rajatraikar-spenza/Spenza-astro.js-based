@@ -285,8 +285,14 @@ function hoistImports(css, into) {
  * half its Gravity Forms rules, the home page two `.eSim` rules. Their
  * committed entries are carried over as they are; see the comment in
  * `ai-phone-number.astro` before changing that.
+ *
+ * The three hub pages are built from components and have no partial, so a run
+ * skips them; their entry — the home page's shared bundle plus the hubs'
+ * inline tier, the pair that carries the chrome without class rules that
+ * collide with the hub design — is carried over the same way. See
+ * `pages/uxhub.astro`.
  */
-const PINNED = new Set(['index', 'ai-phone-number']);
+const PINNED = new Set(['index', 'ai-phone-number', 'uxhub', 'telecomhub', 'controlhub']);
 
 /**
  * Pages with no mirrored markup that reuse another page's bundles, since the

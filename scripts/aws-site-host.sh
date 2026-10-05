@@ -415,13 +415,14 @@ step_deploy() {
   say "Immutable assets (content-addressed)"
   aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --size-only --only-show-errors \
     --exclude "*" --include "wp-assets/_opt/*" --include "_astro/*" \
-    --include "wp-assets/_fonts/*" \
+    --include "wp-assets/_fonts/*" --include "videos/*" \
     --cache-control "public, max-age=31536000, immutable"
 
   say "Other static assets"
   aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --size-only --only-show-errors \
     --exclude "*.html" --exclude "wp-assets/_opt/*" --exclude "_astro/*" \
-    --exclude "wp-assets/_fonts/*" --exclude "_redirects" --exclude "_headers" \
+    --exclude "wp-assets/_fonts/*" --exclude "videos/*" \
+    --exclude "_redirects" --exclude "_headers" \
     --cache-control "public, max-age=2592000"
 
   # Last, and with --delete, so a page that no longer exists stops being served.
