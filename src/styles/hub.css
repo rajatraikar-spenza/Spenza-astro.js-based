@@ -968,26 +968,34 @@
     transform: none;
   }
 }
+/*
+   Phones: the design drew the poster 4:5, which at 390px wide is a 450px
+   block before the video has even started. 4:3 keeps room for the copy with
+   the spacing tightened, and the box still turns 16:9 once it plays.
+*/
 @media (max-width: 640px) {
   .ux .vid {
     border-radius: 12px;
-    aspect-ratio: 4/5;
+    aspect-ratio: 4/3;
   }
   .ux .pst-copy {
     left: 7%;
     max-width: 86%;
-    bottom: 20%;
+    bottom: 52px;
+  }
+  .ux .pst-copy b {
+    margin: 10px 0 6px;
+  }
+  .ux .pst-cta {
+    margin-top: 16px;
   }
   .ux .play {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
   }
   .ux .play svg {
-    width: 22px;
-    height: 22px;
-  }
-  .ux .pst-copy {
-    bottom: 16%;
+    width: 20px;
+    height: 20px;
   }
   .ux .pst-bar {
     padding: 12px 16px;
@@ -1061,18 +1069,43 @@
   .ux .hero-foot {
     display: none;
   }
+  /* Two numbers per row on phones too, rather than four stacked blocks. */
   .ux .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .ux .stat,
-  .ux .stat:first-child,
-  .ux .stat:nth-child(3) {
+  .ux .stat {
+    display: flex;
+    flex-direction: column;
+    padding: 28px 14px 8px;
+  }
+  .ux .stat:nth-child(odd) {
     border-left: 0;
-    padding: 32px 0 8px;
+    padding-left: 0;
+  }
+  .ux .stat:nth-child(even) {
+    border-left: 1px solid #e6e1d8;
+    padding-right: 0;
   }
   .ux .stat:before,
   .ux .stat:not(:first-child):before {
     left: 0;
+  }
+  .ux .stat:nth-child(even):before {
+    left: 14px;
+  }
+  .ux .stat strong {
+    font-size: 30px;
+  }
+  .ux .stat p {
+    margin-top: 10px;
+    font-size: 13.5px;
+  }
+  /* Pinned to the foot, so a two-line label does not lower one sparkline
+     below its neighbour's. */
+  .ux .spark {
+    margin-top: auto;
+    padding-top: 16px;
+    height: 52px;
   }
   .ux .badges {
     grid-template-columns: repeat(2, 1fr);
