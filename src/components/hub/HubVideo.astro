@@ -52,6 +52,33 @@ const direct = media.sources.at(-1)!.src;
 const { inputs, chip, outputs } = video.diagram;
 const inputY = [30, 90, 150, 210];
 const outputY = [53, 121, 189];
+
+/*
+ * The output boxes fit their labels. A label wraps by word into lines of
+ * about ten characters (11px mono is ~6.6 units a character), and its box
+ * grows to fit: wider for the longest line, taller by a line height for
+ * each extra line, still centred on its connector and anchored to the right
+ * edge. A one-word label gives the original 80 × 34 box at x 340, so posters
+ * with short labels are unchanged.
+ */
+const CHAR = 6.6, PAD = 14, LINE = 14, WRAP = 10, EDGE = 420;
+const sized = outputs.map((name, i) => {
+  const lines: string[] = [];
+  for (const word of name.split(' ')) {
+    const last = lines.length - 1;
+    if (last >= 0 && (lines[last] + ' ' + word).length <= WRAP) lines[last] += ' ' + word;
+    else lines.push(word);
+  }
+  // Grow only when the text would not fit the original box (with at least
+  // a few units to spare on the right): "Resellers" still fits its 80.
+  const text = Math.max(...lines.map(l => l.length)) * CHAR;
+  const width = text + PAD + 6 <= 80 ? 80 : Math.ceil(text + PAD * 2);
+  return { lines, width, height: 34 + (lines.length - 1) * LINE, centre: outputY[i] + 17 };
+});
+// One width for the column: if any label needs a wider box, all three take
+// it, so the column reads as a set and no label runs close to its edge.
+const outWidth = Math.max(...sized.map(b => b.width));
+const outBoxes = sized.map(b => ({ ...b, width: outWidth, x: EDGE - outWidth, y: b.centre - b.height / 2 }));
 ---
 
 <section class="sec sec--white" id="video">
@@ -91,9 +118,11 @@ const outputY = [53, 121, 189];
             <rect x="190" y="96" width="100" height="84" rx="14" fill="#ff49041f" stroke="#ff4904" />
             <text x="240" y="130" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#ffb08f">{chip[0]}</text>
             <text x="240" y="152" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#ffffffb3">{chip[1]}</text>
-            <path class="fl" d="M290 138 C 320 138, 320 70, 340 70" /><path class="fl" d="M290 138 L 340 138" /><path class="fl" d="M290 138 C 320 138, 320 206, 340 206" />
-            {outputs.map((name, i) => (
-              <g class="nd"><rect x="340" y={outputY[i]} width="80" height="34" rx="8" /><text x="354" y={outputY[i] + 22}>{name}</text></g>
+            {outBoxes.map(b => (
+              <path class="fl" d={b.centre === 138 ? `M290 138 L ${b.x} 138` : `M290 138 C ${b.x - 20} 138, ${b.x - 20} ${b.centre}, ${b.x} ${b.centre}`} />
+            ))}
+            {outBoxes.map(b => (
+              <g class="nd"><rect x={b.x} y={b.y} width={b.width} height={b.height} rx="8" />{b.lines.map((line, k) => <text x={b.x + PAD} y={b.y + 22 + k * LINE}>{line}</text>)}</g>
             ))}
           </svg>
           <div class="pst-bar" aria-hidden="true">

@@ -41,7 +41,7 @@ export const HUBS: Record<HubKey, Hub> = {
       diagram: {
         inputs: ['Your brand', 'Plans', 'Operators', 'Support'],
         chip: ['UXHUB', 'your portal'],
-        outputs: ['Portal', 'Upsells', 'Retention'],
+        outputs: ['Custom workflows', 'Integrated buying experience', 'Branded Apps'],
       },
     },
     faq: {
