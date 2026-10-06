@@ -299,7 +299,10 @@ const PINNED = new Set(['index', 'ai-phone-number', 'uxhub', 'telecomhub', 'cont
  * bundles only have to cover the chrome, which is identical. Without this a
  * run drops the key and the page ships with no WordPress CSS at all.
  */
-const ALIASES = { 'local-numbers': 'voice-observability-solution' };
+const ALIASES = {
+  'local-numbers': 'voice-observability-solution',
+  'mvno-launch-academy': 'voice-observability-solution',
+};
 
 const SAFELIST = {
   standard: [
