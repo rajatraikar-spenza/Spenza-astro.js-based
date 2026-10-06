@@ -9,8 +9,8 @@
  * and no motion: the page is the type, the cards and the call to action.
  *
  * The cards are built from the content collection, so a new MVNO post appears
- * here on the next publish without anyone touching this file. Newest first,
- * which also makes the full-width card the latest guide.
+ * here on the next publish without anyone touching this file — third, after
+ * the two pinned guides (see PINNED).
  *
  * Renders through `WpLayout` for the site's nav, footer, demo popup and
  * analytics. Like /local-numbers/, every slug-keyed data file points at the
@@ -29,8 +29,18 @@ import { featuredImage } from '../lib/loop-item.ts';
 import { decodeEntities } from '../lib/post-card.ts';
 import '../styles/mvno-launch-academy.css';
 
-const posts = (await getCollection('posts', p => p.data.category === 'mvno'))
+/**
+ * The first two cards are chosen, not dated: the plans-and-carriers guide, then
+ * "What Is an MVNO?" (/mvno/mvno/). Everything else follows newest first, so a
+ * new MVNO post lands third and the two pinned guides never move. A pinned slug
+ * that disappears from WordPress is simply skipped.
+ */
+const PINNED = ['best-mvno', 'mvno'];
+
+const all = (await getCollection('posts', p => p.data.category === 'mvno'))
   .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+const pinned = PINNED.flatMap(slug => all.filter(p => p.data.slug === slug));
+const posts = [...pinned, ...all.filter(p => !PINNED.includes(p.data.slug))];
 
 /**
  * The tier each card sits in, by position: 1 card, then 2, then 3, then 4s.
@@ -76,7 +86,6 @@ const itemList = {
   '@id': `${pageUrl}#guides`,
   name: 'MVNO Launch Academy guides',
   numberOfItems: cards.length,
-  itemListOrder: 'https://schema.org/ItemListOrderDescending',
   itemListElement: cards.map((c, i) => ({
     '@type': 'ListItem',
     position: i + 1,
@@ -95,9 +104,8 @@ const itemList = {
     <header class="mla-hero mla-wrap">
       <h1 class="mla-title">MVNO Launch <em>Academy</em></h1>
       <p class="mla-lede">
-        Practical guides to starting, launching and scaling a mobile virtual network operator:
-        choosing a host network and MVNE, budgeting launch costs, eSIM and billing, regulation,
-        and growing a subscriber base that stays.
+        Practical guides to launching and scaling a mobile virtual network operator, from choosing
+        a host network and MVNE to launch costs, eSIM, billing and subscriber growth.
       </p>
     </header>
 
@@ -122,9 +130,8 @@ const itemList = {
         <div>
           <h2 class="mla-cta-title" id="mla-cta-title">Ready to launch your <em>MVNO?</em></h2>
           <p class="mla-cta-text">
-            Tell us about your brand, your market and your launch date. We will map your MVNO
-            from host network and number porting to branded app and billing, and show you how
-            to go live in weeks rather than years.
+            Tell us about your brand and your market, and we will show you how to launch
+            your MVNO in weeks, not years.
           </p>
         </div>
         <div class="mla-cta-actions">
