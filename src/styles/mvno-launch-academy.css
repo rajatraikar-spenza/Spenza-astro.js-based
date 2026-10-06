@@ -203,35 +203,35 @@
 }
 
 /*
-   Every card after the first carries a light orange glow behind its words:
-   the warm counterpart of the frosted panel under each gigs.com/blog title.
-   Two soft radial pools rising from the bottom corners over a faint warm
-   wash, a hairline where the picture ends, and a warm halo around the card.
-   All gradients and shadows — no image, no blur filter, nothing to download,
-   and nothing that moves.
+   Every card after the first has gigs.com/blog's frosted panel under the
+   picture: the words sit on 60% white with a 30px backdrop blur, pulled up
+   24px over the bottom of the image, so the picture's own colours soften
+   into the glass instead of stopping at a hard edge. Ours adds a very faint
+   orange glow that enters from the top of the panel and is gone by the
+   middle. No line marks the top edge: the blur is the edge, as on Gigs.
+
+   Static: gradients, one blur and a shadow; nothing downloads and nothing
+   moves. Browsers without backdrop-filter get the same panel without the
+   blur, which reads as plain frosted white.
 */
 .mla .mla-card:not(.mla-card--xl) .mla-link {
-  border-color: rgba(255, 73, 4, .14);
-  box-shadow:
-    0 1px 2px rgba(15, 20, 32, .04),
-    0 18px 40px -22px rgba(var(--accrgb), .35);
+  box-shadow: 0 10px 30px -18px rgba(var(--accrgb), .22);
 }
 
 .mla .mla-card:not(.mla-card--xl) .mla-link:hover {
-  border-color: rgba(255, 73, 4, .32);
-  box-shadow:
-    0 1px 2px rgba(15, 20, 32, .04),
-    0 22px 48px -20px rgba(var(--accrgb), .45);
+  box-shadow: 0 14px 36px -18px rgba(var(--accrgb), .3);
 }
 
 .mla .mla-card:not(.mla-card--xl) .mla-body {
+  position: relative;
+  z-index: 1;
   flex: 1;
-  border-top: 1px solid rgba(255, 73, 4, .12);
+  margin-top: -24px;
   background:
-    radial-gradient(110% 130% at 0% 105%, rgba(255, 110, 40, .20) 0%, rgba(255, 110, 40, 0) 62%),
-    radial-gradient(90% 120% at 100% 110%, rgba(255, 168, 100, .22) 0%, rgba(255, 168, 100, 0) 66%),
-    linear-gradient(180deg, #fffdfb 0%, #fff4ec 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+    linear-gradient(180deg, rgba(255, 120, 50, .10) 0%, rgba(255, 120, 50, .03) 45%, rgba(255, 120, 50, 0) 75%),
+    rgba(255, 255, 255, .6);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
 }
 
 /* The first card lies on its side: picture left, words right. */
