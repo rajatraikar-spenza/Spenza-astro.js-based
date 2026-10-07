@@ -1,0 +1,145 @@
+---
+/**
+ * /mvno-launch-academy/ — every MVNO guide on the blog, as one reading room.
+ *
+ * The layout follows gigs.com/blog: a heading and a line of copy, then the
+ * posts as cards that start wide and get narrower as you scroll — one across,
+ * then two, then three, then rows of four to the end. No category labels (every
+ * card here is the same category, so a label would say nothing), no filters
+ * and no motion: the page is the type, the cards and the call to action.
+ *
+ * The cards are built from the content collection, so a new MVNO post appears
+ * here on the next publish without anyone touching this file — third, after
+ * the two pinned guides (see PINNED).
+ *
+ * Renders through `WpLayout` for the site's nav, footer, demo popup and
+ * analytics. Like /local-numbers/, every slug-keyed data file points at the
+ * Voice Observability page's entries — the purged CSS bundles cover only the
+ * chrome, which is identical, and that page's script is what opens the popup
+ * from `.get-started`. Do not run `wp:optimize-css` for this page; it is in
+ * that script's ALIASES instead.
+ *
+ * Title, description, canonical, Open Graph and the static part of the schema
+ * graph are in `data/wp-seo.json`. The ItemList of guides is built here, from
+ * the same posts the grid shows, and the CollectionPage there names it by id.
+ */
+import { getCollection } from 'astro:content';
+import WpLayout from '../layouts/WpLayout.astro';
+import { featuredImage } from '../lib/loop-item.ts';
+import { decodeEntities } from '../lib/post-card.ts';
+import '../styles/mvno-launch-academy.css';
+
+/**
+ * The first two cards are chosen, not dated: the plans-and-carriers guide, then
+ * "What Is an MVNO?" (/mvno/mvno/). Everything else follows newest first, so a
+ * new MVNO post lands third and the two pinned guides never move. A pinned slug
+ * that disappears from WordPress is simply skipped.
+ */
+const PINNED = ['best-mvno', 'mvno'];
+
+const all = (await getCollection('posts', p => p.data.category === 'mvno'))
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+const pinned = PINNED.flatMap(slug => all.filter(p => p.data.slug === slug));
+const posts = [...pinned, ...all.filter(p => !PINNED.includes(p.data.slug))];
+
+/**
+ * The tier each card sits in, by position: 1 card, then 2, then 3, then 4s.
+ * Each tier tells the browser how wide the image will draw, so a 300px card
+ * does not fetch the 1280w original.
+ */
+const TIERS = [
+  { size: 'xl', sizes: '(max-width: 767px) 92vw, (max-width: 1024px) 94vw, 700px' },
+  { size: 'lg', sizes: '(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 600px' },
+  { size: 'md', sizes: '(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 400px' },
+  { size: 'sm', sizes: '(max-width: 767px) 92vw, (max-width: 1024px) 46vw, 300px' },
+] as const;
+const tierOf = (i: number) => TIERS[i === 0 ? 0 : i < 3 ? 1 : i < 6 ? 2 : 3];
+
+/** Excerpts arrive as HTML; the wide cards print a sentence or two of them. */
+function summary(html: string, max = 190): string {
+  const text = decodeEntities(html.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+  if (text.length <= max) return text;
+  return text.slice(0, text.lastIndexOf(' ', max)).replace(/[,;:.\s]+$/, '') + '…';
+}
+
+const cards = posts.map((post, i) => {
+  const d = post.data;
+  const tier = tierOf(i);
+  // Only the first card is above the fold; everything else waits until it is
+  // scrolled near, which is most of 74 images on a phone.
+  let image = featuredImage(d, { priority: i === 0, sizes: tier.sizes });
+  if (i > 0) image = image.replace('<img ', '<img loading="lazy" decoding="async" ');
+  return {
+    href: `/${d.category}/${d.slug}/`,
+    title: decodeEntities(d.title),
+    excerpt: tier.size === 'xl' || tier.size === 'lg' ? summary(d.excerpt) : '',
+    size: tier.size,
+    image,
+  };
+});
+
+const site = Astro.site ?? Astro.url.origin;
+const pageUrl = new URL('/mvno-launch-academy/', site).href;
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${pageUrl}#guides`,
+  name: 'MVNO Launch Academy guides',
+  numberOfItems: cards.length,
+  itemListElement: cards.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: new URL(c.href, site).href,
+    name: c.title,
+  })),
+};
+---
+
+<WpLayout slug="mvno-launch-academy" demoPopup swiper={false}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(itemList)} />
+  </Fragment>
+
+  <div class="mla">
+    <header class="mla-hero mla-wrap">
+      <h1 class="mla-title">MVNO Launch <em>Academy</em></h1>
+      <p class="mla-lede">
+        Practical guides to launching and scaling a mobile virtual network operator, from choosing
+        a host network and MVNE to launch costs, eSIM, billing and subscriber growth.
+      </p>
+    </header>
+
+    <section class="mla-wrap" aria-label="MVNO guides">
+      <ul class="mla-grid" role="list">
+        {cards.map(c => (
+          <li class={`mla-card mla-card--${c.size}`}>
+            <a class="mla-link" href={c.href}>
+              <span class="mla-media" set:html={c.image} />
+              <span class="mla-body">
+                <span class="mla-card-title">{c.title}<span class="mla-arrow" aria-hidden="true">&nbsp;→</span></span>
+                {c.excerpt && <span class="mla-excerpt">{c.excerpt}</span>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mla-wrap mla-cta-sec" aria-labelledby="mla-cta-title">
+      <div class="mla-cta">
+        <div>
+          <h2 class="mla-cta-title" id="mla-cta-title">Ready to launch your <em>MVNO?</em></h2>
+          <p class="mla-cta-text">
+            Tell us about your brand and your market, and we will show you how to launch
+            your MVNO in weeks, not years.
+          </p>
+        </div>
+        <div class="mla-cta-actions">
+          <a class="mla-btn mla-btn--acc" href="/contact-us/">Talk to our MVNO team</a>
+          <a class="mla-btn mla-btn--line get-started" href="/contact-us/">Book a demo</a>
+          <a class="mla-cta-link" href="/mvno-calculator/">Estimate your launch costs with the MVNO calculator&nbsp;→</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</WpLayout>
