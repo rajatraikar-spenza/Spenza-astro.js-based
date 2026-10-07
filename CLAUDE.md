@@ -378,10 +378,21 @@ two files it writes into `dist/`.
 
 ## Publishing
 
-`.github/workflows/publish.yml` rebuilds from WordPress and deploys, every 30
-minutes and on demand. A poll rather than a webhook because it needs nothing
-installed on preprod; swapping `schedule` for `repository_dispatch` later
-changes no other step.
+`.github/workflows/publish.yml` rebuilds from WordPress and deploys. Three
+things start it:
+
+- **A post changing in WordPress.** `wordpress/mu-plugins/spenza-deploy-hook.php`
+  sends a `repository_dispatch` on publish, edit, unpublish, trash and delete.
+  It drops a repeat within 90 seconds, so the run waits 95 seconds before
+  reading WordPress — a publish-then-fix-a-typo builds the fixed version.
+- **A merge to main** (`push`), except docs and `wordpress/**`. Before this
+  every merge needed a manual run.
+- **The schedule**, at :13 and :43, as a backstop only. GitHub runs scheduled
+  jobs late or not at all when busy — on `*/30` it fired every 3-5 hours —
+  so nothing should depend on it. It deploys only if WordPress reports a
+  change.
+
+`workflow_dispatch` (with `force`) is still there for a deploy by hand.
 
 - **Only blog posts and case studies come from WordPress.** The marketing pages,
   the header/footer and the archives live in this repo and are changed here. An

@@ -25,10 +25,23 @@ on:
   repository_dispatch:
     types: [wordpress-content]
 
+  # A merge to main deploys itself. Without this every code change sat
+  # unpublished until someone ran the workflow by hand — which is what
+  # happened for every merge before it was added. The bot's own manifest
+  # commit carries `[skip ci]`, so it does not loop. Docs and the WordPress
+  # plugin sources change nothing that is built, so they do not deploy.
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'wordpress/**'
+
   schedule:
-    # Every 30 minutes. Best-effort, and can be several minutes late under
-    # load — which is why the webhook above exists for anything time-sensitive.
-    - cron: '*/30 * * * *'
+    # Twice an hour, as a backstop for the webhook above. Best-effort: GitHub
+    # delays and drops scheduled runs when it is busy, and it is busiest at
+    # the top and bottom of the hour. On `*/30` this ran every 3-5 hours in
+    # practice, so it sits on :13 and :43 instead.
+    - cron: '13,43 * * * *'
   workflow_dispatch:
     inputs:
       force:
@@ -114,8 +127,8 @@ jobs:
       #
       # This asks one question instead: what is the newest `modified` stamp?
       # Only `schedule` is gated on the answer. A manual run is a human asking
-      # for a deploy, usually because the code changed rather than the content,
-      # and a repository_dispatch is WordPress saying something already has.
+      # for a deploy, a push is the code changing rather than the content, and
+      # a repository_dispatch is WordPress saying something already has.
       - name: Has anything changed?
         id: changed
         if: github.event_name == 'schedule'
@@ -127,6 +140,16 @@ jobs:
              0) echo "skip=false" >> "$GITHUB_OUTPUT" ;;
              *) echo "skip=false" >> "$GITHUB_OUTPUT" ;;
           esac
+
+      # The WordPress hook drops a second dispatch within 90 seconds of the
+      # first (see spenza-deploy-hook.php), so a publish followed a minute
+      # later by a typo fix fires one run. Fetching straight away could build
+      # the version before the fix and leave it for the schedule. Waiting out
+      # that window first means this run reads whatever the editor ended on;
+      # anything later dispatches again and queues behind it.
+      - name: Let a burst of edits settle
+        if: github.event_name == 'repository_dispatch'
+        run: sleep 95
 
       # New posts bring new images, which are on WordPress and not in the
       # bucket. Without this the build succeeds and the post renders with a
