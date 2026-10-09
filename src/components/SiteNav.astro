@@ -175,7 +175,7 @@ const codeLine = (h: (typeof HUBS)[number]) => h.flow
 /* ---------- menu ---------- */
 const hubDetail = (h: (typeof HUBS)[number], on: boolean) =>
   `<div class="sn-hub-detail" data-hub="${h.id}"${on ? '' : ' hidden'}><p class="sn-lay">${h.eye || h.layer}</p><h3>${h.name}</h3><p class="sn-bl">${h.blurb}</p>${codeLine(h)}${h.nopage ? '' : `<a class="sn-go" href="${h.href}">Explore ${h.name}</a>`}</div>`;
-const stackList = (desk = true) => `<p class="sn-cap">Your customers</p>
+const stackList = (desk = true) => `<p class="sn-cap">Our Products</p>
   <div class="sn-layers">${[...SHOWN].reverse().map(h => {
     const cls = `sn-layer${desk && h.id === DEFAULT_HUB ? ' is-on' : ''}${h.nopage ? ' sn-no-page' : ''}`;
     const attrs = `data-hub="${h.id}" style="--i:${h.lvl - 1}"`;
@@ -183,8 +183,7 @@ const stackList = (desk = true) => `<p class="sn-cap">Your customers</p>
     return h.nopage
       ? `<div class="${cls}" ${attrs}${desk ? ' tabindex="0"' : ''}>${inner}</div>`
       : `<a class="${cls}" href="${h.href}" ${attrs}>${inner}</a>`;
-  }).join('')}</div>
-  <p class="sn-cap">Operators in 180+ countries</p>`;
+  }).join('')}</div>`;
 
 const panes = `
 <div class="sn-pane" data-pane="platform">
