@@ -5,22 +5,22 @@ import SectionHead from './SectionHead.astro';
 const stages = [
   {
     title: 'Provision',
-    text: 'Order physical SIMs, provision eSIMs, assign plans, and activate service across supported operators and markets.',
+    text: 'Order SIMs, provision eSIMs, assign plans, and activate service across operators.',
     code: 'POST /v1/sims { profile, markets[] }',
   },
   {
     title: 'Connect',
-    text: 'Activate service, manage network selection, and control connectivity across devices, operators, and regions.',
+    text: 'Connect devices, choose networks, and manage service across operators.',
     code: 'PATCH /v1/sims/:id { routing: "auto" }',
   },
   {
     title: 'Control',
-    text: 'Monitor every line, set usage rules and alerts, change plans, suspend service, and automate lifecycle actions.',
+    text: 'Track usage, change plans, set alerts, and manage every SIM and subscription.',
     code: 'webhook sim.usage.threshold',
   },
   {
     title: 'Bill',
-    text: 'Rate usage, generate invoices, manage subscriptions, and handle billing from one system.',
+    text: 'Rate usage, manage subscriptions, and automate customer billing.',
     code: 'GET /v1/invoices?period=2026-08',
   },
 ];
@@ -31,7 +31,7 @@ const stages = [
     <SectionHead
       eyebrow="THE CONNECTIVITY LIFECYCLE"
       space={64}
-      lede="Provision, manage, optimize, and bill connectivity across operators and markets without stitching together separate carrier systems."
+      lede="Provision, manage, optimize, and bill connectivity across operators."
     >One API from activation to billing.</SectionHead>
 
     <div class="hm-life hm-reveal">
