@@ -15,6 +15,8 @@
  * Each tab carries its hub's name and tag only. The hub's description opens
  * the panel beside the picture it describes (`hm-screen-intro` next to
  * `hm-screen-body`), which also holds the mock to the width it was drawn at.
+ * TelecomHub, ControlHub and UXHub end their intro with a link to their own
+ * page. AgentHub has no page yet, so it has none.
  * On phones the row folds to a 2x2 grid and the panel to one column.
  */
 import SectionHead from './SectionHead.astro';
@@ -22,6 +24,7 @@ import SectionHead from './SectionHead.astro';
 const hubs = [
   {
     id: 'telecom',
+    href: '/telecomhub/',
     name: 'TelecomHub',
     tag: 'NETWORK ACCESS',
     tone: 'acc',
@@ -30,6 +33,7 @@ const hubs = [
   },
   {
     id: 'control',
+    href: '/controlhub/',
     name: 'ControlHub',
     tag: 'OPERATIONS & COST',
     tone: 'blue',
@@ -38,6 +42,7 @@ const hubs = [
   },
   {
     id: 'ux',
+    href: '/uxhub/',
     name: 'UXHub',
     tag: 'COMMERCE & BILLING',
     tone: 'ink',
@@ -100,7 +105,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
 
       <div class="hm-panel">
         <div class="hm-screen" id="panel-telecom" role="tabpanel" aria-labelledby="tab-telecom" tabindex="0">
-          <div class="hm-screen-intro"><strong>{hubById.telecom.lead}</strong><p>{hubById.telecom.text}</p></div>
+          <div class="hm-screen-intro"><strong>{hubById.telecom.lead}</strong><p>{hubById.telecom.text}</p><a class="hm-btn hm-btn--line hm-btn--sm hm-explore" href={hubById.telecom.href} aria-label={`Explore ${hubById.telecom.name}`}>Explore More <span aria-hidden="true">&rarr;</span></a></div>
           <div class="hm-screen-body">
             <div class="hm-screen-top">
               <span class="hm-mono">telecomhub / routing table</span>
@@ -120,7 +125,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
         </div>
 
         <div class="hm-screen" id="panel-control" role="tabpanel" aria-labelledby="tab-control" tabindex="0" hidden>
-          <div class="hm-screen-intro"><strong>{hubById.control.lead}</strong><p>{hubById.control.text}</p></div>
+          <div class="hm-screen-intro"><strong>{hubById.control.lead}</strong><p>{hubById.control.text}</p><a class="hm-btn hm-btn--line hm-btn--sm hm-explore" href={hubById.control.href} aria-label={`Explore ${hubById.control.name}`}>Explore More <span aria-hidden="true">&rarr;</span></a></div>
           <div class="hm-screen-body">
             <div class="hm-screen-top">
               <span class="hm-mono">controlhub / fleet spend</span>
@@ -147,7 +152,7 @@ const wave = (n: number) => Array.from({ length: n }, (_, i) => `${(i * 0.07).to
         </div>
 
         <div class="hm-screen" id="panel-ux" role="tabpanel" aria-labelledby="tab-ux" tabindex="0" hidden>
-          <div class="hm-screen-intro"><strong>{hubById.ux.lead}</strong><p>{hubById.ux.text}</p></div>
+          <div class="hm-screen-intro"><strong>{hubById.ux.lead}</strong><p>{hubById.ux.text}</p><a class="hm-btn hm-btn--line hm-btn--sm hm-explore" href={hubById.ux.href} aria-label={`Explore ${hubById.ux.name}`}>Explore More <span aria-hidden="true">&rarr;</span></a></div>
           <div class="hm-screen-body">
             <div class="hm-store hm-cols-sm">
               <div>
