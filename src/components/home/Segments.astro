@@ -1,145 +1,271 @@
 ---
 /**
- * Who uses Spenza: six cards, each with a small animated illustration.
+ * Who uses Spenza: six use cases as a vertical tab list beside one panel,
+ * each panel a small product illustration, a headline and a link to the
+ * use case's page. On tablets and phones the tabs become a row of pills
+ * that scrolls sideways above the panel.
  *
- * The sixth card is Voice Observability. Its illustration is "A · Call
- * delivery test" from the "Spenza Homepage – Voice Observability Card Graphic"
- * Figma file: one outbound test across three carriers, results resolving in
- * turn. The Figma frame is static; the motion is this section's own, on the
- * same 5.4s loop as its neighbours.
+ * Markup, colour and copy are the who-uses-spenza.html design's; styles are
+ * in styles/who-uses.css, which swaps the design's fonts for the site's.
  */
-import SectionHead from './SectionHead.astro';
-
-// Fleet grid: 28 cells, four of them suspended, lighting up in turn.
-const OFF = new Set([4, 11, 19, 25]);
-const fleet = Array.from({ length: 28 }, (_, i) => (OFF.has(i) ? null : `${(i * 0.13).toFixed(2)}s`));
-const countries = ['US', 'GB', 'DE', 'FR', 'JP', 'BR'];
-
-// Call delivery test: operator, result, and whether the result is a spam label.
-const calls: [string, string, boolean][] = [
-  ['US Operator A', 'delivered · 1.2 s', false],
-  ['US Operator B', 'Spam Likely', true],
-  ['US Operator C', 'delivered · 0.9 s', false],
-];
-
-const cards = [
-  {
-    href: '/iot-solutions/',
-    viz: 'fleet',
-    tag: 'IoT & DEVICE FLEETS',
-    title: 'Manage thousands of connected devices across multiple carriers',
-    text: 'Pool plans across operators, automate lifecycles, and track fleet usage.',
-  },
-  {
-    href: '/connected-devices/',
-    viz: 'checkout',
-    tag: 'CONNECTED DEVICES',
-    title: 'Turn connectivity into recurring product revenue',
-    text: 'Bundle mobile plans with your devices, set pricing, and manage subscriptions.',
-  },
-  {
-    href: '/mvne/',
-    viz: 'resellers',
-    tag: 'MSPs & RESELLERS',
-    title: 'Build and scale your connectivity business with unified CMP',
-    text: 'Manage enterprises, resellers, and users with self-service and <span style="white-space:nowrap">parent-child</span> billing.',
-  },
-  {
-    href: '/travel-esim/',
-    viz: 'esim',
-    tag: 'TRAVEL eSIM',
-    title: 'Launch and grow your own travel eSIM business',
-    text: 'Get the best rates in 180+ countries with your own travel eSIM App.',
-  },
-  {
-    href: '/ai-phone-number/',
-    viz: 'agent',
-    tag: 'AI AGENTS',
-    title: 'Give your voice AI agents real phone numbers',
-    text: 'Provision phone numbers, voice, and messaging to power <span style="white-space:nowrap">customer-facing</span> AI agents.',
-  },
-  {
-    href: '/voice-observability-solution/',
-    viz: 'calls',
-    tag: 'CPaaS & VOIP PROVIDERS',
-    title: 'Know when your calls aren\'t reaching customers',
-    text: 'Get destination-side performance metrics for your VoIP numbers and reduce customer churn.',
-  },
-];
+import '../../styles/who-uses.css';
 ---
+<section id="who-uses-spenza" aria-labelledby="sz-uc-title">
+  <div class="sz-uc__wrap">
 
-<section class="hm-sec" id="solutions">
-  <div class="hm-wrap">
-    <SectionHead
-      class="hm-head--problem"
-      eyebrow="WHO USES SPENZA"
-      lede="From connected devices and mobile services to AI agents, Spenza powers your connectivity business."
-    >One connectivity platform. Many ways to build on it.</SectionHead>
+    <div class="sz-uc__head hm-reveal">
+      <div class="sz-uc__head-main">
+        <p class="sz-uc__eyebrow">Who uses Spenza</p>
+        <h2 class="sz-uc__title" id="sz-uc-title">
+          <span>One connectivity platform.</span>
+          <span>Many ways to build on it.</span>
+        </h2>
+      </div>
+      <p class="sz-uc__lede">From connected devices and mobile services to AI agents, Spenza powers your connectivity business.</p>
+    </div>
 
-    <div class="hm-cards hm-reveal">
-      {cards.map(card => (
-        <a class="hm-card" href={card.href}>
-          <div class="hm-viz" aria-hidden="true">
-            {card.viz === 'fleet' && (
-              <>
-                <div class="v1g">{fleet.map(d => (d ? <i style={`animation-delay:${d}`} /> : <i class="off" />))}</div>
-                <div class="vlab"><span><b>42,318</b> active lines</span><span>4 suspended</span></div>
-              </>
-            )}
-            {card.viz === 'checkout' && (
-              <>
-                <div class="v2r" style="top:18px"><span>Watch, hardware</span><b>$199</b></div>
-                <div class="v2r add" style="top:42px"><span>+ Connectivity plan</span><b>$6/mo</b></div>
-                <div class="v2rule" />
-                <div class="v2tot"><span>One checkout</span><b>Stripe</b></div>
-              </>
-            )}
-            {card.viz === 'resellers' && (
-              <>
-                <div class="v3n v3root">YOUR BRAND</div>
-                <div class="v3d" style="left:50%" />
-                <div class="v3bus" />
-                {['22%', '50%', '78%'].map(left => <div class="v3dn" style={`left:${left}`} />)}
-                {[['22%', '+18%'], ['50%', '+22%'], ['78%', '+15%']].map(([left, v]) => (
-                  <div class="v3n v3leaf" style={`left:${left}`}>{v}</div>
-                ))}
-                <div class="vlab" style="bottom:9px"><span>3 resellers</span><span>markup &amp; payouts</span></div>
-              </>
-            )}
-            {card.viz === 'esim' && (
-              <>
-                <div class="v4qr" />
-                <div class="v4c">{countries.map((c, i) => <i style={`animation-delay:${(i * 0.9).toFixed(2)}s`}>{c}</i>)}</div>
-                <div class="vlab"><span>scan to install</span><b>activated in 4 s</b></div>
-              </>
-            )}
-            {card.viz === 'agent' && (
-              <>
-                {['0s', '1.2s', '2.4s'].map(d => <span class="v5ring" style={`animation-delay:${d}`} />)}
-                <div class="v5num">+1 (415) 555-0142</div>
-                <div class="vlab"><span>agent-01</span><b class="is-on">connected</b></div>
-              </>
-            )}
-            {card.viz === 'calls' && (
-              <>
-                <div class="v7h"><span>outbound test &middot; 3 carriers</span><span class="v7live"><i />2 min ago</span></div>
-                {calls.map(([op, result, spam], i) => (
-                  <div class="v7r" style={`top:${27 + i * 17}px`}>
-                    <span>{op}</span>
-                    <b class:list={{ v7spam: spam }} style={`animation-delay:${(0.2 + i * 0.45).toFixed(2)}s`}>{result}</b>
-                  </div>
-                ))}
-                <div class="v7rule" />
-                <div class="vlab"><span>answer rate</span><b class="v7rate">92%</b></div>
-              </>
-            )}
+    <div class="sz-uc__body hm-reveal">
+
+      <!-- Tabs -->
+      <div class="sz-uc__tabs" role="tablist" aria-label="Use cases">
+        <button type="button" class="sz-uc__tab" role="tab" id="sz-uc-tab-1" aria-controls="sz-uc-panel-1" aria-selected="true" tabindex="0">
+          <span class="sz-uc__tab-num">01</span>
+          <span class="sz-uc__tab-text"><span class="sz-uc__tab-name">IoT &amp; device fleets</span><span class="sz-uc__tab-line">Every carrier, one fleet view.</span></span>
+          <svg class="sz-uc__tab-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+        <button type="button" class="sz-uc__tab" role="tab" id="sz-uc-tab-2" aria-controls="sz-uc-panel-2" aria-selected="false" tabindex="-1">
+          <span class="sz-uc__tab-num">02</span>
+          <span class="sz-uc__tab-text"><span class="sz-uc__tab-name">Connected devices</span><span class="sz-uc__tab-line">Hardware meets recurring revenue.</span></span>
+          <svg class="sz-uc__tab-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+        <button type="button" class="sz-uc__tab" role="tab" id="sz-uc-tab-3" aria-controls="sz-uc-panel-3" aria-selected="false" tabindex="-1">
+          <span class="sz-uc__tab-num">03</span>
+          <span class="sz-uc__tab-text"><span class="sz-uc__tab-name">MSPs &amp; resellers</span><span class="sz-uc__tab-line">Your brand, every reseller.</span></span>
+          <svg class="sz-uc__tab-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+        <button type="button" class="sz-uc__tab" role="tab" id="sz-uc-tab-4" aria-controls="sz-uc-panel-4" aria-selected="false" tabindex="-1">
+          <span class="sz-uc__tab-num">04</span>
+          <span class="sz-uc__tab-text"><span class="sz-uc__tab-name">Travel eSIM</span><span class="sz-uc__tab-line">Roaming meets local rates.</span></span>
+          <svg class="sz-uc__tab-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+        <button type="button" class="sz-uc__tab" role="tab" id="sz-uc-tab-5" aria-controls="sz-uc-panel-5" aria-selected="false" tabindex="-1">
+          <span class="sz-uc__tab-num">05</span>
+          <span class="sz-uc__tab-text"><span class="sz-uc__tab-name">Voice AI agents</span><span class="sz-uc__tab-line">Real numbers for real calls.</span></span>
+          <svg class="sz-uc__tab-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+        <button type="button" class="sz-uc__tab" role="tab" id="sz-uc-tab-6" aria-controls="sz-uc-panel-6" aria-selected="false" tabindex="-1">
+          <span class="sz-uc__tab-num">06</span>
+          <span class="sz-uc__tab-text"><span class="sz-uc__tab-name">VoIP &amp; CPaaS</span><span class="sz-uc__tab-line">Know when calls don't land.</span></span>
+          <svg class="sz-uc__tab-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Stage -->
+      <div class="sz-uc__stage">
+
+        <!-- 01 IoT & device fleets -->
+        <div class="sz-uc__panel" role="tabpanel" id="sz-uc-panel-1" aria-labelledby="sz-uc-tab-1" tabindex="0">
+          <div class="sz-uc__meta"><span class="sz-uc__meta-cat">IoT &amp; device fleets</span><span class="sz-uc__meta-count">01 / 06</span></div>
+          <div class="sz-uc__visual" aria-hidden="true">
+            <div class="sz-ui">
+              <div class="sz-row"><span class="sz-strong">Fleet overview</span><span class="sz-live"><span class="sz-dot"></span>live</span></div>
+              <div style="margin-top: 16px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap">
+                <span class="sz-big">42,318</span><span class="sz-small">active lines · 4 suspended</span>
+              </div>
+              <div class="sz-grid">
+                <span></span><span></span><span class="h"></span><span class="m"></span><span></span><span class="l"></span><span></span><span></span><span class="h"></span><span class="g"></span><span class="d"></span><span class="m"></span><span class="h"></span><span></span><span></span><span class="l"></span>
+                <span></span><span class="h"></span><span></span><span class="g"></span><span class="m"></span><span></span><span></span><span class="l"></span><span></span><span class="h"></span><span class="m"></span><span></span><span class="g"></span><span></span><span class="l"></span><span></span>
+                <span class="h"></span><span></span><span class="m"></span><span></span><span class="l"></span><span class="g"></span><span class="d"></span><span></span><span></span><span class="h"></span><span class="m"></span><span></span><span class="l"></span><span></span><span></span><span class="g"></span>
+              </div>
+              <div class="sz-split">
+                <span style="flex: 52; background: var(--sz-o1)"></span>
+                <span style="flex: 31; background: var(--sz-o3)"></span>
+                <span style="flex: 17; background: var(--sz-o4)"></span>
+              </div>
+              <div class="sz-legend sz-small"><span>Operator A 52%</span><span>Operator B 31%</span><span>Operator C 17%</span></div>
+            </div>
           </div>
-          <div class="hm-card-tag">{card.tag}</div>
-          <h3>{card.title}</h3>
-          <p set:html={card.text} />
-          <span class="hm-card-go">Explore <i aria-hidden="true">&rarr;</i></span>
-        </a>
-      ))}
+          <div class="sz-uc__foot">
+            <div class="sz-uc__foot-text">
+              <h3 class="sz-uc__h3">Manage thousands of devices<br class="sz-br"> across every carrier.</h3>
+              <p class="sz-uc__desc">Pool plans across operators, automate lifecycles, and track fleet usage from one console.</p>
+            </div>
+            <a class="sz-uc__cta" href="/iot-solutions/" aria-label="Explore IoT and device fleets">Explore
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 02 Connected devices -->
+        <div class="sz-uc__panel" role="tabpanel" id="sz-uc-panel-2" aria-labelledby="sz-uc-tab-2" tabindex="0" hidden>
+          <div class="sz-uc__meta"><span class="sz-uc__meta-cat">Connected devices</span><span class="sz-uc__meta-count">02 / 06</span></div>
+          <div class="sz-uc__visual" aria-hidden="true">
+            <div class="sz-ui sz-ui--narrow">
+              <div class="sz-row" style="justify-content: flex-start; gap: 14px">
+                <span class="sz-tile">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6V3h6v3"/><path d="M9 18v3h6v-3"/><path d="M12 10v2.5l1.5 1"/></svg>
+                </span>
+                <span class="sz-stack"><span class="sz-strong">Smartwatch S2</span><span class="sz-small">Hardware</span></span>
+                <span style="font-size: 16px; font-weight: 600">$199</span>
+              </div>
+              <div class="sz-plan">
+                <span class="sz-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span style="flex: 1; font-size: 14px; font-weight: 500">Connectivity plan</span>
+                <span class="sz-mono" style="font-size: 13px">$6/mo</span>
+              </div>
+              <div class="sz-divider sz-row" style="align-items: baseline">
+                <span style="font-size: 14px; color: var(--sz-meta)">Due today</span>
+                <span style="font-family: var(--sz-font-display); font-size: 28px; font-weight: 600; letter-spacing: -0.02em">$199</span>
+              </div>
+              <div class="sz-pay">One checkout</div>
+              <div class="sz-small" style="margin-top: 12px; text-align: center; font-size: 11.5px">then $6/mo, billed with the device</div>
+            </div>
+          </div>
+          <div class="sz-uc__foot">
+            <div class="sz-uc__foot-text">
+              <h3 class="sz-uc__h3">Turn connectivity into recurring<br class="sz-br"> product revenue.</h3>
+              <p class="sz-uc__desc">Bundle mobile plans with your devices, set pricing, and manage subscriptions in one checkout.</p>
+            </div>
+            <a class="sz-uc__cta" href="/connected-devices/" aria-label="Explore connected devices">Explore
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 03 MSPs & resellers -->
+        <div class="sz-uc__panel" role="tabpanel" id="sz-uc-panel-3" aria-labelledby="sz-uc-tab-3" tabindex="0" hidden>
+          <div class="sz-uc__meta"><span class="sz-uc__meta-cat">MSPs &amp; resellers</span><span class="sz-uc__meta-count">03 / 06</span></div>
+          <div class="sz-uc__visual" aria-hidden="true">
+            <div class="sz-ui">
+              <div class="sz-row"><span class="sz-strong">Reseller network</span><span class="sz-small">parent-child billing</span></div>
+              <div style="margin-top: 22px; display: flex; justify-content: center"><span class="sz-brand">YOUR BRAND</span></div>
+              <div class="sz-tree-top"></div>
+              <div class="sz-tree">
+                <div class="sz-node"><span><span style="font-size: 13.5px; font-weight: 500">Reseller A</span><span class="sz-mono sz-accent" style="font-size: 12.5px">+18%</span></span></div>
+                <div class="sz-node"><span><span style="font-size: 13.5px; font-weight: 500">Reseller B</span><span class="sz-mono sz-accent" style="font-size: 12.5px">+22%</span></span></div>
+                <div class="sz-node"><span><span style="font-size: 13.5px; font-weight: 500">Reseller C</span><span class="sz-mono sz-accent" style="font-size: 12.5px">+15%</span></span></div>
+              </div>
+              <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px">
+                <span class="sz-chip sz-chip--line">Enterprises</span>
+                <span class="sz-chip sz-chip--line">Markup</span>
+                <span class="sz-chip sz-chip--line">Payouts</span>
+                <span class="sz-chip sz-chip--line">Self-service</span>
+              </div>
+            </div>
+          </div>
+          <div class="sz-uc__foot">
+            <div class="sz-uc__foot-text">
+              <h3 class="sz-uc__h3">Build and scale your connectivity business on one CMP.</h3>
+              <p class="sz-uc__desc">Manage enterprises, resellers, and users with self-service and parent-child billing.</p>
+            </div>
+            <a class="sz-uc__cta" href="/mvne/" aria-label="Explore MSPs and resellers">Explore
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 04 Travel eSIM -->
+        <div class="sz-uc__panel" role="tabpanel" id="sz-uc-panel-4" aria-labelledby="sz-uc-tab-4" tabindex="0" hidden>
+          <div class="sz-uc__meta"><span class="sz-uc__meta-cat">Travel eSIM</span><span class="sz-uc__meta-count">04 / 06</span></div>
+          <div class="sz-uc__visual" aria-hidden="true">
+            <div class="sz-ui" style="max-width: 420px">
+              <div class="sz-row" style="justify-content: flex-start; gap: 14px">
+                <span class="sz-tile sz-mono" style="font-size: 14px; font-weight: 500; color: var(--sz-ink)">JP</span>
+                <span class="sz-stack"><span class="sz-strong">Japan</span><span class="sz-small">10 GB · 30 days</span></span>
+                <span class="sz-chip sz-chip--peach"><span class="sz-dot"></span>Active</span>
+              </div>
+              <div class="sz-row sz-small" style="margin-top: 18px"><span>Data left</span><span style="color: var(--sz-ink)">8.2 GB</span></div>
+              <div class="sz-bar" style="margin-top: 8px"><span style="width: 82%; background: var(--sz-o2)"></span></div>
+              <div class="sz-divider sz-countries" style="margin-top: 20px; padding-top: 18px">
+                <span>US</span><span class="is-on">GB</span><span>DE</span><span>FR</span><span>BR</span><span style="color: var(--sz-meta)">+175</span>
+              </div>
+              <div class="sz-row sz-small" style="margin-top: 14px"><span>scan to install</span><span>activated in 4 s</span></div>
+            </div>
+          </div>
+          <div class="sz-uc__foot">
+            <div class="sz-uc__foot-text">
+              <h3 class="sz-uc__h3">Launch and grow your own<br class="sz-br"> travel eSIM business.</h3>
+              <p class="sz-uc__desc">Get the best rates in 180+ countries with your own travel<br class="sz-br"> eSIM app.</p>
+            </div>
+            <a class="sz-uc__cta" href="/travel-esim/" aria-label="Explore travel eSIM">Explore
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 05 Voice AI agents -->
+        <div class="sz-uc__panel" role="tabpanel" id="sz-uc-panel-5" aria-labelledby="sz-uc-tab-5" tabindex="0" hidden>
+          <div class="sz-uc__meta"><span class="sz-uc__meta-cat">Voice AI agents</span><span class="sz-uc__meta-count">05 / 06</span></div>
+          <div class="sz-uc__visual" aria-hidden="true">
+            <div class="sz-ui sz-ui--narrow sz-ui--center">
+              <div class="sz-rings">
+                <span class="sz-call">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+                </span>
+              </div>
+              <span class="sz-number">+1 (415) 555-0142</span>
+              <div class="sz-wave">
+                <span style="height: 8px"></span><span style="height: 14px"></span><span class="a" style="height: 22px"></span><span style="height: 12px"></span><span style="height: 28px"></span><span style="height: 18px"></span><span style="height: 10px"></span><span class="a" style="height: 20px"></span>
+                <span style="height: 30px"></span><span style="height: 16px"></span><span style="height: 9px"></span><span style="height: 22px"></span><span class="a" style="height: 14px"></span><span style="height: 26px"></span><span style="height: 12px"></span><span style="height: 18px"></span>
+                <span style="height: 28px"></span><span class="a" style="height: 10px"></span><span style="height: 16px"></span><span style="height: 22px"></span><span style="height: 8px"></span><span style="height: 14px"></span><span class="a" style="height: 24px"></span><span style="height: 12px"></span>
+                <span style="height: 18px"></span><span style="height: 10px"></span><span style="height: 26px"></span><span class="a" style="height: 14px"></span><span style="height: 20px"></span><span style="height: 8px"></span><span style="height: 16px"></span><span style="height: 12px"></span>
+              </div>
+              <div class="sz-row sz-small" style="margin-top: 16px; width: 100%"><span>agent-01 · voice + SMS</span><span class="sz-accent">connected 00:42</span></div>
+            </div>
+          </div>
+          <div class="sz-uc__foot">
+            <div class="sz-uc__foot-text">
+              <h3 class="sz-uc__h3">Give your voice AI agents<br class="sz-br"> real phone numbers.</h3>
+              <p class="sz-uc__desc">Provision phone numbers, voice, and messaging to power customer-facing AI agents.</p>
+            </div>
+            <a class="sz-uc__cta" href="/ai-phone-number/" aria-label="Explore voice AI agents">Explore
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 06 VoIP & CPaaS -->
+        <div class="sz-uc__panel" role="tabpanel" id="sz-uc-panel-6" aria-labelledby="sz-uc-tab-6" tabindex="0" hidden>
+          <div class="sz-uc__meta"><span class="sz-uc__meta-cat">VoIP &amp; CPaaS</span><span class="sz-uc__meta-count">06 / 06</span></div>
+          <div class="sz-uc__visual" aria-hidden="true">
+            <div class="sz-ui">
+              <div class="sz-row sz-small"><span>outbound test · 3 carriers</span><span style="display: inline-flex; align-items: center; gap: 6px"><span class="sz-dot"></span>2 min ago</span></div>
+              <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 18px">
+                <div>
+                  <div class="sz-row" style="font-size: 14px"><span style="font-weight: 500">US Operator A</span><span class="sz-mono">96%</span></div>
+                  <div class="sz-bar sz-bar--thin" style="margin-top: 8px"><span style="width: 96%; background: var(--sz-body)"></span></div>
+                </div>
+                <div>
+                  <div class="sz-row" style="font-size: 14px"><span style="font-weight: 500">US Operator B</span><span class="sz-mono">91%</span></div>
+                  <div class="sz-bar sz-bar--thin" style="margin-top: 8px"><span style="width: 91%; background: var(--sz-body)"></span></div>
+                </div>
+                <div>
+                  <div class="sz-row" style="font-size: 14px">
+                    <span style="font-weight: 500; display: inline-flex; align-items: center; gap: 8px">US Operator C<span class="sz-chip sz-chip--peach" style="padding: 3px 8px; font-size: 11px">check route</span></span>
+                    <span class="sz-mono sz-accent">62%</span>
+                  </div>
+                  <div class="sz-bar sz-bar--thin" style="margin-top: 8px"><span style="width: 62%; background: var(--sz-o2)"></span></div>
+                </div>
+              </div>
+              <div class="sz-divider sz-small" style="margin-top: 20px; padding-top: 14px">answer rate, measured at the handset</div>
+            </div>
+          </div>
+          <div class="sz-uc__foot">
+            <div class="sz-uc__foot-text">
+              <h3 class="sz-uc__h3">Know when your calls aren't<br class="sz-br"> reaching customers.</h3>
+              <p class="sz-uc__desc">Get destination-side performance metrics for your VoIP numbers and reduce customer churn.</p>
+            </div>
+            <a class="sz-uc__cta" href="/voice-observability-solution/" aria-label="Explore VoIP and CPaaS">Explore
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  import '../../scripts/who-uses.js';
+</script>

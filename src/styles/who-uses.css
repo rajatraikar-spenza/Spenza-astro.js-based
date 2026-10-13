@@ -1,0 +1,280 @@
+/*
+   "Who uses Spenza" on the home page: six use cases as tabs beside one panel.
+
+   Layout, colour and copy are the who-uses-spenza.html design's, moved here
+   unchanged. The one deliberate difference is type: the design was drawn in
+   Instrument Sans, Inter and JetBrains Mono, and this page sets the site's
+   own Bricolage Grotesque, Geist and Geist Mono instead, through the three
+   --sz-font-* tokens. Every family is !important, because home.css hands
+   `inherit !important` to every p, a and heading to answer the WordPress
+   bundle, and that would otherwise win over these.
+*/
+/* ============================================================
+   WHO USES SPENZA : spotlight tabs section
+   All selectors are scoped to #who-uses-spenza so nothing leaks
+   into the rest of the page.
+   ============================================================ */
+
+#who-uses-spenza {
+  --sz-bg: #FBF9F6;
+  --sz-card: #FFFFFF;
+  --sz-border: #E2E2E4;
+  --sz-panel: #FBF9F6;
+  --sz-panel-border: #DEDDDC;
+  --sz-ink: #10141F;
+  --sz-body: #3F4655;
+  --sz-meta: #5D6471;
+  --sz-accent: #B9421E;
+  --sz-accent-soft: #EB582A;
+  --sz-peach: #FAEFE9;
+  --sz-peach-2: #F9DED4;
+  --sz-peach-3: #F3E3DC;
+  --sz-track: #EAE9E7;
+  --sz-line: #D8D7D6;
+  --sz-o1: #EB592B;
+  --sz-o2: #E7744F;
+  --sz-o3: #E38C70;
+  --sz-o4: #DFA894;
+  --sz-shadow: 0 1px 2px rgba(16, 20, 31, 0.04), 0 20px 44px -28px rgba(16, 20, 31, 0.22);
+  --sz-font-display: var(--display);
+  --sz-font-body: var(--sans);
+  --sz-font-mono: var(--mono);
+
+  background: var(--sz-bg);
+  color: var(--sz-ink);
+  font-family: var(--sz-font-body) !important;
+  padding: 120px 0;
+  -webkit-font-smoothing: antialiased;
+}
+#who-uses-spenza *,
+#who-uses-spenza *::before,
+#who-uses-spenza *::after { box-sizing: border-box; }
+
+#who-uses-spenza .sz-uc__wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Header ---------- */
+#who-uses-spenza .sz-uc__head {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px 64px;
+}
+#who-uses-spenza .sz-uc__head-main { flex: 1 1 640px; min-width: 0; }
+#who-uses-spenza .sz-uc__eyebrow {
+  margin: 0; display: flex; align-items: center; gap: 14px;
+  font-family: var(--sz-font-mono) !important; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sz-meta);
+}
+#who-uses-spenza .sz-uc__eyebrow::before { content: ""; width: 36px; height: 1px; background: var(--sz-accent-soft); }
+#who-uses-spenza .sz-uc__title {
+  margin: 24px 0 0; font-family: var(--sz-font-display) !important; font-weight: 600;
+  font-size: clamp(40px, 4.2vw, 60px); line-height: 1.04; letter-spacing: -0.035em; color: var(--sz-ink);
+}
+/* Each sentence always stays on one line; the font scales so it fits. */
+#who-uses-spenza .sz-uc__title span { display: block; white-space: nowrap; }
+#who-uses-spenza .sz-uc__lede { flex: 0 1 380px; margin: 0; font-size: 18px; line-height: 1.55; color: var(--sz-body); }
+
+/* ---------- Layout ---------- */
+#who-uses-spenza .sz-uc__body { margin-top: 64px; display: flex; align-items: stretch; gap: 32px; }
+
+/* ---------- Tabs ---------- */
+#who-uses-spenza .sz-uc__tabs { flex: 0 1 400px; min-width: 300px; display: flex; flex-direction: column; gap: 6px; }
+#who-uses-spenza .sz-uc__tab {
+  width: 100%; margin: 0; padding: 18px 20px; display: flex; align-items: flex-start; gap: 16px;
+  background: transparent; border: 1px solid transparent; border-radius: 16px;
+  font: inherit; color: var(--sz-ink); text-align: left; cursor: pointer;
+  transition: background-color .25s ease, border-color .25s ease;
+}
+#who-uses-spenza .sz-uc__tab:hover:not([aria-selected="true"]) { background: rgba(255, 255, 255, 0.7); }
+#who-uses-spenza .sz-uc__tab[aria-selected="true"] { background: var(--sz-card); border-color: var(--sz-border); }
+#who-uses-spenza .sz-uc__tab:focus-visible { outline: 2px solid var(--sz-accent); outline-offset: 2px; }
+#who-uses-spenza .sz-uc__tab-num { padding-top: 3px; font-family: var(--sz-font-mono) !important; font-size: 13px; color: var(--sz-meta); }
+#who-uses-spenza .sz-uc__tab-text { flex: 1; min-width: 0; }
+#who-uses-spenza .sz-uc__tab-name {
+  display: block; font-family: var(--sz-font-display) !important; font-size: 19px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--sz-body); transition: color .2s ease;
+}
+#who-uses-spenza .sz-uc__tab-line { display: block; margin-top: 4px; font-size: 15px; line-height: 1.4; color: var(--sz-meta); }
+#who-uses-spenza .sz-uc__tab-arrow {
+  align-self: center; flex: 0 0 auto; color: var(--sz-accent);
+  opacity: 0; transform: translateX(-4px); transition: opacity .25s ease, transform .25s ease;
+}
+#who-uses-spenza .sz-uc__tab:hover .sz-uc__tab-name { color: var(--sz-ink); }
+#who-uses-spenza .sz-uc__tab[aria-selected="true"] .sz-uc__tab-num { color: var(--sz-accent); }
+#who-uses-spenza .sz-uc__tab[aria-selected="true"] .sz-uc__tab-name { color: var(--sz-ink); }
+#who-uses-spenza .sz-uc__tab[aria-selected="true"] .sz-uc__tab-line { color: var(--sz-body); }
+#who-uses-spenza .sz-uc__tab[aria-selected="true"] .sz-uc__tab-arrow { opacity: 1; transform: none; }
+
+/* ---------- Stage / panels ---------- */
+#who-uses-spenza .sz-uc__stage { flex: 1 1 0; min-width: 0; display: flex; }
+#who-uses-spenza .sz-uc__panel {
+  flex: 1; min-width: 0; min-height: 640px; padding: 32px;
+  display: flex; flex-direction: column;
+  background: var(--sz-card); border: 1px solid var(--sz-border); border-radius: 28px;
+}
+#who-uses-spenza .sz-uc__panel[hidden] { display: none; }
+#who-uses-spenza .sz-uc__panel:focus-visible { outline: 2px solid var(--sz-accent); outline-offset: 3px; }
+#who-uses-spenza .sz-uc__meta {
+  display: flex; justify-content: space-between; gap: 16px;
+  font-family: var(--sz-font-mono) !important; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+#who-uses-spenza .sz-uc__meta-cat { color: var(--sz-accent); }
+#who-uses-spenza .sz-uc__meta-count { color: var(--sz-meta); }
+#who-uses-spenza .sz-uc__visual {
+  flex: 1; min-height: 380px; margin: 20px 0 28px; padding: 40px 24px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--sz-panel); border: 1px solid var(--sz-panel-border); border-radius: 18px;
+}
+#who-uses-spenza .sz-uc__foot { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; }
+#who-uses-spenza .sz-uc__foot-text { flex: 1 1 340px; min-width: 0; }
+#who-uses-spenza .sz-uc__h3 {
+  margin: 0; font-family: var(--sz-font-display) !important; font-weight: 600; font-size: 32px; line-height: 1.1;
+  letter-spacing: -0.025em; color: var(--sz-ink); text-wrap: balance;
+}
+#who-uses-spenza .sz-uc__desc { margin: 10px 0 0; max-width: 520px; font-size: 17px; line-height: 1.55; color: var(--sz-body); }
+#who-uses-spenza .sz-uc__cta {
+  flex: 0 0 auto; height: 50px; padding: 0 22px; display: inline-flex; align-items: center; gap: 10px;
+  border-radius: 999px; background: var(--sz-ink); color: #FFFFFF;
+  font-size: 15px; font-weight: 500; text-decoration: none;
+}
+#who-uses-spenza .sz-uc__cta:hover { color: #FFFFFF; }
+#who-uses-spenza .sz-uc__cta svg { transition: transform .25s ease; }
+#who-uses-spenza .sz-uc__cta:hover svg { transform: translateX(3px); }
+#who-uses-spenza .sz-uc__cta:focus-visible { outline: 2px solid var(--sz-accent); outline-offset: 3px; }
+
+/* Entry animation when a panel is shown */
+#who-uses-spenza .sz-uc__panel.is-entering .sz-ui { animation: szUcIn .45s cubic-bezier(.2, .7, .2, 1) both; }
+#who-uses-spenza .sz-uc__panel.is-entering .sz-uc__foot { animation: szUcIn .45s .06s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes szUcIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Product UI illustrations ---------- */
+#who-uses-spenza .sz-ui {
+  width: 100%; max-width: 440px; padding: 26px;
+  background: #FFFFFF; border: 1px solid var(--sz-border); border-radius: 20px; box-shadow: var(--sz-shadow);
+  font-size: 14px; color: var(--sz-ink);
+}
+#who-uses-spenza .sz-ui--narrow { max-width: 400px; }
+#who-uses-spenza .sz-ui--center { display: flex; flex-direction: column; align-items: center; padding-top: 30px; }
+#who-uses-spenza .sz-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+#who-uses-spenza .sz-strong { font-size: 15px; font-weight: 600; }
+#who-uses-spenza .sz-mono { font-family: var(--sz-font-mono) !important; }
+#who-uses-spenza .sz-small { font-family: var(--sz-font-mono) !important; font-size: 12px; color: var(--sz-meta); }
+#who-uses-spenza .sz-accent { color: var(--sz-accent); }
+#who-uses-spenza .sz-live { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sz-font-mono) !important; font-size: 12px; color: var(--sz-accent); }
+#who-uses-spenza .sz-dot { display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: var(--sz-accent-soft); }
+#who-uses-spenza .sz-big { font-family: var(--sz-font-display) !important; font-size: 48px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+#who-uses-spenza .sz-divider { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--sz-panel-border); }
+#who-uses-spenza .sz-chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px;
+  font-family: var(--sz-font-mono) !important; font-size: 11.5px;
+}
+#who-uses-spenza .sz-chip--peach { background: var(--sz-peach); color: var(--sz-accent); }
+#who-uses-spenza .sz-chip--line { border: 1px solid var(--sz-border); color: var(--sz-body); }
+#who-uses-spenza .sz-tile {
+  flex: 0 0 auto; width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--sz-panel); border: 1px solid var(--sz-panel-border); color: var(--sz-body);
+}
+#who-uses-spenza .sz-stack { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+
+/* Fleet grid */
+#who-uses-spenza .sz-grid {
+  margin-top: 20px; padding: 14px; display: grid; grid-template-columns: repeat(16, minmax(0, 1fr)); gap: 5px;
+  background: var(--sz-panel); border: 1px solid var(--sz-panel-border); border-radius: 12px;
+}
+#who-uses-spenza .sz-grid span { aspect-ratio: 1; border-radius: 3px; background: var(--sz-o1); }
+#who-uses-spenza .sz-grid .h { background: var(--sz-o2); }
+#who-uses-spenza .sz-grid .m { background: var(--sz-o3); }
+#who-uses-spenza .sz-grid .l { background: var(--sz-o4); }
+#who-uses-spenza .sz-grid .g { background: var(--sz-track); }
+#who-uses-spenza .sz-grid .d { background: var(--sz-line); }
+#who-uses-spenza .sz-split { margin-top: 20px; display: flex; gap: 3px; height: 8px; }
+#who-uses-spenza .sz-split span { border-radius: 999px; }
+#who-uses-spenza .sz-legend { margin-top: 10px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+
+/* Bars */
+#who-uses-spenza .sz-bar { height: 8px; border-radius: 999px; background: var(--sz-track); overflow: hidden; }
+#who-uses-spenza .sz-bar > span { display: block; height: 100%; border-radius: 999px; }
+#who-uses-spenza .sz-bar--thin { height: 6px; }
+
+/* Checkout */
+#who-uses-spenza .sz-plan { margin-top: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; border-radius: 12px; background: var(--sz-peach); color: var(--sz-accent); }
+#who-uses-spenza .sz-check { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: var(--sz-peach-2); color: var(--sz-accent); }
+#who-uses-spenza .sz-pay { margin-top: 16px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--sz-ink); color: #FFFFFF; font-size: 15px; font-weight: 500; }
+
+/* Reseller tree */
+#who-uses-spenza .sz-brand { padding: 9px 14px; border-radius: 10px; background: var(--sz-ink); color: #FFFFFF; font-family: var(--sz-font-mono) !important; font-size: 12px; letter-spacing: 0.08em; }
+#who-uses-spenza .sz-tree-top { position: relative; height: 16px; }
+#who-uses-spenza .sz-tree-top::before { content: ""; position: absolute; left: 50%; top: 0; width: 1px; height: 16px; background: var(--sz-line); }
+#who-uses-spenza .sz-tree-top::after { content: ""; position: absolute; left: 16.6%; right: 16.6%; top: 15px; height: 1px; background: var(--sz-line); }
+#who-uses-spenza .sz-tree { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+#who-uses-spenza .sz-node { display: flex; flex-direction: column; align-items: center; }
+#who-uses-spenza .sz-node::before { content: ""; width: 1px; height: 16px; background: var(--sz-line); }
+#who-uses-spenza .sz-node > span {
+  width: 100%; padding: 12px 6px; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: var(--sz-panel); border: 1px solid var(--sz-panel-border); border-radius: 12px;
+}
+
+/* Country chips */
+#who-uses-spenza .sz-countries { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+#who-uses-spenza .sz-countries span { padding: 8px 0; text-align: center; border: 1px solid var(--sz-border); border-radius: 8px; font-family: var(--sz-font-mono) !important; font-size: 11.5px; }
+#who-uses-spenza .sz-countries .is-on { background: var(--sz-peach); border-color: #F3D3C6; color: var(--sz-accent); }
+
+/* Voice agent */
+#who-uses-spenza .sz-rings { position: relative; width: 152px; height: 152px; display: flex; align-items: center; justify-content: center; }
+#who-uses-spenza .sz-rings::before,
+#who-uses-spenza .sz-rings::after { content: ""; position: absolute; border-radius: 999px; }
+#who-uses-spenza .sz-rings::before { inset: 0; border: 1px solid var(--sz-peach-3); }
+#who-uses-spenza .sz-rings::after { inset: 22px; border: 1px solid var(--sz-peach-2); }
+#who-uses-spenza .sz-call { width: 68px; height: 68px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: var(--sz-peach); border: 1px solid var(--sz-peach-2); color: var(--sz-accent); }
+#who-uses-spenza .sz-number { margin-top: 20px; padding: 10px 16px; border-radius: 10px; background: var(--sz-panel); border: 1px solid var(--sz-panel-border); font-family: var(--sz-font-mono) !important; font-size: 16px; }
+#who-uses-spenza .sz-wave { margin-top: 18px; width: 100%; height: 32px; display: flex; align-items: center; gap: 3px; }
+#who-uses-spenza .sz-wave span { flex: 1; border-radius: 2px; background: var(--sz-o3); }
+#who-uses-spenza .sz-wave .a { background: var(--sz-o2); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1131px) {
+  /* Subtitle moves below the headline here, so the headline gets the full width */
+  #who-uses-spenza .sz-uc__title { font-size: clamp(20px, 6.6vw, 60px); }
+}
+@media (max-width: 1080px) {
+  #who-uses-spenza .sz-uc__tabs { flex-basis: 340px; }
+  #who-uses-spenza .sz-uc__tab-line { font-size: 14px; }
+}
+@media (max-width: 960px) {
+  #who-uses-spenza { padding: 88px 0; }
+  #who-uses-spenza .sz-uc__body { flex-direction: column; margin-top: 40px; gap: 16px; }
+  #who-uses-spenza .sz-uc__tabs {
+    flex: none; min-width: 0; flex-direction: row; gap: 8px;
+    margin: 0 -24px; padding: 2px 24px 6px;
+    overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    /* Snap to the padding edge, not the box edge: without this the row
+       snaps its first pill flush against the screen. */
+    scroll-padding-inline: 24px;
+  }
+  #who-uses-spenza .sz-uc__tabs::-webkit-scrollbar { display: none; }
+  #who-uses-spenza .sz-uc__tab {
+    flex: 0 0 auto; width: auto; padding: 11px 16px; align-items: center; gap: 10px;
+    border-color: var(--sz-border); border-radius: 999px; scroll-snap-align: start;
+  }
+  #who-uses-spenza .sz-uc__tab[aria-selected="true"] { border-color: var(--sz-ink); }
+  #who-uses-spenza .sz-uc__tab-num { padding-top: 0; font-size: 12px; }
+  #who-uses-spenza .sz-uc__tab-name { font-size: 15px; white-space: nowrap; }
+  #who-uses-spenza .sz-uc__tab-line,
+  #who-uses-spenza .sz-uc__tab-arrow { display: none; }
+  #who-uses-spenza .sz-uc__panel { min-height: 0; padding: 24px; border-radius: 24px; }
+  #who-uses-spenza .sz-uc__visual { min-height: 0; padding: 28px 16px; }
+}
+@media (max-width: 640px) {
+  #who-uses-spenza { padding: 72px 0; }
+  #who-uses-spenza .sz-br { display: none; }
+  #who-uses-spenza .sz-uc__h3 { font-size: 22px; }
+  #who-uses-spenza .sz-uc__desc { font-size: 16px; }
+  #who-uses-spenza .sz-uc__cta { width: 100%; justify-content: center; }
+  #who-uses-spenza .sz-uc__visual { padding: 20px 12px; margin: 16px 0 24px; }
+  #who-uses-spenza .sz-ui { padding: 20px; }
+  #who-uses-spenza .sz-big { font-size: 40px; }
+  #who-uses-spenza .sz-grid { gap: 3px; padding: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #who-uses-spenza *,
+  #who-uses-spenza *::before,
+  #who-uses-spenza *::after { animation: none !important; transition: none !important; }
+}
