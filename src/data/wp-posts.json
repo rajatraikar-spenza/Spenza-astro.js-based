@@ -255,7 +255,7 @@
     "key": "post-mobile-esim-plans"
   },
   "unlock-operational-efficiency-with-spenza-iot-aggregation-platform": {
-    "route": "/spenza-product/unlock-operational-efficiency-with-spenza-iot-aggregation-platform/",
+    "route": "/iot-solutions/",
     "category": "spenza-product",
     "key": "post-unlock-operational-efficiency-with-spenza-iot-aggregation-platform"
   },
@@ -285,7 +285,7 @@
     "key": "post-spenza-global-connectivity-kids-smartwatch"
   },
   "create-branded-mobile-experience-for-enterprise-user": {
-    "route": "/spenza-product/create-branded-mobile-experience-for-enterprise-user/",
+    "route": "/uxhub/",
     "category": "spenza-product",
     "key": "post-create-branded-mobile-experience-for-enterprise-user"
   },
@@ -585,7 +585,7 @@
     "key": "post-business-mobile-cost-quality"
   },
   "iot-connectivity-management-platform": {
-    "route": "/telecom/iot-connectivity-management-platform/",
+    "route": "/esim/leading-iot-connectivity-management-platforms/",
     "category": "telecom",
     "key": "post-iot-connectivity-management-platform"
   },
@@ -615,7 +615,7 @@
     "key": "post-skype-retirement-2025-migration-strategy"
   },
   "monetize-baby-monitor-connectivity": {
-    "route": "/mvno/monetize-baby-monitor-connectivity/",
+    "route": "/esim/esim-for-oems/",
     "category": "mvno",
     "key": "post-monetize-baby-monitor-connectivity"
   },
@@ -805,7 +805,7 @@
     "key": "post-branded-esim-marketplace"
   },
   "esim-global-connectivity": {
-    "route": "/esim/esim-global-connectivity/",
+    "route": "/esim/esim-for-enterprises-business-enabler-2025/",
     "category": "esim",
     "key": "post-esim-global-connectivity"
   },
@@ -850,7 +850,7 @@
     "key": "post-what-is-mvne-strategy-services"
   },
   "iot-management-remote-esim-provisioning": {
-    "route": "/esim/iot-management-remote-esim-provisioning/",
+    "route": "/esim/what-is-remote-sim-provisioning-rsp-guide-2026/",
     "category": "esim",
     "key": "post-iot-management-remote-esim-provisioning"
   },
@@ -880,7 +880,7 @@
     "key": "post-mvno-network-selection"
   },
   "iot-mvno-industrial-automation": {
-    "route": "/mvno/iot-mvno-industrial-automation/",
+    "route": "/mvno/iot-mvnos-vs-traditional/",
     "category": "mvno",
     "key": "post-iot-mvno-industrial-automation"
   },
@@ -900,7 +900,7 @@
     "key": "post-taas-revolutionizing-telecom-usa"
   },
   "global-mvno-expansion": {
-    "route": "/mvno/global-mvno-expansion/",
+    "route": "/mvno/mvno-network-selection/",
     "category": "mvno",
     "key": "post-global-mvno-expansion"
   },
@@ -965,7 +965,7 @@
     "key": "post-port-skype-number"
   },
   "iot-esim-connectivity": {
-    "route": "/esim/iot-esim-connectivity/",
+    "route": "/esim/iot-sim-cards-guide/",
     "category": "esim",
     "key": "post-iot-esim-connectivity"
   },
@@ -1045,7 +1045,7 @@
     "key": "post-white-label-mvno"
   },
   "mvno-management-solution": {
-    "route": "/mvno/mvno-management-solution/",
+    "route": "/mvne/",
     "category": "mvno",
     "key": "post-mvno-management-solution"
   },
@@ -1055,7 +1055,7 @@
     "key": "post-white-label-voip-change"
   },
   "telecom-expense-management-api": {
-    "route": "/telecom/telecom-expense-management-api/",
+    "route": "/tem/what-is-telecom-expense-management-tem/",
     "category": "telecom",
     "key": "post-telecom-expense-management-api"
   },
@@ -1085,37 +1085,37 @@
     "key": "post-white-label-connectivity-solutions-for-msps"
   },
   "wireless-connectivity-management-enterprises": {
-    "route": "/tem/wireless-connectivity-management-enterprises/",
+    "route": "/tem/wireless-expense-management-challenges/",
     "category": "tem",
     "key": "post-wireless-connectivity-management-enterprises"
   },
   "iot-connectivity": {
-    "route": "/telecom/iot-connectivity/",
+    "route": "/telecom/iot-connectivity-cost-guide-2025/",
     "category": "telecom",
     "key": "post-iot-connectivity"
   },
   "iot-regional-plan-flexibility": {
-    "route": "/telecom/iot-regional-plan-flexibility/",
+    "route": "/iot/global-iot-connectivity-2026/",
     "category": "telecom",
     "key": "post-iot-regional-plan-flexibility"
   },
   "iot-device-management": {
-    "route": "/telecom/iot-device-management/",
+    "route": "/telecom/single-pane-of-glass-iot-connectivity-management/",
     "category": "telecom",
     "key": "post-iot-device-management"
   },
   "impact-5g-enterprise": {
-    "route": "/telecom/impact-5g-enterprise/",
+    "route": "/telecom/5g-vs-4g-speed-comparison/",
     "category": "telecom",
     "key": "post-impact-5g-enterprise"
   },
   "esim-for-travellers": {
-    "route": "/esim/esim-for-travellers/",
+    "route": "/esim/esim-vs-physical-sim-airport-decision/",
     "category": "esim",
     "key": "post-esim-for-travellers"
   },
   "caas-for-iot": {
-    "route": "/telecom/caas-for-iot/",
+    "route": "/iot-solutions/",
     "category": "telecom",
     "key": "post-caas-for-iot"
   },
@@ -1125,7 +1125,7 @@
     "key": "post-esim-vs-traditional-sims"
   },
   "global-iot-network-management-simplified": {
-    "route": "/telecom/global-iot-network-management-simplified/",
+    "route": "/telecom/single-pane-of-glass-iot-connectivity-management/",
     "category": "telecom",
     "key": "post-global-iot-network-management-simplified"
   },
@@ -1135,12 +1135,12 @@
     "key": "post-iot-events"
   },
   "traditional-connectivity-plans": {
-    "route": "/tem/traditional-connectivity-plans/",
+    "route": "/tem/business-mobile-cost-quality/",
     "category": "tem",
     "key": "post-traditional-connectivity-plans"
   },
   "esim-transforming-iot-connectivity": {
-    "route": "/esim/esim-transforming-iot-connectivity/",
+    "route": "/esim/iot-sim-cards-guide/",
     "category": "esim",
     "key": "post-esim-transforming-iot-connectivity"
   },
@@ -1155,17 +1155,17 @@
     "key": "post-google-fi"
   },
   "mvno-differentiation": {
-    "route": "/mvno/mvno-differentiation/",
+    "route": "/mvno/top-mvno-marketing-strategies/",
     "category": "mvno",
     "key": "post-mvno-differentiation"
   },
   "telecom-expense-management": {
-    "route": "/telecom/telecom-expense-management/",
+    "route": "/tem/what-is-telecom-expense-management-tem/",
     "category": "telecom",
     "key": "post-telecom-expense-management"
   },
   "mobile-plan-management-simplified": {
-    "route": "/telecom/mobile-plan-management-simplified/",
+    "route": "/tem/business-mobile-cost-quality/",
     "category": "telecom",
     "key": "post-mobile-plan-management-simplified"
   },
@@ -1175,12 +1175,12 @@
     "key": "post-esim-data-plans"
   },
   "design-mvno-user-experience": {
-    "route": "/mvno/design-mvno-user-experience/",
+    "route": "/uxhub/",
     "category": "mvno",
     "key": "post-design-mvno-user-experience"
   },
   "spenza-business-continuity": {
-    "route": "/spenza-product/spenza-business-continuity/",
+    "route": "/esim/business-internet-failover/",
     "category": "spenza-product",
     "key": "post-spenza-business-continuity"
   },
@@ -1190,57 +1190,57 @@
     "key": "post-launching-mvno"
   },
   "us-mvno-introduction": {
-    "route": "/mvno/us-mvno-introduction/",
+    "route": "/mvno/launch-mvno-us-guide/",
     "category": "mvno",
     "key": "post-us-mvno-introduction"
   },
   "spenza-admin-dashboard-overview": {
-    "route": "/spenza-product/spenza-admin-dashboard-overview/",
+    "route": "/controlhub/",
     "category": "spenza-product",
     "key": "post-spenza-admin-dashboard-overview"
   },
   "spenza-super-admin-overview": {
-    "route": "/spenza-product/spenza-super-admin-overview/",
+    "route": "/spenza-product/taas-billing-plan-bundling/",
     "category": "spenza-product",
     "key": "post-spenza-super-admin-overview"
   },
   "pdf-parsing-for-telecom-invoices": {
-    "route": "/spenza-product/pdf-parsing-for-telecom-invoices/",
+    "route": "/controlhub/",
     "category": "spenza-product",
     "key": "post-pdf-parsing-for-telecom-invoices"
   },
   "purchase-plan": {
-    "route": "/spenza-product/purchase-plan/",
+    "route": "/spenza-product/purchasing-spenza-marketplace-plans/",
     "category": "spenza-product",
     "key": "post-purchase-plan"
   },
   "bulk-import-operations": {
-    "route": "/spenza-product/bulk-import-operations/",
+    "route": "/controlhub/",
     "category": "spenza-product",
     "key": "post-bulk-import-operations"
   },
   "integrated-connectivity-management": {
-    "route": "/telecom/integrated-connectivity-management/",
+    "route": "/telecom/single-pane-of-glass-iot-connectivity-management/",
     "category": "telecom",
     "key": "post-integrated-connectivity-management"
   },
   "telecom-billing-mistakes": {
-    "route": "/tem/telecom-billing-mistakes/",
+    "route": "/tem/telecom-compliance-audits/",
     "category": "tem",
     "key": "post-telecom-billing-mistakes"
   },
   "dual-esim-support-iphone-13": {
-    "route": "/telecom/dual-esim-support-iphone-13/",
+    "route": "/esim/dual-sim-esim/",
     "category": "telecom",
     "key": "post-dual-esim-support-iphone-13"
   },
   "employee-mobile-service": {
-    "route": "/telecom/employee-mobile-service/",
+    "route": "/telecom/connectivity-as-a-benefit/",
     "category": "telecom",
     "key": "post-employee-mobile-service"
   },
   "wireless-telecom-expense-management": {
-    "route": "/telecom/wireless-telecom-expense-management/",
+    "route": "/tem/wireless-expense-management-challenges/",
     "category": "telecom",
     "key": "post-wireless-telecom-expense-management"
   },
@@ -1250,32 +1250,32 @@
     "key": "post-telecom-expense-management-tem-outsourcing"
   },
   "esim-covid-19": {
-    "route": "/esim/esim-covid-19/",
+    "route": "/esim/esim/",
     "category": "esim",
     "key": "post-esim-covid-19"
   },
   "esim-transformation": {
-    "route": "/esim/esim-transformation/",
+    "route": "/esim/esim/",
     "category": "esim",
     "key": "post-esim-transformation"
   },
   "hidden-mobile-service-costs": {
-    "route": "/tem/hidden-mobile-service-costs/",
+    "route": "/tem/business-mobile-cost-quality/",
     "category": "tem",
     "key": "post-hidden-mobile-service-costs"
   },
   "byod-planning": {
-    "route": "/byod/byod-planning/",
+    "route": "/byod/byod-in-2025-benefits-risks-and-best-practices/",
     "category": "byod",
     "key": "post-byod-planning"
   },
   "why-is-mobile-roaming-expensive": {
-    "route": "/telecom/why-is-mobile-roaming-expensive/",
+    "route": "/business-roaming-packs/",
     "category": "telecom",
     "key": "post-why-is-mobile-roaming-expensive"
   },
   "byod-policies": {
-    "route": "/byod/byod-policies/",
+    "route": "/byod/byod-in-2025-benefits-risks-and-best-practices/",
     "category": "byod",
     "key": "post-byod-policies"
   }

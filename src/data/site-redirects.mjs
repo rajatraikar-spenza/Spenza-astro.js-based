@@ -139,4 +139,61 @@ export const SITE_REDIRECTS = {
   '/telecom/5g-vs-5ge-vs-5g-plus-wp-uc-uw/': '/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw/',
   '/telecom/bss-for-form/': '/telecom/bss-full-form/',
   '/telecom/skype-vs-zoom-teams-comparison/': '/telecom/skype-vs-zoom-vs-teams-comparison/',
+
+  /**
+   * ---- Blog cleanup, Week 1: the 43 removed posts --------------------------
+   *
+   * Thin, duplicate or off-topic posts the plan retires outright, each sent to
+   * the live page that now answers the same question. Every target is the
+   * page's current URL, not the one the plan will give it later: several
+   * targets are themselves due a new slug, and pointing at that now would be a
+   * redirect to a 404. Repoint these when those reslugs ship — the build
+   * fails on a chain, so it will say which.
+   *
+   * Inbound links in post bodies were replaced in WordPress before these
+   * posts were unpublished, so these catch only external links and search.
+   */
+  '/byod/byod-planning/': '/byod/byod-in-2025-benefits-risks-and-best-practices/',
+  '/byod/byod-policies/': '/byod/byod-in-2025-benefits-risks-and-best-practices/',
+  '/esim/esim-covid-19/': '/esim/esim/',
+  '/esim/esim-for-travellers/': '/esim/esim-vs-physical-sim-airport-decision/',
+  '/esim/esim-global-connectivity/': '/esim/esim-for-enterprises-business-enabler-2025/',
+  '/esim/esim-transformation/': '/esim/esim/',
+  '/esim/esim-transforming-iot-connectivity/': '/esim/iot-sim-cards-guide/',
+  '/esim/iot-esim-connectivity/': '/esim/iot-sim-cards-guide/',
+  '/esim/iot-management-remote-esim-provisioning/': '/esim/what-is-remote-sim-provisioning-rsp-guide-2026/',
+  '/mvno/design-mvno-user-experience/': '/uxhub/',
+  '/mvno/global-mvno-expansion/': '/mvno/mvno-network-selection/',
+  '/mvno/iot-mvno-industrial-automation/': '/mvno/iot-mvnos-vs-traditional/',
+  '/mvno/monetize-baby-monitor-connectivity/': '/esim/esim-for-oems/',
+  '/mvno/mvno-differentiation/': '/mvno/top-mvno-marketing-strategies/',
+  '/mvno/mvno-management-solution/': '/mvne/',
+  '/mvno/us-mvno-introduction/': '/mvno/launch-mvno-us-guide/',
+  '/spenza-product/bulk-import-operations/': '/controlhub/',
+  '/spenza-product/create-branded-mobile-experience-for-enterprise-user/': '/uxhub/',
+  '/spenza-product/pdf-parsing-for-telecom-invoices/': '/controlhub/',
+  '/spenza-product/purchase-plan/': '/spenza-product/purchasing-spenza-marketplace-plans/',
+  '/spenza-product/spenza-admin-dashboard-overview/': '/controlhub/',
+  '/spenza-product/spenza-business-continuity/': '/esim/business-internet-failover/',
+  '/spenza-product/spenza-super-admin-overview/': '/spenza-product/taas-billing-plan-bundling/',
+  '/spenza-product/unlock-operational-efficiency-with-spenza-iot-aggregation-platform/': '/iot-solutions/',
+  '/telecom/caas-for-iot/': '/iot-solutions/',
+  '/telecom/dual-esim-support-iphone-13/': '/esim/dual-sim-esim/',
+  '/telecom/employee-mobile-service/': '/telecom/connectivity-as-a-benefit/',
+  '/telecom/global-iot-network-management-simplified/': '/telecom/single-pane-of-glass-iot-connectivity-management/',
+  '/telecom/impact-5g-enterprise/': '/telecom/5g-vs-4g-speed-comparison/',
+  '/telecom/integrated-connectivity-management/': '/telecom/single-pane-of-glass-iot-connectivity-management/',
+  '/telecom/iot-connectivity-management-platform/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/telecom/iot-connectivity/': '/telecom/iot-connectivity-cost-guide-2025/',
+  '/telecom/iot-device-management/': '/telecom/single-pane-of-glass-iot-connectivity-management/',
+  '/telecom/iot-regional-plan-flexibility/': '/iot/global-iot-connectivity-2026/',
+  '/telecom/mobile-plan-management-simplified/': '/tem/business-mobile-cost-quality/',
+  '/telecom/telecom-expense-management-api/': '/tem/what-is-telecom-expense-management-tem/',
+  '/telecom/telecom-expense-management/': '/tem/what-is-telecom-expense-management-tem/',
+  '/telecom/why-is-mobile-roaming-expensive/': '/business-roaming-packs/',
+  '/telecom/wireless-telecom-expense-management/': '/tem/wireless-expense-management-challenges/',
+  '/tem/hidden-mobile-service-costs/': '/tem/business-mobile-cost-quality/',
+  '/tem/telecom-billing-mistakes/': '/tem/telecom-compliance-audits/',
+  '/tem/traditional-connectivity-plans/': '/tem/business-mobile-cost-quality/',
+  '/tem/wireless-connectivity-management-enterprises/': '/tem/wireless-expense-management-challenges/',
 };

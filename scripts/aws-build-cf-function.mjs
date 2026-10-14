@@ -288,9 +288,22 @@ async function handler(event) {
 }
 `;
 
+/**
+ * The function as shipped: the template above minus its comments.
+ *
+ * The 10KB limit counts every byte of source, and the comments that explain the
+ * template were about a third of it — space the redirect table needs as the
+ * blog cleanup retires posts. Only whole-line `//` comments and `/** … *\/`
+ * blocks are removed, so nothing inside a string or a regex literal is touched.
+ */
+const shipped = fn
+  .replace(/\/\*\*[\s\S]*?\*\//g, '')
+  .replace(/^[ \t]*\/\/.*$/gm, '')
+  .replace(/\n[ \t]*(?=\n)/g, '');
+
 const fnOut = path.join(PROJECT, 'scripts', '.cf-site-function.js');
 const kvOut = path.join(PROJECT, 'scripts', '.cf-redirects.json');
-await fs.writeFile(fnOut, fn, 'utf8');
+await fs.writeFile(fnOut, shipped, 'utf8');
 await fs.writeFile(kvOut, JSON.stringify(store, null, 0), 'utf8');
 
 /**
@@ -315,7 +328,7 @@ for (let i = 0; i < entries.length; i += BATCH) {
   batches.push(file);
 }
 
-const bytes = Buffer.byteLength(fn, 'utf8');
+const bytes = Buffer.byteLength(shipped, 'utf8');
 const LIMIT = 10 * 1024;
 process.stdout.write(
   `${Object.keys(embedded).length} embedded rules, ` +
