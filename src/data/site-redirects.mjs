@@ -102,4 +102,41 @@ export const SITE_REDIRECTS = {
    * the page that replaced it.
    */
   '/mvno/google-fi-case-study/': '/mvno/google-fi/',
+
+  /**
+   * ---- Blog cleanup, Week 1: broken URLs ------------------------------------
+   *
+   * From the blog architecture plan (crawl of 13 Oct 2026, Search Console
+   * 1 Apr – 6 Oct). Each of these returned 404 while Google still showed it,
+   * and each points at the live article it was a malformed or retired copy of.
+   */
+
+  /**
+   * The launch-cost article was published under a doubled slug, and WordPress
+   * then recorded the clean URL — the one holding 6,304 impressions at
+   * position 6.4 — as a 301 *to* the typo. The post is republished at the
+   * clean slug, the captured rule is gone from `wp-redirects.json`, and the
+   * typo now points the right way. Both have to ship together: with the old
+   * rule still captured, the two would loop.
+   */
+  '/mvno/mvno-mvno-launch-cost/': '/mvno/mvno-launch-cost/',
+
+  /** Old slug, same article; 1,013 impressions and 5 clicks while it 404'd. */
+  '/telecom/5g-standalone-vs-non-standalone/': '/telecom/telecom-5g-standalone-vs-non-standalone/',
+
+  /** Old slug, same article; 156 impressions while it 404'd. */
+  '/iot/consumer-iot-vs-industrial-iot/': '/iot/consumer-iot-vs-industrial-iot-iiot-key-differences/',
+
+  // Malformed variants of live slugs, each still listed in Google.
+  '/esim/esim-for-iot/': '/esim/iot-sim-cards-guide/',
+  '/esim/iot-s-management-guide/': '/esim/iot-sim-management-guide/',
+  '/mvno/google-fi-5g-refind/': '/mvno/google-fi-2/',
+  '/mvno/mvno-provider-selection/': '/telecom/oss-bss-checklist/',
+  '/telecom/5g-via-4g-speed-comparison/': '/telecom/5g-vs-4g-speed-comparison/',
+  '/telecom/5g-vs-5g-plus-vs-5g-uc-vs-5g-uw/': '/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw/',
+  '/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw-carrier-branding-decoded/': '/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw/',
+  '/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw-decoded/': '/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw/',
+  '/telecom/5g-vs-5ge-vs-5g-plus-wp-uc-uw/': '/telecom/5g-vs-5ge-vs-5g-plus-vs-5g-uc-vs-5g-uw/',
+  '/telecom/bss-for-form/': '/telecom/bss-full-form/',
+  '/telecom/skype-vs-zoom-teams-comparison/': '/telecom/skype-vs-zoom-vs-teams-comparison/',
 };
