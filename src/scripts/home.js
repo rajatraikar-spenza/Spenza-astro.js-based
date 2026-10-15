@@ -6,7 +6,7 @@ import './home-hero.js';
  *   - sections fade up as they scroll into view
  *   - the hero's cursor spotlight
  *   - the hero's customer stage (scripts/home-hero.js)
- *   - the "MVNO in a Box" animation in the Spenza advantage section
+ *   - the Spenza advantage walkthrough and its "MVNO in a Box" animation
  *   - the platform hub tabs
  *   - the Alternatives board and the Customer proof carousel
  *
@@ -53,120 +53,115 @@ if (page) {
 
 /* ------------------------------------------------------- advantage box */
 
-// Clicking a layer never cuts the cycle short: the box finishes opening, the
-// layer rises and holds, then it settles back and the box closes and the loop
-// carries on. Hover and focus never pause it.
-const art = document.querySelector('.hm-hero--platform .hm-hero-art');
+// The Spenza advantage walkthrough (Advantage.astro). The box opens once, when
+// the section comes into view, and stays open; then one hub at a time is the
+// current step, its layer lifted out of the stack and the others dimmed.
+//
+// From 1024px the panel is sticky in a tall track and the scroll picks the
+// step: a quarter of the track each. Below that there is no track, and the
+// steps advance on a timer while the box is on screen. A click on a step or a
+// layer picks it — by scrolling to its quarter, where the scroll is in charge.
+const how = document.querySelector('.hm-how');
 
-if (art) {
+if (how) {
+  const art = how.querySelector('.hm-hero-art');
   const wrap = art.querySelector('.hm-scene-wrap');
   const scene = art.querySelector('.hm-scene');
-  const cap = document.getElementById('hero-caption');
-  const rest = cap.textContent;
-  const CAPS = {
-    telecom: 'TelecomHub — multi-operator connectivity, one API.',
-    control: 'ControlHub — every line, cost, and invoice in one view.',
-    ux: 'UXHub — your plans, checkout, billing, and brand.',
-    agent: 'AgentHub — real phone numbers for AI conversations.',
-  };
+  const track = how.querySelector('.hm-how__track');
+  const panel = how.querySelector('.hm-how__panel');
+  const steps = [...how.querySelectorAll('.hm-how__step')];
+  const layers = [...art.querySelectorAll('.hm-hub-layer')];
+  const order = steps.map((step) => step.dataset.hub);
+  const sticky = window.matchMedia('(min-width: 1024px)');
+  const STEP = 4000;
 
   const fit = () => scene.style.setProperty('--scene-scale', String(wrap.clientWidth / 580));
   fit();
   if ('ResizeObserver' in window) new ResizeObserver(fit).observe(wrap); else addEventListener('resize', fit);
 
-  /* Every piece runs one 20s cycle: shut until 8%, open by 25%, all tags in by
-     28%, starting to close at 74%, shut again by 94%. */
-  const D = 20000, SHUT_UNTIL = 1600, OPEN = 5600, CLOSE = 14800, SHUT_FROM = 18800;
-  const HOLD = 4000, SETTLE = 1000;
-  let anims = null, mode = 'auto', picked = null, timer = 0, visible = true;
+  let active = 0, open = false, seen = false, visible = false, timer = 0;
 
-  const take = () => {
-    if (anims) return;
-    anims = scene.getAnimations({ subtree: true }).filter((a) => a.effect && a.effect.getTiming().duration === D);
-    const t = anims.length ? anims[0].currentTime : 0;
-    anims.forEach((a) => { a.currentTime = t; });
-  };
-  const now = () => anims[0].currentTime % D;
-  const seek = (t) => anims.forEach((a) => { a.currentTime = t; });
-  const rate = (r) => anims.forEach((a) => { a.playbackRate = r; });
-  const run = () => {
-    if (!anims) return;
-    const go = visible && !document.hidden && mode !== 'lift';
-    anims.forEach((a) => (go ? a.play() : a.pause()));
-  };
-  const raise = (hub) => {
-    mode = 'lift';
-    run();
-    art.querySelectorAll('[data-hub]').forEach((c) => {
-      const on = c.dataset.hub === hub;
-      c.classList.toggle('hm-active', on);
-      c.setAttribute('aria-pressed', String(on));
+  const show = (i) => {
+    active = i;
+    steps.forEach((step, k) => {
+      if (k === i) step.setAttribute('aria-current', 'step'); else step.removeAttribute('aria-current');
+      step.classList.toggle('is-done', k < i);
     });
-    cap.textContent = CAPS[hub];
-    clearTimeout(timer);
-    if (!reducedMotion.matches) timer = setTimeout(settle, HOLD);
-  };
-  const settle = () => {
-    picked = null;
-    mode = 'auto';
-    art.querySelectorAll('[data-hub]').forEach((c) => { c.classList.remove('hm-active'); c.setAttribute('aria-pressed', 'false'); });
-    cap.textContent = rest;
-    seek(Math.max(now(), CLOSE - SETTLE));
-    run();
-  };
-  /* Opening forwards, or reopening by playing the close backwards, until the
-     box is fully open; then the card rises. */
-  const watch = () => {
-    if (mode !== 'wait') return;
-    const t = now(), back = anims[0].playbackRate < 0;
-    if (back ? t <= CLOSE : t >= OPEN && t <= CLOSE) { rate(1); raise(picked); }
-    else requestAnimationFrame(watch);
-  };
-  const pick = (hub) => {
-    if (!Object.hasOwn(CAPS, hub)) return;
-    picked = hub;
-    if (reducedMotion.matches || mode === 'lift') { raise(hub); return; }
-    start();
-    if (!anims.length) { raise(hub); return; }
-    if (mode === 'wait') return;
-    const t = now();
-    if (t >= OPEN && t <= CLOSE) { raise(hub); return; }
-    if (t > CLOSE && t < SHUT_FROM) rate(-1);
-    else if (t < SHUT_UNTIL || t >= SHUT_FROM) seek(SHUT_UNTIL);
-    mode = 'wait';
-    run();
-    requestAnimationFrame(watch);
+    // A layer only lifts once the box is fully open.
+    layers.forEach((layer) => layer.classList.toggle('hm-active', open && layer.dataset.hub === order[i]));
   };
 
-  art.querySelectorAll('[data-hub]').forEach((c) => {
-    c.addEventListener('click', () => pick(c.dataset.hub));
-    c.addEventListener('focus', () => { if (c.matches(':focus-visible')) pick(c.dataset.hub); });
-  });
+  // The timer, for when the scroll is not driving.
+  const tick = () => {
+    clearInterval(timer);
+    if (open && visible && !sticky.matches && !reducedMotion.matches) {
+      timer = setInterval(() => show((active + 1) % steps.length), STEP);
+    }
+  };
 
-  document.addEventListener('visibilitychange', run);
-  // The box waits, shut, until the section is on screen, then starts its cycle
-  // from the beginning — so nobody arrives to find it already done.
-  let seen = false;
+  // Where the scroll is through the track, as a step.
+  const fromScroll = () => {
+    if (!sticky.matches) return;
+    const range = track.offsetHeight - panel.offsetHeight;
+    const top = parseFloat(getComputedStyle(panel).top) || 0;
+    const p = range > 0 ? (top - track.getBoundingClientRect().top) / range : 0;
+    const i = Math.min(steps.length - 1, Math.max(0, Math.floor(p * steps.length)));
+    if (i !== active) show(i);
+  };
+  let queued = false;
+  addEventListener('scroll', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; fromScroll(); });
+  }, { passive: true });
+
+  const pick = (i) => {
+    if (sticky.matches) {
+      const range = track.offsetHeight - panel.offsetHeight;
+      const top = parseFloat(getComputedStyle(panel).top) || 0;
+      const y = track.getBoundingClientRect().top + scrollY - top + ((i + 0.5) / steps.length) * range;
+      scrollTo({ top: y, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    } else {
+      show(i);
+      tick();
+    }
+  };
+  steps.forEach((step, i) => step.querySelector('button').addEventListener('click', () => pick(i)));
+  layers.forEach((layer) => layer.addEventListener('click', () => pick(order.indexOf(layer.dataset.hub))));
+
+  // Every piece of the box runs the same 20s CSS cycle, shut until 8% and open
+  // by 28%. It is held shut until it is seen, run from just before it starts
+  // to open, and once open it is handed to the static open state for good.
+  const D = 20000, SHUT_UNTIL = 1600, OPEN = 5600;
+  const opened = () => {
+    open = true;
+    art.dataset.view = 'open';
+    how.classList.add('is-open');
+    show(active);
+    tick();
+  };
   const start = () => {
     if (seen) return;
     seen = true;
-    take();
-    seek(0);
+    const anims = scene.getAnimations({ subtree: true }).filter((a) => a.effect && a.effect.getTiming().duration === D);
+    if (reducedMotion.matches || !anims.length) { opened(); return; }
+    anims.forEach((a) => { a.currentTime = SHUT_UNTIL - 400; });
     art.classList.add('is-live');
+    const wait = () => {
+      if (anims[0].currentTime >= OPEN) opened(); else requestAnimationFrame(wait);
+    };
+    requestAnimationFrame(wait);
   };
+
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
       if (e.intersectionRatio >= 0.35) start();
-      run();
+      tick();
     }, { threshold: [0, 0.35] }).observe(art);
-  } else start();
-  const motion = () => {
-    if (reducedMotion.matches) { art.dataset.view = 'open'; cap.textContent = 'Four connected layers. Select a hub to explore.'; }
-    else art.dataset.view = 'auto';
-  };
-  reducedMotion.addEventListener('change', motion);
-  motion();
+  } else { visible = true; start(); }
+  sticky.addEventListener('change', () => { fromScroll(); tick(); });
+  fromScroll();
 }
 
 /* ---------------------------------------------------------------- tabs */

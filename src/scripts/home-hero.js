@@ -25,6 +25,55 @@ if (stage && box && source) {
   let swapping = false;
 
   const setText = (id, value) => { $(id).textContent = value; };
+
+  // The headline's last word rolls over with the stage: the old word's letters
+  // drop out of sight one after another while the new one's drop in from
+  // above, and the word's width eases between the two so the full stop
+  // follows. The letters are clipped by the word (`.sh-rot` in the CSS).
+  const word = $('sh-word');
+  const STAGGER = 45;
+  const ROLL = 560;
+  const EASE = 'cubic-bezier(.65, 0, .35, 1)';
+  const split = text => {
+    const span = document.createElement('span');
+    for (const ch of text) {
+      const letter = document.createElement('span');
+      letter.className = 'sh-ch';
+      letter.textContent = ch === ' ' ? '\u00a0' : ch;
+      span.append(letter);
+    }
+    return span;
+  };
+  const roll = text => {
+    let out = word.lastElementChild;
+    // A roll still running is finished at once rather than stacked on.
+    for (const el of [...word.children]) if (el !== out) el.remove();
+    word.getAnimations({ subtree: true }).forEach(a => a.finish());
+    out.classList.remove('sh-in');
+    if (out.textContent.replace(/\u00a0/g, ' ') === text) return;
+    if (reduce) { word.replaceChildren(split(text)); return; }
+    if (!out.querySelector('.sh-ch')) { const s = split(out.textContent); out.replaceWith(s); out = s; }
+
+    const inc = split(text);
+    inc.className = 'sh-in';
+    word.append(inc);
+    const from = out.getBoundingClientRect().width;
+    const to = inc.getBoundingClientRect().width;
+    const outs = [...out.children];
+    const ins = [...inc.children];
+    const total = ROLL + STAGGER * Math.max(outs.length, ins.length);
+    const size = word.animate([{ width: `${from}px` }, { width: `${to}px` }], { duration: total, easing: EASE, fill: 'forwards' });
+    outs.forEach((el, k) => el.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(110%)' }],
+      { duration: ROLL, delay: k * STAGGER, easing: EASE, fill: 'forwards' }));
+    const done = ins.map((el, k) => el.animate([{ transform: 'translateY(-110%)' }, { transform: 'translateY(0)' }],
+      { duration: ROLL, delay: k * STAGGER, easing: EASE, fill: 'backwards' }).finished);
+    Promise.all(done).then(() => {
+      if (!inc.isConnected) return;
+      out.remove();
+      inc.classList.remove('sh-in');
+      size.finished.then(() => size.cancel(), () => {});
+    }, () => {});
+  };
   const svgEl = (tag, attrs) => {
     const el = document.createElementNS(SVGNS, tag);
     for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
@@ -77,7 +126,7 @@ if (stage && box && source) {
   };
 
   // Preload the other logos so a swap never waits on the network — unless the
-  // stage is hidden, as it is on phones.
+  // stage is hidden.
   const preload = () => {
     if (box.offsetParent) CUSTOMERS.slice(1).forEach(c => { new Image().src = c.logo; });
   };
@@ -88,6 +137,7 @@ if (stage && box && source) {
     if (swapping) return;
     current = i;
     started = performance.now();
+    if (word) roll(CUSTOMERS[i].word);
     if (reduce) render(i);
     else {
       swapping = true;
@@ -108,8 +158,8 @@ if (stage && box && source) {
     if (document.hidden) hiddenAt = performance.now();
     else started += performance.now() - hiddenAt;
   });
-  // The loop only runs while the stage is on screen; on phones, where it is
-  // hidden, it never starts. Coming back resumes the current customer's time.
+  // The loop only runs while the stage is on screen; scrolled away, it holds.
+  // Coming back resumes the current customer's time.
   let visible = false;
   let leftAt = 0;
   const frame = now => {

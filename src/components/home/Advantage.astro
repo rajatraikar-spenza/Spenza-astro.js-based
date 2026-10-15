@@ -1,12 +1,14 @@
 ---
 /**
- * The Spenza advantage: the "MVNO in a Box" animation, which used to be the
- * hero's artwork — a box that opens into the four hub layers and closes again.
- * Clicking a layer lifts it once the box is fully open, then the loop carries
- * on. Behaviour in src/scripts/home.js; layout in styles/home-hero.css and
- * styles/home-sections.css.
+ * The Spenza advantage, laid out like a "how it works" walkthrough: four
+ * numbered hubs beside the "MVNO in a Box" artwork. On a wide screen the panel
+ * holds still while the page scrolls past it, and the scroll walks the steps —
+ * the box opens once, then each step lifts its own layer out of the stack.
+ * Narrower screens step through on a timer instead, and phones get the steps
+ * alone, without the artwork.
  *
- * It sits below the fold now, so the layers load lazily.
+ * Behaviour in src/scripts/home.js; layout in styles/home-sections.css.
+ * It sits below the fold, so the layers load lazily.
  */
 import agent from '../../assets/home/agent.svg?url';
 import boxLeft from '../../assets/home/box-left.svg?url';
@@ -16,44 +18,77 @@ import control from '../../assets/home/control.svg?url';
 import telecom from '../../assets/home/telecom.svg?url';
 import ux from '../../assets/home/ux.svg?url';
 
-/** Back to front: each layer is stacked over the one after it. */
-const layers = [
-  { id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', label: 'Explore AgentHub: AI voice and intelligence' },
-  { id: 'telecom', src: telecom, n: '03', tag: 'NETWORK', label: 'Explore TelecomHub: multi-operator connectivity' },
-  { id: 'control', src: control, n: '02', tag: 'CONTROL', label: 'Explore ControlHub: operations and cost control' },
-  { id: 'ux', src: ux, n: '01', tag: 'BRAND', label: 'Explore UXHub: your brand and billing' },
+/** Front to back: the order of the steps, and of the layers out of the box. */
+const hubs = [
+  {
+    id: 'ux', src: ux, n: '01', tag: 'BRAND', name: 'UXHub',
+    title: 'Your brand in your customers’ hands',
+    text: 'A branded portal and app for plans, checkout, billing and support, so subscribers serve themselves and spend more.',
+  },
+  {
+    id: 'control', src: control, n: '02', tag: 'CONTROL', name: 'ControlHub',
+    title: 'Your plans, your prices',
+    text: 'Turn wholesale operator plans into your own products, with parent-child billing for every reseller and real-time plan optimisation.',
+  },
+  {
+    id: 'telecom', src: telecom, n: '03', tag: 'NETWORK', name: 'TelecomHub',
+    title: 'One API to 180+ carriers',
+    text: 'Operator access, provisioning and connectivity management in one integration, so you launch new markets in days.',
+  },
+  {
+    id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', name: 'AgentHub',
+    title: 'Real phone numbers for AI voice',
+    text: 'Give your AI agents real numbers and live calls, on the same stack and the same invoice as everything else.',
+  },
 ];
+/** Back to front: each layer is stacked over the one after it. */
+const layers = [...hubs].reverse();
 ---
 
-<section class="hm-hero hm-hero--platform" aria-labelledby="platform-title">
-  <div class="hm-spot" aria-hidden="true"></div>
-  <div class="hm-wrap hm-hero-inner">
-    <div class="hm-hero-grid hm-stack">
-      <div class="hm-hero-copy">
+<section class="hm-hero--platform hm-how" aria-labelledby="platform-title">
+  <div class="hm-how__track">
+    <div class="hm-how__panel">
+      <svg class="hm-how__grid" viewBox="0 0 800 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <path d="M-40 520 L560 174 M60 700 L840 250 M260 760 L880 402 M-80 300 L360 46 M120 -40 L880 398 M-60 120 L780 605 M-120 330 L620 757 M380 -60 L900 240" />
+      </svg>
+
+      <div class="hm-how__copy">
         <div class="hm-eyebrow">THE SPENZA ADVANTAGE</div>
-        <h2 id="platform-title" class="hm-h2">The Telecom Foundation Behind Your Business.</h2>
-        <p class="hm-hero-lede">Build on pre-integrated telecom infrastructure instead of piecing together carriers, provisioning, billing, and customer management tools yourself.</p>
+        <h2 id="platform-title" class="hm-h2 hm-how__title">The Telecom Foundation Behind Your Business.</h2>
+        <p class="hm-how__lede">Pre-integrated telecom infrastructure, instead of piecing together carriers, provisioning, billing and customer tools yourself.</p>
+
+        <ol class="hm-how__steps">
+          {hubs.map((hub, i) => (
+            <li class="hm-how__step" data-hub={hub.id} aria-current={i === 0 ? 'step' : undefined}>
+              <button class="hm-how__btn" type="button" data-hub={hub.id}>
+                <span class="hm-how__num" aria-hidden="true">{i + 1}</span>
+                <span class="hm-how__name"><b>{hub.name}</b> {hub.title}</span>
+              </button>
+              <p class="hm-how__text">{hub.text}</p>
+            </li>
+          ))}
+        </ol>
+
+        <div class="hm-how__links">
+          <a class="hm-how__link hm-how__link--acc get-started" href="#demo">Book a demo</a>
+          <a class="hm-how__link" href="https://docs.spenza.com/">Read the API docs <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
 
-      <div class="hm-hero-art" data-view="auto" aria-label="Interactive MVNO in a Box platform diagram">
+      <div class="hm-hero-art" data-view="auto" aria-hidden="true">
         <div class="hm-scene-wrap">
           <div class="hm-scene">
-            <div class="hm-box-shadow" aria-hidden="true"></div>
-            <div class="hm-box-piece hm-box-left" aria-hidden="true"><img src={boxLeft} alt="" width="123" height="212" /></div>
+            <div class="hm-box-shadow"></div>
+            <div class="hm-box-piece hm-box-left"><img src={boxLeft} alt="" width="123" height="212" loading="lazy" decoding="async" /></div>
             {layers.map(layer => (
-              <button class="hm-hub-layer" type="button" data-hub={layer.id} aria-label={layer.label} aria-pressed="false">
+              <div class="hm-hub-layer" data-hub={layer.id}>
                 <img src={layer.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
                 <span class="hm-layer-tag"><b>{layer.n}</b> {layer.tag}</span>
-              </button>
+              </div>
             ))}
-            <div class="hm-box-piece hm-box-right" aria-hidden="true"><img src={boxRight} alt="" width="119" height="209" /></div>
-            <div class="hm-box-piece hm-box-top" aria-hidden="true"><img src={boxTop} alt="" width="240" height="139" /></div>
-            <img class="hm-box-brand" src="/spenza-logo-vector.svg" alt="" aria-hidden="true" width="1264" height="428" loading="lazy" decoding="async" />
-          </div>
-        </div>
-        <div class="hm-art-footer">
-          <div class="hm-art-caption">
-            <p id="hero-caption" aria-live="polite">One connected stack. From network to customer.</p>
+            <div class="hm-box-piece hm-box-right"><img src={boxRight} alt="" width="119" height="209" loading="lazy" decoding="async" /></div>
+            <div class="hm-box-piece hm-box-top"><img src={boxTop} alt="" width="240" height="139" loading="lazy" decoding="async" /></div>
+            <img class="hm-box-brand" src="/spenza-logo-vector.svg" alt="" width="1264" height="428" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
