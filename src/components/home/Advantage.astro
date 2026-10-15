@@ -1,25 +1,21 @@
 ---
 /**
- * The Spenza advantage, laid out like a "how it works" walkthrough: four
- * numbered hubs beside the "MVNO in a Box" artwork. On a wide screen the panel
- * holds still while the page scrolls past it, and the scroll walks the steps —
- * the box opens once, then each step draws its own layer forward out of the
- * stack, the cards before it packing back, as on livekit.com.
- * Narrower screens step through on a timer instead, and phones get the steps
- * alone, without the artwork.
+ * The Spenza advantage, built like the "How it works" panel on livekit.com:
+ * four numbered hubs beside an isometric stack of the hub cards. On a wide
+ * screen the panel holds still while the page scrolls past it, and the scroll
+ * walks the steps — the cards before the current one pack back, it slides out
+ * with room either side, lights up, and trails outline frames back into the
+ * stack. Narrower screens step through on a timer; phones get the steps alone.
  *
  * Behaviour in src/scripts/home.js; layout in styles/home-sections.css.
- * It sits below the fold, so the layers load lazily.
+ * It sits below the fold, so the cards load lazily.
  */
 import agent from '../../assets/home/agent.svg?url';
-import boxLeft from '../../assets/home/box-left.svg?url';
-import boxRight from '../../assets/home/box-right.svg?url';
-import boxTop from '../../assets/home/box-top.svg?url';
 import control from '../../assets/home/control.svg?url';
 import telecom from '../../assets/home/telecom.svg?url';
 import ux from '../../assets/home/ux.svg?url';
 
-/** Front to back: the order of the steps, and of the layers out of the box. */
+/** Front to back: the order of the steps, and of the cards in the stack. */
 const hubs = [
   {
     id: 'ux', src: ux, n: '01', tag: 'BRAND', name: 'UXHub',
@@ -42,24 +38,9 @@ const hubs = [
     text: 'Give your AI agents real numbers and live calls, on the same stack and the same invoice as everything else.',
   },
 ];
-/** Back to front: each layer is stacked over the one after it. */
-const layers = [...hubs].reverse();
-
-/*
- * The current layer is drawn as a slab, as on livekit.com: ghost frames
- * stacked behind it and two translucent faces joining its edge to the last of
- * them. In the layer artwork's own 113x195 units: the card's corners, and the
- * step back into the stack (the direction the fan opens in).
- */
-const [A, B, C, D] = [[0.9, 1.5], [113, 66.2], [113, 195], [0.9, 130.3]];
-const DEPTH = [9, -5.4];
-const back = ([x, y]: number[]) => [x + 3 * DEPTH[0], y + 3 * DEPTH[1]];
-const pt = (p: number[]) => p.map(n => +n.toFixed(2)).join(' ');
-const card = 'M106.2 62.3 L7.6 5.4 C3.9 3.3 0.9 5 0.9 9.3 L0.9 122.5 C0.9 126.8 3.9 132 7.6 134.2 L106.2 191.1 C110 193.2 113 191.5 113 187.2 L113 74 C113 69.7 110 64.5 106.2 62.3Z';
-const faces = `M${pt(A)} L${pt(B)} L${pt(back(B))} L${pt(back(A))}Z M${pt(B)} L${pt(C)} L${pt(back(C))} L${pt(back(B))}Z`;
 ---
 
-<section class="hm-hero--platform hm-how" aria-labelledby="platform-title">
+<section class="hm-how" aria-labelledby="platform-title">
   <div class="hm-how__track">
     <div class="hm-how__panel">
       <svg class="hm-how__grid" viewBox="0 0 800 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
@@ -75,7 +56,7 @@ const faces = `M${pt(A)} L${pt(B)} L${pt(back(B))} L${pt(back(A))}Z M${pt(B)} L$
           {hubs.map((hub, i) => (
             <li class="hm-how__step" data-hub={hub.id} aria-current={i === 0 ? 'step' : undefined}>
               <button class="hm-how__btn" type="button" data-hub={hub.id}>
-                <span class="hm-how__num" aria-hidden="true">{i + 1}</span>
+                <span class="hm-how__num" aria-hidden="true">{i + 1}<svg viewBox="0 0 32 32" focusable="false"><circle cx="16" cy="16" r="15" pathLength="1" /></svg></span>
                 <span class="hm-how__name"><b>{hub.name}</b> {hub.title}</span>
               </button>
               <p class="hm-how__text">{hub.text}</p>
@@ -89,26 +70,19 @@ const faces = `M${pt(A)} L${pt(B)} L${pt(back(B))} L${pt(back(A))}Z M${pt(B)} L$
         </div>
       </div>
 
-      <div class="hm-hero-art" data-view="auto" aria-hidden="true">
-        <div class="hm-scene-wrap">
-          <div class="hm-scene">
-            <div class="hm-box-shadow"></div>
-            <div class="hm-box-piece hm-box-left"><img src={boxLeft} alt="" width="123" height="212" loading="lazy" decoding="async" /></div>
-            {layers.map(layer => (
-              <div class="hm-hub-layer" data-hub={layer.id}>
-                <svg class="hm-layer-depth" viewBox="0 0 113 195" aria-hidden="true" focusable="false">
-                  <path class="hm-layer-face" d={faces} />
-                  {[3, 2, 1].map(k => <path class="hm-layer-ghost" style={`--k:${k}`} d={card} transform={`translate(${k * DEPTH[0]} ${k * DEPTH[1]})`} />)}
-                </svg>
-                <img src={layer.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
-                <svg class="hm-layer-edge" viewBox="0 0 113 195" aria-hidden="true" focusable="false"><path d={card} /></svg>
-                <span class="hm-layer-tag"><b>{layer.n}</b> {layer.tag}</span>
-              </div>
-            ))}
-            <div class="hm-box-piece hm-box-right"><img src={boxRight} alt="" width="119" height="209" loading="lazy" decoding="async" /></div>
-            <div class="hm-box-piece hm-box-top"><img src={boxTop} alt="" width="240" height="139" loading="lazy" decoding="async" /></div>
-            <img class="hm-box-brand" src="/spenza-logo-vector.svg" alt="" width="1264" height="428" loading="lazy" decoding="async" />
-          </div>
+      <div class="hm-how__art" aria-hidden="true">
+        <div class="hm-iso">
+          {hubs.map((hub, i) => (
+            <div class="hm-iso-card" data-hub={hub.id} style={`--i:${i}`}>
+              <span class="hm-iso-guide hm-iso-guide--b"></span>
+              <span class="hm-iso-guide hm-iso-guide--r"></span>
+              <span class="hm-iso-face hm-iso-face--top"></span>
+              <span class="hm-iso-face hm-iso-face--side"></span>
+              {[0, 1, 2, 3, 4].map(k => <span class="hm-iso-trail" style={`--k:${k}`}></span>)}
+              <img src={hub.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
+              <span class="hm-iso-tag" data-text={`${hub.n} ${hub.tag}`}>{hub.n} {hub.tag}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

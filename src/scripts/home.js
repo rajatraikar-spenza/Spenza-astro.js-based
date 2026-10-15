@@ -6,7 +6,7 @@ import './home-hero.js';
  *   - sections fade up as they scroll into view
  *   - the hero's cursor spotlight
  *   - the hero's customer stage (scripts/home-hero.js)
- *   - the Spenza advantage walkthrough and its "MVNO in a Box" animation
+ *   - the Spenza advantage walkthrough and its isometric card stack
  *   - the platform hub tabs
  *   - the Alternatives board and the Customer proof carousel
  *
@@ -51,87 +51,106 @@ if (page) {
   hero?.addEventListener('pointerleave', () => hero.style.setProperty('--so', '0'));
 }
 
-/* ------------------------------------------------------- advantage box */
+/* ------------------------------------------------------- advantage stack */
 
-// The Spenza advantage walkthrough (Advantage.astro). The box opens once, when
-// the section comes into view, and stays open; then one hub at a time is the
-// current step, its layer drawn forward as a slab and the others dimmed.
+// The Spenza advantage walkthrough (Advantage.astro), after the "How it works"
+// panel on livekit.com: one hub at a time is the current step, and its card
+// slides out of the isometric stack with room either side and lights up.
 //
 // From 1024px the panel is sticky in a tall track and the scroll picks the
-// step: a quarter of the track each. Below that there is no track, and the
-// steps advance on a timer while the box is on screen. A click on a step or a
-// layer picks it — by scrolling to its quarter, where the scroll is in charge.
+// step, a quarter of the track each, filling the rail and the number's ring
+// as it goes. Below that there is no track, and the steps advance on a timer
+// while the stack is on screen. A click on a step or a card picks it — by
+// scrolling to its quarter, where the scroll is in charge.
 const how = document.querySelector('.hm-how');
 
 if (how) {
-  const art = how.querySelector('.hm-hero-art');
-  const wrap = art.querySelector('.hm-scene-wrap');
-  const scene = art.querySelector('.hm-scene');
+  const art = how.querySelector('.hm-how__art');
+  const iso = art.querySelector('.hm-iso');
   const track = how.querySelector('.hm-how__track');
   const panel = how.querySelector('.hm-how__panel');
   const steps = [...how.querySelectorAll('.hm-how__step')];
-  const layers = [...art.querySelectorAll('.hm-hub-layer')];
-  const order = steps.map((step) => step.dataset.hub);
+  const cards = [...iso.querySelectorAll('.hm-iso-card')];
   const sticky = window.matchMedia('(min-width: 1024px)');
   const STEP = 4000;
 
-  const fit = () => scene.style.setProperty('--scene-scale', String(wrap.clientWidth / 580));
+  // The stage is drawn at 864x580 and scaled to fit its column, measured by
+  // the 700x520 the stack itself takes up in the middle of it.
+  const fit = () => {
+    const s = Math.min(art.clientWidth / 700, art.clientHeight / 520) || 1;
+    iso.style.setProperty('--iso-scale', s.toFixed(4));
+  };
   fit();
-  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(wrap); else addEventListener('resize', fit);
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(art); else addEventListener('resize', fit);
 
-  let active = 0, open = false, seen = false, visible = false, timer = 0;
-
-  /* Where each layer sits once the box is open, as on livekit.com: all four on
-     the line the fan opens along (140px across for every 84 up, in the
-     scene's 580px units), the current one with room either side and the rest
-     packed close, the group centred where the fan was. `HOME` is each layer's
-     top-left in the closed box, `MID` the middle of the open fan. */
-  const HOME = { ux: [166.25, 186.25], control: [198.75, 172.5], telecom: [226.25, 148.75], agent: [250, 141.25] };
-  const MID = [219.5, 139.5], RISE = -0.6, NEAR = 58, FAR = 150;
-  const place = (a) => {
-    const at = [0];
-    for (let k = 1; k < order.length; k++) at.push(at[k - 1] + (k === a || k - 1 === a ? FAR : NEAR));
-    const shift = at[at.length - 1] / 2;
-    order.forEach((hub, k) => {
-      const layer = layers.find((l) => l.dataset.hub === hub);
-      const along = at[k] - shift;
-      layer.style.setProperty('--dx', `${(MID[0] + along - HOME[hub][0]).toFixed(2)}px`);
-      layer.style.setProperty('--dy', `${(MID[1] + along * RISE - HOME[hub][1]).toFixed(2)}px`);
-      layer.style.setProperty('--i', String(Math.abs(k - a)));
-    });
+  /* Where the cards sit along the stack's line, in the stage's pixels, as on
+     livekit.com: the ones before the current card packed 50px apart, 140px
+     clear either side of it, the ones after 50px apart again. CENTRE shifts
+     the whole run so it sits in the middle of the stage. */
+  const PACK = 50, CLEAR = 140, START = -90, CENTRE = -75;
+  const spots = (a) => {
+    const x = [];
+    for (let k = 0; k < cards.length; k++) {
+      if (k < a) x.push(START + PACK * k);
+      else if (k === a) x.push(a === 0 ? 0 : x[k - 1] + CLEAR);
+      else x.push(x[k - 1] + (k === a + 1 ? CLEAR : PACK));
+    }
+    return x.map((v) => v + CENTRE);
   };
 
+  // The label of a card coming into the light resolves out of random letters.
+  const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const scramble = (tag) => {
+    const text = tag.dataset.text;
+    if (reducedMotion.matches) { tag.textContent = text; return; }
+    const started = performance.now();
+    const frame = (now) => {
+      const done = Math.floor((now - started) / 28);
+      tag.textContent = [...text].map((ch, k) => (ch === ' ' || k < done ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0])).join('');
+      if (done < text.length && tag.isConnected) requestAnimationFrame(frame); else tag.textContent = text;
+    };
+    requestAnimationFrame(frame);
+  };
+
+  let active = -1, visible = false, timer = 0;
+
   const show = (i) => {
-    const moved = i !== active;
+    const before = active;
     active = i;
     steps.forEach((step, k) => {
       if (k === i) step.setAttribute('aria-current', 'step'); else step.removeAttribute('aria-current');
       step.classList.toggle('is-done', k < i);
       if (k !== i) step.style.removeProperty('--fill');
     });
-    // The layers only move once the box is fully open.
-    if (!open) return;
-    layers.forEach((layer) => layer.classList.toggle('hm-active', layer.dataset.hub === order[i]));
-    place(i);
-    // On the timer, the current step's rail fills over its four seconds.
-    if (how.classList.contains('is-timed') && (moved || !steps[i].style.getPropertyValue('--fill'))) {
+    if (i === before) return;
+    // The cards move one after another, from the end the move starts at.
+    const forward = i > before;
+    const x = spots(i);
+    cards.forEach((card, k) => {
+      card.style.setProperty('--x', String(x[k]));
+      card.style.setProperty('--delay', `${(forward ? k : cards.length - 1 - k) * 50}ms`);
+      card.classList.toggle('is-lit', k === i);
+    });
+    scramble(cards[i].querySelector('.hm-iso-tag'));
+    // On the timer, the current step's rail and ring fill over its four seconds.
+    if (how.classList.contains('is-timed')) {
       steps[i].style.setProperty('--fill', '0');
       requestAnimationFrame(() => requestAnimationFrame(() => steps[i].style.setProperty('--fill', '1')));
     }
   };
 
-  // The timer, for when the scroll is not driving.
   const tick = () => {
     clearInterval(timer);
-    const timed = open && visible && !sticky.matches && !reducedMotion.matches;
+    const timed = visible && !sticky.matches && !reducedMotion.matches;
     how.classList.toggle('is-timed', timed);
     if (timed) {
-      show(active);
+      steps[active].style.setProperty('--fill', '0');
+      requestAnimationFrame(() => requestAnimationFrame(() => steps[active].style.setProperty('--fill', '1')));
       timer = setInterval(() => show((active + 1) % steps.length), STEP);
     }
   };
 
-  // Where the scroll is through the track, as a step.
+  // Where the scroll is through the track, as a step and a fraction of it.
   const fromScroll = () => {
     if (!sticky.matches) return;
     const range = track.offsetHeight - panel.offsetHeight;
@@ -140,7 +159,6 @@ if (how) {
     const at = Math.min(steps.length - 1e-6, Math.max(0, p * steps.length));
     const i = Math.floor(at);
     if (i !== active) show(i);
-    // The rail under the current step fills as the scroll moves through it.
     steps[i].style.setProperty('--fill', (at - i).toFixed(3));
   };
   let queued = false;
@@ -162,39 +180,16 @@ if (how) {
     }
   };
   steps.forEach((step, i) => step.querySelector('button').addEventListener('click', () => pick(i)));
-  layers.forEach((layer) => layer.addEventListener('click', () => pick(order.indexOf(layer.dataset.hub))));
+  cards.forEach((card, i) => card.addEventListener('click', () => pick(i)));
 
-  // Every piece of the box runs the same 20s CSS cycle, shut until 8% and open
-  // by 28%. It is held shut until it is seen, run from just before it starts
-  // to open, and once open it is handed to the static open state for good.
-  const D = 20000, SHUT_UNTIL = 1600, OPEN = 5600;
-  const opened = () => {
-    open = true;
-    art.dataset.view = 'open';
-    how.classList.add('is-open');
-    show(active);
-    tick();
-  };
-  const start = () => {
-    if (seen) return;
-    seen = true;
-    const anims = scene.getAnimations({ subtree: true }).filter((a) => a.effect && a.effect.getTiming().duration === D);
-    if (reducedMotion.matches || !anims.length) { opened(); return; }
-    anims.forEach((a) => { a.currentTime = SHUT_UNTIL - 400; });
-    art.classList.add('is-live');
-    const wait = () => {
-      if (anims[0].currentTime >= OPEN) opened(); else requestAnimationFrame(wait);
-    };
-    requestAnimationFrame(wait);
-  };
-
+  show(0);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
-      if (e.intersectionRatio >= 0.35) start();
+      if (visible) art.classList.add('is-in');
       tick();
-    }, { threshold: [0, 0.35] }).observe(art);
-  } else { visible = true; start(); }
+    }, { threshold: 0.2 }).observe(art);
+  } else { visible = true; art.classList.add('is-in'); }
   sticky.addEventListener('change', () => { fromScroll(); tick(); });
   fromScroll();
 }
