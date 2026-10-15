@@ -138,26 +138,17 @@
 .hm .hm-hero--platform .hm-art-caption{justify-content:center;padding-left:0;margin-top:8px;min-height:0}
 .hm .hm-hero--platform .hm-art-caption p{text-align:center;max-width:none}
 
-/* Phones: scaled to a phone's width the 660px stage set its type at 6-7px.
-   Below 600px it lays out at its real size instead — tabs, customer card, map
-   and caption stacked at full width — and the customer-app mock-up, which only
-   restates the card, is left out. `!important` beats the inline scale the
-   script sets for wider screens. */
-@media (max-width:600px){
-.sh .sh-stage-box{height:auto!important}
-.sh .sh-stage{position:relative; width:auto; height:auto; transform:none!important}
-.sh .sh-content{position:static; width:auto; gap:16px}
-.sh .sh-tabs{flex-wrap:wrap; height:auto; row-gap:8px}
-.sh .sh-tabs-label{flex-basis:100%}
-.sh .sh-tab{font-size:13px; padding:8px 14px}
-.sh .sh-card{padding:14px 16px}
-.sh .sh-logo-card{max-width:150px}
-.sh .sh-kpis{gap:16px}
-.sh .sh-map{width:100%; height:auto; aspect-ratio:580/216}
-.sh .sh-map svg{width:100%; height:100%}
-.sh .sh-pinlabel{font-size:10px; padding:2px 7px}
-.sh .sh-caption{max-width:none; line-height:1.5}
-.sh .sh-phone{display:none}
+/* Phones and small tablets, as spenza.com: the customer stage is left out and
+   the copy is centred — eyebrow, headline, lede, buttons and the numbers. */
+@media (max-width:767px){
+.sh .sh-stage-box{display:none}
+.sh .sh-hero-grid{padding-block:40px 56px; gap:0; text-align:center}
+.sh .sh-eyebrow{justify-content:center; font-size:11px; letter-spacing:.04em; line-height:1.6}
+.sh .sh-eyebrow::before{display:none}
+.sh h1{margin:16px 0 20px; font-size:clamp(38px, 11vw, 46px)}
+.sh .sh-lede{margin:0 auto 28px; font-size:17px}
+.sh .sh-ctas{justify-content:center}
+.sh .sh-stats{display:flex; flex-wrap:wrap; justify-content:center; gap:2px 18px; margin-top:36px}
 }
 
 /* The Spenza advantage box shows on phones too; the layer tags are too small
@@ -165,9 +156,6 @@
 @media (width<=767px){
 .hm .hm-hero.hm-hero--platform .hm-hero-art{display:flex; width:100%}
 .hm .hm-hero--platform .hm-layer-tag{display:none}
-}
-@media (max-width:420px){
-.sh .sh-stats{grid-template-columns:minmax(0,1fr)}
 }
 
 /* Below the fold, so it can skip rendering until it is near the viewport. */

@@ -76,8 +76,11 @@ if (stage && box && source) {
     tabs.forEach((tab, k) => tab.setAttribute('aria-pressed', String(k === i)));
   };
 
-  // Preload the other logos so a swap never waits on the network.
-  const preload = () => CUSTOMERS.slice(1).forEach(c => { new Image().src = c.logo; });
+  // Preload the other logos so a swap never waits on the network — unless the
+  // stage is hidden, as it is on phones.
+  const preload = () => {
+    if (box.offsetParent) CUSTOMERS.slice(1).forEach(c => { new Image().src = c.logo; });
+  };
   if ('requestIdleCallback' in window) requestIdleCallback(preload);
   else setTimeout(preload, 2000);
 
@@ -105,21 +108,32 @@ if (stage && box && source) {
     if (document.hidden) hiddenAt = performance.now();
     else started += performance.now() - hiddenAt;
   });
-  let visible = true;
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(box);
-  }
+  // The loop only runs while the stage is on screen; on phones, where it is
+  // hidden, it never starts. Coming back resumes the current customer's time.
+  let visible = false;
+  let leftAt = 0;
   const frame = now => {
+    if (!visible) return;
     const elapsed = now - started;
     if (elapsed >= DURATION) go((current + 1) % CUSTOMERS.length, false);
-    else if (visible) {
+    else {
       // A transform, not a width: it never touches layout.
       const fill = Math.min(elapsed / DURATION, 1);
       bars.forEach((bar, k) => { bar.style.transform = `scaleX(${k === current ? fill : 0})`; });
     }
     requestAnimationFrame(frame);
   };
-  requestAnimationFrame(frame);
+  const watch = on => {
+    if (on === visible) return;
+    visible = on;
+    if (on) {
+      if (leftAt) started += performance.now() - leftAt;
+      requestAnimationFrame(frame);
+    } else leftAt = performance.now();
+  };
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => watch(entry.isIntersecting)).observe(box);
+  } else watch(true);
 
   tabs.forEach(tab => tab.addEventListener('click', () => go(Number(tab.dataset.i), true)));
 

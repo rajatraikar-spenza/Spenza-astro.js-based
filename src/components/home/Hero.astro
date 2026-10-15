@@ -56,7 +56,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
           <div class="sh-card">
             <div class="sh-who sh-swap">
               <div class="sh-who-text">
-                <img class="sh-logo-card" id="sh-logo" src={c.logo} alt={c.name} height={c.logoH[0]} width={Math.round(c.logoH[0] * c.logoRatio)} style={`height:${c.logoH[0]}px`} />
+                <img class="sh-logo-card" id="sh-logo" src={c.logo} alt={c.name} height={c.logoH[0]} width={Math.round(c.logoH[0] * c.logoRatio)} style={`height:${c.logoH[0]}px`} loading="lazy" />
                 <span class="sh-who-sub" id="sh-sub">{c.sub}</span>
               </div>
             </div>
@@ -91,7 +91,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
           <span class="sh-phone-tag">Customer app</span>
           <div class="sh-screen sh-swap">
             <div class="sh-app-head">
-              <img class="sh-logo-app" id="sh-pLogo" src={c.logo} alt="" height={c.logoH[1]} width={Math.round(c.logoH[1] * c.logoRatio)} style={`height:${c.logoH[1]}px`} />
+              <img class="sh-logo-app" id="sh-pLogo" src={c.logo} alt="" height={c.logoH[1]} width={Math.round(c.logoH[1] * c.logoRatio)} style={`height:${c.logoH[1]}px`} loading="lazy" />
               <span class="sh-avatar"></span>
             </div>
             <div class="sh-alert">
