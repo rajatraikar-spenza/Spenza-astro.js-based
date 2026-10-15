@@ -4,8 +4,10 @@
  *
  * Built in Astro from two sources: the words are the "Spenza Home Final" Figma
  * file's, and the layout, styling and motion are the "Spenza Home v4" HTML
- * design's — except the hero artwork, which stays the "MVNO in a Box"
- * animation. Each section is a component in `components/home/`, styled by
+ * design's. The hero is the spenza-home-hero-updated design's customer
+ * stage; the "MVNO in a Box" animation it used to carry is the section after
+ * the logo strip (Advantage). The Alternatives and Customer proof sections are
+ * the Figma "Spenza Homepage / Backup" frame's. Each section is a component in `components/home/`, styled by
  * `styles/home.css` and made interactive by `scripts/home.js`; there is no
  * framework runtime.
  *
@@ -23,6 +25,7 @@
 import WpLayout from '../layouts/WpLayout.astro';
 import Hero from '../components/home/Hero.astro';
 import CustomerStrip from '../components/home/CustomerStrip.astro';
+import Advantage from '../components/home/Advantage.astro';
 import Problem from '../components/home/Problem.astro';
 import Segments from '../components/home/Segments.astro';
 import Platform from '../components/home/Platform.astro';
@@ -34,6 +37,8 @@ import Faq from '../components/home/Faq.astro';
 import FinalCta from '../components/home/FinalCta.astro';
 import { HOME_FAQ } from '../data/home-faq';
 import '../styles/home.css';
+import '../styles/home-hero.css';
+import '../styles/home-sections.css';
 
 const faq = {
   '@context': 'https://schema.org',
@@ -54,6 +59,7 @@ const faq = {
   <div class="hm">
     <Hero />
     <CustomerStrip />
+    <Advantage />
     <Problem />
     <Segments />
     <Platform />

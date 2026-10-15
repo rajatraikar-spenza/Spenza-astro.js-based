@@ -1,0 +1,62 @@
+---
+/**
+ * The Spenza advantage: the "MVNO in a Box" animation, which used to be the
+ * hero's artwork — a box that opens into the four hub layers and closes again.
+ * Clicking a layer lifts it once the box is fully open, then the loop carries
+ * on. Behaviour in src/scripts/home.js; layout in styles/home-hero.css and
+ * styles/home-sections.css.
+ *
+ * It sits below the fold now, so the layers load lazily.
+ */
+import agent from '../../assets/home/agent.svg?url';
+import boxLeft from '../../assets/home/box-left.svg?url';
+import boxRight from '../../assets/home/box-right.svg?url';
+import boxTop from '../../assets/home/box-top.svg?url';
+import control from '../../assets/home/control.svg?url';
+import telecom from '../../assets/home/telecom.svg?url';
+import ux from '../../assets/home/ux.svg?url';
+
+/** Back to front: each layer is stacked over the one after it. */
+const layers = [
+  { id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', label: 'Explore AgentHub: AI voice and intelligence' },
+  { id: 'telecom', src: telecom, n: '03', tag: 'NETWORK', label: 'Explore TelecomHub: multi-operator connectivity' },
+  { id: 'control', src: control, n: '02', tag: 'CONTROL', label: 'Explore ControlHub: operations and cost control' },
+  { id: 'ux', src: ux, n: '01', tag: 'BRAND', label: 'Explore UXHub: your brand and billing' },
+];
+---
+
+<section class="hm-hero hm-hero--platform" aria-labelledby="platform-title">
+  <div class="hm-spot" aria-hidden="true"></div>
+  <div class="hm-wrap hm-hero-inner">
+    <div class="hm-hero-grid hm-stack">
+      <div class="hm-hero-copy">
+        <div class="hm-eyebrow">THE SPENZA ADVANTAGE</div>
+        <h2 id="platform-title" class="hm-h2">The Telecom Foundation Behind Your Business.</h2>
+        <p class="hm-hero-lede">Build on pre-integrated telecom infrastructure instead of piecing together carriers, provisioning, billing, and customer management tools yourself.</p>
+      </div>
+
+      <div class="hm-hero-art" data-view="auto" aria-label="Interactive MVNO in a Box platform diagram">
+        <div class="hm-scene-wrap">
+          <div class="hm-scene">
+            <div class="hm-box-shadow" aria-hidden="true"></div>
+            <div class="hm-box-piece hm-box-left" aria-hidden="true"><img src={boxLeft} alt="" width="123" height="212" /></div>
+            {layers.map(layer => (
+              <button class="hm-hub-layer" type="button" data-hub={layer.id} aria-label={layer.label} aria-pressed="false">
+                <img src={layer.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
+                <span class="hm-layer-tag"><b>{layer.n}</b> {layer.tag}</span>
+              </button>
+            ))}
+            <div class="hm-box-piece hm-box-right" aria-hidden="true"><img src={boxRight} alt="" width="119" height="209" /></div>
+            <div class="hm-box-piece hm-box-top" aria-hidden="true"><img src={boxTop} alt="" width="240" height="139" /></div>
+            <img class="hm-box-brand" src="/spenza-logo-vector.svg" alt="" aria-hidden="true" width="1264" height="428" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="hm-art-footer">
+          <div class="hm-art-caption">
+            <p id="hero-caption" aria-live="polite">One connected stack. From network to customer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
