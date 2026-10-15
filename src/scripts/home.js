@@ -126,7 +126,7 @@ if (art) {
     if (!Object.hasOwn(CAPS, hub)) return;
     picked = hub;
     if (reducedMotion.matches || mode === 'lift') { raise(hub); return; }
-    take();
+    start();
     if (!anims.length) { raise(hub); return; }
     if (mode === 'wait') return;
     const t = now();
@@ -144,9 +144,23 @@ if (art) {
   });
 
   document.addEventListener('visibilitychange', run);
+  // The box waits, shut, until the section is on screen, then starts its cycle
+  // from the beginning — so nobody arrives to find it already done.
+  let seen = false;
+  const start = () => {
+    if (seen) return;
+    seen = true;
+    take();
+    seek(0);
+    art.classList.add('is-live');
+  };
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(([e]) => { visible = e.isIntersecting; run(); }, { threshold: 0 }).observe(art);
-  }
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (e.intersectionRatio >= 0.35) start();
+      run();
+    }, { threshold: [0, 0.35] }).observe(art);
+  } else start();
   const motion = () => {
     if (reducedMotion.matches) { art.dataset.view = 'open'; cap.textContent = 'Four connected layers. Select a hub to explore.'; }
     else art.dataset.view = 'auto';

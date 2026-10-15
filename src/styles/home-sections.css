@@ -468,3 +468,6 @@
 .hm .hm-hero--platform .hm-box-shadow { top:417px;   left:157px; }
 .hm .hm-hero--platform .hm-box-brand  { top:284px;   left:303px; }
 .hm .hm-hero--platform .hm-scene-wrap { margin-top: 24px; }
+
+/* Held at the start of its cycle until scripts/home.js sees it on screen. */
+.hm.js .hm-hero--platform .hm-hero-art:not(.is-live) .hm-scene * { animation-play-state: paused !important; }
