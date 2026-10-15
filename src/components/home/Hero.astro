@@ -1,106 +1,127 @@
 ---
 /**
- * Hero. Copy and layout from the design; the artwork on the right is the
- * "MVNO in a Box" animation this page has had since the last redesign — a box
- * that opens into the four hub layers — kept in place of the design's routing
- * panel. Its behaviour is in src/scripts/home.js.
+ * Hero: the headline beside a "Live on Spenza" stage that cycles through three
+ * customers — where each is live on a world map, and what its own customer
+ * app shows. From the spenza-home-hero-updated design; styles in
+ * styles/home-hero.css, behaviour in scripts/home-hero.js.
+ *
+ * The first customer is rendered here, so the stage is complete before any
+ * script runs; the script only swaps in the next one. The stage is drawn at
+ * 660x630 and scaled to fit; the inline script below scales it before first
+ * paint, so a phone never sees it at full size.
  *
  * "Book a demo" carries `get-started`, which opens the site's Get Started popup;
  * `#demo` is where it goes without JavaScript.
  */
-import agent from '../../assets/home/agent.svg?url';
-import boxLeft from '../../assets/home/box-left.svg?url';
-import boxRight from '../../assets/home/box-right.svg?url';
-import boxTop from '../../assets/home/box-top.svg?url';
-import control from '../../assets/home/control.svg?url';
-import telecom from '../../assets/home/telecom.svg?url';
-import ux from '../../assets/home/ux.svg?url';
+import { HERO_CUSTOMERS, brandStyle, labelStyle } from './hero-customers';
+import { MAP_DOTS } from './hero-map-dots';
 
 const stats = [
   ['88% faster', 'to launch a market'],
   ['180+', 'countries'],
   ['30+', 'operator integrations'],
+  ['4 hubs', 'one API, one invoice'],
 ];
 
-/** Back to front: each layer is stacked over the one after it. */
-const layers = [
-  { id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', label: 'Explore AgentHub: AI voice and intelligence' },
-  { id: 'ux', src: ux, n: '03', tag: 'BRAND', label: 'Explore UXHub: your brand and billing' },
-  { id: 'control', src: control, n: '02', tag: 'CONTROL', label: 'Explore ControlHub: operations and cost control' },
-  { id: 'telecom', src: telecom, n: '01', tag: 'NETWORK', label: 'Explore TelecomHub: multi-operator connectivity' },
-];
-
-/**
- * Phones do not show the box (see `hm-hero-art` in home.css), so they should
- * not download it either. The four hub layers are the only parts big enough to
- * matter (20-42KB each; the faces are inlined), and a `<source>` matching the
- * same breakpoint hands those screens a one-pixel stand-in instead. Wider
- * screens take the `<img>` exactly as before — eager, no lazy-load delay on an
- * above-the-fold animation.
- */
-const MOBILE = '(max-width: 767px)';
-const BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-
-const selectors = [
-  ['telecom', '01', 'TelecomHub'],
-  ['control', '02', 'ControlHub'],
-  ['ux', '03', 'UXHub'],
-  ['agent', '04', 'AgentHub'],
-];
+const c = HERO_CUSTOMERS[0];
+const p = c.phone;
+const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
 ---
 
-<section class="hm-hero" aria-labelledby="hero-title">
-  <div class="hm-spot" aria-hidden="true"></div>
-  <div class="hm-wrap hm-hero-inner">
-    <div class="hm-hero-grid hm-stack">
-      <div class="hm-hero-copy">
-        <div class="hm-eyebrow hm-in">MVNE PLATFORM &middot; eSIM, IoT CONNECTIVITY, BILLING &amp; AI VOICE</div>
-        <h1 id="hero-title" class="hm-in">Turn Mobile Connectivity Into Your <em>Next Product.</em></h1>
-        <p class="hm-hero-lede hm-in">
-          Bring your own network, customize your plans, and own the customer experience. We handle the telecom complexity.
-        </p>
-        <div class="hm-hero-cta hm-in">
-          <a class="hm-btn hm-btn--acc get-started" href="#demo">Book a demo</a>
-          <a class="hm-btn hm-btn--line" href="https://docs.spenza.com/">Read the API docs</a>
-        </div>
-        <dl class="hm-hero-stats hm-in">
-          {stats.map(([value, label]) => (
-            <div><dt>{value}</dt> <dd>{label}</dd></div>
-          ))}
-        </dl>
+<section class="sh sh-hero" aria-labelledby="hero-title">
+  <div class="sh-wrap sh-hero-grid">
+    <div>
+      <div class="sh-eyebrow">MVNE PLATFORM &middot; eSIM, IoT CONNECTIVITY, BILLING &amp; AI VOICE</div>
+      <h1 id="hero-title">Turn Mobile Connectivity Into Your <em>Next Product.</em></h1>
+      <p class="sh-lede">Bring your own network, customize your plans, and own the customer experience. We handle the telecom complexity.</p>
+      <div class="sh-ctas">
+        <a class="sh-btn sh-btn-acc get-started" href="#demo">Book a demo</a>
+        <a class="sh-btn sh-btn-line" href="https://docs.spenza.com/">Read the API docs</a>
       </div>
+      <dl class="sh-stats">
+        {stats.map(([value, label]) => <div><dt>{value}</dt> <dd>{label}</dd></div>)}
+      </dl>
+    </div>
 
-      <div class="hm-hero-art" data-view="auto" aria-label="Interactive MVNO in a Box platform diagram">
-        <div class="hm-scene-wrap">
-          <div class="hm-scene">
-            <div class="hm-box-shadow" aria-hidden="true"></div>
-            <div class="hm-box-piece hm-box-left" aria-hidden="true"><img src={boxLeft} alt="" width="123" height="212" /></div>
-            {layers.map(layer => (
-              <button class="hm-hub-layer" type="button" data-hub={layer.id} aria-label={layer.label} aria-pressed="false">
-                <picture>
-                  <source media={MOBILE} srcset={BLANK} />
-                  <img src={layer.src} alt="" width="113" height="195" />
-                </picture>
-                <span class="hm-layer-tag"><b>{layer.n}</b> {layer.tag}</span>
-              </button>
+    <div class="sh-stage-box" id="sh-stageBox">
+      <div class="sh-stage" id="sh-stage" style={brandStyle(c)}>
+        <div class="sh-content">
+          <div class="sh-tabs" role="group" aria-label="Customers running on Spenza">
+            <span class="sh-tabs-label">Live on Spenza</span>
+            {HERO_CUSTOMERS.map((x, i) => (
+              <button type="button" class="sh-tab" data-i={i} aria-pressed={i === 0 ? 'true' : 'false'}>{x.name}<span class="sh-bar"></span></button>
             ))}
-            <div class="hm-box-piece hm-box-right" aria-hidden="true"><img src={boxRight} alt="" width="119" height="209" /></div>
-            <div class="hm-box-piece hm-box-top" aria-hidden="true"><img src={boxTop} alt="" width="240" height="139" /></div>
-            <img class="hm-box-brand" src="/spenza-logo-vector.svg" alt="" aria-hidden="true" width="1264" height="428" />
+          </div>
 
+          <div class="sh-card">
+            <div class="sh-who sh-swap">
+              <div class="sh-who-text">
+                <img class="sh-logo-card" id="sh-logo" src={c.logo} alt={c.name} height={c.logoH[0]} width={Math.round(c.logoH[0] * c.logoRatio)} style={`height:${c.logoH[0]}px`} />
+                <span class="sh-who-sub" id="sh-sub">{c.sub}</span>
+              </div>
+            </div>
+            <div class="sh-kpis sh-swap">
+              <div class="sh-kpi"><span class="sh-kpi-v" id="sh-kMarkets">{c.markets.length}</span><span class="sh-kpi-l">markets live</span></div>
+              <div class="sh-kpi"><span class="sh-kpi-v" id="sh-kNetworks">{c.networks}</span><span class="sh-kpi-l">networks live</span></div>
+            </div>
+          </div>
+
+          <div class="sh-map" id="sh-map" role="img" aria-label={`World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`}>
+            <svg viewBox="0 0 580 216" aria-hidden="true" focusable="false">
+              <path class="sh-dots" d={MAP_DOTS} />
+              <g id="sh-pins" class="sh-swap">
+                {c.markets.map(m => (
+                  <g class="sh-pin" transform={`translate(${m.x} ${m.y})`}>
+                    <circle class="sh-halo" r="8" /><circle class="sh-ring" r="5" /><circle class="sh-core" r="3.6" />
+                  </g>
+                ))}
+              </g>
+            </svg>
+            <div id="sh-labels" class="sh-swap">
+              {c.markets.map(m => <span class="sh-pinlabel" style={labelStyle(m, c.markets.length)}>{m.name} · live</span>)}
+            </div>
+          </div>
+
+          <div class="sh-caption">
+            <span class="sh-swap" id="sh-capText">{c.caption}</span>
           </div>
         </div>
-        <div class="hm-art-footer">
-          <div class="hm-hub-selectors" role="group" aria-label="Explore the four platform layers">
-            {selectors.map(([id, n, name]) => (
-              <button type="button" data-select-hub={id} aria-pressed="false"><span>{n}</span> {name}</button>
-            ))}
-          </div>
-          <div class="hm-art-caption">
-            <p id="hero-caption" aria-live="polite">One connected stack. From network to customer.</p>
+
+        <div class="sh-phone" aria-hidden="true">
+          <span class="sh-phone-tag">Customer app</span>
+          <div class="sh-screen sh-swap">
+            <div class="sh-app-head">
+              <img class="sh-logo-app" id="sh-pLogo" src={c.logo} alt="" height={c.logoH[1]} width={Math.round(c.logoH[1] * c.logoRatio)} style={`height:${c.logoH[1]}px`} />
+              <span class="sh-avatar"></span>
+            </div>
+            <div class="sh-alert">
+              <div class="sh-alert-top"><span id="sh-aLabel">{p.aLabel}</span><span>now</span></div>
+              <span class="sh-alert-text" id="sh-aText">{p.aText}</span>
+              <div class="sh-alert-btns"><span id="sh-aBtn">{p.aBtn}</span><span>Dismiss</span></div>
+            </div>
+            <div class="sh-plan">
+              <span class="sh-plan-l" id="sh-plL">{p.plL}</span>
+              <span class="sh-plan-n" id="sh-plN">{p.plN}</span>
+              <span class="sh-plan-big" id="sh-plBig">{p.plBig}</span>
+              <span class="sh-plan-cap" id="sh-plCap">{p.plCap}</span>
+            </div>
+            <div class="sh-rows">
+              <div class="sh-row"><span id="sh-r1k">{p.rows[0][0]}</span><span id="sh-r1v">{p.rows[0][1]}</span></div>
+              <div class="sh-row"><span id="sh-r2k">{p.rows[1][0]}</span><span id="sh-r2v">{p.rows[1][1]}</span></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <script is:inline>
+      (function () {
+        var box = document.getElementById('sh-stageBox');
+        var s = Math.min(1, (box.clientWidth || 660) / 660);
+        box.firstElementChild.style.transform = 'scale(' + s + ')';
+        box.style.height = 630 * s + 'px';
+      })();
+    </script>
   </div>
+  <p class="sh-sr-only" aria-live="polite" id="sh-announce"></p>
+  <script is:inline type="application/json" id="sh-data" set:html={JSON.stringify(data)} />
 </section>

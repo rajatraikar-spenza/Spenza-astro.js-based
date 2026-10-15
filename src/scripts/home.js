@@ -1,12 +1,14 @@
+import './home-hero.js';
+
 /**
  * The home page's behaviour.
  *
  *   - sections fade up as they scroll into view
  *   - the hero's cursor spotlight
- *   - the "MVNO in a Box" hero animation: layer inspection that resumes the
- *     loop on its own, offscreen suspension, responsive scaling
- *   - the platform hub tabs and the case-study tabs
- *   - the count-up on the headline numbers
+ *   - the hero's customer stage (scripts/home-hero.js)
+ *   - the "MVNO in a Box" animation in the Spenza advantage section
+ *   - the platform hub tabs
+ *   - the Alternatives board and the Customer proof carousel
  *
  * Everything here is progressive: without it the page is complete and static —
  * every section visible, the first tab of each set shown, the numbers already
@@ -49,115 +51,108 @@ if (page) {
   hero?.addEventListener('pointerleave', () => hero.style.setProperty('--so', '0'));
 }
 
-/* ------------------------------------------------------------ hero box */
+/* ------------------------------------------------------- advantage box */
 
-// The hub images are the original vector exports from Figma. Motion is kept
-// separate from their intrinsic isometric transforms so the artwork stays intact.
-const art = document.querySelector('.hm-hero-art');
+// Clicking a layer never cuts the cycle short: the box finishes opening, the
+// layer rises and holds, then it settles back and the box closes and the loop
+// carries on. Hover and focus never pause it.
+const art = document.querySelector('.hm-hero--platform .hm-hero-art');
 
 if (art) {
-  const sceneWrap = art.querySelector('.hm-scene-wrap');
+  const wrap = art.querySelector('.hm-scene-wrap');
   const scene = art.querySelector('.hm-scene');
-  const caption = document.getElementById('hero-caption');
-  const DEFAULT_CAPTION = caption.textContent;
-  const hubDescriptions = {
+  const cap = document.getElementById('hero-caption');
+  const rest = cap.textContent;
+  const CAPS = {
     telecom: 'TelecomHub — multi-operator connectivity, one API.',
     control: 'ControlHub — every line, cost, and invoice in one view.',
     ux: 'UXHub — your plans, checkout, billing, and brand.',
     agent: 'AgentHub — real phone numbers for AI conversations.',
   };
 
-  /**
-   * How long an opened layer stays open before the loop resumes.
-   *
-   * There are no pause or replay buttons, so this is the only way back to the
-   * animation after a visitor picks a hub. It waits while the pointer is over
-   * the artwork or focus is inside it, so it never closes under someone who is
-   * still looking.
-   */
-  const RESUME_AFTER = 6000;
-  let resumeTimer = 0;
-  let outsideViewport = false;
+  const fit = () => scene.style.setProperty('--scene-scale', String(wrap.clientWidth / 580));
+  fit();
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(wrap); else addEventListener('resize', fit);
 
-  // The scene is drawn at 580px and scaled to whatever width it is given.
-  const scaleScene = () => {
-    scene.style.setProperty('--scene-scale', String(sceneWrap.clientWidth / 580));
+  /* Every piece runs one 20s cycle: shut until 8%, open by 25%, all tags in by
+     28%, starting to close at 74%, shut again by 94%. */
+  const D = 20000, SHUT_UNTIL = 1600, OPEN = 5600, CLOSE = 14800, SHUT_FROM = 18800;
+  const HOLD = 4000, SETTLE = 1000;
+  let anims = null, mode = 'auto', picked = null, timer = 0, visible = true;
+
+  const take = () => {
+    if (anims) return;
+    anims = scene.getAnimations({ subtree: true }).filter((a) => a.effect && a.effect.getTiming().duration === D);
+    const t = anims.length ? anims[0].currentTime : 0;
+    anims.forEach((a) => { a.currentTime = t; });
   };
-  scaleScene();
-  if ('ResizeObserver' in window) new ResizeObserver(scaleScene).observe(sceneWrap);
-  else window.addEventListener('resize', scaleScene);
-
-  // Paused while offscreen or in a background tab; nobody is watching.
-  const syncMotion = () => {
-    art.classList.toggle('hm-is-paused', outsideViewport || document.hidden);
+  const now = () => anims[0].currentTime % D;
+  const seek = (t) => anims.forEach((a) => { a.currentTime = t; });
+  const rate = (r) => anims.forEach((a) => { a.playbackRate = r; });
+  const run = () => {
+    if (!anims) return;
+    const go = visible && !document.hidden && mode !== 'lift';
+    anims.forEach((a) => (go ? a.play() : a.pause()));
   };
-
-  const clearHubSelection = () => {
-    art.querySelectorAll('[data-hub], [data-select-hub]').forEach(button => {
-      button.setAttribute('aria-pressed', 'false');
-      button.classList.remove('hm-active');
+  const raise = (hub) => {
+    mode = 'lift';
+    run();
+    art.querySelectorAll('[data-hub]').forEach((c) => {
+      const on = c.dataset.hub === hub;
+      c.classList.toggle('hm-active', on);
+      c.setAttribute('aria-pressed', String(on));
     });
+    cap.textContent = CAPS[hub];
+    clearTimeout(timer);
+    if (!reducedMotion.matches) timer = setTimeout(settle, HOLD);
+  };
+  const settle = () => {
+    picked = null;
+    mode = 'auto';
+    art.querySelectorAll('[data-hub]').forEach((c) => { c.classList.remove('hm-active'); c.setAttribute('aria-pressed', 'false'); });
+    cap.textContent = rest;
+    seek(Math.max(now(), CLOSE - SETTLE));
+    run();
+  };
+  /* Opening forwards, or reopening by playing the close backwards, until the
+     box is fully open; then the card rises. */
+  const watch = () => {
+    if (mode !== 'wait') return;
+    const t = now(), back = anims[0].playbackRate < 0;
+    if (back ? t <= CLOSE : t >= OPEN && t <= CLOSE) { rate(1); raise(picked); }
+    else requestAnimationFrame(watch);
+  };
+  const pick = (hub) => {
+    if (!Object.hasOwn(CAPS, hub)) return;
+    picked = hub;
+    if (reducedMotion.matches || mode === 'lift') { raise(hub); return; }
+    take();
+    if (!anims.length) { raise(hub); return; }
+    if (mode === 'wait') return;
+    const t = now();
+    if (t >= OPEN && t <= CLOSE) { raise(hub); return; }
+    if (t > CLOSE && t < SHUT_FROM) rate(-1);
+    else if (t < SHUT_UNTIL || t >= SHUT_FROM) seek(SHUT_UNTIL);
+    mode = 'wait';
+    run();
+    requestAnimationFrame(watch);
   };
 
-  const replay = () => {
-    if (reducedMotion.matches) return;
-    art.dataset.view = 'auto';
-    clearHubSelection();
-    caption.textContent = DEFAULT_CAPTION;
-    // Flush the view change before restarting every part on the same timeline.
-    void scene.offsetWidth;
-    scene.getAnimations({ subtree: true }).forEach(animation => { animation.currentTime = 0; });
-  };
-
-  const scheduleResume = () => {
-    clearTimeout(resumeTimer);
-    if (reducedMotion.matches) return;
-    resumeTimer = setTimeout(() => {
-      if (art.matches(':hover') || art.contains(document.activeElement)) scheduleResume();
-      else replay();
-    }, RESUME_AFTER);
-  };
-
-  const exploreHub = id => {
-    if (!Object.hasOwn(hubDescriptions, id)) return;
-    art.dataset.view = 'open';
-    clearHubSelection();
-    art.querySelectorAll(`[data-hub="${id}"], [data-select-hub="${id}"]`).forEach(button => {
-      button.setAttribute('aria-pressed', 'true');
-      button.classList.add('hm-active');
-    });
-    caption.textContent = hubDescriptions[id];
-    scheduleResume();
-  };
-
-  art.querySelectorAll('[data-hub]').forEach(button => {
-    button.addEventListener('click', () => exploreHub(button.dataset.hub));
-    button.addEventListener('focus', () => {
-      if (button.matches(':focus-visible')) exploreHub(button.dataset.hub);
-    });
+  art.querySelectorAll('[data-hub]').forEach((c) => {
+    c.addEventListener('click', () => pick(c.dataset.hub));
+    c.addEventListener('focus', () => { if (c.matches(':focus-visible')) pick(c.dataset.hub); });
   });
-  art.querySelectorAll('[data-select-hub]').forEach(button => {
-    button.addEventListener('click', () => exploreHub(button.dataset.selectHub));
-  });
-  document.addEventListener('visibilitychange', syncMotion);
+
+  document.addEventListener('visibilitychange', run);
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(entries => {
-      outsideViewport = !entries[0].isIntersecting;
-      syncMotion();
-    }, { threshold: 0 }).observe(art);
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; run(); }, { threshold: 0 }).observe(art);
   }
-
-  // Reduced motion: the layers sit open, still, and can be inspected.
-  const applyMotionPreference = () => {
-    if (reducedMotion.matches) {
-      clearTimeout(resumeTimer);
-      art.dataset.view = 'open';
-      caption.textContent = 'Four connected layers. Select a hub to explore.';
-    }
-    syncMotion();
+  const motion = () => {
+    if (reducedMotion.matches) { art.dataset.view = 'open'; cap.textContent = 'Four connected layers. Select a hub to explore.'; }
+    else art.dataset.view = 'auto';
   };
-  reducedMotion.addEventListener('change', applyMotionPreference);
-  applyMotionPreference();
+  reducedMotion.addEventListener('change', motion);
+  motion();
 }
 
 /* ---------------------------------------------------------------- tabs */
@@ -193,29 +188,121 @@ function tablist(tabs) {
 }
 
 tablist([...document.querySelectorAll('.hm-tabs [role="tab"]')]);
-tablist([...document.querySelectorAll('.hm-story-tabs [role="tab"]')]);
 
-/* ------------------------------------------------------------- numbers */
+/* ------------------------------------------- alternatives and customer proof */
 
-// The headline numbers count up from zero the first time they are seen. The
-// markup already holds the final values, so this only ever animates towards
-// what is there.
-const counters = [...document.querySelectorAll('.hm [data-count]')];
-if (counters.length && !reducedMotion.matches && 'IntersectionObserver' in window) {
-  const run = () => {
-    const start = performance.now();
-    const step = now => {
-      const p = Math.min(1, (now - start) / 1400);
-      const eased = 1 - Math.pow(1 - p, 3);
-      for (const el of counters) el.textContent = String(Math.round(Number(el.dataset.count) * eased));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+const still = reducedMotion.matches;
+
+/* The Alternatives: Rest → Pop when the board scrolls into view, then a
+   focus band walks the seven rows. Hovering or focusing a row takes over;
+   leaving hands control back. */
+document.querySelectorAll('.sz-cmp').forEach((board) => {
+  const rows = [...board.querySelectorAll('.sz-cmp__row')];
+  const band = board.querySelector('.sz-cmp__band');
+  const cell = board.querySelector('.sz-cmp__cell');
+  let row = 0, timer = 0, held = false, seen = false;
+
+  const place = () => {
+    const r = rows[row - 1];
+    if (!r) return;
+    const top = r.offsetTop + 5, h = Math.max(68, r.offsetHeight - 10);
+    for (const el of [band, cell]) { el.style.top = top + 'px'; el.style.height = h + 'px'; }
   };
-  const watch = new IntersectionObserver(entries => {
-    if (!entries.some(entry => entry.isIntersecting)) return;
-    watch.disconnect();
-    run();
-  }, { rootMargin: '0px 0px 10% 0px' });
-  watch.observe(counters[0].closest('.hm-stats'));
-}
+  const focus = (n) => {
+    row = n;
+    board.dataset.row = String(n);
+    rows.forEach((r, i) => r.classList.toggle('is-on', i === n - 1));
+    place();
+  };
+  const step = () => {
+    clearTimeout(timer);
+    if (held) return;
+    timer = setTimeout(() => { focus(row % rows.length + 1); step(); }, row ? 2400 : 900);
+  };
+  const start = () => {
+    if (seen) { step(); return; }
+    seen = true;
+    if (still) { board.dataset.state = 'pop'; focus(1); return; }
+    setTimeout(() => { board.dataset.state = 'pop'; step(); }, 350);
+  };
+
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) start();
+    else clearTimeout(timer);
+  }, { threshold: .35 }).observe(board);
+
+  rows.forEach((r, i) => {
+    const take = () => { if (board.dataset.state !== 'pop') return; held = true; clearTimeout(timer); focus(i + 1); };
+    r.addEventListener('mouseenter', take);
+    r.addEventListener('focusin', take);
+  });
+  board.addEventListener('mouseleave', () => { if (!held) return; held = false; if (!still) step(); });
+  addEventListener('resize', place);
+});
+
+/* Customer proof carousel: tabs, arrows and arrow keys move one story at a
+   time; neighbours sit either side of the active card, and a card wrapping
+   round from one side to the other jumps rather than sliding across. */
+document.querySelectorAll('.sz-car').forEach((car) => {
+  const tabs = [...car.querySelectorAll('[role="tab"]')];
+  const cards = [...car.querySelectorAll('.sz-case')];
+  const now = car.querySelector('.sz-car__now');
+  const n = cards.length;
+  let active = 0;
+  const slot = (i) => { const d = (i - active + n) % n; return d === 0 ? 0 : d === 1 ? 1 : -1; };
+
+  const show = (next, fromKey) => {
+    const before = cards.map((_, i) => slot(i));
+    active = (next + n) % n;
+    cards.forEach((c, i) => {
+      const pos = slot(i);
+      c.classList.toggle('is-jump', Math.abs(pos - before[i]) > 1);
+      c.style.setProperty('--pos', pos);
+      c.classList.toggle('is-active', pos === 0);
+      c.querySelectorAll('a').forEach((l) => { l.tabIndex = pos === 0 ? 0 : -1; });
+      c.setAttribute('aria-hidden', String(pos !== 0));
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() => cards.forEach((c) => c.classList.remove('is-jump'))));
+    tabs.forEach((t, i) => {
+      t.setAttribute('aria-selected', String(i === active));
+      t.tabIndex = i === active ? 0 : -1;
+    });
+    if (fromKey) tabs[active].focus();
+    now.textContent = String(active + 1).padStart(2, '0');
+    car.dataset.active = String(active);
+  };
+
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => show(i));
+    t.addEventListener('keydown', (e) => {
+      const k = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (k) { e.preventDefault(); show(active + k, true); }
+      else if (e.key === 'Home') { e.preventDefault(); show(0, true); }
+      else if (e.key === 'End') { e.preventDefault(); show(n - 1, true); }
+    });
+  });
+  car.querySelector('.sz-car__btn--prev').addEventListener('click', () => show(active - 1));
+  car.querySelector('.sz-car__btn--next').addEventListener('click', () => show(active + 1));
+  cards.forEach((c, i) => c.addEventListener('click', () => { if (i !== active) show(i); }));
+  show(0);
+
+  /* Auto-advance, as in the prototype: each story holds for six seconds,
+     then the next slides in from the right. It pauses while the pointer or
+     focus is inside the carousel and while it is off screen, and any manual
+     move restarts the six seconds. */
+  if (still) return;
+  const HOLD = 6000;
+  let timer = 0, inView = false, paused = false;
+  const arm = () => {
+    clearTimeout(timer);
+    if (inView && !paused && !document.hidden) timer = setTimeout(() => { show(active + 1); arm(); }, HOLD);
+  };
+  car.addEventListener('click', arm);
+  car.addEventListener('keydown', arm);
+  car.addEventListener('mouseenter', () => { paused = true; arm(); });
+  car.addEventListener('mouseleave', () => { paused = false; arm(); });
+  car.addEventListener('focusin', () => { paused = true; arm(); });
+  car.addEventListener('focusout', (e) => { if (!car.contains(e.relatedTarget)) { paused = false; arm(); } });
+  document.addEventListener('visibilitychange', arm);
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; arm(); }, { threshold: .4 }).observe(car);
+});

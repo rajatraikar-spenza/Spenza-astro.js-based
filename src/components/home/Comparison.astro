@@ -1,16 +1,17 @@
 ---
 /**
- * The alternatives, as a grid rather than a table: on a phone each row becomes
- * a block with every cell labelled by its column, which a table cannot do
- * without scrolling sideways.
+ * The Alternatives: direct with a carrier, build it in-house, or Spenza,
+ * across seven capabilities. Design from the Figma file's "Spenza Homepage /
+ * Backup" frame; copy is the live site's. Styles in styles/home-sections.css.
+ *
+ * The board starts at rest and "pops" the Spenza column when it scrolls into
+ * view, then a focus band walks the rows (scripts/home.js). On phones each row
+ * becomes a card.
  */
-import SectionHead from './SectionHead.astro';
-
-const columns = [
-  ['Direct with a carrier', 'THE USUAL FIRST MOVE'],
-  ['Build it in-house', 'THE IN-HOUSE BUILD'],
-  ['Spenza', 'ONE PLATFORM, FOUR HUBS'],
-];
+import badgeDot from '../../assets/home/sz/badge-dot.svg?url';
+import check from '../../assets/home/sz/check.svg?url';
+import logo from '../../assets/home/sz/logo.svg?url';
+import mark from '../../assets/home/sz/mark.svg?url';
 
 const rows = [
   ['Time to first market', 'Carrier contracts delay launch.', 'Build integrations before launch.', 'Go live with integrations and billing in place.'],
@@ -23,49 +24,64 @@ const rows = [
 ];
 ---
 
-<section class="hm-sec hm-sec--white">
-  <div class="hm-wrap">
-    <SectionHead
-      eyebrow="THE ALTERNATIVES"
-      lede="Already working with carriers or building your own stack? See how Spenza compares on cost, flexibility, and operations."
-    >Three ways to get connectivity. One of them scales.</SectionHead>
-
-    <div class="hm-comp hm-reveal" role="table" aria-label="Connectivity approach comparison">
-      <div class="hm-comp-row" role="row">
-        <div class="hm-comp-head" role="columnheader"><span class="hm-sr">Capability</span></div>
-        {columns.map(([name, note], i) => (
-          <div class={i === 2 ? 'hm-comp-head is-us' : 'hm-comp-head'} role="columnheader">
-            {i === 2
-              ? <strong><img class="hm-comp-logo" src="/spenza-logo-vector.svg" alt="Spenza" width="1264" height="428" /></strong>
-              : <strong>{name}</strong>}
-            <span>{note}</span>
-          </div>
-        ))}
+<section class="sz-alt" aria-labelledby="sz-alt-title">
+  <div class="sz-wrap">
+    <div class="sz-alt__head">
+      <div class="sz-alt__headblock">
+        <p class="sz-eyebrow"><span class="sz-eyebrow__rule" aria-hidden="true"></span>THE ALTERNATIVES</p>
+        <h2 class="sz-alt__title" id="sz-alt-title">Three ways to get<br />connectivity.<br /><em>One of them scales.</em></h2>
       </div>
-      {rows.map(([label, ...cells]) => (
-        <div class="hm-comp-row" role="row">
-          <div class="hm-comp-label" role="rowheader">{label}</div>
-          {cells.map((cell, i) => (
-            <div class={i === 2 ? 'hm-comp-cell is-us' : 'hm-comp-cell'} role="cell">
-              <span class="hm-comp-col" aria-hidden="true">
-                {i === 2
-                  ? <img class="hm-comp-logo hm-comp-logo--sm" src="/spenza-logo-vector.svg" alt="" width="1264" height="428" />
-                  : columns[i][0].toUpperCase()}
-              </span>{cell}
-            </div>
-          ))}
-        </div>
-      ))}
+      <p class="sz-alt__lede">Already working with carriers or building your own stack? See how Spenza compares on cost, flexibility, and operations.</p>
     </div>
 
-    <div class="hm-migrate hm-stack hm-reveal">
-      <div>
-        <h3>Already working with carriers or running your own stack?</h3>
-        <p>
-          Keep your existing operator relationships and customer setup. Move connectivity and billing to Spenza at your own pace.
-        </p>
+    <div class="sz-cmp" data-state="rest" data-row="0">
+      <div class="sz-cmp__tray" aria-hidden="true"></div>
+      <div class="sz-cmp__frame" aria-hidden="true"><span class="sz-cmp__bar"></span></div>
+      <div class="sz-cmp__band" aria-hidden="true"></div>
+      <div class="sz-cmp__cell" aria-hidden="true"></div>
+
+      <div class="sz-cmp__grid sz-cmp__top">
+        <p class="sz-cmp__compare">CAPABILITY</p>
+        <div class="sz-cmp__colhead sz-cmp__c1">
+          <p class="sz-cmp__coltitle">Direct with a carrier</p>
+          <p class="sz-cmp__colsub">THE USUAL FIRST MOVE</p>
+        </div>
+        <div class="sz-cmp__colhead sz-cmp__c2">
+          <p class="sz-cmp__coltitle">Build it in-house</p>
+          <p class="sz-cmp__colsub">THE IN-HOUSE BUILD</p>
+        </div>
+        <div class="sz-cmp__colhead sz-cmp__c3">
+          <div class="sz-cmp__brand">
+            <span class="sz-cmp__logo"><img src={logo} alt="Spenza" width="107" height="34" loading="lazy" decoding="async" /></span>
+            <span class="sz-cmp__badge"><img src={badgeDot} alt="" width="5" height="5" />THE ONE THAT SCALES</span>
+          </div>
+          <p class="sz-cmp__colsub">ONE PLATFORM, FOUR HUBS</p>
+        </div>
       </div>
-      <a class="hm-btn hm-btn--ink" href="#demo">Talk to us about migration</a>
+
+      <ol class="sz-cmp__rows">
+        {rows.map(([label, carrier, build, spenza], i) => (
+          <li class="sz-cmp__row">
+            <span class="sz-cmp__num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="sz-cmp__label">{label}</span>
+            <div class="sz-cmp__alt sz-cmp__alt--carrier"><img src={mark} alt="" width="16" height="16" /><p><b>DIRECT WITH A CARRIER</b>{carrier}</p></div>
+            <div class="sz-cmp__alt sz-cmp__alt--build"><img src={mark} alt="" width="16" height="16" /><p><b>BUILD IT IN-HOUSE</b>{build}</p></div>
+            <div class="sz-cmp__sz"><img class="sz-cmp__check" src={check} alt="" width="20" height="20" /><p><span class="hm-sr">Spenza: </span>{spenza}</p></div>
+          </li>
+        ))}
+      </ol>
+
+      <ul class="sz-cmp__hubs" aria-label="Spenza hubs">
+        <li>TelecomHub</li><li>ControlHub</li><li>UXHub</li><li>AgentHub</li>
+      </ul>
+    </div>
+
+    <div class="sz-alt__callout">
+      <div class="sz-alt__callcopy">
+        <p class="sz-alt__calltitle">Already working with carriers or running your own stack?</p>
+        <p class="sz-alt__callbody">Keep your existing operator relationships and customer setup. Move connectivity and billing to Spenza at your own pace.</p>
+      </div>
+      <a class="sz-btn-ink" href="#demo">Talk to us about migration</a>
     </div>
   </div>
 </section>
