@@ -55,7 +55,7 @@ if (page) {
 
 // The Spenza advantage walkthrough (Advantage.astro). The box opens once, when
 // the section comes into view, and stays open; then one hub at a time is the
-// current step, its layer lifted out of the stack and the others dimmed.
+// current step, its layer drawn forward as a slab and the others dimmed.
 //
 // From 1024px the panel is sticky in a tall track and the scroll picks the
 // step: a quarter of the track each. Below that there is no track, and the
@@ -81,20 +81,52 @@ if (how) {
 
   let active = 0, open = false, seen = false, visible = false, timer = 0;
 
+  /* Where each layer sits once the box is open, as on livekit.com: all four on
+     the line the fan opens along (140px across for every 84 up, in the
+     scene's 580px units), the current one with room either side and the rest
+     packed close, the group centred where the fan was. `HOME` is each layer's
+     top-left in the closed box, `MID` the middle of the open fan. */
+  const HOME = { ux: [166.25, 186.25], control: [198.75, 172.5], telecom: [226.25, 148.75], agent: [250, 141.25] };
+  const MID = [219.5, 139.5], RISE = -0.6, NEAR = 58, FAR = 150;
+  const place = (a) => {
+    const at = [0];
+    for (let k = 1; k < order.length; k++) at.push(at[k - 1] + (k === a || k - 1 === a ? FAR : NEAR));
+    const shift = at[at.length - 1] / 2;
+    order.forEach((hub, k) => {
+      const layer = layers.find((l) => l.dataset.hub === hub);
+      const along = at[k] - shift;
+      layer.style.setProperty('--dx', `${(MID[0] + along - HOME[hub][0]).toFixed(2)}px`);
+      layer.style.setProperty('--dy', `${(MID[1] + along * RISE - HOME[hub][1]).toFixed(2)}px`);
+      layer.style.setProperty('--i', String(Math.abs(k - a)));
+    });
+  };
+
   const show = (i) => {
+    const moved = i !== active;
     active = i;
     steps.forEach((step, k) => {
       if (k === i) step.setAttribute('aria-current', 'step'); else step.removeAttribute('aria-current');
       step.classList.toggle('is-done', k < i);
+      if (k !== i) step.style.removeProperty('--fill');
     });
-    // A layer only lifts once the box is fully open.
-    layers.forEach((layer) => layer.classList.toggle('hm-active', open && layer.dataset.hub === order[i]));
+    // The layers only move once the box is fully open.
+    if (!open) return;
+    layers.forEach((layer) => layer.classList.toggle('hm-active', layer.dataset.hub === order[i]));
+    place(i);
+    // On the timer, the current step's rail fills over its four seconds.
+    if (how.classList.contains('is-timed') && (moved || !steps[i].style.getPropertyValue('--fill'))) {
+      steps[i].style.setProperty('--fill', '0');
+      requestAnimationFrame(() => requestAnimationFrame(() => steps[i].style.setProperty('--fill', '1')));
+    }
   };
 
   // The timer, for when the scroll is not driving.
   const tick = () => {
     clearInterval(timer);
-    if (open && visible && !sticky.matches && !reducedMotion.matches) {
+    const timed = open && visible && !sticky.matches && !reducedMotion.matches;
+    how.classList.toggle('is-timed', timed);
+    if (timed) {
+      show(active);
       timer = setInterval(() => show((active + 1) % steps.length), STEP);
     }
   };
@@ -105,8 +137,11 @@ if (how) {
     const range = track.offsetHeight - panel.offsetHeight;
     const top = parseFloat(getComputedStyle(panel).top) || 0;
     const p = range > 0 ? (top - track.getBoundingClientRect().top) / range : 0;
-    const i = Math.min(steps.length - 1, Math.max(0, Math.floor(p * steps.length)));
+    const at = Math.min(steps.length - 1e-6, Math.max(0, p * steps.length));
+    const i = Math.floor(at);
     if (i !== active) show(i);
+    // The rail under the current step fills as the scroll moves through it.
+    steps[i].style.setProperty('--fill', (at - i).toFixed(3));
   };
   let queued = false;
   addEventListener('scroll', () => {

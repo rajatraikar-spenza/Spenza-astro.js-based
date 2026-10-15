@@ -124,11 +124,11 @@
 /* hero is the customer stage; the four-hub graphic is now the second section */
 .hm>section.sh.sh-hero{content-visibility:visible;contain-intrinsic-size:none}
 /* The headline's last word, which rolls over with the stage (home-hero.js).
-   "Next" is in ink; the word and its full stop keep the accent. The word clips
+   "Next" is set like the rest of the headline; the word and its full stop
+   keep the accent serif. The word clips
    its own letters top and bottom, so they slide in and out of sight; the clip
    reaches past its sides for the italic's overhang. */
 .sh .sh-next{white-space:nowrap}
-.sh h1 .sh-next-word{color:var(--ink)}
 .sh h1 .sh-rot{position:relative; display:inline-block; clip-path:inset(0 -.5em -.1em -.2em)}
 .sh h1 .sh-rot>span{display:inline-block; white-space:nowrap}
 .sh h1 .sh-rot>.sh-in{position:absolute; left:0; top:0}
