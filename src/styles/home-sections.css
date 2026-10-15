@@ -471,3 +471,18 @@
 
 /* Held at the start of its cycle until scripts/home.js sees it on screen. */
 .hm.js .hm-hero--platform .hm-hero-art:not(.is-live) .hm-scene * { animation-play-state: paused !important; }
+
+/* Touch: no grey-blue tap flash on the cards, and a long press is not a
+   press on an image — no "save / copy image" menu, no text selection, no drag. */
+.hm .hm-hero--platform .hm-scene,
+.hm .hm-hero--platform .hm-hub-layer {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.hm .hm-hero--platform .hm-scene img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.hm .hm-hero--platform .hm-hub-layer:focus:not(:focus-visible) { outline: none; }
