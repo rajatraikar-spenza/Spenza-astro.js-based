@@ -25,7 +25,7 @@
 .sh .sh-hero-grid{display:grid; grid-template-columns:minmax(0,540px) minmax(0,1fr); gap:56px; align-items:center; padding-block:64px 72px}
 .sh .sh-eyebrow{display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; color:var(--muted)}
 .sh .sh-eyebrow::before{content:""; width:26px; height:1px; background:var(--acc); flex-shrink:0}
-.sh h1{margin:22px 0 26px; font-family:var(--display); font-weight:500; font-size:clamp(40px, 4.6vw, 62px); line-height:.96; letter-spacing:-.04em; text-wrap:balance}
+.sh h1{margin:22px 0 26px; font-family:var(--display); font-weight:500; font-size:clamp(40px, 4.4vw, 60px); line-height:.96; letter-spacing:-.04em; text-wrap:balance}
 .sh h1 em{font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:-.02em; color:var(--acc-text)}
 .sh .sh-lede{margin:0 0 32px; max-width:520px; font-size:18px; line-height:1.55; color:var(--body); text-wrap:pretty}
 .sh .sh-ctas{display:flex; gap:10px; flex-wrap:wrap}
