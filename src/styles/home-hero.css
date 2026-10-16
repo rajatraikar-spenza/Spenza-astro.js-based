@@ -121,11 +121,13 @@
 
 /* hero is the customer stage; the four-hub graphic is now the second section */
 .hm>section.sh.sh-hero{content-visibility:visible;contain-intrinsic-size:none}
-/* The headline: three lines, the last a single word that rolls over with
-   the stage (home-hero.js), in the accent serif with its full stop. Every
+/* The headline: two lines on a wide screen and three on a phone, where the
+   word that rolls over with the stage (home-hero.js) drops to its own line,
+   in the accent serif with its full stop. Every
    rolling piece of text clips its own letters top and bottom, so they slide
    in and out of sight; the clip reaches past the sides for italic overhang. */
 .sh h1 .sh-l{display:block; white-space:nowrap}
+@media (min-width:768px){.sh h1{white-space:nowrap} .sh h1 .sh-l+.sh-l{display:inline-block}}
 .sh .sh-roll{position:relative; display:inline-block; clip-path:inset(0 -.5em -.1em -.2em)}
 .sh .sh-roll>span{display:inline-block; white-space:nowrap}
 .sh .sh-roll>.sh-in{position:absolute; left:0; top:0}

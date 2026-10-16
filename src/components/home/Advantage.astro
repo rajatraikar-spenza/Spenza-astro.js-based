@@ -93,6 +93,7 @@ const hubs = [
                 {hub.id === 'control' && <i class="lv-badge"></i>}
                 {hub.id === 'telecom' && [0, 1].map(k => <i class="lv-ring" style={`--k:${k}`}></i>)}
                 {hub.id === 'agent' && <span class="lv-wave">{[0, 1, 2, 3, 4, 5, 6].map(k => <i style={`--k:${k}`}></i>)}</span>}
+                {hub.id === 'agent' && <span class="lv-say">How may I help you?</span>}
               </span>
               <span class="hm-iso-tag" data-text={`${hub.n} ${hub.tag}`}>{hub.n} {hub.tag}</span>
             </div>

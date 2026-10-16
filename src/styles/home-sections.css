@@ -646,6 +646,9 @@
 .hm .lv-wave i:nth-child(3), .hm .lv-wave i:nth-child(5) { --h: .72; }
 .hm .lv-wave i:nth-child(4) { --h: 1; }
 .hm .lv-wave.is-agent i { background: var(--acc); }
+/* The card's prompt, set as text rather than baked into the artwork; the
+   card's skew slants it onto the face like the rest of the drawing. */
+.hm .lv-say { position: absolute; left: 7.4%; top: 84.6%; font: 500 13.4px/1 var(--font-sans); letter-spacing: -.01em; color: #fff; white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
   .hm .hm-iso-card, .hm .hm-iso-card img, .hm .hm-iso-face, .hm .hm-iso { transition: none; }
