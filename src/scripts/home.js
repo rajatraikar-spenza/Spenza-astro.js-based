@@ -114,6 +114,52 @@ if (how) {
 
   let active = -1, visible = false, timer = 0;
 
+  /* The AgentHub waveform, live while its card is lit and on screen: a caller
+     talks, a beat of silence, the agent answers (the bars turn orange), and
+     round again. Out of the light the bars ease back to the artwork's still
+     shape. */
+  const wave = how.querySelector('.lv-wave');
+  const voice = (() => {
+    if (!wave) return () => {};
+    const bars = [...wave.children];
+    const TURNS = [['user', 1700], ['', 450], ['agent', 2300], ['', 650]];
+    let raf = 0, t0 = 0, next = 0, gate = 0, gateUntil = 0;
+    const level = bars.map(() => 0.12);
+    const aim = bars.map(() => 0.12);
+    const frame = (now) => {
+      const cycle = TURNS.reduce((n, [, d]) => n + d, 0);
+      let t = (now - t0) % cycle, who = '';
+      for (const [name, d] of TURNS) { if (t < d) { who = name; break; } t -= d; }
+      wave.classList.toggle('is-agent', who === 'agent');
+      // Speech comes in syllables: bursts of 120-320ms with short gaps, and
+      // within a burst every bar picks a new height every ~90ms, the middle
+      // ones reaching furthest.
+      if (now > gateUntil) { gate = gate ? 0 : 1; gateUntil = now + (gate ? 120 + Math.random() * 200 : 40 + Math.random() * 90); }
+      if (now > next) {
+        next = now + 70 + Math.random() * 50;
+        bars.forEach((_, k) => {
+          const mid = 1 - Math.abs(k - 3) / 4.5;
+          aim[k] = who && gate ? 0.25 + 0.75 * mid * (0.45 + 0.55 * Math.random()) : 0.1 + 0.06 * Math.random();
+        });
+      }
+      bars.forEach((bar, k) => {
+        level[k] += (aim[k] - level[k]) * 0.32;
+        bar.style.setProperty('--h', level[k].toFixed(3));
+      });
+      raf = requestAnimationFrame(frame);
+    };
+    return (on) => {
+      if (on && !raf && !reducedMotion.matches) { t0 = performance.now(); raf = requestAnimationFrame(frame); }
+      if (!on && raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+        wave.classList.remove('is-agent');
+        bars.forEach((bar) => bar.style.removeProperty('--h'));
+      }
+    };
+  })();
+  const talk = () => voice(visible && active >= 0 && cards[active].dataset.hub === 'agent');
+
   const show = (i) => {
     const before = active;
     active = i;
@@ -132,6 +178,7 @@ if (how) {
       card.classList.toggle('is-lit', k === i);
     });
     scramble(cards[i].querySelector('.hm-iso-tag'));
+    talk();
     // On the timer, the current step's rail and ring fill over its four seconds.
     if (how.classList.contains('is-timed')) {
       steps[i].style.setProperty('--fill', '0');
@@ -188,6 +235,7 @@ if (how) {
       visible = e.isIntersecting;
       if (visible) art.classList.add('is-in');
       tick();
+      talk();
     }, { threshold: 0.2 }).observe(art);
   } else { visible = true; art.classList.add('is-in'); }
   sticky.addEventListener('change', () => { fromScroll(); tick(); });

@@ -34,8 +34,6 @@
 .sh .sh-stats dt{font-weight:600; color:var(--ink)}
 .sh .sh-stage-box{position:relative; width:100%; max-width:660px; height:630px}
 .sh .sh-stage{position:absolute; left:0; top:0; width:660px; height:630px; transform-origin:0 0}
-.sh .sh-swap{transition:opacity .28s ease}
-.sh .sh-stage.sh-is-out .sh-swap{opacity:0}
 .sh .sh-content{position:absolute; left:0; top:0; width:480px; display:flex; flex-direction:column; gap:18px}
 .sh .sh-tabs{display:flex; align-items:center; gap:8px; height:32px}
 .sh .sh-tabs-label{font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-right:4px; white-space:nowrap}
@@ -107,7 +105,7 @@
 .sh .sh-lede{font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){
-.sh .sh-swap, .sh .sh-plan-fill, .sh .sh-tab{transition:none}
+.sh .sh-plan-fill, .sh .sh-tab{transition:none}
 .sh .sh-pin .sh-ring{animation:none; opacity:0}
 }
 
@@ -123,16 +121,17 @@
 
 /* hero is the customer stage; the four-hub graphic is now the second section */
 .hm>section.sh.sh-hero{content-visibility:visible;contain-intrinsic-size:none}
-/* The headline's last word, which rolls over with the stage (home-hero.js).
-   "Next" is set like the rest of the headline; the word and its full stop
-   keep the accent serif. The word clips
-   its own letters top and bottom, so they slide in and out of sight; the clip
-   reaches past its sides for the italic's overhang. */
-.sh .sh-next{white-space:nowrap}
-.sh h1 .sh-rot{position:relative; display:inline-block; clip-path:inset(0 -.5em -.1em -.2em)}
-.sh h1 .sh-rot>span{display:inline-block; white-space:nowrap}
-.sh h1 .sh-rot>.sh-in{position:absolute; left:0; top:0}
-.sh h1 .sh-ch{display:inline-block; will-change:transform}
+/* The headline: three lines, the last a single word that rolls over with
+   the stage (home-hero.js), in the accent serif with its full stop. Every
+   rolling piece of text clips its own letters top and bottom, so they slide
+   in and out of sight; the clip reaches past the sides for italic overhang. */
+.sh h1 .sh-l{display:block; white-space:nowrap}
+.sh .sh-roll{position:relative; display:inline-block; clip-path:inset(0 -.5em -.1em -.2em)}
+.sh .sh-roll>span{display:inline-block; white-space:nowrap}
+.sh .sh-roll>.sh-in{position:absolute; left:0; top:0}
+.sh .sh-roll .sh-ch{display:inline-block; will-change:transform}
+.sh .sh-caption .sh-roll{clip-path:inset(-.1em -.3em -.2em -.1em)}
+.sh .sh-kpi-v.sh-roll{clip-path:inset(-.04em -.2em 0 -.1em)}
 
 /* Phones and small tablets, as spenza.com: the copy is centred — eyebrow,
    headline, lede, buttons — and the customer map comes in under the buttons,

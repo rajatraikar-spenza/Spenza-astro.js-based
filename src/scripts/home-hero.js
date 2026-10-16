@@ -26,12 +26,12 @@ if (stage && box && source) {
 
   const setText = (id, value) => { $(id).textContent = value; };
 
-  // The headline's last word rolls over with the stage: the old word's letters
-  // drop out of sight one after another while the new one's drop in from
-  // above, and the word's width eases between the two so the full stop
-  // follows. The letters are clipped by the word (`.sh-rot` in the CSS).
+  // Text that changes with the stage rolls over: the old letters drop out of
+  // sight one after another while the new ones drop in from above, and the
+  // width eases between the two so whatever follows moves with it. Each
+  // rolling element (`.sh-roll` in the CSS) clips its own letters. The
+  // headline's word rolls slowest; the stage's numbers and caption quicker.
   const word = $('sh-word');
-  const STAGGER = 45;
   const ROLL = 560;
   const EASE = 'cubic-bezier(.65, 0, .35, 1)';
   const split = text => {
@@ -44,29 +44,29 @@ if (stage && box && source) {
     }
     return span;
   };
-  const roll = text => {
-    let out = word.lastElementChild;
+  const roll = (box, text, stagger = 45) => {
+    let out = box.lastElementChild;
     // A roll still running is finished at once rather than stacked on.
-    for (const el of [...word.children]) if (el !== out) el.remove();
-    word.getAnimations({ subtree: true }).forEach(a => a.finish());
+    for (const el of [...box.children]) if (el !== out) el.remove();
+    box.getAnimations({ subtree: true }).forEach(a => a.finish());
     out.classList.remove('sh-in');
     if (out.textContent.replace(/\u00a0/g, ' ') === text) return;
-    if (reduce) { word.replaceChildren(split(text)); return; }
+    if (reduce) { box.replaceChildren(split(text)); return; }
     if (!out.querySelector('.sh-ch')) { const s = split(out.textContent); out.replaceWith(s); out = s; }
 
     const inc = split(text);
     inc.className = 'sh-in';
-    word.append(inc);
+    box.append(inc);
     const from = out.getBoundingClientRect().width;
     const to = inc.getBoundingClientRect().width;
     const outs = [...out.children];
     const ins = [...inc.children];
-    const total = ROLL + STAGGER * Math.max(outs.length, ins.length);
-    const size = word.animate([{ width: `${from}px` }, { width: `${to}px` }], { duration: total, easing: EASE, fill: 'forwards' });
+    const total = ROLL + stagger * Math.max(outs.length, ins.length);
+    const size = box.animate([{ width: `${from}px` }, { width: `${to}px` }], { duration: total, easing: EASE, fill: 'forwards' });
     outs.forEach((el, k) => el.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(110%)' }],
-      { duration: ROLL, delay: k * STAGGER, easing: EASE, fill: 'forwards' }));
+      { duration: ROLL, delay: k * stagger, easing: EASE, fill: 'forwards' }));
     const done = ins.map((el, k) => el.animate([{ transform: 'translateY(-110%)' }, { transform: 'translateY(0)' }],
-      { duration: ROLL, delay: k * STAGGER, easing: EASE, fill: 'backwards' }).finished);
+      { duration: ROLL, delay: k * stagger, easing: EASE, fill: 'backwards' }).finished);
     Promise.all(done).then(() => {
       if (!inc.isConnected) return;
       out.remove();
@@ -74,6 +74,15 @@ if (stage && box && source) {
       size.finished.then(() => size.cancel(), () => {});
     }, () => {});
   };
+
+  // The stage's blocks — the customer, the pins and their labels, the phone's
+  // screen — drop out one after another, and the next customer's drop back in
+  // from above in the same order, as the letters do.
+  const blocks = [...stage.querySelectorAll('[data-swap]')];
+  const OUT = 240;
+  const drop = (from, to, opacity, delay, duration) => blocks.forEach((el, k) => el.animate(
+    [{ transform: `translateY(${from}px)`, opacity: opacity[0] }, { transform: `translateY(${to}px)`, opacity: opacity[1] }],
+    { duration, delay: delay + k * 45, easing: EASE, fill: 'both' }));
   const svgEl = (tag, attrs) => {
     const el = document.createElementNS(SVGNS, tag);
     for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
@@ -96,9 +105,6 @@ if (stage && box && source) {
     }
     $('sh-logo').alt = c.name;
     setText('sh-sub', c.sub);
-    setText('sh-capText', c.caption);
-    setText('sh-kMarkets', String(c.markets.length));
-    setText('sh-kNetworks', String(c.networks));
 
     const pins = $('sh-pins');
     const labels = $('sh-labels');
@@ -119,7 +125,7 @@ if (stage && box && source) {
     $('sh-map').setAttribute('aria-label', `World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`);
 
     setText('sh-aLabel', p.aLabel); setText('sh-aText', p.aText); setText('sh-aBtn', p.aBtn);
-    setText('sh-plL', p.plL); setText('sh-plN', p.plN); setText('sh-plBig', p.plBig); setText('sh-plCap', p.plCap);
+    setText('sh-plL', p.plL); setText('sh-plN', p.plN); setText('sh-plCap', p.plCap);
     setText('sh-r1k', p.rows[0][0]); setText('sh-r1v', p.rows[0][1]);
     setText('sh-r2k', p.rows[1][0]); setText('sh-r2v', p.rows[1][1]);
     tabs.forEach((tab, k) => tab.setAttribute('aria-pressed', String(k === i)));
@@ -137,16 +143,23 @@ if (stage && box && source) {
     if (swapping) return;
     current = i;
     started = performance.now();
-    if (word) roll(CUSTOMERS[i].word);
+    const c = CUSTOMERS[i];
+    if (word) roll(word, c.word);
+    roll($('sh-kMarkets'), String(c.markets.length), 70);
+    roll($('sh-kNetworks'), String(c.networks), 70);
+    roll($('sh-capText'), c.caption, 12);
+    roll($('sh-plBig'), c.phone.plBig, 45);
     if (reduce) render(i);
     else {
       swapping = true;
-      stage.classList.add('sh-is-out');
+      blocks.forEach(el => el.getAnimations().forEach(a => a.cancel()));
+      drop(0, 14, [1, 0], 0, OUT);
       setTimeout(() => {
         render(i);
-        stage.classList.remove('sh-is-out');
+        blocks.forEach(el => el.getAnimations().forEach(a => a.cancel()));
+        drop(-14, 0, [0, 1], 0, ROLL);
         swapping = false;
-      }, 280);
+      }, OUT + 45 * (blocks.length - 1));
     }
     if (announce) setText('sh-announce', `Showing ${CUSTOMERS[i].name}`);
   };

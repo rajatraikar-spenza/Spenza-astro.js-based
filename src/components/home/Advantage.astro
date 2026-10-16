@@ -5,12 +5,15 @@
  * screen the panel holds still while the page scrolls past it, and the scroll
  * walks the steps — the cards before the current one pack back, it slides out
  * with room either side, lights up, and trails outline frames back into the
- * stack. Narrower screens step through on a timer; phones get the steps alone.
+ * stack. While a card is lit its artwork comes alive — the UXHub terminal
+ * types, the ControlHub and TelecomHub grids are scanned, and the AgentHub
+ * waveform talks: a caller, then the agent answering. Narrower screens step
+ * through on a timer; phones get the steps alone.
  *
  * Behaviour in src/scripts/home.js; layout in styles/home-sections.css.
  * It sits below the fold, so the cards load lazily.
  */
-import agent from '../../assets/home/agent.svg?url';
+import agent from '../../assets/home/agent-live.svg?url';
 import control from '../../assets/home/control.svg?url';
 import telecom from '../../assets/home/telecom.svg?url';
 import ux from '../../assets/home/ux.svg?url';
@@ -80,6 +83,17 @@ const hubs = [
               <span class="hm-iso-face hm-iso-face--side"></span>
               {[0, 1, 2, 3, 4].map(k => <span class="hm-iso-trail" style={`--k:${k}`}></span>)}
               <img src={hub.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
+              <span class={`hm-live hm-live--${hub.id}`}>
+                {hub.id === 'ux' && <>
+                  {[13.6, 21.8, 30].map((x, k) => <i class="lv-dot" style={`left:${x}%;--k:${k}`}></i>)}
+                  <i class="lv-caret"></i>
+                  <i class="lv-load"><b></b></i>
+                </>}
+                {(hub.id === 'control' || hub.id === 'telecom') && <i class="lv-cell"></i>}
+                {hub.id === 'control' && <i class="lv-badge"></i>}
+                {hub.id === 'telecom' && [0, 1].map(k => <i class="lv-ring" style={`--k:${k}`}></i>)}
+                {hub.id === 'agent' && <span class="lv-wave">{[0, 1, 2, 3, 4, 5, 6].map(k => <i style={`--k:${k}`}></i>)}</span>}
+              </span>
               <span class="hm-iso-tag" data-text={`${hub.n} ${hub.tag}`}>{hub.n} {hub.tag}</span>
             </div>
           ))}

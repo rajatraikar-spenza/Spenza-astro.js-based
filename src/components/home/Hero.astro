@@ -13,10 +13,12 @@
  * "Book a demo" carries `get-started`, which opens the site's Get Started popup;
  * `#demo` is where it goes without JavaScript.
  *
- * The last word of the headline follows the stage: each customer names what
- * connectivity became for it (a product, a service, an add-on), and
- * scripts/home-hero.js rolls the word over, letter by letter, as the stage
- * changes. On phones the stage sits under the buttons, without the phone.
+ * The headline is three lines, the last of them a single word that follows
+ * the stage: each customer names what connectivity became for it (a product,
+ * a service, an add-on). scripts/home-hero.js rolls it over letter by letter
+ * as the stage changes, and the stage changes the same way — its numbers and
+ * caption roll, its blocks drop out and back in one after another. On phones
+ * the stage sits under the buttons, without the phone.
  */
 import { HERO_CUSTOMERS, brandStyle, labelStyle } from './hero-customers';
 import { MAP_DOTS } from './hero-map-dots';
@@ -37,7 +39,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
   <div class="sh-wrap sh-hero-grid">
     <div>
       <div class="sh-eyebrow">MVNE PLATFORM &middot; eSIM, IoT CONNECTIVITY, BILLING &amp; AI VOICE</div>
-      <h1 id="hero-title">Turn Mobile Connectivity Into Your <span class="sh-next">Next <em class="sh-rot" id="sh-word"><span>{c.word}</span></em><em>.</em></span></h1>
+      <h1 id="hero-title"><span class="sh-l">Turn Connectivity</span> <span class="sh-l">Into Your Next</span> <span class="sh-l"><em class="sh-rot sh-roll" id="sh-word"><span>{c.word}</span></em><em>.</em></span></h1>
       <p class="sh-lede">Bring your own network, customize your plans, and own the customer experience. We handle the telecom complexity.</p>
       <div class="sh-ctas">
         <a class="sh-btn sh-btn-acc get-started" href="#demo">Book a demo</a>
@@ -59,22 +61,22 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
           </div>
 
           <div class="sh-card">
-            <div class="sh-who sh-swap">
+            <div class="sh-who" data-swap>
               <div class="sh-who-text">
                 <img class="sh-logo-card" id="sh-logo" src={c.logo} alt={c.name} height={c.logoH[0]} width={Math.round(c.logoH[0] * c.logoRatio)} style={`height:${c.logoH[0]}px`} loading="lazy" />
                 <span class="sh-who-sub" id="sh-sub">{c.sub}</span>
               </div>
             </div>
-            <div class="sh-kpis sh-swap">
-              <div class="sh-kpi"><span class="sh-kpi-v" id="sh-kMarkets">{c.markets.length}</span><span class="sh-kpi-l">markets live</span></div>
-              <div class="sh-kpi"><span class="sh-kpi-v" id="sh-kNetworks">{c.networks}</span><span class="sh-kpi-l">networks live</span></div>
+            <div class="sh-kpis">
+              <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kMarkets"><span>{c.markets.length}</span></span><span class="sh-kpi-l">markets live</span></div>
+              <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kNetworks"><span>{c.networks}</span></span><span class="sh-kpi-l">networks live</span></div>
             </div>
           </div>
 
           <div class="sh-map" id="sh-map" role="img" aria-label={`World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`}>
             <svg viewBox="0 0 580 216" aria-hidden="true" focusable="false">
               <path class="sh-dots" d={MAP_DOTS} />
-              <g id="sh-pins" class="sh-swap">
+              <g id="sh-pins" data-swap>
                 {c.markets.map(m => (
                   <g class="sh-pin" transform={`translate(${m.x} ${m.y})`}>
                     <circle class="sh-halo" r="8" /><circle class="sh-ring" r="5" /><circle class="sh-core" r="3.6" />
@@ -82,19 +84,19 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
                 ))}
               </g>
             </svg>
-            <div id="sh-labels" class="sh-swap">
+            <div id="sh-labels" data-swap>
               {c.markets.map(m => <span class="sh-pinlabel" style={labelStyle(m, c.markets.length)}>{m.name} · live</span>)}
             </div>
           </div>
 
           <div class="sh-caption">
-            <span class="sh-swap" id="sh-capText">{c.caption}</span>
+            <span class="sh-roll" id="sh-capText"><span>{c.caption}</span></span>
           </div>
         </div>
 
         <div class="sh-phone" aria-hidden="true">
           <span class="sh-phone-tag">Customer app</span>
-          <div class="sh-screen sh-swap">
+          <div class="sh-screen" data-swap>
             <div class="sh-app-head">
               <img class="sh-logo-app" id="sh-pLogo" src={c.logo} alt="" height={c.logoH[1]} width={Math.round(c.logoH[1] * c.logoRatio)} style={`height:${c.logoH[1]}px`} loading="lazy" />
               <span class="sh-avatar"></span>
@@ -107,7 +109,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
             <div class="sh-plan">
               <span class="sh-plan-l" id="sh-plL">{p.plL}</span>
               <span class="sh-plan-n" id="sh-plN">{p.plN}</span>
-              <span class="sh-plan-big" id="sh-plBig">{p.plBig}</span>
+              <span class="sh-plan-big"><span class="sh-roll" id="sh-plBig"><span>{p.plBig}</span></span></span>
               <span class="sh-plan-cap" id="sh-plCap">{p.plCap}</span>
             </div>
             <div class="sh-rows">
