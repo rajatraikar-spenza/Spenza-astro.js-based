@@ -67,9 +67,10 @@
 .sh .sh-pin .sh-ring{fill:var(--brand); transform-box:fill-box; transform-origin:center; animation:sh-ping 2s ease-out infinite}
 .sh .sh-pin .sh-core{fill:var(--brand); stroke:var(--bg); stroke-width:1.5}
 @keyframes sh-ping{0%{transform:scale(.5); opacity:.45} 100%{transform:scale(2.4); opacity:0}}
-/* The labels ride above the device, which stands on the map's centre —
-   right over the UK and France. */
-.sh #sh-labels{position:absolute; inset:0; z-index:3; pointer-events:none}
+/* The labels' layer is the map's size, so each label sits by its pin even
+   while the layer is moved by the swap (a transform makes it the labels'
+   containing block). */
+.sh #sh-labels{position:absolute; inset:0; pointer-events:none}
 .sh .sh-pinlabel{position:absolute; transform:translate(12px, -50%); padding:3px 9px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:11px; font-weight:500; white-space:nowrap; box-shadow:0 4px 12px rgba(15,20,32,.06)}
 .sh .sh-chips{display:flex; flex-wrap:wrap; gap:8px; max-width:430px; min-height:28px}
 .sh .sh-chip{display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:12px}
@@ -242,5 +243,8 @@
 .sh .sh-map{width:100%; height:auto; aspect-ratio:580/216}
 .sh .sh-map svg{width:100%; height:100%}
 .sh .sh-pinlabel{font-size:10.5px; padding:2px 7px}
+/* On a narrow map the Americas' label would run into Europe's: it hangs
+   under its pin instead. */
+.sh .sh-pinlabel.is-west{transform:translate(-50%, 9px)}
 .sh .sh-caption{max-width:none; justify-content:center; text-align:center; font-size:10.5px; line-height:1.5}
 }

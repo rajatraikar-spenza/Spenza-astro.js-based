@@ -89,7 +89,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
               </g>
             </svg>
             <div id="sh-labels" data-swap>
-              {c.markets.map(m => <span class="sh-pinlabel" style={labelStyle(m, c.markets.length)}>{m.name} · live</span>)}
+              {c.markets.map(m => <span class={`sh-pinlabel${m.x < 200 ? ' is-west' : ''}`} style={labelStyle(m, c.markets.length)}>{m.name} · live</span>)}
             </div>
           </div>
 

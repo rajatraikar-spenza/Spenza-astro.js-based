@@ -131,7 +131,7 @@ if (stage && box && source) {
       g.append(svgEl('circle', { class: 'sh-halo', r: '8' }), svgEl('circle', { class: 'sh-ring', r: '5' }), svgEl('circle', { class: 'sh-core', r: '3.6' }));
       pins.append(g);
       const label = document.createElement('span');
-      label.className = 'sh-pinlabel';
+      label.className = m.x < 200 ? 'sh-pinlabel is-west' : 'sh-pinlabel';
       label.style.left = `${(m.x / 580) * 100}%`;
       label.style.top = `${(m.y / 216) * 100}%`;
       if (m.ly && c.markets.length > 2) label.style.marginTop = `${m.ly}px`;
@@ -142,6 +142,7 @@ if (stage && box && source) {
 
     devs.forEach(d => d.classList.toggle('is-on', d.dataset.dev === c.name));
     tabs.forEach((tab, k) => tab.setAttribute('aria-pressed', String(k === i)));
+    dodge();
   };
 
   // Preload the other logos so a swap never waits on the network — unless the
@@ -238,6 +239,23 @@ if (stage && box && source) {
     devices.style.top = `${cy - 230}px`;
     devices.style.setProperty('--ds', (half / 230).toFixed(3));
     box.style.height = `${bottom * s}px`;
+    scale = s;
+    dodge();
+  };
+  // The device stands where the UK and France are, so a label it would cover
+  // moves out from under it: a pin left of the device keeps its label on its
+  // own left; a pin beneath the device has its label beside the device's right.
+  let scale = 1;
+  const dodge = () => {
+    const d = devices.getBoundingClientRect();
+    for (const label of $('sh-labels').children) {
+      label.style.marginLeft = '';
+      const r = label.getBoundingClientRect();
+      if (r.right <= d.left || r.left >= d.right || r.bottom <= d.top || r.top >= d.bottom) continue;
+      const pin = r.left - 12 * scale;
+      const shift = pin < d.left ? Math.min(pin - 12 * scale, d.left - 6 * scale) - r.right : d.right + 6 * scale - r.left;
+      label.style.marginLeft = `${shift / scale}px`;
+    }
   };
   fit();
   document.fonts?.ready.then(fit);
