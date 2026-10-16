@@ -67,33 +67,99 @@
 .sh .sh-caption{display:flex; justify-content:space-between; gap:16px; max-width:430px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
 .sh .sh-caption a{color:var(--brand-text); white-space:nowrap}
 .sh .sh-caption a:hover{text-decoration:underline}
-.sh .sh-phone{position:absolute; left:432px; top:163px; width:226px; height:460px; padding:10px; background:var(--surface); border:1.5px solid rgba(15,20,32,.16); border-radius:38px; box-shadow:0 30px 60px rgba(15,20,32,.16)}
-.sh .sh-phone-tag{position:absolute; top:-12px; left:26px; padding:3px 8px; border-radius:999px; background:var(--peach); border:1px solid var(--peach-line); color:var(--acc-text); font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
-.sh .sh-screen{width:100%; height:100%; padding:22px 14px 14px; background:var(--screen); border-radius:29px; display:flex; flex-direction:column; gap:10px; overflow:hidden}
-.sh .sh-app-head{display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:26px}
-.sh .sh-app-name{flex-grow:1; font-size:13px; font-weight:600}
-.sh .sh-avatar{width:24px; height:24px; border-radius:999px; background:var(--track); border:1px solid var(--rule-soft)}
-.sh .sh-alert{padding:10px 12px 12px; background:var(--surface); border:1px solid var(--brand-line); border-radius:14px; box-shadow:0 6px 16px rgba(15,20,32,.06); display:flex; flex-direction:column; gap:6px}
-.sh .sh-alert-top{display:flex; justify-content:space-between; font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase}
-.sh .sh-alert-top span:first-child{color:var(--brand-text)}
-.sh .sh-alert-top span:last-child{color:var(--muted)}
-.sh .sh-alert-text{font-size:12px; line-height:1.4}
-.sh .sh-alert-btns{display:flex; gap:6px; margin-top:2px}
-.sh .sh-alert-btns span{flex:1 1 0; display:flex; justify-content:center; padding:7px 0; border-radius:8px; font-size:11px}
-.sh .sh-alert-btns span:first-child{background:var(--brand-btn); color:#fff; font-weight:600}
-.sh .sh-alert-btns span:last-child{border:1px solid rgba(15,20,32,.16); font-weight:500}
-.sh .sh-plan{padding:12px; background:var(--surface); border:1px solid var(--rule-soft); border-radius:14px; display:flex; flex-direction:column; gap:3px}
-.sh .sh-plan-l{font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
-.sh .sh-plan-n{font-size:12px; font-weight:600}
-.sh .sh-plan-big{font-family:var(--display); font-weight:500; font-size:32px; line-height:1.05; letter-spacing:-.03em}
-.sh .sh-plan-track{height:6px; margin-top:6px; border-radius:999px; background:var(--track); overflow:hidden}
-.sh .sh-plan-fill{height:6px; border-radius:999px; background:var(--brand-bar); transition:width .5s ease}
-.sh .sh-plan-cap{margin-top:4px; font-size:11px; color:var(--muted)}
-.sh .sh-rows{background:var(--surface); border:1px solid var(--rule-soft); border-radius:14px; display:flex; flex-direction:column}
-.sh .sh-row{display:flex; justify-content:space-between; align-items:center; height:36px; padding:0 12px; font-size:12px}
-.sh .sh-row + .sh-row{border-top:1px solid var(--rule-soft)}
-.sh .sh-row span:first-child{color:var(--muted)}
-.sh .sh-row span:last-child{font-weight:600}
+/* The customer's own device, beside the map — one per customer, from the
+   "Spenza hero — customer devices" Figma file. Only the current one shows;
+   home-hero.js switches it while the stage's blocks are out of sight. */
+.sh .sh-devices{position:absolute; left:432px; top:163px; width:226px; height:460px}
+.sh .sh-dev{position:absolute; inset:0; visibility:hidden}
+.sh .sh-dev.is-on{visibility:visible}
+.sh .sh-dev-tag{position:absolute; z-index:3; top:-12px; left:26px; padding:3px 8px; border-radius:999px; background:var(--peach); border:1px solid var(--peach-line); color:var(--acc-text); font-family:var(--mono)!important; font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
+.sh .sh-dev b, .sh .sh-dev small{font-weight:inherit}
+.sh .sh-dev i{display:block; font-style:normal}
+.sh .sh-bars{display:inline-flex!important; gap:1.5px; vertical-align:-1px}
+.sh .sh-bars i{width:2.5px; height:8px; border-radius:1px; background:currentColor}
+/* RocketPhone: the dialer */
+.sh .sh-dialer{padding:10px; background:var(--surface); border:1.5px solid rgba(15,20,32,.16); border-radius:38px; box-shadow:0 30px 60px rgba(15,20,32,.16)}
+.sh .sh-dl-screen{height:100%; padding:14px; border-radius:29px; background:#f5f3ff; display:flex; flex-direction:column; gap:9px; overflow:hidden}
+.sh .sh-dl-status{display:flex; justify-content:space-between; align-items:center; font-size:10px; font-weight:600}
+.sh .sh-dl-status span:last-child{font-family:var(--mono)!important; font-size:9px; font-weight:500}
+.sh .sh-dl-head{display:flex; justify-content:space-between; align-items:center}
+.sh .sh-dl-head b{font-size:12px; font-weight:600; color:#5d2dce}
+.sh .sh-dl-line{display:inline-flex; align-items:center; gap:5px; padding:3px 7px; border-radius:999px; background:var(--surface); border:1px solid #ddd3fa; font-family:var(--mono)!important; font-size:8.5px; font-weight:500; letter-spacing:.04em; text-transform:uppercase}
+.sh .sh-dl-line i{width:6px; height:6px; border-radius:50%; background:#16a34a}
+.sh .sh-dl-call{display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px; border-radius:14px; background:var(--surface); border:1px solid #ddd3fa}
+.sh .sh-dl-av{display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:#5d2dce; color:#fff; font-size:13px; font-weight:600}
+.sh .sh-dl-call>b{font-size:13px; font-weight:600}
+.sh .sh-dl-co{font-size:10px; color:var(--muted)}
+.sh .sh-dl-num{font-family:var(--mono)!important; font-size:10.5px; font-weight:500}
+.sh .sh-dl-rec{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono)!important; font-size:9px; font-weight:500; letter-spacing:.04em; color:#e11d48; font-variant-numeric:tabular-nums}
+.sh .sh-dl-rec i{width:6px; height:6px; border-radius:50%; background:#e11d48; animation:sh-blink 1.2s steps(2, jump-none) infinite}
+.sh .sh-dl-pad{display:grid; grid-template-columns:repeat(3, 1fr); gap:5px}
+.sh .sh-dl-pad span{display:flex; flex-direction:column; align-items:center; justify-content:center; height:30px; border-radius:10px; background:var(--surface); border:1px solid rgba(15,20,32,.08)}
+.sh .sh-dl-pad b{font-family:var(--display)!important; font-size:14px; font-weight:500; line-height:1}
+.sh .sh-dl-pad small{min-height:7px; font-family:var(--mono)!important; font-size:6.5px; line-height:1; letter-spacing:.08em; color:var(--muted)}
+.sh .sh-dl-pad span.is-press{background:#ede8fd; border-color:#c9bbf6}
+.sh .sh-dl-acts{display:flex; justify-content:space-between; align-items:center; padding:0 8px}
+.sh .sh-dl-acts span{display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--surface); border:1px solid rgba(15,20,32,.1); font-size:7.5px; font-weight:600; text-transform:uppercase}
+.sh .sh-dl-acts .sh-dl-end{width:38px; height:38px; background:#e11d48; border:0; color:#fff}
+.sh .sh-dl-sync{display:flex; align-items:center; gap:6px; padding:7px 10px; border-radius:10px; background:#5d2dce; color:#fff; font-size:9.5px; font-weight:500}
+.sh .sh-dl-sync>i{width:6px; height:6px; border-radius:50%; background:#7dd3fc}
+.sh .sh-dl-dots{display:inline-flex}
+.sh .sh-dl-dots i{animation:sh-dot 1.2s ease-in-out infinite}
+.sh .sh-dl-dots i:nth-child(2){animation-delay:.2s}
+.sh .sh-dl-dots i:nth-child(3){animation-delay:.4s}
+/* Butlr: the ceiling sensor */
+.sh .sh-iot-mount{position:absolute; left:103px; top:0; width:20px; height:14px; border-radius:3px; background:var(--dot)}
+.sh .sh-iot-puck{position:absolute; left:18px; top:12px; width:190px; height:176px; border-radius:46px; background:linear-gradient(180deg, #fff, #edebe6); border:1.5px solid rgba(15,20,32,.14); box-shadow:0 22px 44px rgba(15,20,32,.14); display:flex; flex-direction:column; align-items:center}
+.sh .sh-iot-lens{position:relative; margin-top:24px; width:76px; height:76px; border-radius:50%; background:#e9e5de; display:grid; place-items:center}
+.sh .sh-iot-lens::before{content:""; width:64px; height:64px; border-radius:50%; background:radial-gradient(circle at 50% 50%, #2a2c33 0 18px, #17181c 19px)}
+.sh .sh-iot-lens i{position:absolute; left:27px; top:22px; width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.5)}
+.sh .sh-iot-led{width:8px; height:8px; margin-top:16px; border-radius:50%; background:#ff3d00; box-shadow:0 0 0 0 rgba(255,61,0,.5); animation:sh-led 2s ease-out infinite}
+.sh .sh-iot-puck b{margin-top:5px; font-size:14px; font-weight:600}
+.sh .sh-iot-puck small{margin-top:2px; font-family:var(--mono)!important; font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.sh .sh-iot-up{position:absolute; left:50%; top:200px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:5px; padding:3px 8px; border-radius:999px; background:var(--surface); border:1px solid #ffd0bf; font-family:var(--mono)!important; font-size:8.5px; font-weight:500; color:#c73000; white-space:nowrap}
+.sh .sh-iot-up i{width:6px; height:6px; border-radius:50%; background:#ff3d00; animation:sh-blink 2s steps(2, jump-none) infinite}
+.sh .sh-iot-card{position:absolute; left:0; right:0; top:228px; padding:12px; border-radius:16px; background:var(--surface); border:1px solid rgba(15,20,32,.1); box-shadow:0 18px 40px rgba(15,20,32,.12); display:flex; flex-direction:column; gap:9px}
+.sh .sh-iot-head{display:flex; justify-content:space-between; align-items:center}
+.sh .sh-iot-head b{display:block; font-size:11.5px; font-weight:600}
+.sh .sh-iot-head small{display:block; margin-top:1px; font-family:var(--mono)!important; font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.sh .sh-iot-head span{padding:2px 6px; border-radius:999px; background:#fff1eb; font-family:var(--mono)!important; font-size:8px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:#c73000}
+.sh .sh-iot-heat{display:grid; grid-template-columns:repeat(12, 1fr); gap:3px; padding:6px; border-radius:10px; background:#f6f7f9}
+.sh .sh-iot-heat i{height:12.4px; border-radius:3px; background:#e7e3dc}
+.sh .sh-iot-heat i.is-warm{background:rgba(255,61,0,calc(.25 + .75 * var(--h))); animation:sh-heat 3.2s ease-in-out calc(var(--k) * -.45s) infinite alternate}
+.sh .sh-iot-stats{display:flex; gap:8px}
+.sh .sh-iot-stats div{flex:1 1 0}
+.sh .sh-iot-stats b{display:block; font-family:var(--display)!important; font-size:22px; font-weight:500; line-height:1.15; letter-spacing:-.03em}
+.sh .sh-iot-stats small{display:block; font-size:9.5px; color:var(--muted)}
+.sh .sh-iot-chips{display:flex; gap:5px}
+.sh .sh-iot-chips span{padding:4px 7px; border-radius:6px; border:1px solid rgba(15,20,32,.12); font-family:var(--mono)!important; font-size:8px; font-weight:500; letter-spacing:.04em; text-transform:uppercase}
+/* Angel Watch: the smartwatch */
+.sh .sh-w-strap{position:absolute; left:53px; width:120px; height:120px; background:linear-gradient(180deg, #f04a92, #c30b5d)}
+.sh .sh-w-strap--t{top:0; height:118px; border-radius:30px 30px 0 0}
+.sh .sh-w-strap--b{top:340px; border-radius:0 0 30px 30px; background:linear-gradient(180deg, #c30b5d, #f04a92); display:flex; flex-direction:column; align-items:center; gap:14px; padding-top:44px}
+.sh .sh-w-strap--b i{width:8px; height:8px; border-radius:50%; background:rgba(122,6,55,.55)}
+.sh .sh-w-crown, .sh .sh-w-btn{position:absolute; left:208px; background:#2a2a30}
+.sh .sh-w-crown{top:180px; width:12px; height:34px; border-radius:4px}
+.sh .sh-w-btn{top:236px; width:8px; height:22px; border-radius:3px}
+.sh .sh-w-case{position:absolute; left:13px; top:106px; width:200px; height:236px; padding:12px; border-radius:58px; background:#1b1b20; border:2px solid #3a3a42; box-shadow:0 26px 50px rgba(15,20,32,.22)}
+.sh .sh-w-screen{height:100%; padding:16px 16px 12px; border-radius:44px; background:#0b0b0f; color:#fff; display:flex; flex-direction:column; gap:7px; overflow:hidden}
+.sh .sh-w-status{display:flex; justify-content:space-between; font-family:var(--mono)!important; font-size:8px; font-weight:500; opacity:.7}
+.sh .sh-w-time{display:flex; justify-content:space-between; align-items:flex-end}
+.sh .sh-w-time b{font-family:var(--display)!important; font-size:34px; font-weight:500; line-height:1; letter-spacing:-.04em; font-variant-numeric:tabular-nums}
+.sh .sh-w-time small{padding-bottom:3px; font-family:var(--mono)!important; font-size:8px; letter-spacing:.04em; text-transform:uppercase; opacity:.6}
+.sh .sh-w-who{display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:500}
+.sh .sh-w-who i{width:7px; height:7px; border-radius:50%; background:#e60e6e}
+.sh .sh-w-map{position:relative; flex:none; height:58px; border-radius:12px; background-color:#1d1d26; background-image:linear-gradient(#2c2c38 2px, transparent 2px), linear-gradient(90deg, #2c2c38 2px, transparent 2px); background-size:34px 15px; background-position:14px 8px; overflow:hidden}
+.sh .sh-w-zone{position:absolute; left:50%; top:50%; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; background:rgba(230,14,110,.18); border:1px dashed rgba(230,14,110,.6); animation:sh-zone 2.4s ease-out infinite}
+.sh .sh-w-pin{position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:#e60e6e; border:2px solid #fff}
+.sh .sh-w-acts{display:flex; gap:6px}
+.sh .sh-w-acts span{flex:1 1 0; display:flex; justify-content:center; padding:6px 0; border-radius:999px; background:#1d1d26; border:1px solid rgba(255,255,255,.25); font-size:9.5px; font-weight:600}
+.sh .sh-w-acts .sh-w-sos{background:#e11d48; border-color:#e11d48}
+@keyframes sh-blink{50%{opacity:.2}}
+@keyframes sh-dot{0%, 100%{opacity:.25} 40%{opacity:1}}
+@keyframes sh-led{0%{box-shadow:0 0 0 0 rgba(255,61,0,.5)} 100%{box-shadow:0 0 0 8px rgba(255,61,0,0)}}
+@keyframes sh-heat{from{opacity:.35} to{opacity:1}}
+@keyframes sh-zone{0%{transform:scale(.7); opacity:1} 100%{transform:scale(1.15); opacity:.35}}
 .sh .sh-sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
 @media (max-width:1099px){
 .sh .sh-hero-grid{grid-template-columns:minmax(0,1fr); gap:48px}
@@ -105,8 +171,9 @@
 .sh .sh-lede{font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){
-.sh .sh-plan-fill, .sh .sh-tab{transition:none}
+.sh .sh-tab{transition:none}
 .sh .sh-pin .sh-ring{animation:none; opacity:0}
+.sh .sh-dev *{animation:none!important}
 }
 
 .sh{display:block; color:var(--ink); font-family:var(--sans)!important; font-size:16px; line-height:normal; -webkit-font-smoothing:antialiased; content-visibility:visible}
@@ -116,8 +183,8 @@
 .sh p, .sh dl{margin-top:0}
 .sh h1{font-family:var(--display)!important}
 .sh h1 em{font-family:var(--serif)!important}
-.sh .sh-eyebrow, .sh .sh-tabs-label, .sh .sh-who-sub, .sh .sh-caption, .sh .sh-phone-tag, .sh .sh-alert-top, .sh .sh-plan-l, .sh .sh-kpi-v.sh-ph{font-family:var(--mono)!important}
-.sh .sh-kpi-v, .sh .sh-plan-big{font-family:var(--display)!important}
+.sh .sh-eyebrow, .sh .sh-tabs-label, .sh .sh-who-sub, .sh .sh-caption, .sh .sh-kpi-v.sh-ph{font-family:var(--mono)!important}
+.sh .sh-kpi-v{font-family:var(--display)!important}
 
 /* hero is the customer stage; the four-hub graphic is now the second section */
 .hm>section.sh.sh-hero{content-visibility:visible;contain-intrinsic-size:none}
@@ -151,7 +218,7 @@
 .sh .sh-stats{order:2; display:flex; flex-wrap:wrap; justify-content:center; gap:2px 18px; margin-top:32px}
 .sh .sh-stage-box{order:1; max-width:none; height:auto!important; margin-top:40px}
 .sh .sh-stage{position:relative; width:auto; height:auto; transform:none!important}
-.sh .sh-phone{display:none}
+.sh .sh-devices{display:none}
 .sh .sh-content{position:static; width:auto; gap:16px; text-align:left}
 .sh .sh-tabs{flex-wrap:wrap; justify-content:center; height:auto; gap:8px}
 .sh .sh-tabs-label{flex-basis:100%; margin:0 0 2px; text-align:center}

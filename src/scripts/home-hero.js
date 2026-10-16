@@ -75,8 +75,27 @@ if (stage && box && source) {
     }, () => {});
   };
 
-  // The stage's blocks — the customer, the pins and their labels, the phone's
-  // screen — drop out one after another, and the next customer's drop back in
+  // The customer's device beside the map. RocketPhone's dialer is mid-call:
+  // its timer runs and its keys are pressed now and then, while it is on
+  // screen.
+  const devices = [...stage.querySelectorAll('.sh-dev')];
+  const dialer = stage.querySelector('.sh-dialer');
+  const clock = dialer?.querySelector('.sh-dl-time');
+  const keys = dialer ? [...dialer.querySelectorAll('.sh-dl-pad span')] : [];
+  let seconds = 134;
+  const pad = n => String(n).padStart(2, '0');
+  setInterval(() => {
+    if (!visible || document.hidden || !dialer?.classList.contains('is-on')) return;
+    seconds += 1;
+    clock.textContent = `${pad(Math.floor(seconds / 60))}:${pad(seconds % 60)}`;
+    if (reduce) return;
+    const key = keys[Math.floor(Math.random() * keys.length)];
+    key.classList.add('is-press');
+    setTimeout(() => key.classList.remove('is-press'), 220);
+  }, 1000);
+
+  // The stage's blocks — the customer, the pins and their labels, the
+  // customer's device — drop out one after another, and the next customer's drop back in
   // from above in the same order, as the letters do.
   const blocks = [...stage.querySelectorAll('[data-swap]')];
   const OUT = 240;
@@ -91,19 +110,16 @@ if (stage && box && source) {
 
   const render = i => {
     const c = CUSTOMERS[i];
-    const p = c.phone;
     const b = c.brand;
     for (const [name, value] of [['--brand', b.brand], ['--brand-text', b.text], ['--brand-line', b.line],
       ['--brand-bar', b.bar], ['--brand-btn', b.btn], ['--screen', b.screen]]) stage.style.setProperty(name, value);
 
-    for (const [id, h] of [['sh-logo', c.logoH[0]], ['sh-pLogo', c.logoH[1]]]) {
-      const img = $(id);
-      img.removeAttribute('width');
-      img.removeAttribute('height');
-      img.src = c.logo;
-      img.style.height = `${h}px`;
-    }
-    $('sh-logo').alt = c.name;
+    const logo = $('sh-logo');
+    logo.removeAttribute('width');
+    logo.removeAttribute('height');
+    logo.src = c.logo;
+    logo.style.height = `${c.logoH}px`;
+    logo.alt = c.name;
     setText('sh-sub', c.sub);
 
     const pins = $('sh-pins');
@@ -124,10 +140,7 @@ if (stage && box && source) {
     }
     $('sh-map').setAttribute('aria-label', `World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`);
 
-    setText('sh-aLabel', p.aLabel); setText('sh-aText', p.aText); setText('sh-aBtn', p.aBtn);
-    setText('sh-plL', p.plL); setText('sh-plN', p.plN); setText('sh-plCap', p.plCap);
-    setText('sh-r1k', p.rows[0][0]); setText('sh-r1v', p.rows[0][1]);
-    setText('sh-r2k', p.rows[1][0]); setText('sh-r2v', p.rows[1][1]);
+    devices.forEach(d => d.classList.toggle('is-on', d.dataset.dev === c.name));
     tabs.forEach((tab, k) => tab.setAttribute('aria-pressed', String(k === i)));
   };
 
@@ -148,7 +161,6 @@ if (stage && box && source) {
     roll($('sh-kMarkets'), String(c.markets.length), 70);
     roll($('sh-kNetworks'), String(c.networks), 70);
     roll($('sh-capText'), c.caption, 12);
-    roll($('sh-plBig'), c.phone.plBig, 45);
     if (reduce) render(i);
     else {
       swapping = true;
