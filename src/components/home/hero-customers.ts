@@ -30,7 +30,7 @@ export const HERO_CUSTOMERS = [
   {
     name: 'Butlr', word: 'Add On', caption: 'Sensor fleets across the US, UK and France', sub: 'Spatial intelligence sensors',
     logo: butlr, logoH: 26, logoRatio: 69 / 22,
-    markets: [US, UK, FR], networks: 20,
+    markets: [US, UK, FR], marketsLabel: 'regions live', networks: 20,
   },
 ];
 

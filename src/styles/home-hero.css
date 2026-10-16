@@ -80,7 +80,7 @@
 /* The customer's own device, beside the map — one per customer, from the
    "Spenza hero — customer devices" Figma file. Only the current one shows;
    home-hero.js switches it while the stage's blocks are out of sight. */
-.sh .sh-devices{position:absolute; z-index:2; left:177px; top:-72px; width:226px; height:460px; scale:var(--ds, .6)}
+.sh .sh-devices{position:absolute; z-index:2; left:177px; top:-30px; width:226px; height:460px; scale:var(--ds, .6)}
 .sh .sh-dev{position:absolute; inset:0; visibility:hidden}
 .sh .sh-dev.is-on{visibility:visible}
 .sh .sh-dev-tag{position:absolute; z-index:3; top:-12px; left:26px; padding:3px 8px; border-radius:999px; background:var(--peach); border:1px solid var(--peach-line); color:var(--acc-text); font-family:var(--mono)!important; font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
@@ -90,30 +90,30 @@
 .sh .sh-bars i{width:2.5px; height:8px; border-radius:1px; background:currentColor}
 /* RocketPhone: the dialer */
 .sh .sh-dialer{padding:10px; background:var(--surface); border:1.5px solid rgba(15,20,32,.16); border-radius:38px; box-shadow:0 30px 60px rgba(15,20,32,.16)}
-.sh .sh-dl-screen{height:100%; padding:14px; border-radius:29px; background:var(--peach); display:flex; flex-direction:column; gap:9px; overflow:hidden}
+.sh .sh-dl-screen{height:100%; padding:14px; border-radius:29px; background:#f4f3f1; display:flex; flex-direction:column; gap:9px; overflow:hidden}
 .sh .sh-dl-status{display:flex; justify-content:space-between; align-items:center; font-size:10px; font-weight:600}
 .sh .sh-dl-status span:last-child{font-family:var(--mono)!important; font-size:9px; font-weight:500}
 .sh .sh-dl-head{display:flex; justify-content:space-between; align-items:center}
-.sh .sh-dl-head b{font-size:12px; font-weight:600; color:var(--acc-text)}
-.sh .sh-dl-line{display:inline-flex; align-items:center; gap:5px; padding:3px 7px; border-radius:999px; background:var(--surface); border:1px solid var(--peach-line); font-family:var(--mono)!important; font-size:8.5px; font-weight:500; letter-spacing:.04em; text-transform:uppercase}
-.sh .sh-dl-line i{width:6px; height:6px; border-radius:50%; background:var(--acc)}
-.sh .sh-dl-call{display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px; border-radius:14px; background:var(--surface); border:1px solid var(--peach-line)}
-.sh .sh-dl-av{display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--acc); color:#fff; font-size:13px; font-weight:600}
+.sh .sh-dl-head b{font-size:12px; font-weight:600; color:var(--ink)}
+.sh .sh-dl-line{display:inline-flex; align-items:center; gap:5px; padding:3px 7px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-family:var(--mono)!important; font-size:8.5px; font-weight:500; letter-spacing:.04em; text-transform:uppercase}
+.sh .sh-dl-line i{width:6px; height:6px; border-radius:50%; background:#8a909b}
+.sh .sh-dl-call{display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px; border-radius:14px; background:var(--surface); border:1px solid var(--rule)}
+.sh .sh-dl-av{display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:#3d4656; color:#fff; font-size:13px; font-weight:600}
 .sh .sh-dl-call>b{font-size:13px; font-weight:600}
 .sh .sh-dl-co{font-size:10px; color:var(--muted)}
 .sh .sh-dl-num{font-family:var(--mono)!important; font-size:10.5px; font-weight:500}
-.sh .sh-dl-rec{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono)!important; font-size:9px; font-weight:500; letter-spacing:.04em; color:var(--acc-dark); font-variant-numeric:tabular-nums}
-.sh .sh-dl-rec i{width:6px; height:6px; border-radius:50%; background:var(--acc-dark); animation:sh-blink 1.2s steps(2, jump-none) infinite}
+.sh .sh-dl-rec{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono)!important; font-size:9px; font-weight:500; letter-spacing:.04em; color:var(--muted); font-variant-numeric:tabular-nums}
+.sh .sh-dl-rec i{width:6px; height:6px; border-radius:50%; background:var(--muted); animation:sh-blink 1.2s steps(2, jump-none) infinite}
 .sh .sh-dl-pad{display:grid; grid-template-columns:repeat(3, 1fr); gap:5px}
 .sh .sh-dl-pad span{display:flex; flex-direction:column; align-items:center; justify-content:center; height:30px; border-radius:10px; background:var(--surface); border:1px solid rgba(15,20,32,.08)}
 .sh .sh-dl-pad b{font-family:var(--display)!important; font-size:14px; font-weight:500; line-height:1}
 .sh .sh-dl-pad small{min-height:7px; font-family:var(--mono)!important; font-size:6.5px; line-height:1; letter-spacing:.08em; color:var(--muted)}
-.sh .sh-dl-pad span.is-press{background:#ffe8dc; border-color:#ffb899}
+.sh .sh-dl-pad span.is-press{background:#e9e8e4; border-color:rgba(15,20,32,.2)}
 .sh .sh-dl-acts{display:flex; justify-content:space-between; align-items:center; padding:0 8px}
 .sh .sh-dl-acts span{display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--surface); border:1px solid rgba(15,20,32,.1); font-size:7.5px; font-weight:600; text-transform:uppercase}
-.sh .sh-dl-acts .sh-dl-end{width:38px; height:38px; background:var(--acc-dark); border:0; color:#fff}
-.sh .sh-dl-sync{display:flex; align-items:center; gap:6px; padding:7px 10px; border-radius:10px; background:var(--acc); color:#fff; font-size:9.5px; font-weight:500}
-.sh .sh-dl-sync>i{width:6px; height:6px; border-radius:50%; background:#ffd3c0}
+.sh .sh-dl-acts .sh-dl-end{width:38px; height:38px; background:var(--acc); border:0; color:#fff}
+.sh .sh-dl-sync{display:flex; align-items:center; gap:6px; padding:7px 10px; border-radius:10px; background:#2a2a2d; color:#fff; font-size:9.5px; font-weight:500}
+.sh .sh-dl-sync>i{width:6px; height:6px; border-radius:50%; background:#c7c9ce}
 .sh .sh-dl-dots{display:inline-flex}
 .sh .sh-dl-dots i{animation:sh-dot 1.2s ease-in-out infinite}
 .sh .sh-dl-dots i:nth-child(2){animation-delay:.2s}
@@ -144,10 +144,10 @@
 .sh .sh-iot-chips{display:flex; gap:5px}
 .sh .sh-iot-chips span{padding:4px 7px; border-radius:6px; border:1px solid rgba(15,20,32,.12); font-family:var(--mono)!important; font-size:8px; font-weight:500; letter-spacing:.04em; text-transform:uppercase}
 /* Angel Watch: the smartwatch */
-.sh .sh-w-strap{position:absolute; left:53px; width:120px; height:120px; background:linear-gradient(180deg, #ff7a45, #d63a00)}
+.sh .sh-w-strap{position:absolute; left:53px; width:120px; height:120px; background:linear-gradient(180deg, #fff, #edebe6); border:1.5px solid rgba(15,20,32,.14); box-shadow:0 22px 44px rgba(15,20,32,.1)}
 .sh .sh-w-strap--t{top:0; height:118px; border-radius:30px 30px 0 0}
-.sh .sh-w-strap--b{top:340px; border-radius:0 0 30px 30px; background:linear-gradient(180deg, #d63a00, #ff7a45); display:flex; flex-direction:column; align-items:center; gap:14px; padding-top:44px}
-.sh .sh-w-strap--b i{width:8px; height:8px; border-radius:50%; background:rgba(110,28,0,.45)}
+.sh .sh-w-strap--b{top:340px; border-radius:0 0 30px 30px; background:linear-gradient(180deg, #edebe6, #fff); display:flex; flex-direction:column; align-items:center; gap:14px; padding-top:44px}
+.sh .sh-w-strap--b i{width:8px; height:8px; border-radius:50%; background:#d6cfc2}
 .sh .sh-w-crown, .sh .sh-w-btn{position:absolute; left:208px; background:#2a2a30}
 .sh .sh-w-crown{top:180px; width:12px; height:34px; border-radius:4px}
 .sh .sh-w-btn{top:236px; width:8px; height:22px; border-radius:3px}
@@ -158,13 +158,13 @@
 .sh .sh-w-time b{font-family:var(--display)!important; font-size:34px; font-weight:500; line-height:1; letter-spacing:-.04em; font-variant-numeric:tabular-nums}
 .sh .sh-w-time small{padding-bottom:3px; font-family:var(--mono)!important; font-size:8px; letter-spacing:.04em; text-transform:uppercase; opacity:.6}
 .sh .sh-w-who{display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:500}
-.sh .sh-w-who i{width:7px; height:7px; border-radius:50%; background:var(--acc)}
+.sh .sh-w-who i{width:7px; height:7px; border-radius:50%; background:#c7c9ce}
 .sh .sh-w-map{position:relative; flex:none; height:58px; border-radius:12px; background-color:#1d1d26; background-image:linear-gradient(#2c2c38 2px, transparent 2px), linear-gradient(90deg, #2c2c38 2px, transparent 2px); background-size:34px 15px; background-position:14px 8px; overflow:hidden}
-.sh .sh-w-zone{position:absolute; left:50%; top:50%; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; background:rgba(255,73,4,.18); border:1px dashed rgba(255,73,4,.6); animation:sh-zone 2.4s ease-out infinite}
-.sh .sh-w-pin{position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:var(--acc); border:2px solid #fff}
+.sh .sh-w-zone{position:absolute; left:50%; top:50%; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; background:rgba(255,255,255,.1); border:1px dashed rgba(255,255,255,.45); animation:sh-zone 2.4s ease-out infinite}
+.sh .sh-w-pin{position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:#9aa0aa; border:2px solid #fff}
 .sh .sh-w-acts{display:flex; gap:6px}
 .sh .sh-w-acts span{flex:1 1 0; display:flex; justify-content:center; padding:6px 0; border-radius:999px; background:#1d1d26; border:1px solid rgba(255,255,255,.25); font-size:9.5px; font-weight:600}
-.sh .sh-w-acts .sh-w-sos{background:var(--acc-dark); border-color:var(--acc-dark)}
+.sh .sh-w-acts .sh-w-sos{background:var(--acc); border-color:var(--acc)}
 @keyframes sh-blink{50%{opacity:.2}}
 @keyframes sh-dot{0%, 100%{opacity:.25} 40%{opacity:1}}
 @keyframes sh-led{0%{box-shadow:0 0 0 0 rgba(255,61,0,.5)} 100%{box-shadow:0 0 0 8px rgba(255,61,0,0)}}

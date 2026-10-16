@@ -117,6 +117,7 @@ if (stage && box && source) {
     logo.style.height = `${c.logoH}px`;
     logo.alt = c.name;
     setText('sh-sub', c.sub);
+    setText('sh-kMarketsL', c.marketsLabel || 'markets live');
 
     const pins = $('sh-pins');
     const labels = $('sh-labels');

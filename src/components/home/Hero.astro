@@ -72,7 +72,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
               </div>
             </div>
             <div class="sh-kpis">
-              <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kMarkets"><span>{c.markets.length}</span></span><span class="sh-kpi-l">markets live</span></div>
+              <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kMarkets"><span>{c.markets.length}</span></span><span class="sh-kpi-l" id="sh-kMarketsL">{('marketsLabel' in c && c.marketsLabel) || 'markets live'}</span></div>
               <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kNetworks"><span>{c.networks}</span></span><span class="sh-kpi-l">networks live</span></div>
             </div>
           </div>
