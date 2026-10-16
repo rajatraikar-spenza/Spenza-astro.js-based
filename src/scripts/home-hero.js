@@ -142,7 +142,8 @@ if (stage && box && source) {
 
     devs.forEach(d => d.classList.toggle('is-on', d.dataset.dev === c.name));
     tabs.forEach((tab, k) => tab.setAttribute('aria-pressed', String(k === i)));
-    dodge();
+    // Each customer's card is its own height, so the device is fitted again.
+    fit();
   };
 
   // Preload the other logos so a swap never waits on the network — unless the
@@ -214,30 +215,24 @@ if (stage && box && source) {
   tabs.forEach(tab => tab.addEventListener('click', () => go(Number(tab.dataset.i), true)));
 
   // The stage is drawn 580 wide and scaled to its column; Hero.astro does
-  // the first fit inline, before paint. The device stands on the map's
-  // centre, as large as it can be between the tabs above the map and the
-  // card below it — and, beside the copy, without reaching below the rule
-  // under the buttons.
+  // the first fit inline, before paint. The device stands on the map,
+  // centred across it, from a little under the tabs down over three quarters of
+  // the card below.
   const W = 580;
   const map = $('sh-map');
   const content = stage.querySelector('.sh-content');
   const tabsRow = stage.querySelector('.sh-tabs');
   const card = stage.querySelector('.sh-card');
   const devices = stage.querySelector('.sh-devices');
-  const rule = document.querySelector('.sh .sh-stats');
   const fit = () => {
     const s = Math.min(1, (box.clientWidth || W) / W);
     stage.style.transform = `scale(${s})`;
     const bottom = content.offsetHeight;
-    const cy = map.offsetTop + map.offsetHeight / 2;
-    const b = box.getBoundingClientRect();
-    const r = rule.getBoundingClientRect();
-    const beside = r.right <= b.left;
-    // Never over the tabs above the map or the card below it, either.
-    const room = Math.min(cy - (tabsRow.offsetTop + tabsRow.offsetHeight + 8), card.offsetTop - 8 - cy);
-    const half = Math.max(80, Math.min(230, room, beside ? (r.top - 16 - b.top) / s - cy : room));
-    devices.style.top = `${cy - 230}px`;
-    devices.style.setProperty('--ds', (half / 230).toFixed(3));
+    const top = tabsRow.offsetTop + tabsRow.offsetHeight + 28;
+    const end = card.offsetTop + card.offsetHeight * 0.75;
+    const ds = Math.min(1, (end - top) / 460);
+    devices.style.top = `${(top + end) / 2 - 230}px`;
+    devices.style.setProperty('--ds', ds.toFixed(3));
     box.style.height = `${bottom * s}px`;
     scale = s;
     dodge();
