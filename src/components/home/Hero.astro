@@ -21,7 +21,7 @@
  * sensor, an Angel Watch — from the "Spenza hero — customer devices" Figma
  * file. On phones the stage sits under the buttons, without the device.
  */
-import { HERO_CUSTOMERS, brandStyle, labelStyle } from './hero-customers';
+import { HERO_CUSTOMERS, labelStyle } from './hero-customers';
 import { MAP_DOTS } from './hero-map-dots';
 
 const stats = [
@@ -55,7 +55,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
     </div>
 
     <div class="sh-stage-box" id="sh-stageBox">
-      <div class="sh-stage" id="sh-stage" style={brandStyle(c)}>
+      <div class="sh-stage" id="sh-stage">
         <div class="sh-content">
           <div class="sh-tabs" role="group" aria-label="Customers running on Spenza">
             <span class="sh-tabs-label">Live on Spenza</span>

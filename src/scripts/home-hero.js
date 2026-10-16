@@ -110,10 +110,6 @@ if (stage && box && source) {
 
   const render = i => {
     const c = CUSTOMERS[i];
-    const b = c.brand;
-    for (const [name, value] of [['--brand', b.brand], ['--brand-text', b.text], ['--brand-line', b.line],
-      ['--brand-bar', b.bar], ['--brand-btn', b.btn], ['--screen', b.screen]]) stage.style.setProperty(name, value);
-
     const logo = $('sh-logo');
     logo.removeAttribute('width');
     logo.removeAttribute('height');

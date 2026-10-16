@@ -49,7 +49,6 @@
 .sh .sh-tab[aria-pressed="true"]{color:var(--ink); background:var(--surface); border-color:rgba(15,20,32,.22)}
 .sh .sh-tab .sh-bar{position:absolute; left:0; bottom:0; height:2px; width:100%; transform:scaleX(0); transform-origin:0 50%; background:var(--acc)}
 .sh .sh-card{padding:16px 18px; background:var(--surface); border:1px solid rgba(15,20,32,.10); border-radius:12px; box-shadow:0 14px 34px rgba(15,20,32,.07); display:flex; align-items:center; justify-content:space-between; gap:16px}
-.sh .sh-stage{--brand:#ff4904; --brand-text:#c93600; --brand-line:#ffd3c0; --brand-bar:#ff4904; --brand-btn:#0f1420; --screen:#fbf9f6}
 .sh .sh-who{display:flex; align-items:center; gap:10px; min-width:0}
 .sh .sh-who-text{display:flex; flex-direction:column; gap:6px; min-width:0}
 .sh .sh-logo-card{display:block; width:auto; max-width:220px; object-fit:contain; object-position:left center; filter:grayscale(1); opacity:.65; mix-blend-mode:multiply}
@@ -63,9 +62,9 @@
 .sh .sh-map{position:relative; width:580px; height:216px}
 .sh .sh-map svg{position:absolute; inset:0; width:580px; height:216px; display:block; overflow:visible}
 .sh .sh-map .sh-dots{fill:none; stroke:var(--dot); stroke-width:3.4; stroke-linecap:round}
-.sh .sh-pin .sh-halo{fill:var(--brand); fill-opacity:.16}
-.sh .sh-pin .sh-ring{fill:var(--brand); transform-box:fill-box; transform-origin:center; animation:sh-ping 2s ease-out infinite}
-.sh .sh-pin .sh-core{fill:var(--brand); stroke:var(--bg); stroke-width:1.5}
+.sh .sh-pin .sh-halo{fill:var(--acc); fill-opacity:.16}
+.sh .sh-pin .sh-ring{fill:var(--acc); transform-box:fill-box; transform-origin:center; animation:sh-ping 2s ease-out infinite}
+.sh .sh-pin .sh-core{fill:var(--acc); stroke:var(--bg); stroke-width:1.5}
 @keyframes sh-ping{0%{transform:scale(.5); opacity:.45} 100%{transform:scale(2.4); opacity:0}}
 /* The labels' layer is the map's size, so each label sits by its pin even
    while the layer is moved by the swap (a transform makes it the labels'
@@ -74,9 +73,9 @@
 .sh .sh-pinlabel{position:absolute; transform:translate(12px, -50%); padding:3px 9px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:11px; font-weight:500; white-space:nowrap; box-shadow:0 4px 12px rgba(15,20,32,.06)}
 .sh .sh-chips{display:flex; flex-wrap:wrap; gap:8px; max-width:430px; min-height:28px}
 .sh .sh-chip{display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:12px}
-.sh .sh-chip::before{content:""; width:6px; height:6px; border-radius:999px; background:var(--brand)}
+.sh .sh-chip::before{content:""; width:6px; height:6px; border-radius:999px; background:var(--acc)}
 .sh .sh-caption{display:flex; justify-content:space-between; gap:16px; max-width:430px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
-.sh .sh-caption a{color:var(--brand-text); white-space:nowrap}
+.sh .sh-caption a{color:var(--acc-text); white-space:nowrap}
 .sh .sh-caption a:hover{text-decoration:underline}
 /* The customer's own device, beside the map — one per customer, from the
    "Spenza hero — customer devices" Figma file. Only the current one shows;
