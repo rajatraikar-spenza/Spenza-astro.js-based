@@ -32,9 +32,16 @@
 .sh .sh-stats{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2px 24px; margin:40px 0 0; padding:18px 0 0; border-top:1px solid var(--rule); font-size:13px; line-height:1.8; color:var(--muted)}
 .sh .sh-stats dt, .sh .sh-stats dd{display:inline; margin:0}
 .sh .sh-stats dt{font-weight:600; color:var(--ink)}
-.sh .sh-stage-box{position:relative; width:100%; max-width:660px; height:630px}
-.sh .sh-stage{position:absolute; left:0; top:0; width:660px; height:630px; transform-origin:0 0}
-.sh .sh-content{position:absolute; left:0; top:0; width:480px; display:flex; flex-direction:column; gap:18px}
+/* The stage is drawn 580 wide — the map's own width — and centred in its
+   column. The map comes first, under the tabs, and the customer's device
+   stands on its centre, sized by home-hero.js so it never reaches below the rule
+   under the buttons. */
+.sh .sh-stage-box{position:relative; width:100%; max-width:580px; height:410px; justify-self:center}
+.sh .sh-stage{position:absolute; left:0; top:0; width:580px; height:410px; transform-origin:0 0}
+.sh .sh-content{position:absolute; left:0; top:0; width:580px; display:flex; flex-direction:column; gap:18px}
+.sh .sh-content>.sh-map{order:1}
+.sh .sh-content>.sh-card{order:2}
+.sh .sh-content>.sh-caption{order:3}
 .sh .sh-tabs{display:flex; align-items:center; gap:8px; height:32px}
 .sh .sh-tabs-label{font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-right:4px; white-space:nowrap}
 .sh .sh-tab{position:relative; overflow:hidden; font:inherit; font-size:12px; font-weight:500; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:999px; padding:6px 12px; cursor:pointer; white-space:nowrap; transition:color .2s, background .2s, border-color .2s}
@@ -53,13 +60,16 @@
 .sh .sh-kpi-v{font-family:var(--display); font-weight:500; font-size:24px; line-height:1; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
 .sh .sh-kpi-v.sh-ph{color:var(--acc-text); font-family:var(--mono); font-size:18px; letter-spacing:0}
 .sh .sh-kpi-l{font-size:11px; color:var(--muted)}
-.sh .sh-map{position:relative; width:480px; height:179px}
-.sh .sh-map svg{position:absolute; inset:0; width:480px; height:179px; display:block; overflow:visible}
+.sh .sh-map{position:relative; width:580px; height:216px}
+.sh .sh-map svg{position:absolute; inset:0; width:580px; height:216px; display:block; overflow:visible}
 .sh .sh-map .sh-dots{fill:none; stroke:var(--dot); stroke-width:3.4; stroke-linecap:round}
 .sh .sh-pin .sh-halo{fill:var(--brand); fill-opacity:.16}
 .sh .sh-pin .sh-ring{fill:var(--brand); transform-box:fill-box; transform-origin:center; animation:sh-ping 2s ease-out infinite}
 .sh .sh-pin .sh-core{fill:var(--brand); stroke:var(--bg); stroke-width:1.5}
 @keyframes sh-ping{0%{transform:scale(.5); opacity:.45} 100%{transform:scale(2.4); opacity:0}}
+/* The labels ride above the device, which stands on the map's centre —
+   right over the UK and France. */
+.sh #sh-labels{position:absolute; inset:0; z-index:3; pointer-events:none}
 .sh .sh-pinlabel{position:absolute; transform:translate(12px, -50%); padding:3px 9px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:11px; font-weight:500; white-space:nowrap; box-shadow:0 4px 12px rgba(15,20,32,.06)}
 .sh .sh-chips{display:flex; flex-wrap:wrap; gap:8px; max-width:430px; min-height:28px}
 .sh .sh-chip{display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:12px}
@@ -70,7 +80,7 @@
 /* The customer's own device, beside the map — one per customer, from the
    "Spenza hero — customer devices" Figma file. Only the current one shows;
    home-hero.js switches it while the stage's blocks are out of sight. */
-.sh .sh-devices{position:absolute; left:432px; top:163px; width:226px; height:460px}
+.sh .sh-devices{position:absolute; z-index:2; left:177px; top:-72px; width:226px; height:460px; scale:var(--ds, .6)}
 .sh .sh-dev{position:absolute; inset:0; visibility:hidden}
 .sh .sh-dev.is-on{visibility:visible}
 .sh .sh-dev-tag{position:absolute; z-index:3; top:-12px; left:26px; padding:3px 8px; border-radius:999px; background:var(--peach); border:1px solid var(--peach-line); color:var(--acc-text); font-family:var(--mono)!important; font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
@@ -220,6 +230,7 @@
 .sh .sh-stage{position:relative; width:auto; height:auto; transform:none!important}
 .sh .sh-devices{display:none}
 .sh .sh-content{position:static; width:auto; gap:16px; text-align:left}
+.sh .sh-content>*{order:0!important}
 .sh .sh-tabs{flex-wrap:wrap; justify-content:center; height:auto; gap:8px}
 .sh .sh-tabs-label{flex-basis:100%; margin:0 0 2px; text-align:center}
 .sh .sh-tab{font-size:13px; padding:8px 14px}

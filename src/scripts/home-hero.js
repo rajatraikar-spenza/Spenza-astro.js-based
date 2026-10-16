@@ -78,7 +78,7 @@ if (stage && box && source) {
   // The customer's device beside the map. RocketPhone's dialer is mid-call:
   // its timer runs and its keys are pressed now and then, while it is on
   // screen.
-  const devices = [...stage.querySelectorAll('.sh-dev')];
+  const devs = [...stage.querySelectorAll('.sh-dev')];
   const dialer = stage.querySelector('.sh-dialer');
   const clock = dialer?.querySelector('.sh-dl-time');
   const keys = dialer ? [...dialer.querySelectorAll('.sh-dl-pad span')] : [];
@@ -140,7 +140,7 @@ if (stage && box && source) {
     }
     $('sh-map').setAttribute('aria-label', `World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`);
 
-    devices.forEach(d => d.classList.toggle('is-on', d.dataset.dev === c.name));
+    devs.forEach(d => d.classList.toggle('is-on', d.dataset.dev === c.name));
     tabs.forEach((tab, k) => tab.setAttribute('aria-pressed', String(k === i)));
   };
 
@@ -212,13 +212,35 @@ if (stage && box && source) {
 
   tabs.forEach(tab => tab.addEventListener('click', () => go(Number(tab.dataset.i), true)));
 
-  // The stage is drawn at 660x630 and scaled to its column; Hero.astro does
-  // the first fit inline, before paint.
+  // The stage is drawn 580 wide and scaled to its column; Hero.astro does
+  // the first fit inline, before paint. The device stands on the map's
+  // centre, as large as it can be between the tabs above the map and the
+  // card below it — and, beside the copy, without reaching below the rule
+  // under the buttons.
+  const W = 580;
+  const map = $('sh-map');
+  const content = stage.querySelector('.sh-content');
+  const tabsRow = stage.querySelector('.sh-tabs');
+  const card = stage.querySelector('.sh-card');
+  const devices = stage.querySelector('.sh-devices');
+  const rule = document.querySelector('.sh .sh-stats');
   const fit = () => {
-    const s = Math.min(1, (box.clientWidth || 660) / 660);
+    const s = Math.min(1, (box.clientWidth || W) / W);
     stage.style.transform = `scale(${s})`;
-    box.style.height = `${630 * s}px`;
+    const bottom = content.offsetHeight;
+    const cy = map.offsetTop + map.offsetHeight / 2;
+    const b = box.getBoundingClientRect();
+    const r = rule.getBoundingClientRect();
+    const beside = r.right <= b.left;
+    // Never over the tabs above the map or the card below it, either.
+    const room = Math.min(cy - (tabsRow.offsetTop + tabsRow.offsetHeight + 8), card.offsetTop - 8 - cy);
+    const half = Math.max(80, Math.min(230, room, beside ? (r.top - 16 - b.top) / s - cy : room));
+    devices.style.top = `${cy - 230}px`;
+    devices.style.setProperty('--ds', (half / 230).toFixed(3));
+    box.style.height = `${bottom * s}px`;
   };
+  fit();
+  document.fonts?.ready.then(fit);
   if ('ResizeObserver' in window) new ResizeObserver(fit).observe(box.parentNode);
   else window.addEventListener('resize', fit);
 }

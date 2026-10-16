@@ -1,13 +1,12 @@
 ---
 /**
  * Hero: the headline beside a "Live on Spenza" stage that cycles through three
- * customers — where each is live on a world map, and what its own customer
- * app shows. From the spenza-home-hero-updated design; styles in
+ * customers — where each is live on a world map, and the device it ships. From the spenza-home-hero-updated design; styles in
  * styles/home-hero.css, behaviour in scripts/home-hero.js.
  *
  * The first customer is rendered here, so the stage is complete before any
  * script runs; the script only swaps in the next one. The stage is drawn at
- * 660x630 and scaled to fit; the inline script below scales it before first
+ * 580 wide and scaled to fit; the inline script below scales it before first
  * paint, so a phone never sees it at full size.
  *
  * "Book a demo" carries `get-started`, which opens the site's Get Started popup;
@@ -164,9 +163,9 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
     <script is:inline>
       (function () {
         var box = document.getElementById('sh-stageBox');
-        var s = Math.min(1, (box.clientWidth || 660) / 660);
+        var s = Math.min(1, (box.clientWidth || 580) / 580);
         box.firstElementChild.style.transform = 'scale(' + s + ')';
-        box.style.height = 630 * s + 'px';
+        box.style.height = 410 * s + 'px';
       })();
     </script>
   </div>
