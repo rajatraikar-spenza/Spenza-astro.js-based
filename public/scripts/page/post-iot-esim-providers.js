@@ -347,35 +347,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function () {
-
-    const currentUrl = window.location.href;
-
-    const prompt = `Summarize the key insights from ${currentUrl}`;
-
-    // ChatGPT
-    const gptLink = document.querySelector('#gpt-url a');
-    if (gptLink) {
-        gptLink.href =
-            'https://chatgpt.com/?prompt=' +
-            encodeURIComponent(prompt) +
-            '&temporary-chat=true';
-        gptLink.target = '_blank';
-        gptLink.rel = 'noopener noreferrer';
-    }
-
-    // Perplexity
-    const perplexityLink = document.querySelector('#perplexity-url a');
-    if (perplexityLink) {
-        perplexityLink.href =
-            'https://www.perplexity.ai/search/new?q=' +
-            encodeURIComponent(prompt);
-        perplexityLink.target = '_blank';
-        perplexityLink.rel = 'noopener noreferrer';
-    }
-
-});
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const tocBody = document.querySelector(".elementor-toc__body");

@@ -196,4 +196,16 @@ export const SITE_REDIRECTS = {
   '/tem/telecom-billing-mistakes/': '/tem/telecom-compliance-audits/',
   '/tem/traditional-connectivity-plans/': '/tem/business-mobile-cost-quality/',
   '/tem/wireless-connectivity-management-enterprises/': '/tem/wireless-expense-management-challenges/',
+
+  /**
+   * ---- Retired after the Safe Browsing flag of 21 Oct 2026 ------------------
+   *
+   * A 2024 WordPress page that gated a .docx and a PDF behind a form asking
+   * for name, email, phone, address, country and headcount, two of its
+   * required fields labelled "Untitled", the files then served from another
+   * host. That is the shape Google's "deceptive pages: trick visitors into
+   * sharing personal info or downloading software" describes, and the page is
+   * off-ICP besides. Sent to the TEM outsourcing article it was written for.
+   */
+  '/mobility-policy/': '/tem/telecom-expense-management-tem-outsourcing/',
 };
