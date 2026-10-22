@@ -247,3 +247,16 @@
 .sh .sh-pinlabel.is-west{transform:translate(-50%, 9px)}
 .sh .sh-caption{max-width:none; justify-content:center; text-align:center; font-size:10.5px; line-height:1.5}
 }
+
+/* Desktop: the hero fills the first screen under the 64px header, its two
+   columns centred in it, with room between each piece of copy. Capped so a
+   very tall monitor does not float the copy in a sea of background. */
+@media (min-width:1100px){
+/* Everything in the hero is drawn at 110%, as if the page were zoomed in:
+   zoom scales lengths inside it too, so the height is divided back out. */
+.sh .sh-hero-grid{zoom:1.1; min-height:min(calc((100svh - 64px) / 1.1), 910px); gap:64px; padding-block:64px 80px}
+.sh .sh-eyebrow{font-size:12.5px}
+.sh h1{margin:30px 0 34px}
+.sh .sh-lede{margin-bottom:44px}
+.sh .sh-stats{margin-top:60px; padding-top:24px; gap:6px 24px}
+}
