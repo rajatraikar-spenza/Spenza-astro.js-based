@@ -25,18 +25,23 @@
 .sh .sh-hero-grid{display:grid; grid-template-columns:minmax(0,540px) minmax(0,1fr); gap:56px; align-items:center; padding-block:64px 72px}
 .sh .sh-eyebrow{display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; color:var(--muted)}
 .sh .sh-eyebrow::before{content:""; width:26px; height:1px; background:var(--acc); flex-shrink:0}
-.sh h1{margin:22px 0 26px; font-family:var(--display); font-weight:500; font-size:clamp(40px, 4.6vw, 62px); line-height:.96; letter-spacing:-.04em; text-wrap:balance}
+.sh h1{margin:22px 0 26px; font-family:var(--display); font-weight:500; font-size:clamp(40px, 4.4vw, 60px); line-height:.96; letter-spacing:-.04em; text-wrap:balance}
 .sh h1 em{font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:-.02em; color:var(--acc-text)}
 .sh .sh-lede{margin:0 0 32px; max-width:520px; font-size:18px; line-height:1.55; color:var(--body); text-wrap:pretty}
 .sh .sh-ctas{display:flex; gap:10px; flex-wrap:wrap}
 .sh .sh-stats{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:2px 24px; margin:40px 0 0; padding:18px 0 0; border-top:1px solid var(--rule); font-size:13px; line-height:1.8; color:var(--muted)}
 .sh .sh-stats dt, .sh .sh-stats dd{display:inline; margin:0}
 .sh .sh-stats dt{font-weight:600; color:var(--ink)}
-.sh .sh-stage-box{position:relative; width:100%; max-width:660px; height:630px}
-.sh .sh-stage{position:absolute; left:0; top:0; width:660px; height:630px; transform-origin:0 0}
-.sh .sh-swap{transition:opacity .28s ease}
-.sh .sh-stage.sh-is-out .sh-swap{opacity:0}
-.sh .sh-content{position:absolute; left:0; top:0; width:480px; display:flex; flex-direction:column; gap:18px}
+/* The stage is drawn 580 wide — the map's own width — and centred in its
+   column. The map comes first, under the tabs, and the customer's device
+   stands on its centre, sized by home-hero.js so it never reaches below the rule
+   under the buttons. */
+.sh .sh-stage-box{position:relative; width:100%; max-width:580px; height:410px; justify-self:center}
+.sh .sh-stage{position:absolute; left:0; top:0; width:580px; height:410px; transform-origin:0 0}
+.sh .sh-content{position:absolute; left:0; top:0; width:580px; display:flex; flex-direction:column; gap:18px}
+.sh .sh-content>.sh-map{order:1}
+.sh .sh-content>.sh-card{order:2}
+.sh .sh-content>.sh-caption{order:3}
 .sh .sh-tabs{display:flex; align-items:center; gap:8px; height:32px}
 .sh .sh-tabs-label{font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-right:4px; white-space:nowrap}
 .sh .sh-tab{position:relative; overflow:hidden; font:inherit; font-size:12px; font-weight:500; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:999px; padding:6px 12px; cursor:pointer; white-space:nowrap; transition:color .2s, background .2s, border-color .2s}
@@ -44,10 +49,9 @@
 .sh .sh-tab[aria-pressed="true"]{color:var(--ink); background:var(--surface); border-color:rgba(15,20,32,.22)}
 .sh .sh-tab .sh-bar{position:absolute; left:0; bottom:0; height:2px; width:100%; transform:scaleX(0); transform-origin:0 50%; background:var(--acc)}
 .sh .sh-card{padding:16px 18px; background:var(--surface); border:1px solid rgba(15,20,32,.10); border-radius:12px; box-shadow:0 14px 34px rgba(15,20,32,.07); display:flex; align-items:center; justify-content:space-between; gap:16px}
-.sh .sh-stage{--brand:#ff4904; --brand-text:#c93600; --brand-line:#ffd3c0; --brand-bar:#ff4904; --brand-btn:#0f1420; --screen:#fbf9f6}
 .sh .sh-who{display:flex; align-items:center; gap:10px; min-width:0}
 .sh .sh-who-text{display:flex; flex-direction:column; gap:6px; min-width:0}
-.sh .sh-logo-card{display:block; width:auto; max-width:220px; object-fit:contain; object-position:left center}
+.sh .sh-logo-card{display:block; width:auto; max-width:220px; object-fit:contain; object-position:left center; filter:grayscale(1); opacity:.65; mix-blend-mode:multiply}
 .sh .sh-logo-app{display:block; width:auto; max-width:140px; object-fit:contain; object-position:left center}
 .sh .sh-who-sub{font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); white-space:nowrap}
 .sh .sh-kpis{display:flex; gap:24px; flex-shrink:0}
@@ -55,47 +59,117 @@
 .sh .sh-kpi-v{font-family:var(--display); font-weight:500; font-size:24px; line-height:1; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
 .sh .sh-kpi-v.sh-ph{color:var(--acc-text); font-family:var(--mono); font-size:18px; letter-spacing:0}
 .sh .sh-kpi-l{font-size:11px; color:var(--muted)}
-.sh .sh-map{position:relative; width:480px; height:179px}
-.sh .sh-map svg{position:absolute; inset:0; width:480px; height:179px; display:block; overflow:visible}
+.sh .sh-map{position:relative; width:580px; height:216px}
+.sh .sh-map svg{position:absolute; inset:0; width:580px; height:216px; display:block; overflow:visible}
 .sh .sh-map .sh-dots{fill:none; stroke:var(--dot); stroke-width:3.4; stroke-linecap:round}
-.sh .sh-pin .sh-halo{fill:var(--brand); fill-opacity:.16}
-.sh .sh-pin .sh-ring{fill:var(--brand); transform-box:fill-box; transform-origin:center; animation:sh-ping 2s ease-out infinite}
-.sh .sh-pin .sh-core{fill:var(--brand); stroke:var(--bg); stroke-width:1.5}
+.sh .sh-pin .sh-halo{fill:var(--acc); fill-opacity:.16}
+.sh .sh-pin .sh-ring{fill:var(--acc); transform-box:fill-box; transform-origin:center; animation:sh-ping 2s ease-out infinite}
+.sh .sh-pin .sh-core{fill:var(--acc); stroke:var(--bg); stroke-width:1.5}
 @keyframes sh-ping{0%{transform:scale(.5); opacity:.45} 100%{transform:scale(2.4); opacity:0}}
+/* The labels' layer is the map's size, so each label sits by its pin even
+   while the layer is moved by the swap (a transform makes it the labels'
+   containing block). */
+.sh #sh-labels{position:absolute; inset:0; pointer-events:none}
 .sh .sh-pinlabel{position:absolute; transform:translate(12px, -50%); padding:3px 9px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:11px; font-weight:500; white-space:nowrap; box-shadow:0 4px 12px rgba(15,20,32,.06)}
 .sh .sh-chips{display:flex; flex-wrap:wrap; gap:8px; max-width:430px; min-height:28px}
 .sh .sh-chip{display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-size:12px}
-.sh .sh-chip::before{content:""; width:6px; height:6px; border-radius:999px; background:var(--brand)}
+.sh .sh-chip::before{content:""; width:6px; height:6px; border-radius:999px; background:var(--acc)}
 .sh .sh-caption{display:flex; justify-content:space-between; gap:16px; max-width:430px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
-.sh .sh-caption a{color:var(--brand-text); white-space:nowrap}
+.sh .sh-caption a{color:var(--acc-text); white-space:nowrap}
 .sh .sh-caption a:hover{text-decoration:underline}
-.sh .sh-phone{position:absolute; left:432px; top:163px; width:226px; height:460px; padding:10px; background:var(--surface); border:1.5px solid rgba(15,20,32,.16); border-radius:38px; box-shadow:0 30px 60px rgba(15,20,32,.16)}
-.sh .sh-phone-tag{position:absolute; top:-12px; left:26px; padding:3px 8px; border-radius:999px; background:var(--peach); border:1px solid var(--peach-line); color:var(--acc-text); font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
-.sh .sh-screen{width:100%; height:100%; padding:22px 14px 14px; background:var(--screen); border-radius:29px; display:flex; flex-direction:column; gap:10px; overflow:hidden}
-.sh .sh-app-head{display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:26px}
-.sh .sh-app-name{flex-grow:1; font-size:13px; font-weight:600}
-.sh .sh-avatar{width:24px; height:24px; border-radius:999px; background:var(--track); border:1px solid var(--rule-soft)}
-.sh .sh-alert{padding:10px 12px 12px; background:var(--surface); border:1px solid var(--brand-line); border-radius:14px; box-shadow:0 6px 16px rgba(15,20,32,.06); display:flex; flex-direction:column; gap:6px}
-.sh .sh-alert-top{display:flex; justify-content:space-between; font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase}
-.sh .sh-alert-top span:first-child{color:var(--brand-text)}
-.sh .sh-alert-top span:last-child{color:var(--muted)}
-.sh .sh-alert-text{font-size:12px; line-height:1.4}
-.sh .sh-alert-btns{display:flex; gap:6px; margin-top:2px}
-.sh .sh-alert-btns span{flex:1 1 0; display:flex; justify-content:center; padding:7px 0; border-radius:8px; font-size:11px}
-.sh .sh-alert-btns span:first-child{background:var(--brand-btn); color:#fff; font-weight:600}
-.sh .sh-alert-btns span:last-child{border:1px solid rgba(15,20,32,.16); font-weight:500}
-.sh .sh-plan{padding:12px; background:var(--surface); border:1px solid var(--rule-soft); border-radius:14px; display:flex; flex-direction:column; gap:3px}
-.sh .sh-plan-l{font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
-.sh .sh-plan-n{font-size:12px; font-weight:600}
-.sh .sh-plan-big{font-family:var(--display); font-weight:500; font-size:32px; line-height:1.05; letter-spacing:-.03em}
-.sh .sh-plan-track{height:6px; margin-top:6px; border-radius:999px; background:var(--track); overflow:hidden}
-.sh .sh-plan-fill{height:6px; border-radius:999px; background:var(--brand-bar); transition:width .5s ease}
-.sh .sh-plan-cap{margin-top:4px; font-size:11px; color:var(--muted)}
-.sh .sh-rows{background:var(--surface); border:1px solid var(--rule-soft); border-radius:14px; display:flex; flex-direction:column}
-.sh .sh-row{display:flex; justify-content:space-between; align-items:center; height:36px; padding:0 12px; font-size:12px}
-.sh .sh-row + .sh-row{border-top:1px solid var(--rule-soft)}
-.sh .sh-row span:first-child{color:var(--muted)}
-.sh .sh-row span:last-child{font-weight:600}
+/* The customer's own device, beside the map — one per customer, from the
+   "Spenza hero — customer devices" Figma file. Only the current one shows;
+   home-hero.js switches it while the stage's blocks are out of sight. */
+.sh .sh-devices{position:absolute; z-index:2; left:177px; top:-30px; width:226px; height:460px; scale:var(--ds, .6)}
+.sh .sh-dev{position:absolute; inset:0; visibility:hidden}
+.sh .sh-dev.is-on{visibility:visible}
+.sh .sh-dev-tag{position:absolute; z-index:3; top:-12px; left:26px; padding:3px 8px; border-radius:999px; background:var(--peach); border:1px solid var(--peach-line); color:var(--acc-text); font-family:var(--mono)!important; font-size:10px; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
+.sh .sh-dev b, .sh .sh-dev small{font-weight:inherit}
+.sh .sh-dev i{display:block; font-style:normal}
+.sh .sh-bars{display:inline-flex!important; gap:1.5px; vertical-align:-1px}
+.sh .sh-bars i{width:2.5px; height:8px; border-radius:1px; background:currentColor}
+/* RocketPhone: the dialer */
+.sh .sh-dialer{padding:10px; background:var(--surface); border:1.5px solid rgba(15,20,32,.16); border-radius:38px; box-shadow:0 30px 60px rgba(15,20,32,.16)}
+.sh .sh-dl-screen{height:100%; padding:14px; border-radius:29px; background:#f4f3f1; display:flex; flex-direction:column; gap:9px; overflow:hidden}
+.sh .sh-dl-status{display:flex; justify-content:space-between; align-items:center; font-size:10px; font-weight:600}
+.sh .sh-dl-status span:last-child{font-family:var(--mono)!important; font-size:9px; font-weight:500}
+.sh .sh-dl-head{display:flex; justify-content:space-between; align-items:center}
+.sh .sh-dl-head b{font-size:12px; font-weight:600; color:var(--ink)}
+.sh .sh-dl-line{display:inline-flex; align-items:center; gap:5px; padding:3px 7px; border-radius:999px; background:var(--surface); border:1px solid var(--rule); font-family:var(--mono)!important; font-size:8.5px; font-weight:500; letter-spacing:.04em; text-transform:uppercase}
+.sh .sh-dl-line i{width:6px; height:6px; border-radius:50%; background:#8a909b}
+.sh .sh-dl-call{display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px; border-radius:14px; background:var(--surface); border:1px solid var(--rule)}
+.sh .sh-dl-av{display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:#3d4656; color:#fff; font-size:13px; font-weight:600}
+.sh .sh-dl-call>b{font-size:13px; font-weight:600}
+.sh .sh-dl-co{font-size:10px; color:var(--muted)}
+.sh .sh-dl-num{font-family:var(--mono)!important; font-size:10.5px; font-weight:500}
+.sh .sh-dl-rec{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono)!important; font-size:9px; font-weight:500; letter-spacing:.04em; color:var(--muted); font-variant-numeric:tabular-nums}
+.sh .sh-dl-rec i{width:6px; height:6px; border-radius:50%; background:var(--muted); animation:sh-blink 1.2s steps(2, jump-none) infinite}
+.sh .sh-dl-pad{display:grid; grid-template-columns:repeat(3, 1fr); gap:5px}
+.sh .sh-dl-pad span{display:flex; flex-direction:column; align-items:center; justify-content:center; height:30px; border-radius:10px; background:var(--surface); border:1px solid rgba(15,20,32,.08)}
+.sh .sh-dl-pad b{font-family:var(--display)!important; font-size:14px; font-weight:500; line-height:1}
+.sh .sh-dl-pad small{min-height:7px; font-family:var(--mono)!important; font-size:6.5px; line-height:1; letter-spacing:.08em; color:var(--muted)}
+.sh .sh-dl-pad span.is-press{background:#e9e8e4; border-color:rgba(15,20,32,.2)}
+.sh .sh-dl-acts{display:flex; justify-content:space-between; align-items:center; padding:0 8px}
+.sh .sh-dl-acts span{display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--surface); border:1px solid rgba(15,20,32,.1); font-size:7.5px; font-weight:600; text-transform:uppercase}
+.sh .sh-dl-acts .sh-dl-end{width:38px; height:38px; background:var(--acc); border:0; color:#fff}
+.sh .sh-dl-sync{display:flex; align-items:center; gap:6px; padding:7px 10px; border-radius:10px; background:#2a2a2d; color:#fff; font-size:9.5px; font-weight:500}
+.sh .sh-dl-sync>i{width:6px; height:6px; border-radius:50%; background:#c7c9ce}
+.sh .sh-dl-dots{display:inline-flex}
+.sh .sh-dl-dots i{animation:sh-dot 1.2s ease-in-out infinite}
+.sh .sh-dl-dots i:nth-child(2){animation-delay:.2s}
+.sh .sh-dl-dots i:nth-child(3){animation-delay:.4s}
+/* Butlr: the ceiling sensor */
+.sh .sh-iot-mount{position:absolute; left:103px; top:0; width:20px; height:14px; border-radius:3px; background:var(--dot)}
+.sh .sh-iot-puck{position:absolute; left:18px; top:12px; width:190px; height:176px; border-radius:46px; background:linear-gradient(180deg, #fff, #edebe6); border:1.5px solid rgba(15,20,32,.14); box-shadow:0 22px 44px rgba(15,20,32,.14); display:flex; flex-direction:column; align-items:center}
+.sh .sh-iot-lens{position:relative; margin-top:24px; width:76px; height:76px; border-radius:50%; background:#e9e5de; display:grid; place-items:center}
+.sh .sh-iot-lens::before{content:""; width:64px; height:64px; border-radius:50%; background:radial-gradient(circle at 50% 50%, #2a2c33 0 18px, #17181c 19px)}
+.sh .sh-iot-lens i{position:absolute; left:27px; top:22px; width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.5)}
+.sh .sh-iot-led{width:8px; height:8px; margin-top:16px; border-radius:50%; background:#ff3d00; box-shadow:0 0 0 0 rgba(255,61,0,.5); animation:sh-led 2s ease-out infinite}
+.sh .sh-iot-puck b{margin-top:5px; font-size:14px; font-weight:600}
+.sh .sh-iot-puck small{margin-top:2px; font-family:var(--mono)!important; font-size:7.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.sh .sh-iot-up{position:absolute; left:50%; top:200px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:5px; padding:3px 8px; border-radius:999px; background:var(--surface); border:1px solid #ffd0bf; font-family:var(--mono)!important; font-size:8.5px; font-weight:500; color:#c73000; white-space:nowrap}
+.sh .sh-iot-up i{width:6px; height:6px; border-radius:50%; background:#ff3d00; animation:sh-blink 2s steps(2, jump-none) infinite}
+.sh .sh-iot-card{position:absolute; left:0; right:0; top:228px; padding:12px; border-radius:16px; background:var(--surface); border:1px solid rgba(15,20,32,.1); box-shadow:0 18px 40px rgba(15,20,32,.12); display:flex; flex-direction:column; gap:9px}
+.sh .sh-iot-head{display:flex; justify-content:space-between; align-items:center}
+.sh .sh-iot-head b{display:block; font-size:11.5px; font-weight:600}
+.sh .sh-iot-head small{display:block; margin-top:1px; font-family:var(--mono)!important; font-size:7.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.sh .sh-iot-head span{padding:2px 6px; border-radius:999px; background:#fff1eb; font-family:var(--mono)!important; font-size:8px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:#c73000}
+.sh .sh-iot-heat{display:grid; grid-template-columns:repeat(12, 1fr); gap:3px; padding:6px; border-radius:10px; background:#f6f7f9}
+.sh .sh-iot-heat i{height:12.4px; border-radius:3px; background:#e7e3dc}
+.sh .sh-iot-heat i.is-warm{background:rgba(255,61,0,calc(.25 + .75 * var(--h))); animation:sh-heat 3.2s ease-in-out calc(var(--k) * -.45s) infinite alternate}
+.sh .sh-iot-stats{display:flex; gap:8px}
+.sh .sh-iot-stats div{flex:1 1 0}
+.sh .sh-iot-stats b{display:block; font-family:var(--display)!important; font-size:22px; font-weight:500; line-height:1.15; letter-spacing:-.03em}
+.sh .sh-iot-stats small{display:block; font-size:9.5px; color:var(--muted)}
+.sh .sh-iot-chips{display:flex; gap:5px}
+.sh .sh-iot-chips span{padding:4px 7px; border-radius:6px; border:1px solid rgba(15,20,32,.12); font-family:var(--mono)!important; font-size:8px; font-weight:500; letter-spacing:.04em; text-transform:uppercase}
+/* Angel Watch: the smartwatch */
+.sh .sh-w-strap{position:absolute; left:53px; width:120px; height:120px; background:linear-gradient(180deg, #fff, #edebe6); border:1.5px solid rgba(15,20,32,.14); box-shadow:0 22px 44px rgba(15,20,32,.1)}
+.sh .sh-w-strap--t{top:0; height:118px; border-radius:30px 30px 0 0}
+.sh .sh-w-strap--b{top:340px; border-radius:0 0 30px 30px; background:linear-gradient(180deg, #edebe6, #fff); display:flex; flex-direction:column; align-items:center; gap:14px; padding-top:44px}
+.sh .sh-w-strap--b i{width:8px; height:8px; border-radius:50%; background:#d6cfc2}
+.sh .sh-w-crown, .sh .sh-w-btn{position:absolute; left:208px; background:#2a2a30}
+.sh .sh-w-crown{top:180px; width:12px; height:34px; border-radius:4px}
+.sh .sh-w-btn{top:236px; width:8px; height:22px; border-radius:3px}
+.sh .sh-w-case{position:absolute; left:13px; top:106px; width:200px; height:236px; padding:12px; border-radius:58px; background:#1b1b20; border:2px solid #3a3a42; box-shadow:0 26px 50px rgba(15,20,32,.22)}
+.sh .sh-w-screen{height:100%; padding:16px 16px 12px; border-radius:44px; background:#0b0b0f; color:#fff; display:flex; flex-direction:column; gap:7px; overflow:hidden}
+.sh .sh-w-status{display:flex; justify-content:space-between; font-family:var(--mono)!important; font-size:8px; font-weight:500; opacity:.7}
+.sh .sh-w-time{display:flex; justify-content:space-between; align-items:flex-end}
+.sh .sh-w-time b{font-family:var(--display)!important; font-size:34px; font-weight:500; line-height:1; letter-spacing:-.04em; font-variant-numeric:tabular-nums}
+.sh .sh-w-time small{padding-bottom:3px; font-family:var(--mono)!important; font-size:8px; letter-spacing:.04em; text-transform:uppercase; opacity:.6}
+.sh .sh-w-who{display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:500}
+.sh .sh-w-who i{width:7px; height:7px; border-radius:50%; background:#c7c9ce}
+.sh .sh-w-map{position:relative; flex:none; height:58px; border-radius:12px; background-color:#1d1d26; background-image:linear-gradient(#2c2c38 2px, transparent 2px), linear-gradient(90deg, #2c2c38 2px, transparent 2px); background-size:34px 15px; background-position:14px 8px; overflow:hidden}
+.sh .sh-w-zone{position:absolute; left:50%; top:50%; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; background:rgba(255,255,255,.1); border:1px dashed rgba(255,255,255,.45); animation:sh-zone 2.4s ease-out infinite}
+.sh .sh-w-pin{position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:#9aa0aa; border:2px solid #fff}
+.sh .sh-w-acts{display:flex; gap:6px}
+.sh .sh-w-acts span{flex:1 1 0; display:flex; justify-content:center; padding:6px 0; border-radius:999px; background:#1d1d26; border:1px solid rgba(255,255,255,.25); font-size:9.5px; font-weight:600}
+.sh .sh-w-acts .sh-w-sos{background:var(--acc); border-color:var(--acc)}
+@keyframes sh-blink{50%{opacity:.2}}
+@keyframes sh-dot{0%, 100%{opacity:.25} 40%{opacity:1}}
+@keyframes sh-led{0%{box-shadow:0 0 0 0 rgba(255,61,0,.5)} 100%{box-shadow:0 0 0 8px rgba(255,61,0,0)}}
+@keyframes sh-heat{from{opacity:.35} to{opacity:1}}
+@keyframes sh-zone{0%{transform:scale(.7); opacity:1} 100%{transform:scale(1.15); opacity:.35}}
 .sh .sh-sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
 @media (max-width:1099px){
 .sh .sh-hero-grid{grid-template-columns:minmax(0,1fr); gap:48px}
@@ -107,8 +181,9 @@
 .sh .sh-lede{font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){
-.sh .sh-swap, .sh .sh-plan-fill, .sh .sh-tab{transition:none}
+.sh .sh-tab{transition:none}
 .sh .sh-pin .sh-ring{animation:none; opacity:0}
+.sh .sh-dev *{animation:none!important}
 }
 
 .sh{display:block; color:var(--ink); font-family:var(--sans)!important; font-size:16px; line-height:normal; -webkit-font-smoothing:antialiased; content-visibility:visible}
@@ -118,45 +193,57 @@
 .sh p, .sh dl{margin-top:0}
 .sh h1{font-family:var(--display)!important}
 .sh h1 em{font-family:var(--serif)!important}
-.sh .sh-eyebrow, .sh .sh-tabs-label, .sh .sh-who-sub, .sh .sh-caption, .sh .sh-phone-tag, .sh .sh-alert-top, .sh .sh-plan-l, .sh .sh-kpi-v.sh-ph{font-family:var(--mono)!important}
-.sh .sh-kpi-v, .sh .sh-plan-big{font-family:var(--display)!important}
+.sh .sh-eyebrow, .sh .sh-tabs-label, .sh .sh-who-sub, .sh .sh-caption, .sh .sh-kpi-v.sh-ph{font-family:var(--mono)!important}
+.sh .sh-kpi-v{font-family:var(--display)!important}
 
 /* hero is the customer stage; the four-hub graphic is now the second section */
 .hm>section.sh.sh-hero{content-visibility:visible;contain-intrinsic-size:none}
-.hm .hm-hero.hm-hero--platform{min-height:0;background:#fff;border-bottom:1px solid var(--rule)}
-.hm .hm-hero--platform .hm-hero-inner{padding-top:64px;padding-bottom:48px}
-.hm .hm-hero--platform .hm-eyebrow{margin-bottom:0}
-.hm .hm-hero--platform .hm-h2{margin:18px 0 18px;font-size:clamp(32px,3.4vw,48px)}
-.hm .hm-hero--platform .hm-hero-lede{margin-bottom:0;max-width:520px}
-@media (width<=960px){.hm .hm-hero--platform .hm-hero-inner{padding-top:48px;padding-bottom:40px}}
-/* platform section: centered stack, copy above the graphic */
-.hm .hm-hero--platform .hm-hero-grid{grid-template-columns:minmax(0,1fr);justify-items:center;gap:16px}
-.hm .hm-hero--platform .hm-hero-copy{text-align:center;max-width:820px;margin:0 auto}
-.hm .hm-hero--platform .hm-eyebrow{justify-content:center}
-.hm .hm-hero--platform .hm-hero-lede{margin-left:auto;margin-right:auto;max-width:720px;text-wrap:balance}
-.hm .hm-hero--platform .hm-hero-art{width:min(100%,480px);margin:0 auto}
-.hm .hm-hero--platform .hm-art-caption{justify-content:center;padding-left:0;margin-top:8px;min-height:0}
-.hm .hm-hero--platform .hm-art-caption p{text-align:center;max-width:none}
+/* The headline: two lines on a wide screen and three on a phone, where the
+   word that rolls over with the stage (home-hero.js) drops to its own line,
+   in the accent serif with its full stop. Every
+   rolling piece of text clips its own letters top and bottom, so they slide
+   in and out of sight; the clip reaches past the sides for italic overhang. */
+.sh h1 .sh-l{display:block; white-space:nowrap}
+@media (min-width:768px){.sh h1{white-space:nowrap} .sh h1 .sh-l+.sh-l{display:inline-block}}
+.sh .sh-roll{position:relative; display:inline-block; clip-path:inset(0 -.5em -.1em -.2em)}
+.sh .sh-roll>span{display:inline-block; white-space:nowrap}
+.sh .sh-roll>.sh-in{position:absolute; left:0; top:0}
+.sh .sh-roll .sh-ch{display:inline-block; will-change:transform}
+.sh .sh-caption .sh-roll{clip-path:inset(-.1em -.3em -.2em -.1em)}
+.sh .sh-kpi-v.sh-roll{clip-path:inset(-.04em -.2em 0 -.1em)}
 
-/* Phones and small tablets, as spenza.com: the customer stage is left out and
-   the copy is centred — eyebrow, headline, lede, buttons and the numbers. */
+/* Phones and small tablets, as spenza.com: the copy is centred — eyebrow,
+   headline, lede, buttons — and the customer map comes in under the buttons,
+   at its real size rather than scaled down: no phone mock-up, the tabs
+   wrapping under their label, the map as wide as the screen. The copy column
+   gives up its box so the stage can sit between the buttons and the numbers. */
 @media (max-width:767px){
-.sh .sh-stage-box{display:none}
 .sh .sh-hero-grid{padding-block:40px 56px; gap:0; text-align:center}
+.sh .sh-hero-grid>div:first-child{display:contents}
 .sh .sh-eyebrow{justify-content:center; font-size:11px; letter-spacing:.04em; line-height:1.6}
 .sh .sh-eyebrow::before{display:none}
 .sh h1{margin:16px 0 20px; font-size:clamp(38px, 11vw, 46px)}
 .sh .sh-lede{margin:0 auto 28px; font-size:17px}
 .sh .sh-ctas{justify-content:center}
-.sh .sh-stats{display:flex; flex-wrap:wrap; justify-content:center; gap:2px 18px; margin-top:36px}
+.sh .sh-stats{order:2; display:flex; flex-wrap:wrap; justify-content:center; gap:2px 18px; margin-top:32px}
+.sh .sh-stage-box{order:1; max-width:none; height:auto!important; margin-top:40px}
+.sh .sh-stage{position:relative; width:auto; height:auto; transform:none!important}
+.sh .sh-devices{display:none}
+.sh .sh-content{position:static; width:auto; gap:16px; text-align:left}
+.sh .sh-content>*{order:0!important}
+.sh .sh-tabs{flex-wrap:wrap; justify-content:center; height:auto; gap:8px}
+.sh .sh-tabs-label{flex-basis:100%; margin:0 0 2px; text-align:center}
+.sh .sh-tab{font-size:13px; padding:8px 14px}
+.sh .sh-card{padding:14px 16px; gap:12px}
+.sh .sh-logo-card{max-width:132px}
+.sh .sh-who-sub{white-space:normal; line-height:1.4}
+.sh .sh-kpis{gap:16px}
+.sh .sh-kpi-v{font-size:22px}
+.sh .sh-map{width:100%; height:auto; aspect-ratio:580/216}
+.sh .sh-map svg{width:100%; height:100%}
+.sh .sh-pinlabel{font-size:10.5px; padding:2px 7px}
+/* On a narrow map the Americas' label would run into Europe's: it hangs
+   under its pin instead. */
+.sh .sh-pinlabel.is-west{transform:translate(-50%, 9px)}
+.sh .sh-caption{max-width:none; justify-content:center; text-align:center; font-size:10.5px; line-height:1.5}
 }
-
-/* The Spenza advantage box shows on phones too; the layer tags are too small
-   to read at that scale, so the caption carries the names. */
-@media (width<=767px){
-.hm .hm-hero.hm-hero--platform .hm-hero-art{display:flex; width:100%}
-.hm .hm-hero--platform .hm-layer-tag{display:none}
-}
-
-/* Below the fold, so it can skip rendering until it is near the viewport. */
-.hm>section.hm-hero--platform{content-visibility:auto;contain-intrinsic-size:auto 1000px}

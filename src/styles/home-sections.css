@@ -446,28 +446,264 @@
 }
 
 
-/* The Spenza advantage box: cards in the order UX, Control, Telecom, Agent;
-   the card picked rises out of the stack. The closed box sits in the middle
-   of the scene and the open fan spreads evenly about the same middle, so the
-   artwork is centred in both states. */
-.hm .hm-hero--platform .hm-hero-grid .hm-hero-art { width: min(100%, 560px); }
-.hm .hm-hero--platform .hm-hub-layer {
-  transition: translate .8s cubic-bezier(.2,.7,.2,1), filter .3s;
+/* The Spenza advantage, as a "how it works" walkthrough (Advantage.astro):
+   numbered hubs on the left, the card stack on the right. From 1024px the panel is
+   sticky inside a tall track, and scripts/home.js maps the scroll through the
+   track to the active step. The section must not clip or contain its content,
+   or the panel has nothing to stick to. */
+.hm > section.hm-how { content-visibility: visible; contain-intrinsic-size: none; }
+.hm .hm-how { position: relative; padding: 72px 0 96px; background: #fff; border-bottom: 1px solid var(--rule); }
+.hm .hm-how__track { --ph: min(700px, calc(100vh - 128px)); max-width: 1320px; height: calc(var(--ph) + 240vh); margin: 0 auto; padding: 0 32px; }
+.hm .hm-how__panel {
+  position: sticky; top: 104px; height: var(--ph); isolation: isolate; overflow: hidden;
+  display: grid; grid-template-columns: minmax(340px, 440px) minmax(0, 1fr);
+  background: var(--bg); border: 1px solid var(--rule); border-radius: 20px;
 }
-.hm .hm-hero--platform .hm-hub-layer.hm-active {
-  translate: 0 -36px;
-  filter: drop-shadow(-10px 28px 20px rgba(255,73,4,.28));
-}
-.hm .hm-hero--platform .hm-hub-layer[data-hub=ux]      { --dx:-156.75px; --dy:79.25px;   z-index:6; top:186.25px; left:166.25px; }
-.hm .hm-hero--platform .hm-hub-layer[data-hub=control] { --dx:-49.25px;  --dy:9px;       z-index:5; top:172.5px;  left:198.75px; }
-.hm .hm-hero--platform .hm-hub-layer[data-hub=telecom] { --dx:63.25px;   --dy:-51.25px;  z-index:4; top:148.75px; left:226.25px; }
-.hm .hm-hero--platform .hm-hub-layer[data-hub=agent]   { --dx:179.5px;   --dy:-127.75px; z-index:3; top:141.25px; left:250px; }
-.hm .hm-hero--platform .hm-box-top    { top:100px;   left:140px; }
-.hm .hm-hero--platform .hm-box-right  { top:187.7px; left:291.9px; }
-.hm .hm-hero--platform .hm-box-left   { top:185.5px; left:140px; }
-.hm .hm-hero--platform .hm-box-shadow { top:417px;   left:157px; }
-.hm .hm-hero--platform .hm-box-brand  { top:284px;   left:303px; }
-.hm .hm-hero--platform .hm-scene-wrap { margin-top: 24px; }
+.hm .hm-how__grid { position: absolute; z-index: -1; top: 0; bottom: 0; left: 30%; width: 70%; height: 100%; pointer-events: none; }
+.hm .hm-how__grid path { fill: none; stroke: #ddd5ca; stroke-width: 1; stroke-dasharray: 3 6; vector-effect: non-scaling-stroke; }
 
-/* Held at the start of its cycle until scripts/home.js sees it on screen. */
-.hm.js .hm-hero--platform .hm-hero-art:not(.is-live) .hm-scene * { animation-play-state: paused !important; }
+.hm .hm-how__copy { display: flex; flex-direction: column; min-height: 0; padding: 48px 0 36px 48px; }
+.hm .hm-how .hm-eyebrow { margin-bottom: 0; }
+.hm .hm-how__title { margin: 18px 0 14px; font-size: clamp(30px, 2.8vw, 40px); line-height: 1.04; }
+.hm .hm-how__lede { margin: 0; max-width: 380px; font-size: 15px; line-height: 1.55; color: var(--body); }
+
+.hm .hm-how__steps { list-style: none; margin: 30px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.hm .hm-how__step { position: relative; margin: 0; padding: 0 0 0 40px; }
+/* The rail between the numbers: a faint track, and the ink line drawn over
+   it as each step is passed. */
+.hm .hm-how__step:not(:last-child)::before,
+.hm .hm-how__step:not(:last-child)::after {
+  content: ""; position: absolute; left: 11px; top: 27px; bottom: -13px; width: 1.5px; background: var(--rule);
+}
+.hm .hm-how__step:not(:last-child)::after { background: var(--acc); transform: scaleY(var(--fill, 0)); transform-origin: 50% 0; }
+.hm .hm-how__step.is-done { --fill: 1; }
+/* On the timer the current segment fills over the step's four seconds. */
+.hm .hm-how.is-timed .hm-how__step[aria-current]::after { transition: transform 4s linear; }
+.hm .hm-how__btn {
+  display: block; width: 100%; margin: 0; padding: 0; border: 0; background: none; cursor: pointer; text-align: left;
+  font: inherit; color: var(--muted); -webkit-tap-highlight-color: transparent; transition: color .3s;
+}
+.hm .hm-how__num {
+  position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 24px; height: 24px;
+  border: 1px solid var(--rule); border-radius: 50%; background: #fff; color: var(--muted);
+  font: 600 11px/1 var(--mono); font-family: var(--mono) !important;
+  transition: background .3s, border-color .3s, color .3s, box-shadow .3s;
+}
+.hm .hm-how__name { display: block; font-size: 16px; font-weight: 600; line-height: 1.35; transition: transform .3s ease-out; }
+.hm .hm-how__name b { display: block; margin-bottom: 2px; font: 500 11px/1.4 var(--mono); font-family: var(--mono) !important; letter-spacing: .06em; text-transform: uppercase; color: inherit; }
+.hm .hm-how__text {
+  max-height: 0; margin: 0; overflow: hidden; opacity: 0; max-width: 360px;
+  font-size: 14px; line-height: 1.55; color: var(--body);
+  transition: max-height .45s ease, opacity .3s ease, margin .45s ease;
+}
+.hm .hm-how__btn:hover { color: var(--ink); }
+.hm .hm-how__step.is-done .hm-how__num { border-color: var(--acc); color: var(--acctext); }
+.hm .hm-how__step[aria-current] .hm-how__btn { color: var(--ink); }
+.hm .hm-how__step[aria-current] .hm-how__name { transform: translateX(4px); }
+.hm .hm-how__step[aria-current] .hm-how__name b { color: var(--acctext); }
+.hm .hm-how__step[aria-current] .hm-how__num { background: var(--acc); border-color: var(--acc); color: #fff; box-shadow: 0 0 0 4px rgba(var(--accrgb), .14); }
+.hm .hm-how__step[aria-current] .hm-how__text { max-height: 120px; margin-top: 8px; opacity: 1; padding-left: 4px; }
+
+.hm .hm-how__links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 24px; }
+.hm .hm-how__link {
+  display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border: 1px solid rgba(15,20,32,.18); border-radius: 6px;
+  background: #fff; color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: none; transition: border-color .2s, background .2s;
+}
+.hm .hm-how__link:hover { border-color: var(--ink); }
+.hm .hm-how__link--acc { background: var(--acc); border-color: var(--acc); color: #fff; }
+.hm .hm-how__link--acc:hover { background: var(--accdark); border-color: var(--accdark); }
+
+/* The step number's ring: the current step's progress, drawn round it. */
+.hm .hm-how__num svg { position: absolute; inset: -5px; width: calc(100% + 10px); height: calc(100% + 10px); transform: rotate(-90deg); overflow: visible; pointer-events: none; }
+.hm .hm-how__num circle { fill: none; stroke: var(--acc); stroke-width: 1.5; stroke-dasharray: 1 1; stroke-dashoffset: calc(1 - var(--fill, 0)); opacity: 0; }
+.hm .hm-how__step[aria-current] .hm-how__num circle { opacity: 1; }
+.hm .hm-how.is-timed .hm-how__step[aria-current] .hm-how__num circle { transition: stroke-dashoffset 4s linear; }
+
+/* ── the isometric stack, after livekit.com ──────────────────────────────
+   A fixed 864x580 stage, scaled to its column by scripts/home.js. Every card
+   is a 160x184 box skewed 30° — the slope the hub artwork is drawn at — so
+   the artwork, set inside it with the skew taken back off, sits exactly on
+   it. The script places the cards along the stack's line with --x, and lights
+   the current one. Each card trails two dashed guides off its edges; together
+   they draw the floor grid. */
+.hm .hm-how__art { position: relative; min-width: 0; overflow: hidden; }
+.hm .hm-iso {
+  position: absolute; left: 50%; top: 50%; width: 864px; height: 580px;
+  transform: translate(-50%, -50%) scale(var(--iso-scale, 1));
+  opacity: 0; transition: opacity .9s ease;
+}
+.hm .hm-how__art.is-in .hm-iso { opacity: 1; }
+.hm .hm-iso-card {
+  --x: 0;
+  position: absolute; left: 50%; top: 50%; width: 160px; height: 184px; z-index: calc(10 - var(--i));
+  box-sizing: border-box; border: 1px solid rgba(15,20,32,.14); border-radius: 9px; background: #fff;
+  transform: translate(calc(-50% + var(--x) * 1px), calc(-59% + var(--x) * -.61px)) skewY(30deg);
+  transition: transform .45s cubic-bezier(.2,.7,.2,1), border-color .35s ease, box-shadow .35s ease;
+  transition-delay: var(--delay, 0s);
+  cursor: pointer; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; user-select: none;
+}
+.hm .hm-iso-card img {
+  position: absolute; z-index: 1; left: -2.3px; top: -3.1px; width: 161.3px; height: 278.4px; max-width: none;
+  transform-origin: 0 0; transform: skewY(-30deg);
+  opacity: .22; transition: opacity .35s ease; pointer-events: none; -webkit-user-drag: none;
+}
+.hm .hm-iso-guide { position: absolute; z-index: -1; pointer-events: none; }
+.hm .hm-iso-guide--b { left: 100%; bottom: -1px; width: 1000px; border-bottom: 1px dashed #ddd5ca; }
+.hm .hm-iso-guide--r { top: 100%; right: -1px; height: 1000px; border-right: 1px dashed #ddd5ca; }
+
+/* The current card: an orange edge, its artwork at full strength, its label,
+   a translucent tunnel running back from its top and side, and the trail —
+   five outline frames that leave it one after another and drift back into
+   the stack, fading as they go, for as long as it is current. */
+.hm .hm-iso-card.is-lit { border-color: var(--acc); box-shadow: 0 0 0 1px rgba(var(--accrgb), .12), -14px 26px 34px rgba(var(--accrgb), .14); }
+.hm .hm-iso-card.is-lit img { opacity: 1; }
+.hm .hm-iso-face { position: absolute; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 1s ease-out; }
+.hm .hm-iso-face--top {
+  top: 0; left: 0; width: 100%; height: 160px; transform-origin: center bottom; transform: translateY(-100%) skewX(-40deg);
+  background: linear-gradient(rgba(var(--accrgb), 0), rgba(var(--accrgb), .34));
+}
+.hm .hm-iso-face--side {
+  top: 0; right: 0; width: 128px; height: 100%; transform-origin: center bottom; transform: translateX(100%) skewY(-50deg) translateY(-76px);
+  background: linear-gradient(-90deg, rgba(var(--accrgb), 0), rgba(var(--accrgb), .34));
+}
+.hm .hm-iso-card.is-lit .hm-iso-face { opacity: .4; }
+.hm .hm-iso-trail {
+  position: absolute; z-index: -1; inset: -1px; border: 1px solid var(--acc); border-radius: 9px;
+  opacity: 0; pointer-events: none;
+}
+.hm .hm-iso-card.is-lit .hm-iso-trail { animation: hm-iso-trail 2s linear infinite; animation-delay: calc(var(--k) * -400ms); }
+@keyframes hm-iso-trail {
+  from { transform: translate(0, 0); opacity: .45; }
+  to { transform: translate(45px, -60px); opacity: 0; }
+}
+.hm .hm-iso-tag {
+  position: absolute; z-index: 2; right: -16px; bottom: 4px; transform: translateX(100%);
+  font: 500 11px/1 var(--mono); font-family: var(--mono) !important; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+  color: var(--acctext); opacity: 0; transition: opacity .3s ease;
+}
+.hm .hm-iso-card.is-lit .hm-iso-tag { opacity: 1; }
+.hm .hm-iso-card:not(.is-lit):hover { border-color: rgba(15,20,32,.3); }
+/* The cards' own motion, laid over the artwork in the card's plane (so it
+   takes the same skew) and run only while the card is lit. Positions are
+   percentages of the card, read off the artwork. */
+.hm .hm-live { position: absolute; z-index: 2; inset: -1px; pointer-events: none; opacity: 0; transition: opacity .4s ease; }
+.hm .hm-iso-card.is-lit .hm-live { opacity: 1; }
+.hm .hm-live i, .hm .hm-live b { position: absolute; display: block; }
+
+/* UXHub: the terminal's light blinks, the cursor blinks after the last
+   line, and a load bar fills under it. */
+/* The light is drawn by its own image, the artwork's size and place, so it
+   cannot drift off the dot it lights; the artwork's own dot is grey. */
+.hm .hm-iso-card img.hm-iso-dot { z-index: 2; }
+.hm .lv-caret { left: 65.8%; top: 72.6%; width: 1.6%; height: 6.4%; background: #ffb08a; }
+.hm .lv-load { left: 11.5%; top: 82.4%; width: 74%; height: 1.3%; border-radius: 2px; background: rgba(255,255,255,.12); overflow: hidden; }
+.hm .lv-load b { inset: 0; background: var(--acc); transform-origin: 0 50%; transform: scaleX(0); }
+.hm .hm-iso-card.is-lit img.hm-iso-dot { animation: lv-dot 1.2s ease-in-out infinite; }
+.hm .is-lit .lv-caret { animation: lv-blink 1s steps(1) infinite; }
+.hm .is-lit .lv-load b { animation: lv-load 2.6s cubic-bezier(.6,0,.3,1) infinite; }
+@keyframes lv-dot { 0%, 100% { opacity: 1; } 50% { opacity: .12; } }
+@keyframes lv-blink { 50% { opacity: 0; } }
+@keyframes lv-load { 0% { transform: scaleX(0); opacity: 1; } 70% { transform: scaleX(1); opacity: 1; } 85%, 100% { transform: scaleX(1); opacity: 0; } }
+
+/* ControlHub and TelecomHub: a highlight moves through the grid's cells, one
+   after another — ControlHub column by column, TelecomHub round the edge. */
+.hm .lv-cell { border-radius: 4px; background: rgba(var(--accrgb), .2); box-shadow: inset 0 0 0 1px rgba(var(--accrgb), .75); left: 1%; top: 21.4%; width: 30.7%; height: 37.6%; }
+.hm .is-lit .hm-live--control .lv-cell { animation: lv-cells-control 6s cubic-bezier(.6,0,.3,1) infinite; }
+.hm .is-lit .hm-live--telecom .lv-cell { animation: lv-cells-telecom 6s cubic-bezier(.6,0,.3,1) infinite; }
+@keyframes lv-cells-control {
+  0%, 13%   { left: 1%;    top: 21.4%; width: 30.7%; }
+  17%, 30%  { left: 1%;    top: 61%;   width: 30.7%; }
+  34%, 47%  { left: 33.7%; top: 21.4%; width: 33.6%; }
+  51%, 63%  { left: 33.7%; top: 61%;   width: 33.6%; }
+  67%, 80%  { left: 69.3%; top: 21.4%; width: 29.7%; }
+  84%, 96%  { left: 69.3%; top: 61%;   width: 29.7%; }
+  100%      { left: 1%;    top: 21.4%; width: 30.7%; }
+}
+@keyframes lv-cells-telecom {
+  0%, 13%   { left: 1%;    top: 21.4%; width: 30.7%; }
+  17%, 30%  { left: 33.7%; top: 21.4%; width: 33.6%; }
+  34%, 47%  { left: 69.3%; top: 21.4%; width: 29.7%; }
+  51%, 63%  { left: 69.3%; top: 61%;   width: 29.7%; }
+  67%, 80%  { left: 33.7%; top: 61%;   width: 33.6%; }
+  84%, 96%  { left: 1%;    top: 61%;   width: 30.7%; }
+  100%      { left: 1%;    top: 21.4%; width: 30.7%; }
+}
+/* ControlHub's bell gets a notification; TelecomHub's antenna sends. */
+.hm .lv-badge { left: 53%; top: 72.5%; width: 4.4%; height: 3.8%; border-radius: 50%; background: var(--acc); box-shadow: 0 0 0 2px #141414; transform: scale(0); }
+.hm .is-lit .lv-badge { animation: lv-badge 3s ease-out infinite; }
+@keyframes lv-badge { 0%, 30% { transform: scale(0); } 38% { transform: scale(1.35); } 44%, 88% { transform: scale(1); } 100% { transform: scale(0); } }
+.hm .lv-ring { left: 15.4%; top: 38.6%; width: 26%; height: 22.6%; margin: -11.3% 0 0 -13%; border-radius: 50%; border: 1.5px solid var(--acc); opacity: 0; }
+.hm .is-lit .lv-ring { animation: lv-ring 1.8s ease-out infinite; animation-delay: calc(var(--k) * .9s); }
+@keyframes lv-ring { 0% { transform: scale(.25); opacity: .9; } 100% { transform: scale(1); opacity: 0; } }
+
+/* AgentHub: the waveform, drawn live (its artwork has none). scripts/home.js
+   moves the bars while the card is lit — a caller speaking in white, then the
+   agent answering in orange — and lets them settle when it is not. */
+.hm .hm-live--agent { opacity: .22; }
+.hm .lv-wave { position: absolute; left: 28.8%; top: 34%; width: 30.4%; height: 30%; display: flex; align-items: center; justify-content: space-between; }
+.hm .lv-wave i { position: relative; width: 9%; height: 100%; border-radius: 99px; background: #fff; transform: scaleY(var(--h, .3)); transition: transform .5s ease, background .4s ease; }
+.hm .is-lit .lv-wave i { transition: background .4s ease; }
+.hm .lv-wave i:nth-child(1), .hm .lv-wave i:nth-child(7) { --h: .26; }
+.hm .lv-wave i:nth-child(2), .hm .lv-wave i:nth-child(6) { --h: .45; }
+.hm .lv-wave i:nth-child(3), .hm .lv-wave i:nth-child(5) { --h: .72; }
+.hm .lv-wave i:nth-child(4) { --h: 1; }
+.hm .lv-wave.is-agent i { background: var(--acc); }
+/* The card's prompt, set as text rather than baked into the artwork; the
+   card's skew slants it onto the face like the rest of the drawing. */
+.hm .lv-say { position: absolute; left: 7.4%; top: 84.6%; font: 500 13.4px/1 var(--font-sans); letter-spacing: -.01em; color: #fff; white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hm .hm-iso-card, .hm .hm-iso-card img, .hm .hm-iso-face, .hm .hm-iso { transition: none; }
+  .hm .hm-iso-card.is-lit .hm-iso-trail, .hm .hm-live *, .hm .hm-iso-card img.hm-iso-dot { animation: none !important; }
+}
+
+/* Short laptop screens: the panel is the screen's height less the header, so
+   the copy tightens to keep the buttons inside it. */
+@media (min-width: 1024px) and (max-height: 820px) {
+  .hm .hm-how__track { --ph: max(528px, calc(100vh - 108px)); }
+  .hm .hm-how__panel { top: 92px; }
+  .hm .hm-how__copy { padding: 32px 0 24px 40px; }
+  .hm .hm-how__title { margin: 12px 0 10px; font-size: clamp(28px, 2.5vw, 34px); }
+  .hm .hm-how__lede { font-size: 14px; }
+  .hm .hm-how__steps { margin-top: 20px; gap: 12px; }
+  .hm .hm-how__name { font-size: 15px; }
+  .hm .hm-how__text { font-size: 13.5px; }
+  .hm .hm-how__step[aria-current] .hm-how__text { margin-top: 6px; }
+  .hm .hm-how__links { padding-top: 16px; }
+}
+@media (min-width: 1024px) and (max-height: 680px) {
+  .hm .hm-how__lede { display: none; }
+}
+
+/* Below 1024px there is no room for the panel to hold still beside the stack:
+   the copy sits above it, and the steps advance on a timer instead. */
+@media (max-width: 1023px) {
+  .hm .hm-how { padding: 56px 0 64px; }
+  .hm .hm-how__track { --ph: 620px; height: auto; padding: 0 24px; }
+  .hm .hm-how__panel { position: relative; top: auto; height: auto; grid-template-columns: minmax(0, 1fr); }
+  .hm .hm-how__grid { left: 0; width: 100%; }
+  .hm .hm-how__copy { padding: 40px 32px 8px; }
+  .hm .hm-how__lede { max-width: 560px; }
+  .hm .hm-how__text { max-width: 560px; }
+  .hm .hm-how__art { height: auto; aspect-ratio: 864 / 560; }
+  .hm .hm-how__links { order: 1; margin-top: 24px; padding-top: 0; }
+}
+
+/* Phones: the steps alone, every one open, and no stack. */
+@media (max-width: 767px) {
+  .hm .hm-how { padding: 40px 0 48px; }
+  .hm .hm-how__track { padding: 0 16px; }
+  .hm .hm-how__art, .hm .hm-how__grid { display: none; }
+  .hm .hm-how__copy { padding: 32px 20px 28px; }
+  .hm .hm-how .hm-eyebrow { justify-content: center; }
+  .hm .hm-how__title { text-align: center; font-size: clamp(28px, 8vw, 34px); }
+  .hm .hm-how__lede { margin: 0 auto; text-align: center; }
+  .hm .hm-how__steps { gap: 20px; margin-top: 28px; }
+  .hm .hm-how__btn { cursor: default; color: var(--ink); }
+  .hm .hm-how__name, .hm .hm-how__step[aria-current] .hm-how__name { transform: none; }
+  .hm .hm-how__name b { color: var(--acctext); }
+  .hm .hm-how__num, .hm .hm-how__step[aria-current] .hm-how__num { background: #fff; border-color: var(--ink); color: var(--ink); box-shadow: none; }
+  .hm .hm-how__step:not(:last-child)::after { transform: scaleY(1); }
+  .hm .hm-how__text, .hm .hm-how__step[aria-current] .hm-how__text { max-height: none; margin-top: 6px; opacity: 1; padding-left: 0; }
+  .hm .hm-how__links { justify-content: center; margin-top: 28px; }
+}

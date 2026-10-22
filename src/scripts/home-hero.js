@@ -25,6 +25,83 @@ if (stage && box && source) {
   let swapping = false;
 
   const setText = (id, value) => { $(id).textContent = value; };
+
+  // Text that changes with the stage rolls over: the old letters drop out of
+  // sight one after another while the new ones drop in from above, and the
+  // width eases between the two so whatever follows moves with it. Each
+  // rolling element (`.sh-roll` in the CSS) clips its own letters. The
+  // headline's word rolls slowest; the stage's numbers and caption quicker.
+  const word = $('sh-word');
+  const ROLL = 560;
+  const EASE = 'cubic-bezier(.65, 0, .35, 1)';
+  const split = text => {
+    const span = document.createElement('span');
+    for (const ch of text) {
+      const letter = document.createElement('span');
+      letter.className = 'sh-ch';
+      letter.textContent = ch === ' ' ? '\u00a0' : ch;
+      span.append(letter);
+    }
+    return span;
+  };
+  const roll = (box, text, stagger = 45) => {
+    let out = box.lastElementChild;
+    // A roll still running is finished at once rather than stacked on.
+    for (const el of [...box.children]) if (el !== out) el.remove();
+    box.getAnimations({ subtree: true }).forEach(a => a.finish());
+    out.classList.remove('sh-in');
+    if (out.textContent.replace(/\u00a0/g, ' ') === text) return;
+    if (reduce) { box.replaceChildren(split(text)); return; }
+    if (!out.querySelector('.sh-ch')) { const s = split(out.textContent); out.replaceWith(s); out = s; }
+
+    const inc = split(text);
+    inc.className = 'sh-in';
+    box.append(inc);
+    const from = out.getBoundingClientRect().width;
+    const to = inc.getBoundingClientRect().width;
+    const outs = [...out.children];
+    const ins = [...inc.children];
+    const total = ROLL + stagger * Math.max(outs.length, ins.length);
+    const size = box.animate([{ width: `${from}px` }, { width: `${to}px` }], { duration: total, easing: EASE, fill: 'forwards' });
+    outs.forEach((el, k) => el.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(110%)' }],
+      { duration: ROLL, delay: k * stagger, easing: EASE, fill: 'forwards' }));
+    const done = ins.map((el, k) => el.animate([{ transform: 'translateY(-110%)' }, { transform: 'translateY(0)' }],
+      { duration: ROLL, delay: k * stagger, easing: EASE, fill: 'backwards' }).finished);
+    Promise.all(done).then(() => {
+      if (!inc.isConnected) return;
+      out.remove();
+      inc.classList.remove('sh-in');
+      size.finished.then(() => size.cancel(), () => {});
+    }, () => {});
+  };
+
+  // The customer's device beside the map. RocketPhone's dialer is mid-call:
+  // its timer runs and its keys are pressed now and then, while it is on
+  // screen.
+  const devs = [...stage.querySelectorAll('.sh-dev')];
+  const dialer = stage.querySelector('.sh-dialer');
+  const clock = dialer?.querySelector('.sh-dl-time');
+  const keys = dialer ? [...dialer.querySelectorAll('.sh-dl-pad span')] : [];
+  let seconds = 134;
+  const pad = n => String(n).padStart(2, '0');
+  setInterval(() => {
+    if (!visible || document.hidden || !dialer?.classList.contains('is-on')) return;
+    seconds += 1;
+    clock.textContent = `${pad(Math.floor(seconds / 60))}:${pad(seconds % 60)}`;
+    if (reduce) return;
+    const key = keys[Math.floor(Math.random() * keys.length)];
+    key.classList.add('is-press');
+    setTimeout(() => key.classList.remove('is-press'), 220);
+  }, 1000);
+
+  // The stage's blocks — the customer, the pins and their labels, the
+  // customer's device — drop out one after another, and the next customer's drop back in
+  // from above in the same order, as the letters do.
+  const blocks = [...stage.querySelectorAll('[data-swap]')];
+  const OUT = 240;
+  const drop = (from, to, opacity, delay, duration) => blocks.forEach((el, k) => el.animate(
+    [{ transform: `translateY(${from}px)`, opacity: opacity[0] }, { transform: `translateY(${to}px)`, opacity: opacity[1] }],
+    { duration, delay: delay + k * 45, easing: EASE, fill: 'both' }));
   const svgEl = (tag, attrs) => {
     const el = document.createElementNS(SVGNS, tag);
     for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
@@ -33,23 +110,14 @@ if (stage && box && source) {
 
   const render = i => {
     const c = CUSTOMERS[i];
-    const p = c.phone;
-    const b = c.brand;
-    for (const [name, value] of [['--brand', b.brand], ['--brand-text', b.text], ['--brand-line', b.line],
-      ['--brand-bar', b.bar], ['--brand-btn', b.btn], ['--screen', b.screen]]) stage.style.setProperty(name, value);
-
-    for (const [id, h] of [['sh-logo', c.logoH[0]], ['sh-pLogo', c.logoH[1]]]) {
-      const img = $(id);
-      img.removeAttribute('width');
-      img.removeAttribute('height');
-      img.src = c.logo;
-      img.style.height = `${h}px`;
-    }
-    $('sh-logo').alt = c.name;
+    const logo = $('sh-logo');
+    logo.removeAttribute('width');
+    logo.removeAttribute('height');
+    logo.src = c.logo;
+    logo.style.height = `${c.logoH}px`;
+    logo.alt = c.name;
     setText('sh-sub', c.sub);
-    setText('sh-capText', c.caption);
-    setText('sh-kMarkets', String(c.markets.length));
-    setText('sh-kNetworks', String(c.networks));
+    setText('sh-kMarketsL', c.marketsLabel || 'markets live');
 
     const pins = $('sh-pins');
     const labels = $('sh-labels');
@@ -60,7 +128,7 @@ if (stage && box && source) {
       g.append(svgEl('circle', { class: 'sh-halo', r: '8' }), svgEl('circle', { class: 'sh-ring', r: '5' }), svgEl('circle', { class: 'sh-core', r: '3.6' }));
       pins.append(g);
       const label = document.createElement('span');
-      label.className = 'sh-pinlabel';
+      label.className = m.x < 200 ? 'sh-pinlabel is-west' : 'sh-pinlabel';
       label.style.left = `${(m.x / 580) * 100}%`;
       label.style.top = `${(m.y / 216) * 100}%`;
       if (m.ly && c.markets.length > 2) label.style.marginTop = `${m.ly}px`;
@@ -69,15 +137,14 @@ if (stage && box && source) {
     }
     $('sh-map').setAttribute('aria-label', `World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`);
 
-    setText('sh-aLabel', p.aLabel); setText('sh-aText', p.aText); setText('sh-aBtn', p.aBtn);
-    setText('sh-plL', p.plL); setText('sh-plN', p.plN); setText('sh-plBig', p.plBig); setText('sh-plCap', p.plCap);
-    setText('sh-r1k', p.rows[0][0]); setText('sh-r1v', p.rows[0][1]);
-    setText('sh-r2k', p.rows[1][0]); setText('sh-r2v', p.rows[1][1]);
+    devs.forEach(d => d.classList.toggle('is-on', d.dataset.dev === c.name));
     tabs.forEach((tab, k) => tab.setAttribute('aria-pressed', String(k === i)));
+    // Each customer's card is its own height, so the device is fitted again.
+    fit();
   };
 
   // Preload the other logos so a swap never waits on the network — unless the
-  // stage is hidden, as it is on phones.
+  // stage is hidden.
   const preload = () => {
     if (box.offsetParent) CUSTOMERS.slice(1).forEach(c => { new Image().src = c.logo; });
   };
@@ -88,15 +155,22 @@ if (stage && box && source) {
     if (swapping) return;
     current = i;
     started = performance.now();
+    const c = CUSTOMERS[i];
+    if (word) roll(word, c.word);
+    roll($('sh-kMarkets'), String(c.markets.length), 70);
+    roll($('sh-kNetworks'), String(c.networks), 70);
+    roll($('sh-capText'), c.caption, 12);
     if (reduce) render(i);
     else {
       swapping = true;
-      stage.classList.add('sh-is-out');
+      blocks.forEach(el => el.getAnimations().forEach(a => a.cancel()));
+      drop(0, 14, [1, 0], 0, OUT);
       setTimeout(() => {
         render(i);
-        stage.classList.remove('sh-is-out');
+        blocks.forEach(el => el.getAnimations().forEach(a => a.cancel()));
+        drop(-14, 0, [0, 1], 0, ROLL);
         swapping = false;
-      }, 280);
+      }, OUT + 45 * (blocks.length - 1));
     }
     if (announce) setText('sh-announce', `Showing ${CUSTOMERS[i].name}`);
   };
@@ -108,8 +182,8 @@ if (stage && box && source) {
     if (document.hidden) hiddenAt = performance.now();
     else started += performance.now() - hiddenAt;
   });
-  // The loop only runs while the stage is on screen; on phones, where it is
-  // hidden, it never starts. Coming back resumes the current customer's time.
+  // The loop only runs while the stage is on screen; scrolled away, it holds.
+  // Coming back resumes the current customer's time.
   let visible = false;
   let leftAt = 0;
   const frame = now => {
@@ -137,13 +211,46 @@ if (stage && box && source) {
 
   tabs.forEach(tab => tab.addEventListener('click', () => go(Number(tab.dataset.i), true)));
 
-  // The stage is drawn at 660x630 and scaled to its column; Hero.astro does
-  // the first fit inline, before paint.
+  // The stage is drawn 580 wide and scaled to its column; Hero.astro does
+  // the first fit inline, before paint. The device stands on the map,
+  // centred across it, from a little under the tabs down over three quarters of
+  // the card below.
+  const W = 580;
+  const map = $('sh-map');
+  const content = stage.querySelector('.sh-content');
+  const tabsRow = stage.querySelector('.sh-tabs');
+  const card = stage.querySelector('.sh-card');
+  const devices = stage.querySelector('.sh-devices');
   const fit = () => {
-    const s = Math.min(1, (box.clientWidth || 660) / 660);
+    const s = Math.min(1, (box.clientWidth || W) / W);
     stage.style.transform = `scale(${s})`;
-    box.style.height = `${630 * s}px`;
+    const bottom = content.offsetHeight;
+    const top = tabsRow.offsetTop + tabsRow.offsetHeight + 28;
+    const end = card.offsetTop + card.offsetHeight * 0.75;
+    const ds = Math.min(1, (end - top) / 460);
+    devices.style.top = `${(top + end) / 2 - 230}px`;
+    devices.style.setProperty('--ds', ds.toFixed(3));
+    box.style.height = `${bottom * s}px`;
+    scale = s;
+    dodge();
   };
+  // The device stands where the UK and France are, so a label it would cover
+  // moves out from under it: a pin left of the device keeps its label on its
+  // own left; a pin beneath the device has its label beside the device's right.
+  let scale = 1;
+  const dodge = () => {
+    const d = devices.getBoundingClientRect();
+    for (const label of $('sh-labels').children) {
+      label.style.marginLeft = '';
+      const r = label.getBoundingClientRect();
+      if (r.right <= d.left || r.left >= d.right || r.bottom <= d.top || r.top >= d.bottom) continue;
+      const pin = r.left - 12 * scale;
+      const shift = pin < d.left ? Math.min(pin - 12 * scale, d.left - 6 * scale) - r.right : d.right + 6 * scale - r.left;
+      label.style.marginLeft = `${shift / scale}px`;
+    }
+  };
+  fit();
+  document.fonts?.ready.then(fit);
   if ('ResizeObserver' in window) new ResizeObserver(fit).observe(box.parentNode);
   else window.addEventListener('resize', fit);
 }

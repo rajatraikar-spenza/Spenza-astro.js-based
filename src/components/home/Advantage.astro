@@ -1,60 +1,104 @@
 ---
 /**
- * The Spenza advantage: the "MVNO in a Box" animation, which used to be the
- * hero's artwork — a box that opens into the four hub layers and closes again.
- * Clicking a layer lifts it once the box is fully open, then the loop carries
- * on. Behaviour in src/scripts/home.js; layout in styles/home-hero.css and
- * styles/home-sections.css.
+ * The Spenza advantage, built like the "How it works" panel on livekit.com:
+ * four numbered hubs beside an isometric stack of the hub cards. On a wide
+ * screen the panel holds still while the page scrolls past it, and the scroll
+ * walks the steps — the cards before the current one pack back, it slides out
+ * with room either side, lights up, and trails outline frames back into the
+ * stack. While a card is lit its artwork comes alive — the UXHub terminal's
+ * light blinks and it types, the ControlHub and TelecomHub grids are scanned, and the AgentHub
+ * waveform talks: a caller, then the agent answering. Narrower screens step
+ * through on a timer; phones get the steps alone.
  *
- * It sits below the fold now, so the layers load lazily.
+ * Behaviour in src/scripts/home.js; layout in styles/home-sections.css.
+ * It sits below the fold, so the cards load lazily.
  */
-import agent from '../../assets/home/agent.svg?url';
-import boxLeft from '../../assets/home/box-left.svg?url';
-import boxRight from '../../assets/home/box-right.svg?url';
-import boxTop from '../../assets/home/box-top.svg?url';
+import agent from '../../assets/home/agent-live.svg?url';
 import control from '../../assets/home/control.svg?url';
 import telecom from '../../assets/home/telecom.svg?url';
-import ux from '../../assets/home/ux.svg?url';
+import ux from '../../assets/home/ux-live.svg?url';
+import uxDot from '../../assets/home/ux-dot.svg?url';
 
-/** Back to front: each layer is stacked over the one after it. */
-const layers = [
-  { id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', label: 'Explore AgentHub: AI voice and intelligence' },
-  { id: 'telecom', src: telecom, n: '03', tag: 'NETWORK', label: 'Explore TelecomHub: multi-operator connectivity' },
-  { id: 'control', src: control, n: '02', tag: 'CONTROL', label: 'Explore ControlHub: operations and cost control' },
-  { id: 'ux', src: ux, n: '01', tag: 'BRAND', label: 'Explore UXHub: your brand and billing' },
+/** Front to back: the order of the steps, and of the cards in the stack. */
+const hubs = [
+  {
+    id: 'ux', src: ux, n: '01', tag: 'BRAND', name: 'UXHub',
+    title: 'Your brand. Your customer experience.',
+    text: 'Let customers buy, activate, and manage plans under your brand.',
+  },
+  {
+    id: 'control', src: control, n: '02', tag: 'CONTROL', name: 'ControlHub',
+    title: 'See every dollar. Control every cost.',
+    text: 'Track usage, manage subscriptions, and control costs in one place.',
+  },
+  {
+    id: 'telecom', src: telecom, n: '03', tag: 'NETWORK', name: 'TelecomHub',
+    title: 'One API. Global connectivity.',
+    text: 'Access operators, provision SIMs and eSIMs, and manage plans via one API.',
+  },
+  {
+    id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', name: 'AgentHub',
+    title: 'Put AI to work across telecom.',
+    text: 'Automate network operations, support, sales, and marketing with AI.',
+  },
 ];
 ---
 
-<section class="hm-hero hm-hero--platform" aria-labelledby="platform-title">
-  <div class="hm-spot" aria-hidden="true"></div>
-  <div class="hm-wrap hm-hero-inner">
-    <div class="hm-hero-grid hm-stack">
-      <div class="hm-hero-copy">
+<section class="hm-how" aria-labelledby="platform-title">
+  <div class="hm-how__track">
+    <div class="hm-how__panel">
+      <svg class="hm-how__grid" viewBox="0 0 800 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <path d="M-40 520 L560 174 M60 700 L840 250 M260 760 L880 402 M-80 300 L360 46 M120 -40 L880 398 M-60 120 L780 605 M-120 330 L620 757 M380 -60 L900 240" />
+      </svg>
+
+      <div class="hm-how__copy">
         <div class="hm-eyebrow">THE SPENZA ADVANTAGE</div>
-        <h2 id="platform-title" class="hm-h2">The Telecom Foundation Behind Your Business.</h2>
-        <p class="hm-hero-lede">Build on pre-integrated telecom infrastructure instead of piecing together carriers, provisioning, billing, and customer management tools yourself.</p>
+        <h2 id="platform-title" class="hm-h2 hm-how__title">The Telecom Foundation Behind Your Business.</h2>
+        <p class="hm-how__lede">Pre-integrated telecom infrastructure, instead of piecing together carriers, provisioning, billing and customer tools yourself.</p>
+
+        <ol class="hm-how__steps">
+          {hubs.map((hub, i) => (
+            <li class="hm-how__step" data-hub={hub.id} aria-current={i === 0 ? 'step' : undefined}>
+              <button class="hm-how__btn" type="button" data-hub={hub.id}>
+                <span class="hm-how__num" aria-hidden="true">{i + 1}<svg viewBox="0 0 32 32" focusable="false"><circle cx="16" cy="16" r="15" pathLength="1" /></svg></span>
+                <span class="hm-how__name"><b>{hub.name}</b> {hub.title}</span>
+              </button>
+              <p class="hm-how__text">{hub.text}</p>
+            </li>
+          ))}
+        </ol>
+
+        <div class="hm-how__links">
+          <a class="hm-how__link hm-how__link--acc get-started" href="#demo">Book a demo</a>
+          <a class="hm-how__link" href="https://docs.spenza.com/">Read the API docs <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
 
-      <div class="hm-hero-art" data-view="auto" aria-label="Interactive MVNO in a Box platform diagram">
-        <div class="hm-scene-wrap">
-          <div class="hm-scene">
-            <div class="hm-box-shadow" aria-hidden="true"></div>
-            <div class="hm-box-piece hm-box-left" aria-hidden="true"><img src={boxLeft} alt="" width="123" height="212" /></div>
-            {layers.map(layer => (
-              <button class="hm-hub-layer" type="button" data-hub={layer.id} aria-label={layer.label} aria-pressed="false">
-                <img src={layer.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
-                <span class="hm-layer-tag"><b>{layer.n}</b> {layer.tag}</span>
-              </button>
-            ))}
-            <div class="hm-box-piece hm-box-right" aria-hidden="true"><img src={boxRight} alt="" width="119" height="209" /></div>
-            <div class="hm-box-piece hm-box-top" aria-hidden="true"><img src={boxTop} alt="" width="240" height="139" /></div>
-            <img class="hm-box-brand" src="/spenza-logo-vector.svg" alt="" aria-hidden="true" width="1264" height="428" loading="lazy" decoding="async" />
-          </div>
-        </div>
-        <div class="hm-art-footer">
-          <div class="hm-art-caption">
-            <p id="hero-caption" aria-live="polite">One connected stack. From network to customer.</p>
-          </div>
+      <div class="hm-how__art" aria-hidden="true">
+        <div class="hm-iso">
+          {hubs.map((hub, i) => (
+            <div class="hm-iso-card" data-hub={hub.id} style={`--i:${i}`}>
+              <span class="hm-iso-guide hm-iso-guide--b"></span>
+              <span class="hm-iso-guide hm-iso-guide--r"></span>
+              <span class="hm-iso-face hm-iso-face--top"></span>
+              <span class="hm-iso-face hm-iso-face--side"></span>
+              {[0, 1, 2, 3, 4].map(k => <span class="hm-iso-trail" style={`--k:${k}`}></span>)}
+              <img src={hub.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
+              {hub.id === 'ux' && <img class="hm-iso-dot" src={uxDot} alt="" width="113" height="195" loading="lazy" decoding="async" />}
+              <span class={`hm-live hm-live--${hub.id}`}>
+                {hub.id === 'ux' && <>
+                  <i class="lv-caret"></i>
+                  <i class="lv-load"><b></b></i>
+                </>}
+                {(hub.id === 'control' || hub.id === 'telecom') && <i class="lv-cell"></i>}
+                {hub.id === 'control' && <i class="lv-badge"></i>}
+                {hub.id === 'telecom' && [0, 1].map(k => <i class="lv-ring" style={`--k:${k}`}></i>)}
+                {hub.id === 'agent' && <span class="lv-wave">{[0, 1, 2, 3, 4, 5, 6].map(k => <i style={`--k:${k}`}></i>)}</span>}
+                {hub.id === 'agent' && <span class="lv-say">How may I help you?</span>}
+              </span>
+              <span class="hm-iso-tag" data-text={`${hub.n} ${hub.tag}`}>{hub.n} {hub.tag}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

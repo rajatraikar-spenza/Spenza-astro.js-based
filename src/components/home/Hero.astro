@@ -1,19 +1,27 @@
 ---
 /**
  * Hero: the headline beside a "Live on Spenza" stage that cycles through three
- * customers — where each is live on a world map, and what its own customer
- * app shows. From the spenza-home-hero-updated design; styles in
+ * customers — where each is live on a world map, and the device it ships. From the spenza-home-hero-updated design; styles in
  * styles/home-hero.css, behaviour in scripts/home-hero.js.
  *
  * The first customer is rendered here, so the stage is complete before any
  * script runs; the script only swaps in the next one. The stage is drawn at
- * 660x630 and scaled to fit; the inline script below scales it before first
+ * 580 wide and scaled to fit; the inline script below scales it before first
  * paint, so a phone never sees it at full size.
  *
  * "Book a demo" carries `get-started`, which opens the site's Get Started popup;
  * `#demo` is where it goes without JavaScript.
+ *
+ * The headline is three lines, the last of them a single word that follows
+ * the stage: each customer names what connectivity became for it (a product,
+ * a service, an add-on). scripts/home-hero.js rolls it over letter by letter
+ * as the stage changes, and the stage changes the same way — its numbers and
+ * caption roll, its blocks drop out and back in one after another. Beside the
+ * map stands the customer's own device — RocketPhone's dialer, a Butlr
+ * sensor, an Angel Watch — from the "Spenza hero — customer devices" Figma
+ * file. On phones the stage sits under the buttons, without the device.
  */
-import { HERO_CUSTOMERS, brandStyle, labelStyle } from './hero-customers';
+import { HERO_CUSTOMERS, labelStyle } from './hero-customers';
 import { MAP_DOTS } from './hero-map-dots';
 
 const stats = [
@@ -24,7 +32,10 @@ const stats = [
 ];
 
 const c = HERO_CUSTOMERS[0];
-const p = c.phone;
+/** Butlr's floor, 12 cells by 5: how warm each is — the people it counts. */
+const warm: Record<number, number> = { 10: .8, 13: 1, 14: .6, 26: .6, 31: 1, 32: .55, 43: .6, 52: .45, 57: .9, 58: .5 };
+const heat = Array.from({ length: 60 }, (_, k) => warm[k] ?? 0);
+
 const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
 ---
 
@@ -32,7 +43,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
   <div class="sh-wrap sh-hero-grid">
     <div>
       <div class="sh-eyebrow">MVNE PLATFORM &middot; eSIM, IoT CONNECTIVITY, BILLING &amp; AI VOICE</div>
-      <h1 id="hero-title">Turn Mobile Connectivity Into Your <em>Next Product.</em></h1>
+      <h1 id="hero-title"><span class="sh-l">Turn Connectivity</span> <span class="sh-l">Into Your Next</span> <span class="sh-l"><em class="sh-rot sh-roll" id="sh-word"><span>{c.word}</span></em><em>.</em></span></h1>
       <p class="sh-lede">Bring your own network, customize your plans, and own the customer experience. We handle the telecom complexity.</p>
       <div class="sh-ctas">
         <a class="sh-btn sh-btn-acc get-started" href="#demo">Book a demo</a>
@@ -44,7 +55,7 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
     </div>
 
     <div class="sh-stage-box" id="sh-stageBox">
-      <div class="sh-stage" id="sh-stage" style={brandStyle(c)}>
+      <div class="sh-stage" id="sh-stage">
         <div class="sh-content">
           <div class="sh-tabs" role="group" aria-label="Customers running on Spenza">
             <span class="sh-tabs-label">Live on Spenza</span>
@@ -54,22 +65,22 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
           </div>
 
           <div class="sh-card">
-            <div class="sh-who sh-swap">
+            <div class="sh-who" data-swap>
               <div class="sh-who-text">
-                <img class="sh-logo-card" id="sh-logo" src={c.logo} alt={c.name} height={c.logoH[0]} width={Math.round(c.logoH[0] * c.logoRatio)} style={`height:${c.logoH[0]}px`} loading="lazy" />
+                <img class="sh-logo-card" id="sh-logo" src={c.logo} alt={c.name} height={c.logoH} width={Math.round(c.logoH * c.logoRatio)} style={`height:${c.logoH}px`} loading="lazy" />
                 <span class="sh-who-sub" id="sh-sub">{c.sub}</span>
               </div>
             </div>
-            <div class="sh-kpis sh-swap">
-              <div class="sh-kpi"><span class="sh-kpi-v" id="sh-kMarkets">{c.markets.length}</span><span class="sh-kpi-l">markets live</span></div>
-              <div class="sh-kpi"><span class="sh-kpi-v" id="sh-kNetworks">{c.networks}</span><span class="sh-kpi-l">networks live</span></div>
+            <div class="sh-kpis">
+              <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kMarkets"><span>{c.markets.length}</span></span><span class="sh-kpi-l" id="sh-kMarketsL">{('marketsLabel' in c && c.marketsLabel) || 'markets live'}</span></div>
+              <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kNetworks"><span>{c.networks}</span></span><span class="sh-kpi-l">networks live</span></div>
             </div>
           </div>
 
           <div class="sh-map" id="sh-map" role="img" aria-label={`World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`}>
             <svg viewBox="0 0 580 216" aria-hidden="true" focusable="false">
               <path class="sh-dots" d={MAP_DOTS} />
-              <g id="sh-pins" class="sh-swap">
+              <g id="sh-pins" data-swap>
                 {c.markets.map(m => (
                   <g class="sh-pin" transform={`translate(${m.x} ${m.y})`}>
                     <circle class="sh-halo" r="8" /><circle class="sh-ring" r="5" /><circle class="sh-core" r="3.6" />
@@ -77,37 +88,73 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
                 ))}
               </g>
             </svg>
-            <div id="sh-labels" class="sh-swap">
-              {c.markets.map(m => <span class="sh-pinlabel" style={labelStyle(m, c.markets.length)}>{m.name} · live</span>)}
+            <div id="sh-labels" data-swap>
+              {c.markets.map(m => <span class={`sh-pinlabel${m.x < 200 ? ' is-west' : ''}`} style={labelStyle(m, c.markets.length)}>{m.name} · live</span>)}
             </div>
           </div>
 
           <div class="sh-caption">
-            <span class="sh-swap" id="sh-capText">{c.caption}</span>
+            <span class="sh-roll" id="sh-capText"><span>{c.caption}</span></span>
           </div>
         </div>
 
-        <div class="sh-phone" aria-hidden="true">
-          <span class="sh-phone-tag">Customer app</span>
-          <div class="sh-screen sh-swap">
-            <div class="sh-app-head">
-              <img class="sh-logo-app" id="sh-pLogo" src={c.logo} alt="" height={c.logoH[1]} width={Math.round(c.logoH[1] * c.logoRatio)} style={`height:${c.logoH[1]}px`} loading="lazy" />
-              <span class="sh-avatar"></span>
+        <div class="sh-devices" aria-hidden="true" data-swap>
+          {/* RocketPhone: its business line, mid-call, logging to Salesforce */}
+          <div class={`sh-dev sh-dialer${c.name === 'RocketPhone' ? ' is-on' : ''}`} data-dev="RocketPhone">
+            <span class="sh-dev-tag">Business dialer</span>
+            <div class="sh-dl-screen">
+              <div class="sh-dl-status"><span>9:41</span><span>5G <i class="sh-bars"><i></i><i></i><i></i><i></i></i></span></div>
+              <div class="sh-dl-head"><b>RocketPhone</b><span class="sh-dl-line"><i></i>US line</span></div>
+              <div class="sh-dl-call">
+                <span class="sh-dl-av">JC</span>
+                <b>Jordan Chen</b>
+                <span class="sh-dl-co">Acme Corp · Prospect</span>
+                <span class="sh-dl-num">+1 (415) 555‑0142</span>
+                <span class="sh-dl-rec"><i></i>REC <span class="sh-dl-time">02:14</span></span>
+              </div>
+              <div class="sh-dl-pad">
+                {[['1',''],['2','ABC'],['3','DEF'],['4','GHI'],['5','JKL'],['6','MNO'],['7','PQRS'],['8','TUV'],['9','WXYZ'],['*',''],['0','+'],['#','']].map(([k, l]) => <span><b>{k}</b><small>{l}</small></span>)}
+              </div>
+              <div class="sh-dl-acts"><span>Mute</span><span class="sh-dl-end">End</span><span>Spkr</span></div>
+              <div class="sh-dl-sync"><i></i>Logging to Salesforce<span class="sh-dl-dots"><i>.</i><i>.</i><i>.</i></span></div>
             </div>
-            <div class="sh-alert">
-              <div class="sh-alert-top"><span id="sh-aLabel">{p.aLabel}</span><span>now</span></div>
-              <span class="sh-alert-text" id="sh-aText">{p.aText}</span>
-              <div class="sh-alert-btns"><span id="sh-aBtn">{p.aBtn}</span><span>Dismiss</span></div>
+          </div>
+
+          {/* Butlr: a ceiling sensor and the floor it is counting */}
+          <div class={`sh-dev sh-iot${c.name === 'Butlr' ? ' is-on' : ''}`} data-dev="Butlr">
+            <span class="sh-dev-tag">IoT sensor</span>
+            <span class="sh-iot-mount"></span>
+            <div class="sh-iot-puck">
+              <span class="sh-iot-lens"><i></i></span>
+              <span class="sh-iot-led"></span>
+              <b>butlr</b>
+              <small>Heimdall · LTE-M</small>
             </div>
-            <div class="sh-plan">
-              <span class="sh-plan-l" id="sh-plL">{p.plL}</span>
-              <span class="sh-plan-n" id="sh-plN">{p.plN}</span>
-              <span class="sh-plan-big" id="sh-plBig">{p.plBig}</span>
-              <span class="sh-plan-cap" id="sh-plCap">{p.plCap}</span>
+            <span class="sh-iot-up"><i></i>Uplink · 2s ago</span>
+            <div class="sh-iot-card">
+              <div class="sh-iot-head"><div><b>Floor 4 · Zone B</b><small>Thermal · no cameras</small></div><span>Live</span></div>
+              <div class="sh-iot-heat">
+                {heat.map((h, k) => <i class={h ? 'is-warm' : undefined} style={h ? `--h:${h};--k:${k % 7}` : undefined}></i>)}
+              </div>
+              <div class="sh-iot-stats"><div><b>7</b><small>people now</small></div><div><b>18%</b><small>occupied</small></div></div>
+              <div class="sh-iot-chips"><span>eSIM</span><span>LTE-M</span><span>Batt 92%</span></div>
             </div>
-            <div class="sh-rows">
-              <div class="sh-row"><span id="sh-r1k">{p.rows[0][0]}</span><span id="sh-r1v">{p.rows[0][1]}</span></div>
-              <div class="sh-row"><span id="sh-r2k">{p.rows[1][0]}</span><span id="sh-r2v">{p.rows[1][1]}</span></div>
+          </div>
+
+          {/* Angel Watch: a child's watch, checked in at school */}
+          <div class={`sh-dev sh-watch${c.name === 'Angel Watch' ? ' is-on' : ''}`} data-dev="Angel Watch">
+            <span class="sh-dev-tag">Kids’ smartwatch</span>
+            <span class="sh-w-strap sh-w-strap--t"></span>
+            <span class="sh-w-strap sh-w-strap--b"><i></i><i></i><i></i></span>
+            <span class="sh-w-crown"></span><span class="sh-w-btn"></span>
+            <div class="sh-w-case">
+              <div class="sh-w-screen">
+                <div class="sh-w-status"><span>4G <i class="sh-bars"><i></i><i></i><i></i></i></span><span>86%</span></div>
+                <div class="sh-w-time"><b>8:42</b><small>Tue 14</small></div>
+                <div class="sh-w-who"><i></i>Maya · at school</div>
+                <div class="sh-w-map"><span class="sh-w-zone"></span><span class="sh-w-pin"></span></div>
+                <div class="sh-w-acts"><span class="sh-w-sos">SOS</span><span>Call mum</span></div>
+              </div>
             </div>
           </div>
         </div>
@@ -116,9 +163,9 @@ const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
     <script is:inline>
       (function () {
         var box = document.getElementById('sh-stageBox');
-        var s = Math.min(1, (box.clientWidth || 660) / 660);
+        var s = Math.min(1, (box.clientWidth || 580) / 580);
         box.firstElementChild.style.transform = 'scale(' + s + ')';
-        box.style.height = 630 * s + 'px';
+        box.style.height = 410 * s + 'px';
       })();
     </script>
   </div>

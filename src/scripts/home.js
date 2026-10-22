@@ -6,7 +6,7 @@ import './home-hero.js';
  *   - sections fade up as they scroll into view
  *   - the hero's cursor spotlight
  *   - the hero's customer stage (scripts/home-hero.js)
- *   - the "MVNO in a Box" animation in the Spenza advantage section
+ *   - the Spenza advantage walkthrough and its isometric card stack
  *   - the platform hub tabs
  *   - the Alternatives board and the Customer proof carousel
  *
@@ -51,122 +51,195 @@ if (page) {
   hero?.addEventListener('pointerleave', () => hero.style.setProperty('--so', '0'));
 }
 
-/* ------------------------------------------------------- advantage box */
+/* ------------------------------------------------------- advantage stack */
 
-// Clicking a layer never cuts the cycle short: the box finishes opening, the
-// layer rises and holds, then it settles back and the box closes and the loop
-// carries on. Hover and focus never pause it.
-const art = document.querySelector('.hm-hero--platform .hm-hero-art');
+// The Spenza advantage walkthrough (Advantage.astro), after the "How it works"
+// panel on livekit.com: one hub at a time is the current step, and its card
+// slides out of the isometric stack with room either side and lights up.
+//
+// From 1024px the panel is sticky in a tall track and the scroll picks the
+// step, a quarter of the track each, filling the rail and the number's ring
+// as it goes. Below that there is no track, and the steps advance on a timer
+// while the stack is on screen. A click on a step or a card picks it — by
+// scrolling to its quarter, where the scroll is in charge.
+const how = document.querySelector('.hm-how');
 
-if (art) {
-  const wrap = art.querySelector('.hm-scene-wrap');
-  const scene = art.querySelector('.hm-scene');
-  const cap = document.getElementById('hero-caption');
-  const rest = cap.textContent;
-  const CAPS = {
-    telecom: 'TelecomHub — multi-operator connectivity, one API.',
-    control: 'ControlHub — every line, cost, and invoice in one view.',
-    ux: 'UXHub — your plans, checkout, billing, and brand.',
-    agent: 'AgentHub — real phone numbers for AI conversations.',
+if (how) {
+  const art = how.querySelector('.hm-how__art');
+  const iso = art.querySelector('.hm-iso');
+  const track = how.querySelector('.hm-how__track');
+  const panel = how.querySelector('.hm-how__panel');
+  const steps = [...how.querySelectorAll('.hm-how__step')];
+  const cards = [...iso.querySelectorAll('.hm-iso-card')];
+  const sticky = window.matchMedia('(min-width: 1024px)');
+  const STEP = 4000;
+
+  // The stage is drawn at 864x580 and scaled to fit its column, measured by
+  // the 700x520 the stack itself takes up in the middle of it.
+  const fit = () => {
+    const s = Math.min(art.clientWidth / 700, art.clientHeight / 520) || 1;
+    iso.style.setProperty('--iso-scale', s.toFixed(4));
   };
-
-  const fit = () => scene.style.setProperty('--scene-scale', String(wrap.clientWidth / 580));
   fit();
-  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(wrap); else addEventListener('resize', fit);
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(art); else addEventListener('resize', fit);
 
-  /* Every piece runs one 20s cycle: shut until 8%, open by 25%, all tags in by
-     28%, starting to close at 74%, shut again by 94%. */
-  const D = 20000, SHUT_UNTIL = 1600, OPEN = 5600, CLOSE = 14800, SHUT_FROM = 18800;
-  const HOLD = 4000, SETTLE = 1000;
-  let anims = null, mode = 'auto', picked = null, timer = 0, visible = true;
+  /* Where the cards sit along the stack's line, in the stage's pixels, as on
+     livekit.com: the ones before the current card packed 50px apart, 140px
+     clear either side of it, the ones after 50px apart again. CENTRE shifts
+     the whole run so it sits in the middle of the stage. */
+  const PACK = 50, CLEAR = 140, START = -90, CENTRE = -75;
+  const spots = (a) => {
+    const x = [];
+    for (let k = 0; k < cards.length; k++) {
+      if (k < a) x.push(START + PACK * k);
+      else if (k === a) x.push(a === 0 ? 0 : x[k - 1] + CLEAR);
+      else x.push(x[k - 1] + (k === a + 1 ? CLEAR : PACK));
+    }
+    return x.map((v) => v + CENTRE);
+  };
 
-  const take = () => {
-    if (anims) return;
-    anims = scene.getAnimations({ subtree: true }).filter((a) => a.effect && a.effect.getTiming().duration === D);
-    const t = anims.length ? anims[0].currentTime : 0;
-    anims.forEach((a) => { a.currentTime = t; });
+  // The label of a card coming into the light resolves out of random letters.
+  const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const scramble = (tag) => {
+    const text = tag.dataset.text;
+    if (reducedMotion.matches) { tag.textContent = text; return; }
+    const started = performance.now();
+    const frame = (now) => {
+      const done = Math.floor((now - started) / 28);
+      tag.textContent = [...text].map((ch, k) => (ch === ' ' || k < done ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0])).join('');
+      if (done < text.length && tag.isConnected) requestAnimationFrame(frame); else tag.textContent = text;
+    };
+    requestAnimationFrame(frame);
   };
-  const now = () => anims[0].currentTime % D;
-  const seek = (t) => anims.forEach((a) => { a.currentTime = t; });
-  const rate = (r) => anims.forEach((a) => { a.playbackRate = r; });
-  const run = () => {
-    if (!anims) return;
-    const go = visible && !document.hidden && mode !== 'lift';
-    anims.forEach((a) => (go ? a.play() : a.pause()));
-  };
-  const raise = (hub) => {
-    mode = 'lift';
-    run();
-    art.querySelectorAll('[data-hub]').forEach((c) => {
-      const on = c.dataset.hub === hub;
-      c.classList.toggle('hm-active', on);
-      c.setAttribute('aria-pressed', String(on));
+
+  let active = -1, visible = false, timer = 0;
+
+  /* The AgentHub waveform, live while its card is lit and on screen: a caller
+     talks, a beat of silence, the agent answers (the bars turn orange), and
+     round again. Out of the light the bars ease back to the artwork's still
+     shape. */
+  const wave = how.querySelector('.lv-wave');
+  const voice = (() => {
+    if (!wave) return () => {};
+    const bars = [...wave.children];
+    const TURNS = [['user', 1700], ['', 450], ['agent', 2300], ['', 650]];
+    let raf = 0, t0 = 0, next = 0, gate = 0, gateUntil = 0;
+    const level = bars.map(() => 0.12);
+    const aim = bars.map(() => 0.12);
+    const frame = (now) => {
+      const cycle = TURNS.reduce((n, [, d]) => n + d, 0);
+      let t = (now - t0) % cycle, who = '';
+      for (const [name, d] of TURNS) { if (t < d) { who = name; break; } t -= d; }
+      wave.classList.toggle('is-agent', who === 'agent');
+      // Speech comes in syllables: bursts of 120-320ms with short gaps, and
+      // within a burst every bar picks a new height every ~90ms, the middle
+      // ones reaching furthest.
+      if (now > gateUntil) { gate = gate ? 0 : 1; gateUntil = now + (gate ? 120 + Math.random() * 200 : 40 + Math.random() * 90); }
+      if (now > next) {
+        next = now + 70 + Math.random() * 50;
+        bars.forEach((_, k) => {
+          const mid = 1 - Math.abs(k - 3) / 4.5;
+          aim[k] = who && gate ? 0.25 + 0.75 * mid * (0.45 + 0.55 * Math.random()) : 0.1 + 0.06 * Math.random();
+        });
+      }
+      bars.forEach((bar, k) => {
+        level[k] += (aim[k] - level[k]) * 0.32;
+        bar.style.setProperty('--h', level[k].toFixed(3));
+      });
+      raf = requestAnimationFrame(frame);
+    };
+    return (on) => {
+      if (on && !raf && !reducedMotion.matches) { t0 = performance.now(); raf = requestAnimationFrame(frame); }
+      if (!on && raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+        wave.classList.remove('is-agent');
+        bars.forEach((bar) => bar.style.removeProperty('--h'));
+      }
+    };
+  })();
+  const talk = () => voice(visible && active >= 0 && cards[active].dataset.hub === 'agent');
+
+  const show = (i) => {
+    const before = active;
+    active = i;
+    steps.forEach((step, k) => {
+      if (k === i) step.setAttribute('aria-current', 'step'); else step.removeAttribute('aria-current');
+      step.classList.toggle('is-done', k < i);
+      if (k !== i) step.style.removeProperty('--fill');
     });
-    cap.textContent = CAPS[hub];
-    clearTimeout(timer);
-    if (!reducedMotion.matches) timer = setTimeout(settle, HOLD);
-  };
-  const settle = () => {
-    picked = null;
-    mode = 'auto';
-    art.querySelectorAll('[data-hub]').forEach((c) => { c.classList.remove('hm-active'); c.setAttribute('aria-pressed', 'false'); });
-    cap.textContent = rest;
-    seek(Math.max(now(), CLOSE - SETTLE));
-    run();
-  };
-  /* Opening forwards, or reopening by playing the close backwards, until the
-     box is fully open; then the card rises. */
-  const watch = () => {
-    if (mode !== 'wait') return;
-    const t = now(), back = anims[0].playbackRate < 0;
-    if (back ? t <= CLOSE : t >= OPEN && t <= CLOSE) { rate(1); raise(picked); }
-    else requestAnimationFrame(watch);
-  };
-  const pick = (hub) => {
-    if (!Object.hasOwn(CAPS, hub)) return;
-    picked = hub;
-    if (reducedMotion.matches || mode === 'lift') { raise(hub); return; }
-    start();
-    if (!anims.length) { raise(hub); return; }
-    if (mode === 'wait') return;
-    const t = now();
-    if (t >= OPEN && t <= CLOSE) { raise(hub); return; }
-    if (t > CLOSE && t < SHUT_FROM) rate(-1);
-    else if (t < SHUT_UNTIL || t >= SHUT_FROM) seek(SHUT_UNTIL);
-    mode = 'wait';
-    run();
-    requestAnimationFrame(watch);
+    if (i === before) return;
+    // The cards move one after another, from the end the move starts at.
+    const forward = i > before;
+    const x = spots(i);
+    cards.forEach((card, k) => {
+      card.style.setProperty('--x', String(x[k]));
+      card.style.setProperty('--delay', `${(forward ? k : cards.length - 1 - k) * 50}ms`);
+      card.classList.toggle('is-lit', k === i);
+    });
+    scramble(cards[i].querySelector('.hm-iso-tag'));
+    talk();
+    // On the timer, the current step's rail and ring fill over its four seconds.
+    if (how.classList.contains('is-timed')) {
+      steps[i].style.setProperty('--fill', '0');
+      requestAnimationFrame(() => requestAnimationFrame(() => steps[i].style.setProperty('--fill', '1')));
+    }
   };
 
-  art.querySelectorAll('[data-hub]').forEach((c) => {
-    c.addEventListener('click', () => pick(c.dataset.hub));
-    c.addEventListener('focus', () => { if (c.matches(':focus-visible')) pick(c.dataset.hub); });
-  });
-
-  document.addEventListener('visibilitychange', run);
-  // The box waits, shut, until the section is on screen, then starts its cycle
-  // from the beginning — so nobody arrives to find it already done.
-  let seen = false;
-  const start = () => {
-    if (seen) return;
-    seen = true;
-    take();
-    seek(0);
-    art.classList.add('is-live');
+  const tick = () => {
+    clearInterval(timer);
+    const timed = visible && !sticky.matches && !reducedMotion.matches;
+    how.classList.toggle('is-timed', timed);
+    if (timed) {
+      steps[active].style.setProperty('--fill', '0');
+      requestAnimationFrame(() => requestAnimationFrame(() => steps[active].style.setProperty('--fill', '1')));
+      timer = setInterval(() => show((active + 1) % steps.length), STEP);
+    }
   };
+
+  // Where the scroll is through the track, as a step and a fraction of it.
+  const fromScroll = () => {
+    if (!sticky.matches) return;
+    const range = track.offsetHeight - panel.offsetHeight;
+    const top = parseFloat(getComputedStyle(panel).top) || 0;
+    const p = range > 0 ? (top - track.getBoundingClientRect().top) / range : 0;
+    const at = Math.min(steps.length - 1e-6, Math.max(0, p * steps.length));
+    const i = Math.floor(at);
+    if (i !== active) show(i);
+    steps[i].style.setProperty('--fill', (at - i).toFixed(3));
+  };
+  let queued = false;
+  addEventListener('scroll', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; fromScroll(); });
+  }, { passive: true });
+
+  const pick = (i) => {
+    if (sticky.matches) {
+      const range = track.offsetHeight - panel.offsetHeight;
+      const top = parseFloat(getComputedStyle(panel).top) || 0;
+      const y = track.getBoundingClientRect().top + scrollY - top + ((i + 0.5) / steps.length) * range;
+      scrollTo({ top: y, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    } else {
+      show(i);
+      tick();
+    }
+  };
+  steps.forEach((step, i) => step.querySelector('button').addEventListener('click', () => pick(i)));
+  cards.forEach((card, i) => card.addEventListener('click', () => pick(i)));
+
+  show(0);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
-      if (e.intersectionRatio >= 0.35) start();
-      run();
-    }, { threshold: [0, 0.35] }).observe(art);
-  } else start();
-  const motion = () => {
-    if (reducedMotion.matches) { art.dataset.view = 'open'; cap.textContent = 'Four connected layers. Select a hub to explore.'; }
-    else art.dataset.view = 'auto';
-  };
-  reducedMotion.addEventListener('change', motion);
-  motion();
+      if (visible) art.classList.add('is-in');
+      tick();
+      talk();
+    }, { threshold: 0.2 }).observe(art);
+  } else { visible = true; art.classList.add('is-in'); }
+  sticky.addEventListener('change', () => { fromScroll(); tick(); });
+  fromScroll();
 }
 
 /* ---------------------------------------------------------------- tabs */
