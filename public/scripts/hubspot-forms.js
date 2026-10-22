@@ -214,12 +214,10 @@
       unsent: ['input_3', 'input_6'],
       required: ['input_1.3', 'input_8.6', 'input_2', 'input_3', 'input_4', 'input_6'],
       email: ['input_2'],
-      success: `
-        <h3 class="form_title">Thank You</h3>
-        <p><a class="download_pdf" href="/wp-content/uploads/2021/08/Enterprise-Mobility-Policy-Questions-to-Ask.pdf"
-              download="Enterprise-Mobility-Policy-Questions-to-Ask.pdf">Download mobility policy primer</a></p>
-        <p><a class="download_pdf" href="/wp-content/uploads/2021/08/Mobility-Policy-Template.docx"
-              download="mobility policy template.docx">Download mobility policy template</a></p>`,
+      // The page this form lived on, /mobility-policy/, was retired after the
+      // Safe Browsing flag of 21 Oct 2026, and the .docx and PDF it handed out
+      // were deleted from the media bucket with it.
+      success: `<p>${THANKS}</p>`,
     },
 
     // Request Integration Review — the /ai-phone-number/ landing page.

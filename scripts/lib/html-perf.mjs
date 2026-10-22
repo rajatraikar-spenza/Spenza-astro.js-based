@@ -280,9 +280,61 @@ export function describeVagueLinks(html) {
   });
 }
 
+/**
+ * Ungate the one PDF that sat behind an email popup.
+ *
+ * A post body from WordPress carries Gravity Forms 16 inside its own popup
+ * markup: "Download Full Case Study" opens `#emailPopup_N`, which asks for a
+ * work email and then hands out a PDF whose URL is in the form's hidden
+ * `input_4`. After Google flagged the site for deceptive pages (21 Oct 2026,
+ * "trick visitors into sharing personal info or downloading software"), every
+ * gated download went: the popup is removed and the button links straight to
+ * the file. Rewritten here rather than in WordPress so it cannot come back
+ * with an edit to the post, and because post bodies reach the page by no
+ * other route.
+ */
+const GATED_WRAPPER = '<div id="spenza-landing-wrapper">';
+
+function divBlockEnd(html, start) {
+  const tag = /<(\/?)div\b[^>]*>/g;
+  tag.lastIndex = start;
+  let depth = 0;
+  for (let m; (m = tag.exec(html));) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return tag.lastIndex;
+  }
+  return -1;
+}
+
+export function ungatePdfPopups(html) {
+  if (!html.includes('gform_16')) return html;
+  const links = new Map();
+  let out = '';
+  let at = 0;
+  for (let i = html.indexOf(GATED_WRAPPER); i !== -1; i = html.indexOf(GATED_WRAPPER, at)) {
+    const end = divBlockEnd(html, i);
+    if (end === -1) break;
+    const block = html.slice(i, end);
+    const popup = block.match(/id=["']emailPopup_(\w+)["']/)?.[1];
+    const pdf = block.match(/id=["']input_16_4["'][^>]*\bvalue=["']([^"']+)["']/)?.[1];
+    out += html.slice(at, i);
+    if (block.includes("id='gform_16'") && popup && pdf) links.set(popup, pdf);
+    else out += block;
+    at = end;
+  }
+  out += html.slice(at);
+  for (const [n, pdf] of links) {
+    out = out.replaceAll(
+      `<a onclick="openPopup_${n}(); return false;" href="#"`,
+      `<a href="${pdf}" target="_blank" rel="noopener"`
+    );
+  }
+  return out;
+}
+
 /** All of the above, in the order the rest of the pipeline expects. */
 export function applyHtmlPerf(html) {
   return offerWebp(describeVagueLinks(labelBareControls(
-    selfHostFonts(siteFonts(lazyIframes(deferVideos(html))))
+    selfHostFonts(siteFonts(lazyIframes(deferVideos(ungatePdfPopups(html)))))
   )));
 }
