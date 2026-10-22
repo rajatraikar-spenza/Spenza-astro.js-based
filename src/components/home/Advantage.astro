@@ -16,7 +16,8 @@
 import agent from '../../assets/home/agent-live.svg?url';
 import control from '../../assets/home/control.svg?url';
 import telecom from '../../assets/home/telecom.svg?url';
-import ux from '../../assets/home/ux.svg?url';
+import ux from '../../assets/home/ux-live.svg?url';
+import uxDot from '../../assets/home/ux-dot.svg?url';
 
 /** Front to back: the order of the steps, and of the cards in the stack. */
 const hubs = [
@@ -83,9 +84,9 @@ const hubs = [
               <span class="hm-iso-face hm-iso-face--side"></span>
               {[0, 1, 2, 3, 4].map(k => <span class="hm-iso-trail" style={`--k:${k}`}></span>)}
               <img src={hub.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
+              {hub.id === 'ux' && <img class="hm-iso-dot" src={uxDot} alt="" width="113" height="195" loading="lazy" decoding="async" />}
               <span class={`hm-live hm-live--${hub.id}`}>
                 {hub.id === 'ux' && <>
-                  <i class="lv-dot" style="left:13.6%"></i>
                   <i class="lv-caret"></i>
                   <i class="lv-load"><b></b></i>
                 </>}

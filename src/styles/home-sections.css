@@ -590,16 +590,18 @@
 .hm .hm-iso-card.is-lit .hm-live { opacity: 1; }
 .hm .hm-live i, .hm .hm-live b { position: absolute; display: block; }
 
-/* UXHub: the terminal's lights take turns, the cursor blinks after the last
+/* UXHub: the terminal's light blinks, the cursor blinks after the last
    line, and a load bar fills under it. */
-.hm .lv-dot { top: 38.3%; width: 4.4%; height: 3.8%; margin: -1.9% 0 0 -2.2%; border-radius: 50%; background: var(--acc); box-shadow: 0 0 6px rgba(var(--accrgb), .9); opacity: 0; }
+/* The light is drawn by its own image, the artwork's size and place, so it
+   cannot drift off the dot it lights; the artwork's own dot is grey. */
+.hm .hm-iso-card img.hm-iso-dot { z-index: 2; }
 .hm .lv-caret { left: 65.8%; top: 72.6%; width: 1.6%; height: 6.4%; background: #ffb08a; }
 .hm .lv-load { left: 11.5%; top: 82.4%; width: 74%; height: 1.3%; border-radius: 2px; background: rgba(255,255,255,.12); overflow: hidden; }
 .hm .lv-load b { inset: 0; background: var(--acc); transform-origin: 0 50%; transform: scaleX(0); }
-.hm .is-lit .lv-dot { animation: lv-dot 1.2s ease-in-out infinite; }
+.hm .hm-iso-card.is-lit img.hm-iso-dot { animation: lv-dot 1.2s ease-in-out infinite; }
 .hm .is-lit .lv-caret { animation: lv-blink 1s steps(1) infinite; }
 .hm .is-lit .lv-load b { animation: lv-load 2.6s cubic-bezier(.6,0,.3,1) infinite; }
-@keyframes lv-dot { 0%, 100% { opacity: 0; } 50% { opacity: .95; } }
+@keyframes lv-dot { 0%, 100% { opacity: 1; } 50% { opacity: .12; } }
 @keyframes lv-blink { 50% { opacity: 0; } }
 @keyframes lv-load { 0% { transform: scaleX(0); opacity: 1; } 70% { transform: scaleX(1); opacity: 1; } 85%, 100% { transform: scaleX(1); opacity: 0; } }
 
@@ -652,7 +654,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hm .hm-iso-card, .hm .hm-iso-card img, .hm .hm-iso-face, .hm .hm-iso { transition: none; }
-  .hm .hm-iso-card.is-lit .hm-iso-trail, .hm .hm-live * { animation: none !important; }
+  .hm .hm-iso-card.is-lit .hm-iso-trail, .hm .hm-live *, .hm .hm-iso-card img.hm-iso-dot { animation: none !important; }
 }
 
 /* Short laptop screens: the panel is the screen's height less the header, so
