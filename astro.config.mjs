@@ -14,6 +14,7 @@ import { SITE_REDIRECTS } from './src/data/site-redirects.mjs';
 import { partialRewrites } from './scripts/lib/partial-rewrites-plugin.mjs';
 import { wpRefresh } from './scripts/lib/wp-refresh-integration.mjs';
 import { hostFiles } from './scripts/lib/host-files-integration.mjs';
+import { sitemapMeta } from './scripts/lib/sitemap-meta.mjs';
 import { sitemapAlias } from './scripts/lib/sitemap-alias-integration.mjs';
 
 /**
@@ -90,6 +91,8 @@ export default defineConfig({
     hostFiles(),
 
     sitemap({
+      /** changefreq, priority and lastmod per page type — see sitemap-meta.mjs. */
+      serialize: sitemapMeta(),
       /** Mirror what Yoast currently emits, and nothing that is not the site. */
       filter: page => {
         const path = new URL(page).pathname;
