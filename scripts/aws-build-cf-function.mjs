@@ -47,7 +47,7 @@ const redirects = read('wp-redirects.json');
 /** slug -> { route, category, key }; the mirror index, and the route index. */
 const posts = read('wp-posts.json');
 /** This repo's own decisions, which a `wp:redirects` run must not overwrite. */
-const { SITE_REDIRECTS } = await import('../src/data/site-redirects.mjs');
+const { SITE_REDIRECTS, SITE_GONE } = await import('../src/data/site-redirects.mjs');
 
 /**
  * Keyed on the path with both slashes stripped, so `/x`, `/x/` and `x` all
@@ -112,6 +112,13 @@ for (const [from, to] of Object.entries(SITE_REDIRECTS)) {
   all.set(bare(from), to);
 }
 
+// Removed for good: answered 410 by the function, so never also a redirect.
+const gone = {};
+for (const p of SITE_GONE) {
+  gone[bare(p)] = 1;
+  all.delete(bare(p));
+}
+
 const embedded = {};   // non-blog, small enough to live in the function
 const store = {};      // blog/*, bound for the KeyValueStore
 let selfReferential = 0, shadowing = 0;
@@ -139,7 +146,7 @@ for (const [key, to] of all) {
 const chains = [];
 for (const [key, to] of [...Object.entries(embedded), ...Object.entries(store)]) {
   const target = bare(to);
-  if (target && (target in embedded || target in store)) chains.push(`${key} -> ${to}`);
+  if (target && (target in embedded || target in store || target in gone)) chains.push(`${key} -> ${to}`);
 }
 if (chains.length) {
   process.stderr.write(
@@ -177,9 +184,24 @@ var kvs = cf.kvs();
 // which keeps an ordinary page request free of any data-plane lookup.
 var R = ${JSON.stringify(embedded)};
 
+// Paths removed for good (SITE_GONE). Answered before any redirect.
+var G = ${JSON.stringify(gone)};
+
 // The canonical origin, and the hostname that has to be sent there.
 var CANONICAL = '${CANONICAL}';
 var ALIAS = '${ALIAS}';
+
+function gone() {
+  return {
+    statusCode: 410,
+    statusDescription: 'Gone',
+    headers: {
+      'content-type': { value: 'text/html; charset=utf-8' },
+      'cache-control': { value: 'public, max-age=3600' }
+    },
+    body: '<!doctype html><title>Page removed</title><p>This page has been removed. <a href="/">Go to spenza.com</a></p>'
+  };
+}
 
 function redirect(to) {
   return {
@@ -244,6 +266,7 @@ async function handler(event) {
   // finds the same entry.
   var key = uri.replace(/^\\/+|\\/+$/g, '');
 
+  if (G[key]) return gone();
   if (R[key]) return redirect(origin + R[key] + qs);
 
   // Legacy /blog/<slug>/ aliases. Gated on the prefix so /mvno/mvno/ and every

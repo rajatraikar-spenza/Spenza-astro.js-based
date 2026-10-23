@@ -11,6 +11,7 @@ import googleFonts from '../../src/data/wp-google-fonts.json' with { type: 'json
 import { rewriteFontsInMarkup, googleFontsUrlIsReplaced } from './font-tokens.mjs';
 import mediaManifest from '../../src/data/wp-media-manifest.json' with { type: 'json' };
 import { WEBP_PATH } from './config.mjs';
+import { SITE_GONE } from '../../src/data/site-redirects.mjs';
 
 /**
  * Defer third-party embeds until they are scrolled to.
@@ -332,9 +333,27 @@ export function ungatePdfPopups(html) {
   return out;
 }
 
+/**
+ * Plain text in place of links to pages this site removed (`SITE_GONE`).
+ *
+ * Those paths answer 410, and four WordPress post bodies still link to
+ * /mobility-policy/. The text reads fine without the link, so the anchor is
+ * unwrapped rather than the sentence edited. Matches root-relative and absolute
+ * hrefs on any host, since post bodies carry both.
+ */
+const GONE = new Set(SITE_GONE.map(p => p.replace(/^\/+|\/+$/g, '')));
+export function unlinkGonePaths(html) {
+  return html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi, (tag, attrs, text) => {
+    const href = attrs.match(/\bhref=["']([^"']*)["']/i)?.[1];
+    if (!href) return tag;
+    const path = href.replace(/^https?:\/\/[^/]+/i, '').replace(/[?#].*$/, '');
+    return GONE.has(path.replace(/^\/+|\/+$/g, '')) && path.startsWith('/') ? text : tag;
+  });
+}
+
 /** All of the above, in the order the rest of the pipeline expects. */
 export function applyHtmlPerf(html) {
   return offerWebp(describeVagueLinks(labelBareControls(
-    selfHostFonts(siteFonts(lazyIframes(deferVideos(ungatePdfPopups(html)))))
+    selfHostFonts(siteFonts(lazyIframes(deferVideos(ungatePdfPopups(unlinkGonePaths(html))))))
   )));
 }
