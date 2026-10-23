@@ -196,16 +196,25 @@ export const SITE_REDIRECTS = {
   '/tem/telecom-billing-mistakes/': '/tem/telecom-compliance-audits/',
   '/tem/traditional-connectivity-plans/': '/tem/business-mobile-cost-quality/',
   '/tem/wireless-connectivity-management-enterprises/': '/tem/wireless-expense-management-challenges/',
-
-  /**
-   * ---- Retired after the Safe Browsing flag of 21 Oct 2026 ------------------
-   *
-   * A 2024 WordPress page that gated a .docx and a PDF behind a form asking
-   * for name, email, phone, address, country and headcount, two of its
-   * required fields labelled "Untitled", the files then served from another
-   * host. That is the shape Google's "deceptive pages: trick visitors into
-   * sharing personal info or downloading software" describes, and the page is
-   * off-ICP besides. Sent to the TEM outsourcing article it was written for.
-   */
-  '/mobility-policy/': '/tem/telecom-expense-management-tem-outsourcing/',
 };
+
+/**
+ * Paths this site has removed for good, answered with 410 Gone.
+ *
+ * Not redirected: a 301 tells Google the content moved, and for a page taken
+ * down over a Safe Browsing flag the honest answer is that it no longer exists.
+ * The CloudFront function answers these before any redirect, the build emits no
+ * page for them, and `unlinkGonePaths` in `scripts/lib/html-perf.mjs` turns post
+ * links to them into plain text so no article points at a dead URL.
+ *
+ * ---- Retired after the Safe Browsing flag of 21 Oct 2026 --------------------
+ *
+ * /mobility-policy/ was a 2024 WordPress page that gated a .docx and a PDF
+ * behind a form asking for name, email, phone, address, country and headcount,
+ * two of its required fields labelled "Untitled", the files then served from
+ * another host. That is the shape Google's "deceptive pages: trick visitors into
+ * sharing personal info or downloading software" describes.
+ */
+export const SITE_GONE = [
+  '/mobility-policy/',
+];
