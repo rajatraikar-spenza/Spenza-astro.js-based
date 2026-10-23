@@ -87,6 +87,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # sitemap lastmod reads the last commit touching each page's source
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
