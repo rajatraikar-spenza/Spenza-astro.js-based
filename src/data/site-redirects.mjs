@@ -196,6 +196,53 @@ export const SITE_REDIRECTS = {
   '/tem/telecom-billing-mistakes/': '/tem/telecom-compliance-audits/',
   '/tem/traditional-connectivity-plans/': '/tem/business-mobile-cost-quality/',
   '/tem/wireless-connectivity-management-enterprises/': '/tem/wireless-expense-management-challenges/',
+
+  /**
+   * ---- The three hub rewrites (Oct 2026) ------------------------------------
+   *
+   * Twelve posts fold into three rewritten hubs that keep their URLs:
+   * /esim/leading-iot-connectivity-management-platforms/, /telecom/oss-bss/ and
+   * /mvno/launch-mvno-us-guide/. Each donor below 301s straight to its hub.
+   *
+   * These are inert until the donor is unpublished in WordPress. While a donor
+   * is still a published post its route is a real page, and a real page wins
+   * over a redirect — so merging this ahead of the unpublish is safe, and the
+   * redirects take effect in the same build that drops the donors.
+   *
+   * Each donor also appears under its legacy /blog/<slug>/ alias. Those aliases
+   * are generated from wp-posts.json and point at the donor's own URL, which
+   * becomes a redirect source here, so left alone they would be a chain and fail
+   * the build. Listing them explicitly sends them to the hub in one hop.
+   *
+   * /telecom/iot-connectivity-management-platform/ and /mvno/us-mvno-introduction/
+   * already redirect to their hubs, above.
+   */
+  '/esim/iot-connectivity-platforms/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/esim/best-iot-connectivity-management-platform/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/telecom/what-is-connectivity-management-platform-cmp/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/telecom/iot-connectivity-management-platform-features-2025/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/esim/optimize-iot-deployment-connectivity-management-platform/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/blog/iot-connectivity-platforms/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/blog/best-iot-connectivity-management-platform/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/blog/what-is-connectivity-management-platform-cmp/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/blog/iot-connectivity-management-platform-features-2025/': '/esim/leading-iot-connectivity-management-platforms/',
+  '/blog/optimize-iot-deployment-connectivity-management-platform/': '/esim/leading-iot-connectivity-management-platforms/',
+  // Was captured pointing at /esim/iot-connectivity-platforms/, itself a donor now.
+  '/iot/iot-connectivity-platform/': '/esim/leading-iot-connectivity-management-platforms/',
+
+  '/telecom/oss-full-form/': '/telecom/oss-bss/',
+  '/blog/oss-full-form/': '/telecom/oss-bss/',
+
+  '/mvno/mvno-launch-checklist/': '/mvno/launch-mvno-us-guide/',
+  '/mvno/top-10-tips-launching-mvno-us-2025/': '/mvno/launch-mvno-us-guide/',
+  '/mvno/launch-us-mvno-now/': '/mvno/launch-mvno-us-guide/',
+  '/mvno/how-to-set-up-mvno/': '/mvno/launch-mvno-us-guide/',
+  '/blog/mvno-launch-checklist/': '/mvno/launch-mvno-us-guide/',
+  '/blog/top-10-tips-launching-mvno-us-2025/': '/mvno/launch-mvno-us-guide/',
+  '/blog/launch-us-mvno-now/': '/mvno/launch-mvno-us-guide/',
+  '/blog/how-to-set-up-mvno/': '/mvno/launch-mvno-us-guide/',
+  // Was captured pointing at /mvno/how-to-set-up-mvno/, itself a donor now.
+  '/blog/how-to-set-up-mvno-2025-guide/': '/mvno/launch-mvno-us-guide/',
 };
 
 /**

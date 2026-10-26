@@ -1357,34 +1357,34 @@
   },
   "launch-mvno-us-guide": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "A mobile virtual network operator (MVNO) sells mobile service under its own brand on another operator's radio network. In the US you do not need spectrum or a wireless license to start one.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gauge-simple-high\", \"label\" : \"Gauge Simple High\", \"unicode\" : \"f62a\"}",
-        "title": "Fast, Low-Cost Entry via MVNEs",
-        "text": "Modern MVNE platforms let you launch an MVNO in weeks, not years, with costs starting as low as $10K. No need to build telecom infrastructure from scratch."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "No spectrum, no wireless license",
+        "text": "You need network access, FCC registration and recurring filings, plus systems to sell, bill and support lines."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"circle-check\", \"label\" : \"Circle Check\", \"unicode\" : \"f058\"}",
-        "title": "Choose the Right MVNO Model",
-        "text": "From Branded Reseller to Full MVNO, your model determines cost, control, and timeline. Most startups begin with a Light MVNO and scale as they grow."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Pick the model by what you want to own",
+        "text": "Branded reseller: brand and sales. Light MVNO: pricing, billing and the customer. Full MVNO: the core network and SIM ranges too."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "eSIM and 5G Are Essential",
-        "text": "eSIM-first activation and 5G standalone networks enable faster onboarding and better user experience. They also support advanced services like network slicing."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"phone-volume\"}",
+        "title": "Voice changes the paperwork",
+        "text": "Plans with calling bring Robocall Mitigation Database filings, 911 duties and customer-data certifications. Data-only plans carry far fewer."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield-halved\", \"label\" : \"Shield Halved\", \"unicode\" : \"f3ed\"}",
-        "title": "Compliance Is Mandatory but Manageable",
-        "text": "You need FCC registration, USF contributions, and compliance with laws like CALEA and Kari’s Law. Many MVNE partners handle these requirements for you."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"receipt\"}",
+        "title": "Price after tax",
+        "text": "Taxes and fees add about 28.8 percent to a typical US wireless bill, according to the Tax Foundation's 2026 study."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"bullseye\", \"label\" : \"Bullseye\", \"unicode\" : \"f140\"}",
-        "title": "Winning Strategy Focus and Distribution",
-        "text": "Successful MVNOs target a niche such as IoT, fintech, or retail and bundle connectivity into an existing product to boost retention and lifetime value."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clock\"}",
+        "title": "Weeks, not years, on an MVNE",
+        "text": "A light MVNO on an MVNE can go live in weeks to a few months; a full MVNO with its own core takes 12 to 18 months."
       }
     ]
   },
@@ -2773,36 +2773,30 @@
   },
   "leading-iot-connectivity-management-platforms": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An IoT connectivity management platform (CMP) is software that activates, monitors, controls and bills cellular and eSIM connections across many devices and carriers. It manages SIM lifecycle states, data usage, rate plans, alerts and APIs, so an enterprise can run thousands of devices from one console instead of separate carrier portals.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "IoT CMPs Have Evolved",
-        "text": "IoT connectivity management platforms no longer just track SIM inventory. They are software-defined orchestration layers powered by AI, eSIM standards, and real-time automation that manage millions of endpoints autonomously."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "A CMP manages the connection",
+        "text": "Device management handles firmware; an IoT application platform handles your data."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"3\", \"label\" : \"3\", \"unicode\" : \"33\"}",
-        "title": "The Technical Trinity Defines Leadership",
-        "text": "The three pillars separating leaders from laggards are SGP.32 eSIM lifecycle management, satellite and cellular convergence, and AI-driven hyper-automation. Platforms missing any of these are not future-ready."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"list-check\"}",
+        "title": "Test bulk changes first",
+        "text": "At scale, test one thing first: can it apply a plan, policy or eSIM profile change across 10,000 devices, report the result per device, and show you which ones need recovery?"
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gauge-high\", \"label\" : \"Gauge High\", \"unicode\" : \"f625\"}",
-        "title": "Agility Beats Scale Every Time",
-        "text": "Raw SIM volume is table stakes. The real differentiator in 2026 is the ability to switch carriers dynamically, optimize costs predictively, and unify billing across dozens of operators and regions."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Platform type sets reach",
+        "text": "Carrier-hosted, aggregator, own-core and operator-neutral platforms all sell as CMPs. The type decides your reach and how hard it is to leave."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"scale-balanced\", \"label\" : \"Scale Balanced\", \"unicode\" : \"f24e\"}",
-        "title": "Operator-Neutral Platforms Are Winning",
-        "text": "Enterprises scaling globally are choosing carrier-agnostic CMPs that offer multi-carrier flexibility, regulatory adaptability, and programmable infrastructure over MNO-locked alternatives."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tags\"}",
+        "title": "Published prices vary widely",
+        "text": "Published prices run from a one-time $14 per SIM for 10 years (1NCE, US) to $1 per SIM per month plus data (Hologram)."
       }
     ],
-    "oneCol": [
-      {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": " Spenza Leads the Operator-Neutral Category",
-        "text": "Spenza combines full SGP.32 support, 60+ carrier integrations across 180+ countries, unified global billing, and a real-time carrier recommendation engine into a single platform built for the Second Wave of IoT."
-      }
-    ]
+    "oneCol": []
   },
   "iot-data-plans-cost-optimization": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
@@ -2872,34 +2866,34 @@
   },
   "oss-bss": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "OSS (Operations Support Systems) is the software a telecom operator uses to provision, monitor and maintain its network. BSS (Business Support Systems) is the software that manages customers, products, orders, charging and billing. BSS takes the order and bills for it; OSS makes the network deliver it.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"network-wired\", \"label\" : \"Network Wired\", \"unicode\" : \"f6ff\"}",
-        "title": "OSS Runs the Network",
-        "text": "An OSS system is the software backbone that monitors, manages, and maintains telecom network infrastructure, handling everything from fault detection to network performance management in real time."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"network-wired\"}",
+        "title": "OSS runs the network, BSS runs the business",
+        "text": "Operations Support Systems handle provisioning, inventory, and fault and performance management. Business Support Systems handle the product catalogue, orders, charging, billing and customer care."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"users-gear\", \"label\" : \"Users Gear\", \"unicode\" : \"f509\"}",
-        "title": "BSS Runs the Business",
-        "text": "BSS manages the customer-facing side, including billing, CRM, order management, and revenue. It is the bridge between a telecom company and its customers, powering every commercial interaction."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Billing belongs to BSS",
+        "text": "The network measures usage (the \"accounting\" in FCAPS). The BSS prices that usage and turns it into an invoice."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"link\", \"label\" : \"Link\", \"unicode\" : \"f0c1\"}",
-        "title": "They Work as One Connected Loop",
-        "text": "When a customer orders a service, BSS processes the business side and hands it off to OSS for technical activation. Neither system delivers full value without the other."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"right-left\"}",
+        "title": "Every order crosses the line twice",
+        "text": "BSS sends the order to OSS for activation, and usage flows back from the network to BSS for charging."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
-        "title": "Legacy Systems Are a Growth Bottleneck",
-        "text": " Old, monolithic OSS/BSS platforms are siloed, rigid, and expensive. They can't keep pace with 5G, IoT, and the speed modern businesses demand, driving a $222B modernization wave."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"building\"}",
+        "title": "Most MVNOs build neither",
+        "text": "The host operator runs the network, an MVNE (mobile virtual network enabler) usually runs the platforms, and the MVNO owns the brand, pricing and customers."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Unifies It All in One Platform",
-        "text": " Spenza delivers end-to-end OSS and BSS as a single cloud-based platform, letting businesses launch MVNO services in days, automate operations, and cut wireless costs by up to 30%."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Check interfaces first",
+        "text": "Ask vendors about certified TM Forum Open APIs, real-time charging and eSIM standards before comparing features."
       }
     ]
   },
