@@ -33,9 +33,9 @@ export const HUBS: Record<HubKey, Hub> = {
   uxhub: {
     video: {
       eyebrow: 'UX HUB',
-      title: 'Branded Experiences That <em class="s">Drive Revenue</em>',
+      title: 'A Branded Portal That <em class="s">Drives Revenue</em>',
       lede:
-        'See how Spenza brings your branded subscriber portal, self-service plan management, in-portal upsells, and support together so you can increase ARPU, reduce churn, and lower support costs.',
+        'Discover how UXHub simplifies subscriber management, drives upsells, and reduces support costs through one branded portal.',
       name: ['UX', 'Hub'],
       tagline: 'Your brand. Self-service. More revenue.',
       diagram: {
@@ -66,7 +66,7 @@ export const HUBS: Record<HubKey, Hub> = {
       ],
     },
     cta: {
-      title: 'Ready to <em class="s">Launch a Customer Portal</em> That Actually Drives Revenue?',
+      title: 'Ready to <em class="s">Launch a User Portal</em> That Drives Revenue?',
       lede: 'See UXHub in 15 minutes with a personalized walkthrough of your use case, pricing, and deployment timeline.',
     },
   },

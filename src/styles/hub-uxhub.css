@@ -1251,3 +1251,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Angel Watch's logo in place of its name, monotone like the home page's
+   customer cards. */
+.ux .proof .proof-logo {
+  display: block;
+  height: 36px;
+  width: auto;
+  margin-top: 8px;
+  filter: grayscale(1);
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+}
+
+/* Three lines on desktop: "Launch a / Connectivity Experience / Customers
+   Love". At the shared 76px cap the middle line is ~10px wider than the
+   column from 1440px up and wraps to a fourth; 72px fits it. */
+#uxhub .hero h1 {
+  font-size: clamp(42px, 5.2vw, 72px);
+}
+/* The accent stays on one line, which is what puts "Launch a" on its own. */
+@media (min-width: 961px) {
+  #uxhub .hero h1 em.s {
+    white-space: nowrap;
+  }
+}
