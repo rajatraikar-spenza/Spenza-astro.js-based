@@ -23,158 +23,147 @@
 				<div class="elementor-widget-container">
 					
 
-<section class="mvno-calculator">
-  <div class="mvno-container">
-    <form id="mvnoCalculator" novalidate="">
-      <div class="calculator-grid">
-
-        <!-- ========================= Cost Structure ========================== -->
-        <fieldset>
-          <legend class="section-title">Cost Structure</legend>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="upfront">Upfront Costs ($)</label>
-              <input id="upfront" type="number" min="0" value="50000">
-            </div>
-            <span class="field-error"></span>
+<section class="mc" aria-label="MVNO financial calculator">
+  <div class="mc-wrap">
+    <form id="mvnoCalculator" class="mc-form" novalidate="">
+      <div class="mc-grid">
+      <!-- ========================= Assumptions ========================== -->
+      <div class="mc-panel">
+        <div class="mc-panel-head">
+          <h2 class="mc-h">Your assumptions</h2>
+          <button type="button" class="mc-link" id="mcReset">Reset to example</button>
+        </div>
+        <fieldset class="mc-group">
+          <legend>Launch costs</legend>
+          <div class="form-group mc-field">
+            <label for="upfront">Upfront costs</label>
+            <div class="mc-input"><span class="mc-affix">$</span><input id="upfront" type="number" inputmode="decimal" min="0" value="50000" aria-describedby="upfront-help"></div>
+            <p class="mc-help" id="upfront-help">One-time spend to launch: platform, integration, legal, launch marketing.</p>
+            <span class="field-error" role="alert"></span>
           </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="opex">Monthly Operating Expenses ($)</label>
-              <input id="opex" type="number" min="0" value="7000">
-            </div>
-            <span class="field-error"></span>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="acpu">ACPU – Avg Cost Per User ($)</label>
-              <input id="acpu" type="number" min="0" value="30">
-            </div>
-            <span class="field-error"></span>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="months">Projection Duration (Months)</label>
-              <input id="months" type="number" min="1" max="200" value="12">
-            </div>
-            <span class="field-error"></span>
+          <div class="form-group mc-field">
+            <label for="opex">Monthly operating expenses</label>
+            <div class="mc-input"><span class="mc-affix">$</span><input id="opex" type="number" inputmode="decimal" min="0" value="7000" aria-describedby="opex-help"><span class="mc-affix">/mo</span></div>
+            <p class="mc-help" id="opex-help">Fixed running costs each month, before any per-subscriber cost.</p>
+            <span class="field-error" role="alert"></span>
           </div>
         </fieldset>
-
-        <!-- ========================= Revenue & Subscriber Metrics ========================== -->
-        <fieldset>
-          <legend class="section-title">Revenue &amp; Subscriber Metrics</legend>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="initial">Initial Subscriber Count</label>
-              <input id="initial" type="number" min="0" value="1000">
-            </div>
-            <span class="field-error"></span>
+        <fieldset class="mc-group">
+          <legend>Subscribers</legend>
+          <div class="form-group mc-field">
+            <label for="initial">Subscribers at launch</label>
+            <div class="mc-input"><input id="initial" type="number" inputmode="decimal" min="0" value="1000" aria-describedby="initial-help"></div>
+            <p class="mc-help" id="initial-help">How many lines you start with in month 1.</p>
+            <span class="field-error" role="alert"></span>
           </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="growth">Monthly Growth Rate (%)</label>
-              <input id="growth" type="number" min="0" step="0.1" value="10">
-            </div>
-            <span class="field-error"></span>
+          <div class="form-group mc-field">
+            <label for="growth">Monthly growth</label>
+            <div class="mc-input"><input id="growth" type="number" inputmode="decimal" min="0" step="0.1" value="10" aria-describedby="growth-help"><span class="mc-affix">%</span></div>
+            <p class="mc-help" id="growth-help">New subscribers each month, as a share of the current base.</p>
+            <span class="field-error" role="alert"></span>
           </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="arpu">ARPU – Avg Revenue Per User ($)</label>
-              <input id="arpu" type="number" min="0" value="40">
-            </div>
-            <span class="field-error"></span>
-          </div>
-
-          <div class="form-group">
-            <div class="form-row">
-              <label for="churn">Monthly Churn Rate (%)</label>
-              <input id="churn" type="number" min="0" step="0.1" value="2">
-            </div>
-            <span class="field-error"></span>
+          <div class="form-group mc-field">
+            <label for="churn">Monthly churn</label>
+            <div class="mc-input"><input id="churn" type="number" inputmode="decimal" min="0" step="0.1" value="2" aria-describedby="churn-help"><span class="mc-affix">%</span></div>
+            <p class="mc-help" id="churn-help">Subscribers who cancel each month.</p>
+            <span class="field-error" role="alert"></span>
           </div>
         </fieldset>
-      </div>
-
-      <!-- ========================= Calculate Button ========================== -->
-      <div class="calculate-wrapper">
-        <button type="button" id="recalc" class="mvno-btn">Calculate Now</button>
-      </div>
-
-      <!-- ========================= Summary Cards ========================== -->
-      <section class="summary-grid">
-        <div class="summary-card">
-          <span class="summary-title">Final Subscriber Count</span>
-          <h3 id="m-finalSubs">0</h3>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-title">Final Revenue</span>
-          <h3 id="m-finalRev" class="orange-text">$0</h3>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-title">Break-even Month</span>
-          <h3 id="m-breakeven">—</h3>
-        </div>
-
-        <div class="summary-card">
-          <span class="summary-title">Cumulative Profit</span>
-          <h3 id="m-cumProfit" class="green-text">$0</h3>
-        </div>
-      </section>
-
-      <!-- ========================= Projections & Analysis ========================== -->
-      <section class="analysis-section">
-        <div class="analysis-header">
-          <div class="analysis-content">
-            <h2 class="analysis-title">Projections &amp; Analysis</h2>
-            <p class="analysis-description">
-              Financial projections for the next
-              <strong id="projectionLabel">0</strong>
-              months.
-            </p>
+        <fieldset class="mc-group">
+          <legend>Per-subscriber economics</legend>
+          <div class="mc-pair">
+          <div class="form-group mc-field">
+            <label for="arpu">ARPU</label>
+            <div class="mc-input"><span class="mc-affix">$</span><input id="arpu" type="number" inputmode="decimal" min="0" value="40" aria-describedby="arpu-help"></div>
+            <p class="mc-help" id="arpu-help">Average revenue per user, per month.</p>
+            <span class="field-error" role="alert"></span>
           </div>
-
-          <button type="button" id="downloadReport" class="mvno-btn" disabled="">
-            Download Report
-          </button>
+          <div class="form-group mc-field">
+            <label for="acpu">ACPU</label>
+            <div class="mc-input"><span class="mc-affix">$</span><input id="acpu" type="number" inputmode="decimal" min="0" value="30" aria-describedby="acpu-help"></div>
+            <p class="mc-help" id="acpu-help">Average cost per user, per month: network, SIM, support.</p>
+            <span class="field-error" role="alert"></span>
+          </div>
+          </div>
+          <p class="mc-margin" id="mcMargin" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="mc-group">
+          <legend>Timeframe</legend>
+          <div class="form-group mc-field">
+            <label for="months">Projection length</label>
+            <div class="mc-input"><input id="months" type="number" inputmode="decimal" min="1" max="200" value="12" aria-describedby="months-help"><span class="mc-affix">months</span></div>
+            <p class="mc-help" id="months-help">Between 1 and 200 months.</p>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="mc-chips" role="group" aria-label="Quick projection lengths">
+            <button type="button" class="mc-chip" data-months="12">1 year</button>
+            <button type="button" class="mc-chip" data-months="24">2 years</button>
+            <button type="button" class="mc-chip" data-months="36">3 years</button>
+          </div>
+        </fieldset>
+        <button type="button" id="recalc" class="mc-btn">Calculate projections</button>
+      </div>
+      <!-- ========================= Results ========================== -->
+      <div class="mc-results">
+        <p class="mc-stale" id="mcStale" hidden>Your assumptions have changed. Press <b>Calculate projections</b> to update these results.</p>
+        <div class="mc-verdict" aria-live="polite">
+          <span class="mc-eyebrow">Your result</span>
+          <p class="mc-verdict-text" id="mcVerdict">Calculating…</p>
         </div>
-
-        <!-- ========================= Projection Table ========================== -->
-        <div class="table-wrapper">
-          <table id="projTable">
-            <thead>
-              <tr>
-                <th>Month</th>
-                <th>Subscribers</th>
-                <th>Revenue</th>
-                <th>Costs</th>
-                <th>Monthly Profit</th>
-                <th>Cumulative Profit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="6">
-                  Enter all values above and click
-                  <strong>Calculate Now</strong>
-                  to generate your financial projections.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="mc-kpis">
+          <div class="mc-kpi">
+            <span class="mc-kpi-label">Break-even</span>
+            <b id="m-breakeven">—</b>
+          </div>
+          <div class="mc-kpi">
+            <span class="mc-kpi-label">Cumulative profit</span>
+            <b id="m-cumProfit">$0</b>
+          </div>
+          <div class="mc-kpi">
+            <span class="mc-kpi-label">Subscribers at the end</span>
+            <b id="m-finalSubs">0</b>
+          </div>
+          <div class="mc-kpi">
+            <span class="mc-kpi-label">Revenue in the final month</span>
+            <b id="m-finalRev">$0</b>
+          </div>
         </div>
-      </section>
+        <div class="mc-card">
+          <div class="mc-card-head">
+            <h3 class="mc-h3">Cumulative profit</h3>
+            <span class="mc-legend"><i class="mc-dot mc-dot--loss"></i>Below break-even<i class="mc-dot mc-dot--gain"></i>Profitable</span>
+          </div>
+          <div class="mc-chart" id="mcChart" role="img" aria-label="Chart of cumulative profit by month"></div>
+        </div>
+      </div>
+      </div>
+        <div class="mc-card mc-card--table">
+          <div class="mc-card-head">
+            <div>
+              <h3 class="mc-h3">Month by month</h3>
+              <p class="mc-sub">Projections for the next <strong id="projectionLabel">0</strong> months.</p>
+            </div>
+            <button type="button" id="downloadReport" class="mc-btn mc-btn--ink" disabled="">Download report</button>
+          </div>
+          <div class="mc-table">
+            <table id="projTable">
+              <thead>
+                <tr>
+                  <th scope="col">Month</th>
+                  <th scope="col">Subscribers</th>
+                  <th scope="col">Revenue</th>
+                  <th scope="col">Costs</th>
+                  <th scope="col">Monthly profit</th>
+                  <th scope="col">Cumulative profit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="6">Enter your assumptions and press <strong>Calculate projections</strong>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
     </form>
-
     <!-- ========================= Report Modal ========================== -->
    <div class="report-modal-content">
 

@@ -171,8 +171,16 @@
 @keyframes sh-heat{from{opacity:.35} to{opacity:1}}
 @keyframes sh-zone{0%{transform:scale(.7); opacity:1} 100%{transform:scale(1.15); opacity:.35}}
 .sh .sh-sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+/* Stacked — the map under the copy — from here down, so the copy is centred
+   over it at every width, not left behind on the left. */
 @media (max-width:1099px){
-.sh .sh-hero-grid{grid-template-columns:minmax(0,1fr); gap:48px}
+.sh .sh-hero-grid{grid-template-columns:minmax(0,1fr); gap:48px; text-align:center}
+.sh .sh-hero-grid>div:first-child{max-width:720px; margin-inline:auto}
+.sh .sh-eyebrow{justify-content:center}
+.sh .sh-eyebrow::before{display:none}
+.sh .sh-lede{margin-inline:auto}
+.sh .sh-ctas{justify-content:center}
+.sh .sh-stats{display:flex; flex-wrap:wrap; justify-content:center; gap:2px 24px}
 .sh .sh-stage-box{margin-inline:auto}
 }
 @media (max-width:560px){
@@ -215,7 +223,8 @@
 /* Phones and small tablets, as spenza.com: the copy is centred — eyebrow,
    headline, lede, buttons — and the customer map comes in under the buttons,
    at its real size rather than scaled down: no phone mock-up, the tabs
-   wrapping under their label, the map as wide as the screen. The copy column
+   wrapping under their label, the map as wide as the screen, and the
+   customer's device standing on it as on desktop (sized by home-hero.js). The copy column
    gives up its box so the stage can sit between the buttons and the numbers. */
 @media (max-width:767px){
 .sh .sh-hero-grid{padding-block:40px 56px; gap:0; text-align:center}
@@ -228,9 +237,8 @@
 .sh .sh-stats{order:2; display:flex; flex-wrap:wrap; justify-content:center; gap:2px 18px; margin-top:32px}
 .sh .sh-stage-box{order:1; max-width:none; height:auto!important; margin-top:40px}
 .sh .sh-stage{position:relative; width:auto; height:auto; transform:none!important}
-.sh .sh-devices{display:none}
 .sh .sh-content{position:static; width:auto; gap:16px; text-align:left}
-.sh .sh-content>*{order:0!important}
+.sh .sh-content>.sh-tabs{order:0}
 .sh .sh-tabs{flex-wrap:wrap; justify-content:center; height:auto; gap:8px}
 .sh .sh-tabs-label{flex-basis:100%; margin:0 0 2px; text-align:center}
 .sh .sh-tab{font-size:13px; padding:8px 14px}
@@ -242,6 +250,8 @@
 .sh .sh-map{width:100%; height:auto; aspect-ratio:580/216}
 .sh .sh-map svg{width:100%; height:100%}
 .sh .sh-pinlabel{font-size:10.5px; padding:2px 7px}
+/* Set by home-hero.js when a label has no room beside the device. */
+.sh .sh-pinlabel.is-tight{font-size:9px; padding:1px 5px; letter-spacing:-.01em}
 /* On a narrow map the Americas' label would run into Europe's: it hangs
    under its pin instead. */
 .sh .sh-pinlabel.is-west{transform:translate(-50%, 9px)}
