@@ -5,34 +5,33 @@
  * screen the panel holds still while the page scrolls past it, and the scroll
  * walks the steps — the cards before the current one pack back, it slides out
  * with room either side, lights up, and trails outline frames back into the
- * stack. While a card is lit its artwork comes alive — the UXHub terminal's
- * light blinks and it types, the ControlHub and TelecomHub grids are scanned, and the AgentHub
- * waveform talks: a caller, then the agent answering. Narrower screens step
- * through on a timer; phones get the steps alone.
+ * stack. While a card is lit its artwork comes alive, each a picture of what
+ * that hub does (HubArt.astro): UXHub's branded app takes an upgrade with no
+ * support ticket, ControlHub's revenue climbs past cost and an invoice is
+ * paid, TelecomHub's API fails a live route over to another operator — and
+ * the AgentHub waveform talks: a caller, then the agent answering. Narrower
+ * screens step through on a timer; phones get the steps alone.
  *
  * Behaviour in src/scripts/home.js; layout in styles/home-sections.css.
  * It sits below the fold, so the cards load lazily.
  */
+import HubArt from './HubArt.astro';
 import agent from '../../assets/home/agent-live.svg?url';
-import control from '../../assets/home/control.svg?url';
-import telecom from '../../assets/home/telecom.svg?url';
-import ux from '../../assets/home/ux-live.svg?url';
-import uxDot from '../../assets/home/ux-dot.svg?url';
 
 /** Front to back: the order of the steps, and of the cards in the stack. */
 const hubs = [
   {
-    id: 'ux', src: ux, n: '01', tag: 'BRAND', name: 'UXHub',
+    id: 'ux', n: '01', tag: 'BRAND', name: 'UXHub',
     title: 'Your brand. Your customer experience.',
     text: 'Let customers buy, activate, and manage plans under your brand.',
   },
   {
-    id: 'control', src: control, n: '02', tag: 'CONTROL', name: 'ControlHub',
+    id: 'control', n: '02', tag: 'CONTROL', name: 'ControlHub',
     title: 'See every dollar. Control every cost.',
     text: 'Track usage, manage subscriptions, and control costs in one place.',
   },
   {
-    id: 'telecom', src: telecom, n: '03', tag: 'NETWORK', name: 'TelecomHub',
+    id: 'telecom', n: '03', tag: 'NETWORK', name: 'TelecomHub',
     title: 'One API. Global connectivity.',
     text: 'Access operators, provision SIMs and eSIMs, and manage plans via one API.',
   },
@@ -83,19 +82,13 @@ const hubs = [
               <span class="hm-iso-face hm-iso-face--top"></span>
               <span class="hm-iso-face hm-iso-face--side"></span>
               {[0, 1, 2, 3, 4].map(k => <span class="hm-iso-trail" style={`--k:${k}`}></span>)}
-              <img src={hub.src} alt="" width="113" height="195" loading="lazy" decoding="async" />
-              {hub.id === 'ux' && <img class="hm-iso-dot" src={uxDot} alt="" width="113" height="195" loading="lazy" decoding="async" />}
-              <span class={`hm-live hm-live--${hub.id}`}>
-                {hub.id === 'ux' && <>
-                  <i class="lv-caret"></i>
-                  <i class="lv-load"><b></b></i>
-                </>}
-                {(hub.id === 'control' || hub.id === 'telecom') && <i class="lv-cell"></i>}
-                {hub.id === 'control' && <i class="lv-badge"></i>}
-                {hub.id === 'telecom' && [0, 1].map(k => <i class="lv-ring" style={`--k:${k}`}></i>)}
-                {hub.id === 'agent' && <span class="lv-wave">{[0, 1, 2, 3, 4, 5, 6].map(k => <i style={`--k:${k}`}></i>)}</span>}
-                {hub.id === 'agent' && <span class="lv-say">How may I help you?</span>}
-              </span>
+              {hub.id === 'agent' ? <>
+                <img src={agent} alt="" width="113" height="195" loading="lazy" decoding="async" />
+                <span class="hm-live hm-live--agent">
+                  <span class="lv-wave">{[0, 1, 2, 3, 4, 5, 6].map(k => <i style={`--k:${k}`}></i>)}</span>
+                  <span class="lv-say">How may I help you?</span>
+                </span>
+              </> : <HubArt hub={hub.id as 'ux' | 'control' | 'telecom'} />}
               <span class="hm-iso-tag" data-text={`${hub.n} ${hub.tag}`}>{hub.n} {hub.tag}</span>
             </div>
           ))}
