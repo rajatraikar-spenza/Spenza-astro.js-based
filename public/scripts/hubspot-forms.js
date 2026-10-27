@@ -735,6 +735,29 @@
   const notified = new WeakSet();
 
   /**
+   * The ChatGPT Ads conversion id for a lead, one per submission.
+   *
+   * The same id goes to the pixel (`event_id`) and, through the lead endpoint,
+   * to `spenza-oai-conversions.php`, which sends the server-side copy to
+   * OpenAI's Conversions API. OpenAI keeps whichever arrives first and drops
+   * the other, so a lead seen by both is counted once — and a lead whose pixel
+   * call never ran (ad blocker, tab closed) is still counted by the server.
+   *
+   * Only leads get one. No id, no server-side event: a newsletter signup or a
+   * PDF is not what the ads are bought for, the same split the GA names make.
+   */
+  const conversionIds = new WeakMap();
+
+  const newEventId = () => {
+    if (crypto.randomUUID) return crypto.randomUUID();
+    const b = crypto.getRandomValues(new Uint8Array(16));
+    b[6] = (b[6] & 0x0f) | 0x40;
+    b[8] = (b[8] & 0x3f) | 0x80;
+    const h = [...b].map(x => x.toString(16).padStart(2, '0')).join('');
+    return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+  };
+
+  /**
    * The body every replay sends: the form exactly as the page renders it.
    *
    * Shared by both paths below, because what makes the replay faithful is that
@@ -772,6 +795,19 @@
     // visitor's; `spenza-form-source-url.php` reads this back instead.
     body.set('spenza_source_url', location.href);
     body.set('spenza_page_title', document.title);
+
+    // What the Conversions API needs to attribute the lead to a ChatGPT ad:
+    // the event id shared with the pixel, the ad-click id the pixel stored
+    // from `?oppref=`, and its browser id. Read back by
+    // `spenza-oai-conversions.php`; Gravity Forms ignores them.
+    const eventId = forEndpoint && conversionIds.get(form);
+    if (eventId) {
+      body.set('spenza_oai_event_id', eventId);
+      const oppref = cookie('__oppref');
+      const obref = cookie('__obref');
+      if (oppref) body.set('spenza_oai_oppref', decodeURIComponent(oppref));
+      if (obref) body.set('spenza_oai_obref', decodeURIComponent(obref));
+    }
 
     // Akismet stamps this with the time its script ran and judges the
     // submission partly on how long the form was open. The mirror froze one
@@ -1010,6 +1046,8 @@
 
     form.dataset.hsSending = '1';
 
+    if (kindOf(form, id)[0] === 'lead') conversionIds.set(form, newEventId());
+
     // Before `busy()`, which disables the submit button — and a disabled
     // control is one `FormData` leaves out. Before the `await` too: the
     // notification emails are the point of this, and they should not wait on
@@ -1047,6 +1085,20 @@
      */
     const ev = formEvent(form, id);
     track(SUBMIT_EVENT[ev.form_kind] || 'lead_form_submit', ev);
+
+    // The ChatGPT Ads conversion, browser side; the server sends the same
+    // event id (see `conversionIds`). `oaiq` comes from `Analytics.astro` and
+    // is absent when `OAI_PIXEL_ID` is.
+    const eventId = conversionIds.get(form);
+    if (eventId) {
+      try {
+        if (typeof window.oaiq === 'function') {
+          window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
+        }
+      } catch (err) {
+        console.warn('[hubspot-forms] oaiq failed:', err);
+      }
+    }
   }
 
   /* ---------------------------------------------------------------- wire */

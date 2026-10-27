@@ -1,9 +1,9 @@
 ---
 /**
- * The site's analytics: GA4 and Microsoft Clarity, both loading on page open
- * for every visitor.
+ * The site's analytics: GA4, Microsoft Clarity and the OpenAI (ChatGPT Ads)
+ * Measurement Pixel, all loading on page open for every visitor.
  *
- * Neither is behind a consent decision. That is a deliberate instruction from
+ * None is behind a consent decision. That is a deliberate instruction from
  * the site owner, taken with the trade-off stated: `gtag.js` writes `_ga` and
  * Clarity writes `_clck`/`_clsk`/`CLID`, all on the first request, so the site
  * measures first and informs second — the arrangement ePrivacy/GDPR consent
@@ -28,7 +28,7 @@
  * mirrored marketing pages and archives (`WpLayout`), every post
  * (`ArticleLayout`), and the rebuild preview (`BaseLayout`).
  */
-import { CLARITY_PROJECT_ID, GA_MEASUREMENT_ID } from '../../scripts/lib/config.mjs';
+import { CLARITY_PROJECT_ID, GA_MEASUREMENT_ID, OAI_PIXEL_ID } from '../../scripts/lib/config.mjs';
 
 /*
  * The standard GA4 bootstrap, unchanged apart from the id. `dataLayer` and
@@ -55,10 +55,22 @@ const clarity = `(function (w, d) {
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(w, d, "clarity", "script", ID);
 })(window, document);`;
+
+/*
+ * OpenAI's Measurement Pixel loader and init, unchanged apart from the id and
+ * `debug: true`, which was dropped once Ads Manager showed events — it logs
+ * every SDK step to each visitor's console. Add it back to debug locally.
+ * (https://developers.openai.com/ads/measurement-pixel). It records nothing on
+ * its own — the pixel only sends what is `measure`d — so a page view is sent
+ * here, and `lead_created` from `hubspot-forms.js` on a confirmed submission.
+ */
+const oaiPixel = `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+oaiq("init",{pixelId:${JSON.stringify(OAI_PIXEL_ID)}});
+oaiq("measure","page_viewed",{type:"contents"});`;
 ---
 
 {/*
-  GA4 and Clarity, both unconditional — see the note at the top of this file.
+  GA4, Clarity and the OpenAI pixel, all unconditional — see the note at the top of this file.
   As high in the head as the layouts can put them: the tags time a session from
   the moment they run, so anything in front of them is time the visit is not
   being measured.
@@ -71,3 +83,5 @@ const clarity = `(function (w, d) {
 )}
 
 <script is:inline type="text/javascript" set:html={clarity} />
+
+{OAI_PIXEL_ID && <script is:inline type="text/javascript" set:html={oaiPixel} />}

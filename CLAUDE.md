@@ -318,6 +318,23 @@ on request. Nothing about what is measured changed with it.
 - Both inline blocks must stay `is:inline`. The tags time a session from the
   moment they run, and Astro's default is to hoist a component `<script>` into
   a bundle, which would defer them behind it.
+- **The OpenAI (ChatGPT Ads) Measurement Pixel** loads the same way, ungated,
+  from the same component (`OAI_PIXEL_ID`, pixel `U7MFXrymQuC42hGkZ8iLv7`).
+  It sends only what is `measure`d: `page_viewed` on every page, and
+  `lead_created` from `hubspot-forms.js` when HubSpot confirms a *lead*
+  submission — not a newsletter signup or PDF, the same split GA4's names make.
+  It sets `__oppref` (the ad click id from `?oppref=`) and `__obref`.
+  `debug: true` was removed after verification; add it back only to debug
+  locally — it logs every SDK step to each visitor's console. Docs:
+  https://developers.openai.com/ads/measurement-pixel
+- **Each lead is also sent server-side** through OpenAI's Conversions API, by
+  `wordpress/mu-plugins/spenza-oai-conversions.php` on the lead endpoint's
+  `gform_after_submission`. The key lives only in `wp-config.php`
+  (`SPENZA_OAI_CAPI_KEY`); without it the plugin does nothing. `hubspot-forms.js`
+  makes one event id per lead, gives it to the pixel as `event_id` and posts it
+  to the endpoint as `spenza_oai_event_id` with the `__oppref`/`__obref`
+  cookies, so OpenAI counts the two copies once. Failures land in the PHP error
+  log as `[spenza-oai]`. Docs: https://developers.openai.com/ads/conversions-api
 - WordPress preprod carries its own Google stack (three GTM containers,
   `G-001C6D3F2C` and `G-MC7V4KNGD`), and the mirror strips all of it — see the
   `/dataLayer|gtag\(/` rule in `scripts/lib/inline-scripts.mjs`. The tags this
@@ -338,6 +355,7 @@ two files it writes into `dist/`.
 | `HOST_REDIRECTS=1` | Stop emitting the 86 HTML redirect stand-ins. |
 | `CLARITY_PROJECT_ID` | Microsoft Clarity tag. Empty ships no analytics. |
 | `GA_MEASUREMENT_ID` | GA4 tag, ungated. Empty on previews, or they count as real traffic. |
+| `OAI_PIXEL_ID` | OpenAI (ChatGPT Ads) Measurement Pixel, ungated. Empty ships no pixel. |
 
 - `NOINDEX` is opt-*out* on purpose. A staging site that slips into the index is
   fixable; a production site that ships `Disallow: /` deletes itself from Google
