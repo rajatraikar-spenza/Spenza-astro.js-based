@@ -278,3 +278,23 @@
   #who-uses-spenza *::before,
   #who-uses-spenza *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- Fitting the window ----------
+   On a desktop the whole section, heading to panel, fits in the window under
+   the header. scripts/home.js measures it (with its tallest panel showing)
+   and sets --k, from 0 when it already fits to 1 at the tightest; each
+   vertical measure closes up by its share of that, so a tall screen keeps
+   the sizes above and a laptop gets them closed up together. */
+@media (min-width: 1024px) {
+  #who-uses-spenza { --k: 0; content-visibility: visible; contain-intrinsic-size: none; }
+  #who-uses-spenza .sz-uc__title { margin-top: calc(24px - 12px * var(--k)); font-size: calc(clamp(40px, 4.2vw, 60px) * (1 - .28 * var(--k))); }
+  #who-uses-spenza .sz-uc__body { margin-top: calc(64px - 40px * var(--k)); }
+  #who-uses-spenza .sz-uc__tab { padding-block: calc(18px - 10px * var(--k)); }
+  #who-uses-spenza .sz-uc__panel { min-height: calc(640px - 240px * var(--k)); padding-block: calc(32px - 14px * var(--k)); }
+  #who-uses-spenza .sz-uc__visual { min-height: calc(380px - 170px * var(--k)); margin: calc(20px - 8px * var(--k)) 0 calc(28px - 12px * var(--k)); padding-block: calc(40px - 32px * var(--k)); }
+  #who-uses-spenza .sz-ui { padding: calc(26px - 10px * var(--k)); }
+  #who-uses-spenza .sz-uc__h3 { font-size: calc(32px - 8px * var(--k)); }
+}
+@media (min-width: 1024px) and (max-width: 1131px) {
+  #who-uses-spenza .sz-uc__title { font-size: calc(clamp(20px, 6.6vw, 60px) * (1 - .28 * var(--k))); }
+}

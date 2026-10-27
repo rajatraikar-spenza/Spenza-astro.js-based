@@ -1,4 +1,5 @@
 import './home-hero.js';
+import { fitWindow } from './fit-window.js';
 
 /**
  * The home page's behaviour.
@@ -292,7 +293,7 @@ document.querySelectorAll('.sz-cmp').forEach((board) => {
   const place = () => {
     const r = rows[row - 1];
     if (!r) return;
-    const top = r.offsetTop + 5, h = Math.max(68, r.offsetHeight - 10);
+    const top = r.offsetTop + 5, h = Math.max(40, r.offsetHeight - 10);
     for (const el of [band, cell]) { el.style.top = top + 'px'; el.style.height = h + 'px'; }
   };
   const focus = (n) => {
@@ -393,3 +394,6 @@ document.querySelectorAll('.sz-car').forEach((car) => {
   document.addEventListener('visibilitychange', arm);
   new IntersectionObserver(([e]) => { inView = e.isIntersecting; arm(); }, { threshold: .4 }).observe(car);
 });
+
+// The tall sections fit the window under the header (scripts/fit-window.js).
+fitWindow();

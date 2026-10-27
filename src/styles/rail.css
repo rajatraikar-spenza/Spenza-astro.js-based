@@ -78,6 +78,14 @@
 .e-n-tabs-content > .e-con:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child {
   flex-grow: 1;
 }
+/* Growing closes whatever space the widths left over. The contact page's two
+   cards are 48% each with no gap, and that leftover 4% was their gutter, so
+   once they grew they touched. They get a real gap instead. Not done for every
+   gapless row: elsewhere those are columns meant to sit flush (careers'
+   figures, two-column heroes), and a gap would wrap them. */
+.elementor-element-1f35b7a > .e-con-inner {
+  column-gap: 20px !important;
+}
 
 /* Careers: the open-positions panel is a container with Elementor's default
    10px padding, inside a widget already on the rail. */

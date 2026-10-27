@@ -1,8 +1,9 @@
 ---
 import WpLayout from '../layouts/WpLayout.astro';
 import content from '../partials/support.html?raw';
+import '../styles/support.css';
 ---
 
-<WpLayout slug="support">
+<WpLayout slug="support" fit>
   <Fragment set:html={content} />
 </WpLayout>

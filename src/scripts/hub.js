@@ -6,11 +6,14 @@
  *   - the product video (see HubVideo.astro for the sequence)
  *   - UX Hub's brand-studio swatches, Telecom Hub's four questions, and
  *     Control Hub's plan builder
+ *   - every section held to the window's height on a desktop (fit-window.js)
  *
  * Everything is progressive: without this the page is complete and static —
  * every section visible, the numbers at their values, the plain `<video>`
  * from the `<noscript>` in place of the poster. The FAQ needs no script.
  */
+
+import { fitWindow } from './fit-window.js';
 
 const page = document.querySelector('.ux');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -262,4 +265,22 @@ function initBuilder(root) {
       }, 220);
     });
   });
+}
+
+/* Every section fits the window under the header on a desktop
+   (scripts/fit-window.js; the measures it closes up are in styles/hub.css).
+   A section of feature rows is fitted row by row: each row is one screen,
+   the first one together with the section's heading. */
+if (page) {
+  for (const sec of page.querySelectorAll('section.hero, section.sec')) {
+    const wrap = sec.querySelector(':scope > .wrap');
+    if (!wrap) continue;
+    const rows = wrap.querySelectorAll(':scope > .feat');
+    sec.toggleAttribute('data-fit', true);
+    for (const box of rows.length ? rows : [wrap]) box.toggleAttribute('data-fit-box', true);
+    // The heading above the first row fits on the same screen as that row.
+    const head = rows[0]?.previousElementSibling;
+    if (head) { head.toggleAttribute('data-fit-box', true); head.toggleAttribute('data-fit-with-next', true); }
+  }
+  fitWindow();
 }
