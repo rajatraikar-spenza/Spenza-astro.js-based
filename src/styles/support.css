@@ -74,13 +74,18 @@
 .sp-call__name { display: flex; flex-direction: column; gap: 2px; }
 .sp-call__name strong { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
 .sp-call__name small { font-size: 12.5px; color: var(--sp-muted); }
-.sp-ctx { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
-.sp-ctx span { display: flex; flex-direction: column; gap: 4px; padding: 10px 11px; border: 1px solid var(--sp-rule); border-radius: 12px; background: #faf8f5; }
+/* The caller's line, already loaded: one strip of four equal cells, a label
+   over each value, divided by hairlines. */
+.sp-ctx { display: grid; grid-template-columns: repeat(4, auto); border: 1px solid var(--sp-rule); border-radius: 12px; background: #faf8f5; overflow: hidden; }
+.sp-ctx span { display: flex; flex-direction: column; justify-content: center; gap: 3px; min-width: 0; padding: 9px 12px; line-height: 1.2; }
+.sp-ctx span + span { border-left: 1px solid var(--sp-rule); }
 .sp-ctx small, .sp-chat-pop small, .sp-phone small {
+  display: block; line-height: 1.2;
   font-family: var(--font-mono, ui-monospace), monospace !important; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--sp-muted);
 }
-.sp-ctx b { font-size: 12.5px; font-weight: 600; white-space: nowrap; }
-.sp-ctx b.is-ok { color: var(--sp-ok); }
+.sp-ctx b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 600; line-height: 1.25; }
+.sp-ctx b.is-ok { display: flex; align-items: center; gap: 6px; color: var(--sp-ok); }
+.sp-ctx b.is-ok::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .sp-tx { display: flex; flex-direction: column; gap: 10px; padding: 18px 0; }
 .sp-tx__us { animation: sp-rise 6s ease-in-out infinite; }
 @keyframes sp-rise { 0%, 12% { opacity: 0; transform: translateY(6px); } 22%, 100% { opacity: 1; transform: none; } }
@@ -99,28 +104,32 @@
 .sp-chat-pop .sp-tx__them, .sp-chat-pop .sp-tx__us { max-width: 100%; padding: 7px 10px; font-size: 12.5px; }
 @keyframes sp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
-/* ── Demo form: a phone on the demo line ────────────────────────── */
+/* ── Demo form: a phone on the demo line ────────────────────────── 
+   Light: a white handset with a silver frame on the page's white, the call
+   screen in warm off-white with the brand orange as its accent. */
 
 .sp-phone { display: flex; justify-content: center; padding: 8px 0; }
 .sp-phone__body {
   position: relative; width: 300px; display: flex; flex-direction: column; align-items: center; gap: 10px;
-  padding: 44px 22px 22px; border-radius: 42px; background: linear-gradient(#1b2130, #0f141f); color: #fff;
-  box-shadow: inset 0 0 0 7px #0b0f17, inset 0 0 0 8px #2b3242, 0 40px 70px -30px rgba(15, 20, 31, .55);
+  padding: 46px 22px 22px; border-radius: 44px; background: linear-gradient(#fffdfb, #fbf6f1); color: var(--sp-ink);
+  box-shadow: inset 0 0 0 7px #fff, inset 0 0 0 8px #e7e1d9, 0 0 0 1px #d9d2c9, 0 40px 70px -32px rgba(17, 24, 39, .28), 0 4px 12px rgba(17, 24, 39, .05);
 }
-.sp-phone__notch { position: absolute; top: 14px; left: 50%; width: 86px; height: 20px; margin-left: -43px; border-radius: 12px; background: #0b0f17; }
-.sp-phone .sp-phone__label { color: #ffb38f; }
-.sp-phone__av { position: relative; display: grid; place-items: center; width: 120px; height: 120px; margin: 6px 0 2px; }
-.sp-phone__ring { position: absolute; inset: 24px; border-radius: 50%; border: 1px solid rgba(255, 110, 36, .6); animation: sp-ring 2.4s ease-out infinite; }
+.sp-phone__notch { position: absolute; top: 15px; left: 50%; width: 86px; height: 20px; margin-left: -43px; border-radius: 12px; background: #1f2430; }
+.sp-phone .sp-phone__label { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: var(--sp-acc-soft); color: var(--sp-acc); }
+.sp-phone__label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: sp-pulse 1.6s ease-out infinite; }
+.sp-phone__av { position: relative; display: grid; place-items: center; width: 120px; height: 120px; margin: 4px 0 0; }
+.sp-phone__ring { position: absolute; inset: 24px; border-radius: 50%; border: 1px solid rgba(255, 69, 0, .45); animation: sp-ring 2.4s ease-out infinite; }
 .sp-phone__ring + .sp-phone__ring { animation-delay: 1.2s; }
 @keyframes sp-ring { 0% { transform: scale(.9); opacity: .9; } 100% { transform: scale(1.7); opacity: 0; } }
-.sp-phone__name { font-size: 17px; font-weight: 600; }
-.sp-phone__time { font-family: var(--font-mono, ui-monospace), monospace !important; font-size: 12px; color: #9aa3b5; }
-.sp-phone .sp-wave i { background: #ff6e24; }
-.sp-phone__ask { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 6px; padding: 12px; border-radius: 16px; background: rgba(255, 255, 255, .06); }
-.sp-phone__ask small { color: #9aa3b5; }
-.sp-phone__ask span { font-size: 13px; line-height: 1.4; color: #e8ebf2; }
-.sp-phone__keys { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding: 0 6px; font-size: 12px; color: #9aa3b5; }
-.sp-phone__end { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #ef4444; }
+.sp-phone__name { font-size: 17px; font-weight: 600; color: var(--sp-ink); }
+.sp-phone__time { font-family: var(--font-mono, ui-monospace), monospace !important; font-size: 12px; color: var(--sp-muted); }
+.sp-phone .sp-wave i { background: var(--sp-acc); }
+.sp-phone__ask { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 6px; padding: 12px 14px; border: 1px solid var(--sp-rule); border-radius: 16px; background: #fff; }
+.sp-phone__ask small { color: var(--sp-muted); }
+.sp-phone__ask span { font-size: 13px; line-height: 1.4; color: var(--sp-body); }
+.sp-phone__keys { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding: 0 4px; font-size: 12px; color: var(--sp-muted); }
+.sp-phone__keys > span:not(.sp-phone__end) { display: grid; place-items: center; width: 64px; height: 34px; border-radius: 999px; background: #f1ece6; color: var(--sp-body); }
+.sp-phone__end { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #ef4444; box-shadow: 0 10px 20px -10px rgba(239, 68, 68, .8); }
 .sp-phone__end svg { width: 24px; height: 24px; fill: #fff; }
 
 /* ── "Most Connectivity Tickets Are Lookups" ────────────────────── */
@@ -187,7 +196,9 @@
 @media (max-width: 767px) {
   .sp-call { padding: 0 0 128px; }
   .sp-chat-pop { width: 210px; }
-  .sp-ctx { grid-template-columns: 1fr 1fr; }
+  .sp-ctx { grid-template-columns: 1fr 1fr !important; }
+  .sp-ctx span:nth-child(3) { border-left: 0; }
+  .sp-ctx span:nth-child(n+3) { border-top: 1px solid var(--sp-rule); }
   .elementor-element-810507c .ai-search-demo { height: 420px; }
 }
 
