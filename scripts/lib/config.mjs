@@ -153,6 +153,23 @@ if (GA_MEASUREMENT_ID && !/^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID)) {
 }
 
 /**
+ * OpenAI (ChatGPT Ads) Measurement Pixel id, from the conversions tab of Ads
+ * Manager. Loads ungated alongside GA4 and Clarity — see `Analytics.astro`.
+ *
+ * Same env-driven shape as the two above: set it empty on a build whose
+ * visitors should not count as ad conversions and no tag is emitted.
+ */
+export const OAI_PIXEL_ID = (process.env.OAI_PIXEL_ID ?? 'U7MFXrymQuC42hGkZ8iLv7').trim();
+
+if (OAI_PIXEL_ID && !/^[A-Za-z0-9]+$/.test(OAI_PIXEL_ID)) {
+  throw new Error(
+    `OAI_PIXEL_ID must be alphanumeric, got ${JSON.stringify(OAI_PIXEL_ID)}. ` +
+    `It is interpolated into an inline <script>; anything else is either a typo ` +
+    `or an injection, and both are better caught here than shipped to every page.`
+  );
+}
+
+/**
  * Let the host serve WordPress' 301s, and stop emitting the HTML stand-ins.
  *
  * A static build cannot send a redirect status, so `[...wpRedirect].astro`

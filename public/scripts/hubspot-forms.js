@@ -1047,6 +1047,19 @@
      */
     const ev = formEvent(form, id);
     track(SUBMIT_EVENT[ev.form_kind] || 'lead_form_submit', ev);
+
+    // The ChatGPT Ads conversion. Sales leads only, for the reason the GA names
+    // are split: a newsletter signup or a PDF is not what the ads are bought for.
+    // `oaiq` comes from `Analytics.astro` and is absent when `OAI_PIXEL_ID` is.
+    if (ev.form_kind === 'lead') {
+      try {
+        if (typeof window.oaiq === 'function') {
+          window.oaiq('measure', 'lead_created', { type: 'customer_action' });
+        }
+      } catch (err) {
+        console.warn('[hubspot-forms] oaiq failed:', err);
+      }
+    }
   }
 
   /* ---------------------------------------------------------------- wire */
