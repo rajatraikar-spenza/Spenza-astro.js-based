@@ -327,6 +327,14 @@ on request. Nothing about what is measured changed with it.
   `debug: true` logs to the console and was asked for while verifying; drop it
   once Ads Manager shows events. Docs:
   https://developers.openai.com/ads/measurement-pixel
+- **Each lead is also sent server-side** through OpenAI's Conversions API, by
+  `wordpress/mu-plugins/spenza-oai-conversions.php` on the lead endpoint's
+  `gform_after_submission`. The key lives only in `wp-config.php`
+  (`SPENZA_OAI_CAPI_KEY`); without it the plugin does nothing. `hubspot-forms.js`
+  makes one event id per lead, gives it to the pixel as `event_id` and posts it
+  to the endpoint as `spenza_oai_event_id` with the `__oppref`/`__obref`
+  cookies, so OpenAI counts the two copies once. Failures land in the PHP error
+  log as `[spenza-oai]`. Docs: https://developers.openai.com/ads/conversions-api
 - WordPress preprod carries its own Google stack (three GTM containers,
   `G-001C6D3F2C` and `G-MC7V4KNGD`), and the mirror strips all of it — see the
   `/dataLayer|gtag\(/` rule in `scripts/lib/inline-scripts.mjs`. The tags this
