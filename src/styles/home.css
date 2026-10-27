@@ -497,75 +497,6 @@
   opacity: .75;
 }
 
-/* ── problem ───────────────────────────────────────────────────── */
-
-.hm .hm-problem {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.hm .hm-problem-intro {
-  position: sticky;
-  top: 110px;
-}
-
-.hm .hm-problem-intro .hm-h2 {
-  margin-bottom: 22px;
-}
-
-.hm .hm-problem-intro .hm-lede {
-  max-width: 460px;
-}
-
-.hm .hm-problem-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--rule);
-}
-
-.hm .hm-problem-list li {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 20px;
-  padding: 30px 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-/* The heading's second line never breaks, except on the narrowest phones. */
-@media (min-width: 420px) {
-  .hm .hm-line {
-    white-space: nowrap;
-  }
-}
-
-.hm .hm-problem-no {
-  font-family: var(--display) !important;
-  font-size: 44px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -.04em;
-  color: var(--acctext);
-}
-
-.hm .hm-problem-list h3 {
-  margin: 4px 0 10px;
-  font-family: var(--display) !important;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -.02em;
-  color: var(--ink);
-}
-
-.hm .hm-problem-list p {
-  margin: 0;
-  line-height: 1.55;
-  color: var(--body);
-}
-
 /* ── platform ────────────────────────────────────────── */
 
 /*
@@ -1599,9 +1530,6 @@
   .hm .hm-strip-label {
     width: auto;
   }
-  .hm .hm-problem-intro {
-    position: static;
-  }
   .hm .hm-life-no {
     margin: 0 0 16px;
   }
@@ -1643,19 +1571,6 @@
   .hm .hm-hero-lede {
     margin-bottom: 28px;
     font-size: 17px;
-  }
-
-  /* Problem list: a narrower number column gives the text the width. */
-  .hm .hm-problem-list li {
-    grid-template-columns: 44px 1fr;
-    gap: 14px;
-    padding: 24px 0;
-  }
-  .hm .hm-problem-no {
-    font-size: 34px;
-  }
-  .hm .hm-problem-list h3 {
-    font-size: 21px;
   }
 
   /* Platform: the one window comes apart. The tabs become a 2x2 grid of
