@@ -323,9 +323,9 @@ on request. Nothing about what is measured changed with it.
   It sends only what is `measure`d: `page_viewed` on every page, and
   `lead_created` from `hubspot-forms.js` when HubSpot confirms a *lead*
   submission — not a newsletter signup or PDF, the same split GA4's names make.
-  It sets `__oppref` (the ad click id from `?oppref=`) and `__obref`. Its
-  `debug: true` logs to the console and was asked for while verifying; drop it
-  once Ads Manager shows events. Docs:
+  It sets `__oppref` (the ad click id from `?oppref=`) and `__obref`.
+  `debug: true` was removed after verification; add it back only to debug
+  locally — it logs every SDK step to each visitor's console. Docs:
   https://developers.openai.com/ads/measurement-pixel
 - **Each lead is also sent server-side** through OpenAI's Conversions API, by
   `wordpress/mu-plugins/spenza-oai-conversions.php` on the lead endpoint's
