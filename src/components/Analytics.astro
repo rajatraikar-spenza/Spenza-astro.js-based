@@ -57,15 +57,15 @@ const clarity = `(function (w, d) {
 })(window, document);`;
 
 /*
- * OpenAI's Measurement Pixel loader and init, unchanged apart from the id
+ * OpenAI's Measurement Pixel loader and init, unchanged apart from the id and
+ * `debug: true`, which was dropped once Ads Manager showed events — it logs
+ * every SDK step to each visitor's console. Add it back to debug locally.
  * (https://developers.openai.com/ads/measurement-pixel). It records nothing on
  * its own — the pixel only sends what is `measure`d — so a page view is sent
  * here, and `lead_created` from `hubspot-forms.js` on a confirmed submission.
- * `debug: true` logs the SDK's activity to the console; it was asked for while
- * the pixel is being verified and can be dropped once Ads Manager sees events.
  */
 const oaiPixel = `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
-oaiq("init",{pixelId:${JSON.stringify(OAI_PIXEL_ID)},debug:true});
+oaiq("init",{pixelId:${JSON.stringify(OAI_PIXEL_ID)}});
 oaiq("measure","page_viewed",{type:"contents"});`;
 ---
 
