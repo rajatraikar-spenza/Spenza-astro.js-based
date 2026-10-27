@@ -68,6 +68,17 @@
   .wp-mirror main > .elementor > .e-con.e-parent:has(.popup-overlay) {
     content-visibility: visible;
   }
+
+  /*
+   * And except whichever one holds a form dropdown. `content-visibility: auto`
+   * also contains paint, which clips at the container's edge, so the option
+   * list of a select near the foot of its section (the support page's demo
+   * form) was cut off there and the next section showed through where the
+   * options should be. The same is true of any menu that opens past its box.
+   */
+  .wp-mirror main > .elementor > .e-con.e-parent:has(.wp-select, select) {
+    content-visibility: visible;
+  }
 }
 
 /* Modern easing for the interactions Elementor animates linearly. */
