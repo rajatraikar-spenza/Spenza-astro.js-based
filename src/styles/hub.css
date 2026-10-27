@@ -66,6 +66,13 @@
   outline: 3px solid var(--acc);
   outline-offset: 4px;
 }
+/* Every two-column section on a hub page splits where the hero does, so
+   the right-hand column starts on one line from the hero to the demo form,
+   as the outer edges do on the site rail. */
+.ux {
+  --split: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  --split-gap: 56px;
+}
 .ux .wrap {
   max-width: var(--rail-box);
   margin: 0 auto;
@@ -133,9 +140,9 @@
 }
 .ux .head {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--split);
   align-items: end;
-  gap: 40px;
+  gap: var(--split-gap);
   margin-bottom: 64px;
 }
 .ux .btn {
@@ -283,8 +290,8 @@
 }
 .ux .hero-grid {
   display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
-  gap: 56px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: center;
 }
 .ux .hero .eyebrow {
@@ -362,8 +369,8 @@
 }
 .ux .feat {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 72px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: center;
   padding: 72px 0;
   border-top: 1px solid var(--rule);
@@ -547,8 +554,8 @@
 }
 .ux .faq {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 64px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: start;
 }
 .ux .faq .h2 {
@@ -609,8 +616,8 @@
 }
 .ux .trust {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 72px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: center;
 }
 .ux .trust .lede {
@@ -643,7 +650,9 @@
 }
 .ux .badges {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* minmax: a long caption wraps inside its tile rather than widening the
+     column past the shared split */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 .ux .badge {
@@ -675,6 +684,9 @@
   border-radius: 50%;
 }
 .ux .badge span {
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
   font-family: var(--mono) !important;
   font-size: 10px;
   letter-spacing: 0.05em;
@@ -692,8 +704,8 @@
 }
 .ux .cta {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 56px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: start;
   padding-top: 56px;
   border-top: 1px solid var(--ink);
@@ -760,9 +772,9 @@
 }
 .ux .vid-head {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--split);
   align-items: end;
-  gap: 40px;
+  gap: var(--split-gap);
   margin-bottom: 40px;
 }
 .ux .vid-head .lede {

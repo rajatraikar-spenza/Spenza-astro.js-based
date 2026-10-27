@@ -244,7 +244,9 @@
 .ux .pv-toast {
   position: absolute;
   top: -18px;
-  right: -14px;
+  /* flush with the portal's edge, which is the rail's: it used to hang 14px
+     past the line every section below it keeps */
+  right: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -889,9 +891,9 @@
 }
 .ux .shp-head {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--split);
   align-items: end;
-  gap: 40px;
+  gap: var(--split-gap);
   margin-bottom: 56px;
 }
 .ux .shp-head .lede {
@@ -899,8 +901,8 @@
 }
 .ux .shp {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 64px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: center;
 }
 .ux .shp-steps {
@@ -1210,7 +1212,7 @@
     display: none;
   }
   .ux .pv-toast {
-    right: -6px;
+    right: 0;
     top: -24px;
   }
   .ux .pv-use svg {

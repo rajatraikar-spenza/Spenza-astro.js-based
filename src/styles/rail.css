@@ -68,11 +68,13 @@
 /* Rows of cards are fixed-width items (32%, 48%) with 20px gaps, centred,
    which leaves the outer cards 5-6px inside the rail; a tab panel's two
    columns are centred the same way, 16px in. The radial icon boxes
-   are spread with space between, the container cards grow into the slack. */
+   are spread with space between, the container cards grow into the slack.
+   Pages only: a post's article and its sticky contents sidebar are such a
+   row too, and keep their own widths and the gap between them. */
 .e-con-inner:has(> .radial-container) {
   justify-content: space-between !important;
 }
-:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"]) > .e-con-boxed > .e-con-inner:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child,
+[data-elementor-type="wp-page"] > .e-con-boxed > .e-con-inner:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child,
 .e-n-tabs-content > .e-con:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child {
   flex-grow: 1;
 }
@@ -97,7 +99,7 @@
    text 10px inside the rail. Only the default is withdrawn: a column given
    its own padding in WordPress (every card is) sets --padding-* directly and
    is unaffected. */
-:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"]) > .e-con-boxed > .e-con-inner:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child {
+[data-elementor-type="wp-page"] > .e-con-boxed > .e-con-inner:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child {
   --container-default-padding-left: 0px;
   --container-default-padding-right: 0px;
 }

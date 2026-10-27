@@ -269,8 +269,8 @@
 }
 .ux .prob {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: start;
 }
 .ux .prob-list {
@@ -613,8 +613,8 @@
 }
 .ux .layers {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 72px;
+  grid-template-columns: var(--split);
+  gap: var(--split-gap);
   align-items: center;
 }
 .ux .layers .lede {
