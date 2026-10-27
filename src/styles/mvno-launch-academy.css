@@ -78,9 +78,9 @@
 }
 
 .mla .mla-wrap {
-  max-width: 1240px;
+  max-width: var(--rail-box);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--rail-pad);
 }
 
 /* ── hero ──────────────────────────────────────────────────────── */

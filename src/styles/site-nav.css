@@ -155,9 +155,9 @@
   align-items: center;
   column-gap: 16px;
   height: 62px;
-  max-width: 1320px;
+  max-width: var(--rail-box);
   margin: 0 auto;
-  padding: 0 20px 0 28px;
+  padding: 0 var(--rail-pad);
   font-size: 14.5px;
   color: var(--sn-ink);
   transition:
@@ -936,7 +936,7 @@
   }
 
   .sn .sn-nav {
-    padding: 0 8px 0 18px;
+    padding: 0 var(--rail-pad);
   }
 
   .sn .sn-nav .sn-btn-primary,

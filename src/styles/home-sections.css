@@ -4,7 +4,7 @@
    positions are the design's 1200px grid expressed as fractions, so the
    layout keeps its proportions from 1200px down to the tablet break. */
 
-.hm .sz-wrap { max-width: 1248px; margin: 0 auto; padding: 0 24px; }
+.hm .sz-wrap { max-width: var(--rail-box); margin: 0 auto; padding: 0 var(--rail-pad); }
 /* Zero specificity beyond `.hm`, so every component rule below wins. */
 .hm :where(.sz-alt, .sz-proof) :where(p, h2, h3, ol, ul, li, dl, dd, blockquote) { margin: 0; padding: 0; list-style: none; }
 
@@ -182,8 +182,8 @@
 
 /* ── Customer proof ───────────────────────────────────────────── */
 
-.hm .sz-proof { background: #f9f7f3; padding: 84px 48px; }
-.hm .sz-proof__bezel { max-width: 1344px; margin: 0 auto; padding: 11px; border: 1px solid #e2dcd2; border-radius: 40px; }
+.hm .sz-proof { background: #f9f7f3; padding: 84px var(--rail-pad); }
+.hm .sz-proof__bezel { max-width: var(--rail); margin: 0 auto; padding: 11px; border: 1px solid #e2dcd2; border-radius: 40px; }
 .hm .sz-proof__panel {
   position: relative; overflow: hidden; border-radius: 28px;
   background: linear-gradient(to bottom, #f6f2ec, #efeae2);
@@ -395,7 +395,7 @@
   .hm .sz-alt__callout { flex-direction: column; align-items: flex-start; padding: 22px 20px; }
   .hm a.sz-btn-ink { white-space: normal; }
 
-  .hm .sz-proof { padding: 40px 12px; }
+  .hm .sz-proof { padding: 40px var(--rail-pad); }
   .hm .sz-proof__bezel { padding: 6px; border-radius: 28px; }
   .hm .sz-proof__panel { padding: 40px 20px 28px; border-radius: 22px; }
   .hm .sz-proof__title { font-size: 40px; line-height: 44px; letter-spacing: -1.2px; }
@@ -453,7 +453,7 @@
    or the panel has nothing to stick to. */
 .hm > section.hm-how { content-visibility: visible; contain-intrinsic-size: none; }
 .hm .hm-how { position: relative; padding: 72px 0 96px; background: #fff; border-bottom: 1px solid var(--rule); }
-.hm .hm-how__track { --ph: min(700px, calc(100vh - 128px)); max-width: 1320px; height: calc(var(--ph) + 240vh); margin: 0 auto; padding: 0 32px; }
+.hm .hm-how__track { --ph: min(700px, calc(100vh - 128px)); max-width: var(--rail-box); height: calc(var(--ph) + 240vh); margin: 0 auto; padding: 0 var(--rail-pad); }
 .hm .hm-how__panel {
   position: sticky; top: 104px; height: var(--ph); isolation: isolate; overflow: hidden;
   display: grid; grid-template-columns: minmax(340px, 440px) minmax(0, 1fr);
@@ -712,7 +712,7 @@
    the copy sits above it, and the steps advance on a timer instead. */
 @media (max-width: 1023px) {
   .hm .hm-how { padding: 56px 0 64px; }
-  .hm .hm-how__track { --ph: 620px; height: auto; padding: 0 24px; }
+  .hm .hm-how__track { --ph: 620px; height: auto; padding: 0 var(--rail-pad); }
   .hm .hm-how__panel { position: relative; top: auto; height: auto; grid-template-columns: minmax(0, 1fr); }
   .hm .hm-how__grid { left: 0; width: 100%; }
   .hm .hm-how__copy { padding: 40px 32px 8px; }
@@ -725,7 +725,7 @@
 /* Phones: the steps alone, every one open, and no stack. */
 @media (max-width: 767px) {
   .hm .hm-how { padding: 40px 0 48px; }
-  .hm .hm-how__track { padding: 0 16px; }
+  .hm .hm-how__track { padding: 0 var(--rail-pad); }
   .hm .hm-how__art, .hm .hm-how__grid { display: none; }
   .hm .hm-how__copy { padding: 32px 20px 28px; }
   .hm .hm-how .hm-eyebrow { justify-content: center; }

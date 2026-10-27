@@ -41,8 +41,8 @@
   --ni-warn-bg: #fdece4;
   --ni-radius: 14px;
   --ni-radius-lg: 22px;
-  --ni-maxw: 1180px;
-  --ni-gutter: 28px;
+  --ni-maxw: var(--rail-box);
+  --ni-gutter: var(--rail-pad);
   --ni-section-y: 100px;
   --ni-font: var(--font-sans);
   --ni-mono: var(--font-mono);
@@ -471,7 +471,7 @@ html:has(.ni-lp) { scroll-behavior: smooth; }
 
 /* Phones */
 @media (max-width: 640px) {
-  .ni-lp { --ni-gutter: 20px; --ni-section-y: 60px; font-size: 16px; }
+  .ni-lp { --ni-section-y: 60px; font-size: 16px; }
   .ni-hbr { display: none; }
   .ni-lp h1 { font-size: clamp(2rem, 9vw, 2.4rem); letter-spacing: -.6px; }
   .ni-lp h2 { font-size: clamp(1.65rem, 7.4vw, 2rem); letter-spacing: -.4px; }

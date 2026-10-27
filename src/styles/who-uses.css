@@ -50,7 +50,7 @@
 #who-uses-spenza *::before,
 #who-uses-spenza *::after { box-sizing: border-box; }
 
-#who-uses-spenza .sz-uc__wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+#who-uses-spenza .sz-uc__wrap { max-width: var(--rail-box); margin: 0 auto; padding: 0 var(--rail-pad); }
 
 /* ---------- Header ---------- */
 #who-uses-spenza .sz-uc__head {

@@ -1,0 +1,137 @@
+/* The rail: the one content width every page shares, from the header through
+   the hero and every section to the footer, so that scrolling reads as one
+   straight road rather than a column that steps in and out.
+
+   It is the footer's measure, which most of the mirrored pages already used:
+   1280px of content, centred, never closer than 20px to the window edge.
+   A section's container takes --rail-box as its max-width and --rail-pad as
+   its side padding; a painted box (a bordered card spanning the section)
+   takes --rail as its max-width, so its border sits on the same line as the
+   text above and below it. Imported by SiteNav, which every page renders. */
+:root {
+  --rail: 1280px;
+  --rail-pad: 20px;
+  --rail-box: calc(var(--rail) + 2 * var(--rail-pad));
+}
+
+/* The mirrored pages. Each top-level Elementor block is put on the rail,
+   whatever width it was given in WordPress (960, 1120, 1140 and 1200px all
+   occur). Flex containers carry it as --content-width inside 20px of side
+   padding, the footer's own setting; per-element CSS sets both at the same
+   specificity, hence !important. Legacy sections get the same: their
+   container is the rail, inside 20px of section padding. Scoped to page
+   documents: a popup or loop-item template is also an .elementor root. */
+:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"], [data-elementor-type="archive"]) > .e-con-boxed {
+  --content-width: var(--rail) !important;
+  --padding-left: var(--rail-pad) !important;
+  --padding-right: var(--rail-pad) !important;
+  padding-left: var(--rail-pad) !important;
+  padding-right: var(--rail-pad) !important;
+}
+:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"], [data-elementor-type="archive"]) > .elementor-section-boxed {
+  padding-left: var(--rail-pad) !important;
+  padding-right: var(--rail-pad) !important;
+}
+:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"], [data-elementor-type="archive"]) > .elementor-section-boxed > .elementor-container {
+  max-width: var(--rail) !important;
+}
+
+/* The legal and utility pages are Astra's page template, not Elementor:
+   1200px inside .ast-container. */
+.site-content > .ast-container {
+  max-width: var(--rail-box) !important;
+  padding-left: var(--rail-pad) !important;
+  padding-right: var(--rail-pad) !important;
+}
+
+/* The blog and category listings: each card is a loop-item template whose
+   root carries 20px of side padding, which set every card inside the filter
+   bar above it. */
+[data-elementor-type="archive"] .e-loop-item {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* A legacy column pads its content 10px on every side by default, which held
+   the outermost text of each section 10px inside the rail. The outer side of
+   the first and last column loses it. Specificity is deliberately 0,3,1: one
+   more than Elementor's default (0,3,0) and one less than a column's own
+   padding (0,4,0), so a column given padding in WordPress, such as a shaded
+   call-to-action band, keeps it. */
+:where(:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"], [data-elementor-type="archive"]) > .elementor-section-boxed > .elementor-column-gap-default) > .elementor-column:first-child > div.elementor-element-populated {
+  padding-left: 0;
+}
+:where(:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"], [data-elementor-type="archive"]) > .elementor-section-boxed > .elementor-column-gap-default) > .elementor-column:last-child > div.elementor-element-populated {
+  padding-right: 0;
+}
+
+/* Rows of cards are fixed-width items (32%, 48%) with 20px gaps, centred,
+   which leaves the outer cards 5-6px inside the rail; a tab panel's two
+   columns are centred the same way, 16px in. The radial icon boxes
+   are spread with space between, the container cards grow into the slack. */
+.e-con-inner:has(> .radial-container) {
+  justify-content: space-between !important;
+}
+:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"]) > .e-con-boxed > .e-con-inner:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child,
+.e-n-tabs-content > .e-con:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child {
+  flex-grow: 1;
+}
+
+/* Careers: the open-positions panel is a container with Elementor's default
+   10px padding, inside a widget already on the rail. */
+.positions .e-n-tabs-content > .e-con {
+  --padding-left: 0px !important;
+  --padding-right: 0px !important;
+}
+
+/* Legal pages: Astra pads the article 30px and caps each block at 1200px. */
+.site-content > .ast-container article.page {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.site-content > .ast-container .entry-content > * {
+  max-width: none !important;
+}
+
+/* Side-by-side columns left on Elementor's default 10px padding hold their
+   text 10px inside the rail. Only the default is withdrawn: a column given
+   its own padding in WordPress (every card is) sets --padding-* directly and
+   is unaffected. */
+:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"]) > .e-con-boxed > .e-con-inner:has(> .e-con-full.e-child + .e-con-full.e-child) > .e-con-full.e-child {
+  --container-default-padding-left: 0px;
+  --container-default-padding-right: 0px;
+}
+
+/* Essential Addons' post grid pulls itself out 10px each side but indents
+   every card 20px from the left only, so the row sat 10px right of the rail. */
+.eael-post-grid {
+  margin-left: -20px !important;
+  margin-right: 0 !important;
+}
+
+/* Columns stack below 768px, where each is a full-width row and the inner
+   side is an outer side too. */
+@media (max-width: 767px) {
+  :where(:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"], [data-elementor-type="archive"]) > .elementor-section-boxed > .elementor-column-gap-default) > .elementor-column > div.elementor-element-populated {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* A full-width legacy section holding a boxed inner section (the support
+   page's hero) is a top-level block in all but name. */
+:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"]) > .elementor-section-full_width > .elementor-container > .elementor-column > .elementor-widget-wrap > .elementor-inner-section.elementor-section-boxed {
+  padding-left: var(--rail-pad) !important;
+  padding-right: var(--rail-pad) !important;
+}
+:is([data-elementor-type="wp-page"], [data-elementor-type="wp-post"], [data-elementor-type="single-post"]) > .elementor-section-full_width > .elementor-container > .elementor-column > .elementor-widget-wrap > .elementor-inner-section.elementor-section-boxed > .elementor-container {
+  max-width: var(--rail) !important;
+}
+
+/* A wide legal table scrolls inside the rail on a phone instead of pushing
+   the page sideways. */
+.site-content .entry-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}

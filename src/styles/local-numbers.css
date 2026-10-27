@@ -73,9 +73,9 @@
 }
 
 .ln-lp .ln-wrap {
-  max-width: 1240px;
+  max-width: var(--rail-box);
   margin: 0 auto;
-  padding-inline: 32px;
+  padding-inline: var(--rail-pad);
 }
 
 /* ── buttons ───────────────────────────────────────────────────── */
@@ -658,7 +658,8 @@
 }
 
 .ln-lp .ln-cta {
-  max-width: 780px;
+  /* the full rail, like every card above it; the copy inside stays centred */
+  max-width: none;
   margin: 0 auto;
   padding: 72px 48px;
   border: 1px solid var(--peach-line);

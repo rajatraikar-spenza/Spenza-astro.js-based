@@ -67,9 +67,9 @@
   outline-offset: 4px;
 }
 .ux .wrap {
-  max-width: 1240px;
+  max-width: var(--rail-box);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--rail-pad);
 }
 .ux .sec {
   padding: 120px 0;
@@ -277,7 +277,9 @@
 .ux .hero-in {
   position: relative;
   z-index: 1;
-  padding: 88px 0 96px;
+  /* block padding only: the shorthand used to zero .wrap's side padding,
+     which set the hero 32px wider each side than every section below it */
+  padding-block: 88px 96px;
 }
 .ux .hero-grid {
   display: grid;
@@ -1022,7 +1024,7 @@
     order: 0;
   }
   .ux .hero-in {
-    padding: 56px 0 72px;
+    padding-block: 56px 72px;
   }
   .ux .nums-head {
     flex-direction: column;
@@ -1043,7 +1045,7 @@
 }
 @media (max-width: 640px) {
   .ux .wrap {
-    padding: 0 16px;
+    padding: 0 var(--rail-pad);
   }
   .ux .sec {
     padding: 72px 0;
