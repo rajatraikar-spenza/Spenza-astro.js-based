@@ -23,7 +23,8 @@
   --font-mono:   'JetBrains Mono', monospace;
 
   /* Spacing */
-  --pad-x:       clamp(24px, 6vw, 80px);
+  /* side padding is the site rail's (rail.css); containers sit inside it */
+  --pad-x:       var(--rail-pad);
   --section-y:   clamp(64px, 8vw, 112px);
 
   /* Shadows */
@@ -92,9 +93,9 @@ html { scroll-behavior: smooth; }
    LAYOUT HELPERS
 ═══════════════════════════════════════════════════════════════ */
 .ai-lp .container {
-  max-width: 1200px;
+  max-width: var(--rail);
   margin: 0 auto;
-  padding: 0 var(--pad-x);
+  padding: 0;
 }
 .ai-lp .section {
   padding: var(--section-y) var(--pad-x);
@@ -267,7 +268,7 @@ html { scroll-behavior: smooth; }
   pointer-events: none;
 }
 .ai-lp .hero-content {
-  max-width: 1200px;
+  max-width: var(--rail);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 420px;
@@ -468,7 +469,7 @@ html { scroll-behavior: smooth; }
    BENEFITS
 ═══════════════════════════════════════════════════════════════ */
 .ai-lp .benefits-grid {
-  max-width: 1120px;
+  max-width: var(--rail);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -501,7 +502,7 @@ html { scroll-behavior: smooth; }
 /* ═══════════════════════════════════════════════════════════════
    HOW IT WORKS
 ═══════════════════════════════════════════════════════════════ */
-.ai-lp .how-section .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad-x); }
+.ai-lp .how-section .container { max-width: var(--rail); margin: 0 auto; padding: 0; }
 .ai-lp .steps-row {
   display: flex;
   align-items: center;
@@ -633,7 +634,7 @@ html { scroll-behavior: smooth; }
 /* ═══════════════════════════════════════════════════════════════
    DEMO
 ═══════════════════════════════════════════════════════════════ */
-.ai-lp .demo-section .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad-x); }
+.ai-lp .demo-section .container { max-width: var(--rail); margin: 0 auto; padding: 0; }
 .ai-lp .demo-layout {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -763,7 +764,7 @@ html { scroll-behavior: smooth; }
 /* ═══════════════════════════════════════════════════════════════
    USE CASES
 ═══════════════════════════════════════════════════════════════ */
-.ai-lp .use-cases-section .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad-x); }
+.ai-lp .use-cases-section .container { max-width: var(--rail); margin: 0 auto; padding: 0; }
 .ai-lp .use-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -829,7 +830,7 @@ html { scroll-behavior: smooth; }
 /* ═══════════════════════════════════════════════════════════════
    COMPARISON TABLE
 ═══════════════════════════════════════════════════════════════ */
-.ai-lp .comparison-section .container { max-width: 1020px; margin: 0 auto; padding: 0 var(--pad-x); }
+.ai-lp .comparison-section .container { max-width: var(--rail); margin: 0 auto; padding: 0; }
 .ai-lp .table-wrap {
   background: var(--white);
   border: 1px solid var(--line);
@@ -938,7 +939,7 @@ html { scroll-behavior: smooth; }
 /* ═══════════════════════════════════════════════════════════════
    CHECKLIST
 ═══════════════════════════════════════════════════════════════ */
-.ai-lp .checklist-section .container { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad-x); }
+.ai-lp .checklist-section .container { max-width: var(--rail); margin: 0 auto; padding: 0; }
 .ai-lp .checklist-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -992,7 +993,7 @@ html { scroll-behavior: smooth; }
 /* ═══════════════════════════════════════════════════════════════
    FAQ
 ═══════════════════════════════════════════════════════════════ */
-.ai-lp .faq-section .container { max-width: 1000px; margin: 0 auto; padding: 0 var(--pad-x); }
+.ai-lp .faq-section .container { max-width: var(--rail); margin: 0 auto; padding: 0; }
 .ai-lp .faq-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1056,7 +1057,7 @@ html { scroll-behavior: smooth; }
   padding: 0;
 }
 .ai-lp .cta-inner {
-  max-width: 1200px;
+  max-width: var(--rail-box);
   margin: 0 auto;
   padding: clamp(64px, 8vw, 112px) var(--pad-x);
   display: grid;
@@ -1214,7 +1215,7 @@ html { scroll-behavior: smooth; }
    RESPONSIVE — 768px
 ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .ai-lp { --section-y: 56px; --pad-x: 20px; }
+  .ai-lp { --section-y: 56px; }
 
   .ai-lp .hero-text h1 { font-size: 34px; }
   .ai-lp .hero-actions { flex-direction: column; }

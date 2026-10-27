@@ -4,7 +4,7 @@
    positions are the design's 1200px grid expressed as fractions, so the
    layout keeps its proportions from 1200px down to the tablet break. */
 
-.hm .sz-wrap { max-width: 1248px; margin: 0 auto; padding: 0 24px; }
+.hm .sz-wrap { max-width: var(--rail-box); margin: 0 auto; padding: 0 var(--rail-pad); }
 /* Zero specificity beyond `.hm`, so every component rule below wins. */
 .hm :where(.sz-alt, .sz-proof) :where(p, h2, h3, ol, ul, li, dl, dd, blockquote) { margin: 0; padding: 0; list-style: none; }
 
@@ -182,8 +182,8 @@
 
 /* ── Customer proof ───────────────────────────────────────────── */
 
-.hm .sz-proof { background: #f9f7f3; padding: 84px 48px; }
-.hm .sz-proof__bezel { max-width: 1344px; margin: 0 auto; padding: 11px; border: 1px solid #e2dcd2; border-radius: 40px; }
+.hm .sz-proof { background: #f9f7f3; padding: 84px var(--rail-pad); }
+.hm .sz-proof__bezel { max-width: var(--rail); margin: 0 auto; padding: 11px; border: 1px solid #e2dcd2; border-radius: 40px; }
 .hm .sz-proof__panel {
   position: relative; overflow: hidden; border-radius: 28px;
   background: linear-gradient(to bottom, #f6f2ec, #efeae2);
@@ -395,7 +395,7 @@
   .hm .sz-alt__callout { flex-direction: column; align-items: flex-start; padding: 22px 20px; }
   .hm a.sz-btn-ink { white-space: normal; }
 
-  .hm .sz-proof { padding: 40px 12px; }
+  .hm .sz-proof { padding: 40px var(--rail-pad); }
   .hm .sz-proof__bezel { padding: 6px; border-radius: 28px; }
   .hm .sz-proof__panel { padding: 40px 20px 28px; border-radius: 22px; }
   .hm .sz-proof__title { font-size: 40px; line-height: 44px; letter-spacing: -1.2px; }
@@ -453,7 +453,7 @@
    or the panel has nothing to stick to. */
 .hm > section.hm-how { content-visibility: visible; contain-intrinsic-size: none; }
 .hm .hm-how { position: relative; padding: 72px 0 96px; background: #fff; border-bottom: 1px solid var(--rule); }
-.hm .hm-how__track { --ph: min(700px, calc(100vh - 128px)); max-width: 1320px; height: calc(var(--ph) + 240vh); margin: 0 auto; padding: 0 32px; }
+.hm .hm-how__track { --ph: min(700px, calc(100vh - 128px)); max-width: var(--rail-box); height: calc(var(--ph) + 240vh); margin: 0 auto; padding: 0 var(--rail-pad); }
 .hm .hm-how__panel {
   position: sticky; top: 104px; height: var(--ph); isolation: isolate; overflow: hidden;
   display: grid; grid-template-columns: minmax(340px, 440px) minmax(0, 1fr);
@@ -590,51 +590,84 @@
 .hm .hm-iso-card.is-lit .hm-live { opacity: 1; }
 .hm .hm-live i, .hm .hm-live b { position: absolute; display: block; }
 
-/* UXHub: the terminal's light blinks, the cursor blinks after the last
-   line, and a load bar fills under it. */
-/* The light is drawn by its own image, the artwork's size and place, so it
-   cannot drift off the dot it lights; the artwork's own dot is grey. */
-.hm .hm-iso-card img.hm-iso-dot { z-index: 2; }
-.hm .lv-caret { left: 65.8%; top: 72.6%; width: 1.6%; height: 6.4%; background: #ffb08a; }
-.hm .lv-load { left: 11.5%; top: 82.4%; width: 74%; height: 1.3%; border-radius: 2px; background: rgba(255,255,255,.12); overflow: hidden; }
-.hm .lv-load b { inset: 0; background: var(--acc); transform-origin: 0 50%; transform: scaleX(0); }
-.hm .hm-iso-card.is-lit img.hm-iso-dot { animation: lv-dot 1.2s ease-in-out infinite; }
-.hm .is-lit .lv-caret { animation: lv-blink 1s steps(1) infinite; }
-.hm .is-lit .lv-load b { animation: lv-load 2.6s cubic-bezier(.6,0,.3,1) infinite; }
-@keyframes lv-dot { 0%, 100% { opacity: 1; } 50% { opacity: .12; } }
-@keyframes lv-blink { 50% { opacity: 0; } }
-@keyframes lv-load { 0% { transform: scaleX(0); opacity: 1; } 70% { transform: scaleX(1); opacity: 1; } 85%, 100% { transform: scaleX(1); opacity: 0; } }
+/* UXHub, ControlHub and TelecomHub: their artwork (HubArt.astro) is drawn
+   flat in the card's box, so the card's skew lays it on the face. Faint like
+   the other cards' artwork until lit; its motion runs only while lit, on one
+   six-second loop per card. */
+.hm .hm-art { position: absolute; z-index: 1; inset: -1px; width: calc(100% + 2px); height: calc(100% + 2px); opacity: .22; transition: opacity .35s ease; pointer-events: none; overflow: visible; }
+.hm .hm-iso-card.is-lit .hm-art { opacity: 1; }
+.hm .hm-art * { transform-box: fill-box; }
+.hm .hm-art .ha-label { font: 500 7.4px/1 var(--mono); font-family: var(--mono) !important; letter-spacing: .08em; fill: rgba(255,255,255,.72); }
+.hm .hm-art .ha-rule { stroke: rgba(255,255,255,.12); stroke-width: .8; }
+.hm .hm-art .ha-t { font-family: var(--font-sans) !important; font-size: 6.4px; font-weight: 500; fill: rgba(255,255,255,.92); }
+.hm .hm-art .ha-b { font-weight: 600; }
+.hm .hm-art .ha-m { fill: rgba(255,255,255,.5); font-weight: 400; }
+.hm .hm-art .ha-w { fill: #fff; }
+.hm .hm-art .ha-xs { font-size: 5.2px; letter-spacing: .04em; }
+.hm .hm-art .ha-lg { font-size: 9.5px; font-weight: 600; letter-spacing: -.02em; }
+.hm .hm-art .ha-xl { font-size: 12px; font-weight: 600; letter-spacing: -.03em; }
+.hm .hm-art .ha-mono { font-family: var(--mono) !important; font-size: 6px; }
+.hm .hm-art .ha-mid { text-anchor: middle; }
+.hm .hm-art .ha-end { text-anchor: end; }
+.hm .hm-art .ha-acc { fill: #ff7a45; }
+.hm .hm-art .ha-ok { fill: #4ade80; }
+.hm .hm-art .ha-panel { fill: rgba(255,255,255,.035); stroke: rgba(255,255,255,.09); stroke-width: .8; }
+.hm .hm-art .ha-row { fill: rgba(255,255,255,.06); stroke: rgba(255,255,255,.08); stroke-width: .6; }
+.hm .hm-art .ha-row--acc { fill: rgba(var(--accrgb), .14); stroke: rgba(var(--accrgb), .7); }
+.hm .hm-art .ha-acc-fill { fill: var(--acc); }
+.hm .hm-art .ha-ok-fill { fill: #22c55e; }
+.hm .hm-art .ha-chip-ok { fill: rgba(34,197,94,.16); }
+.hm .hm-art .ha-chip-due { fill: rgba(255,255,255,.1); }
+.hm .hm-art .ha-tick { fill: none; stroke: #0a0a0d; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ControlHub and TelecomHub: a highlight moves through the grid's cells, one
-   after another — ControlHub column by column, TelecomHub round the edge. */
-.hm .lv-cell { border-radius: 4px; background: rgba(var(--accrgb), .2); box-shadow: inset 0 0 0 1px rgba(var(--accrgb), .75); left: 1%; top: 21.4%; width: 30.7%; height: 37.6%; }
-.hm .is-lit .hm-live--control .lv-cell { animation: lv-cells-control 6s cubic-bezier(.6,0,.3,1) infinite; }
-.hm .is-lit .hm-live--telecom .lv-cell { animation: lv-cells-telecom 6s cubic-bezier(.6,0,.3,1) infinite; }
-@keyframes lv-cells-control {
-  0%, 13%   { left: 1%;    top: 21.4%; width: 30.7%; }
-  17%, 30%  { left: 1%;    top: 61%;   width: 30.7%; }
-  34%, 47%  { left: 33.7%; top: 21.4%; width: 33.6%; }
-  51%, 63%  { left: 33.7%; top: 61%;   width: 33.6%; }
-  67%, 80%  { left: 69.3%; top: 21.4%; width: 29.7%; }
-  84%, 96%  { left: 69.3%; top: 61%;   width: 29.7%; }
-  100%      { left: 1%;    top: 21.4%; width: 30.7%; }
-}
-@keyframes lv-cells-telecom {
-  0%, 13%   { left: 1%;    top: 21.4%; width: 30.7%; }
-  17%, 30%  { left: 33.7%; top: 21.4%; width: 33.6%; }
-  34%, 47%  { left: 69.3%; top: 21.4%; width: 29.7%; }
-  51%, 63%  { left: 69.3%; top: 61%;   width: 29.7%; }
-  67%, 80%  { left: 33.7%; top: 61%;   width: 33.6%; }
-  84%, 96%  { left: 1%;    top: 61%;   width: 30.7%; }
-  100%      { left: 1%;    top: 21.4%; width: 30.7%; }
-}
-/* ControlHub's bell gets a notification; TelecomHub's antenna sends. */
-.hm .lv-badge { left: 53%; top: 72.5%; width: 4.4%; height: 3.8%; border-radius: 50%; background: var(--acc); box-shadow: 0 0 0 2px #141414; transform: scale(0); }
-.hm .is-lit .lv-badge { animation: lv-badge 3s ease-out infinite; }
-@keyframes lv-badge { 0%, 30% { transform: scale(0); } 38% { transform: scale(1.35); } 44%, 88% { transform: scale(1); } 100% { transform: scale(0); } }
-.hm .lv-ring { left: 15.4%; top: 38.6%; width: 26%; height: 22.6%; margin: -11.3% 0 0 -13%; border-radius: 50%; border: 1.5px solid var(--acc); opacity: 0; }
-.hm .is-lit .lv-ring { animation: lv-ring 1.8s ease-out infinite; animation-delay: calc(var(--k) * .9s); }
-@keyframes lv-ring { 0% { transform: scale(.25); opacity: .9; } 100% { transform: scale(1); opacity: 0; } }
+/* UXHub: the data ring fills, the upgrade is pressed, the confirmation —
+   done in the app, no ticket — slides in. */
+.hm .hm-art .ha-track { fill: none; stroke: rgba(255,255,255,.1); stroke-width: 4; }
+/* Its rotate() is in the drawing's coordinates, not its own box. */
+.hm .hm-art .ha-ring { transform-box: view-box; fill: none; stroke: var(--acc); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 62 100; }
+.hm .hm-art .ha-toast { opacity: 0; }
+.hm .is-lit .hm-art .ha-ring { animation: ha-ring 6s cubic-bezier(.6,0,.3,1) infinite; }
+.hm .is-lit .hm-art .ha-btn { transform-origin: center; animation: ha-press 6s ease infinite; }
+.hm .is-lit .hm-art .ha-toast { animation: ha-toast 6s ease infinite; }
+@keyframes ha-ring { 0% { stroke-dasharray: 0 100; } 30%, 100% { stroke-dasharray: 62 100; } }
+@keyframes ha-press { 0%, 38%, 46%, 100% { transform: scale(1); } 42% { transform: scale(.95); } }
+@keyframes ha-toast { 0%, 44% { opacity: 0; transform: translateY(5px); } 52%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+
+/* ControlHub: revenue rises month by month past the cost line, and the
+   reseller's invoice turns from due to paid. */
+.hm .hm-art .ha-arrow { fill: none; stroke: rgba(255,255,255,.4); stroke-width: .9; stroke-linecap: round; stroke-linejoin: round; }
+.hm .hm-art .ha-base { stroke: rgba(255,255,255,.16); stroke-width: .7; }
+.hm .hm-art .ha-bar { fill: rgba(255,255,255,.22); transform-origin: 50% 100%; }
+.hm .hm-art .ha-bar--gain { fill: rgba(74,222,128,.55); }
+.hm .hm-art .ha-cost { fill: none; stroke: var(--acc); stroke-width: 1.3; stroke-dasharray: 3 2; }
+.hm .hm-art .ha-paid { opacity: 0; }
+.hm .is-lit .hm-art .ha-bar { animation: ha-bar 6s cubic-bezier(.3,.8,.3,1) infinite; animation-delay: calc(var(--k) * .12s); }
+.hm .is-lit .hm-art .ha-paid { animation: ha-show 6s ease infinite; }
+.hm .is-lit .hm-art .ha-due { animation: ha-hide 6s ease infinite; }
+.hm .is-lit .hm-art .ha-pulse { animation: ha-pulse 2s ease-in-out infinite; }
+@keyframes ha-bar { 0% { transform: scaleY(.08); } 22%, 100% { transform: scaleY(1); } }
+@keyframes ha-show { 0%, 55% { opacity: 0; } 62%, 94% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes ha-hide { 0%, 55% { opacity: 1; } 62%, 94% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes ha-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+
+/* TelecomHub: traffic runs from the API to Operator A, fails over to
+   Operator B halfway round, and back. */
+.hm .hm-art .ha-link { stroke: rgba(255,255,255,.14); stroke-width: .8; stroke-dasharray: 2 2; }
+.hm .hm-art .ha-route { stroke: var(--acc); stroke-width: 1.6; stroke-dasharray: 4 3; stroke-linecap: round; opacity: 0; }
+.hm .hm-art .ha-route--a { opacity: 1; }
+.hm .hm-art .ha-node { fill: #17171c; stroke: rgba(255,255,255,.14); stroke-width: .7; }
+.hm .hm-art .ha-op--a .ha-node { stroke: rgba(var(--accrgb), .8); }
+.hm .hm-art .ha-hub { fill: var(--acc); }
+.hm .hm-art .ha-chipicon { fill: none; stroke: rgba(255,255,255,.6); stroke-width: .8; stroke-linejoin: round; }
+.hm .is-lit .hm-art .ha-route { animation: ha-flow .9s linear infinite, ha-route-a 6s steps(1) infinite; }
+.hm .is-lit .hm-art .ha-route--b { animation: ha-flow .9s linear infinite, ha-route-b 6s steps(1) infinite; }
+.hm .is-lit .hm-art .ha-op--a .ha-node { animation: ha-node-a 6s steps(1) infinite; }
+.hm .is-lit .hm-art .ha-op--b .ha-node { animation: ha-node-b 6s steps(1) infinite; }
+@keyframes ha-flow { to { stroke-dashoffset: -7; } }
+@keyframes ha-route-a { 0% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes ha-route-b { 0% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes ha-node-a { 0% { stroke: rgba(var(--accrgb), .8); } 50% { stroke: rgba(255,255,255,.14); } }
+@keyframes ha-node-b { 0% { stroke: rgba(255,255,255,.14); } 50% { stroke: rgba(var(--accrgb), .8); } }
 
 /* AgentHub: the waveform, drawn live (its artwork has none). scripts/home.js
    moves the bars while the card is lit — a caller speaking in white, then the
@@ -653,8 +686,8 @@
 .hm .lv-say { position: absolute; left: 7.4%; top: 84.6%; font: 500 13.4px/1 var(--font-sans); letter-spacing: -.01em; color: #fff; white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hm .hm-iso-card, .hm .hm-iso-card img, .hm .hm-iso-face, .hm .hm-iso { transition: none; }
-  .hm .hm-iso-card.is-lit .hm-iso-trail, .hm .hm-live *, .hm .hm-iso-card img.hm-iso-dot { animation: none !important; }
+  .hm .hm-iso-card, .hm .hm-iso-card img, .hm .hm-art, .hm .hm-iso-face, .hm .hm-iso { transition: none; }
+  .hm .hm-iso-card.is-lit .hm-iso-trail, .hm .hm-live *, .hm .hm-art * { animation: none !important; }
 }
 
 /* Short laptop screens: the panel is the screen's height less the header, so
@@ -679,7 +712,7 @@
    the copy sits above it, and the steps advance on a timer instead. */
 @media (max-width: 1023px) {
   .hm .hm-how { padding: 56px 0 64px; }
-  .hm .hm-how__track { --ph: 620px; height: auto; padding: 0 24px; }
+  .hm .hm-how__track { --ph: 620px; height: auto; padding: 0 var(--rail-pad); }
   .hm .hm-how__panel { position: relative; top: auto; height: auto; grid-template-columns: minmax(0, 1fr); }
   .hm .hm-how__grid { left: 0; width: 100%; }
   .hm .hm-how__copy { padding: 40px 32px 8px; }
@@ -692,7 +725,7 @@
 /* Phones: the steps alone, every one open, and no stack. */
 @media (max-width: 767px) {
   .hm .hm-how { padding: 40px 0 48px; }
-  .hm .hm-how__track { padding: 0 16px; }
+  .hm .hm-how__track { padding: 0 var(--rail-pad); }
   .hm .hm-how__art, .hm .hm-how__grid { display: none; }
   .hm .hm-how__copy { padding: 32px 20px 28px; }
   .hm .hm-how .hm-eyebrow { justify-content: center; }

@@ -115,9 +115,9 @@
 /* ── shared pieces ─────────────────────────────────────────────── */
 
 .hm .hm-wrap {
-  max-width: 1240px;
+  max-width: var(--rail-box);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--rail-pad);
 }
 
 .hm .hm-sec {
@@ -2361,3 +2361,12 @@
   text-align: left;
 }
 
+
+/* The form keeps its 460px measure but sits against the right edge of the
+   rail beside the copy, so the section closes on the same line as the FAQ
+   above it and the footer below. */
+@media (min-width: 961px) {
+  .hm .hm-cta .hm-form {
+    margin-left: auto;
+  }
+}

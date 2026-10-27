@@ -221,32 +221,76 @@ if (stage && box && source) {
   const tabsRow = stage.querySelector('.sh-tabs');
   const card = stage.querySelector('.sh-card');
   const devices = stage.querySelector('.sh-devices');
+  // Phones show the stage at its real size (home-hero.css), not scaled.
+  const phone = window.matchMedia('(max-width: 767px)');
   const fit = () => {
-    const s = Math.min(1, (box.clientWidth || W) / W);
+    const s = phone.matches ? 1 : Math.min(1, (box.clientWidth || W) / W);
     stage.style.transform = `scale(${s})`;
     const bottom = content.offsetHeight;
-    const top = tabsRow.offsetTop + tabsRow.offsetHeight + 28;
-    const end = card.offsetTop + card.offsetHeight * 0.75;
+    // A phone's card is too narrow to stand the device on without hiding its
+    // numbers, so there it stands on the map alone.
+    const top = phone.matches ? map.offsetTop + 10 : tabsRow.offsetTop + tabsRow.offsetHeight + 28;
+    const end = phone.matches ? card.offsetTop - 6 : card.offsetTop + card.offsetHeight * 0.75;
     const ds = Math.min(1, (end - top) / 460);
     devices.style.top = `${(top + end) / 2 - 230}px`;
+    devices.style.left = `${(content.offsetWidth - 226) / 2}px`;
     devices.style.setProperty('--ds', ds.toFixed(3));
     box.style.height = `${bottom * s}px`;
-    scale = s;
     dodge();
   };
   // The device stands where the UK and France are, so a label it would cover
   // moves out from under it: a pin left of the device keeps its label on its
   // own left; a pin beneath the device has its label beside the device's right.
-  let scale = 1;
+  // A label is never pushed past either edge of the map, and one that would
+  // then sit on a label already placed drops below it, so on a phone, where
+  // the UK's and France's both end up beside the device, they stack.
   const dodge = () => {
     const d = devices.getBoundingClientRect();
+    const m = map.getBoundingClientRect();
+    // Measured, not taken from fit(): on desktop the hero is also zoomed to
+    // 110% (home-hero.css), and the margins below are set in unzoomed pixels.
+    const scale = m.width / (map.offsetWidth || m.width) || 1;
+    const gap = 4 * scale;
+    const clash = (a, b) => a.right > b.left && a.left < b.right && a.bottom > b.top && a.top < b.bottom;
+    const moved = (r, dx, dy) => ({ left: r.left + dx, right: r.right + dx, top: r.top + dy, bottom: r.bottom + dy });
+    const placed = [];
+    // Beside the device on the pin's side, else the other side; a label too
+    // wide for either — "United Kingdom · live" on a 320px phone — is set
+    // smaller and tried again.
+    const beside = (label, r) => {
+      const pin = m.left + label.offsetLeft * scale;
+      const room = side => side === 'left' ? d.left - 6 * scale - m.left : m.right - d.right - 6 * scale;
+      const first = pin < d.left ? 'left' : 'right';
+      const side = r.width <= room(first) ? first : r.width <= room(first === 'left' ? 'right' : 'left') ? (first === 'left' ? 'right' : 'left') : null;
+      if (!side) return null;
+      return side === 'left' ? Math.min(pin - 12 * scale, d.left - 6 * scale) - r.right : d.right + 6 * scale - r.left;
+    };
     for (const label of $('sh-labels').children) {
-      label.style.marginLeft = '';
-      const r = label.getBoundingClientRect();
-      if (r.right <= d.left || r.left >= d.right || r.bottom <= d.top || r.top >= d.bottom) continue;
-      const pin = r.left - 12 * scale;
-      const shift = pin < d.left ? Math.min(pin - 12 * scale, d.left - 6 * scale) - r.right : d.right + 6 * scale - r.left;
-      label.style.marginLeft = `${shift / scale}px`;
+      label.style.marginLeft = label.style.marginTop = '';
+      label.classList.remove('is-tight');
+      let r = label.getBoundingClientRect();
+      let dx = 0, dy = 0;
+      if (clash(r, d)) {
+        let shift = beside(label, r);
+        if (shift === null) {
+          label.classList.add('is-tight');
+          r = label.getBoundingClientRect();
+          shift = beside(label, r);
+        }
+        dx = shift ?? 0;
+      }
+      dx = Math.max(m.left - r.left, Math.min(m.right - r.right, dx));
+      for (let again = true; again;) {
+        again = false;
+        for (const p of placed) {
+          if (!clash(moved(r, dx, dy), p)) continue;
+          dy = p.bottom + gap - r.top;
+          again = true;
+        }
+      }
+      placed.push(moved(r, dx, dy));
+      label.style.marginLeft = dx ? `${dx / scale}px` : '';
+      label.style.marginTop = dy ? `${dy / scale}px` : '';
     }
   };
   fit();

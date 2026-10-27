@@ -487,9 +487,17 @@ function renderTable(){
 
     elements.tableBody.innerHTML = "";
 
-    state.projections.forEach(item=>{
+    const evenIndex = state.projections.findIndex(
+        (item, i) => item.cumulativeProfit >= 0 && i > 0
+    );
+
+    const sign = v => v < 0 ? "is-neg" : "is-pos";
+
+    state.projections.forEach((item, i)=>{
 
         const row = document.createElement("tr");
+
+        if(i === evenIndex) row.className = "is-even";
 
         row.innerHTML = `
 
@@ -501,9 +509,9 @@ function renderTable(){
 
             <td>${formatCurrency(item.costs)}</td>
 
-            <td>${formatCurrency(item.profit)}</td>
+            <td class="${sign(item.profit)}">${formatCurrency(item.profit)}</td>
 
-            <td>${formatCurrency(item.cumulativeProfit)}</td>
+            <td class="${sign(item.cumulativeProfit)}">${formatCurrency(item.cumulativeProfit)}</td>
 
         `;
 
@@ -554,6 +562,8 @@ function calculate(){
     renderTable();
 
     toggleDownloads(true);
+
+    renderInsights();
 
 }
 
@@ -925,6 +935,13 @@ const debouncedCalculate = debounce(calculate, 400);
 ========================================================= */
 
 elements.calculate.addEventListener("click", calculate);
+
+/* On a phone the results are below the form: take the reader to them. */
+elements.calculate.addEventListener("click", () => {
+    const results = document.querySelector(".mc-results");
+    if(!results || !state.projections.length || window.innerWidth > 900) return;
+    if(results.getBoundingClientRect().top > window.innerHeight * 0.6) results.scrollIntoView({ behavior: "smooth", block: "start" });
+});
 
 /* =========================================================
    Report Modal Controls
@@ -1378,12 +1395,234 @@ if(customSubmitBtn){
 }
 
 /* =========================================================
+   Results: verdict sentence, chart, stale notice
+========================================================= */
+
+const insight = {
+    verdict: document.getElementById("mcVerdict"),
+    chart: document.getElementById("mcChart"),
+    stale: document.getElementById("mcStale"),
+    margin: document.getElementById("mcMargin"),
+    reset: document.getElementById("mcReset"),
+    chips: document.querySelectorAll(".mc-chip[data-months]")
+};
+
+function compactCurrency(value){
+
+    const sign = value < 0 ? "-" : "";
+    const v = Math.abs(value);
+
+    if(v >= 1e6) return sign + "$" + (v / 1e6).toFixed(v >= 1e7 ? 0 : 1).replace(/\.0$/, "") + "M";
+    if(v >= 1e3) return sign + "$" + (v / 1e3).toFixed(v >= 1e4 ? 0 : 1).replace(/\.0$/, "") + "k";
+    return sign + "$" + Math.round(v);
+
+}
+
+function renderVerdict(){
+
+    if(!insight.verdict || !state.projections.length) return;
+
+    const months = state.inputs.projectionMonths;
+    const final = state.projections[state.projections.length - 1];
+    const even = state.projections.find((item, i) => item.cumulativeProfit >= 0 && i > 0);
+    const span = months === 1 ? "1 month" : months + " months";
+
+    let text;
+
+    if(even){
+        text = `You break even in <b>month ${even.month}</b> and finish ${span} <b class="mc-gain">${formatCurrency(final.cumulativeProfit)}</b> ahead.`;
+    } else if(final.profit > 0){
+        text = `You are profitable each month by the end, but still <b class="mc-loss">${formatCurrency(-final.cumulativeProfit)}</b> short of recovering your costs after ${span}. Try a longer projection.`;
+    } else {
+        text = `On these numbers you <b class="mc-loss">do not break even</b>: costs outrun revenue every month. Raise ARPU or growth, or lower costs.`;
+    }
+
+    insight.verdict.innerHTML = text;
+
+}
+
+function renderChart(){
+
+    const el = insight.chart;
+
+    if(!el || !state.projections.length) return;
+
+    const data = state.projections;
+    // Drawn at the size it is shown, so the axis text stays 11px on a phone.
+    const W = Math.round(el.clientWidth) || 640;
+    const H = W < 520 ? 210 : Math.round(W * 240 / 640);
+    const L = 56, R = 12, T = 14, B = 28;
+    const values = data.map(d => d.cumulativeProfit).concat(-state.inputs.upfrontCosts, 0);
+    const min = Math.min(...values), max = Math.max(...values);
+
+    // Round axis steps (1, 2, 2.5 or 5 x 10^n), always through $0.
+    const raw = Math.max(max - min, 1) / 4;
+    const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const tick = [1, 2, 2.5, 5, 10].map(f => f * mag).find(t => t >= raw);
+    const lo = Math.floor(min / tick) * tick, hi = Math.ceil(max / tick) * tick;
+
+    const n = data.length;
+    const x = i => L + (n === 1 ? (W - L - R) / 2 : (i / (n - 1)) * (W - L - R));
+    const y = v => T + (hi - v) / (hi - lo) * (H - T - B);
+    const zero = y(0);
+
+    const pts = data.map((d, i) => [x(i), y(d.cumulativeProfit)]);
+    const line = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+    const area = line + ` L${pts[n - 1][0].toFixed(1)} ${zero.toFixed(1)} L${pts[0][0].toFixed(1)} ${zero.toFixed(1)} Z`;
+
+    const ticks = [];
+    for(let t = lo; t <= hi + tick / 2; t += tick) ticks.push(Math.abs(t) < tick / 1e6 ? 0 : t);
+    const step = Math.max(1, Math.ceil(n / 8));
+
+    const even = data.findIndex((d, i) => d.cumulativeProfit >= 0 && i > 0);
+
+    el.style.height = H + "px";
+    let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true">`;
+    svg += `<defs><clipPath id="mcAbove"><rect x="0" y="0" width="${W}" height="${zero.toFixed(1)}"/></clipPath>`;
+    svg += `<clipPath id="mcBelow"><rect x="0" y="${zero.toFixed(1)}" width="${W}" height="${(H - zero).toFixed(1)}"/></clipPath></defs>`;
+    ticks.forEach(t => {
+        svg += `<line class="mc-grid-l" x1="${L}" x2="${W - R}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}"/>`;
+        svg += `<text class="mc-ax" x="${L - 8}" y="${(y(t) + 4).toFixed(1)}" text-anchor="end">${compactCurrency(t)}</text>`;
+    });
+    svg += `<path class="mc-area mc-area--gain" d="${area}" clip-path="url(#mcAbove)"/>`;
+    svg += `<path class="mc-area mc-area--loss" d="${area}" clip-path="url(#mcBelow)"/>`;
+    svg += `<line class="mc-zero" x1="${L}" x2="${W - R}" y1="${zero.toFixed(1)}" y2="${zero.toFixed(1)}"/>`;
+    svg += `<path class="mc-line mc-line--gain" d="${line}" clip-path="url(#mcAbove)"/>`;
+    svg += `<path class="mc-line mc-line--loss" d="${line}" clip-path="url(#mcBelow)"/>`;
+    data.forEach((d, i) => {
+        if(i % step && i !== n - 1) return;
+        svg += `<text class="mc-ax" x="${x(i).toFixed(1)}" y="${H - 8}" text-anchor="middle">${d.month}</text>`;
+    });
+    svg += `</svg>`;
+
+    let marker = "";
+    if(even !== -1){
+        const left = x(even) / W * 100, top = y(data[even].cumulativeProfit) / H * 100;
+        marker = `<span class="mc-mark" style="left:${left.toFixed(2)}%;top:${top.toFixed(2)}%"></span>` +
+            `<span class="mc-mark-label${x(even) + 170 > W ? " is-left" : ""}" style="left:${left.toFixed(2)}%;top:${top.toFixed(2)}%">Break-even · month ${data[even].month}</span>`;
+    }
+
+    el.innerHTML = svg + marker;
+    el.setAttribute("aria-label", "Cumulative profit by month, from " + formatCurrency(data[0].cumulativeProfit) + " in month 1 to " + formatCurrency(data[n - 1].cumulativeProfit) + " in month " + data[n - 1].month + (even !== -1 ? ", breaking even in month " + data[even].month : ", not breaking even") + ".");
+
+}
+
+if(insight.chart && "ResizeObserver" in window){
+    let lastWidth = 0;
+    new ResizeObserver(() => {
+        const w = Math.round(insight.chart.clientWidth);
+        if(w && w !== lastWidth){ lastWidth = w; renderChart(); }
+    }).observe(insight.chart);
+}
+
+/* Where the sticky results stop: just under the site header, whatever its
+   height at this width. */
+const siteHeader = document.querySelector(".sn");
+let stickyTop = -1;
+const setStickyTop = () => {
+    const bottom = siteHeader ? Math.max(0, siteHeader.getBoundingClientRect().bottom) : 0;
+    const top = Math.round((bottom < 200 ? bottom : 0) + 16);
+    if(top === stickyTop) return;
+    stickyTop = top;
+    document.querySelector(".mc")?.style.setProperty("--mc-top", top + "px");
+};
+setStickyTop();
+window.addEventListener("resize", setStickyTop);
+// The header changes height once the page scrolls (.is-scrolled).
+let stickyFrame = 0;
+window.addEventListener("scroll", () => {
+    if(!stickyFrame) stickyFrame = requestAnimationFrame(() => { stickyFrame = 0; setStickyTop(); });
+}, { passive: true });
+
+function renderMargin(){
+
+    if(!insight.margin) return;
+
+    const arpu = Number(elements.arpu.value), acpu = Number(elements.acpu.value);
+
+    if(elements.arpu.value === "" || elements.acpu.value === ""){
+        insight.margin.textContent = "";
+        return;
+    }
+
+    const m = arpu - acpu;
+    const pct = arpu > 0 ? Math.round(m / arpu * 100) : 0;
+    insight.margin.className = "mc-margin " + (m > 0 ? "is-gain" : "is-loss");
+    insight.margin.textContent = m > 0
+        ? `Margin per subscriber: ${formatCurrency(m)}/mo (${pct}%)`
+        : `Each subscriber costs more than they pay: ${formatCurrency(m)}/mo`;
+
+}
+
+function setStale(on){
+
+    if(insight.stale) insight.stale.hidden = !on;
+    document.querySelector(".mc-results")?.classList.toggle("is-stale", on);
+
+}
+
+function syncChips(){
+
+    insight.chips.forEach(chip => {
+        const on = chip.dataset.months === String(elements.months.value);
+        chip.classList.toggle("is-on", on);
+        chip.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+
+}
+
+function renderInsights(){
+
+    renderVerdict();
+    renderChart();
+    setStale(false);
+    syncChips();
+
+}
+
+/* Results update when asked (see the note above), so a changed figure marks
+   them out of date instead of recalculating them. */
+liveInputs.forEach(input => {
+
+    input.addEventListener("input", () => {
+        setStale(true);
+        renderMargin();
+        syncChips();
+    });
+
+    input.addEventListener("keydown", e => {
+        if(e.key === "Enter"){
+            e.preventDefault();
+            calculate();
+        }
+    });
+
+});
+
+insight.chips.forEach(chip => chip.addEventListener("click", () => {
+    elements.months.value = chip.dataset.months;
+    calculate();
+}));
+
+if(insight.reset) insight.reset.addEventListener("click", () => {
+    liveInputs.forEach(input => { input.value = input.defaultValue; });
+    renderMargin();
+    calculate();
+});
+
+elements.form.addEventListener("submit", e => {
+    e.preventDefault();
+    calculate();
+});
+
+/* =========================================================
    Initial Render (Auto Run with Default Values)
 ========================================================= */
 
 function init(){
 
     // Run initial calculation using default input values
+    renderMargin();
     calculate();
 
     // Ensure downloads state is correct

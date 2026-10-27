@@ -1,0 +1,139 @@
+---
+/**
+ * The artwork on the UXHub, ControlHub and TelecomHub cards in the Spenza
+ * advantage stack, each a picture of what that hub does:
+ *
+ *   UXHub       a subscriber's branded self-service app — data left, the plan,
+ *               an upgrade done in the app with no support ticket
+ *   ControlHub  the money — wholesale cost, your price and the margin between,
+ *               revenue against cost, a reseller invoice settling
+ *   TelecomHub  the network — one API routing to several operators, the live
+ *               route failing over, the call that sets it
+ *
+ * Drawn flat in the card's own 160x184 box: the card is skewed into the
+ * isometric stack (home-sections.css), and so is everything inside it. The
+ * motion is CSS, and runs only while the card is lit.
+ */
+interface Props { hub: 'ux' | 'control' | 'telecom' }
+const { hub } = Astro.props;
+const label = { ux: 'UXHUB · BRAND', control: 'CONTROLHUB · CONTROL', telecom: 'TELECOMHUB · NETWORK' }[hub];
+---
+
+<svg class={`hm-art hm-art--${hub}`} viewBox="0 0 160 184" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id={`ha-bg-${hub}`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16161b" />
+      <stop offset="1" stop-color="#0a0a0d" />
+    </linearGradient>
+  </defs>
+  <rect class="ha-bg" x="0" y="0" width="160" height="184" rx="8" fill={`url(#ha-bg-${hub})`} />
+  <text class="ha-label" x="11" y="19">{label}</text>
+  <line class="ha-rule" x1="0" x2="160" y1="29" y2="29" />
+
+  {hub === 'ux' && (
+    <g>
+      <rect class="ha-panel" x="10" y="37" width="140" height="139" rx="7" />
+      <rect class="ha-acc-fill" x="18" y="45" width="9" height="9" rx="2.5" />
+      <text class="ha-t ha-b" x="31" y="52.5">YourBrand</text>
+      <text class="ha-t ha-m ha-end" x="142" y="52.5">Hi, Alex</text>
+
+      <circle class="ha-track" cx="38" cy="84" r="15" />
+      <circle class="ha-ring" cx="38" cy="84" r="15" pathLength="100" transform="rotate(-90 38 84)" />
+      <text class="ha-t ha-mono ha-mid" x="38" y="86.5">62%</text>
+      <text class="ha-t ha-xl" x="62" y="81">18.6 GB</text>
+      <text class="ha-t ha-m" x="62" y="91">left of 30 GB this cycle</text>
+
+      <rect class="ha-row" x="18" y="106" width="124" height="16" rx="4" />
+      <text class="ha-t ha-b" x="24" y="116.5">Unlimited 5G</text>
+      <rect class="ha-chip-ok" x="114" y="110" width="23" height="8" rx="4" />
+      <text class="ha-t ha-xs ha-ok ha-mid" x="125.5" y="116">active</text>
+
+      <g class="ha-btn">
+        <rect class="ha-acc-fill" x="18" y="128" width="124" height="17" rx="4" />
+        <text class="ha-t ha-b ha-w ha-mid" x="80" y="139">Upgrade plan</text>
+      </g>
+
+      <g class="ha-toast">
+        <rect class="ha-row" x="18" y="151" width="124" height="17" rx="4" />
+        <circle class="ha-ok-fill" cx="28" cy="159.5" r="4.2" />
+        <path class="ha-tick" d="M26 159.6 l1.4 1.4 2.6 -2.8" />
+        <text class="ha-t ha-b" x="36" y="161.8">Plan upgraded</text>
+        <text class="ha-t ha-m ha-end" x="137" y="161.8">no ticket</text>
+      </g>
+    </g>
+  )}
+
+  {hub === 'control' && (
+    <g>
+      <rect class="ha-row" x="10" y="37" width="40" height="27" rx="4" />
+      <text class="ha-t ha-xs ha-m" x="15" y="46">WHOLESALE</text>
+      <text class="ha-t ha-lg" x="15" y="58">$4.00</text>
+      <path class="ha-arrow" d="M52.5 50.5 h5 m-2 -2 l2 2 -2 2" />
+      <rect class="ha-row ha-row--acc" x="60" y="37" width="40" height="27" rx="4" />
+      <text class="ha-t ha-xs ha-m" x="65" y="46">YOUR PLAN</text>
+      <text class="ha-t ha-lg ha-acc" x="65" y="58">$10.00</text>
+      <path class="ha-arrow" d="M102.5 50.5 h5 m-2 -2 l2 2 -2 2" />
+      <rect class="ha-row" x="110" y="37" width="40" height="27" rx="4" />
+      <text class="ha-t ha-xs ha-m" x="115" y="46">MARGIN</text>
+      <text class="ha-t ha-lg ha-ok ha-pulse" x="115" y="58">60%</text>
+
+      <text class="ha-t ha-xs ha-m" x="11" y="78">REVENUE VS COST · 6 MO</text>
+      <line class="ha-base" x1="11" x2="149" y1="134" y2="134" />
+      {[20, 26, 32, 38, 45, 52].map((h, k) => (
+        <rect class={`ha-bar${k >= 2 ? ' ha-bar--gain' : ''}`} x={14 + k * 23} y={134 - h} width="15" height={h} rx="2" style={`--k:${k}`} />
+      ))}
+      <path class="ha-cost" d="M21.5 106 L44.5 105 L67.5 104 L90.5 103 L113.5 102 L136.5 101" />
+      <text class="ha-t ha-xs ha-acc" x="13" y="102">cost</text>
+
+      <rect class="ha-row" x="10" y="144" width="140" height="28" rx="5" />
+      <text class="ha-t ha-b" x="17" y="155.5">INV-1042 · Reseller A</text>
+      <text class="ha-t ha-m" x="17" y="165.5">312 lines · October</text>
+      <text class="ha-t ha-b ha-end" x="143" y="155.5">$12,480</text>
+      <g class="ha-paid">
+        <rect class="ha-chip-ok" x="122" y="159" width="21" height="8" rx="4" />
+        <text class="ha-t ha-xs ha-ok ha-mid" x="132.5" y="165">Paid</text>
+      </g>
+      <g class="ha-due">
+        <rect class="ha-chip-due" x="122" y="159" width="21" height="8" rx="4" />
+        <text class="ha-t ha-xs ha-m ha-mid" x="132.5" y="165">Due</text>
+      </g>
+    </g>
+  )}
+
+  {hub === 'telecom' && (
+    <g>
+      {[[33, 56], [127, 56], [33, 120], [127, 120]].map(([x, y]) => (
+        <line class="ha-link" x1="80" y1="88" x2={x} y2={y} />
+      ))}
+      <line class="ha-route ha-route--a" x1="80" y1="88" x2="33" y2="56" />
+      <line class="ha-route ha-route--b" x1="80" y1="88" x2="127" y2="56" />
+
+      {[
+        ['Operator A', '5G', 33, 56, 'a'],
+        ['Operator B', 'LTE', 127, 56, 'b'],
+        ['Operator C', '5G', 33, 120, ''],
+        ['Operator D', 'NB-IoT', 127, 120, ''],
+      ].map(([name, net, x, y, live]) => (
+        <g class={`ha-op${live ? ` ha-op--${live}` : ''}`}>
+          <rect class="ha-node" x={Number(x) - 22} y={Number(y) - 10} width="44" height="20" rx="4" />
+          <text class="ha-t ha-b ha-mid" x={x} y={Number(y) - 1}>{name}</text>
+          <text class="ha-t ha-xs ha-m ha-mid" x={x} y={Number(y) + 7}>{net}</text>
+        </g>
+      ))}
+
+      <rect class="ha-hub" x="54" y="78" width="52" height="20" rx="5" />
+      <text class="ha-t ha-b ha-w ha-mid" x="80" y="90.8">Spenza API</text>
+
+      <g class="ha-sim">
+        <rect class="ha-row" x="60" y="108" width="40" height="22" rx="4" />
+        <path class="ha-chipicon" d="M66 113 h7 l3 3 v9 h-10 z M68 119 h6 M68 122 h6" />
+        <text class="ha-t ha-xs ha-m" x="80" y="117">eSIM</text>
+        <text class="ha-t ha-xs ha-ok" x="80" y="125">live</text>
+      </g>
+
+      <rect class="ha-row" x="10" y="140" width="140" height="32" rx="5" />
+      <text class="ha-t ha-mono ha-m" x="16" y="152">PATCH /v1/sims/:id</text>
+      <text class="ha-t ha-mono" x="16" y="164">{'{ routing: '}<tspan class="ha-acc">"auto"</tspan>{' }'}</text>
+    </g>
+  )}
+</svg>
