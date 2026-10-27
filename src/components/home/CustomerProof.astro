@@ -1,7 +1,6 @@
 ---
 /**
- * Customer proof: three case studies in a carousel, the headline numbers, and
- * the customer logos. Design from the Figma file's "Spenza Homepage / Backup"
+ * Customer proof: three case studies in a carousel. Design from the Figma file's "Spenza Homepage / Backup"
  * frame; copy is the live site's. Styles in styles/home-sections.css.
  *
  * Every card is in the markup; the carousel (scripts/home.js) only moves them.
@@ -10,12 +9,10 @@
  */
 import arrowNext from '../../assets/home/sz/arrow-next.svg?url';
 import arrowPrev from '../../assets/home/sz/arrow-prev.svg?url';
-import divider from '../../assets/home/sz/divider-dashed.svg?url';
 import eyebrowDot from '../../assets/home/sz/eyebrow-dot.svg?url';
 import glowBr from '../../assets/home/sz/glow-br.svg?url';
 import glowC from '../../assets/home/sz/glow-c.svg?url';
 import glowTl from '../../assets/home/sz/glow-tl.svg?url';
-import { LOGOS, logoHtml } from './logos';
 
 const cases = [
   {
@@ -56,17 +53,10 @@ const cases = [
 const SMALL = new Set(['Shopify', 'Branded', 'Multi-tier']);
 const ROW_LABELS = ['STARTING POINT', 'WHAT MOVED', 'WHAT CHANGED'];
 
-const stats = [
-  ['88', '%', 'Faster to launch a new market than building the carrier stack yourself'],
-  ['180', '+', 'Countries with local operator access'],
-  ['30', '+', 'Pre-built operator integrations'],
-  ['30', '%', 'Typical connectivity cost reduction after routing and plan right-sizing'],
-];
-const logos = LOGOS.map(logo => logoHtml(logo, { scale: 0.7 })).join('');
 ---
 
-<section class="sz-proof" id="customers" aria-labelledby="sz-proof-title">
-  <div class="sz-proof__bezel">
+<section class="sz-proof" id="customers" aria-labelledby="sz-proof-title" data-fit>
+  <div class="sz-proof__bezel" data-fit-box>
     <div class="sz-proof__panel">
       <img class="sz-proof__glow sz-proof__glow--tl" src={glowTl} alt="" aria-hidden="true" />
       <img class="sz-proof__glow sz-proof__glow--c" src={glowC} alt="" aria-hidden="true" />
@@ -84,13 +74,20 @@ const logos = LOGOS.map(logo => logoHtml(logo, { scale: 0.7 })).join('');
       </div>
 
       <div class="sz-car" data-active="0">
-        <div class="sz-car__tabs" role="tablist" aria-label="Customer stories">
-          {cases.map((c, i) => (
-            <button class="sz-car__tab" type="button" role="tab" id={`sz-tab-${c.id}`} aria-controls={`sz-case-${c.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
-              <span class="sz-car__mono" aria-hidden="true">{c.mono}</span>
-              <span class="sz-car__tablabel"><span class="sz-car__tabname">{c.name}</span><span class="sz-car__tabsub">{c.sub}</span></span>
-            </button>
-          ))}
+        <div class="sz-car__bar">
+          <div class="sz-car__tabs" role="tablist" aria-label="Customer stories">
+            {cases.map((c, i) => (
+              <button class="sz-car__tab" type="button" role="tab" id={`sz-tab-${c.id}`} aria-controls={`sz-case-${c.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
+                <span class="sz-car__mono" aria-hidden="true">{c.mono}</span>
+                <span class="sz-car__tablabel"><span class="sz-car__tabname">{c.name}</span><span class="sz-car__tabsub">{c.sub}</span></span>
+              </button>
+            ))}
+          </div>
+          <div class="sz-car__controls">
+            <button class="sz-car__btn sz-car__btn--prev" type="button" aria-label="Previous story"><img src={arrowPrev} alt="" width="18" height="18" /></button>
+            <p class="sz-car__count" aria-live="polite"><span class="sz-car__now">01</span>&nbsp; / &nbsp;03</p>
+            <button class="sz-car__btn sz-car__btn--next" type="button" aria-label="Next story"><img src={arrowNext} alt="" width="18" height="18" /></button>
+          </div>
         </div>
         <div class="sz-car__stage">
           {cases.map((c, i) => (
@@ -119,20 +116,6 @@ const logos = LOGOS.map(logo => logoHtml(logo, { scale: 0.7 })).join('');
           <span class="sz-car__fade sz-car__fade--l" aria-hidden="true"></span>
           <span class="sz-car__fade sz-car__fade--r" aria-hidden="true"></span>
         </div>
-        <div class="sz-car__controls">
-          <button class="sz-car__btn sz-car__btn--prev" type="button" aria-label="Previous story"><img src={arrowPrev} alt="" width="18" height="18" /></button>
-          <p class="sz-car__count" aria-live="polite"><span class="sz-car__now">01</span>&nbsp; / &nbsp;03</p>
-          <button class="sz-car__btn sz-car__btn--next" type="button" aria-label="Next story"><img src={arrowNext} alt="" width="18" height="18" /></button>
-        </div>
-      </div>
-
-      <img class="sz-proof__divider" src={divider} alt="" aria-hidden="true" width="1176" height="1" />
-      <ul class="sz-proof__stats">
-        {stats.map(([n, unit, label]) => <li><p class="sz-num"><b>{n}</b><span>{unit}</span></p><p>{label}</p></li>)}
-      </ul>
-      <div class="sz-proof__logos">
-        <div class="sz-proof__logolabel">CONNECTIVITY BEHIND</div>
-        <div class="sz-proof__logorow" set:html={logos} />
       </div>
     </div>
   </div>

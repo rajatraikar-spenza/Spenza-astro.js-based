@@ -2370,3 +2370,15 @@
     margin-left: auto;
   }
 }
+
+/* The Platform section fits the window under the header on a desktop:
+   scripts/home.js sets --k from 0 (already fits) to 1 (tightest), measured
+   with the tallest hub screen showing, and the head, tabs and panel close up
+   by their share of it. */
+@media (min-width: 961px) {
+  #platform { --k: 0; --hm-head-space: calc(48px - 24px * var(--k)); content-visibility: visible; contain-intrinsic-size: none; }
+  #platform .hm-h2 { font-size: calc(clamp(34px, 4vw, 58px) * (1 - .2 * var(--k))); }
+  #platform .hm-tab { padding-block: calc(16px - 6px * var(--k)) calc(17px - 6px * var(--k)); }
+  #platform .hm-panel { min-height: calc(460px - 100px * var(--k)); padding-block: calc(28px - 10px * var(--k)); }
+  #platform .hm-route:not(.hm-route--head) { padding-block: calc(14px - 5px * var(--k)); }
+}

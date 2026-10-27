@@ -265,12 +265,12 @@
   margin-top: 19px; font-family: var(--display) !important; font-weight: 600; font-size: 28px; line-height: 34px;
   letter-spacing: -.56px; color: #171717; font-variation-settings: "opsz" 14, "wdth" 100;
 }
-.hm .sz-num, .hm .sz-case__big {
+.hm .sz-case__big {
   display: flex; align-items: baseline; gap: 3px;
   font-family: var(--serif) !important; font-weight: 400;
 }
 .hm .sz-case__big { margin: -6px 0 0 -2px; font-size: 112px; line-height: 112px; letter-spacing: -2.24px; }
-.hm .sz-case__big b, .hm .sz-num b {
+.hm .sz-case__big b {
   font-weight: 400; background: linear-gradient(to bottom, #171717, #7a736b);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
@@ -332,18 +332,87 @@
 .hm .sz-car__btn--next:is(:hover, :focus, :active) { background: #2e2a26; }
 .hm .sz-car__count { font-family: var(--mono) !important; font-size: 12px; color: #57534e; white-space: pre; }
 
-.hm .sz-proof__divider { position: relative; display: block; width: 100%; height: 1px; margin-top: 72px; }
-.hm .sz-proof__stats { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 36px; }
-.hm .sz-proof__stats li { min-height: 170px; }
-.hm .sz-proof__stats li + li { position: relative; padding-left: 28px; }
-.hm .sz-proof__stats li + li::before { content: ""; position: absolute; left: 0; top: 6px; height: 150px; width: 1px; background: #ddd5ca; }
-.hm .sz-num { font-size: 84px; line-height: 84px; letter-spacing: -1.68px; }
-.hm .sz-num span { font-style: italic; font-size: 44px; letter-spacing: 0; color: #c93600; align-self: flex-start; margin-top: 10px; line-height: normal; }
-.hm .sz-proof__stats li > p:last-child { margin-top: 14px; max-width: 228px; font-family: var(--sans) !important; font-size: 14px; line-height: 21px; color: #57534e; }
+
+/* The story tabs and the arrows share one bar: tabs from the left edge of the
+   copy, arrows at the right. On tablets and phones the bar dissolves and the
+   arrows go back under the card. */
+.hm .sz-car__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 72px; }
+.hm .sz-car__bar .sz-car__tabs { justify-content: flex-start; }
+.hm .sz-car__bar .sz-car__controls { margin-top: 0; flex: none; }
+@media (min-width: 1101px) and (max-width: 1179px) {
+  .hm .sz-car__bar .sz-car__count { display: none; }
+}
+@media (min-width: 961px) and (max-width: 1100px) {
+  .hm .sz-car__bar .sz-car__tabs { justify-content: center; }
+}
+
+/* Fitting the window: from the eyebrow to the bottom of the card, the whole
+   section fits in the window under the header. scripts/home.js sets --k,
+   from 0 when it already fits to 1 at the tightest, and each vertical measure
+   closes up by its share of that. The cards share one grid cell, so the stage
+   is as tall as the tallest story and no card can clip its own content; --pos
+   still slides them, through the relative offset. */
+@media (min-width: 1101px) {
+  .hm .sz-proof { --k: 0; content-visibility: visible; contain-intrinsic-size: none; padding-block: calc(84px - 52px * var(--k)); }
+  .hm .sz-proof__panel { padding-top: calc(88px - 60px * var(--k)); padding-bottom: calc(34px - 12px * var(--k)); }
+  .hm .sz-proof__title { margin-top: calc(21px - 9px * var(--k)); font-size: calc(62px - 16px * var(--k)); line-height: 1.06; }
+  .hm .sz-proof__title em { font-size: 1.1em; }
+  .hm .sz-proof__intro { padding-top: calc(72px - 72px * var(--k)); }
+  .hm .sz-proof__head { align-items: flex-end; }
+  .hm .sz-car { margin-top: calc(42px - 28px * var(--k)); }
+  .hm .sz-car__btn { width: calc(48px - 8px * var(--k)); height: calc(48px - 8px * var(--k)); }
+  .hm .sz-car__stage { display: grid; height: auto; margin-top: calc(38px - 26px * var(--k)); }
+  .hm .sz-case { position: relative; grid-area: 1 / 1; top: auto; height: auto; min-height: calc(560px - 560px * var(--k)); padding: calc(23px - 7px * var(--k)) calc(23px - 7px * var(--k)) calc(23px - 7px * var(--k)) 39px; }
+  .hm .sz-car__fade { height: calc(100% + 40px); }
+  .hm .sz-case__main { width: min(calc(440px + 40px * var(--k)), 52%); padding-top: calc(16px - 14px * var(--k)); }
+  .hm .sz-case__desc { width: auto; max-width: 420px; margin-top: calc(12px - 6px * var(--k)); }
+  .hm .sz-case__name { margin-top: calc(19px - 11px * var(--k)); }
+  .hm .sz-case__big { height: auto; font-size: calc(112px - 48px * var(--k)); line-height: 1; }
+  .hm .sz-case__big span { font-size: .5em; }
+  .hm .sz-case__big span.is-word { font-size: .36em; }
+  .hm .sz-case__rows { margin-top: calc(20px - 10px * var(--k)); }
+  .hm .sz-case__rows div { grid-template-columns: calc(138px - 26px * var(--k)) 1fr; padding-block: calc(13px - 8px * var(--k)); }
+  .hm .sz-case__proof { padding-top: calc(73px - 19px * var(--k)); }
+  .hm .sz-case__quote { min-height: calc(162px - 162px * var(--k)); margin-bottom: calc(6px * var(--k)); font-size: calc(27px - 5px * var(--k)); line-height: 1.22; }
+  .hm .sz-case__stats { margin-top: calc(23px - 11px * var(--k)); }
+  .hm .sz-case__stats li { height: auto; min-height: calc(104px - 20px * var(--k)); }
+  .hm .sz-case__runs { margin-top: calc(64px - 52px * var(--k)); }
+}
+
+/* The Alternatives board, fitted the same way: the headline takes two lines
+   instead of three, and the rows, the board's head and the callout close up
+   by their share of --k. Its focus band follows the rows' real height. */
+@media (min-width: 1101px) {
+  .hm .sz-alt { --k: 0; content-visibility: visible; contain-intrinsic-size: none; padding-block: calc(101px - 61px * var(--k)) calc(100px - 60px * var(--k)); }
+  .hm .sz-alt__headblock { width: 568px; }
+  /* Closed up, the headline takes two lines: its first break goes. */
+  .hm .sz-alt[data-fit-tight] .sz-alt__headblock { flex: 1 1 auto; width: auto; min-width: 0; }
+  .hm .sz-alt[data-fit-tight] .sz-alt__title br:first-of-type { display: none; }
+  .hm .sz-alt__title { margin-top: calc(22px - 10px * var(--k)); font-size: calc(57.6px - 12px * var(--k)); }
+  .hm .sz-alt__title em { font-size: calc(64.512px - 13px * var(--k)); }
+  .hm .sz-alt__lede { width: calc(480px - 80px * var(--k)); min-height: calc(174px - 174px * var(--k)); }
+  .hm .sz-cmp { margin-top: calc(48px - 28px * var(--k)); padding: calc(28px - 8px * var(--k)) 0 calc(85px - 33px * var(--k)); }
+  .hm .sz-cmp__tray, .hm .sz-cmp__frame { top: calc(28px - 8px * var(--k)); bottom: calc(84px - 33px * var(--k)); }
+  .hm .sz-cmp__top { height: calc(91px - 27px * var(--k)); }
+  .hm .sz-cmp__compare { padding-top: calc(43px - 18px * var(--k)); }
+  .hm .sz-cmp__c1, .hm .sz-cmp__c2 { padding-top: calc(25px - 10px * var(--k)); }
+  .hm .sz-cmp__c3 { padding-top: calc(20.5px - 8px * var(--k)); }
+  .hm .sz-cmp__row { min-height: calc(78px - 32px * var(--k)); padding-top: calc(18px - 8px * var(--k)); }
+  .hm .sz-cmp__alt p, .hm .sz-cmp__sz p { line-height: calc(20px - 2px * var(--k)); }
+  .hm .sz-cmp__sz { margin-top: calc(-18px + 8px * var(--k)); padding-top: calc(18px - 8px * var(--k)); }
+  .hm .sz-cmp__check { top: calc(19px - 8px * var(--k)); }
+  .hm .sz-cmp__row.is-on .sz-cmp__check { top: calc(18px - 8px * var(--k)); }
+  .hm .sz-cmp__hubs { bottom: calc(41px - 20px * var(--k)); }
+  .hm .sz-alt__callout { margin-top: calc(40px - 24px * var(--k)); padding-block: calc(26px - 10px * var(--k)); }
+  .hm .sz-alt__callbody { max-width: calc(640px + 400px * var(--k)); }
+}
 
 /* ── Tablet and phone ─────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
+  .hm .sz-car { display: flex; flex-direction: column; }
+  .hm .sz-car__bar { display: contents; }
+  .hm .sz-car__bar .sz-car__controls { order: 1; margin-top: 44px; }
   .hm .sz-alt__head, .hm .sz-proof__head { flex-direction: column; align-items: flex-start; gap: 24px; }
   .hm .sz-alt__lede { width: auto; min-height: 0; max-width: 640px; }
   .hm .sz-proof__intro { width: auto; max-width: 560px; padding-top: 0; }
@@ -417,14 +486,7 @@
   .hm .sz-case__stats { grid-template-columns: 1fr 1fr; }
   .hm .sz-case__stats li { height: auto; min-height: 96px; }
   .hm .sz-case__runs { flex-wrap: wrap; }
-  .hm .sz-car__controls { margin-top: 24px; }
-  .hm .sz-proof__divider { margin-top: 36px; }
-  .hm .sz-proof__stats { grid-template-columns: 1fr 1fr; gap: 28px 16px; margin-top: 28px; }
-  .hm .sz-proof__stats li { min-height: 0; }
-  .hm .sz-proof__stats li + li { padding-left: 0; }
-  .hm .sz-proof__stats li + li::before { display: none; }
-  .hm .sz-num { font-size: 60px; line-height: 64px; }
-  .hm .sz-num span { font-size: 32px; margin-top: 6px; }
+  .hm .sz-car__bar .sz-car__controls { margin-top: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -433,17 +495,6 @@
 
 .hm :where(.sz-proof) :where(blockquote, h3) { border: 0; quotes: none; font-style: normal; background: none; }
 .hm .sz-proof blockquote::before, .hm .sz-proof blockquote::after { content: none; }
-
-/* Customer logos, as on the live section: a quiet row under the stats. */
-.hm .sz-proof__logos { position: relative; display: flex; align-items: center; gap: 40px; margin-top: 8px; padding-top: 28px; border-top: 1px dashed #ddd5ca; }
-.hm .sz-proof__logolabel { flex: none; font-family: var(--mono) !important; font-size: 12px; letter-spacing: .72px; color: #8a847c; }
-.hm .sz-proof__logorow { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
-.hm .sz-proof__logorow img { display: block; height: 27px; width: auto; max-width: 120px; object-fit: contain; filter: grayscale(1); opacity: .65; mix-blend-mode: multiply; transition: opacity .2s, filter .2s; }
-.hm .sz-proof__logorow img:hover { filter: none; opacity: 1; }
-@media (max-width: 960px) {
-  .hm .sz-proof__logos { flex-direction: column; align-items: flex-start; gap: 18px; }
-  .hm .sz-proof__logorow { justify-content: flex-start; gap: 20px 24px; }
-}
 
 
 /* The Spenza advantage, as a "how it works" walkthrough (Advantage.astro):
