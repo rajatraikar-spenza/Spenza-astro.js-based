@@ -46,9 +46,15 @@ interface Props {
   demoPopup?: boolean;
   /** Whether to load Swiper, for the same kind of page. See `needsSwiper`. */
   swiper?: boolean;
+  /**
+   * Fit every section in the window on a desktop (scripts/fit-window.js,
+   * `fitAuto`): a section taller than the window closes up its spacing until
+   * it fits. For pages whose CSS does not size sections to the window itself.
+   */
+  fit?: boolean;
 }
 
-const { slug, title, description, indexable = true, demoPopup, swiper } = Astro.props;
+const { slug, title, description, indexable = true, demoPopup, swiper, fit } = Astro.props;
 
 type PageMeta = { id?: string; title: string; description: string; bodyClass: string };
 
@@ -222,7 +228,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
 
     <SiteNav />
 
-    <main id="wp-main">
+    <main id="wp-main" data-fit-auto={fit ? '' : undefined}>
       <slot />
     </main>
 
@@ -234,5 +240,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
       subtree is not painted — which is indistinguishable from a dead button.
     */}
     {hasDemoButton && <Fragment set:html={demoPopupHtml} />}
+
+    {/* Does nothing unless `fit` put data-fit-auto on <main>. */}
+    <script>
+      import { fitAuto } from '../scripts/fit-window.js';
+      fitAuto();
+    </script>
   </body>
 </html>

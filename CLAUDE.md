@@ -43,6 +43,66 @@ would silently discard everything since the import. Do not run them. The ones
 that remain in use are the headless-blog and deployment paths — `wp:posts`,
 `wp:media-sync-s3`, `wp:media-manifest`, `wp:verify-dist`, `wp:audit*`.
 
+## Layout rules for every page
+
+Two rules hold on every page, and any change to a page or any new page must
+keep them. Check both before calling a layout change done.
+
+**1. One content rail.** The header, the hero, every section and the footer
+share one content width, so scrolling reads as one straight road with no
+section stepping in or out. It is the footer's measure: 1280px of content,
+centred, never closer than 20px to the window edge.
+
+- The tokens are in `src/styles/rail.css` (loaded by `SiteNav`, so on every
+  page): `--rail` (1280px), `--rail-pad` (20px), `--rail-box` (the two
+  together). A section's container takes `max-width: var(--rail-box)` and
+  `padding-inline: var(--rail-pad)`; a bordered or filled card spanning a
+  section takes `max-width: var(--rail)`, so its edge sits on the line. Never
+  hard-code a container width (1140, 1200, 1240…) or a side padding.
+- `rail.css` also puts the Elementor pages on the rail (top-level containers,
+  legacy sections and columns, card rows, the legal template). A new Elementor
+  page gets that for free; a hand-built page uses the tokens.
+- A padding shorthand (`padding: 88px 0`) on a rail container zeroes its side
+  padding. Set `padding-block` instead — that bug once set the hub heroes
+  20px wider than everything under them.
+- Hub pages also share one column split from the hero down (`--split`,
+  `--split-gap` in `hub.css`), so the right-hand column starts on one line.
+  A new two-column hub section uses them.
+- Centred narrow blocks (a centred heading, a single form, the 404) are fine;
+  what must not happen is a left-aligned section whose edge is off the line.
+- The blog post template's article and sticky sidebar keep their own widths
+  and gap; the rail rules that grow columns are scoped to pages.
+
+**2. Every section fits the window.** On a desktop (961px and up) each section
+— heading to last line — fits in the window under the 64px header, so nothing
+is cut off while it is in view, from 1280x720 to 1920x1080. A tall screen keeps
+the design as drawn; a laptop gets it closed up. This is
+`src/scripts/fit-window.js`, in two forms:
+
+- **Hand-tuned** (home page, hub pages): the section's CSS closes up its
+  measures by a factor `--k` (`calc(88px - 60px * var(--k))`), and
+  `fitWindow()` finds the least `--k` that fits. Mark the section `data-fit`,
+  the block to fit `data-fit-box` (several for stacked rows; a heading that
+  belongs with the row after it adds `data-fit-with-next`), and a tabbed
+  section's panels with `data-fit-variants` so its tallest tab is measured.
+  `hub.js` marks every hub section itself. When adding a section to these
+  pages, give its vertical measures a `--k` term.
+- **Automatic** (everything else): `<WpLayout fit>` puts `data-fit-auto` on
+  `<main>`, and `fitAuto()` closes up each too-tall section's own spacing,
+  card padding and headings by the least amount that fits. A section that
+  cannot fit even fully closed up (a long list) is left as drawn. The seven
+  Solutions pages use it; **add `fit` to any new marketing page.**
+- A card must grow with its content, never clip it. Fixed heights on cards
+  (the old 560px customer-proof cards cut their stories off at 800px tall)
+  are the thing to avoid.
+- Tablet and phone layouts stack, and are exempt.
+
+To verify, load the page at 1280x720, 1366x768, 1470x800, 1440x900 and
+1920x1080 and check that every section (each `data-fit-box`, or each
+grandchild of `<main>` on a `fit` page) is no taller than the window minus
+64px, and that no text runs past the edge of a card. Content-visibility defers
+off-screen sections, so scroll through the page before measuring.
+
 ## WordPress mirror (historical)
 
 The site began as a faithful mirror of `preprod.spenza.com`. That is why the
