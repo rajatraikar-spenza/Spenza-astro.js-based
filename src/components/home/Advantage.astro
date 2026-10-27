@@ -6,9 +6,9 @@
  * walks the steps — the cards before the current one pack back, it slides out
  * with room either side, lights up, and trails outline frames back into the
  * stack. While a card is lit its artwork comes alive, each a picture of what
- * that hub does (HubArt.astro): UXHub's branded app takes an upgrade with no
- * support ticket, ControlHub's revenue climbs past cost and an invoice is
- * paid, TelecomHub's API fails a live route over to another operator — and
+ * that hub does (HubArt.astro): TelecomHub's API fails a live route over to
+ * another operator, ControlHub's revenue climbs past cost and an invoice is
+ * paid, UXHub's branded app takes an upgrade with no support ticket — and
  * the AgentHub waveform talks: a caller, then the agent answering. Narrower
  * screens step through on a timer; phones get the steps alone.
  *
@@ -21,9 +21,9 @@ import agent from '../../assets/home/agent-live.svg?url';
 /** Front to back: the order of the steps, and of the cards in the stack. */
 const hubs = [
   {
-    id: 'ux', n: '01', tag: 'BRAND', name: 'UXHub',
-    title: 'Your brand. Your customer experience.',
-    text: 'Let customers buy, activate, and manage plans under your brand.',
+    id: 'telecom', n: '01', tag: 'NETWORK', name: 'TelecomHub',
+    title: 'One API. Global connectivity.',
+    text: 'Access operators, provision SIMs and eSIMs, and manage plans via one API.',
   },
   {
     id: 'control', n: '02', tag: 'CONTROL', name: 'ControlHub',
@@ -31,9 +31,9 @@ const hubs = [
     text: 'Track usage, manage subscriptions, and control costs in one place.',
   },
   {
-    id: 'telecom', n: '03', tag: 'NETWORK', name: 'TelecomHub',
-    title: 'One API. Global connectivity.',
-    text: 'Access operators, provision SIMs and eSIMs, and manage plans via one API.',
+    id: 'ux', n: '03', tag: 'BRAND', name: 'UXHub',
+    title: 'Your brand. Your customer experience.',
+    text: 'Let customers buy, activate, and manage plans under your brand.',
   },
   {
     id: 'agent', src: agent, n: '04', tag: 'INTELLIGENCE', name: 'AgentHub',
