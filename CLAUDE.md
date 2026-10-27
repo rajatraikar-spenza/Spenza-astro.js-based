@@ -91,7 +91,9 @@ the design as drawn; a laptop gets it closed up. This is
   `<main>`, and `fitAuto()` closes up each too-tall section's own spacing,
   card padding and headings by the least amount that fits. A section that
   cannot fit even fully closed up (a long list) is left as drawn. The seven
-  Solutions pages use it; **add `fit` to any new marketing page.**
+  Solutions pages and Support use it; **add `fit` to any new marketing page.**
+  An illustration built to fixed proportions (the Support page's call card)
+  opts out with `data-fit-keep`, or closing up its spacing breaks it.
 - A card must grow with its content, never clip it. Fixed heights on cards
   (the old 560px customer-proof cards cut their stories off at 800px tall)
   are the thing to avoid.

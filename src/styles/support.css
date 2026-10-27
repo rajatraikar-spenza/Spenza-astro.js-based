@@ -1,0 +1,196 @@
+/*
+ * The support page's own pieces, on top of the mirrored Elementor markup
+ * (partials/support.html):
+ *
+ *   - the hero picture: a branded agent on a live call, the caller's line
+ *     already loaded, the answer given and the call resolved with no ticket,
+ *     and the same agent answering in chat — what the page sells;
+ *   - the demo form's picture: a phone on the demo line, with what to ask;
+ *   - "Most Connectivity Tickets Are Lookups": the copy left-aligned with room
+ *     between it and the chat, and the chat (scripts/page/support.js) restyled
+ *     as a support conversation; its content is unchanged;
+ *   - the closing call to action's two buttons, centred as a pair.
+ *
+ * Both pictures replace a looping 3D-ball video that said nothing about
+ * support. They are markup, so they are sharp at any size and cost no bytes
+ * beyond this file; the motion is CSS and stops for reduced motion.
+ */
+
+.sp-art {
+  --sp-ink: #111827;
+  --sp-body: #4e545d;
+  --sp-muted: #8a8f98;
+  --sp-rule: #ece7e1;
+  --sp-acc: #ff4500;
+  --sp-acc-soft: #fff1ea;
+  --sp-ok: #15803d;
+  --sp-ok-soft: #e9f7ee;
+  position: relative;
+  font-family: var(--font-sans, Geist), system-ui, sans-serif !important;
+  color: var(--sp-ink);
+  text-align: left;
+}
+.sp-art *, .elementor-element-810507c .ai-search-demo * { box-sizing: border-box; }
+.sp-art p, .sp-art small, .sp-art strong { margin: 0; }
+
+.sp-brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13px; color: var(--sp-ink, #111827); }
+.sp-brand i { width: 18px; height: 18px; border-radius: 6px; background: linear-gradient(#ff6e24, #ff4500); box-shadow: inset 0 0 0 4px rgba(255,255,255,.35); }
+.sp-avatar {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(#ff6e24, #ff4500); color: #fff;
+  font-family: var(--font-mono, ui-monospace), monospace !important; font-size: 12px; font-weight: 600; letter-spacing: .04em;
+}
+.sp-avatar--lg { width: 72px; height: 72px; font-size: 18px; }
+
+/* A voice waveform: nine bars breathing out of step. */
+.sp-wave { display: inline-flex; align-items: center; gap: 3px; height: 28px; margin-left: auto; }
+.sp-wave i { width: 3px; height: calc(8px + 14px * var(--h, .5)); border-radius: 2px; background: var(--sp-acc, #ff4500); opacity: .85; animation: sp-wave 1.1s ease-in-out infinite; animation-delay: calc(var(--i) * -.13s); }
+.sp-wave i:nth-child(3n) { --h: .9; }
+.sp-wave i:nth-child(3n+1) { --h: .35; }
+.sp-wave i:nth-child(4n) { --h: .65; }
+.sp-wave--lg { height: 44px; gap: 5px; margin: 0; }
+.sp-wave--lg i { width: 4px; height: calc(10px + 26px * var(--h, .5)); }
+@keyframes sp-wave { 0%, 100% { transform: scaleY(.45); } 50% { transform: scaleY(1); } }
+
+.sp-tx__them, .sp-tx__us { width: fit-content; max-width: 88%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.45; }
+.sp-tx__them { background: #f3f1ee; color: var(--sp-ink, #111827); border-bottom-left-radius: 4px; }
+.sp-tx__us { margin-left: auto; background: linear-gradient(#ff6e24, #ff4500); color: #fff; border-bottom-right-radius: 4px; }
+.sp-chan { padding: 4px 10px; border-radius: 999px; background: var(--sp-acc-soft); color: var(--sp-acc); font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.sp-chan--chat { background: #eef2ff; color: #4338ca; }
+
+/* ── Hero: the agent on a live call ─────────────────────────────── */
+
+.sp-call { width: 100%; max-width: 500px; margin-left: auto; padding: 0 0 128px; }
+.sp-call__card {
+  position: relative; padding: 22px; border: 1px solid var(--sp-rule); border-radius: 22px; background: #fff;
+  box-shadow: 0 30px 60px -28px rgba(17, 24, 39, .28), 0 2px 6px rgba(17, 24, 39, .04);
+}
+.sp-call__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--sp-rule); }
+.sp-live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono, ui-monospace), monospace !important; font-size: 11.5px; color: var(--sp-body); }
+.sp-live b { width: 8px; height: 8px; border-radius: 50%; background: var(--sp-acc); animation: sp-pulse 1.6s ease-out infinite; }
+@keyframes sp-pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 69, 0, .45); } 100% { box-shadow: 0 0 0 9px rgba(255, 69, 0, 0); } }
+.sp-call__who { display: flex; align-items: center; gap: 12px; padding: 16px 0; }
+.sp-call__name { display: flex; flex-direction: column; gap: 2px; }
+.sp-call__name strong { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
+.sp-call__name small { font-size: 12.5px; color: var(--sp-muted); }
+.sp-ctx { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.sp-ctx span { display: flex; flex-direction: column; gap: 4px; padding: 10px 11px; border: 1px solid var(--sp-rule); border-radius: 12px; background: #faf8f5; }
+.sp-ctx small, .sp-chat-pop small, .sp-phone small {
+  font-family: var(--font-mono, ui-monospace), monospace !important; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--sp-muted);
+}
+.sp-ctx b { font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+.sp-ctx b.is-ok { color: var(--sp-ok); }
+.sp-tx { display: flex; flex-direction: column; gap: 10px; padding: 18px 0; }
+.sp-tx__us { animation: sp-rise 6s ease-in-out infinite; }
+@keyframes sp-rise { 0%, 12% { opacity: 0; transform: translateY(6px); } 22%, 100% { opacity: 1; transform: none; } }
+.sp-call__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--sp-rule); }
+.sp-resolved { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 9px; border-radius: 999px; background: var(--sp-ok-soft); color: var(--sp-ok); font-size: 12.5px; font-weight: 600; }
+.sp-resolved svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The same agent, answering in the app's chat: tucked under the call card's
+   lower right corner, below the resolved badge. */
+.sp-chat-pop {
+  position: absolute; right: 22px; bottom: 0; width: 240px; display: flex; flex-direction: column; gap: 8px;
+  padding: 12px; border: 1px solid var(--sp-rule); border-radius: 16px; background: #fff;
+  box-shadow: 0 18px 40px -20px rgba(17, 24, 39, .3); animation: sp-float 7s ease-in-out infinite;
+}
+.sp-chat-pop__top { display: flex; align-items: center; justify-content: space-between; }
+.sp-chat-pop .sp-tx__them, .sp-chat-pop .sp-tx__us { max-width: 100%; padding: 7px 10px; font-size: 12.5px; }
+@keyframes sp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* ── Demo form: a phone on the demo line ────────────────────────── */
+
+.sp-phone { display: flex; justify-content: center; padding: 8px 0; }
+.sp-phone__body {
+  position: relative; width: 300px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 44px 22px 22px; border-radius: 42px; background: linear-gradient(#1b2130, #0f141f); color: #fff;
+  box-shadow: inset 0 0 0 7px #0b0f17, inset 0 0 0 8px #2b3242, 0 40px 70px -30px rgba(15, 20, 31, .55);
+}
+.sp-phone__notch { position: absolute; top: 14px; left: 50%; width: 86px; height: 20px; margin-left: -43px; border-radius: 12px; background: #0b0f17; }
+.sp-phone .sp-phone__label { color: #ffb38f; }
+.sp-phone__av { position: relative; display: grid; place-items: center; width: 120px; height: 120px; margin: 6px 0 2px; }
+.sp-phone__ring { position: absolute; inset: 24px; border-radius: 50%; border: 1px solid rgba(255, 110, 36, .6); animation: sp-ring 2.4s ease-out infinite; }
+.sp-phone__ring + .sp-phone__ring { animation-delay: 1.2s; }
+@keyframes sp-ring { 0% { transform: scale(.9); opacity: .9; } 100% { transform: scale(1.7); opacity: 0; } }
+.sp-phone__name { font-size: 17px; font-weight: 600; }
+.sp-phone__time { font-family: var(--font-mono, ui-monospace), monospace !important; font-size: 12px; color: #9aa3b5; }
+.sp-phone .sp-wave i { background: #ff6e24; }
+.sp-phone__ask { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 6px; padding: 12px; border-radius: 16px; background: rgba(255, 255, 255, .06); }
+.sp-phone__ask small { color: #9aa3b5; }
+.sp-phone__ask span { font-size: 13px; line-height: 1.4; color: #e8ebf2; }
+.sp-phone__keys { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-top: 8px; padding: 0 6px; font-size: 12px; color: #9aa3b5; }
+.sp-phone__end { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #ef4444; }
+.sp-phone__end svg { width: 24px; height: 24px; fill: #fff; }
+
+/* ── "Most Connectivity Tickets Are Lookups" ────────────────────── */
+
+.elementor-element-810507c { --sp-acc: #ff4500; }
+.elementor-element-810507c > .e-con-inner { align-items: center; }
+.elementor-element-3c247c8 { align-items: flex-start !important; }
+/* Side by side on a desktop, with real room between the copy and the chat;
+   below that the two stack, as they always did. */
+@media (min-width: 1025px) {
+  .elementor-element-810507c > .e-con-inner { flex-wrap: nowrap !important; column-gap: 64px !important; }
+  .elementor-element-3c247c8 { flex: 1 1 0 !important; min-width: 0; }
+  .elementor-element-98c42c8 { flex: 1.25 1 0 !important; min-width: 0; }
+}
+.elementor-element-3c247c8 .elementor-heading-title { text-align: left !important; }
+.elementor-element-64a0222 .elementor-heading-title { color: #fff !important; }
+.elementor-element-776c0e9 .elementor-heading-title { color: #b7bcc6 !important; }
+/* The chat, as a support conversation: questions and answers as bubbles,
+   the composer below. Its content is the page's own (scripts/page/support.js). */
+.elementor-element-810507c .ai-search-demo { height: 400px; padding: 0; border: 0; border-radius: 24px; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6); }
+.elementor-element-810507c .conversation { gap: 14px; padding: 20px 22px; }
+.elementor-element-810507c .message { gap: 8px; }
+.elementor-element-810507c .question {
+  align-self: flex-start; max-width: 85%; padding: 10px 14px; border-radius: 14px 14px 14px 4px;
+  background: #f3f1ee; color: #111827; font-size: 15px; font-weight: 500; line-height: 1.45;
+}
+.elementor-element-810507c .answer {
+  align-self: flex-end; max-width: 85%; min-height: 0; padding: 10px 14px; border: 0; border-radius: 14px 14px 4px 14px;
+  background: linear-gradient(#ff6e24, #ff4500); color: #fff; font-size: 14.5px; line-height: 1.5;
+}
+.elementor-element-810507c .answer:empty { display: none; }
+.elementor-element-810507c .answer:has(.loading) { background: #f3f1ee; padding: 12px 14px; }
+.elementor-element-810507c .loading { margin: 0; }
+.elementor-element-810507c .loading span { background: #9aa3b5; }
+.elementor-element-810507c .search-container { padding: 14px 18px 18px; border-top: 1px solid #ececec; }
+.elementor-element-810507c .search-box { height: 54px; padding: 0 7px 0 20px; border-color: #e2ddd5; background: #faf8f5; }
+.elementor-element-810507c .typing-area { font-size: 15px; color: #111827; }
+.elementor-element-810507c .cursor { background: #ff4500; }
+.elementor-element-810507c #sendBtn {
+  flex: none; width: 42px; min-width: 42px; height: 42px; padding: 0; border-radius: 50%;
+  background: linear-gradient(#ff6e24, #ff4500); box-shadow: 0 6px 14px -6px rgba(255, 69, 0, .7);
+}
+
+/* ── The closing call to action: the two buttons, centred together ──
+   Each button sat in half the row, one pushed right and one left, which
+   centres the gap between them rather than the pair: with buttons of
+   different widths the pair sat 38px left of centre. The paragraph takes its
+   own line and the buttons size to their labels, so the row centres them. */
+
+.elementor-element-e6cb705 > .e-con-inner { justify-content: center; }
+.elementor-element-eae4f4b { flex-basis: 100%; display: flex; justify-content: center; }
+.elementor-element-eae4f4b > .elementor-widget-container { max-width: 960px; }
+.elementor-element-2e353a4,
+.elementor-element-c7e52a7 { width: auto !important; max-width: none !important; flex: none !important; --container-widget-width: auto; }
+.elementor-element-2e353a4 .elementor-button-wrapper,
+.elementor-element-c7e52a7 .elementor-button-wrapper { text-align: center; }
+
+/* ── Smaller screens ───────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .sp-call { margin: 0 auto; }
+  .elementor-element-810507c > .e-con-inner { row-gap: 40px !important; }
+}
+@media (max-width: 767px) {
+  .sp-call { padding: 0 0 128px; }
+  .sp-chat-pop { width: 210px; }
+  .sp-ctx { grid-template-columns: 1fr 1fr; }
+  .elementor-element-810507c .ai-search-demo { height: 420px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-art *, .sp-art *::before, .sp-art *::after { animation: none !important; }
+}

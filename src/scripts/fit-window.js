@@ -80,6 +80,8 @@ const record = (sec) => {
   const list = [];
   for (const el of [sec, ...sec.querySelectorAll('*')]) {
     if (el.closest('svg') && el.localName !== 'svg') continue;
+    // An illustration drawn to fixed proportions opts out with data-fit-keep.
+    if (el.closest('[data-fit-keep]')) continue;
     const cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.position === 'absolute' || cs.position === 'fixed') continue;
     // A flex or grid item's margins may be `auto`, pushing it into place;
