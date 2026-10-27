@@ -1449,3 +1449,23 @@
   line-height: 1.5;
   text-align: left;
 }
+
+/*
+   Fitting the window. On a desktop every section fits in the window under the
+   header: scripts/hub.js measures each one (a feature section row by row)
+   and sets --k, from 0 when it already fits to 1 at the tightest, and each
+   vertical measure below closes up by its share of it. A tall screen keeps
+   the sizes above; a laptop gets them closed up together. The video frame
+   gets shorter rather than narrower, so it stays on the rail; the video in
+   it is letterboxed (object-fit: contain).
+*/
+@media (min-width: 961px) {
+  .ux section { --k: 0; }
+  .ux .hero-in { padding-block: calc(88px - 56px * var(--k)) calc(96px - 64px * var(--k)); }
+  .ux .sec { padding-block: calc(120px - 64px * var(--k)); }
+  .ux .h2 { font-size: calc(clamp(34px, 4vw, 58px) * (1 - .22 * var(--k))); }
+  .ux .head { margin-bottom: calc(64px - 40px * var(--k)); }
+  .ux .vid-head { margin-bottom: calc(40px - 24px * var(--k)); }
+  .ux .vid { aspect-ratio: 16 / calc(9 - 3.4 * var(--k)); }
+  .ux .feat { padding-block: calc(72px - 48px * var(--k)); }
+}

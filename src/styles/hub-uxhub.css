@@ -1278,3 +1278,13 @@
     white-space: nowrap;
   }
 }
+
+/* Fitting the window (see the end of hub.css): the Shopify section closes up
+   its gaps, its steps and the store mock by their share of --k. */
+@media (min-width: 961px) {
+  .ux .shp-head { margin-bottom: calc(56px - 40px * var(--k)); }
+  .ux .shp-step { padding-block: calc(24px - 14px * var(--k)); }
+  .ux .store-img { height: calc(120px - 50px * var(--k)); }
+  .ux .store-img svg { height: calc(92px - 40px * var(--k)); }
+  .ux .proof { margin-top: calc(56px - 40px * var(--k)); padding-block: calc(26px - 12px * var(--k)); }
+}

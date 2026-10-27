@@ -1,4 +1,5 @@
 import './home-hero.js';
+import { fitWindow } from './fit-window.js';
 
 /**
  * The home page's behaviour.
@@ -394,45 +395,5 @@ document.querySelectorAll('.sz-car').forEach((car) => {
   new IntersectionObserver(([e]) => { inView = e.isIntersecting; arm(); }, { threshold: .4 }).observe(car);
 });
 
-/* Fitting the window. On a desktop a section marked data-fit is held to the
-   height of the window under the 64px header: its CSS closes it up by --k,
-   from 0 (as designed) to 1 (tight), and this finds the least --k at which
-   its data-fit-box fits — with its tallest tab showing, for a tabbed section
-   (data-fit-variants names the panels). It all happens in one synchronous
-   pass, so the panels it switches through are never painted. */
-const fitted = [...document.querySelectorAll('[data-fit]')];
-if (fitted.length) {
-  // Past 1 is only for the shortest laptops (768px and under); every measure
-  // keyed to --k bottoms out at a size that still reads.
-  const HEADER = 64, AIR = 24, MOST = 1.3;
-  const height = (sec, box) => {
-    const panels = sec.dataset.fitVariants ? [...sec.querySelectorAll(sec.dataset.fitVariants)] : [];
-    if (!panels.length) return box.offsetHeight;
-    const was = panels.map(p => p.hidden);
-    let h = 0;
-    panels.forEach((_, i) => { panels.forEach((q, j) => { q.hidden = j !== i; }); h = Math.max(h, box.offsetHeight); });
-    panels.forEach((p, i) => { p.hidden = was[i]; });
-    return h;
-  };
-  const fit = () => {
-    const room = innerHeight - HEADER - AIR;
-    for (const sec of fitted) {
-      const box = sec.querySelector('[data-fit-box]') || sec;
-      // Past a third of the way, a section may also switch to a tighter
-      // arrangement (data-fit-tight), such as a two-line headline.
-      const set = k => { sec.style.setProperty('--k', String(k)); sec.toggleAttribute('data-fit-tight', k >= .34); };
-      set(0);
-      if (innerWidth < 961 || height(sec, box) <= room) continue;
-      set(MOST);
-      if (height(sec, box) > room) continue;
-      let lo = 0, hi = MOST;
-      for (let i = 0; i < 8; i++) { const k = (lo + hi) / 2; set(k); if (height(sec, box) > room) lo = k; else hi = k; }
-      set(hi.toFixed(3));
-    }
-  };
-  let queued = 0;
-  const refit = () => { cancelAnimationFrame(queued); queued = requestAnimationFrame(fit); };
-  fit();
-  addEventListener('resize', refit);
-  document.fonts?.ready.then(refit);
-}
+// The tall sections fit the window under the header (scripts/fit-window.js).
+fitWindow();
