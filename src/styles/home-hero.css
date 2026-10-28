@@ -42,9 +42,9 @@
 .sh .sh-content>.sh-map{order:1}
 .sh .sh-content>.sh-card{order:2}
 .sh .sh-content>.sh-caption{order:3}
-.sh .sh-tabs{display:flex; align-items:center; gap:8px; height:32px}
-.sh .sh-tabs-label{font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-right:4px; white-space:nowrap}
-.sh .sh-tab{position:relative; overflow:hidden; font:inherit; font-size:12px; font-weight:500; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:999px; padding:6px 12px; cursor:pointer; white-space:nowrap; transition:color .2s, background .2s, border-color .2s}
+.sh .sh-tabs{display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px}
+.sh .sh-tabs-label{flex-basis:100%; margin:0 0 2px; text-align:center; font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); white-space:nowrap}
+.sh .sh-tab{position:relative; overflow:hidden; font:inherit; font-size:12px; font-weight:500; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:999px; padding:6px 12px; cursor:pointer; white-space:nowrap; flex:0 0 108px; text-align:center; transition:color .2s, background .2s, border-color .2s}
 .sh .sh-tab:hover{color:var(--ink); border-color:rgba(15,20,32,.22)}
 .sh .sh-tab[aria-pressed="true"]{color:var(--ink); background:var(--surface); border-color:rgba(15,20,32,.22)}
 .sh .sh-tab .sh-bar{position:absolute; left:0; bottom:0; height:2px; width:100%; transform:scaleX(0); transform-origin:0 50%; background:var(--acc)}
@@ -240,7 +240,7 @@
 .sh .sh-content>.sh-tabs{order:0}
 .sh .sh-tabs{flex-wrap:wrap; justify-content:center; height:auto; gap:8px}
 .sh .sh-tabs-label{flex-basis:100%; margin:0 0 2px; text-align:center}
-.sh .sh-tab{font-size:13px; padding:8px 14px}
+.sh .sh-tab{flex:1 1 0; min-width:0; max-width:132px; font-size:13px; padding:8px 6px}
 .sh .sh-card{padding:14px 16px; gap:12px}
 .sh .sh-logo-card{max-width:132px}
 .sh .sh-who-sub{white-space:normal; line-height:1.4}
@@ -274,3 +274,4 @@
    Watch's — so the device sized against it (home-hero.js) and the stage
    centred in the column stay put from one customer to the next. */
 @media (min-width:768px){.sh .sh-card{height:96px}}
+@media (max-width:359px){.sh .sh-tab{font-size:12px; padding-inline:4px}}
