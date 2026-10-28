@@ -758,6 +758,21 @@
   };
 
   /**
+   * The lead's email as the pixel's `user.email_sha256`: trimmed, lowercased,
+   * SHA-256, lowercase hex — the same normalisation the server-side copy uses,
+   * so both paths name the same person. Hashed here, in the browser; the raw
+   * address never goes to OpenAI. Resolves to '' when there is nothing to hash
+   * or no `crypto.subtle` (insecure context), and the conversion is sent
+   * without it rather than not at all.
+   */
+  const emailHash = async (form, spec) => {
+    const email = value(form, spec.email[0]).toLowerCase();
+    if (!email || !EMAIL_RE.test(email) || !crypto.subtle) return '';
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(email));
+    return [...new Uint8Array(digest)].map(x => x.toString(16).padStart(2, '0')).join('');
+  };
+
+  /**
    * The body every replay sends: the form exactly as the page renders it.
    *
    * Shared by both paths below, because what makes the replay faithful is that
@@ -1046,7 +1061,12 @@
 
     form.dataset.hsSending = '1';
 
-    if (kindOf(form, id)[0] === 'lead') conversionIds.set(form, newEventId());
+    // Read now: the confirmation replaces the form, and its fields with it.
+    let leadEmailHash;
+    if (kindOf(form, id)[0] === 'lead') {
+      conversionIds.set(form, newEventId());
+      leadEmailHash = emailHash(form, spec).catch(() => '');
+    }
 
     // Before `busy()`, which disables the submit button — and a disabled
     // control is one `FormData` leaves out. Before the `await` too: the
@@ -1089,10 +1109,17 @@
     // The ChatGPT Ads conversion, browser side; the server sends the same
     // event id (see `conversionIds`). `oaiq` comes from `Analytics.astro` and
     // is absent when `OAI_PIXEL_ID` is.
+    //
+    // `init` again with the lead's hashed email first, as OpenAI documents
+    // for user data that only becomes known after page load — `user` belongs
+    // to `init`, never to `measure`. The page initialises one pixel, so the
+    // id may be left out.
     const eventId = conversionIds.get(form);
     if (eventId) {
+      const hash = await leadEmailHash;
       try {
         if (typeof window.oaiq === 'function') {
+          if (hash) window.oaiq('init', { user: { email_sha256: hash } });
           window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: eventId });
         }
       } catch (err) {
