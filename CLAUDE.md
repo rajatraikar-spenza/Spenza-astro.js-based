@@ -397,6 +397,12 @@ on request. Nothing about what is measured changed with it.
   to the endpoint as `spenza_oai_event_id` with the `__oppref`/`__obref`
   cookies, so OpenAI counts the two copies once. Failures land in the PHP error
   log as `[spenza-oai]`. Docs: https://developers.openai.com/ads/conversions-api
+- **Both copies carry the lead's hashed email.** The server sends
+  `emails_sha256`; the browser re-runs `oaiq("init", { user: { email_sha256 } })`
+  just before `measure`, hashing in the page with `crypto.subtle` (trim,
+  lowercase, SHA-256 hex — identical on both sides). The raw address never goes
+  to OpenAI. Like the pixel itself this is ungated: if a consent gate ever comes
+  back, `oaiq("consent", false)` before `init` belongs in the same change.
 - WordPress preprod carries its own Google stack (three GTM containers,
   `G-001C6D3F2C` and `G-MC7V4KNGD`), and the mirror strips all of it — see the
   `/dataLayer|gtag\(/` rule in `scripts/lib/inline-scripts.mjs`. The tags this
