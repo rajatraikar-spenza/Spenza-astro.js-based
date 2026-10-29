@@ -144,12 +144,10 @@ const elements = {
 
     upfront: document.getElementById("upfront"),
     opex: document.getElementById("opex"),
-    acpu: document.getElementById("acpu"),
     months: document.getElementById("months"),
 
     initial: document.getElementById("initial"),
     growth: document.getElementById("growth"),
-    arpu: document.getElementById("arpu"),
     churn: document.getElementById("churn"),
 
     calculate: document.getElementById("recalc"),
@@ -169,6 +167,112 @@ const elements = {
     downloadPDF: document.getElementById("dlPdf")
 
 };
+
+/* =========================================================
+   Plan mix: ACPU and ARPU are not entered directly. Each
+   category carries three example plans with fixed allowances; their
+   cost and price, editable,
+   weighted by the share of subscribers on each, are the ACPU
+   and ARPU the projection uses. Edits are kept per category,
+   so switching away and back does not lose them.
+========================================================= */
+
+const PLAN_SETS = {
+
+    iot: [
+        { name: "A \u2014 Low usage", data: "100 MB", cost: 2, price: 4, mix: 50 },
+        { name: "B \u2014 Medium usage", data: "500 MB", cost: 5, price: 8, mix: 30 },
+        { name: "C \u2014 High usage", data: "1 GB", cost: 10, price: 15, mix: 20 }
+    ],
+
+    mobile: [
+        { name: "A \u2014 Basic", data: "1 GB", voice: "Unlimited talk & text", cost: 20, price: 25, mix: 50 },
+        { name: "B \u2014 Standard", data: "5 GB", voice: "Unlimited talk & text", cost: 30, price: 40, mix: 30 },
+        { name: "C \u2014 Premium", data: "20 GB", voice: "Unlimited talk & text", cost: 40, price: 70, mix: 20 }
+    ]
+
+};
+
+const PLAN_DEFAULT = "mobile";
+
+const plan = {
+    rows: [...document.querySelectorAll(".mc-plan[data-plan]")],
+    radios: [...document.querySelectorAll('input[name="planCat"]')],
+    acpu: document.getElementById("mcAcpu"),
+    arpu: document.getElementById("mcArpu"),
+    mix: document.getElementById("mcMix"),
+    error: document.getElementById("mcMixError"),
+    cat: PLAN_DEFAULT,
+    sets: {}
+};
+
+plan.inputs = plan.rows.flatMap(row => [...row.querySelectorAll('input[type="number"]')]);
+
+function resetPlanSets(){
+    plan.sets = JSON.parse(JSON.stringify(PLAN_SETS));
+}
+
+/* Fills the three rows from the current category. */
+function loadPlans(){
+
+    const set = plan.sets[plan.cat];
+
+    plan.radios.forEach(r => { r.checked = r.value === plan.cat; });
+
+    plan.rows.forEach((row, i) => {
+        const p = set[i];
+        row.querySelector(".mc-plan-name").textContent = p.name;
+        row.querySelectorAll("span[data-k]").forEach(el => {
+            el.textContent = p[el.dataset.k] ?? "";
+            el.hidden = !p[el.dataset.k];
+        });
+        row.querySelectorAll("input[data-k]").forEach(input => {
+            input.value = p[input.dataset.k];
+        });
+    });
+
+}
+
+/* Weighted by mix as a share of 100, so a mix that does not add up shows up
+   in the total (and stops Calculate) rather than being quietly rescaled. */
+function planTotals(){
+
+    return plan.sets[plan.cat].reduce((t, p) => {
+        const mix = Number(p.mix) || 0;
+        t.acpu += (Number(p.cost) || 0) * mix / 100;
+        t.arpu += (Number(p.price) || 0) * mix / 100;
+        t.mix += mix;
+        return t;
+    }, { acpu: 0, arpu: 0, mix: 0 });
+
+}
+
+function formatCents(value){
+
+    return value.toLocaleString("en-US", {
+        style: "currency", currency: "USD",
+        minimumFractionDigits: Number.isInteger(Math.round(value * 100) / 100) ? 0 : 2,
+        maximumFractionDigits: 2
+    });
+
+}
+
+function renderPlanTotals(){
+
+    const t = planTotals();
+    const off = Math.abs(t.mix - 100) > 0.01;
+
+    if(plan.acpu) plan.acpu.textContent = formatCents(t.acpu);
+    if(plan.arpu) plan.arpu.textContent = formatCents(t.arpu);
+    if(plan.mix){
+        plan.mix.textContent = +t.mix.toFixed(2) + "%";
+        plan.mix.classList.toggle("is-off", off);
+    }
+    if(plan.error && !off) plan.error.textContent = "";
+
+}
+
+resetPlanSets();
 
 /* =========================================================
    Calculator State
@@ -224,7 +328,7 @@ function getInputs(){
 
         monthlyOperatingExpenses: getInputValue(elements.opex),
 
-        acpu: getInputValue(elements.acpu),
+        acpu: planTotals().acpu,
 
         projectionMonths: Math.max(
             1,
@@ -239,7 +343,7 @@ function getInputs(){
         monthlyGrowthRate:
             getInputValue(elements.growth) / 100,
 
-        arpu: getInputValue(elements.arpu),
+        arpu: planTotals().arpu,
 
         churnRate:
             getInputValue(elements.churn) / 100
@@ -302,12 +406,11 @@ function validateInputs(){
 
         elements.upfront,
         elements.opex,
-        elements.acpu,
         elements.months,
         elements.initial,
         elements.growth,
-        elements.arpu,
-        elements.churn
+        elements.churn,
+        ...plan.inputs
 
     ];
 
@@ -354,6 +457,19 @@ function validateInputs(){
             "Minimum value is 1."
 
         );
+
+        valid = false;
+
+    }
+
+    const mix = planTotals().mix;
+
+    if(plan.error) plan.error.textContent = "";
+
+    if(Math.abs(mix - 100) > 0.01){
+
+        if(plan.error) plan.error.textContent =
+            `The plan mix adds up to ${+mix.toFixed(2)}%. It needs to total 100%.`;
 
         valid = false;
 
@@ -915,11 +1031,9 @@ const liveInputs = [
 
     elements.upfront,
     elements.opex,
-    elements.acpu,
     elements.months,
     elements.initial,
     elements.growth,
-    elements.arpu,
     elements.churn
 
 ];
@@ -1434,7 +1548,7 @@ function renderVerdict(){
     } else if(final.profit > 0){
         text = `You are profitable each month by the end, but still <b class="mc-loss">${formatCurrency(-final.cumulativeProfit)}</b> short of recovering your costs after ${span}. Try a longer projection.`;
     } else {
-        text = `On these numbers you <b class="mc-loss">do not break even</b>: costs outrun revenue every month. Raise ARPU or growth, or lower costs.`;
+        text = `On these numbers you <b class="mc-loss">do not break even</b>: costs outrun revenue every month. Raise plan prices or growth, or lower costs.`;
     }
 
     insight.verdict.innerHTML = text;
@@ -1538,19 +1652,14 @@ function renderMargin(){
 
     if(!insight.margin) return;
 
-    const arpu = Number(elements.arpu.value), acpu = Number(elements.acpu.value);
-
-    if(elements.arpu.value === "" || elements.acpu.value === ""){
-        insight.margin.textContent = "";
-        return;
-    }
+    const { arpu, acpu } = planTotals();
 
     const m = arpu - acpu;
-    const pct = arpu > 0 ? Math.round(m / arpu * 100) : 0;
+    const pct = arpu > 0 ? Math.round(m / arpu * 1000) / 10 : 0;
     insight.margin.className = "mc-margin " + (m > 0 ? "is-gain" : "is-loss");
     insight.margin.textContent = m > 0
-        ? `Margin per subscriber: ${formatCurrency(m)}/mo (${pct}%)`
-        : `Each subscriber costs more than they pay: ${formatCurrency(m)}/mo`;
+        ? `Contribution per subscriber: ${formatCents(m)}/mo (${pct}% of revenue)`
+        : `Each subscriber costs more than they pay: ${formatCents(m)}/mo`;
 
 }
 
@@ -1599,6 +1708,37 @@ liveInputs.forEach(input => {
 
 });
 
+/* A plan figure edited: totals and margin follow at once, the projection
+   waits for Calculate like every other figure. */
+plan.rows.forEach((row, i) => {
+    row.querySelectorAll("input[data-k]").forEach(input => {
+        input.addEventListener("input", () => {
+            const k = input.dataset.k;
+            plan.sets[plan.cat][i][k] = input.value;
+            renderPlanTotals();
+            renderMargin();
+            setStale(true);
+        });
+        input.addEventListener("keydown", e => {
+            if(e.key === "Enter"){
+                e.preventDefault();
+                calculate();
+            }
+        });
+    });
+});
+
+/* Switching category is a choice, like the projection-length chips, so it
+   recalculates straight away. */
+plan.radios.forEach(r => r.addEventListener("change", () => {
+    if(!r.checked) return;
+    plan.cat = r.value;
+    loadPlans();
+    renderPlanTotals();
+    renderMargin();
+    calculate();
+}));
+
 insight.chips.forEach(chip => chip.addEventListener("click", () => {
     elements.months.value = chip.dataset.months;
     calculate();
@@ -1606,6 +1746,10 @@ insight.chips.forEach(chip => chip.addEventListener("click", () => {
 
 if(insight.reset) insight.reset.addEventListener("click", () => {
     liveInputs.forEach(input => { input.value = input.defaultValue; });
+    resetPlanSets();
+    plan.cat = PLAN_DEFAULT;
+    loadPlans();
+    renderPlanTotals();
     renderMargin();
     calculate();
 });
@@ -1622,6 +1766,8 @@ elements.form.addEventListener("submit", e => {
 function init(){
 
     // Run initial calculation using default input values
+    loadPlans();
+    renderPlanTotals();
     renderMargin();
     calculate();
 

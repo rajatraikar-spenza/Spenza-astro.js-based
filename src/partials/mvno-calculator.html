@@ -69,23 +69,99 @@
             <span class="field-error" role="alert"></span>
           </div>
         </fieldset>
-        <fieldset class="mc-group">
+        <fieldset class="mc-group mc-plans">
           <legend>Per-subscriber economics</legend>
-          <div class="mc-pair">
-          <div class="form-group mc-field">
-            <label for="arpu">ARPU</label>
-            <div class="mc-input"><span class="mc-affix">$</span><input id="arpu" type="number" inputmode="decimal" min="0" value="40" aria-describedby="arpu-help"></div>
-            <p class="mc-help" id="arpu-help">Average revenue per user, per month.</p>
-            <span class="field-error" role="alert"></span>
+          <div class="mc-seg" role="radiogroup" aria-label="Plan category">
+            <label class="mc-seg-opt"><input type="radio" name="planCat" value="iot"><span>IoT plans</span></label>
+            <label class="mc-seg-opt"><input type="radio" name="planCat" value="mobile" checked><span>Mobile plans</span></label>
           </div>
-          <div class="form-group mc-field">
-            <label for="acpu">ACPU</label>
-            <div class="mc-input"><span class="mc-affix">$</span><input id="acpu" type="number" inputmode="decimal" min="0" value="30" aria-describedby="acpu-help"></div>
-            <p class="mc-help" id="acpu-help">Average cost per user, per month: network, SIM, support.</p>
-            <span class="field-error" role="alert"></span>
+          <p class="mc-help mc-plans-help">Three example plans load for the category you pick. Edit their cost, price or mix: ACPU and ARPU are the plans&rsquo; cost and price, averaged by subscriber mix.</p>
+          <div class="mc-plan" data-plan="0">
+            <div class="mc-plan-head">
+              <b class="mc-plan-name"></b>
+              <span class="mc-plan-allow">
+                <span data-k="data"></span>
+                <span data-k="voice"></span>
+              </span>
+            </div>
+            <div class="mc-plan-nums">
+              <div class="form-group mc-field">
+                <label for="p0cost">Cost/mo</label>
+                <div class="mc-input"><span class="mc-affix">$</span><input id="p0cost" data-k="cost" type="number" inputmode="decimal" min="0" step="0.01"></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+              <div class="form-group mc-field">
+                <label for="p0price">Price/mo</label>
+                <div class="mc-input"><span class="mc-affix">$</span><input id="p0price" data-k="price" type="number" inputmode="decimal" min="0" step="0.01"></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+              <div class="form-group mc-field">
+                <label for="p0mix">Mix</label>
+                <div class="mc-input"><input id="p0mix" data-k="mix" type="number" inputmode="decimal" min="0" step="1" max="100"><span class="mc-affix">%</span></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+            </div>
           </div>
+          <div class="mc-plan" data-plan="1">
+            <div class="mc-plan-head">
+              <b class="mc-plan-name"></b>
+              <span class="mc-plan-allow">
+                <span data-k="data"></span>
+                <span data-k="voice"></span>
+              </span>
+            </div>
+            <div class="mc-plan-nums">
+              <div class="form-group mc-field">
+                <label for="p1cost">Cost/mo</label>
+                <div class="mc-input"><span class="mc-affix">$</span><input id="p1cost" data-k="cost" type="number" inputmode="decimal" min="0" step="0.01"></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+              <div class="form-group mc-field">
+                <label for="p1price">Price/mo</label>
+                <div class="mc-input"><span class="mc-affix">$</span><input id="p1price" data-k="price" type="number" inputmode="decimal" min="0" step="0.01"></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+              <div class="form-group mc-field">
+                <label for="p1mix">Mix</label>
+                <div class="mc-input"><input id="p1mix" data-k="mix" type="number" inputmode="decimal" min="0" step="1" max="100"><span class="mc-affix">%</span></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+            </div>
           </div>
+          <div class="mc-plan" data-plan="2">
+            <div class="mc-plan-head">
+              <b class="mc-plan-name"></b>
+              <span class="mc-plan-allow">
+                <span data-k="data"></span>
+                <span data-k="voice"></span>
+              </span>
+            </div>
+            <div class="mc-plan-nums">
+              <div class="form-group mc-field">
+                <label for="p2cost">Cost/mo</label>
+                <div class="mc-input"><span class="mc-affix">$</span><input id="p2cost" data-k="cost" type="number" inputmode="decimal" min="0" step="0.01"></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+              <div class="form-group mc-field">
+                <label for="p2price">Price/mo</label>
+                <div class="mc-input"><span class="mc-affix">$</span><input id="p2price" data-k="price" type="number" inputmode="decimal" min="0" step="0.01"></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+              <div class="form-group mc-field">
+                <label for="p2mix">Mix</label>
+                <div class="mc-input"><input id="p2mix" data-k="mix" type="number" inputmode="decimal" min="0" step="1" max="100"><span class="mc-affix">%</span></div>
+                <span class="field-error" role="alert"></span>
+              </div>
+            </div>
+          </div>
+          <div class="mc-plan-total" aria-live="polite">
+            <div><span>Weighted ACPU</span><b id="mcAcpu">&mdash;</b></div>
+            <div><span>Weighted ARPU</span><b id="mcArpu">&mdash;</b></div>
+            <div><span>Mix</span><b id="mcMix">&mdash;</b></div>
+          </div>
+          <p class="mc-mix-error" id="mcMixError" role="alert"></p>
           <p class="mc-margin" id="mcMargin" aria-live="polite"></p>
+          <p class="mc-help mc-plans-note">Example plans and rates for illustration, not Spenza pricing. The projection assumes the same mix every month.</p>
         </fieldset>
         <fieldset class="mc-group">
           <legend>Timeframe</legend>
@@ -135,6 +211,7 @@
           </div>
           <div class="mc-chart" id="mcChart" role="img" aria-label="Chart of cumulative profit by month"></div>
         </div>
+        <p class="mc-disclaimer">Pricing is indicative and may vary in the official Spenza proposal.</p>
       </div>
       </div>
         <div class="mc-card mc-card--table">
