@@ -89,6 +89,37 @@
 .mc .mc-margin.is-gain { background: var(--gain-soft); color: var(--gain); }
 .mc .mc-margin.is-loss { background: var(--loss-soft); color: var(--loss); }
 
+/* Plan mix: a category switch, three plan cards (fixed allowances as tags,
+   then editable cost, price and mix), and the weighted totals they produce. */
+.mc-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin-bottom: 10px; background: var(--bg); border: 1px solid var(--rule); border-radius: 12px; }
+.mc-seg-opt { position: relative; margin: 0 !important; cursor: pointer; }
+.mc-seg-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.mc-seg-opt span { display: block; padding: 9px 10px; border-radius: 9px; text-align: center; font-size: 14.5px; font-weight: 500; color: var(--muted); transition: background .15s, color .15s, box-shadow .15s; }
+.mc-seg-opt:hover span { color: var(--ink); }
+.mc-seg-opt input:checked + span { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(15, 20, 32, .08), 0 0 0 1px var(--rule); }
+.mc-seg-opt input:focus-visible + span { outline: 3px solid var(--acc); outline-offset: 1px; }
+.mc .mc-plans-help { margin: 0 0 14px; }
+.mc-plan { padding: 14px 14px 2px; margin-bottom: 10px; border: 1px solid var(--rule-soft); border-radius: 12px; background: var(--bg); }
+.mc-plan-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 10px; margin-bottom: 10px; }
+.mc .mc-plan-name { font-size: 14.5px; font-weight: 600; color: var(--ink); }
+.mc-plan-allow { display: flex; flex-wrap: wrap; gap: 2px 8px; min-width: 0; }
+.mc-plan-allow span { padding: 1px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--rule-soft); font-size: 12.5px; line-height: 1.6; color: var(--body); white-space: nowrap; }
+.mc-plan-allow span[hidden] { display: none; }
+.mc-plan-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 10px; }
+.mc-plan-nums .mc-field { margin-bottom: 12px; }
+.mc .mc-plan-nums .mc-field label { margin-bottom: 4px; font-size: 12.5px; font-weight: 500; color: var(--muted); }
+.mc .mc-plan-nums .mc-input { height: 40px; padding: 0 10px; background: var(--surface); }
+.mc .mc-plan-nums .field-error { font-size: 12px; }
+.mc-plan-total { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; margin: 4px 0 12px; padding: 12px 14px; border-radius: 12px; background: var(--ink); color: #fff; }
+.mc-plan-total div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mc-plan-total span { font-family: var(--font-mono) !important; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255, 255, 255, .62); }
+.mc .mc-plan-total b { font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums; color: #fff; }
+.mc .mc-plan-total b.is-off { color: #ffb08f; }
+.mc .mc-mix-error { margin: -4px 0 12px; font-size: 13px; font-weight: 500; color: #b42318; }
+.mc .mc-mix-error:empty { display: none; }
+.mc .mc-disclaimer { margin-top: 14px; padding: 12px 16px; background: #fdeef0; border: 1px solid #f7cdd3; border-radius: 12px; font-size: 13.5px; font-weight: 500; line-height: 1.45; color: #a3283a; text-align: center; }
+.mc .mc-plans-note { margin: 0 0 12px; font-size: 12.5px; }
+
 .mc-chips { display: flex; gap: 8px; flex-wrap: wrap; margin: -4px 0 8px; }
 .mc .mc-chip {
   padding: 6px 12px; border-radius: 999px;
