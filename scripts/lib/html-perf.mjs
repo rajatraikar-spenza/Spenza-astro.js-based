@@ -352,8 +352,47 @@ export function unlinkGonePaths(html) {
 }
 
 /** All of the above, in the order the rest of the pipeline expects. */
+/**
+ * Drop links that have nothing to click.
+ *
+ * Copy pasted into WordPress out of ChatGPT and Claude brings its citations
+ * with it as `<a href="…"></a>`: about 490 of them across 86 posts, nearly all
+ * tagged `?utm_source=chatgpt.com`, one pointing at a claude.ai chat. A reader
+ * never sees them; a crawler sees hidden links, which is what link spam looks
+ * like. Only an anchor carrying nothing but `href`, `target` and `rel`, around
+ * nothing but whitespace, goes, and the whitespace stays so the words either
+ * side of it do not run together. An anchor with an id, class or label — a
+ * jump target, or an icon drawn by CSS — is kept.
+ */
+const EMPTY_LINK = /<a((?:\s+(?:href|target|rel)=(?:"[^"]*"|'[^']*'))+)\s*>((?:\s|&nbsp;|&#160;|\u00a0)*)<\/a>/gi;
+export function dropEmptyLinks(html) {
+  return html.replace(EMPTY_LINK, (tag, attrs, gap) => (/\bhref=/i.test(attrs) ? gap : tag));
+}
+
+/**
+ * Take ChatGPT's tracking tag off the links that kept their text.
+ *
+ * `utm_source=chatgpt.com` tells the site at the other end that a visitor came
+ * from ChatGPT, which from a Spenza post is not true. WordPress keeps a copy of
+ * the URL in a link's `data-id`, so it comes off there too. Any other parameter
+ * on the link is left as it was.
+ */
+export function stripAiTracking(html) {
+  return html.replace(/\b(href|data-id)=(["'])([^"']*?)\2/gi, (attr, name, q, href) => {
+    if (!/utm_source=chatgpt\.com/i.test(href)) return attr;
+    const clean = href
+      .replace(/([?&]|&amp;)utm_source=chatgpt\.com(?=&|#|$)/gi, '$1')
+      .replace(/\?(&amp;|&)/, '?')
+      .replace(/(&amp;|&)(?=#|$)/, '')
+      .replace(/\?(?=#|$)/, '');
+    return `${name}=${q}${clean}${q}`;
+  });
+}
+
 export function applyHtmlPerf(html) {
   return offerWebp(describeVagueLinks(labelBareControls(
-    selfHostFonts(siteFonts(lazyIframes(deferVideos(ungatePdfPopups(unlinkGonePaths(html))))))
+    selfHostFonts(siteFonts(lazyIframes(deferVideos(ungatePdfPopups(unlinkGonePaths(
+      stripAiTracking(dropEmptyLinks(html))
+    ))))))
   )));
 }
