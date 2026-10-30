@@ -1054,34 +1054,34 @@
   },
   "mno-mvno-mvne-mvna-roles": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An MVNE (mobile virtual network enabler) supplies the systems and operations a mobile brand runs on: provisioning, SIM and eSIM management, billing and network integration. An MNO runs the radio network, an MVNO sells service on it under its own brand, and an MVNA aggregates wholesale access for MVNOs. One company can fill several roles.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "What is an MNO (Mobile Network Operator)?",
-        "text": "An MNO (Mobile Network Operator) owns the physical wireless network: spectrum, cell towers, and core systems. Verizon, AT&T, T-Mobile, and Vodafone are MNOs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "MNO",
+        "text": "Operates the radio network and holds the spectrum rights."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-broadcast\", \"label\" : \"Tower Broadcast\", \"unicode\" : \"f519\"}",
-        "title": "What is an MVNO (Mobile Virtual Network Operator)?",
-        "text": "An MVNO (Mobile Virtual Network Operator) resells that network under its own brand. Google Fi, Mint Mobile, and Lyca Mobile are MVNOs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"mobile-screen\"}",
+        "title": "MVNO",
+        "text": "Sells mobile service under its own brand over a host's radio access."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hexagon-nodes\", \"label\" : \"Hexagon Nodes\", \"unicode\" : \"e699\"}",
-        "title": "What is an MVNE (Mobile Virtual Network Enabler)?",
-        "text": "An MVNE provides the back-end platform: billing, provisioning, SIM lifecycle, and customer management that lets MVNOs operate."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"server\"}",
+        "title": "MVNE",
+        "text": "Supplies platform and operations: provisioning, billing, SIM management."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"network-wired\", \"label\" : \"Network Wired\", \"unicode\" : \"f6ff\"}",
-        "title": "What is an MVNA (Mobile Virtual Network Aggregator)?",
-        "text": "An MVNA buys wholesale network capacity in bulk and resells it to smaller MVNOs at better rates than they could negotiate alone."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"handshake\"}",
+        "title": "MVNA",
+        "text": "Aggregates wholesale network access and resells it to MVNOs."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza — API-First Connectivity Enablement Platform",
-        "text": "Spenza is a modern MVNE + CMP fusion combining API-first enablement with connectivity management for branded resellers, device OEMs, and IoT operators."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Buy responsibilities, not labels",
+        "text": "Replace each acronym in a proposal with a named owner, a contract term and an acceptance test."
       }
     ]
   },
@@ -5220,9 +5220,36 @@
   },
   "white-label-mvno": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "A white label MVNO offers branded mobile service through a partner's network access and telecom platform. Your agreement decides which functions the provider operates and which costs, decisions and obligations stay with you, so compare scope before you compare price.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-contract\"}",
+        "title": "Scope is in the contract",
+        "text": "White label is a vendor term. The agreement names who owns billing, support and subscriber data."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calculator\"}",
+        "title": "Quote the real charges",
+        "text": "Ask when each charge starts and whether failed activations or idle lines stay billable."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"building\"}",
+        "title": "Best for",
+        "text": "OEMs, MSPs, software platforms and consumer brands with an existing product or audience."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Still yours",
+        "text": "Support, consumer protection and market-specific obligations stay with the brand."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"vial\"}",
+        "title": "Pilot before you scale",
+        "text": "Prove purchase, activation, the first correct charge and failure recovery before wider rollout."
+      }
+    ]
   },
   "mvno-management-solution": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
