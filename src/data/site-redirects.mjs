@@ -309,6 +309,8 @@ export const SITE_REDIRECTS = {
   '/blog/how-to-launch-your-mvno-in-days-with-shopify-and-spenza/': '/mvno/launch-mvno-7-days/',
   '/blog/launching-mvno-with-spenza/': '/mvno/launch-mvno-7-days/',
   '/blog/what-are-mvnos-and-the-best-options-for-you/': '/mvno/mvno/',
+  '/blog/could-mvne-in-telecom/': '/mvno/how-mvnes-accelerate-mvno-launch/',
+  '/blog/mvno-billing-bss-providers-guide/': '/mvno/mvno-billing-platforms/',
 };
 
 /**
