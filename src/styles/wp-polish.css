@@ -2253,3 +2253,10 @@ body.wp-mirror.e-off-canvas__no-scroll {
 .wp-mirror .wp-search__more[hidden] {
   display: none;
 }
+
+/* The kids-smartwatch case study's "Download Full Case Study" button paints its
+   background with var(--primary), which nothing defines, so it rendered white
+   text on white until hovered (the hover rule sets its own colour). */
+.wp-mirror a.hero-btn2:not(:hover) {
+  background: #ff4500;
+}
