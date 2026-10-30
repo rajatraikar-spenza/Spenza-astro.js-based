@@ -309,6 +309,12 @@ export const SITE_REDIRECTS = {
   '/blog/how-to-launch-your-mvno-in-days-with-shopify-and-spenza/': '/mvno/launch-mvno-7-days/',
   '/blog/launching-mvno-with-spenza/': '/mvno/launch-mvno-7-days/',
   '/blog/what-are-mvnos-and-the-best-options-for-you/': '/mvno/mvno/',
+  // MVNO category, last two merges.
+  '/mvno/mvno-market-trends/': '/mvno/mvno-trends/',
+  '/blog/mvno-market-trends/': '/mvno/mvno-trends/',
+  '/mvno/top-mvno-go-to-market-strategies-2025/': '/mvno/top-mvno-marketing-strategies/',
+  '/blog/top-mvno-go-to-market-strategies-2025/': '/mvno/top-mvno-marketing-strategies/',
+  '/blog/emerging-trends-mvno-market/': '/mvno/mvno-trends/',
   '/blog/could-mvne-in-telecom/': '/mvno/how-mvnes-accelerate-mvno-launch/',
   '/blog/mvno-billing-bss-providers-guide/': '/mvno/mvno-billing-platforms/',
 };
