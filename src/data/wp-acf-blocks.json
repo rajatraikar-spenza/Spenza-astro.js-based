@@ -3967,34 +3967,34 @@
   },
   "top-mvno-marketing-strategies": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "MVNO marketing works when the offer, channel and delivered service fit the same customer. Pick a specific customer job, test a few channels, measure completed activation rather than signups, and judge growth by cohort retention and payback under definitions finance has approved.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hand-holding-dollar\", \"label\" : \"Hand Holding Dollar\", \"unicode\" : \"f4c0\"}",
-        "title": "Stop Competing on Price",
-        "text": "Cheap plans attract low-value, high-churn customers. Focus on differentiation, not discounts."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"bullseye\"}",
+        "title": "Start with a customer job",
+        "text": "Narrow by a shared need, then test whether people actually buy, not just say they would."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"magnifying-glass\", \"label\" : \"Magnifying Glass\", \"unicode\" : \"f002\"}",
-        "title": "Find Your Hyper-Niche",
-        "text": "Target a specific identity or need. Serving a clearly defined audience builds loyalty and defensibility."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"route\"}",
+        "title": "Test channels as hypotheses",
+        "text": "Name the audience, message, conversion event and owner, and count every cost."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"people-group\", \"label\" : \"People Group\", \"unicode\" : \"e533\"}",
-        "title": "Build a Community",
-        "text": "Turn customers into advocates through referrals, engagement, and shared identity to lower acquisition costs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"mobile-screen\"}",
+        "title": "Count working service",
+        "text": "A signup is not a customer until the line is active and the person can use it."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
-        "title": "Create Frictionless Experiences",
-        "text": "Simplify onboarding with eSIMs and intuitive digital flows to capture customers at peak intent."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"chart-line\"}",
+        "title": "Judge by cohort and payback",
+        "text": "Compare cohorts at the same age under one agreed definition of CAC and contribution."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"mobile\", \"label\" : \"Mobile\", \"unicode\" : \"f3ce\"}",
-        "title": "Integrate Mobile into a Broader Ecosystem",
-        "text": "Use mobile as a loyalty and retention tool by linking it to services, rewards, and brand extensions."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Agree the unit before the target",
+        "text": "Decide whether you are counting customers, accounts or lines, then use the same denominator everywhere."
       }
     ]
   },
@@ -4872,34 +4872,34 @@
   },
   "mvno-trends": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "MVNOs are moving beyond traditional low-cost mobile plans toward flexible, niche-focused, and technology-driven models. In 2026, trends such as free data, zero-rating, eSIM, Telecom-as-a-Service, 5G, IoT, and AI are creating new ways for MVNOs to differentiate, monetize connectivity, and serve specific customer segments.",
+    "tldrDescription": "MVNO trends in 2026 are about how connectivity is packaged and distributed: eSIM onboarding, plans inside other apps, cloud operations, enterprise services and ad-funded entry tiers. Free data exists as a product model but is not proven to replace paid plans. Test each trend against funding, cost and customer behavior.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"route\", \"label\" : \"Route\", \"unicode\" : \"f4d7\"}",
-        "title": "MVNOs Are Moving Toward Specialized Models",
-        "text": "Modern MVNOs are targeting specific audiences such as travelers, students, seniors, enterprises, and IoT users with tailored plans and services instead of competing only on price."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"gift\"}",
+        "title": "Free data",
+        "text": "An observed model funded by ads or partners, not proof of a market shift."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wifi\", \"label\" : \"Wifi\", \"unicode\" : \"f1eb\"}",
-        "title": "Free Data and Zero-Rating Are Emerging Models",
-        "text": "Free-data MVNOs can provide basic connectivity in exchange for advertising, while zero-rating lets users access selected apps without consuming their regular data allowance. Both models aim to increase engagement and attract price-sensitive customers."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "eSIM",
+        "text": "Removes SIM delivery for compatible phones, not support or activation work."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "eSIM, TaaS, 5G, and IoT Are Reshaping MVNOs",
-        "text": "eSIM enables instant activation and easier network switching, while Telecom-as-a-Service reduces infrastructure complexity. Meanwhile, 5G and growing IoT adoption are creating opportunities for more specialized connectivity services."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"mobile-screen\"}",
+        "title": "Embedded plans",
+        "text": "Mobile offers sold inside another brand's app, run by a service provider."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": ". New Monetization Models Are Expanding Revenue",
-        "text": "MVNOs are combining advertising-supported freemium plans, premium tiers, value-added services, strategic partnerships, bundling, and co-branding to create revenue beyond traditional mobile subscriptions."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"building\"}",
+        "title": "Enterprise",
+        "text": "Connectivity built around a workflow such as calling inside a business app."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
-        "title": "Why Spenza for MVNO Growth",
-        "text": "Spenza is an operator-neutral connectivity enablement platform that provides APIs, SaaS tools, white-label apps, IoT aggregation, mobile plan customization, and Procure-to-Pay automation to help businesses launch and manage branded mobile services and MVNOs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"flask\"}",
+        "title": "Test before you scale",
+        "text": "Turn each trend into a small pilot with one measure and a baseline."
       }
     ]
   },
