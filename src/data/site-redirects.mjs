@@ -243,6 +243,34 @@ export const SITE_REDIRECTS = {
   '/blog/how-to-set-up-mvno/': '/mvno/launch-mvno-us-guide/',
   // Was captured pointing at /mvno/how-to-set-up-mvno/, itself a donor now.
   '/blog/how-to-set-up-mvno-2025-guide/': '/mvno/launch-mvno-us-guide/',
+
+  // MVNO and MVNE, batch 1: roles pillar and white-label guide. Inert until the donors are unpublished.
+  // Roles pillar: six overlapping MNO/MVNO/MVNE/MVNA posts.
+  '/mvno/mno-vs-mvnos/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/mno-vs-mvnos/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/mvno/mvne-explained/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/mvne-explained/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/mvno/mvne-mvna-mno-to-launch-mvno/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/mvne-mvna-mno-to-launch-mvno/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/mvno/mvno-vs-mvne/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/mvno-vs-mvne/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/spenza-product/what-is-mvne-strategy-services/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/what-is-mvne-strategy-services/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/telecom/mvne-vs-mvna/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/mvne-vs-mvna/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  // Was captured pointing at /mvno/mvne-explained/, itself a donor now.
+  '/mvne-platform/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  // White label: the ranking guide moves to the evergreen slug; three posts fold in.
+  '/mvno/brand-mvnos-revolutionizing-mobile/': '/mvno/white-label-mvno/',
+  '/blog/brand-mvnos-revolutionizing-mobile/': '/mvno/white-label-mvno/',
+  '/mvno/branded-reseller-mvno/': '/mvno/white-label-mvno/',
+  '/blog/branded-reseller-mvno/': '/mvno/white-label-mvno/',
+  '/mvno/how-to-launch-mvno-non-telco-brand-2025/': '/mvno/white-label-mvno/',
+  '/blog/how-to-launch-mvno-non-telco-brand-2025/': '/mvno/white-label-mvno/',
+  '/mvno/white-label-mvno-launch-guide-2025/': '/mvno/white-label-mvno/',
+  '/blog/white-label-mvno-launch-guide-2025/': '/mvno/white-label-mvno/',
+  // Was captured pointing at /mvno/brand-mvnos-revolutionizing-mobile/, itself a donor now.
+  '/mvno/how-consumer-brands-are-revolutionizing-mobile-telecom/': '/mvno/white-label-mvno/',
 };
 
 /**
