@@ -271,6 +271,9 @@ export const SITE_REDIRECTS = {
   '/blog/white-label-mvno-launch-guide-2025/': '/mvno/white-label-mvno/',
   // Was captured pointing at /mvno/brand-mvnos-revolutionizing-mobile/, itself a donor now.
   '/mvno/how-consumer-brands-are-revolutionizing-mobile-telecom/': '/mvno/white-label-mvno/',
+  // Billing platforms pillar: the BSS-providers post folds in.
+  '/mvno/bss-providers-mvno-billing/': '/mvno/mvno-billing-platforms/',
+  '/blog/bss-providers-mvno-billing/': '/mvno/mvno-billing-platforms/',
 };
 
 /**

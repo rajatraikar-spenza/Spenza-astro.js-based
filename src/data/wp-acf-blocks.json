@@ -1390,34 +1390,34 @@
   },
   "mvno-billing-platforms": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An MVNO billing platform prices usage and turns it into charges, balances and invoices. It is one part of a BSS and does not by itself give you network access, SIM provisioning or support. Compare suppliers on the functions they cover, what you must operate, and what they can prove in a test.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"user-tie\", \"label\" : \"User Tie\", \"unicode\" : \"f508\"}",
-        "title": "Know Your Role",
-        "text": " Whether you are an MVNO, MVNE, or MVNA determines which type of MVNO billing platform and pricing model you actually need."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Billing is a slice of BSS",
+        "text": "Charging, billing and payment are separate functions. Catalog, accounts and care sit around them."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
-        "title": "Features Matter",
-        "text": "Convergent rating, real-time charging, wholesale reconciliation, and eSIM support are the core features that separate capable platforms from basic ones."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"network-wired\"}",
+        "title": "Software is not network access",
+        "text": "A billing contract rarely includes the host-network agreement or charging interfaces."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"money-bills\", \"label\" : \"Money Bills\", \"unicode\" : \"e1f3\"}",
-        "title": "Budget Realistically",
-        "text": "Enterprise BSS platforms cost $500K–$2M+ annually, while API-first per-line models offer a far more accessible entry point for newer operators."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"users\"}",
+        "title": "Test the payer structure",
+        "text": "Payer, administrator and line user can be three different parties. Build yours in a test tenant."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"users-gear\", \"label\" : \"Users Gear\", \"unicode\" : \"f509\"}",
-        "title": "Buyer Fit First",
-        "text": "Choosing a platform based on your current scale and speed requirements beats over-investing in infrastructure you are not ready to use."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"magnifying-glass-dollar\"}",
+        "title": "Quote the same scope",
+        "text": "Fix the billable unit, implementation, operations and exit terms before comparing prices."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Advantage",
-        "text": "For branded resellers and IoT MVNOs needing fast launches, Spenza ControlHub delivers carrier-certified, API-first billing with no heavy upfront CapEx."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Trace one event to an invoice",
+        "text": "Ask each vendor to follow a known usage event to an invoice line and a correction."
       }
     ]
   },
