@@ -166,34 +166,34 @@
   },
   "biggest-mvno-mistakes-how-to-avoid-2026": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Most MVNOs fail for business reasons, not technical ones. The launches that collapse usually share the same causes: no real differentiation, optimistic churn and ARPU assumptions, a rigid wholesale agreement, pricing copied from competitors, billing that breaks at scale, and missed US compliance obligations such as FCC registration and A2P 10DLC. Nearly all of it is preventable",
+    "tldrDescription": "Most MVNOs fail on unit economics, not technology. The costliest launch mistakes are weak differentiation, optimistic churn and ARPU, a rigid wholesale agreement, pricing that ignores usage growth and taxes, half-integrated billing, and missed US compliance. Check the warning signs against your plan before you sign anything.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"money-bill-wave\", \"label\" : \"Money Bill Wave\", \"unicode\" : \"f53a\"}",
-        "title": "Build a Strong Business Model First",
-        "text": "Most MVNO failures stem from unrealistic financial assumptions, poor unit economics, and insufficient runway. Validate your pricing, churn, and capital requirements before launch."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"bullseye\"}",
+        "title": "Differentiate first",
+        "text": "If you cannot name your customer in one sentence, you are competing on price with the network owners."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"business-time\", \"label\" : \"Business Time\", \"unicode\" : \"f64a\"}",
-        "title": "Negotiate Wholesale Agreements Carefully",
-        "text": "Your carrier partnership directly impacts profitability. Flexible wholesale contracts, favorable pricing, and multi-carrier access provide long-term stability and room to scale."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calculator\"}",
+        "title": "Stress-test the model",
+        "text": "Rebuild it at half your volume and double your churn. If it still clears, it is a business."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tags\", \"label\" : \"Tags\", \"unicode\" : \"f02c\"}",
-        "title": "Prioritize Operations and Compliance",
-        "text": "Reliable billing, eSIM-first onboarding, fraud prevention, and meeting FCC, CPNI, E911, and 10DLC requirements are essential for a smooth and compliant launch."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-contract\"}",
+        "title": "Read the wholesale terms",
+        "text": "Minimums, renegotiation rights and 5G language set your cost floor and your room to move."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"user-lock\", \"label\" : \"User Lock\", \"unicode\" : \"f502\"}",
-        "title": "Focus on Sustainable Growth, Not Just Subscriber Numbers",
-        "text": "A differentiated target market, healthy customer retention, and profitable acquisition channels matter far more than rapid subscriber growth alone."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Own the compliance list",
+        "text": "FRN, Form 499, CPNI, E911 and 10DLC each need a named owner and a date."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Launch Your MVNO Faster with Spenza",
-        "text": "Spenza's AI-powered MVNE platform helps businesses launch branded MVNOs in as little as seven days with multi-carrier connectivity, integrated billing, eSIM provisioning, and built-in compliance support, allowing teams to focus on growth instead of infrastructure."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"chart-line\"}",
+        "title": "Track margin per cohort",
+        "text": "Gross adds can rise while every new cohort loses money. Report payback by acquisition month."
       }
     ]
   },
@@ -817,34 +817,34 @@
   },
   "mvno": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An MVNO (mobile virtual network operator) sells mobile service under its own brand over a host operator's radio network. It owns the brand, plans and customers but not the towers or spectrum. It buys wholesale access, then runs or outsources billing, SIM and eSIM management and support.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "What Is an MVNO?",
-        "text": "A Mobile Virtual Network Operator (MVNO) delivers mobile services without owning network infrastructure. It leases network access from major carriers and focuses on branding, pricing, and customer experience."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "Host network (MNO)",
+        "text": "Owns the towers and spectrum and carries the traffic."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
-        "title": "MVNO Types",
-        "text": "MVNOs range from Branded Resellers (low control, fast launch) to Light MVNOs and Full MVNOs (greater control, higher investment). The right model depends on your budget, expertise, and growth goals."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"mobile-screen\"}",
+        "title": "MVNO brand",
+        "text": "Owns the plans, pricing, SIM or eSIM and the customer."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"money-bill-wave\", \"label\" : \"Money Bill Wave\", \"unicode\" : \"f53a\"}",
-        "title": "MVNO Business Model",
-        "text": "MVNOs earn by buying wholesale network access at lower rates and selling retail plans at a margin. Additional revenue comes from value-added services like IoT plans, insurance, and global data packages."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"server\"}",
+        "title": "Enabler (MVNE)",
+        "text": "Optional partner that runs provisioning, billing and operations."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-line\", \"label\" : \"Chart Line\", \"unicode\" : \"f201\"}",
-        "title": "Key Benefits for Brands",
-        "text": "Launching an MVNO helps you create recurring revenue, strengthen brand loyalty, control the full customer journey, and expand globally without heavy telecom infrastructure costs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Three models",
+        "text": "Branded reseller, light MVNO or full MVNO, by how much you run."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza MVNO-in-a-Box Platform",
-        "text": "Spenza offers an “MVNO-in-a-Box” platform that simplifies launch, billing, global connectivity, and compliance, helping brands go live in days instead of months while reducing operational complexity."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pick control you will use",
+        "text": "Choose the least complex model that supports the product and name an owner for each task."
       }
     ]
   },
@@ -1390,34 +1390,34 @@
   },
   "mvno-billing-platforms": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An MVNO billing platform prices usage and turns it into charges, balances and invoices. It is one part of a BSS and does not by itself give you network access, SIM provisioning or support. Compare suppliers on the functions they cover, what you must operate, and what they can prove in a test.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"user-tie\", \"label\" : \"User Tie\", \"unicode\" : \"f508\"}",
-        "title": "Know Your Role",
-        "text": " Whether you are an MVNO, MVNE, or MVNA determines which type of MVNO billing platform and pricing model you actually need."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Billing is a slice of BSS",
+        "text": "Charging, billing and payment are separate functions. Catalog, accounts and care sit around them."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
-        "title": "Features Matter",
-        "text": "Convergent rating, real-time charging, wholesale reconciliation, and eSIM support are the core features that separate capable platforms from basic ones."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"network-wired\"}",
+        "title": "Software is not network access",
+        "text": "A billing contract rarely includes the host-network agreement or charging interfaces."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"money-bills\", \"label\" : \"Money Bills\", \"unicode\" : \"e1f3\"}",
-        "title": "Budget Realistically",
-        "text": "Enterprise BSS platforms cost $500K–$2M+ annually, while API-first per-line models offer a far more accessible entry point for newer operators."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"users\"}",
+        "title": "Test the payer structure",
+        "text": "Payer, administrator and line user can be three different parties. Build yours in a test tenant."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"users-gear\", \"label\" : \"Users Gear\", \"unicode\" : \"f509\"}",
-        "title": "Buyer Fit First",
-        "text": "Choosing a platform based on your current scale and speed requirements beats over-investing in infrastructure you are not ready to use."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"magnifying-glass-dollar\"}",
+        "title": "Quote the same scope",
+        "text": "Fix the billable unit, implementation, operations and exit terms before comparing prices."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Advantage",
-        "text": "For branded resellers and IoT MVNOs needing fast launches, Spenza ControlHub delivers carrier-certified, API-first billing with no heavy upfront CapEx."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Trace one event to an invoice",
+        "text": "Ask each vendor to follow a known usage event to an invoice line and a correction."
       }
     ]
   },
@@ -2833,34 +2833,34 @@
   },
   "mvno-types": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "There are five common MVNO types: branded reseller, thin, light, thick and full. They differ by how much the operator owns, from brand and sale only to billing and customer systems to the whole core network. Pick the lightest model that gives your product the control it needs.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gauge-high\", \"label\" : \"Gauge High\", \"unicode\" : \"f625\"}",
-        "title": "MVNOs Enable Fast Market Entry",
-        "text": "MVNOs offer mobile services without owning networks, letting brands launch quickly and cheaply."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "A ladder of ownership",
+        "text": "Each step adds control over price, product and data, and adds systems, staff and compliance."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"5\", \"label\" : \"5\", \"unicode\" : \"35\"}",
-        "title": "Five MVNO Models",
-        "text": "Skinny, Thin, Light, Thick, and Full MVNOs differ in control, customization, and investment levels."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"feather\"}",
+        "title": "Light MVNO",
+        "text": "Own plans, billing, care and customer record on a host's core, usually through an enabler."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"circle-nodes\", \"label\" : \"Circle Nodes\", \"unicode\" : \"e4e2\"}",
-        "title": "Skinny & Thin = Simple + Fast",
-        "text": "These models rely on the host MNO, making them easy to launch but limited in customization."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"server\"}",
+        "title": "Full MVNO",
+        "text": "Own core network and SIM issuance; only the radio network is leased."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "Light to Full = More Control",
-        "text": "Higher-tier MVNOs manage more systems, enabling deeper customization and advanced features."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tags\"}",
+        "title": "Labels vary",
+        "text": "Suppliers use the names differently, so compare the scope in the agreement."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Simplifies MVNO Launch",
-        "text": "Spenza offers a white-label marketplace, no-code tools, multi-carrier support, and cost optimization for fast MVNO deployment."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"route\"}",
+        "title": "Start light, keep an upgrade path",
+        "text": "Choose a platform that carries you from reseller to light MVNO without re-platforming."
       }
     ]
   },
@@ -3262,34 +3262,34 @@
   },
   "oss-bss-checklist": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "Before signing an MVNE, check ten things: architecture, real-time processing, eSIM (SGP.22 and SGP.32), multi-operator control, charging, reconciliation, open APIs, multi-entity support, data export and exit. Score answers by evidence and prove each with a test on your own service.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"globe\", \"label\" : \"Globe\", \"unicode\" : \"f0ac\"}",
-        "title": "OSS/BSS Is the Operating System of Modern MVNOs",
-        "text": "In 2026, 5G Standalone, global IoT, and multi-operator deployments require OSS/BSS platforms that orchestrate provisioning, charging, and reconciliation in real time."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"cloud\"}",
+        "title": "Architecture first",
+        "text": "Cloud-native, event-driven platforms beat batch files and manual fixes."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Legacy OSS/BSS Breaks at Real-World Scale",
-        "text": "Batch processing, manual SIM workflows, and monolithic billing systems cannot support SGP.32 eSIMs, multi-IMSI routing, or enterprise connectivity without accumulating technical debt."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "eSIM for consumer and IoT",
+        "text": "Ask how SGP.22 and SGP.32 sit in one provisioning framework."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-line\", \"label\" : \"Chart Line\", \"unicode\" : \"f201\"}",
-        "title": "OSS/BSS Must Be Real-Time and API-First",
-        "text": "Future-proof MVNO platforms unify provisioning, converged charging, revenue assurance, and analytics into a cloud-native orchestration layer built for 5G SA."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Gates, then scores",
+        "text": "Mandatory needs pass or fail; preferences are weighted by evidence."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hexagon-nodes-bolt\", \"label\" : \"Hexagon Nodes Bolt\", \"unicode\" : \"e69a\"}",
-        "title": "Right MVNE Enables Flexibility, Not Lock-In",
-        "text": "Architecture, TM Forum Open APIs, data ownership, and Bring Your Own Network (BYON) support matter more than fast launch timelines."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"door-open\"}",
+        "title": "Verify the exit",
+        "text": "A sample export and import proves portability better than a button."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Orchestration-First Platforms Scale Margins",
-        "text": "Operator-neutral platforms like Spenza turn connectivity into a programmable product layer instead of an operational bottleneck."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Test, do not just demo",
+        "text": "Run timeout, late-event and account-isolation tests on your own scenario."
       }
     ]
   },
@@ -4504,34 +4504,34 @@
   },
   "launch-mvno-7-days": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Launching a branded MVNO traditionally involves complex carrier negotiations, high infrastructure costs, compliance requirements, and lengthy development cycles. Spenza’s no-code MVNO platform simplifies these processes, enabling brands to launch a branded mobile service in as little as seven days without building their own telecom infrastructure.",
+    "tldrDescription": "Spenza's pages state a go-live target of under 7 days for a defined scope. That is a published target, not a guarantee: your offer, network access, devices, approvals and testing set the real date. Fix the first release, run the day-by-day plan, and let the day-7 review decide.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"forward\", \"label\" : \"Forward\", \"unicode\" : \"f04e\"}",
-        "title": "Launch a Branded MVNO Faster",
-        "text": "Spenza reduces the traditional 12–18 month launch timeline by providing pre-integrated networks, no-code workflows, and out-of-the-box Shopify integration for a faster path to market."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calendar-check\"}",
+        "title": "What Spenza states",
+        "text": "\"Go live in under 7 days\" on TelecomHub. The page does not define the start or the scope."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"mobile\", \"label\" : \"Mobile\", \"unicode\" : \"f3ce\"}",
-        "title": "Build Flexible Mobile Plans",
-        "text": "Brands can choose wholesale network partners, create data, voice, and text bundles, and control retail pricing through Spenza’s visual plan builder without extensive engineering work."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"handshake\"}",
+        "title": "Who does what",
+        "text": "Spenza describes the platform and integrations. You supply the offer, devices, approvals and owners."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
-        "title": "Automate Billing and Compliance",
-        "text": "Spenza integrates recurring billing, proration, usage-based charges, telecom taxes, KYC, and regulatory workflows to reduce operational complexity for MVNOs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"cart-shopping\"}",
+        "title": "Selling on Shopify",
+        "text": "UXHub describes plans and eSIMs sold through Shopify. Confirm the current setup with Spenza."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"route\", \"label\" : \"Route\", \"unicode\" : \"f4d7\"}",
-        "title": "Scale a Branded Connectivity Business",
-        "text": "An MVNO can create recurring revenue by bundling connectivity with hardware while using an operator-neutral marketplace and Bring Your Own Network capabilities to expand across markets."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Prove it first",
+        "text": "Trace a test order to a subscription and a working line on real devices before you sell."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"rocket\", \"label\" : \"Rocket\", \"unicode\" : \"f135\"}",
-        "title": "Spenza Enables 7-Day MVNO Launches",
-        "text": "Spenza combines carrier integrations, no-code workflows, eSIM provisioning, billing, compliance, and branded customer experiences into a turnkey MVNO platform, helping device OEMs, hardware brands, and IoT startups launch and scale mobile services."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"flag-checkered\"}",
+        "title": "Decide on day seven",
+        "text": "End with a go or no-go on recorded evidence. A revised date beats an untested launch."
       }
     ]
   },
@@ -4794,34 +4794,34 @@
   },
   "how-mvnes-accelerate-mvno-launch": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "MVNEs simplify and accelerate MVNO launches by providing pre-integrated infrastructure, MNO relationships, BSS/OSS platforms, SIM/eSIM provisioning, and operational support. By removing major technical, financial, and regulatory barriers, an MVNE can help an MVNO reach market in weeks rather than months or years.",
+    "tldrDescription": "An MVNE shortens an MVNO launch by taking billing, provisioning, SIM and eSIM management and network integration off your critical path. It does not remove wholesale terms, regulation or your own product work. Cloud-native platforms add faster setup and scaling; the trade-offs are supplier dependency and a harder exit.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"rocket\", \"label\" : \"Rocket\", \"unicode\" : \"f135\"}",
-        "title": "Reduce MVNO Launch Complexity",
-        "text": "MVNEs remove major barriers such as high upfront infrastructure costs, complex network integration, lengthy MNO negotiations, operational workloads, and regulatory requirements."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Fewer things to build",
+        "text": "Billing, provisioning, SIM management and network integration become configuration, not projects."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-line\", \"label\" : \"Chart Line\", \"unicode\" : \"f201\"}",
-        "title": "Accelerate Time to Market",
-        "text": "Pre-integrated BSS/OSS platforms and pre-negotiated MNO agreements allow MVNOs to bypass much of the traditional technical and commercial setup, enabling faster deployment."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"cloud\"}",
+        "title": "Cloud-native setup",
+        "text": "No hardware to procure, capacity follows usage, and releases are pushed centrally."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
-        "title": "Simplify Billing, SIM & Compliance",
-        "text": "MVNEs can manage billing, CRM, SIM/eSIM provisioning, regulatory compliance, value-added services, and reporting, allowing MVNOs to operate without building these systems independently."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Honest trade-offs",
+        "text": "You accept supplier dependency, less control and a harder exit in return for less build effort."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Choose an MVNE for Scalability",
-        "text": "When selecting an MVNE, evaluate its technology stack, MNO partnerships, coverage, scalability, support, pricing model, and track record to ensure it can support long-term growth."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"hourglass-half\"}",
+        "title": "Slowest step may be elsewhere",
+        "text": "Host network terms, regulation and your own product decisions can still set the pace."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
-        "title": "Spenza Accelerates MVNO Launches",
-        "text": "Spenza provides APIs, SaaS, white-label apps, a multi-operator marketplace, eSIM management, billing integrations, and centralized operations, helping businesses launch branded mobile services in days for lighter deployments."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-list\"}",
+        "title": "Get the split in writing",
+        "text": "Ask which launch tasks the MVNE owns, assists with, or leaves to you, with a dated plan."
       }
     ]
   },
