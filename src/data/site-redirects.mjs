@@ -274,7 +274,7 @@ export const SITE_REDIRECTS = {
   // Billing platforms pillar: the BSS-providers post folds in.
   '/mvno/bss-providers-mvno-billing/': '/mvno/mvno-billing-platforms/',
   '/blog/bss-providers-mvno-billing/': '/mvno/mvno-billing-platforms/',
-  // MVNO and MVNE, batch 2: what-is, types, MVNE launch, 7-day launch, mistakes, OSS/BSS checklist, regulatory. Inert until donors are unpublished; the two reslugs apply when WordPress changes their slug.
+  // MVNO and MVNE, batch 2: what-is, types, MVNE launch, 7-day launch, mistakes, OSS/BSS checklist, regulatory. Inert until donors are unpublished; reslugs are out of scope.
   '/mvno/what-are-mvnos/': '/mvno/mvno/',
   '/blog/what-are-mvnos/': '/mvno/mvno/',
   '/telecom/what-is-mvno/': '/mvno/mvno/',
@@ -297,16 +297,12 @@ export const SITE_REDIRECTS = {
   '/blog/mvno-shopify-launch/': '/mvno/launch-mvno-7-days/',
   '/spenza-product/reselling-mobile-plans-on-shopify-store/': '/mvno/launch-mvno-7-days/',
   '/blog/reselling-mobile-plans-on-shopify-store/': '/mvno/launch-mvno-7-days/',
-  '/mvno/mvno-launching-myths-vs-reality/': '/mvno/mvno-launch-mistakes/',
-  '/blog/mvno-launching-myths-vs-reality/': '/mvno/mvno-launch-mistakes/',
-  '/mvno/biggest-mvno-mistakes-how-to-avoid-2026/': '/mvno/mvno-launch-mistakes/',
-  '/blog/biggest-mvno-mistakes-how-to-avoid-2026/': '/mvno/mvno-launch-mistakes/',
+  '/mvno/mvno-launching-myths-vs-reality/': '/mvno/biggest-mvno-mistakes-how-to-avoid-2026/',
+  '/blog/mvno-launching-myths-vs-reality/': '/mvno/biggest-mvno-mistakes-how-to-avoid-2026/',
   '/mvno/mvne-provider-selection/': '/telecom/oss-bss-checklist/',
   '/blog/mvne-provider-selection/': '/telecom/oss-bss-checklist/',
   '/mvno/questions-to-ask-mvne-2025/': '/telecom/oss-bss-checklist/',
   '/blog/questions-to-ask-mvne-2025/': '/telecom/oss-bss-checklist/',
-  '/mvno/2025-mvno-guide-telecom-regulatory-success/': '/mvno/mvno-regulatory-requirements/',
-  '/blog/2025-mvno-guide-telecom-regulatory-success/': '/mvno/mvno-regulatory-requirements/',
   // Captured pointing at donors or old slugs of this batch.
   '/blog/benefits-mvne-businesses/': '/mvno/how-mvnes-accelerate-mvno-launch/',
   '/blog/how-to-choose-the-right-mvne-provider-for-your-business/': '/telecom/oss-bss-checklist/',

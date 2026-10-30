@@ -4582,36 +4582,9 @@
   },
   "2025-mvno-guide-telecom-regulatory-success": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "MVNO regulatory requirements fall into five areas: authorization, emergency and lawful access, privacy and security, identity checks, and telecom tax. Duties attach to the legal provider of the service, so settle that first, then check each market with its regulator and counsel.",
-    "twoCol": [
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-signature\"}",
-        "title": "Authorization",
-        "text": "Usually no spectrum licence, but registration or a general authorization often applies."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"shield-halved\"}",
-        "title": "Privacy follows the customer",
-        "text": "GDPR and state laws apply by where subscribers live, not where you are based."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"id-card\"}",
-        "title": "Identity rules vary",
-        "text": "SIM registration is mandatory in many countries and absent in others."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"receipt\"}",
-        "title": "Model tax early",
-        "text": "Taxes and fees reached 28.8 percent of a typical US wireless bill."
-      }
-    ],
-    "oneCol": [
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
-        "title": "A contract moves tasks, not liability",
-        "text": "Write who performs and who is liable for each duty into the network and platform agreements."
-      }
-    ]
+    "tldrDescription": "",
+    "twoCol": [],
+    "oneCol": []
   },
   "mvno-alternatives": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
@@ -5586,71 +5559,5 @@
     "tldrDescription": "",
     "twoCol": [],
     "oneCol": []
-  },
-  "mvno-launch-mistakes": {
-    "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Most MVNOs fail on unit economics, not technology. The costliest launch mistakes are weak differentiation, optimistic churn and ARPU, a rigid wholesale agreement, pricing that ignores usage growth and taxes, half-integrated billing, and missed US compliance. Check the warning signs against your plan before you sign anything.",
-    "twoCol": [
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"bullseye\"}",
-        "title": "Differentiate first",
-        "text": "If you cannot name your customer in one sentence, you are competing on price with the network owners."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calculator\"}",
-        "title": "Stress-test the model",
-        "text": "Rebuild it at half your volume and double your churn. If it still clears, it is a business."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-contract\"}",
-        "title": "Read the wholesale terms",
-        "text": "Minimums, renegotiation rights and 5G language set your cost floor and your room to move."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
-        "title": "Own the compliance list",
-        "text": "FRN, Form 499, CPNI, E911 and 10DLC each need a named owner and a date."
-      }
-    ],
-    "oneCol": [
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"chart-line\"}",
-        "title": "Track margin per cohort",
-        "text": "Gross adds can rise while every new cohort loses money. Report payback by acquisition month."
-      }
-    ]
-  },
-  "mvno-regulatory-requirements": {
-    "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "MVNO regulatory requirements fall into five areas: authorization, emergency and lawful access, privacy and security, identity checks, and telecom tax. Duties attach to the legal provider of the service, so settle that first, then check each market with its regulator and counsel.",
-    "twoCol": [
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-signature\"}",
-        "title": "Authorization",
-        "text": "Usually no spectrum licence, but registration or a general authorization often applies."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"shield-halved\"}",
-        "title": "Privacy follows the customer",
-        "text": "GDPR and state laws apply by where subscribers live, not where you are based."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"id-card\"}",
-        "title": "Identity rules vary",
-        "text": "SIM registration is mandatory in many countries and absent in others."
-      },
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"receipt\"}",
-        "title": "Model tax early",
-        "text": "Taxes and fees reached 28.8 percent of a typical US wireless bill."
-      }
-    ],
-    "oneCol": [
-      {
-        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
-        "title": "A contract moves tasks, not liability",
-        "text": "Write who performs and who is liable for each duty into the network and platform agreements."
-      }
-    ]
   }
 }
