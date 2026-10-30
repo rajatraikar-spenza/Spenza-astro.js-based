@@ -493,7 +493,7 @@ step_verify() {
   check "home"              "/"                              200
   check "directory index"   "/about-us/"                     200
   check "slashless -> 301"  "/about-us"                      301
-  check "blog post"         "/telecom/what-is-mvno/"         200
+  check "blog post"         "/mvno/mvno/"                    200
   check "wp 301"            "/blog/top-telecom-billing-mistakes/" 301
   check "robots.txt"        "/robots.txt"                    200
   check "sitemap"           "/sitemap.xml"                   200
