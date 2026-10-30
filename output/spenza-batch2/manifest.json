@@ -1,0 +1,489 @@
+{
+  "imageCount": 27,
+  "styleReference": "/Users/spenza/Downloads/spenza-codex-style/style-reference-billing-flow.png",
+  "generator": "Built-in image_gen; initial hero used as drawing-family reference for subsequent heroes; original orange reference family for body scenes.",
+  "fontNote": "Bricolage Grotesque bold requested in generation prompts; labels are generated raster artwork, not embedded font text.",
+  "postProcessing": "Sharp resize and lossless PNG encoding; hero outer white margins normalized to 40px. No manual text retouching.",
+  "review": {
+    "labels": "All listed labels visually checked for spelling and overlap.",
+    "appearance": "Full-bleed orange editorial scenes reviewed against supplied reference."
+  },
+  "regenerated": [
+    {
+      "file": "mvno/what-is-an-mvno-rent-network-orange.png",
+      "passes": 2,
+      "reasons": [
+        "Brownish kiosk interior and a second gold accent on the SIM.",
+        "Remove purple glow introduced in first regeneration."
+      ]
+    },
+    {
+      "file": "launch7/launch-mvno-go-live-gate-orange.png",
+      "passes": 1,
+      "reasons": [
+        "Road cropped at left edge; coin gained unrequested currency text."
+      ]
+    },
+    {
+      "file": "checklist/oss-bss-evaluation-scene-orange.png",
+      "passes": 1,
+      "reasons": [
+        "Report label too close to right edge; an unrequested coin/currency symbol."
+      ]
+    },
+    {
+      "file": "heroes/hero-launch-mvno-7-days.png",
+      "passes": 1,
+      "reasons": [
+        "Removed extra SIM fill so only the launch flag is accented."
+      ]
+    },
+    {
+      "file": "heroes/hero-oss-bss-checklist.png",
+      "passes": 1,
+      "reasons": [
+        "Moved the accent from the checkbox background to one tick."
+      ]
+    },
+    {
+      "file": "heroes/hero-mno-mvno-mvne-mvna-roles.png",
+      "passes": 1,
+      "reasons": [
+        "Corrected object-size progression from left to right."
+      ]
+    },
+    {
+      "file": "heroes/hero-oss-bss-telecom.png",
+      "passes": 1,
+      "reasons": [
+        "Changed parallel connectors to two crossing curved lines."
+      ]
+    },
+    {
+      "file": "regulatory/mvno-regulatory-layers-orange.png",
+      "passes": 1,
+      "reasons": [
+        "Replaced ID-card portrait silhouette with an abstract non-person mark."
+      ]
+    },
+    {
+      "file": "regulatory/mvno-regulatory-responsibility-split-orange.png",
+      "passes": 1,
+      "reasons": [
+        "Removed brownish awning shadow and strengthened the shop-side ribbon."
+      ]
+    }
+  ],
+  "files": [
+    {
+      "id": 1,
+      "file": "mvno/what-is-an-mvno-rent-network-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Host network",
+        "MVNO brand"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2619782,
+      "sha256": "f73061f3571df2917657e57676404f446aba19fa3ceea0f2d10dcc62d71de4e8",
+      "textRetouched": false
+    },
+    {
+      "id": 2,
+      "file": "types/mvno-types-control-ladder-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Reseller",
+        "Light",
+        "Full"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2783830,
+      "sha256": "e975868880d23556e6d942b53de98a8892dd2f5dec2ae03903392cd901c80015",
+      "textRetouched": false
+    },
+    {
+      "id": 3,
+      "file": "types/mvno-types-light-vs-full-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Light",
+        "Full"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2819779,
+      "sha256": "4ea73033816ec116bc47496f882359cd09f8d6eb906c76cb82e07aa9913325c9",
+      "textRetouched": false
+    },
+    {
+      "id": 4,
+      "file": "mvne-launch/mvne-cloud-native-platform-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Platform",
+        "Networks",
+        "Brand"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2782450,
+      "sha256": "00efd080615defb562f8386e831ae9387a572bc2a0a8ba2a0c5679e830ffa56e",
+      "textRetouched": false
+    },
+    {
+      "id": 5,
+      "file": "mvne-launch/mvne-launch-what-you-stop-building-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Your brand",
+        "Carried by MVNE"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2734453,
+      "sha256": "9ea32466eb2fc2a717eda9194eb0b6f8fd967483ebf11909cf0eaa1467556f8f",
+      "textRetouched": false
+    },
+    {
+      "id": 6,
+      "file": "launch7/launch-mvno-who-provides-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Platform",
+        "Your offer"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2896966,
+      "sha256": "e0eea62d624c126f19056a95bb51985c5df17afbca5107a98c14b3591b92e31a",
+      "textRetouched": false
+    },
+    {
+      "id": 7,
+      "file": "launch7/launch-mvno-shopify-order-to-line-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Order",
+        "Record",
+        "Line"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2750003,
+      "sha256": "e6fb7d61f0d9d4e10cfa22617af13189bb82634777f7826897d7b173b3ffaae6",
+      "textRetouched": false
+    },
+    {
+      "id": 8,
+      "file": "launch7/launch-mvno-go-live-gate-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Go or no-go"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2881748,
+      "sha256": "9ef39f7007ac495b9f8a67d9ac4e9efb8a549ce117c268d99b7d6afd5aeb48c9",
+      "textRetouched": false
+    },
+    {
+      "id": 9,
+      "file": "mistakes/mvno-launch-mistakes-stage-road-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Strategy",
+        "Pricing",
+        "Compliance"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2907526,
+      "sha256": "7ad560e4a3e9618722e49209d1e464ca11b430032a8ae86851c96fb6971e11cb",
+      "textRetouched": false
+    },
+    {
+      "id": 10,
+      "file": "mistakes/mvno-margin-squeeze-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Flat price",
+        "Rising usage"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2627045,
+      "sha256": "bca10e20b8799ea53b9a76d2f6b31e66062e744c4b405eecd786689fbce60d55",
+      "textRetouched": false
+    },
+    {
+      "id": 11,
+      "file": "checklist/oss-bss-evaluation-scene-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Provision",
+        "Charge",
+        "Report"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2710540,
+      "sha256": "aaf2a3f7c5c136c17b5c4131eb38c63f2238073bb74650f9809bf3d31cb0ede7",
+      "textRetouched": false
+    },
+    {
+      "id": 12,
+      "file": "checklist/mvne-evaluation-evidence-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Contract",
+        "Test passed"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2717945,
+      "sha256": "26acb89e3de6d26be544088d2f3b3a2b91a741dd4cdbfe6f532e312dd406aefc",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-1",
+      "requestNumber": 1,
+      "kind": "hero",
+      "file": "heroes/hero-what-is-an-mvno.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 919300,
+      "sha256": "76391ef089fc42da65f35858ef7fd1d55c6254e5fd651a4e2dd04ad111fa358d",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-2",
+      "requestNumber": 2,
+      "kind": "hero",
+      "file": "heroes/hero-mvno-types.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 924916,
+      "sha256": "2228609bbcb410a645b9076933786caaabf6a92f975df63ba7759cdbb8e30be2",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-3",
+      "requestNumber": 3,
+      "kind": "hero",
+      "file": "heroes/hero-mvne-launch.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 950685,
+      "sha256": "5a2ae63e34acd299f48523ef89da664d85e3a4ed8157756989411f1b5fb889e3",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-4",
+      "requestNumber": 4,
+      "kind": "hero",
+      "file": "heroes/hero-launch-mvno-7-days.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 1135872,
+      "sha256": "afee35debf0b9460d62b3364c51d096b63b3e63dbc3bb41a92c332712412cc78",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-5",
+      "requestNumber": 5,
+      "kind": "hero",
+      "file": "heroes/hero-mvno-launch-mistakes.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 1005738,
+      "sha256": "c4e492d4b1f59779a72f4f0c3a5f3afcd6f80b3000c6bfa11aaf8b206dd7954f",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-6",
+      "requestNumber": 6,
+      "kind": "hero",
+      "file": "heroes/hero-oss-bss-checklist.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 1002510,
+      "sha256": "02b29c458e6ed77a91fdf13078f0e08482c89b2b2f4fe4fb547b25eac87624a5",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-7",
+      "requestNumber": 7,
+      "kind": "hero",
+      "file": "heroes/hero-mno-mvno-mvne-mvna-roles.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 989509,
+      "sha256": "fe927ee997cd6e9458db2fe4ed37fd69e5cc5cc77d58e8e48f11e3a48a739acf",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-8",
+      "requestNumber": 8,
+      "kind": "hero",
+      "file": "heroes/hero-white-label-mvno.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 1104180,
+      "sha256": "cb5efb0ec22c6b1737a9ea8a8a09e2010c16c7abf6754c253aa8cb995f094971",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-9",
+      "requestNumber": 9,
+      "kind": "hero",
+      "file": "heroes/hero-mvno-billing-platforms.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 975507,
+      "sha256": "55f6b494cb1c5b77ef2e57fd31a2a1487ff8d5cc094fb3ba3a6bec98524f4115",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-10",
+      "requestNumber": 10,
+      "kind": "hero",
+      "file": "heroes/hero-iot-connectivity-management-platforms.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 1077697,
+      "sha256": "a556d6c584d170e83e3747f24db49f8b4ddf580fd975c56540d35dee724502bc",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-11",
+      "requestNumber": 11,
+      "kind": "hero",
+      "file": "heroes/hero-oss-bss-telecom.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 1214360,
+      "sha256": "c95a45e39ec51fb3545354855b15eb8dcf164a99fad1abf5bf858bcc7cc38e8a",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-12",
+      "requestNumber": 12,
+      "kind": "hero",
+      "file": "heroes/hero-launch-mvno-us-guide.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 972349,
+      "sha256": "6e4f82a27c0992982c6791d8ee054f6fcd6714b5cbbf0a46a8d25af2c507cf22",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-13",
+      "requestNumber": 13,
+      "kind": "hero",
+      "file": "heroes/hero-mvno-regulatory-requirements.png",
+      "width": 1600,
+      "height": 1200,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": null,
+      "bytes": 960506,
+      "sha256": "7116afedd67f0ee2ba9a1ec339a499931f9cc8dc0689891474a35aafc77e1458",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-14",
+      "requestNumber": 14,
+      "kind": "body",
+      "file": "regulatory/mvno-regulatory-layers-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Telecom",
+        "Privacy",
+        "Tax"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2650836,
+      "sha256": "347bb97701a48287f47fdb923acd0e6440dd30856a2affb390a313d9fc8eed83",
+      "textRetouched": false
+    },
+    {
+      "id": "hero-batch-15",
+      "requestNumber": 15,
+      "kind": "body",
+      "file": "regulatory/mvno-regulatory-responsibility-split-orange.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Network",
+        "Platform",
+        "Brand"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2511346,
+      "sha256": "38a178273450f8a2e79808847022a2d8b09d3dc3d6929080b024c3d9f9a6dbca",
+      "textRetouched": false
+    }
+  ],
+  "counts": {
+    "heroPanels": 13,
+    "bodyImages": 14
+  },
+  "styleFamilies": {
+    "heroes": "Sparse orange outline art on a rounded warm near-white panel; no text",
+    "body": "Orange painterly paper-cut scenes with supplied labels"
+  }
+}

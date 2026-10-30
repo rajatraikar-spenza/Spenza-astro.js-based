@@ -1,0 +1,99 @@
+{
+  "method": "Built-in image_gen; sips for exact requested pixel dimensions and center crops.",
+  "images": [
+    {
+      "key": "o1",
+      "name": "oss-vs-bss-telecom-diagram",
+      "w": 1200,
+      "h": 675,
+      "prompt": "Create one final PNG infographic, 1200 x 675 pixels. Use case infographic-diagram. Flat vector illustration on pure white, clean sans-serif, generous white space. Only colors orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF and white. No gradients, shadows, logos, people, device screens, stock elements, watermark or extra text. Exact text spelling is highest priority. Two large rounded panels side by side. Left panel titled \"BSS: runs the business\" with three simple line icons: shopping cart labeled \"Orders\", identity/person card labeled \"Customers\", receipt labeled \"Billing\". Right panel titled \"OSS: runs the network\" with three line icons: cell tower labeled \"Network\", server rack labeled \"Inventory\", pulse line labeled \"Monitoring\". Between panels in a clear gap orange right arrow labeled \"Order\", grey left arrow labeled \"Usage\". Keep all meaningful content within middle 600 vertical pixels so 1200 x 630 center crop is safe. Do not print a main title or filename.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-b1e5a8a6-ea06-4d67-96d7-fd4dcc3a30f1.png"
+    },
+    {
+      "key": "o2",
+      "name": "esim-order-flow-oss-bss-mvno",
+      "w": 1600,
+      "h": 900,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. Swimlane process diagram, 1600 x 900 px. Four horizontal lanes labeled \"Customer\", \"BSS\", \"OSS\", \"Host network\". Exactly ten numbered circles joined by directional arrows in order 1 to 10, with exact labels: 1 \"Choose plan\"; 2 \"Pay\"; 3 \"Order sent to OSS\"; 4 \"Reserve SIM and number\"; 5 \"Activate on HSS/UDM\"; 6 \"eSIM profile on SM-DP+\"; 7 \"Device connects\"; 8 \"Usage rated\"; 9 \"Usage and top-up in app\"; 10 \"Support ticket\". BSS circles orange, OSS circles charcoal, Host network circles grey. Small orange tag \"handoff\" at steps 3 and 8 only. Place 1 in Customer lane; 2 in BSS; 3 at BSS/OSS boundary; 4,5,6 in OSS; 7 in Host network; 8 and 9 in BSS; 10 at OSS/BSS boundary. Spread sequence along width, wrapping labels in each column. Route connector 7 to 8 upwards. No missing or duplicate steps. Shared step 10 touches both BSS and OSS.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-0bc57315-2ef8-451c-8ce3-7c4275e55d35.png",
+      "edit": "Edit this diagram with surgical corrections. Add missing small orange tag with exact white text \"handoff\" directly below step 8 \"Usage rated\", matching existing tag below step 3. Move step 3 upwards so it straddles the boundary between BSS and OSS lanes, keeping its arrows connected. Preserve all other labels, all 10 numbers, step order, arrows and lane labels. Remove all surface texture and gradients: use uniform solid fills, pure white background, orange exactly #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF. Keep landscape 1600x900 composition. Do not add any other text."
+    },
+    {
+      "key": "o3",
+      "name": "mvno-oss-bss-ownership-matrix",
+      "w": 1600,
+      "h": 1000,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. Grid infographic 1600 x 1000. Three column headers exactly \"Branded reseller\", \"Light MVNO\", \"Full MVNO\". Wide left column for ten row labels. Each cell rounded pill, grey \"Host MNO\", charcoal \"MVNE\", orange \"MVNO\"; cells with two owners use split pill with both literal owner names. Exact rows and left-to-right cell values:\nRadio network: Host MNO | Host MNO | Host MNO\nCore network: Host MNO | Host MNO | MVNO\nSIM and IMSI ranges: Host MNO | Host MNO + MVNE (split pill) | MVNO\nProvisioning: Host MNO | MVNE | MVNO\nNetwork monitoring: Host MNO | Host MNO + MVNE (split pill) | MVNO + Host MNO (split pill)\nCatalogue and pricing: MVNO | MVNO | MVNO\nCharging and billing: Host MNO | MVNE | MVNO\nCRM and support: MVNO | MVNO | MVNO\nWholesale settlement: Host MNO | MVNE + MVNO (split pill) | MVNO\nBrand and sales: MVNO | MVNO | MVNO\nLegend at bottom with three colored pills labeled \"Host MNO\", \"MVNE\", \"MVNO\". Do not print plus signs, the words split pill, row numbers, explanatory notes, or title. Ten rows, three columns, all 30 cells. Crisp spreadsheet-like alignment, minimal row dividers.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-edcf6fb7-6c69-49fd-af5a-ee9358f3630d.png"
+    },
+    {
+      "key": "o4",
+      "name": "spenza-mvne-oss-bss-mapping",
+      "w": 1600,
+      "h": 900,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. Layered architecture diagram 1600 x 900. Top single box labeled \"Your MVNO brand and customers\". Middle row three orange-outlined blocks side by side with exactly these full labels (wrap naturally): \"TelecomHub: provisioning and connectivity (OSS)\", \"ControlHub: plans, charging and billing (BSS)\", \"UXHub: portal and checkout (BSS)\". All middle blocks rest on one thin horizontal bar labeled \"One data model, one API\". Bottom layer row of grey boxes with one single shared label \"Host operators in 180+ countries\". Right of the middle layer a slim vertical orange-accented bar labeled \"AgentHub and MCP server\" (text can rotate to fit). Clean vertical connection lines joining layers. No other text.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-837adca6-b0b5-4804-814d-dc9aebc2f18d.png",
+      "edit": "Edit this architecture diagram. Remove all three decorative icons from middle blocks, center existing complete labels in the resulting spaces. Replace the one bottom rectangle by a row of three separate grey rounded rectangles with one centered shared label \"Host operators in 180+ countries\" immediately above the row. Keep exactly all seven existing labels and text unchanged, preserve the top layer, middle three blocks, thin data-model bar and right vertical bar. All text remains readable, no extra text. No device screens or icons. Uniform solid fills, pure white background, orange exactly #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF. No gradients or texture. Landscape 1600x900."
+    },
+    {
+      "key": "m1",
+      "name": "how-to-start-mvno-us-layers",
+      "w": 1200,
+      "h": 675,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. Flat vector diagram 1200 x 675. Three stacked wide horizontal layers with rounded corners. Top layer orange, label \"Your brand: product, pricing, customers, distribution\". Middle layer charcoal, label \"MVNE: provisioning, billing, carrier integration\". Bottom layer light grey, label \"US host network: AT&T, T-Mobile or Verizon\", with a simple cell tower line icon. Thin outline of the contiguous United States faintly behind the bottom layer in light grey. Use white typography on dark fills and charcoal on grey. Keep all meaningful content within middle 600 vertical pixels for a safe 1200 x 630 center crop. No carrier logos or additional text.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-c48548ce-b166-4372-9523-c6e965e7aa31.png"
+    },
+    {
+      "key": "m2",
+      "name": "mvno-models-own-vs-rent",
+      "w": 1600,
+      "h": 900,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. 1600 x 900 diagram, three equal vertical columns titled \"Branded reseller\", \"Light MVNO\", \"Full MVNO\". Each is a stack of six blocks. Exact order from TOP to BOTTOM: \"Brand and sales\", \"Customer relationship\", \"Pricing and billing\", \"OSS and BSS\", \"Core network and SIM ranges\", \"Radio network\". Owned blocks solid orange with white text. Rented blocks light grey with charcoal text and dashed mid-grey outline. Branded reseller: ONLY top ONE block orange, remaining FIVE rented. Light MVNO: top THREE orange, bottom THREE rented. Full MVNO: top FIVE orange, ONLY bottom block rented. Under columns captions respectively \"Weeks\", \"Weeks to a few months\", \"12 to 18 months\". Bottom legend orange swatch \"You own\" and dashed grey swatch \"You rent\". Exactly six blocks per column. No other text.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-943c79f0-7a4a-4162-a56c-8bb6ab71e177.png"
+    },
+    {
+      "key": "m3",
+      "name": "us-mvno-compliance-map-voice-data",
+      "w": 1600,
+      "h": 1000,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. 1600 x 1000 decision flow. Reproduce supplied editorial labels exactly, no additional claims. Start box \"Selling mobile service in the US\" leads to diamond \"Do you sell voice?\". Orange branch labeled \"Yes\" goes to left box listing five lines \"FCC registration\", \"Form 499-A\", \"CPNI certification\", \"911 and E911\", \"Robocall Mitigation Database\". Grey branch labeled \"No\" goes to right smaller box \"Data-only: shorter list, broadband labels for consumer plans, state rules\". Both branches converge at second diamond \"Who is carrier of record?\". Two outcomes below diamond: \"Branded reseller: carrier of record files\" and \"Light MVNO: you file, MVNE supports\". Along bottom separate horizontal calendar strip with three evenly spaced markers and exact labels \"Within 30 days of service: register\", \"March 1: CPNI and robocall recertification\", \"April 1: Form 499-A\". Fit labels with generous padding and readable multi-line text. No seal, no logos, no title, no extra text.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-a869d071-0755-48e8-b7fc-ca00555e2ba4.png"
+    },
+    {
+      "key": "m4",
+      "name": "us-mvno-launch-timeline",
+      "w": 1600,
+      "h": 800,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. 1600 x 800 Gantt-style timeline. Horizontal time axis numbered every integer 0 through 18, unit label \"Months\". One shared timeline scale across both lanes, month 0 near left after title area, month 18 at right. Top lane title \"Full MVNO, built yourself\". Five grey bars with exact labels: \"Carrier agreement 6 to 12 months\" (month 0 to 12); \"OSS and BSS build 6 to 18 months\" (month 0 to 17); \"SIM and eSIM 2 to 4 months\" (month 10 to 14); \"Registrations 4 to 8 weeks\" (month 13 to 15); \"Pilot\" (month 15 to 18). Put long labels to left of bars if necessary to fit, aligned in a dedicated label column. Bottom lane title \"Light MVNO on an MVNE\". Three short orange bars, labeled exactly \"Configure\" (0 to 1), \"Registrations\" (0.5 to 2), \"Pilot\" (2 to 3), all END at or before month 3 on the SAME scale. Long blank space to right of orange bars intentionally illustrates speed. Do not stretch orange bars to fill width. No other text.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-d108dfc8-73a7-4f14-bfeb-4ec8b6d4d466.png"
+    },
+    {
+      "key": "i1",
+      "name": "iot-cmp-architecture",
+      "w": 1200,
+      "h": 675,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. 1200 x 675 layered architecture diagram. Bottom row simple IoT sensor and SIM card line icons with shared label \"IoT devices and SIMs\". Middle row three boxes labeled \"Carrier A\", \"Carrier B\", \"Carrier C\", with shared label \"eSIM profiles\" beneath them. Above carrier boxes a wide orange bar labeled \"Connectivity management platform: console and API\" (may wrap two lines). To the right three small grey integration boxes labeled \"ERP\", \"Billing\", \"Ticketing\", joined by arrows to orange platform bar with shared label \"API and webhooks\". Clean vertical connectors between devices, carriers and platform. No caption, no title, no extra text.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-f06151ae-b997-47ad-abb7-bf3e5c6cbc3d.png"
+    },
+    {
+      "key": "i2",
+      "name": "iot-sim-lifecycle-states",
+      "w": 1200,
+      "h": 500,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. 1200 x 500 left-to-right state diagram. Five rounded boxes in this exact left-to-right order: \"Test ready\", \"Inventory\", \"Activated\", \"Suspended\", \"Deactivated\". Activated orange with white type; all others charcoal outline on light grey. Draw ONLY these five transition arrows with exact labels and correct direction: Test ready to Activated \"first data session\" (route above Inventory WITHOUT connecting to Inventory); Inventory to Activated \"activate\"; Activated to Suspended \"suspend\"; Suspended to Activated \"resume\" (separate return arrow below boxes); Suspended to Deactivated \"deactivate\". No arrow from Test ready to Inventory. Arrowheads must point to correct destination. Use spacious vertical white space for top bypass and lower return path. No title or extra text.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-46ede20f-8ed1-451e-beb3-da163eea470c.png"
+    },
+    {
+      "key": "i3",
+      "name": "iot-cmp-bulk-update-flow",
+      "w": 1200,
+      "h": 500,
+      "prompt": "Create one final PNG infographic at the requested dimensions. White background, flat vector style, clean sans-serif, generous white space. Palette exclusively orange #EA580C, charcoal #171717, light grey #F3F4F6, mid grey #9CA3AF, and white. Crisp solid fills. No gradients, drop shadows, logos, people, device screens, stock-photo elements, watermarks or unlisted text. Spell every label exactly. Text and diagram relationships are more important than decoration. No overall title unless explicitly requested. 1200 x 500. Single left-to-right flow of exactly six equally spaced boxes joined by right-pointing arrows. Box labels verbatim with line wraps: \"Select a group by tag or attribute\"; \"Set the policy, plan or eSIM profile\"; \"Test on a small batch\"; \"Roll out in waves: 1%, 10%, the rest\"; \"Confirm the result per device\"; \"Flag failures for recovery\". Step 6 box solid orange with white type, other five boxes light grey with charcoal type. No numbers, no extra labels, no title, no icons needed. Use readable sans-serif and generous padding.",
+      "source": "/Users/spenza/.codex/generated_images/01a1779c-0408-7442-8357-e3bf440050d8/exec-e5800226-4cc2-492a-8b4c-261930f2ae2c.png"
+    }
+  ],
+  "not_generated": {
+    "name": "spenza-controlhub-device-groups.png",
+    "reason": "Requires real product screenshot. Repository ControlHub plan-builder and plan-mapping panels are illustrative HTML/SVG, not authenticated product screenshots."
+  }
+}

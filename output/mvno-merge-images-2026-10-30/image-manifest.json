@@ -1,0 +1,93 @@
+[
+  {
+    "name": "mvno-billing-responsibility-layers",
+    "group": "billing",
+    "width": 1600,
+    "height": 900,
+    "webpBytes": 85360,
+    "png": "billing/mvno-billing-responsibility-layers.png",
+    "webp": "billing/mvno-billing-responsibility-layers.webp"
+  },
+  {
+    "name": "mvno-billing-event-to-invoice-trace",
+    "group": "billing",
+    "width": 1600,
+    "height": 900,
+    "webpBytes": 69806,
+    "png": "billing/mvno-billing-event-to-invoice-trace.png",
+    "webp": "billing/mvno-billing-event-to-invoice-trace.webp",
+    "correction": "Step 3: Tariff version and balance change"
+  },
+  {
+    "name": "hero-mvno-billing-platforms",
+    "group": "billing",
+    "width": 1920,
+    "height": 1080,
+    "webpBytes": 37952,
+    "png": "billing/hero-mvno-billing-platforms.png",
+    "webp": "billing/hero-mvno-billing-platforms.webp"
+  },
+  {
+    "name": "mno-mvno-mvne-mvna-role-stack",
+    "group": "roles",
+    "width": 1600,
+    "height": 900,
+    "webpBytes": 52270,
+    "png": "roles/mno-mvno-mvne-mvna-role-stack.png",
+    "webp": "roles/mno-mvno-mvne-mvna-role-stack.webp"
+  },
+  {
+    "name": "mvne-vs-mvna-flows",
+    "group": "roles",
+    "width": 1600,
+    "height": 900,
+    "webpBytes": 51586,
+    "png": "roles/mvne-vs-mvna-flows.png",
+    "webp": "roles/mvne-vs-mvna-flows.webp"
+  },
+  {
+    "name": "which-partner-decision-flow",
+    "group": "roles",
+    "width": 1600,
+    "height": 900,
+    "webpBytes": 81922,
+    "png": "roles/which-partner-decision-flow.png",
+    "webp": "roles/which-partner-decision-flow.webp"
+  },
+  {
+    "name": "hero-mno-mvno-mvne-mvna-roles",
+    "group": "roles",
+    "width": 1280,
+    "height": 720,
+    "webpBytes": 24538,
+    "png": "roles/hero-mno-mvno-mvne-mvna-roles.png",
+    "webp": "roles/hero-mno-mvno-mvne-mvna-roles.webp"
+  },
+  {
+    "name": "white-label-mvno-who-does-what",
+    "group": "whitelabel",
+    "width": 1600,
+    "height": 900,
+    "webpBytes": 62792,
+    "png": "whitelabel/white-label-mvno-who-does-what.png",
+    "webp": "whitelabel/white-label-mvno-who-does-what.webp"
+  },
+  {
+    "name": "white-label-mvno-launch-path",
+    "group": "whitelabel",
+    "width": 1600,
+    "height": 700,
+    "webpBytes": 55070,
+    "png": "whitelabel/white-label-mvno-launch-path.png",
+    "webp": "whitelabel/white-label-mvno-launch-path.webp"
+  },
+  {
+    "name": "hero-white-label-mvno",
+    "group": "whitelabel",
+    "width": 1280,
+    "height": 720,
+    "webpBytes": 24808,
+    "png": "whitelabel/hero-white-label-mvno.png",
+    "webp": "whitelabel/hero-white-label-mvno.webp"
+  }
+]

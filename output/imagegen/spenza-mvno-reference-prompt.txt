@@ -1,0 +1,23 @@
+Mode: built-in image_gen; reference: /Users/spenza/Downloads/image.png. Export resized to exactly 1200 x 630 pixels.
+
+Use case: ads-marketing. Create a NEW landscape social media graphic using the supplied image as the visual STYLE REFERENCE. Output exactly 1200 x 630 pixels, aspect 1.90476:1.
+Match the reference's refined editorial product design closely: warm flat off-white, medium-weight clean grotesque navy lettering (NOT heavy bold), graceful thin orange calligraphic serif italic accent, widely tracked grey monospace eyebrow with short orange horizontal rule, and simplified near-flat product devices with white frames and delicate pale-grey outlines. Reference image is style guidance only; do not copy its business dialer or watch, its logo or headline.
+Keep entire background a uniform flat #F2F0EB. No glow, gradients, texture.
+Layout optimized for landscape: left text occupies about 63%, right smartphone about 32%, generous whitespace. Left margin 80px. Reserve top-left empty 260 x 70px area at x80 y35; draw absolutely nothing in it. No logo.
+At x80 around y180: 40px long 2px thick orange #FF4500 horizontal rule, followed by exact text "SPENZA FOR MVNOS" in grey #4B4F58 widely tracked monospace about 18px.
+Headline below eyebrow in THREE lines:
+"Launch mobile plans"
+"under your own"
+"brand."
+First two lines are navy #0F1420, clean modern grotesque MEDIUM weight, tightly tracked, about 60-64px, similar reference headline's moderate weight and optical proportions. Last line "brand." is orange #D9480F in refined thin calligraphic serif italic like Instrument Serif Italic, about 82px. Match italic reference word "device." in spirit. Keep all words fully visible and exact line breaks. Plenty of room between left text and phone.
+Right: a simplified realistic white/silver smartphone mockup like the reference's pale outlined handset, with rounded white frame, thin pale-grey edge, clean off-white display, understated realistic soft shadow under device only. No thick black bezel or heavy black camera island. Phone at x825 to approximately x1205, starts near y145 and continues naturally beyond the bottom canvas edge. Cropping intentional at bottom and slightly at right. Phone should read like reference's clean front-facing white product mockup, not shiny photographic hardware.
+A floating pill above phone, peach fill and thin pale orange outline, reads exact "BRANDED PLANS" in orange uppercase monospace.
+Phone screen: compact legible simple flat UI, no gradients:
+Status bar "9:41", "5G", signal bars.
+Header "Nova Mobile" and small pill "eSIM ACTIVE".
+Rounded white plan card with pale grey outline, exact text "Unlimited Plus", "$25 / month", a thin solid orange progress bar, exact monospace label "Data · 18.4 / 50 GB".
+Two rounded buttons: "Top up" orange fill, "Manage plan" pale outline.
+All app text and both buttons must be fully visible above canvas bottom, leaving only blank lower part of handset cropped.
+No other text, no logo, no smartwatch, no people, no watermark. Prioritize the reference's calm premium editorial feel, restrained typography and whitespace.
+
+Final edit: change the green status dot before eSIM ACTIVE to solid orange #FF4500; preserve all other elements.

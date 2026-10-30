@@ -1,0 +1,443 @@
+{
+  "imageCount": 19,
+  "numberingNote": "19 supplied filenames; source numbering skips 7 and 8. No missing images invented.",
+  "styleReference": "/Users/spenza/Downloads/spenza-codex-style/style-reference-billing-flow.png",
+  "generator": "Built-in image_gen; reference attached to every call",
+  "fontNote": "Bricolage Grotesque bold requested in generation prompts; labels are generated raster artwork, not embedded font text.",
+  "labelAssumptions": [
+    {
+      "id": 15,
+      "labels": [
+        "Order",
+        "Provision",
+        "Active"
+      ]
+    },
+    {
+      "id": 17,
+      "labels": [
+        "MVNE",
+        "OSS",
+        "BSS"
+      ]
+    },
+    {
+      "id": 21,
+      "labels": [
+        "Launch"
+      ]
+    }
+  ],
+  "postProcessing": "Sharp resize to 1600x900 and lossless PNG encoding only; no manual text retouching.",
+  "files": [
+    {
+      "id": 1,
+      "file": "roles/mno-mvno-mvne-mvna-role-stack.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "MNO",
+        "MVNA",
+        "MVNE",
+        "MVNO"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2735504,
+      "sha256": "3b3ba1f6946224fb19a6b76e640a41eac31c8409bf729b82cebd2903a50707e2",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 2,
+      "file": "roles/mvne-vs-mvna-flows.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "MVNA",
+        "MVNE"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2902892,
+      "sha256": "26c4e8cdc47b22e55fc862ead27965ac32bb29e0e40b53fdb192c376685291ea",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 3,
+      "file": "roles/which-partner-decision-flow.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "MVNE",
+        "MVNA",
+        "Direct host"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2781657,
+      "sha256": "228d6f2146679c27f092155280bcbba55003bf3c70646f0e7198b6a05121be77",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 4,
+      "file": "whitelabel/white-label-mvno-who-does-what.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Your brand",
+        "Platform",
+        "Host network"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2711296,
+      "sha256": "39cf731e30c9e26e373c7c03949e3c6ce7da45600fa4d4cfa4840fdd109de416",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 5,
+      "file": "whitelabel/white-label-mvno-launch-path.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2753483,
+      "sha256": "397c71ff1c28a0dc2372f48a53b4f69ffb69c5aa4da6a44acb060c232f72c86b",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 6,
+      "file": "billing/mvno-billing-process-flow.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Rate",
+        "Reconcile",
+        "Invoice"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2720098,
+      "sha256": "30c103a0864a2e839271b72c7fbeebd74b0bfe5291f2c4805d4f2b559c5c2877",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 9,
+      "file": "billing/mvno-billing-responsibility-layers.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Billing",
+        "Operations",
+        "Interfaces",
+        "Host deal"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2884175,
+      "sha256": "180467f528fc8c066b961f079afadba89895af0ecdd70195156fdee2d455ea60",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 10,
+      "file": "billing/mvno-billing-event-to-invoice-trace.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Event",
+        "Invoice"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2911823,
+      "sha256": "632ae7d719146ec2fb651adf7653723525af6b34b460cc2cbc0ac113abb54b87",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 11,
+      "file": "iot/iot-cmp-architecture.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Devices",
+        "Platform",
+        "Carriers"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2872545,
+      "sha256": "37316bdb391e49e03b181ca1855b7f906afa97e20cc77170aca90f4045df4d1f",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 12,
+      "file": "iot/iot-sim-lifecycle.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Inventory",
+        "Active",
+        "Suspended"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2808462,
+      "sha256": "11b512539a1e6122e72fbc214dc871ec9f2ed0139841f40215af9b3c8e168288",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 13,
+      "file": "iot/iot-bulk-flow.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Update",
+        "Retry"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2997119,
+      "sha256": "586a8a824dc2cb336e9493a8dc4469b73b3dbd70c18286b939ab5e399041f7ca",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 14,
+      "file": "oss-bss/oss-vs-bss-telecom-diagram.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "OSS",
+        "BSS"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2896639,
+      "sha256": "bbc435ff2c216413a69cbc60a6a5c346e681301f05384260e18b1ec42414a474",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 15,
+      "file": "oss-bss/esim-order-flow.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Order",
+        "Provision",
+        "Active"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2883301,
+      "sha256": "df4e482f34f9a525ed084d544a49476e0e38e88b073aa31e6c7ec203916dc991",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 16,
+      "file": "oss-bss/oss-bss-ownership-matrix.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Brand",
+        "MVNE",
+        "Host MNO"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2914663,
+      "sha256": "b6c72e4036feab14690990ca38698c967c19c75b778997cc671a2407e19fc302",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 17,
+      "file": "oss-bss/mvne-oss-bss-mapping.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "MVNE",
+        "OSS",
+        "BSS"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2819272,
+      "sha256": "7d8b1d5990320486496b1e88bc5824a9b25f7a9205cc14cac7e6ba45df97fa3c",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 18,
+      "file": "us-mvno/how-to-start-mvno-us-layers.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Your brand",
+        "MVNE",
+        "Host network"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2989935,
+      "sha256": "1437243a40a2e2d6e92abba31654c5b771658a3768b7ad2dd2d622259e9a9438",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 19,
+      "file": "us-mvno/mvno-models-own-vs-rent.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Build",
+        "Rent"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2944820,
+      "sha256": "42b42b5bec55cf95714d003fde13842c608ccd45ed161dd75ad89ae9cb8b7cc2",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 20,
+      "file": "us-mvno/us-mvno-compliance-map.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Voice",
+        "Data",
+        "Filings"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2812302,
+      "sha256": "dd42c79a5d7a6d9c118561374c6354d45549407fb31f07adbb0be59c6ba19867",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    },
+    {
+      "id": 21,
+      "file": "us-mvno/us-mvno-launch-timeline.png",
+      "width": 1600,
+      "height": 900,
+      "format": "png",
+      "labelsDrawn": [
+        "Launch"
+      ],
+      "fontRequested": "Bricolage Grotesque bold",
+      "bytes": 2763703,
+      "sha256": "c6a6133c0f606cf4d41d6a442c5ba435153d1e56b19f8db09f6d9d2b55a9ab2e",
+      "textRetouched": false,
+      "review": {
+        "spelling": "visually reviewed",
+        "labelOverlap": "none observed",
+        "style": "orange painterly scene reviewed",
+        "manualTextRetouch": false
+      }
+    }
+  ]
+}

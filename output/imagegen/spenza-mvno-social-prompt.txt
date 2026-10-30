@@ -1,0 +1,16 @@
+Mode: built-in image_gen. Export resized to exactly 1200 x 630 pixels.
+
+Use case: ads-marketing.
+Create one finished clean minimal social media preview image for a B2B telecom website. Exact output canvas 1200 x 630 pixels, 1.90476:1 landscape.
+Background: flat warm off-white cream #FAF8F5, with only a very subtle soft orange glow at the bottom-right corner. No photos, people, clutter or texture.
+Composition: left 60% typography, right 40% flat vector illustration. Generous 60px outer margins. Calm professional modern SaaS, high contrast, crisp edges.
+Left aligned typography:
+Small rounded pill label, thin #FF6900 outline, very light peach fill. Exact orange label text: "Spenza for MVNOs".
+Below pill, large bold modern geometric sans-serif like Instrument Sans or Inter, tight tracking, exactly two headline lines fitting fully inside left region:
+Line 1 near-black #141417: "Launch mobile plans"
+Line 2 orange gradient #E64A19 to #FF5722: "under your own brand."
+Maintain these exact line breaks, punctuation and spelling. Headline approximately 49px to fit the longest line, prominent and bold.
+Below headline a single smaller grey #5C5E66 line, exact text: "SIM & eSIM · Billing · Branded portals · APIs"
+Right side: simple upright smartphone outline, thin orange and dark-grey line art, central SIM/eSIM chip icon without lettering. Four small rounded white cards floating around it with simple outlined icons: price tag, credit card, user group, code brackets. Soft restrained shadows, flat vector style, plentiful negative space, no photorealism.
+Bottom-left keep a completely clear EMPTY 220 x 60 pixel area for later logo placement. Do NOT draw a logo, placeholder box, brand name or any other mark in that area.
+Only the four specified text strings may appear. No watermarks or extra text. No gradients on any illustration or cards; only the requested headline gradient and barely visible bottom-right glow.

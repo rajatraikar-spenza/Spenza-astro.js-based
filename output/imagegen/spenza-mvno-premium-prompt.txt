@@ -1,0 +1,20 @@
+Mode: built-in image_gen. Export resized to exactly 1200 x 630 pixels.
+
+Use case: ads-marketing.
+Create a finished premium product marketing social media preview, exactly 1200 x 630 pixels landscape (1.90476:1).
+Flat solid warm off-white background #F2F0EB. No gradients, glow or texture anywhere. Apple keynote calm with lots of whitespace, crisp edges, monochrome off-white/navy/grey and orange as the only accent.
+LEFT typography block: left-aligned at approximately 80px margin, vertically centred below a reserved blank logo area. Keep an empty area at top-left about 260 x 70px; draw absolutely nothing there, no placeholder or logo.
+Small eyebrow: short horizontal orange #FF4500 line about 40px long and 2px thick, followed by exact uppercase text "SPENZA FOR MVNOS" in widely tracked monospaced type resembling Geist Mono or JetBrains Mono, slate grey #4B4F58, about 22px.
+Below, large headline with very tight tracking, modern grotesque sans-serif resembling Bricolage Grotesque Medium, near-black navy #0F1420. EXACTLY THREE lines:
+"Launch mobile plans"
+"under your own"
+"brand."
+The first two lines are grotesque medium; ONLY the third line "brand." uses elegant calligraphic serif italic resembling Instrument Serif Italic, solid orange #D9480F, noticeably refined, not bold sans-serif. Aim for 76px headline size but fit the complete first line without wrapping; the typography may extend a little past the midpoint to fit. Never collide with phone. Third line large elegant italic accent. No extra caption.
+RIGHT: realistic clean minimal upright smartphone mockup with thin bezel, white/silver frame, subtle realistic shadow only beneath device. Large phone toward far-right, slightly overlapping/cropped by right canvas edge. Its front-facing screen shows a flat simple branded mobile-plan app. Legible, carefully typeset UI:
+Status bar exact text "9:41", "5G", signal bars.
+Header exact "Nova Mobile" with a small monospace pill "eSIM ACTIVE".
+White rounded plan card with exact text "Unlimited Plus", "$25 / month", and a thin solid orange progress bar labelled exactly "Data · 18.4 / 50 GB" in monospace.
+Two small rounded buttons with exact text "Top up" (orange fill) and "Manage plan" (outlined).
+Above phone, a small floating peach-filled pill with thin orange outline and monospace uppercase exact text "BRANDED PLANS". Keep pill fully visible.
+All UI flat with no card shadows; soft realistic shadow only beneath phone. Screen largely uncluttered.
+Constraints: all text spelled exactly as quoted. No text other than the explicitly specified strings. No logos in reserved empty area. No watermarks, people, background decoration, gradient, glow or texture. Strong typographic hierarchy and premium whitespace.
