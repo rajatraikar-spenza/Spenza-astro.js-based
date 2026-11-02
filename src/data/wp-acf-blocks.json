@@ -67,34 +67,34 @@
   },
   "fleet-automotive-iot-connectivity-costs": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Fleet and automotive IoT connectivity is the cellular service layer behind telematics, tracking and connected-vehicle features. It differs from general IoT connectivity in three ways: vehicles move across networks and borders, they run several services at once including regulated ones, and they stay in service long enough to outlive the networks they launched on.",
+    "tldrDescription": "Fleet IoT connectivity costs cover service, hardware, cloud, operations and lifecycle change, counted per connected module and not per vehicle. Quote the supported service, test coverage and recovery on real routes, and prove freshness and cost in a pilot before rollout.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"link\", \"label\" : \"Link\", \"unicode\" : \"f0c1\"}",
-        "title": "Reliable Connectivity Is Essential",
-        "text": "Connected vehicles need consistent cellular connectivity for GPS tracking, diagnostics, OTA updates, navigation, and other critical services as they move across networks and borders."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"truck\"}",
+        "title": "Count modules, not vehicles",
+        "text": "A tracker, dashcam and gateway can each carry a subscription and fail differently."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"network-wired\", \"label\" : \"Network Wired\", \"unicode\" : \"f6ff\"}",
-        "title": "Multi-Carrier Connectivity Improves Coverage",
-        "text": "Multi-network eSIM connectivity reduces dependence on a single carrier and enables vehicles to switch networks when coverage or network availability changes."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Show every cost layer",
+        "text": "Connectivity, hardware, cloud, operations and migration belong on separate lines."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"circle-check\", \"label\" : \"Circle Check\", \"unicode\" : \"f058\"}",
-        "title": "Choose the Right Technology",
-        "text": "LTE-M is the preferred option for moving vehicles because it supports cellular handover, while Cat-1bis can be an alternative where LTE-M coverage is limited; NB-IoT is better suited to static assets."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "Test routes, not maps",
+        "text": "Measure application freshness on real routes, depots and borders."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Design for Long-Term Failover",
-        "text": "eUICC/eSIM enables remote carrier-profile changes, helping fleets address cross-border connectivity requirements and reduce the risk of network outages and future technology sunsets without physically replacing SIMs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"rotate\"}",
+        "title": "Define recovery",
+        "text": "Reconnect, replay buffered events, then verify freshness and gaps."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Simplifies Fleet Connectivity",
-        "text": "Spenza provides carrier-neutral IoT connectivity orchestration with multi-carrier access, eSIM/RSP management, usage controls, and cost optimization to help fleets stay connected while reducing vendor lock-in."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Prove it in a pilot",
+        "text": "Agree thresholds first, then match device records to application data and the invoice."
       }
     ]
   },
@@ -409,34 +409,34 @@
   },
   "what-is-m2m-machine-to-machine-sims": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Machine-to-Machine (M2M) technology enables devices to communicate automatically over cellular or wired networks without human intervention. M2M SIMs are purpose-built for long-term, reliable IoT deployments with features like remote provisioning, multi-network access, and industrial-grade durability. Choosing the right SIM, network, and eSIM standard helps reduce costs, avoid carrier lock-in, and ensure seamless global connectivity.",
+    "tldrDescription": "M2M is machines exchanging data without people. IoT is the cloud, analytics and automation layered on top. An M2M SIM is built for unattended devices, and its eUICC standard, form factor and network reach decide how long you stay flexible.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"robot\", \"label\" : \"Robot\", \"unicode\" : \"f544\"}",
-        "title": "What Is M2M and How Does It Work?",
-        "text": "M2M (Machine-to-Machine) enables connected devices to exchange data automatically without human input. It powers IoT applications by connecting sensors, cellular networks, and cloud platforms for real-time communication."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"microchip\"}",
+        "title": "M2M is the link",
+        "text": "Machines exchange data without people. IoT adds platforms, analytics and automation on top."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "What Is an M2M SIM Card?",
-        "text": "An M2M SIM is designed for IoT devices that require secure, long-lasting, and reliable cellular connectivity. Unlike consumer SIMs, it supports harsh environments, remote management, and multi-network connectivity."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Judge the SIM, not the label",
+        "text": "M2M and IoT SIMs are often the same hardware. Check networks reached, eUICC and management."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"circle-xmark\", \"label\" : \"Circle Xmark\", \"unicode\" : \"f057\"}",
-        "title": "M2M SIM vs Regular SIM",
-        "text": "M2M SIMs offer industrial durability, longer lifespans, remote provisioning, and global roaming capabilities. These features make them ideal for large-scale IoT deployments compared to standard mobile SIM cards."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Three eSIM standards",
+        "text": "SGP.02, SGP.22 and SGP.32 are not interchangeable. Ask which one you are buying."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"industry\", \"label\" : \"Industry\", \"unicode\" : \"f275\"}",
-        "title": "M2M Use Cases Across Industries",
-        "text": "M2M technology is widely used in smart metering, fleet tracking, healthcare, industrial automation, logistics, and connected consumer devices. It improves operational efficiency, enables remote monitoring, and reduces maintenance costs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "2G and 3G are ending",
+        "text": "The modem, not the SIM, usually decides whether a legacy device keeps working."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"circle-question\", \"label\" : \"Circle Question\", \"unicode\" : \"f059\"}",
-        "title": "How to Choose the Right M2M SIM Provider",
-        "text": "When selecting an M2M SIM provider, evaluate network coverage, eSIM support, roaming capabilities, pricing, and fleet management tools. A scalable provider helps minimize connectivity costs while avoiding long-term vendor lock-in."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-question\"}",
+        "title": "Four questions for a provider",
+        "text": "Networks per country, eUICC standard, third-party profiles and permanent-roaming rules."
       }
     ]
   },
@@ -646,34 +646,34 @@
   },
   "iot-asset-tracking-connectivity-guide": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An asset tracker needs a positioning method (usually GNSS), a network to carry the data (LTE-M, NB-IoT, Cat-1bis, RedCap, satellite or a mix) and a platform to manage it. Pick the network from how the asset moves, how much it sends and where it travels, then plan for failover and roaming rules.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-broadcast\", \"label\" : \"Tower Broadcast\", \"unicode\" : \"f519\"}",
-        "title": "There Is No Single Best IoT Network",
-        "text": "LTE-M, NB-IoT, Cat-1bis, RedCap, and satellite each serve different tracking requirements. The right choice depends on mobility, coverage, battery life, and data needs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"location-dot\"}",
+        "title": "Location is not connectivity",
+        "text": "GNSS finds the asset. A cellular or satellite link carries the position to your software."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"network-wired\", \"label\" : \"Network Wired\", \"unicode\" : \"f6ff\"}",
-        "title": "Match Connectivity to the Use Case",
-        "text": "Fleet vehicles, containers, cold-chain shipments, and video-enabled assets all have different requirements. Connectivity should be selected based on operational needs, not network popularity."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "Match network to movement",
+        "text": "LTE-M for moving assets, NB-IoT for fixed ones, Cat-1bis and RedCap when bandwidth matters."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"map-location\", \"label\" : \"Map Location\", \"unicode\" : \"f59f\"}",
-        "title": "Coverage Is More Than a Coverage Map",
-        "text": "Reliable tracking depends on carrier switching, roaming performance, failover capabilities, and local eSIM profiles. Access to multiple networks is often more important than country count."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"shuffle\"}",
+        "title": "Plan for failover",
+        "text": "SIM steering can pin a device to a weaker network. Ask how steering is set and who can see it."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"battery-three-quarters\", \"label\" : \"Battery Three Quarters\", \"unicode\" : \"f241\"}",
-        "title": "Battery Life Depends on More Than the Network",
-        "text": "Power consumption is influenced by reporting frequency, signal quality, PSM/eDRX settings, and network selection. Optimizing the entire system delivers the biggest battery gains."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"earth-americas\"}",
+        "title": "Check roaming rules",
+        "text": "Some countries restrict permanent roaming for IoT. Local profiles help keep devices compliant."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Connectivity Management Becomes Critical at Scale",
-        "text": "As deployments grow, organizations need centralized visibility, multi-carrier management, eSIM orchestration, and automated lifecycle controls to maintain reliability and control costs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"battery-half\"}",
+        "title": "Test battery on your routes",
+        "text": "Reporting interval, signal quality and power saving decide battery life. Demand the test conditions behind any figure."
       }
     ]
   },
@@ -751,34 +751,34 @@
   },
   "global-iot-connectivity-2026": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "Global IoT connectivity means devices can attach, are allowed to stay, and deliver data in every country they ship to. Use roaming to launch and for devices that really move; plan local profiles for devices that stay put. Verify country limits with the regulator or operator contract, and prove recovery with an application test.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"earth-americas\", \"label\" : \"Earth Americas\", \"unicode\" : \"f57d\"}",
-        "title": "Global IoT Connectivity Is Becoming More Complex",
-        "text": "The old “one global SIM everywhere” model is becoming harder to sustain as countries tighten telecom regulations around long-term roaming and foreign SIM usage."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"earth-americas\"}",
+        "title": "Roaming to launch",
+        "text": "One SIM can ship everywhere, but duration and routing terms vary by country and contract."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"map-location-dot\", \"label\" : \"Map Location Dot\", \"unicode\" : \"f5a0\"}",
-        "title": "Permanent Roaming Restrictions Are Increasing",
-        "text": "Countries including India, Brazil, China, Turkey, Nigeria, and UAE now impose varying levels of restrictions, monitoring, or localization requirements for large-scale IoT deployments."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Local profiles to stay",
+        "text": "Long-lived, stationary devices may need a local arrangement. Get it in writing per country."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Multi-Carrier and eSIM Strategies Are Replacing Single-Carrier Models",
-        "text": "Enterprises are increasingly combining roaming, multi-IMSI, local operator profiles, and eSIM orchestration to improve resilience, compliance, and scalability."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"route\"}",
+        "title": "Identity is not route",
+        "text": "A local identity does not show where traffic exits or where your data is stored."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"network-wired\", \"label\" : \"Network Wired\", \"unicode\" : \"f6ff\"}",
-        "title": "SGP.32 and eUICC Enable Scalable Global IoT Operations",
-        "text": "Technologies like eUICC, eSIM, and SGP.32 allow enterprises to remotely provision local operator profiles and manage connectivity dynamically across regions without replacing physical SIMs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot before fleet",
+        "text": "Expand by group, after written acceptance of device, service and application results."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Helps Simplify Connectivity Management",
-        "text": "As enterprises manage more devices across more countries and operators, telecom operations become increasingly fragmented. Spenza helps centralize connectivity management through unified eSIM provisioning, multi-carrier orchestration, analytics, and operational visibility."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"folder-open\"}",
+        "title": "Keep a dated country record",
+        "text": "One entry per country and service: scope, source, device eligibility, data path and owner."
       }
     ]
   },
@@ -1087,34 +1087,34 @@
   },
   "iot-connectivity-comparison": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "IoT connectivity in 2026 is moving toward flexible, multi-layer architectures that combine cellular, LPWAN, short-range technologies, satellite NTN, and eSIM management. The right connectivity stack depends on coverage, data usage, power requirements, device lifespan, and pricing needs.",
+    "tldrDescription": "IoT connectivity splits into cellular, unlicensed LPWAN, short-range and satellite NTN. Pick by payload, power, mobility and who operates the link, then validate in a field pilot. Most fleets combine layers and add eSIM plus a management platform.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"server\", \"label\" : \"Server\", \"unicode\" : \"f233\"}",
-        "title": "Choose Connectivity Based on the Use Case",
-        "text": "LTE-M suits mobile IoT, NB-IoT works well for stationary low-data devices, Cat-1bis supports reliable legacy migration, and 5G RedCap targets higher-bandwidth applications such as EV charging and industrial systems."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "Match tech to the job",
+        "text": "NB-IoT for still, low-data sensors; LTE-M for movement; Cat-1bis and RedCap for more bandwidth."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"database\", \"label\" : \"Database\", \"unicode\" : \"f1c0\"}",
-        "title": "LPWAN and NTN Extend IoT Coverage",
-        "text": "LoRaWAN can be cost-effective for low-data deployments with private gateways, while satellite NTN provides connectivity in remote areas where terrestrial networks are unavailable. Hybrid cellular-and-satellite architectures can improve reliability."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"satellite-dish\"}",
+        "title": "Satellite is a gap-filler",
+        "text": "NTN extends NB-IoT and LTE-M since 3GPP Release 17, but needs supported modules."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "eSIM Enables Flexible IoT Connectivity",
-        "text": "eSIM and SGP.32 allow remote provisioning and profile management for large-scale IoT deployments, while multi-IMSI technology can automatically switch network identities to improve coverage and reduce single-carrier dependency."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "eSIM keeps options open",
+        "text": "Remote profile changes help, but cannot add bands to a modem."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"house-signal\", \"label\" : \"House Signal\", \"unicode\" : \"e012\"}",
-        "title": "Future-Proof the Connectivity Stack",
-        "text": "IoT teams should plan around device lifespan, 2G/3G sunsets, certification timelines, coverage testing, and future network standards. Choosing the technology before defining the actual use-case constraints can create costly deployment risks."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calendar-check\"}",
+        "title": "Plan for the lifecycle",
+        "text": "Network sunsets and module support decide whether today's choice lasts."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-simple\", \"label\" : \"Chart Simple\", \"unicode\" : \"e473\"}",
-        "title": "Spenza Simplifies IoT Connectivity Management",
-        "text": "Spenza provides a unified control layer for multi-carrier orchestration, eSIM lifecycle management, usage policies, and network switching, helping businesses manage complex IoT connectivity deployments as they scale."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot before you commit",
+        "text": "A spec sheet is not field evidence: test the real hardware, service and support path."
       }
     ]
   },
@@ -1672,34 +1672,34 @@
   },
   "nb-iot-vs-lte-m-vs-5g-redcap": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "NB-IoT fits small, infrequent reports from fixed devices with deep indoor reach. LTE-M fits moving devices, larger payloads and over-the-air updates. RedCap brings 5G NR at reduced complexity. Battery life depends on the reporting cycle and network timers, so prove the choice with a field pilot.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"signal\", \"label\" : \"Signal\", \"unicode\" : \"f012\"}",
-        "title": "NB-IoT vs LTE-M vs 5G RedCap",
-        "text": "NB-IoT, LTE-M, and 5G RedCap are the main cellular IoT technologies in 2026, each built for different data, power, and mobility needs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"water\"}",
+        "title": "NB-IoT for still, small reports",
+        "text": "Meters and fixed sensors that send little and can tolerate delay."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"mobile-screen-button\", \"label\" : \"Mobile Screen Button\", \"unicode\" : \"f3cd\"}",
-        "title": "Use Case Fit",
-        "text": "NB-IoT suits low-data devices, LTE-M supports mobility and real-time use cases, while 5G RedCap powers high-bandwidth IoT applications."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"truck\"}",
+        "title": "LTE-M for movement and updates",
+        "text": "Handover, faster response and larger transfers for trackers and fleets."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"battery-three-quarters\", \"label\" : \"Battery Three Quarters\", \"unicode\" : \"f241\"}",
-        "title": "Performance vs Battery",
-        "text": "NB-IoT delivers the longest battery life, LTE-M balances power and performance, and 5G RedCap offers speed with higher power usage."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"battery-half\"}",
+        "title": "Battery is not a fixed ranking",
+        "text": "Timers, retries and coverage change which radio uses less energy."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"money-bills\", \"label\" : \"Money Bills\", \"unicode\" : \"e1f3\"}",
-        "title": "Coverage & Cost",
-        "text": "LTE-M leads in roaming, NB-IoT excels in deep coverage, and RedCap is still expanding with higher module costs in 2026."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"signal\"}",
+        "title": "RedCap needs its own check",
+        "text": "Confirm module, bands and operator support before designing around it."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Makes Multi-Technology IoT Simple ",
-        "text": "Spenza helps manage NB-IoT, LTE-M, and 5G RedCap on one platform using eSIM for flexible, future-proof IoT connectivity."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot before you commit",
+        "text": "Test the exact module and network, and compare radio logs with delivered data."
       }
     ]
   },
@@ -1876,34 +1876,34 @@
   },
   "iot-sim-cards-guide": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An IoT SIM holds the credentials a device uses to join a cellular network, but package, profile capability, coverage and plan are four separate decisions. Specify each one, compare complete lifecycle cost, and accept the SIM on real hardware before ordering production inventory.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"mobile-screen\", \"label\" : \"Mobile Screen\", \"unicode\" : \"f3cf\"}",
-        "title": "IoT SIMs Are Not Phone SIMs",
-        "text": "They’re built for extreme temperatures, 10–15 year lifespans, and remote OTA management. Using a consumer SIM in production IoT is a shortcut that creates long-term problems."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Package is not capability",
+        "text": "Removable or soldered says how it fits. It does not prove eUICC or remote profile support."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "eUICC + SGP.32 Is the 2026 Baseline",
-        "text": "If your SIM provider doesn’t support eUICC today and have SGP.32 on their roadmap, you’re buying into lock-in. Hybrid multi-IMSI + eUICC gives you day-one reliability and decade-long flexibility."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"microchip\"}",
+        "title": "Name the GSMA standard",
+        "text": "SGP.02, SGP.22 and SGP.32 are different architectures. Ask for the version and components."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"magnifying-glass-chart\", \"label\" : \"Magnifying Glass Chart\", \"unicode\" : \"e522\"}",
-        "title": "The Per-MB Price Is Never the Full Cost",
-        "text": "Activation fees, inactivity charges, overage penalties, roaming surcharges, and termination clauses can double your effective spend. Ask about every line item before signing."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"earth-americas\"}",
+        "title": "Global is not universal",
+        "text": "Test sites, bands and permanent roaming rules country by country."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"globe\", \"label\" : \"Globe\", \"unicode\" : \"f0ac\"}",
-        "title": "Global Deployment Requires Local Compliance",
-        "text": "Permanent roaming bans in countries like Brazil, China, India, and Turkey can disconnect your fleet overnight. Localized carrier profiles via eUICC or multi-IMSI solve this."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Compare lifecycle cost",
+        "text": "Price activation, idle SIMs, suspension and exit, not only the data rate."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza - Operator-Neutral Platform",
-        "text": "Managing multiple carrier portals and billing formats manually doesn’t scale. A connectivity management platform(CMP) like Spenza unifies provisioning, analytics, and cost control under one dashboard."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Accept it on real hardware",
+        "text": "Run activation, change, recovery and retirement on the actual device and keep written results."
       }
     ]
   },
@@ -2311,34 +2311,34 @@
   },
   "single-carrier-iot-risks-2025": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Relying on a single mobile carrier for IoT connectivity creates significant business risks, including network outages, coverage gaps, vendor lock-in, and limited scalability. A multi-carrier strategy powered by eSIM and remote SIM management improves resilience, reduces downtime, and supports global IoT deployments. This guide explains the risks of single-carrier IoT and how Spenza helps businesses build reliable, future-ready connectivity.",
+    "tldrDescription": "Single-carrier IoT binds device identity, network access and price to one operator, so one outage, sunset or price change reaches the whole fleet. Reduce the exposure with devices that can use more than one network, remotely managed profiles, tested switching rules and contracts that allow them.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wifi\", \"label\" : \"Wifi\", \"unicode\" : \"f1eb\"}",
-        "title": "Single-Carrier IoT Creates a Single Point of Failure",
-        "text": "When every IoT device depends on one carrier, outages, coverage issues, or policy changes can disrupt entire deployments. As fleets grow, this increases operational risk, business downtime, and customer impact."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-broadcast\"}",
+        "title": "One network, one failure",
+        "text": "The FCC found a 2024 configuration error cut service even for MVNO and roaming users."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"network-wired\", \"label\" : \"Network Wired\", \"unicode\" : \"f6ff\"}",
-        "title": "Coverage Gaps and Vendor Lock-In Increase Costs",
-        "text": "Single-carrier deployments face challenges such as network dead zones, technology sunsets, roaming restrictions, and rising operational costs. Limited carrier flexibility also reduces negotiating power and makes scaling more difficult."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clock-rotate-left\"}",
+        "title": "Devices outlive networks",
+        "text": "Long-life meters and equipment meet network sunsets and need profiles that can move."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Multi-Carrier eSIM Improves Reliability and Scalabili",
-        "text": "A multi-carrier strategy using eSIM enables automatic carrier switching, remote profile management, flexible contracts, and intelligent failover. This keeps devices connected across regions while reducing downtime and simplifying fleet management."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "eSIM is not failover",
+        "text": "eSIM makes profiles manageable; failover also needs hardware, profiles and tested rules."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"industry\", \"label\" : \"Industry\", \"unicode\" : \"f275\"}",
-        "title": "Multi-Carrier Connectivity Supports Critical IoT Use Cases",
-        "text": "Industries such as logistics, utilities, and healthcare benefit from resilient multi-carrier connectivity that minimizes outages, protects mission-critical operations, and improves service continuity through policy-based network switching."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-signature\"}",
+        "title": "Contract decides freedom",
+        "text": "Portability, eUICC rights and performance-based terms matter as much as the technology."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"globe\", \"label\" : \"Globe\", \"unicode\" : \"f0ac\"}",
-        "title": "How Spenza Eliminates Single-Carrier IoT Risks",
-        "text": "Spenza provides a unified IoT connectivity platform with multi-carrier access, automatic failover, global eSIM management, centralized dashboards, no-code deployment, compliance support, and real-time cost optimization. Businesses can scale globally while improving reliability, reducing operational complexity, and avoiding vendor lock-in."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"flask\"}",
+        "title": "Test failover on a pilot",
+        "text": "Add a second profile to a small cohort and cut the primary network on purpose."
       }
     ]
   },
@@ -2377,34 +2377,34 @@
   },
   "iot-connectivity-cost-guide-2025": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "IoT connectivity cost is access, billable data, platform services and operating work, not the per-MB rate alone. Compare plans on the same cohort, countries and period, model bursts and minimums, and prove any saving by matching usage, rating and invoices.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"robot\", \"label\" : \"Robot\", \"unicode\" : \"f544\"}",
-        "title": "IoT connectivity costs are complex and variable.",
-        "text": "Total costs include hardware, SIM access, data usage, roaming, overages, and regulatory fees—not just the data plan itself."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Price the whole bill",
+        "text": "Access, data, platform, support and ownership costs all belong in the comparison."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wifi\", \"label\" : \"Wifi\", \"unicode\" : \"f1eb\"}",
-        "title": "Data plan structure matters.",
-        "text": "Per‑MB, tiered, and pooled pricing models affect spend differently; pooling often offers the biggest savings for large fleets."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Match plan to usage",
+        "text": "Pay-as-you-go, allowances, pools and prepaid packages each fail in different ways."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hexagon-nodes\", \"label\" : \"Hexagon Nodes\", \"unicode\" : \"e699\"}",
-        "title": "Roaming and overage charges can inflate bills quickly.",
-        "text": "Without controls or local profiles, unexpected usage or roaming can multiply costs dramatically."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"ruler\"}",
+        "title": "Metered is not billable",
+        "text": "Headers, retries and minimum billing units change the bytes you pay for."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Centralized management and automation reduce waste.",
-        "text": "Tools that automate SIM lifecycle, usage alerts, and rules help eliminate idle SIM fees and catch anomalies early."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Check lifecycle states",
+        "text": "Inactive, standby and suspended subscriptions are billed differently by plan."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"earth-americas\", \"label\" : \"Earth Americas\", \"unicode\" : \"f57d\"}",
-        "title": "Global deployments need flexible connectivity.",
-        "text": "eSIM and multi‑carrier strategies help avoid compliance issues and expensive local provisioning in different regions."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice\"}",
+        "title": "Reconcile usage to invoice",
+        "text": "A saving only counts when usage, contract rules and invoices line up."
       }
     ]
   },
@@ -2508,35 +2508,35 @@
     ]
   },
   "smart-city-iot-connectivity-playbook-2026": {
-    "tldrHeading": "Smart City IoT Connectivity at Scale",
-    "tldrDescription": "",
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Smart city IoT connectivity is chosen per municipal service, not per city. Match each application to eligible networks, keep useful carrier contracts where integration is supported, and accept the installed path through tests of recovery, cost and ownership before scaling.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"industry\", \"label\" : \"Industry\", \"unicode\" : \"f275\"}",
-        "title": "Industrial-Scale IoT ",
-        "text": "Cities need citywide IoT infrastructure as devices approach 39B by 2030; managing individual carrier portals won’t scale."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "Network per service",
+        "text": "Meters, fleets, lights and video need different coverage, power and recovery."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hexagon-nodes\", \"label\" : \"Hexagon Nodes\", \"unicode\" : \"e699\"}",
-        "title": "Multi-Carrier Advantage",
-        "text": "No single carrier covers all urban areas. Unified CMPs simplify operations across cellular, LPWAN, satellite, and private networks."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"link\"}",
+        "title": "BYON keeps contracts",
+        "text": "Existing carrier relationships can stay where the integration supports them."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"network-wired\", \"label\" : \"Network Wired\", \"unicode\" : \"f6ff\"}",
-        "title": "BYON Protects Investments",
-        "text": "“Bring Your Own Network” lets cities use existing carrier contracts while expanding connectivity without rip-and-replace upgrades."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"vial\"}",
+        "title": "Test the installed path",
+        "text": "Prove the application recovers, not just that the modem registered."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "eSIM & Remote Provisioning",
-        "text": "Devices deployed now must last decades; eSIM and remote provisioning prevent costly physical SIM replacements."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Price the whole lifecycle",
+        "text": "Include install, operation, changes and exit, with exclusions in writing."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Enables City-Scale Connectivity",
-        "text": "Spenza’s platform integrates BYON architecture, single-pane-of-glass management, and a pre-integrated connectivity marketplace for seamless expansion."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot with written acceptance",
+        "text": "Run a representative pilot with a maintenance budget and a documented exit path."
       }
     ]
   },
@@ -3492,10 +3492,37 @@
     ]
   },
   "must-attend-iot-and-mvno-events-in-2026": {
-    "tldrHeading": "",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "As of 2 November 2026 only MVNO Nation Europe, Smart City Expo World Congress and MVNOs World Connect remain in 2026. The main IoT and MVNO dates are in 2027. Pick events by the decision you need, bring a brief, and turn supplier claims into tested evidence.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calendar-check\"}",
+        "title": "Dates verified today",
+        "text": "Every date and city comes from the organizer's own page, checked 2 November 2026."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calendar-days\"}",
+        "title": "Most dates are 2027",
+        "text": "CES, IoT Tech Expo Global, MWC and embedded world fall between January and March 2027."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-list\"}",
+        "title": "One decision per meeting",
+        "text": "A written brief gives suppliers a concrete question and gives you a record to compare."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"wallet\"}",
+        "title": "Budget the whole trip",
+        "text": "Count pass, travel, preparation and follow-up time, not just the ticket."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"flask-vial\"}",
+        "title": "Demos are not pilots",
+        "text": "Test any claim from an event on your own devices and markets before you decide."
+      }
+    ]
   },
   "a2p-messaging-satellite-cellular-hybrid": {
     "tldrHeading": "TL;DR - Future of A2P Messaging",
@@ -4000,67 +4027,67 @@
   },
   "single-pane-of-glass-iot-connectivity-management": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "A single pane of glass for IoT connectivity management is one interface to see and act on every SIM, eSIM, carrier and invoice. It must control, not just report. Check five layers, plan for centralization risks, and test vendors on a mixed fleet.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"satellite-dish\", \"label\" : \"Satellite Dish\", \"unicode\" : \"f7c0\"}",
-        "title": "The Operational Overload of IoT at Scale",
-        "text": "When you have tens of thousands of devices across multiple countries and carriers, management becomes fragmented, slow and opaque."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"eye\"}",
+        "title": "Control, not just a view",
+        "text": "If you still log in to carrier portals to act, it is a dashboard."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"question\", \"label\" : \"Question\", \"unicode\" : \"3f\"}",
-        "title": "Why It Matters Now",
-        "text": "The number of connected IoT devices is exploding globally, and without unified visibility you risk higher costs, security gaps and wasted time."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Five layers to check",
+        "text": "Inventory, policy, lifecycle, observability, security and audit."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-column\", \"label\" : \"Chart Column\", \"unicode\" : \"e0e3\"}",
-        "title": "“Single Pane of Glass” (SPOG) Means",
-        "text": "It’s more than one dashboard: it’s unified monitoring, management, billing, analytics and automation across all networks and carriers."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "eSIM needs a control layer",
+        "text": "SGP.32 makes switching possible; rules and records decide when."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"eye\", \"label\" : \"Eye\", \"unicode\" : \"f06e\"}",
-        "title": "What to Look For",
-        "text": "A platform that offers features like global carrier support, eSIM orchestration, bulk provisioning, real-time alerts and cost control."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Measure your own baseline",
+        "text": "Idle SIMs and invoice effort tell more than any savings claim."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
-        "title": "Transforming IoT Operations into a Strategic Advantage",
-        "text": "A unified IoT connectivity platform turns operations from a burden into a strategic asset: faster issue resolution, lower spend, full visibility, better security and easier scaling."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Test before you buy",
+        "text": "Run a bulk action, a rule and an export on a two-carrier test fleet."
       }
     ]
   },
   "iot-connectivity-healthcare-remote-patient-monitoring": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "Healthcare IoT connectivity is judged on whether readings and alerts arrive. Avoid tying devices to one carrier or one network technology, keep fleet-wide visibility, test at real addresses, and put security and compliance questions to vendors in writing. General information, not legal or medical advice.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"heart-pulse\", \"label\" : \"Heart Pulse\", \"unicode\" : \"f21e\"}",
-        "title": "The New Pulse of Healthcare",
-        "text": "IoT connectivity in healthcare connects patients, clinicians, and devices in real time, making care proactive instead of reactive."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "One carrier is one failure point",
+        "text": "Coverage gaps, outages and shutdowns hit every device on that network."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"brands\", \"id\" : \"watchman-monitoring\", \"label\" : \"Watchman Monitoring\", \"unicode\" : \"e087\"}",
-        "title": "Remote Monitoring Comes of Age",
-        "text": "Remote patient monitoring connectivity turns wearables and home devices into clinical data sources, improving access, comfort, and treatment accuracy."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Multi-carrier eSIM",
+        "text": "Devices can reach another network and change profiles remotely."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"diagram-project\", \"label\" : \"Diagram Project\", \"unicode\" : \"f542\"}",
-        "title": " Predictive Care with Smart Networks",
-        "text": "IoT in healthcare now works with AI and ML to spot health risks early, empowering faster, personalized care interventions."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"bell\"}",
+        "title": "Plan for silent devices",
+        "text": "A device that stops reporting needs an owner and an escalation rule."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"lock\", \"label\" : \"Lock\", \"unicode\" : \"f023\"}",
-        "title": "Security Defines the Future",
-        "text": "Secure healthcare IoT networks ensure every heartbeat, reading, and alert travels safely across regulated channels."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"shield-halved\"}",
+        "title": "Ask, then get it in writing",
+        "text": "Private connectivity, logs, data location and BAA terms are contract questions."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"globe\", \"label\" : \"Globe\", \"unicode\" : \"f0ac\"}",
-        "title": " Spenza’s Top-Grade Connectivity",
-        "text": "Spenza brings compliant medical device connectivity built for reliability, encryption, and global scale, made for healthcare’s toughest demands."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Test where patients are",
+        "text": "Check basements, rural homes and failover time before ordering volume."
       }
     ]
   },
@@ -4788,9 +4815,36 @@
   },
   "iot-mvnos-vs-traditional": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "An IoT MVNO sells cellular connectivity to businesses running connected devices, with SIM and eSIM provisioning, monitoring and per-device billing built around a fleet lifecycle. A traditional MVNO sells phone service to individual subscribers. Both can use the same host networks, so judge them on lifecycle, multi-carrier behavior, cost and contract terms.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Fleet, not subscriber",
+        "text": "IoT MVNOs organize service around device cohorts and lifecycles."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "Multi-carrier access",
+        "text": "More than one network path reduces single-carrier exposure; ask how selection works."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"microchip\"}",
+        "title": "eSIM for IoT",
+        "text": "SGP.32 defines remote profile management for IoT; it does not grant network access."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"coins\"}",
+        "title": "Cohort cost",
+        "text": "Model revenue and every attributable cost for the same device group."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot before you scale",
+        "text": "Test the real device, application, invoice and recovery path with named owners."
+      }
+    ]
   },
   "how-mvnes-accelerate-mvno-launch": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
@@ -5400,9 +5454,36 @@
   },
   "iot-connectivity-trends": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "The 2026 IoT connectivity trends are remote eSIM provisioning (SGP.32), multi-carrier management, RedCap, satellite fallback, 2G/3G sunsets and the EU Cyber Resilience Act. Judge each as a standard, an offer or a deployment before committing.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "eSIM is ready to adopt",
+        "text": "SGP.32 is published and first commercial offers arrived in 2026. Check module, eIM and exit rights."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"satellite-dish\"}",
+        "title": "Satellite is a fallback",
+        "text": "3GPP NTN is standardized, offers are narrow. Pilot it for alarms and positions, not bulk data."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "RedCap fills the middle",
+        "text": "Use it above LPWA needs. NB-IoT and LTE-M still suit small, infrequent payloads."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calendar-xmark\"}",
+        "title": "Sunsets set your schedule",
+        "text": "3G is off in the UK and 2G dates start in 2029. Inventory devices by module and country."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Standard, offer, deployment",
+        "text": "Ask which of the three a supplier is describing, then pilot with recovery tests."
+      }
+    ]
   },
   "google-fi": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
