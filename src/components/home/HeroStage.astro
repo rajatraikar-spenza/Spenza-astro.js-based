@@ -1,0 +1,154 @@
+---
+/**
+ * The "Live on Spenza" stage: a customer live on a world map, its card and
+ * caption, and the device it ships standing on the map. Styles in
+ * styles/home-hero.css, scoped to `.sh`, so whatever holds the stage carries
+ * that class; behaviour in scripts/home-hero.js.
+ *
+ * Two forms:
+ * - `cycle` (/mvne/): every four seconds the next of the three customers in
+ *   hero-customers.ts drops in, chosen by the tabs under the label —
+ *   RocketPhone's dialer, a Butlr sensor, an Angel Watch, from the "Spenza
+ *   hero — customer devices" Figma file. The first is rendered here, so the
+ *   stage is complete before any script runs; the script swaps in the others
+ *   from the JSON beside it.
+ * - static (the home page): RocketPhone only, no tabs. Its dialer's call
+ *   timer still runs; nothing else changes.
+ *
+ * The stage is drawn at 580 wide and scaled to fit; the inline script below
+ * scales it before first paint, so a phone never sees it at full size.
+ */
+import { HERO_CUSTOMERS, labelStyle } from './hero-customers';
+import { MAP_DOTS } from './hero-map-dots';
+
+interface Props { cycle?: boolean }
+const { cycle = false } = Astro.props;
+
+const c = HERO_CUSTOMERS[0];
+/** Butlr's floor, 12 cells by 5: how warm each is — the people it counts. */
+const warm: Record<number, number> = { 10: .8, 13: 1, 14: .6, 26: .6, 31: 1, 32: .55, 43: .6, 52: .45, 57: .9, 58: .5 };
+const heat = Array.from({ length: 60 }, (_, k) => warm[k] ?? 0);
+
+const data = HERO_CUSTOMERS.map(({ logoRatio, ...rest }) => rest);
+---
+
+<div class="sh-stage-box" id="sh-stageBox">
+  <div class="sh-stage" id="sh-stage">
+    <div class="sh-content">
+      <div class="sh-tabs" role={cycle ? 'group' : undefined} aria-label={cycle ? 'Customers running on Spenza' : undefined}>
+        <span class="sh-tabs-label">Live on Spenza</span>
+        {cycle && HERO_CUSTOMERS.map((x, i) => (
+          <button type="button" class="sh-tab" data-i={i} aria-pressed={i === 0 ? 'true' : 'false'}>{x.name}<span class="sh-bar"></span></button>
+        ))}
+      </div>
+
+      <div class="sh-card">
+        <div class="sh-who" data-swap>
+          <div class="sh-who-text">
+            <img class="sh-logo-card" id="sh-logo" src={c.logo} alt={c.name} height={c.logoH} width={Math.round(c.logoH * c.logoRatio)} style={`height:${c.logoH}px`} loading="lazy" />
+            <span class="sh-who-sub" id="sh-sub">{c.sub}</span>
+          </div>
+        </div>
+        <div class="sh-kpis">
+          <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kMarkets"><span>{c.markets.length}</span></span><span class="sh-kpi-l" id="sh-kMarketsL">{('marketsLabel' in c && c.marketsLabel) || 'markets live'}</span></div>
+          <div class="sh-kpi"><span class="sh-kpi-v sh-roll" id="sh-kNetworks"><span>{c.networks}</span></span><span class="sh-kpi-l">networks live</span></div>
+        </div>
+      </div>
+
+      <div class="sh-map" id="sh-map" role="img" aria-label={`World map showing ${c.name} live in ${c.markets.map(m => m.name).join(' and ')}`}>
+        <svg viewBox="0 0 580 216" aria-hidden="true" focusable="false">
+          <path class="sh-dots" d={MAP_DOTS} />
+          <g id="sh-pins" data-swap>
+            {c.markets.map(m => (
+              <g class="sh-pin" transform={`translate(${m.x} ${m.y})`}>
+                <circle class="sh-halo" r="8" /><circle class="sh-ring" r="5" /><circle class="sh-core" r="3.6" />
+              </g>
+            ))}
+          </g>
+        </svg>
+        <div id="sh-labels" data-swap>
+          {c.markets.map(m => <span class={`sh-pinlabel${m.x < 200 ? ' is-west' : ''}`} style={labelStyle(m, c.markets.length)}>{m.name} · live</span>)}
+        </div>
+      </div>
+
+      <div class="sh-caption">
+        <span class="sh-roll" id="sh-capText"><span>{c.caption}</span></span>
+      </div>
+    </div>
+
+    <div class="sh-devices" aria-hidden="true" data-swap>
+      {/* RocketPhone: its business line, mid-call, logging to Salesforce */}
+      <div class={`sh-dev sh-dialer${c.name === 'RocketPhone' ? ' is-on' : ''}`} data-dev="RocketPhone">
+        <span class="sh-dev-tag">Business dialer</span>
+        <div class="sh-dl-screen">
+          <div class="sh-dl-status"><span>9:41</span><span>5G <i class="sh-bars"><i></i><i></i><i></i><i></i></i></span></div>
+          <div class="sh-dl-head"><b>RocketPhone</b><span class="sh-dl-line"><i></i>US line</span></div>
+          <div class="sh-dl-call">
+            <span class="sh-dl-av">JC</span>
+            <b>Jordan Chen</b>
+            <span class="sh-dl-co">Acme Corp · Prospect</span>
+            <span class="sh-dl-num">+1 (415) 555‑0142</span>
+            <span class="sh-dl-rec"><i></i>REC <span class="sh-dl-time">02:14</span></span>
+          </div>
+          <div class="sh-dl-pad">
+            {[['1',''],['2','ABC'],['3','DEF'],['4','GHI'],['5','JKL'],['6','MNO'],['7','PQRS'],['8','TUV'],['9','WXYZ'],['*',''],['0','+'],['#','']].map(([k, l]) => <span><b>{k}</b><small>{l}</small></span>)}
+          </div>
+          <div class="sh-dl-acts"><span>Mute</span><span class="sh-dl-end">End</span><span>Spkr</span></div>
+          <div class="sh-dl-sync"><i></i>Logging to Salesforce<span class="sh-dl-dots"><i>.</i><i>.</i><i>.</i></span></div>
+        </div>
+      </div>
+
+      {cycle && <>
+      {/* Butlr: a ceiling sensor and the floor it is counting */}
+      <div class={`sh-dev sh-iot${c.name === 'Butlr' ? ' is-on' : ''}`} data-dev="Butlr">
+        <span class="sh-dev-tag">IoT sensor</span>
+        <span class="sh-iot-mount"></span>
+        <div class="sh-iot-puck">
+          <span class="sh-iot-lens"><i></i></span>
+          <span class="sh-iot-led"></span>
+          <b>butlr</b>
+          <small>Heimdall · LTE-M</small>
+        </div>
+        <span class="sh-iot-up"><i></i>Uplink · 2s ago</span>
+        <div class="sh-iot-card">
+          <div class="sh-iot-head"><div><b>Floor 4 · Zone B</b><small>Thermal · no cameras</small></div><span>Live</span></div>
+          <div class="sh-iot-heat">
+            {heat.map((h, k) => <i class={h ? 'is-warm' : undefined} style={h ? `--h:${h};--k:${k % 7}` : undefined}></i>)}
+          </div>
+          <div class="sh-iot-stats"><div><b>7</b><small>people now</small></div><div><b>18%</b><small>occupied</small></div></div>
+          <div class="sh-iot-chips"><span>eSIM</span><span>LTE-M</span><span>Batt 92%</span></div>
+        </div>
+      </div>
+
+      {/* Angel Watch: a child's watch, checked in at school */}
+      <div class={`sh-dev sh-watch${c.name === 'Angel Watch' ? ' is-on' : ''}`} data-dev="Angel Watch">
+        <span class="sh-dev-tag">Kids’ smartwatch</span>
+        <span class="sh-w-strap sh-w-strap--t"></span>
+        <span class="sh-w-strap sh-w-strap--b"><i></i><i></i><i></i></span>
+        <span class="sh-w-crown"></span><span class="sh-w-btn"></span>
+        <div class="sh-w-case">
+          <div class="sh-w-screen">
+            <div class="sh-w-status"><span>4G <i class="sh-bars"><i></i><i></i><i></i></i></span><span>86%</span></div>
+            <div class="sh-w-time"><b>8:42</b><small>Tue 14</small></div>
+            <div class="sh-w-who"><i></i>Maya · at school</div>
+            <div class="sh-w-map"><span class="sh-w-zone"></span><span class="sh-w-pin"></span></div>
+            <div class="sh-w-acts"><span class="sh-w-sos">SOS</span><span>Call mum</span></div>
+          </div>
+        </div>
+      </div>
+      </>}
+    </div>
+  </div>
+</div>
+<script is:inline>
+  (function () {
+    var box = document.getElementById('sh-stageBox');
+    var s = Math.min(1, (box.clientWidth || 580) / 580);
+    box.firstElementChild.style.transform = 'scale(' + s + ')';
+    box.style.height = 410 * s + 'px';
+  })();
+</script>
+{cycle && <>
+  <p class="sh-sr-only" aria-live="polite" id="sh-announce"></p>
+  <script is:inline type="application/json" id="sh-data" set:html={JSON.stringify(data)} />
+</>}

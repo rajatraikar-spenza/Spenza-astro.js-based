@@ -1,19 +1,21 @@
 /**
- * The hero's "Live on Spenza" stage: every four seconds the next customer
- * fades in, its tab's bar filling as the time runs. A tab click jumps straight
- * to that customer and the cycle carries on from there. It never pauses for
- * the pointer or for focus — only while the tab is in the background.
- *
- * The first customer is already in the markup (Hero.astro); this swaps in the
- * others from the JSON beside it.
+ * The "Live on Spenza" stage (HeroStage.astro). Where it cycles (/mvne/),
+ * every four seconds the next customer fades in, its tab's bar filling as the
+ * time runs; a tab click jumps straight to that customer and the cycle carries
+ * on from there. The first customer is already in the markup; this swaps in
+ * the others from the JSON beside it. Where it is static (the home page) it
+ * stays on RocketPhone, and only the headline's word rolls on, through its
+ * `data-words`. Neither pauses for the pointer or for focus — only while the
+ * tab is in the background or the stage is scrolled away.
  */
 
 const stage = document.getElementById('sh-stage');
 const box = document.getElementById('sh-stageBox');
 const source = document.getElementById('sh-data');
 
-if (stage && box && source) {
-  const CUSTOMERS = JSON.parse(source.textContent);
+if (stage && box) {
+  // No customer data: the static stage, and the headline's words roll alone.
+  const CUSTOMERS = source ? JSON.parse(source.textContent) : null;
   const DURATION = 4000;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = id => document.getElementById(id);
@@ -143,10 +145,18 @@ if (stage && box && source) {
     fit();
   };
 
+  const WORDS = !CUSTOMERS && word ? JSON.parse(word.dataset.words) : [];
+  const advance = () => {
+    if (CUSTOMERS) { go((current + 1) % CUSTOMERS.length, false); return; }
+    current = (current + 1) % WORDS.length;
+    started = performance.now();
+    roll(word, WORDS[current]);
+  };
+
   // Preload the other logos so a swap never waits on the network — unless the
   // stage is hidden.
   const preload = () => {
-    if (box.offsetParent) CUSTOMERS.slice(1).forEach(c => { new Image().src = c.logo; });
+    if (CUSTOMERS && box.offsetParent) CUSTOMERS.slice(1).forEach(c => { new Image().src = c.logo; });
   };
   if ('requestIdleCallback' in window) requestIdleCallback(preload);
   else setTimeout(preload, 2000);
@@ -189,7 +199,7 @@ if (stage && box && source) {
   const frame = now => {
     if (!visible) return;
     const elapsed = now - started;
-    if (elapsed >= DURATION) go((current + 1) % CUSTOMERS.length, false);
+    if (elapsed >= DURATION) advance();
     else {
       // A transform, not a width: it never touches layout.
       const fill = Math.min(elapsed / DURATION, 1);
@@ -197,12 +207,13 @@ if (stage && box && source) {
     }
     requestAnimationFrame(frame);
   };
+  const cycles = CUSTOMERS || WORDS.length > 1;
   const watch = on => {
     if (on === visible) return;
     visible = on;
     if (on) {
       if (leftAt) started += performance.now() - leftAt;
-      requestAnimationFrame(frame);
+      if (cycles) requestAnimationFrame(frame);
     } else leftAt = performance.now();
   };
   if ('IntersectionObserver' in window) {
