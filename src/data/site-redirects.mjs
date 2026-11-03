@@ -382,7 +382,20 @@ export const SITE_REDIRECTS = {
   '/telecom/how-to-choose-iot-connectivity-plan/': '/telecom/iot-connectivity-cost-guide-2025/',
   '/telecom/ultimate-guide-to-every-iot-connectivity-type-in-2025/': '/iot/iot-connectivity-comparison/',
   '/blog/could-mvne-in-telecom/': '/mvno/how-mvnes-accelerate-mvno-launch/',
-  '/blog/mvno-billing-bss-providers-guide/': '/mvno/mvno-billing-platforms/',
+  '/blog/mvno-billing-bss-providers-guide/': '/mvno/mvno-billing-platforms/',  // eSIM and provisioning category: 5 live donors folded into 4 pages. Inert until the donors are unpublished.
+  '/esim/what-is-esim-orchestration/': '/esim/esim-orchestration-global-iot/',
+  '/blog/what-is-esim-orchestration/': '/esim/esim-orchestration-global-iot/',
+  '/esim/sgp-32-new-esim-standard/': '/esim/sgp-22-vs-sgp-32-esim-standards-guide/',
+  '/blog/sgp-32-new-esim-standard/': '/esim/sgp-22-vs-sgp-32-esim-standards-guide/',
+  '/esim/what-is-remote-esim-provisioning/': '/esim/what-is-remote-sim-provisioning-rsp-guide-2026/',
+  '/blog/what-is-remote-esim-provisioning/': '/esim/what-is-remote-sim-provisioning-rsp-guide-2026/',
+  '/mvno/esim-5g-mvno-2025/': '/mvno/mvno-esim-implementation/',
+  '/blog/esim-5g-mvno-2025/': '/mvno/mvno-esim-implementation/',
+  '/mvno/esim-mvno-disruption/': '/mvno/mvno-esim-implementation/',
+  '/blog/esim-mvno-disruption/': '/mvno/mvno-esim-implementation/',
+  // Captured pointing at donors of this batch.
+  '/blog/how-esim-disrupting-mvno-market/': '/mvno/mvno-esim-implementation/',
+  '/esim/what-is-esim/': '/esim/esim/',
 };
 
 /**

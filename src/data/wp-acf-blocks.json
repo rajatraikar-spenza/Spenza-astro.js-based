@@ -784,34 +784,34 @@
   },
   "esim": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "An eSIM is a SIM built into a device as a chip, loaded with carrier profiles by software instead of a plastic card. It makes switching plans easier for people and removes SIM logistics for companies and IoT fleets. It does not add coverage or unlock a locked phone.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "eSIM Technology",
-        "text": "eSIM replaces physical SIM cards with remotely downloadable carrier profiles, making connectivity more flexible, scalable, and easier to manage."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"microchip\"}",
+        "title": "A chip, not a card",
+        "text": "An eUICC chip stores carrier profiles downloaded over the internet."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"house-laptop\", \"label\" : \"House Laptop\", \"unicode\" : \"e066\"}",
-        "title": "Remote SIM Provisioning",
-        "text": "With Remote SIM Provisioning (RSP), businesses can activate, update, and switch carrier profiles over the air without replacing hardware."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"qrcode\"}",
+        "title": "Set up with a code",
+        "text": "A QR code or carrier app installs a plan without a shop visit."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"globe\", \"label\" : \"Globe\", \"unicode\" : \"f0ac\"}",
-        "title": "Global IoT Scale",
-        "text": "eSIM simplifies global IoT deployments by enabling remote connectivity management across asset tracking, smart metering, industrial IoT, and connected products."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"building\"}",
+        "title": "Business gain is logistics",
+        "text": "No SIMs to ship or stock, and lines are controlled from one console."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"signal\", \"label\" : \"Signal\", \"unicode\" : \"f012\"}",
-        "title": "Enterprise Connectivity",
-        "text": "From BYOD programs to embedded connectivity, eSIM helps enterprises reduce SIM logistics, simplify carrier management, and accelerate deployments."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-info\"}",
+        "title": "Know the limits",
+        "text": "Coverage, carrier locks and contracts still decide whether it works."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Powered by Spenza",
-        "text": "Spenza helps businesses provision, orchestrate, manage, and monetize eSIM connectivity across multiple carriers through a single platform."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Check before you buy",
+        "text": "Confirm device support, unlock status, provisioning standard and exit terms first."
       }
     ]
   },
@@ -3031,34 +3031,34 @@
   },
   "mvno-esim-implementation": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "MVNO eSIM implementation enables operators to replace traditional SIM distribution with a digital-first connectivity experience powered by remote provisioning, SM-DP+ integration, and secure profile management. A successful eSIM rollout requires a clear strategy, reliable provisioning framework, seamless system integration, and strong security controls. This guide explains the key steps for MVNOs to implement eSIM technology and how Spenza helps operators launch scalable, future-ready mobile services.",
+    "tldrDescription": "An MVNO implements eSIM by connecting its order and billing systems to an SM-DP+, getting profiles from its host network, delivering activation codes to customers, and managing the profile lifecycle. The device supplies the eUICC and LPA. Most of the work is integration, security and testing.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"forward-fast\", \"label\" : \"Forward Fast\", \"unicode\" : \"f050\"}",
-        "title": "eSIM Enables Faster and More Flexible MVNO Operations",
-        "text": "eSIM technology allows MVNOs to remotely provision and activate subscriber profiles without physical SIM distribution. This reduces operational costs, improves customer onboarding, and enables flexible carrier switching"
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"server\"}",
+        "title": "Choose the SM-DP+",
+        "text": "Run your own, contract one, or use your MVNE's. Ask for GSMA accreditation status."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Build a Strong eSIM Strategy Before Implementation",
-        "text": "Successful eSIM adoption requires planning around customer needs, vendor selection, pricing models, and regulatory compliance. A clear strategy helps MVNOs create scalable services for consumer, enterprise, and IoT markets."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"qrcode\"}",
+        "title": "Order, release, deliver",
+        "text": "Each sale orders a profile, releases it once the network is ready, then sends an activation code."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"user-secret\", \"label\" : \"User Secret\", \"unicode\" : \"f21b\"}",
-        "title": "Implement Secure eSIM Provisioning and Integration",
-        "text": "MVNOs need a robust provisioning framework with SM-DP+ integration, remote SIM provisioning (RSP), automation, and API-based connectivity. These systems enable secure profile delivery, seamless activation, and efficient subscriber management."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"link\"}",
+        "title": "Tie profiles to billing",
+        "text": "One subscription, many identifiers. A new phone must not create a second billable line."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield-halved\", \"label\" : \"Shield Halved\", \"unicode\" : \"f3ed\"}",
-        "title": "Prioritize eSIM Security and Scalability",
-        "text": "Strong encryption, authentication methods, security audits, and compliance with global eSIM standards are essential to protect subscriber data. Scalable infrastructure ensures MVNOs can support growing subscriber bases and future technologies."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"right-left\"}",
+        "title": "Migrate in waves",
+        "text": "New sales first, then self-service swaps. Keep plastic SIMs for devices that cannot take a profile."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"earth-americas\", \"label\" : \"Earth Americas\", \"unicode\" : \"f57d\"}",
-        "title": "How Spenza Accelerates MVNO eSIM Implementation",
-        "text": "Spenza provides an end-to-end MVNO eSIM platform that simplifies provisioning, connectivity management, and global operations. With API-based connectivity management, scalable reselling capabilities, real-time dashboards, and global reach, Spenza helps operators launch and manage eSIM-powered mobile services faster."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"vial\"}",
+        "title": "Test on real handsets",
+        "text": "Run the happy path and the failures on each supported device before launch."
       }
     ]
   },
@@ -3162,35 +3162,35 @@
     ]
   },
   "sgp-22-vs-sgp-32-esim-standards-guide": {
-    "tldrHeading": "Why SGP.32 is Revolutionizing IoT eSIMs",
-    "tldrDescription": "",
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "SGP.22 is the GSMA consumer eSIM specification: a person on the device starts the profile download. SGP.32 is the IoT specification: a remote server, the eIM, tells an IoT Profile Assistant to download, switch or delete profiles, with no person at the device. Both use the SM-DP+. SGP.32 does not replace SGP.22 and is not backward compatible with SGP.02.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "IoT eSIM Standard",
-        "text": "SGP.32 is built for headless IoT devices, enabling zero-touch provisioning at scale."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"mobile-screen\"}",
+        "title": "SGP.22: a person starts it",
+        "text": "Consumer eSIM. The LPA on the device pulls a profile from an SM-DP+."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"lock\", \"label\" : \"Lock\", \"unicode\" : \"f023\"}",
-        "title": "Fixing Old Standards",
-        "text": "Unlike SGP.02 or SGP.22, SGP.32 removes operator lock-in and consumer-focused limitations."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"server\"}",
+        "title": "SGP.32: a server starts it",
+        "text": "IoT eSIM. The eIM instructs the IPA, with no one at the device."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield-halved\", \"label\" : \"Shield Halved\", \"unicode\" : \"f3ed\"}",
-        "title": "Efficient & Secure",
-        "text": "Uses lightweight CoAP/UDP with DTLS, saving battery and improving network reliability."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"key\"}",
+        "title": "Same profile source",
+        "text": "SGP.32 reuses the SM-DP+ that SGP.22 defines."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"truck-moving\", \"label\" : \"Truck Moving\", \"unicode\" : \"f4df\"}",
-        "title": "When to Use SGP.32",
-        "text": "Best for fleets 50,000+ devices, multi-country deployments, and automated profile management."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Check before you buy",
+        "text": "SGP.32 version, compliance status, IPAd or IPAe, and a configurable eIM."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Simplifies eSIM Management",
-        "text": "Spenza unifies SGP.22 and SGP.32, allowing easy fleet orchestration and zero-touch provisioning."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"signs-post\"}",
+        "title": "Choose by who can finish activation",
+        "text": "If a person can, SGP.22. If nobody can reach the device, SGP.32."
       }
     ]
   },
@@ -3729,35 +3729,35 @@
     ]
   },
   "what-is-remote-sim-provisioning-rsp-guide-2026": {
-    "tldrHeading": "Remote SIM Provisioning (RSP) in 2026",
-    "tldrDescription": "",
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Remote SIM provisioning (RSP) downloads and manages operator profiles on an eUICC over the air. Pick the GSMA architecture that matches the device first, then prove profile, network and application outcomes, and test recovery, in a pilot before you commit a fleet.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Software-Driven SIM Management",
-        "text": "RSP replaces physical SIM logistics with software control, enabling remote installation, switching, and management of operator profiles on eSIM (eUICC) devices."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sitemap\"}",
+        "title": "Three architectures",
+        "text": "SGP.22 is consumer, SGP.32 is IoT with an eIM and IPA, SGP.02 is legacy M2M. They are not interchangeable."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "SGP.32: The IoT Standard for 2026",
-        "text": "SGP.32 enables IP-based, low-power, asynchronous provisioning across NB-IoT, LTE-M, and LPWAN—eliminating SMS dependency and vendor lock-in."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"microchip\"}",
+        "title": "Download is not service",
+        "text": "An installed profile still needs network registration and a working application path."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wave-square\", \"label\" : \"Wave Square\", \"unicode\" : \"f83e\"}",
-        "title": "Core RSP Architecture Components",
-        "text": "eUICC, SM-DP+, SM-SR, and eIM ensure secure profile preparation, encrypted delivery, lifecycle management, and standardized orchestration."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"rotate-left\"}",
+        "title": "Design for recovery",
+        "text": "Test rollback and unknown outcomes before any fleet-wide profile change."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield\", \"label\" : \"Shield\", \"unicode\" : \"f132\"}",
-        "title": "Enterprise-Grade Security by Design",
-        "text": "RSP follows GSMA-grade security using TLS encryption, cryptographic authentication, certified platforms, and HSM-based key management."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-signature\"}",
+        "title": "Record the versions",
+        "text": "Get the exact device, eUICC, IPA or LPA and server versions in writing."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Simplifies RSP at Scale",
-        "text": "Spenza provides operator-neutral RSP management with bulk provisioning, cost visibility, API integrations, and branded eSIM marketplace capabilities for enterprises and MVNOs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Run a pilot first",
+        "text": "Cover real hardware, networks and failures, with an owner for each result."
       }
     ]
   },
@@ -4159,34 +4159,34 @@
   },
   "esim-orchestration-global-iot": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "eSIM orchestration decides which connectivity change a device gets, runs it through remote SIM provisioning, verifies service and records the result. Standards define the mechanism, not the decisions, so test eligibility, recovery and billing closure on a scoped pilot before scaling.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"earth-americas\", \"label\" : \"Earth Americas\", \"unicode\" : \"f57d\"}",
-        "title": "Cross-Country Complexity",
-        "text": "Scaling IoT deployments across multiple countries is challenging without automation."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "Above provisioning",
+        "text": "RSP moves profiles. Orchestration adds rules, approvals, checks and exceptions."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "What is eSIM Orchestration?",
-        "text": "eSIM orchestration functions as the control layer for intelligently managing eSIM profiles."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sitemap\"}",
+        "title": "Know the SGP.32 roles",
+        "text": "eIM, IPA, SM-DP+ and eUICC each own a step. Record the tested combination."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrows-spin\", \"label\" : \"Arrows Spin\", \"unicode\" : \"e4bb\"}",
-        "title": "From Manual to Automated Lifecycle",
-        "text": "It converts manual provisioning workflows into automated global lifecycle management for eSIMs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Three kinds of proof",
+        "text": "Profile installed, network registered and application reporting are separate checks."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"handshake-simple\", \"label\" : \"Handshake Simple\", \"unicode\" : \"f4c6\"}",
-        "title": "Global SKU Simplification",
-        "text": "With eSIM orchestration, you can handle one global SKU that works across any market."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"life-ring\"}",
+        "title": "Test the recovery path",
+        "text": "No command reaches an offline device. Drill unreachable and rejected cases first."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza’s Orchestration Platform",
-        "text": "Spenza provides this orchestration via APIs, automation and a neutral layer — built-in compliance and cost-optimization."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"flag-checkered\"}",
+        "title": "Pilot before you scale",
+        "text": "Agree an acceptance record, then widen the cohort only when results support it."
       }
     ]
   },
