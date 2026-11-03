@@ -62,21 +62,37 @@ const DEFAULT_HUB = SHOWN.find(h => h.href && path.startsWith(h.href))?.id ?? 'u
 /** "Three hubs …" in the menu's footer, following the hubs actually shown. */
 const HUB_COUNT = ['No', 'One', 'Two', 'Three', 'Four', 'Five'][SHOWN.length] ?? String(SHOWN.length);
 
-/* Solutions: BIZ = who you are, SVC = what you need. */
-const BIZ = [
-  { name: 'IoT and device fleets', desc: 'Run thousands of devices across multiple carriers', ic: 'iot', href: PAGES.iot },
-  { name: 'Connected devices', desc: 'Sell a connectivity plan with your hardware', ic: 'device', href: PAGES.devices },
-  { name: 'MSPs and resellers', desc: 'Run an MVNO business with reseller billing', ic: 'reseller', href: PAGES.msp },
-  { name: 'UCaaS providers', desc: 'Catch mobile call failures before your users do', ic: 'ucaas', href: PAGES.voice },
-  { name: 'VoIP number providers', desc: 'Add MNO-backed mobile numbers with two-way SMS', ic: 'voip', href: PAGES.numbers },
+/* Solutions: two groups by what the business does with connectivity, each
+   item a kind of business. Services: what a business buys. Each group's
+   heading carries the icon; its items are text, so the columns read as lists. */
+type Group = { name: string; desc?: string; ic: string; items: { name: string; desc: string; href: string }[] };
+const SOL: Group[] = [
+  { name: 'Sell Connectivity', desc: 'Launch and scale your own connectivity business', ic: 'antenna', items: [
+    { name: 'MVNOs &amp; Mobile Brands', desc: 'Launch mobile services without building a telecom stack', href: PAGES.msp },
+    { name: 'MSPs &amp; Resellers', desc: 'Sell branded plans with reseller billing', href: PAGES.msp },
+    { name: 'IoT Connectivity Providers', desc: 'Manage operators, customers and SIMs at scale', href: PAGES.iot },
+    { name: 'Travel eSIM Providers', desc: 'Sell eSIM plans worldwide under your brand', href: PAGES.travel },
+    { name: 'ISPs &amp; Broadband Providers', desc: 'Add mobile and wireless services to your portfolio', href: PAGES.msp },
+  ] },
+  { name: 'Embed Connectivity', desc: 'Make connectivity part of your product or platform', ic: 'iot', items: [
+    { name: 'Connected Device Brands', desc: 'Bundle mobile plans with your hardware', href: PAGES.devices },
+    { name: 'IoT &amp; Telematics Platforms', desc: 'Build connectivity into devices and software', href: PAGES.iot },
+    { name: 'AI &amp; Voice Platforms', desc: 'Add phone numbers, messaging and voice APIs', href: PAGES.aiPhone },
+    { name: 'UCaaS &amp; CPaaS Providers', desc: 'Improve number quality and call delivery', href: PAGES.voice },
+    { name: 'IoT &amp; Device Fleets', desc: 'Manage large device fleets across carriers', href: PAGES.iot },
+  ] },
 ];
-const SVC = [
-  { name: 'Local eSIMs', desc: 'Local-operator eSIMs for devices in each country', ic: 'esim', href: PAGES.devices },
-  { name: 'IoT services', desc: 'Multi-carrier SIMs with automatic routing', ic: 'iotsvc', href: PAGES.iot },
-  { name: 'Travel eSIM', desc: 'Launch branded eSIM plans in 180+ countries', ic: 'travel', href: PAGES.travel },
-  { name: 'Local numbers', desc: 'MNO-backed numbers for teams and AI voice agents', ic: 'number', href: PAGES.numbers },
-  { name: 'Voice observability', desc: 'Test call delivery across mobile networks', ic: 'voice', href: PAGES.voice },
-  { name: 'Phone Service for AI Agents', desc: 'Give your AI a real number', ic: 'aiphone', href: PAGES.aiPhone },
+const SERV: Group[] = [
+  { name: 'Connectivity Services', ic: 'antenna', items: [
+    { name: 'Local eSIMs', desc: 'Access local-operator connectivity in target markets', href: PAGES.devices },
+    { name: 'IoT SIMs &amp; eSIMs', desc: 'Connect devices across multiple mobile networks', href: PAGES.iot },
+    { name: 'Travel eSIM Plans', desc: 'Source global data plans for your travel eSIM business', href: PAGES.travel },
+  ] },
+  { name: 'Number &amp; Voice Services', ic: 'number', items: [
+    { name: 'Local Mobile Numbers', desc: 'US mobile-operator-backed numbers with two-way SMS', href: PAGES.numbers },
+    { name: 'Voice Observability', desc: 'Test call delivery and monitor number reputation', href: PAGES.voice },
+    { name: 'Phone Service for AI Agents', desc: 'Power AI calling and messaging with phone APIs', href: PAGES.aiPhone },
+  ] },
 ];
 const CUST = [
   { name: 'Butlr', what: 'Smart building sensors', big: '88% faster', line: 'to launch connectivity in a new country than their previous carrier process', short: '<strong>88% faster</strong> to launch a new country', runs: [1, 2], href: '/spenza-product/butlr-iot-spenza-casestudy/' },
@@ -116,6 +132,7 @@ const TOPICS = [
 
 /* ---------- menu icons (20x20, stroke = currentColor) ---------- */
 const IC = {
+  antenna: '<circle cx="10" cy="8" r="1.6"/><path d="M6.9 4.9a4.4 4.4 0 0 0 0 6.2M13.1 4.9a4.4 4.4 0 0 1 0 6.2M4.4 2.4a8 8 0 0 0 0 11.2M15.6 2.4a8 8 0 0 1 0 11.2M10 9.6l-3 8M10 9.6l3 8M8.1 14.6h3.8"/>',
   iot: '<rect x="6" y="6" width="8" height="8" rx="1.5"/><path d="M8.5 3v3M11.5 3v3M8.5 14v3M11.5 14v3M3 8.5h3M3 11.5h3M14 8.5h3M14 11.5h3"/>',
   device: '<rect x="5.5" y="5" width="9" height="10" rx="2.5"/><path d="M7.5 5l.5-2.5h4l.5 2.5M7.5 15l.5 2.5h4l.5-2.5M10 7.8V10l1.4 1"/>',
   ucaas: '<path d="M4.6 11V10a5.4 5.4 0 0 1 10.8 0v1"/><rect x="3" y="11" width="3.2" height="5" rx="1.2"/><rect x="13.8" y="11" width="3.2" height="5" rx="1.2"/><path d="M15.4 16v.3a2.2 2.2 0 0 1-2.2 2.2h-2.4"/>',
@@ -170,6 +187,13 @@ const target = (ext?: boolean) => (ext ? ' target="_blank" rel="noopener"' : '')
 type Item = { name: string; desc?: string; ic?: string; href: string; ext?: boolean };
 const mi = (it: Item) =>
   `<a class="sn-mi" href="${it.href}"${target(it.ext)}>${it.ic ? `<span class="sn-gbox">${ico(it.ic)}</span>` : ''}<span><b>${it.name}${it.ext ? I.ext : ''}</b>${it.desc ? `<span class="sn-d">${it.desc}</span>` : ''}</span></a>`;
+/** A mega-menu of groups: every heading on one row, every list on the next,
+    so the rules under the headings line up whatever their wrapping. */
+const groupsMenu = (gs: Group[], cls: string) =>
+  `<div class="sn-panel-in sn-cols ${cls}" style="--cols:${gs.length}">${gs.map(g => `<div class="sn-colhead"><span class="sn-gbox">${ico(g.ic)}</span><span><b>${g.name}</b>${g.desc ? `<span class="sn-d">${g.desc}</span>` : ''}</span></div>`).join('')}${gs.map(g => `<div class="sn-col">${g.items.map(mi).join('')}</div>`).join('')}</div>`;
+const specialist = `<div class="sn-panel-foot"><span>Not sure which solution fits your business?</span><a href="${CONTACT}">Talk to a Specialist</a></div>`;
+const groupsMobile = (gs: Group[]) => gs.map(g => `<p class="sn-grp">${g.name}</p>${g.items.map(mi).join('')}`).join('')
+  + `<p class="sn-m-foot"><span>Not sure which solution fits your business?</span><a href="${CONTACT}">Talk to a Specialist${I.arrow}</a></p>`;
 const runsText = (r: number[]) => 'Runs on ' + [...r].sort().map(l => HUBS.find(h => h.lvl === l)!.name).join(' and ');
 const codeLine = (h: (typeof HUBS)[number]) => h.flow
   ? `<code class="sn-code sn-flow">${h.flow.map(s => `<span class="sn-st">${s}</span>`).join('<span class="sn-arr" aria-hidden="true">→</span>')}</code>`
@@ -194,11 +218,12 @@ const panes = `
   <div class="sn-panel-foot"><span>${HUB_COUNT} hubs on one data model, one API, and one invoice.</span><a href="${DOCS}" target="_blank" rel="noopener">Read the API docs${I.ext}</a></div>
 </div>
 <div class="sn-pane" data-pane="solutions">
-  <div class="sn-panel-in sn-sol">
-    <div><p class="sn-grp">By business</p>${BIZ.map(mi).join('')}</div>
-    <div><p class="sn-grp">By services</p>${SVC.map(mi).join('')}</div>
-  </div>
-  <div class="sn-panel-foot"><span>Not sure where you fit? Bring your line counts and target markets.</span><a href="${CONTACT}">Contact us</a></div>
+  ${groupsMenu(SOL, 'sn-sol')}
+  ${specialist}
+</div>
+<div class="sn-pane" data-pane="services">
+  ${groupsMenu(SERV, 'sn-serv')}
+  ${specialist}
 </div>
 <div class="sn-pane" data-pane="customers">
   <div class="sn-cust">${CUST.map(c => `<a class="sn-story" href="${c.href}"><span class="sn-who"><b>${c.name}</b><span>${c.what}</span></span><span class="sn-big">${c.big}</span><span class="sn-ln">${c.line}</span><span class="sn-runs"><span class="sn-runmk">${runsIcons(c.runs)}</span>${runsText(c.runs)}</span><span class="sn-go">Read the story</span></a>`).join('')}
@@ -215,7 +240,8 @@ const panes = `
 <div class="sn-pane" data-pane="mobile">
   <div class="sn-m-body">
     <details open><summary>Platform${I.chev}</summary><div class="sn-m-in">${stackList(false)}</div></details>
-    <details><summary>Solutions${I.chev}</summary><div class="sn-m-in"><p class="sn-grp">By business</p>${BIZ.map(mi).join('')}<p class="sn-grp">By services</p>${SVC.map(mi).join('')}</div></details>
+    <details><summary>Solutions${I.chev}</summary><div class="sn-m-in">${groupsMobile(SOL)}</div></details>
+    <details><summary>Services${I.chev}</summary><div class="sn-m-in">${groupsMobile(SERV)}</div></details>
     <details><summary>Customers${I.chev}</summary><div class="sn-m-in">${CUST.map(c => mi({ name: c.name, desc: c.short, href: c.href })).join('')}${mi(ALL_CASES)}</div></details>
     <details><summary>Resources${I.chev}</summary><div class="sn-m-in">${[...RES.build, ...RES.learn].map(mi).join('')}</div></details>
     <div class="sn-dr-cta"><a class="sn-btn sn-btn-ghost" href="${LOGIN}">Login</a><a class="sn-btn sn-btn-outline" href="${CONTACT}">Contact Us</a><a class="sn-btn sn-btn-primary" href="${SIGNUP}">Start free trial${I.arrow}</a></div>
@@ -231,7 +257,7 @@ const trig = (label: string, id: string) =>
   <div class="sn-shell">
     <nav class="sn-nav" aria-label="Main">
       <a class="sn-brand" href="/" aria-label="Spenza home"><span class="sn-logo"><img src="/spenza-logo-vector.svg" alt="" width="1264" height="428" /></span></a>
-      <div class="sn-links" set:html={trig('Platform', 'platform') + trig('Solutions', 'solutions') + trig('Customers', 'customers') + trig('Resources', 'resources')} />
+      <div class="sn-links" set:html={trig('Platform', 'platform') + trig('Solutions', 'solutions') + trig('Services', 'services') + trig('Customers', 'customers') + trig('Resources', 'resources')} />
       <div class="sn-right">
         <a class="sn-btn sn-btn-ghost sn-login" href={LOGIN}>Login</a>
         <a class="sn-btn sn-btn-outline sn-contact" href={CONTACT}>Contact Us</a>
