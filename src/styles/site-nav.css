@@ -128,7 +128,9 @@
 
 .sn.is-scrolled .sn-shell {
   top: 12px;
-  max-width: 880px;
+  /* Wide enough for the whole bar — logo, four menus and all three buttons —
+     so the pill drops nothing the full-width bar had. */
+  max-width: min(1100px, calc(100% - 24px));
   border-color: transparent;
   border-radius: 28px;
   /* Frosted glass: a 20px blur, so anything scrolling underneath is a soft
@@ -148,10 +150,12 @@
     0 4px 6px -4px rgba(0, 0, 0, .08);
 }
 
-/* logo left, menu centred, buttons right */
+/* Logo left, buttons right, and the menu centred in the space between them —
+   between the logo's right edge and the Login button's left edge, not on the
+   page's centre line, which the wider button group would pull it off. */
 .sn .sn-nav {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   column-gap: 16px;
   height: 62px;
@@ -178,6 +182,10 @@
   display: flex;
   align-items: center;
   padding: 4px;
+  /* The padding is room for the focus ring; the negative margin keeps it out
+     of the layout on the right, so the menu centres on the logo's visible
+     edge; the left padding stays, and with it the logo's place. */
+  margin-right: -4px;
   border-radius: 6px;
 }
 
@@ -259,6 +267,7 @@
   justify-self: end;
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 /* buttons are fully rounded in both states */
@@ -275,7 +284,7 @@
   border: 0;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color .15s, padding var(--sn-nd) var(--sn-ne);
+  transition: background-color .15s, border-color .15s, padding var(--sn-nd) var(--sn-ne);
 }
 
 .sn .sn-btn-primary,
@@ -307,25 +316,30 @@
   padding: 0 14px;
 }
 
-/* "Sign Up / Login" shortens to "Sign Up" in the pill: "/ Login" folds away */
-.sn .sn-login {
-  margin-right: 6px;
+/* "Contact Us": the bar's own white, edged in a solid grey */
+.sn .sn-btn-outline {
+  background: #fff;
+  color: var(--sn-ink);
+  border: 1.5px solid #C4C7CE;
 }
 
-.sn .sn-login-x {
-  display: inline-block;
-  max-width: 4.5em;
-  overflow: hidden;
-  white-space: nowrap;
-  vertical-align: top;
-  opacity: 1;
-  transition: max-width var(--sn-nd) var(--sn-ne), opacity .35s ease .35s;
+.sn .sn-btn-outline:hover,
+.sn .sn-btn-outline:focus {
+  background: #fff;
+  color: var(--sn-ink);
+  border-color: #9A9DA6;
 }
 
-.sn.is-scrolled .sn-login-x {
-  max-width: 0;
-  opacity: 0;
-  transition: max-width var(--sn-nd) var(--sn-ne), opacity .3s ease;
+.sn .sn-arrow {
+  width: 13px;
+  height: 13px;
+  margin-right: -2px;
+  flex: none;
+  transition: transform .15s ease;
+}
+
+.sn .sn-btn-primary:hover .sn-arrow {
+  transform: translateX(2px);
 }
 
 .sn .sn-burger {
@@ -924,10 +938,15 @@
   border: 1px solid var(--sn-line);
 }
 
+.sn .sn-dr-cta .sn-btn-outline {
+  border-width: 1.5px;
+}
+
 /* ---------- breakpoints ---------- */
 @media (max-width: 880px) {
   .sn .sn-links,
-  .sn .sn-nav .sn-login {
+  .sn .sn-nav .sn-login,
+  .sn .sn-nav .sn-contact {
     display: none;
   }
 

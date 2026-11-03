@@ -21,6 +21,7 @@ import '../styles/site-nav.css';
 const DOCS = 'https://docs.spenza.com';
 const YT = 'https://www.youtube.com/@spenzainc';
 const LOGIN = 'https://web.spenza.com/auth/login';
+const SIGNUP = 'https://web.spenza.com/auth/signup';
 const CONTACT = '/contact-us/';
 const CASE_STUDIES = '/category/spenza-product/';
 
@@ -159,6 +160,7 @@ const runsIcons = (ls: number[]) => [...ls].sort((a, b) => a - b).map(l => `<spa
 const I = {
   chev: '<svg class="sn-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   ext: '<svg class="sn-ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 3H9v4.5M9 3 3 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  arrow: '<svg class="sn-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9M7.5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   burger: '<svg viewBox="0 0 20 20" aria-hidden="true"><path class="sn-l1" d="M3 7h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="sn-l2" d="M3 13h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
 };
 const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
@@ -216,7 +218,7 @@ const panes = `
     <details><summary>Solutions${I.chev}</summary><div class="sn-m-in"><p class="sn-grp">By business</p>${BIZ.map(mi).join('')}<p class="sn-grp">By services</p>${SVC.map(mi).join('')}</div></details>
     <details><summary>Customers${I.chev}</summary><div class="sn-m-in">${CUST.map(c => mi({ name: c.name, desc: c.short, href: c.href })).join('')}${mi(ALL_CASES)}</div></details>
     <details><summary>Resources${I.chev}</summary><div class="sn-m-in">${[...RES.build, ...RES.learn].map(mi).join('')}</div></details>
-    <div class="sn-dr-cta"><a class="sn-btn sn-btn-ghost" href="${LOGIN}">Sign Up / Login</a><a class="sn-btn sn-btn-primary" href="${CONTACT}">Contact Us</a></div>
+    <div class="sn-dr-cta"><a class="sn-btn sn-btn-ghost" href="${LOGIN}">Login</a><a class="sn-btn sn-btn-outline" href="${CONTACT}">Contact Us</a><a class="sn-btn sn-btn-primary" href="${SIGNUP}">Start free trial${I.arrow}</a></div>
   </div>
 </div>`;
 
@@ -231,8 +233,9 @@ const trig = (label: string, id: string) =>
       <a class="sn-brand" href="/" aria-label="Spenza home"><span class="sn-logo"><img src="/spenza-logo-vector.svg" alt="" width="1264" height="428" /></span></a>
       <div class="sn-links" set:html={trig('Platform', 'platform') + trig('Solutions', 'solutions') + trig('Customers', 'customers') + trig('Resources', 'resources')} />
       <div class="sn-right">
-        <a class="sn-btn sn-btn-ghost sn-login" href={LOGIN}><span>Sign Up<span class="sn-login-x">&nbsp;/ Login</span></span></a>
-        <a class="sn-btn sn-btn-primary" href={CONTACT}>Contact Us</a>
+        <a class="sn-btn sn-btn-ghost sn-login" href={LOGIN}>Login</a>
+        <a class="sn-btn sn-btn-outline sn-contact" href={CONTACT}>Contact Us</a>
+        <a class="sn-btn sn-btn-primary sn-trial" href={SIGNUP}>Start free trial<Fragment set:html={I.arrow} /></a>
         <button class="sn-burger" type="button" aria-label="Open menu" aria-expanded="false" set:html={I.burger} />
       </div>
     </nav>
