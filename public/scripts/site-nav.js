@@ -11,7 +11,7 @@
   const paneEls = [...root.querySelectorAll('.sn-pane')];
   const trigs = [...root.querySelectorAll('.sn-links [data-open]')];
   const burger = root.querySelector('.sn-burger');
-  const narrow = () => innerWidth <= 880;
+  const narrow = () => innerWidth <= 940;
   let cur = null, timer = null, lastPointer = 'mouse';
   document.addEventListener('pointerdown', e => { lastPointer = e.pointerType || 'mouse'; }, true);
 

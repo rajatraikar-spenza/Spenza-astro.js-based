@@ -732,11 +732,45 @@
   animation-delay: .3s;
 }
 
-/* solutions menu: who you are, what you need */
-.sn .sn-sol {
+/* Solutions and Services: a column per group. The headings are the grid's
+   first row and the lists its second, so the rule under each heading sits on
+   one line across the menu however many lines a heading's blurb takes. */
+.sn .sn-cols {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: 20px;
+}
+
+.sn .sn-colhead {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 4px 12px 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--sn-line);
+}
+
+.sn .sn-colhead b {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.3;
+  /* Centre a heading without a blurb on its 34px icon box. */
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+}
+
+.sn .sn-colhead .sn-d {
+  display: block;
+  margin-top: -6px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--sn-muted);
+}
+
+.sn .sn-col .sn-mi {
+  padding-block: 9px;
 }
 
 /* customers menu */
@@ -942,8 +976,66 @@
   border-width: 1.5px;
 }
 
+/* the drawer's version of the menus' "Talk to a Specialist" footer */
+.sn .sn-m-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 10px 0 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--sn-line);
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--sn-muted);
+}
+
+.sn .sn-m-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--sn-accent);
+}
+
 /* ---------- breakpoints ---------- */
-@media (max-width: 880px) {
+/* Five menus and three buttons need ~1050px at full spacing; below that,
+   down to where the burger takes over, the bar closes up rather than letting
+   the menu run into the logo. */
+@media (min-width: 941px) and (max-width: 1100px) {
+  .sn .sn-nav,
+  .sn.is-scrolled .sn-nav {
+    column-gap: 8px;
+  }
+
+  .sn .sn-trigger,
+  .sn.is-scrolled .sn-trigger {
+    padding: 8px 7px;
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .sn .sn-right {
+    gap: 4px;
+  }
+
+  .sn .sn-nav .sn-btn,
+  .sn.is-scrolled .sn-nav .sn-btn {
+    padding: 0 12px;
+    font-size: 13.5px;
+  }
+
+  .sn .sn-nav .sn-login,
+  .sn.is-scrolled .sn-nav .sn-login {
+    padding: 0 8px;
+  }
+
+  .sn .sn-logo img {
+    width: 96px;
+  }
+}
+
+@media (max-width: 940px) {
   .sn .sn-links,
   .sn .sn-nav .sn-login,
   .sn .sn-nav .sn-contact {
