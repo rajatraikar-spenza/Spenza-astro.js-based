@@ -275,3 +275,8 @@
    centred in the column stay put from one customer to the next. */
 @media (min-width:768px){.sh .sh-card{height:96px}}
 @media (max-width:359px){.sh .sh-tab{font-size:12px; padding-inline:4px}}
+
+/* The stage on its own, in another page's hero (/mvne/): it takes the
+   column's width and needs none of the home hero's spacing above it. */
+.sh.sh-inset{width:100%; background:none}
+.sh.sh-inset .sh-stage-box{margin:0 auto}

@@ -1,8 +1,26 @@
 ---
+/**
+ * The MVNE page. Its hero's right-hand column is the home page's "Live on
+ * Spenza" stage (components/home/HeroStage.astro), cycling through its three
+ * customers as the home page's used to, rather than the dashboard
+ * image the mirror carried: the partial marks the spot with
+ * `<!--SLOT:hero-stage-->`. The stage is drawn to fixed proportions, so the
+ * page's automatic fit leaves it alone (`data-fit-keep`).
+ */
 import WpLayout from '../layouts/WpLayout.astro';
+import HeroStage from '../components/home/HeroStage.astro';
 import content from '../partials/mvne.html?raw';
+import '../styles/home-hero.css';
+
+const [beforeStage, afterStage] = content.split('<!--SLOT:hero-stage-->');
 ---
 
 <WpLayout slug="mvne" fit>
-  <Fragment set:html={content} />
+  <Fragment set:html={beforeStage} />
+  <div class="sh sh-inset" data-fit-keep><HeroStage cycle /></div>
+  <Fragment set:html={afterStage} />
 </WpLayout>
+
+<script>
+  import '../scripts/home-hero.js';
+</script>
