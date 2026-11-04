@@ -199,34 +199,34 @@
   },
   "how-to-start-travel-esim-business": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Starting a travel eSIM business is easier than ever with white-label platforms that eliminate the need for telecom infrastructure. By choosing the right niche, offering reliable multi-carrier coverage, and building strong distribution channels, you can launch a profitable branded eSIM business in as little as 30 days.",
+    "tldrDescription": "To start a travel eSIM business, pick a traveler niche, choose affiliate, white-label, API or a full build, and partner with a provider whose coverage matches your destinations. Price for margin after acquisition costs, build distribution through search, partners and email, and treat support as part of the product. White-label is the practical route for most new brands.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"people-group\", \"label\" : \"People Group\", \"unicode\" : \"e533\"}",
-        "title": "Choose a Profitable Niche",
-        "text": "Target a specific audience such as business travelers, digital nomads, students, or travel agencies. A focused niche makes marketing more effective and improves customer acquisition."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"people-group\"}",
+        "title": "Choose a niche",
+        "text": "Target one traveler segment, such as business travelers, students or digital nomads, so marketing stays focused."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"handshake-simple\", \"label\" : \"Handshake Simple\", \"unicode\" : \"f4c6\"}",
-        "title": "Partner with the Right eSIM Provider",
-        "text": "Work with a wholesale or white-label provider that offers global multi-carrier coverage, competitive pricing, and reliable provisioning so you can focus on growing your business."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"handshake-simple\"}",
+        "title": "Pick a provider",
+        "text": "Compare coverage, networks, plan flexibility, API quality and commercial terms in writing."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
-        "title": "Build a Seamless Buying Experience",
-        "text": "Launch a branded storefront on Shopify, WooCommerce, or through APIs. Make it easy for customers to browse plans, purchase, and activate their eSIM in minutes."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"store\"}",
+        "title": "Build the storefront",
+        "text": "Sell on Shopify, WooCommerce or through an API, with clear plans and device checks."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
-        "title": "Grow Through Smart Distribution",
-        "text": "Drive sales with SEO, paid ads, affiliate partnerships, travel creators, and OTAs. Long-term success comes from strong distribution and customer retention, not just low prices."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"arrow-up-right-dots\"}",
+        "title": "Grow distribution",
+        "text": "Combine search content, email, creators, agencies and referrals, and price for repeat purchases."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"rocket\", \"label\" : \"Rocket\", \"unicode\" : \"f135\"}",
-        "title": "Launch a Travel eSIM Business Faster with Spenza",
-        "text": "Spenza provides everything you need to launch a branded travel eSIM business, including global multi-carrier coverage, white-label storefronts, APIs, automated provisioning, billing, and analytics, helping you go to market quickly and scale with confidence."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"rocket\"}",
+        "title": "Launch in about four weeks",
+        "text": "A white-label provider runs the telecom side, so the first month goes to niche, storefront, pricing and your first customers."
       }
     ]
   },
@@ -343,34 +343,34 @@
   },
   "esim-for-oems": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "As connected devices continue to scale globally, OEMs need a connectivity strategy that is flexible, secure, and easy to manage. This guide explains how eSIM technology enables remote provisioning, multi-carrier support, and centralized lifecycle management, helping manufacturers simplify deployments and reduce operational costs.",
+    "tldrDescription": "eSIM lets device makers load and change operator profiles remotely, which reduces SIM handling and carrier lock-in. It does not pick radio bands, certify the product or run the service. Decide the module, the standard (SGP.22 or SGP.32), ownership and the activation journey together, then pilot before scaling.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "eSIM Is Becoming the Standard for OEMs",
-        "text": "Traditional SIM cards create deployment and maintenance challenges at scale. eSIM technology allows OEMs to remotely activate, switch, and manage carrier profiles without physically accessing devices, making global deployments significantly more efficient."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"microchip\"}",
+        "title": "eSIM is not eUICC",
+        "text": "The chip and the remote-management capability are separate choices. Confirm both in the bill of materials."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"circle-nodes\", \"label\" : \"Circle Nodes\", \"unicode\" : \"e4e2\"}",
-        "title": "Key Benefits of Embedded Connectivity",
-        "text": "Embedded connectivity improves manufacturing flexibility, simplifies logistics, enables multi-network coverage, and reduces downtime through over-the-air provisioning. It also enhances reliability by eliminating removable SIM hardware."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"code-branch\"}",
+        "title": "Match the standard",
+        "text": "SGP.22 suits consumer devices a person operates. SGP.32 suits unattended IoT devices managed as a fleet."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"gears\", \"label\" : \"Gears\", \"unicode\" : \"f085\"}",
-        "title": "Managing Connectivity Throughout",
-        "text": "Modern connectivity platforms give OEMs complete visibility into SIM provisioning, carrier management, diagnostics, and device status from manufacturing through end-of-life. Centralized management reduces operational complexity while improving scalability."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"boxes-stacked\"}",
+        "title": "Fewer SKUs, not always one",
+        "text": "Radio bands, certifications and carrier acceptance can still require regional variants."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "Multi-Carrier eSIM Enables Global Deployments",
-        "text": "A multi-carrier eSIM strategy allows connected products to operate across regions without changing hardware. OEMs can optimize network performance, improve resilience, and adapt to regional connectivity requirements through remote profile management."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"chart-line\"}",
+        "title": "Count three states",
+        "text": "Report eligible devices, working service and paying subscriptions separately."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Preparing for the Future of Connected Devices",
-        "text": "As IoT ecosystems continue to expand, choosing a scalable eSIM platform today helps OEMs stay ready for evolving standards, new carrier partnerships, and future connectivity requirements while maintaining operational efficiency across growing device fleets."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot before you scale",
+        "text": "Prove the connected task, the recovery path and the billing records on one configuration first."
       }
     ]
   },
@@ -1507,34 +1507,34 @@
   },
   "mobile-esim-plans": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Mobile eSIM plans give brands a new way to monetize customer loyalty while creating stronger, long-term relationships. By offering branded eSIM plans, personalized connectivity experiences, and data-driven loyalty rewards, businesses can increase customer lifetime value, improve engagement, and unlock recurring revenue through embedded mobile services.",
+    "tldrDescription": "An eSIM loyalty program gives members mobile data as a reward through points, a membership tier or a qualifying purchase. It works when the reward is relevant to a real member need, the terms are explicit, and claims reliably turn into working service. Measure cost per usable benefit and use a comparison group before claiming retention gains.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Turn Brand Loyalty into Recurring Revenue",
-        "text": "Branded mobile eSIM plans enable businesses to monetize loyalty programs by offering exclusive connectivity benefits that encourage repeat purchases, increase customer retention, and generate recurring revenue."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"gift\"}",
+        "title": "Pick one reward model",
+        "text": "Points, membership, purchase-linked or paid plus credit. Each funds and fails differently."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"mobile\", \"label\" : \"Mobile\", \"unicode\" : \"f3ce\"}",
-        "title": "Deliver Personalized Mobile Experiences",
-        "text": "Custom eSIM plans can be tailored for travelers, students, professionals, and other customer segments, allowing users to purchase, manage, and pay for connectivity directly within a branded app."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-contract\"}",
+        "title": "Write the terms first",
+        "text": "Eligibility, coverage, allowance, timing, service type and failure remedy."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"database\", \"label\" : \"Database\", \"unicode\" : \"f1c0\"}",
-        "title": "Use Data Analytics to Increase Customer Engagement",
-        "text": "IoT connectivity and usage analytics provide insights into customer behavior, enabling brands to deliver personalized offers, recommend relevant mobile plans, and create more engaging loyalty experiences."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"rotate\"}",
+        "title": "Reconcile points and service",
+        "text": "Idempotent claims, and one agreed outcome when provisioning fails."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield-halved\", \"label\" : \"Shield Halved\", \"unicode\" : \"f3ed\"}",
-        "title": "Build Trust with Secure and Compliant Connectivity",
-        "text": "Spenza helps businesses deliver secure, globally compliant mobile services with real-time monitoring, GDPR-ready practices, and reliable connectivity that strengthens customer confidence across international markets."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Measure honestly",
+        "text": "Cost per usable benefit, plus a holdout group before claiming retention."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"arrow-up-right-dots\", \"label\" : \"Arrow Up Right Dots\", \"unicode\" : \"e4b7\"}",
-        "title": "Why Spenza for Branded Mobile eSIM Plans",
-        "text": "Spenza enables businesses to launch branded eSIM and MVNO services with customizable mobile plans, SIM management, IoT analytics, compliance, and personalized customer experiences—helping brands transform loyalty programs into scalable, recurring revenue streams."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Start with one segment",
+        "text": "One member group, one benefit, then widen only on measured results."
       }
     ]
   },
@@ -4290,35 +4290,35 @@
     ]
   },
   "telecom-msp-white-label-solutions-2025": {
-    "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Telecom MSPs can accelerate growth by adding white-label connectivity without building their own network infrastructure. By combining branded mobile, IoT, broadband, and voice services with automation, recurring billing, and multi-carrier access, MSPs can build higher-margin, scalable telecom revenue.",
+    "tldrHeading": "White-Label Telecom for MSPs: At a Glance",
+    "tldrDescription": "White-label telecom lets an MSP or reseller sell connectivity under its own brand on an upstream provider's network and platform. Choose the model by who must appear as the seller, price from real contribution after support, refunds and commitments, and name one owner for every failure before you launch.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"mobile-screen\", \"label\" : \"Mobile Screen\", \"unicode\" : \"f3cf\"}",
-        "title": "White-Label Connectivity Drives MSP Growth",
-        "text": "White-label programs let MSPs sell mobile, IoT, broadband, and voice services under their own brand while retaining control over pricing, billing, customer relationships, and recurring revenue."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"handshake\"}",
+        "title": "Model first",
+        "text": "Referral, branded resale, embedded or deeper mobile: each puts different duties on the MSP."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
-        "title": "Recurring Revenue and Higher Margins",
-        "text": "Compared with referral models, white-label MSPs can retain significantly more revenue by owning the customer relationship and managing their own pricing, billing, and support."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calculator\"}",
+        "title": "Price contribution",
+        "text": "Revenue minus wholesale, platform, support, refunds and commitments, not the headline margin."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Automation Makes Telecom Operations Scalable",
-        "text": "Billing, provisioning, SIM lifecycle management, and API integrations can reduce manual work and allow a small MSP team to manage thousands of connections efficiently."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"headset\"}",
+        "title": "One owner per failure",
+        "text": "The customer should not discover the supply chain during an outage."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"route\", \"label\" : \"Route\", \"unicode\" : \"f4d7\"}",
-        "title": "Multi-Carrier Connectivity Expands Opportunities",
-        "text": "Strong partnerships with carriers and MVNEs provide access to broader coverage, better wholesale options, and global connectivity, helping MSPs serve enterprise and IoT customers across markets."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"users-gear\"}",
+        "title": "Separate customers",
+        "text": "Test that each tenant reads and changes only its own records, in the portal and the API."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"chart-simple\", \"label\" : \"Chart Simple\", \"unicode\" : \"e473\"}",
-        "title": "Spenza Enables White-Label Telecom MSP Growth",
-        "text": "Spenza provides a full-stack, white-label MVNE platform with multi-carrier connectivity, eSIM and IoT support, automated billing, APIs, provisioning, and global network access, helping MSPs launch and scale telecom services under their own brand."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"road\"}",
+        "title": "Pilot one segment",
+        "text": "Prove purchase, activation, first invoice, failure recovery and exit before widening the catalog."
       }
     ]
   },
@@ -4570,9 +4570,36 @@
   },
   "monetizing-connectivity-strategies-msps": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "Monetizing connectivity means billing for the cellular service your devices and managed services already need. MSPs bundle plans with hardware and support, OEMs embed an eSIM and sell tiered plans. You can do it without becoming an MVNO by using a white-label platform, as long as you price from your real costs and test billing first.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"box-open\"}",
+        "title": "Bundle with hardware",
+        "text": "Ship devices already connected, with one invoice and one team accountable."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Embed an eSIM",
+        "text": "One hardware SKU, with the operator profile chosen at activation."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tag\"}",
+        "title": "Sell under your brand",
+        "text": "White label keeps the customer, pricing and portal with you."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calculator\"}",
+        "title": "Price from your costs",
+        "text": "Wholesale, platform fee, support and unused data decide the margin."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot before you scale",
+        "text": "Test billing, an overage and a fault ticket on one client first."
+      }
+    ]
   },
   "mvno-market-trends": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
@@ -5004,9 +5031,36 @@
   },
   "what-is-telecom-as-a-service-taas": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "Telecom as a service (TaaS) means buying telecom capabilities such as connectivity, SIMs, messaging and billing through a managed platform instead of running the infrastructure yourself. Carriers still deliver the network. Compare proposals by service scope, retained work and total cost, then test one workflow in a pilot.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "A model, not a product",
+        "text": "TaaS has no standard bundle. Define the service you need before comparing vendors."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tower-cell\"}",
+        "title": "Carriers stay in the loop",
+        "text": "A platform manages access, but coverage and network dependencies remain."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Compare equal scope",
+        "text": "Include setup, usage, staff, integration upkeep and exit costs on both sides."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"flask\"}",
+        "title": "Pilot one workflow",
+        "text": "Test ordering, delivery, billing and support with a baseline and acceptance criteria."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Write the outcome, not the acronym",
+        "text": "Ask bidders to cover a concrete customer journey, such as activating and billing a device subscription."
+      }
+    ]
   },
   "esim-enterprise-byod": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",

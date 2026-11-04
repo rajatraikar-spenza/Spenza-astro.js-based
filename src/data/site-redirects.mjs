@@ -396,6 +396,37 @@ export const SITE_REDIRECTS = {
   // Captured pointing at donors of this batch.
   '/blog/how-esim-disrupting-mvno-market/': '/mvno/mvno-esim-implementation/',
   '/esim/what-is-esim/': '/esim/esim/',
+
+  // Reseller and embedded category (4 Nov 2026): 12 donors into 6 pages.
+  '/blog/embedded-connectivity-reshaping-tech-2025/': '/esim/esim-for-oems/',
+  '/blog/esim-for-smart-devices-2025/': '/esim/esim-for-oems/',
+  '/esim/embedded-connectivity-reshaping-tech-2025/': '/esim/esim-for-oems/',
+  '/esim/esim-for-smart-devices-2025/': '/esim/esim-for-oems/',
+  '/blog/branded-esim-marketplace/': '/esim/how-to-start-travel-esim-business/',
+  '/esim/branded-esim-marketplace/': '/esim/how-to-start-travel-esim-business/',
+  '/blog/esim-data-plans/': '/telecom/mobile-esim-plans/',
+  '/telecom/esim-data-plans/': '/telecom/mobile-esim-plans/',
+  '/blog/msp-reselling-connectivity-with-hardware/': '/telecom/monetizing-connectivity-strategies-msps/',
+  '/telecom/msp-reselling-connectivity-with-hardware/': '/telecom/monetizing-connectivity-strategies-msps/',
+  '/blog/taas-revolutionizing-telecom-usa/': '/telecom/what-is-telecom-as-a-service-taas/',
+  '/blog/taas-vs-traditional-telecom/': '/telecom/what-is-telecom-as-a-service-taas/',
+  '/telecom/taas-revolutionizing-telecom-usa/': '/telecom/what-is-telecom-as-a-service-taas/',
+  '/telecom/taas-vs-traditional-telecom/': '/telecom/what-is-telecom-as-a-service-taas/',
+  '/blog/white-label-connectivity-solutions-for-msps/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/blog/white-label-telecom-benefits/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/blog/white-label-telecom-reseller-guide/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/blog/white-label-telecom-reseller/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/blog/white-label-voip-change/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/telecom/white-label-connectivity-solutions-for-msps/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/telecom/white-label-telecom-benefits/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/telecom/white-label-telecom-reseller-guide/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/telecom/white-label-telecom-reseller/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  '/telecom/white-label-voip-change/': '/telecom/telecom-msp-white-label-solutions-2025/',
+  // Captured pointing at donors of this batch.
+  '/blog/how-taas-revolutionizing-in-usa/': '/telecom/what-is-telecom-as-a-service-taas/',
+  '/blog/launching-branded-esim-marketplace-2025/': '/esim/how-to-start-travel-esim-business/',
+  '/blog/loyalty-rewards-esim-data-plans-spenza/': '/telecom/mobile-esim-plans/',
+  '/telecom/taas-revolutionizing-business-communications-in-usa/': '/telecom/what-is-telecom-as-a-service-taas/',
 };
 
 /**
