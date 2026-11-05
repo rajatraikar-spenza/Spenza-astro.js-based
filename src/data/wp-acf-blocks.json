@@ -481,67 +481,67 @@
   },
   "skype-vs-zoom-vs-teams-comparison": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Skype is officially gone in 2026, making Zoom, Microsoft Teams, and Google Meet the primary video meeting platforms. Zoom is best for client-facing meetings and webinars, Teams is ideal for Microsoft 365 organizations, and Google Meet works best for Google Workspace users. If your main need was Skype's international calling or phone number, you'll need a dedicated calling service or number-porting solution like Spenza.",
+    "tldrDescription": "Microsoft retired Skype on May 5, 2025. Teams suits Microsoft 365 organizations, Google Meet suits Google Workspace, and Zoom suits meetings with outsiders. Phone calling is a separate purchase, and the move to Teams is as much a network project as a software change.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"brands\", \"id\" : \"skype\", \"label\" : \"Skype\", \"unicode\" : \"f17e\"}",
-        "title": "Skype Is Retired",
-        "text": "Microsoft shut down Skype in May 2025, with all data exports ending in June 2026. Former users are now directed to Microsoft Teams Free, making Teams the official Skype successor."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"video\"}",
+        "title": "Pick by your stack",
+        "text": "Teams for Microsoft 365, Meet for Google Workspace, Zoom for outside clients."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"brands\", \"id\" : \"app-store-ios\", \"label\" : \"iOS App Store\", \"unicode\" : \"f370\"}",
-        "title": "Which Platform Should You Choose?",
-        "text": "Choose Zoom for external meetings and webinars, Microsoft Teams for Microsoft 365 collaboration, and Google Meet for simple browser-based meetings within Google Workspace."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"phone\"}",
+        "title": "Calling is separate",
+        "text": "Meeting apps do not replace cheap calls to phone numbers. Buy a calling plan and test it."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"3\", \"label\" : \"3\", \"unicode\" : \"33\"}",
-        "title": "Key Differences",
-        "text": "All three offer free video meetings, but Zoom has the easiest guest access, Teams integrates deeply with Microsoft 365, and Google Meet provides the simplest browser-first experience with Workspace integration."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calendar-check\"}",
+        "title": "Old windows are closed",
+        "text": "Skype export closed June 15, 2026 and Skype Number port-out is no longer accepted."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hand-holding-dollar\", \"label\" : \"Hand Holding Dollar\", \"unicode\" : \"f4c0\"}",
-        "title": "Pricing & AI",
-        "text": "Teams and Google Meet are bundled with productivity suites, while Zoom is a dedicated meeting platform. Zoom includes AI on paid plans, Google bundles Gemini, and Microsoft's Copilot requires an additional subscription."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"network-wired\"}",
+        "title": "Plan the network",
+        "text": "Move Teams traffic off the VPN and size branches for group video before cutover."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"regular\", \"id\" : \"handshake\", \"label\" : \"Handshake\", \"unicode\" : \"f2b5\"}",
-        "title": "Best Replacement for Skype Calling",
-        "text": "Video meeting apps are not ideal for cheap international phone calls. If you need to keep your Skype Number or business calling capabilities, use a dedicated calling service and port your number."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Run a real pilot",
+        "text": "Test remote staff and an inbound customer call that transfers to a person before you retire anything."
       }
     ]
   },
   "esim-for-enterprises-business-enabler-2025": {
-    "tldrHeading": "eSIM for Business",
-    "tldrDescription": "Business eSIM has become a core enterprise technology for managing global connectivity across employees, IoT devices, laptops, tablets, and connected products. It enables remote provisioning, reduces telecom costs, eliminates carrier lock-in, and simplifies large-scale device management. With new standards like SGP.32 and enterprise connectivity platforms, organizations can deploy and manage thousands of devices more efficiently than ever before.",
+    "tldrHeading": "TL;DR / At-a-Glance Summary",
+    "tldrDescription": "Enterprise eSIM management links the device record, the carrier line and the financial owner. eSIM delivers the profile remotely; policy, support and billing still need owners. Group devices by cohort, test enrollment and recovery separately from success, and close access, service and invoice with separate confirmations.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "Enterprise eSIM Explained",
-        "text": "A business eSIM is an embedded, programmable SIM that allows enterprises to remotely activate, manage, and switch cellular connectivity without replacing physical SIM cards. It enables faster deployments, centralized management, and seamless connectivity across global operations."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"laptop\"}",
+        "title": "Group by device cohort",
+        "text": "Employee phones, corporate laptops and IoT products need different enrollment and recovery."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"building\", \"label\" : \"Building\", \"unicode\" : \"f1ad\"}",
-        "title": "Why Enterprises Are Replacing Physical SIM Cards",
-        "text": "Unlike traditional SIM cards that require manual installation and carrier-specific provisioning, eSIMs support remote activation, multi-carrier connectivity, and zero-touch deployment. This reduces operational complexity while improving flexibility for growing businesses."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"vial-circle-check\"}",
+        "title": "Test, do not assume",
+        "text": "A policy marked successful does not prove the profile installed or service works."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"regular\", \"id\" : \"thumbs-up\", \"label\" : \"Thumbs Up\", \"unicode\" : \"f164\"}",
-        "title": "Top Business Benefits of eSIM",
-        "text": "Enterprise eSIM helps organizations lower roaming costs, simplify global device deployments, avoid carrier lock-in, and gain real-time visibility into telecom spending. It also supports scalable IoT connectivity and centralized device management."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"user-shield\"}",
+        "title": "Set the BYOD boundary",
+        "text": "Explain what IT can manage on a personal phone before employees accept the line."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "The GSMA SGP.32",
-        "text": "The GSMA SGP.32 standard introduces server-driven remote SIM provisioning, allowing businesses to manage thousands of IoT devices without manual intervention. This makes large-scale, multi-carrier IoT deployments faster, more flexible, and easier to scale."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice-dollar\"}",
+        "title": "Reconcile the invoice",
+        "text": "Every line needs an owner, region and cost center, checked against carrier charges."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Why Spenza Is the Enterprise eSIM Platform for Global Connectivity",
-        "text": "Spenza provides an enterprise Connectivity Management Platform that simplifies eSIM provisioning, telecom expense management, multi-carrier connectivity, and global device deployment."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"door-open\"}",
+        "title": "Close three records at exit",
+        "text": "Device access, carrier service and final invoice each need their own confirmation."
       }
     ]
   },
@@ -1126,34 +1126,34 @@
   },
   "sim-card-types-form-factors": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "SIM cards come as removable cards (2FF, 3FF, 4FF), soldered chips (MFF2, MFF4), the integrated SIM (iSIM) and software SIMs. Form factor is the package. eSIM is a separate capability, the eUICC, that a package may or may not include. Choose each on its own.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"8\", \"label\" : \"8\", \"unicode\" : \"38\"}",
-        "title": "Eight SIM Card Types ",
-        "text": "SIM cards now come in 8 types spanning removable, embedded, integrated, and software-based categories."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sim-card\"}",
+        "title": "Eight form factors",
+        "text": "Removable, soldered, integrated and software SIMs, each with a different job."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "MFF4 Is New",
-        "text": "Commercially launched by Arm Kigen in January 2026, MFF4 fills the critical gap between MFF2's industrial durability and iSIM's deep SoC integration."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"microchip\"}",
+        "title": "Package is not eSIM",
+        "text": "A soldered chip can be single-operator. eUICC is a separate capability to verify."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"scale-unbalanced\", \"label\" : \"Scale Unbalanced\", \"unicode\" : \"f515\"}",
-        "title": "Not All eSIMs Are Equal",
-        "text": "An MFF2 chip can be permanently locked to one carrier or fully eSIM-capable, depending on whether it includes eUICC — always verify before procurement."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"temperature-half\"}",
+        "title": "Check the exact part",
+        "text": "Environmental ratings belong to each part number. Read the datasheet."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hexagon-nodes\", \"label\" : \"Hexagon Nodes\", \"unicode\" : \"e699\"}",
-        "title": "Match Module to Form Factor",
-        "text": "Hardware modules like Quectel BG95, Nordic nRF9161, and u-blox SARA-R510 each support specific SIM card form factors, making module selection and SIM selection a joint decision."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"puzzle-piece\"}",
+        "title": "Pair module and SIM",
+        "text": "Choose the module and the SIM together, and plan the move off Nano-SIM early."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "One Platform, All Form Factors",
-        "text": "Spenza sits above the hardware layer, giving teams a single connectivity management platform that works across MFF2, MFF4, and iSIM deployments without carrier lock-in."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"layer-group\"}",
+        "title": "One layer above the hardware",
+        "text": "A connectivity platform can manage profiles and carriers whichever package your team picks."
       }
     ]
   },
@@ -2278,34 +2278,34 @@
   },
   "connectivity-as-a-benefit": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "Connectivity as a benefit is an employer-arranged mobile program with defined funding, support and exit rules. It is not a tax category or a device-control feature. Decide purpose, payer and service owner separately, compare full operating cost with a stipend, and test the whole cycle in a pilot.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"file-invoice\", \"label\" : \"File Invoice\", \"unicode\" : \"f570\"}",
-        "title": "The Stipend Tax Trap",
-        "text": "Cash mobile stipends are taxable, often losing 25–40% to payroll taxes before employees can use them, while employers pay extra FICA costs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"wallet\"}",
+        "title": "Payer is not owner",
+        "text": "Record payer, subscriber and administrator separately."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield-halved\", \"label\" : \"Shield Halved\", \"unicode\" : \"f3ed\"}",
-        "title": "The Compliance Risk",
-        "text": "Flat stipends fail to meet mobile reimbursement laws in 11 states plus D.C. and Seattle, exposing companies to potential class actions."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "Compare full cost",
+        "text": "Count claims, support and exit work under both models."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"thumbs-down\", \"label\" : \"Thumbs Down\", \"unicode\" : \"f165\"}",
-        "title": "Productivity Loss on the Frontline",
-        "text": "Old or broken devices, weak data plans, and BYOD limitations slow clock-ins, charting, dispatch, and HR workflows, reducing workforce efficiency."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"shield-halved\"}",
+        "title": "Payment is not control",
+        "text": "Funding a plan does not enroll or secure the device."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "Connectivity as a Benefit (CaaB) Solution",
-        "text": "A managed, employer-sponsored program delivers devices and plans at half the cost, tax-free, with enterprise management, compliance coverage, and measurable ROI."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Pilot before scaling",
+        "text": "Follow one group from enrollment through exit."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza Powers CaaB Programs",
-        "text": "Spenza provides a comprehensive enterprise platform for CaaB that includes device provisioning, plan management, automated billing, and MDM integration, eliminating administrative overhead while maximizing cost savings and security."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"user-doctor\"}",
+        "title": "Healthcare needs device control",
+        "text": "For clinical staff, who can enforce safeguards on the phone matters more than the monthly amount."
       }
     ]
   },
@@ -2410,34 +2410,34 @@
   },
   "telecom-compliance-audits": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "A telecom expense audit tests billed charges against contracts, the service inventory and usage records, then tracks each finding to a supplier response and a matched credit. It can end with no error found. Use the 14-point checklist, keep evidence with every finding, and report only adjustments that have actually posted.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tower-cell\", \"label\" : \"Tower Cell\", \"unicode\" : \"e585\"}",
-        "title": "Why Telecom Audits Matter",
-        "text": "Businesses often overpay 15–35% on telecom bills due to errors, unused services, and contract issues. Regular audits uncover these hidden costs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-invoice\"}",
+        "title": "Scope before savings",
+        "text": "Fix suppliers, accounts, period and who may approve a dispute before reviewing a single invoice."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"key\", \"label\" : \"Key\", \"unicode\" : \"f084\"}",
-        "title": "Key Audit Benefits",
-        "text": "Identify billing mistakes, zombie assets, tax errors, and contract violations to recover money and optimize ongoing spending."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"folder-open\"}",
+        "title": "Evidence per finding",
+        "text": "Charge, contract terms and service record travel together so another analyst can reproduce it."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"stairs\", \"label\" : \"Stairs\", \"unicode\" : \"e289\"}",
-        "title": "Step-by-Step Audit Process",
-        "text": "Collect invoices, build a full inventory, compare bills to contracts, analyze usage, review taxes, prioritize issues, and execute corrections."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"list-check\"}",
+        "title": "14 checks, 7 groups",
+        "text": "Download the CSV or PDF, assign owners, and record the outcome of each check."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"hand-holding-dollar\", \"label\" : \"Hand Holding Dollar\", \"unicode\" : \"f4c0\"}",
-        "title": "Long-Term Savings & ROI",
-        "text": "Immediate savings come from error recovery and service cuts, while ongoing TEM programs sustain 15–35% annual cost reduction."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"circle-check\"}",
+        "title": "Close on a posted credit",
+        "text": "A finding is closed when the supplier adjustment is matched to the original charge."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza’s Advantage",
-        "text": "Spenza manages audits from start to finish, covering bill validation and contract optimization, while maintaining continuous telecom cost control and compliance."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"scale-balanced\"}",
+        "title": "A valid charge is a result",
+        "text": "An audit that confirms a charge is correct has still done its job. Never promise a recovery rate."
       }
     ]
   },
@@ -2998,34 +2998,34 @@
   },
   "byod-in-2025-benefits-risks-and-best-practices": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
+    "tldrDescription": "BYOD lets employees use personal devices for approved work. A sound policy sets eligible roles, access and management controls, what the company can see, who pays, and how access ends. Pilot one role group and test loss and departure before expanding.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"users\", \"label\" : \"Users\", \"unicode\" : \"f0c0\"}",
-        "title": "Why BYOD",
-        "text": "BYOD shapes the modern hybrid workplace."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"user-shield\"}",
+        "title": "Controls match the job",
+        "text": "Identity, app management and data separation each do a different job. Test them on the real work apps."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"shield-halved\", \"label\" : \"Shield Halved\", \"unicode\" : \"f3ed\"}",
-        "title": "BYOD Uses",
-        "text": "Strong policies reduce security threats and cut hidden costs."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"eye\"}",
+        "title": "Show the visibility line",
+        "text": "Tell employees what IT can read, configure and remove. Never promise more than the tools do."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"tachograph-digital\", \"label\" : \"Tachograph Digital\", \"unicode\" : \"f566\"}",
-        "title": "Privacy",
-        "text": "Clear separation of work and personal data matters."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"file-signature\"}",
+        "title": "Policy before tooling",
+        "text": "Agree scope, funding, support and exit terms first, then pick the tools that enforce them."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"sim-card\", \"label\" : \"Sim Card\", \"unicode\" : \"f7c4\"}",
-        "title": "SIM Management",
-        "text": "Corporate eSIM for BYOD improves cost control and privacy."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"calculator\"}",
+        "title": "Compare full cost",
+        "text": "Count hardware, service, software, support and exceptions for the same cohort and period."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"coins\", \"label\" : \"Coins\", \"unicode\" : \"f51e\"}",
-        "title": "Who Owns",
-        "text": "IT, HR, and Finance must own this together."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"right-from-bracket\"}",
+        "title": "Test the exit",
+        "text": "Access, work data and the work line close separately. Verify each before you sign off."
       }
     ]
   },
@@ -4654,9 +4654,36 @@
   },
   "what-is-telecom-expense-management-tem": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "",
-    "twoCol": [],
-    "oneCol": []
+    "tldrDescription": "Telecom expense management connects the services a business buys with contracts, invoices, usage and accountable owners. Judge a program by whether anyone can reproduce a billing decision from its records, and count a saving only when a credit has posted.",
+    "twoCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"link\"}",
+        "title": "Match before you automate",
+        "text": "Service, contract, invoice and change records must agree on identity and dates."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"sitemap\"}",
+        "title": "Keep payer and report apart",
+        "text": "Where a cost is reported is not the same as who owes the supplier."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"clipboard-check\"}",
+        "title": "Exception is not overcharge",
+        "text": "A difference needs checking against terms before it becomes a dispute."
+      },
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"handshake\"}",
+        "title": "Split the work clearly",
+        "text": "Providers investigate; your teams keep payment, contract and service-need decisions."
+      }
+    ],
+    "oneCol": [
+      {
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"coins\"}",
+        "title": "Count credits, not findings",
+        "text": "Report expected, accepted and posted amounts separately."
+      }
+    ]
   },
   "how-to-launch-mvno-non-telco-brand-2025": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
@@ -5172,34 +5199,34 @@
   },
   "google-fi-2": {
     "tldrHeading": "TL;DR / At-a-Glance Summary",
-    "tldrDescription": "Google Fi is an MVNO offering flexible plans, T-Mobile-based coverage, device compatibility, and strong international connectivity. Its value depends on data usage, location, device compatibility, and travel needs. The article also highlights how businesses and aspiring MVNOs can use platforms like Spenza to simplify telecom operations and launch their own services.",
+    "tldrDescription": "Google Fi is an MVNO on T-Mobile with four plans from $20 per line. Google says every plan includes nationwide 5G on a compatible phone. The plan you pick sets your data allowance, hotspot and travel coverage.",
     "twoCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wallet\", \"label\" : \"Wallet\", \"unicode\" : \"f555\"}",
-        "title": "Google Fi Plans & Pricing",
-        "text": "Google Fi offers Flexible, Simply Unlimited, and Unlimited Plus plans, with pricing and data allowances designed for different usage levels—from light users to frequent travelers."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"signal\"}",
+        "title": "5G on every plan",
+        "text": "Nationwide 5G is included on all four plans, on a compatible phone."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"wifi\", \"label\" : \"Wifi\", \"unicode\" : \"f1eb\"}",
-        "title": "Coverage & Network Performance",
-        "text": "Fi primarily uses T-Mobile’s network, providing 4G LTE and 5G coverage across the U.S., although speeds may be affected during network congestion and rural LTE coverage can be more limited."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"tags\"}",
+        "title": "Four plans",
+        "text": "Flexible from $20 plus $10 per GB, unlimited from $35 to $65 per line."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"regular\", \"id\" : \"handshake\", \"label\" : \"Handshake\", \"unicode\" : \"f2b5\"}",
-        "title": "Devices & International Connectivity",
-        "text": "Google Fi supports compatible Pixel, Samsung, Motorola, and iPhone devices, while its international service works across 200+ locations, making it particularly useful for travelers and remote workers."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"earth-americas\"}",
+        "title": "Travel varies",
+        "text": "Data in 200+ destinations on Premium and Flexible; Canada and Mexico on Standard."
       },
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"brands\", \"id\" : \"google\", \"label\" : \"Google Logo\", \"unicode\" : \"f1a0\"}",
-        "title": "Google Fi User Experience",
-        "text": "Users commonly value Fi for clean billing, no contracts, international connectivity, and features such as spam blocking and VPN, while reported concerns include data usage by the app, peak-time slowdowns, and weaker rural LTE coverage"
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"mobile-screen\"}",
+        "title": "Check your phone",
+        "text": "It must be unlocked and support T-Mobile. eSIM activation is done in the Fi app."
       }
     ],
     "oneCol": [
       {
-        "icon": "{\"family\" : \"classic\", \"style\" : \"solid\", \"id\" : \"layer-group\", \"label\" : \"Layer Group\", \"unicode\" : \"f5fd\"}",
-        "title": "Spenza for MVNO & Telecom Management",
-        "text": "Spenza helps IoT teams and aspiring MVNOs manage eSIMs, plans, devices, usage, and costs from one platform, while providing the infrastructure to launch and operate an MVNO more efficiently."
+        "icon": "{\"family\":\"classic\",\"style\":\"solid\",\"id\":\"map-location-dot\"}",
+        "title": "Check your own address",
+        "text": "Coverage depends on location and handset, so use Fi's map for the places you use your phone."
       }
     ]
   },
