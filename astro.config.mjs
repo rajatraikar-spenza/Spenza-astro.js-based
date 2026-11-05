@@ -92,6 +92,12 @@ export default defineConfig({
     hostFiles(),
 
     sitemap({
+      /**
+       * `/ai-info.md` is an endpoint, not a page, so the integration does not
+       * find it among the routes; it is named here instead. It then goes through
+       * `filter` and `serialize` like everything else.
+       */
+      customPages: [`${SITE_URL}/ai-info.md`],
       /** changefreq, priority and lastmod per page type — see sitemap-meta.mjs. */
       serialize: sitemapMeta(),
       /** Mirror what Yoast currently emits, and nothing that is not the site. */

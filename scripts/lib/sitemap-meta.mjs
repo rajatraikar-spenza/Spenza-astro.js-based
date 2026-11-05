@@ -11,7 +11,7 @@
  *   blog posts and case studies       0.8       weekly
  *   category archives                 0.8       weekly
  *   blog pagination, author pages     0.8       weekly / monthly
- *   legal, sitemap page               0.8       yearly / monthly
+ *   legal, sitemap page, ai-info.md   0.8       yearly / monthly
  *
  * Nothing falls below 0.8: the floor is deliberate, set on request.
  *
@@ -135,6 +135,11 @@ export function sitemapMeta() {
     } else if (path === '/sitemap/') {
       changefreq = 'monthly';
       priority = 0.8;
+    } else if (path === '/ai-info.md') {
+      // Not a page: the Markdown an assistant reads about the company.
+      changefreq = 'monthly';
+      priority = 0.8;
+      lastmod = gitModified(['src/data/ai-info.md', 'src/pages/ai-info.md.ts']);
     } else {
       changefreq = 'weekly';
       priority = 0.9;
