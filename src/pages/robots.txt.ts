@@ -34,6 +34,7 @@ const INDEXABLE = `User-agent: *
 Allow: /
 
 # A machine-readable index of this site: /llms.txt
+# What Spenza is, for AI assistants: /ai-info.md
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;

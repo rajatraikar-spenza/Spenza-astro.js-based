@@ -422,7 +422,7 @@ step_deploy() {
   aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --size-only --only-show-errors \
     --exclude "*.html" --exclude "wp-assets/_opt/*" --exclude "_astro/*" \
     --exclude "wp-assets/_fonts/*" --exclude "videos/*" \
-    --exclude "_redirects" --exclude "_headers" \
+    --exclude "_redirects" --exclude "_headers" --exclude "ai-info.md" \
     --cache-control "public, max-age=2592000"
 
   # Last, and with --delete, so a page that no longer exists stops being served.
@@ -440,6 +440,19 @@ step_deploy() {
   aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --only-show-errors --delete \
     --exclude "*" --include "*.html" --include "*.xml" --include "robots.txt" \
     --cache-control "public, max-age=0, s-maxage=31536000, must-revalidate"
+
+  # `/ai-info.md` on its own: the type has to be said (a guess from the
+  # extension is not reliable on every runner, and a wrong one makes a browser
+  # download the file rather than show it), and it is text that changes with the
+  # site, so it is cached like the HTML rather than for a month. Copied with
+  # `cp`, which always writes, so a changed type or cache header cannot be
+  # skipped by sync's size-and-time comparison.
+  if [ -f "$DIST_DIR/ai-info.md" ]; then
+    say "ai-info.md"
+    aws s3 cp "$DIST_DIR/ai-info.md" "s3://${BUCKET}/ai-info.md" --only-show-errors \
+      --content-type "text/markdown; charset=utf-8" \
+      --cache-control "public, max-age=0, s-maxage=31536000, must-revalidate"
+  fi
 
   printf %s "$hash" | aws s3 cp - "s3://${BUCKET}/.deploy-hash" \
     --cache-control "no-store" --only-show-errors
@@ -499,6 +512,7 @@ step_verify() {
   check "sitemap"           "/sitemap.xml"                   200
   check "sitemap index"     "/sitemap-index.xml"             200
   check "llms.txt"          "/llms.txt"                      200
+  check "ai-info.md"        "/ai-info.md"                    200
   check "404"               "/this-does-not-exist/"          404
 
   # A real bundle, taken from the build rather than hardcoded — the names are

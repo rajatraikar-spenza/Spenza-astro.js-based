@@ -50,6 +50,7 @@ export const PAGE_GROUPS = [
       ['/esim-phones/', 'eSIM phones'],
       ['/mvno-launch-academy/', 'MVNO launch academy'],
       ['/faq/', 'FAQ'],
+      ['/ai-info.md', 'About Spenza for AI assistants (Markdown)'],
     ],
   },
   {
