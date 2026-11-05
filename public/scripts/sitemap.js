@@ -62,6 +62,28 @@
     }
   });
 
+  // The bar sticks 64px down, under the header. Mark it once it has, so its
+  // background can reach up behind the header then and not before.
+  var bar = document.querySelector('.sm-bar');
+  if (bar) {
+    var ticking = false;
+    var mark = function () {
+      ticking = false;
+      bar.classList.toggle('is-stuck', bar.getBoundingClientRect().top <= 65);
+    };
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(mark);
+        }
+      },
+      { passive: true }
+    );
+    mark();
+  }
+
   // "/" focuses the search, unless the reader is already typing somewhere.
   document.addEventListener('keydown', function (e) {
     if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;

@@ -132,6 +132,10 @@
   -webkit-backdrop-filter: inherit;
   backdrop-filter: inherit;
   pointer-events: none;
+  opacity: 0; /* only once the bar has stuck, or it fades the hero's last line */
+}
+.sm .sm-bar.is-stuck::before {
+  opacity: 1;
 }
 .sm .sm-bar__row {
   display: flex;
