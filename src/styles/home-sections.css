@@ -562,7 +562,7 @@
 }
 .hm .hm-how__link:hover { border-color: var(--ink); }
 .hm .hm-how__link--acc { background: var(--acc); border-color: var(--acc); color: #fff; }
-.hm .hm-how__link--acc:hover { background: var(--accdark); border-color: var(--accdark); }
+.hm .hm-how__link--acc:hover { background: var(--accdark); border-color: var(--accdark); color: #fff; }
 
 /* The step number's ring: the current step's progress, drawn round it. */
 .hm .hm-how__num svg { position: absolute; inset: -5px; width: calc(100% + 10px); height: calc(100% + 10px); transform: rotate(-90deg); overflow: visible; pointer-events: none; }
