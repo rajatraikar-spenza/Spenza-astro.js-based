@@ -16,6 +16,7 @@ import { wpRefresh } from './scripts/lib/wp-refresh-integration.mjs';
 import { hostFiles } from './scripts/lib/host-files-integration.mjs';
 import { sitemapMeta } from './scripts/lib/sitemap-meta.mjs';
 import { sitemapAlias } from './scripts/lib/sitemap-alias-integration.mjs';
+import { sitemapPage } from './scripts/lib/sitemap-page-integration.mjs';
 
 /**
  * Every path this site answers with a redirect rather than a page.
@@ -123,6 +124,13 @@ export default defineConfig({
      * hooks run in the order the integrations are listed.
      */
     sitemapAlias(),
+
+    /**
+     * Fills `/sitemap/` from that `/sitemap.xml`, so the page people read and
+     * the file crawlers read are the same list. After `sitemapAlias()` for the
+     * same reason it is after `sitemap()`: it reads what the hook before wrote.
+     */
+    sitemapPage(),
   ],
 
   /**

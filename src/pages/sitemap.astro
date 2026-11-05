@@ -1,8 +1,81 @@
 ---
+/**
+ * /sitemap/ — the human-readable sitemap.
+ *
+ * This file is the page's frame: the heading, the search box and the places
+ * the list goes. The list is not here. `scripts/lib/sitemap-page-integration.mjs`
+ * reads the finished `dist/sitemap.xml` at the end of the build and replaces the
+ * `%%SM_…%%` tokens below, so the page lists exactly what the XML sitemap lists
+ * and cannot drift from it. In `astro dev` there is no XML, so the tokens show
+ * as they are.
+ *
+ * Renders through `WpLayout` like every page: header, footer, Analytics and the
+ * captured Yoast head are the site's own. There is no partial for the layout to
+ * read, so it is told directly that nothing here opens the demo popup and there
+ * is no carousel.
+ */
 import WpLayout from '../layouts/WpLayout.astro';
-import content from '../partials/sitemap.html?raw';
+import '../styles/sitemap.css';
 ---
 
-<WpLayout slug="sitemap">
-  <Fragment set:html={content} />
+<WpLayout slug="sitemap" demoPopup={false} swiper={false}>
+  <script slot="head" src="/scripts/sitemap.js" defer is:inline></script>
+
+  <div class="sm" id="sitemap">
+    <section class="sm-hero">
+      <div class="sm-wrap">
+        <p class="sm-eyebrow">Sitemap</p>
+        <h1 class="sm-h1">Every page on <span class="sm-hi">spenza.com</span>, in one place</h1>
+        <p class="sm-lead">
+          <strong>%%SM_TOTAL%%</strong> pages and articles, listed straight from our{' '}
+          <a href="/sitemap.xml">XML sitemap</a> and refreshed every time we publish.
+          Latest change: <time>%%SM_UPDATED%%</time>.
+        </p>
+      </div>
+    </section>
+
+    <div class="sm-bar">
+      <div class="sm-wrap sm-bar__row">
+        <form class="sm-search" role="search" onsubmit="return false">
+          <div class="sm-search__box">
+            <svg class="sm-search__icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+              <circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+              <path d="m13 13 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+            <input
+              type="search"
+              id="sm-q"
+              class="sm-search__input"
+              placeholder="Search pages and articles"
+              aria-label="Search pages and articles"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <kbd class="sm-search__key" aria-hidden="true">/</kbd>
+            <span class="sm-search__status" id="sm-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+        %%SM_CHIPS%%
+      </div>
+    </div>
+
+    <div class="sm-wrap sm-main">
+      %%SM_GROUPS%%
+      <p class="sm-empty" id="sm-empty" hidden>
+        Nothing matches. Try a shorter word, or browse the <a href="/blog/">blog</a>.
+      </p>
+
+      <aside class="sm-foot" aria-label="For crawlers and assistants">
+        <div>
+          <h2>For crawlers and AI assistants</h2>
+          <p>The same list, without the design.</p>
+        </div>
+        <ul>
+          <li><a href="/sitemap.xml">sitemap.xml</a></li>
+          <li><a href="/llms.txt">llms.txt</a></li>
+          <li><a href="/robots.txt">robots.txt</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
 </WpLayout>

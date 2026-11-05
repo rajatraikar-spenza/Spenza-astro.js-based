@@ -1,0 +1,498 @@
+/* ═══════════════════════════════════════════════════════════════
+   /sitemap/ — the human-readable sitemap.
+
+   Scoped to `.sm`. The page renders inside WpLayout beside the Astra
+   bundle, which styles bare `a`, `h1..h6`, `ul`, `input` and `p`, so each
+   rule below names its element under `.sm` and the families are
+   `!important`, as in hub.css. Families are the site's tokens from
+   fonts.css, never a name.
+
+   One rail: every container takes the tokens from rail.css, so the hero,
+   the sticky bar, the sections and the footer share the header's edges.
+═══════════════════════════════════════════════════════════════ */
+
+.sm {
+  --bg: #fbf9f6;
+  --bg2: #f5f1ea;
+  --ink: #0f1420;
+  --body: #3d4656;
+  --muted: #5b6472;
+  --acc: #ff4904;
+  --acctext: #c93600;
+  --accrgb: 255, 73, 4;
+  --rule: #0f14201f;
+  --rule2: #0f142014;
+  --peach: #fff2ed;
+  --peachline: #f3d9cc;
+  font-family: var(--font-sans) !important;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.5;
+  display: block;
+  overflow-x: clip;
+}
+.sm *,
+.sm *:before,
+.sm *:after {
+  box-sizing: border-box;
+}
+.sm ::selection {
+  background: rgba(var(--accrgb), 0.25);
+}
+.sm-wrap {
+  max-width: var(--rail-box);
+  margin-inline: auto;
+  padding-inline: var(--rail-pad);
+}
+
+/* ── hero ─────────────────────────────────────────────────────── */
+
+.sm .sm-hero {
+  padding-block: clamp(48px, 7vw, 88px) clamp(20px, 3vw, 36px);
+}
+.sm .sm-eyebrow {
+  margin: 0 0 18px;
+  font-family: var(--font-mono) !important;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--acctext);
+}
+.sm .sm-h1 {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--font-display) !important;
+  font-weight: 700;
+  font-size: clamp(38px, 5.4vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.sm .sm-hi {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--acc);
+}
+.sm .sm-lead {
+  margin: 22px 0 0;
+  max-width: 60ch;
+  font-family: var(--font-sans) !important;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--body);
+}
+.sm .sm-lead strong {
+  color: var(--ink);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.sm .sm-lead a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accrgb), 0.5);
+  text-underline-offset: 3px;
+}
+.sm .sm-lead a:hover {
+  color: var(--acctext);
+  text-decoration-color: currentColor;
+}
+.sm .sm-lead time {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── sticky bar: search and the jump chips ───────────────────── */
+
+.sm .sm-bar {
+  position: sticky;
+  top: 64px; /* under the site header */
+  z-index: 20;
+  padding-block: 12px;
+  background: rgba(251, 249, 246, 0.94);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule2);
+}
+/* The header floats as a pill once the page scrolls, so list text shows in the
+   gaps beside it. This carries the bar's own background up under the header. */
+.sm .sm-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -64px;
+  height: 64px;
+  background: inherit;
+  -webkit-backdrop-filter: inherit;
+  backdrop-filter: inherit;
+  pointer-events: none;
+}
+.sm .sm-bar__row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.sm .sm-search {
+  flex: 0 0 360px;
+  margin: 0;
+}
+.sm .sm-search__box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.sm .sm-search__icon {
+  position: absolute;
+  left: 16px;
+  color: var(--muted);
+  pointer-events: none;
+}
+.sm .sm-search__input {
+  width: 100%;
+  height: 46px;
+  margin: 0;
+  padding: 0 70px 0 46px;
+  font-family: var(--font-sans) !important;
+  font-size: 16px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  box-shadow: none;
+  outline: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.sm .sm-search__input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+.sm .sm-search__input::-webkit-search-cancel-button {
+  display: none;
+}
+.sm .sm-search__input:hover {
+  border-color: rgba(15, 20, 32, 0.32);
+}
+.sm .sm-search__input:focus,
+.sm .sm-search__input:focus-visible {
+  border-color: var(--acc);
+  box-shadow: 0 0 0 4px rgba(var(--accrgb), 0.16);
+  outline: none !important;
+}
+.sm .sm-search__key {
+  position: absolute;
+  right: 14px;
+  min-width: 24px;
+  padding: 2px 7px;
+  font-family: var(--font-mono) !important;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--bg2);
+  border: 1px solid var(--rule2);
+  border-radius: 6px;
+}
+.sm .sm-search:focus-within .sm-search__key {
+  display: none;
+}
+.sm .sm-search__status {
+  position: absolute;
+  right: 16px;
+  font-family: var(--font-mono) !important;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.sm .sm-search__status:not(:empty) ~ .sm-search__key,
+.sm .sm-search__key:has(~ .sm-search__status:not(:empty)) {
+  display: none;
+}
+
+.sm .sm-chips {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 8px;
+  margin: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* a soft edge on the right says the row scrolls */
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent);
+  padding-right: 48px;
+}
+.sm .sm-chips::-webkit-scrollbar {
+  display: none;
+}
+.sm .sm-chips a {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px;
+  font-family: var(--font-sans) !important;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--body);
+  text-decoration: none;
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+.sm .sm-chips a span {
+  font-family: var(--font-mono) !important;
+  font-size: 11.5px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.sm .sm-chips a:hover {
+  color: var(--ink);
+  border-color: rgba(15, 20, 32, 0.4);
+}
+.sm .sm-chips a.is-on {
+  color: var(--ink);
+  background: var(--peach);
+  border-color: var(--peachline);
+}
+.sm .sm-chips a.is-on span {
+  color: var(--acctext);
+}
+.sm .sm-chips a.is-empty {
+  display: none;
+}
+.sm .sm-chips a:focus-visible,
+.sm .sm-list a:focus-visible,
+.sm .sm-foot a:focus-visible,
+.sm .sm-lead a:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── the sections ────────────────────────────────────────────── */
+
+.sm .sm-main {
+  padding-block: 12px 96px;
+}
+.sm .sm-group {
+  padding-block: 44px 8px;
+  scroll-margin-top: 160px; /* header + sticky bar */
+}
+.sm .sm-group[hidden] {
+  display: none;
+}
+.sm .sm-group__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+.sm .sm-group__head h2 {
+  margin: 0;
+  font-family: var(--font-display) !important;
+  font-weight: 700;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.sm .sm-group__head p {
+  margin: 8px 0 0;
+  max-width: 70ch;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.sm .sm-count {
+  flex: none;
+  margin-top: 4px;
+  min-width: 34px;
+  padding: 5px 11px;
+  font-family: var(--font-mono) !important;
+  font-size: 13px;
+  line-height: 1;
+  text-align: center;
+  color: var(--acctext);
+  background: var(--peach);
+  border: 1px solid var(--peachline);
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sm .sm-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 0 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sm .sm-list--cols {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 232px), 1fr));
+  gap: 0 28px;
+}
+.sm .sm-list li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sm .sm-list li[hidden] {
+  display: none;
+}
+.sm .sm-list a {
+  display: block;
+  padding: 10px 0 11px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule2);
+  color: var(--ink);
+  transition: color 0.15s, padding-left 0.15s;
+}
+.sm .sm-t {
+  display: block;
+  font-family: var(--font-sans) !important;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+.sm .sm-m {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-mono) !important;
+  font-size: 11.5px;
+  line-height: 1.3;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.sm .sm-list a:hover {
+  color: var(--acctext);
+  padding-left: 6px;
+}
+.sm .sm-list a:hover .sm-m {
+  color: var(--acctext);
+}
+
+.sm .sm-empty {
+  margin: 56px 0 0;
+  padding: 32px;
+  text-align: center;
+  font-size: 17px;
+  color: var(--body);
+  background: var(--bg2);
+  border-radius: 16px;
+}
+.sm .sm-empty[hidden] {
+  display: none;
+}
+.sm .sm-empty a,
+.sm .sm-foot a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accrgb), 0.5);
+  text-underline-offset: 3px;
+}
+.sm .sm-empty a:hover,
+.sm .sm-foot a:hover {
+  color: var(--acctext);
+  text-decoration-color: currentColor;
+}
+
+/* ── footer strip ────────────────────────────────────────────── */
+
+.sm .sm-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  margin-top: 72px;
+  max-width: var(--rail);
+  padding: 24px 28px;
+  background: var(--peach);
+  border: 1px solid var(--peachline);
+  border-radius: 20px;
+}
+.sm .sm-foot h2 {
+  margin: 0;
+  font-family: var(--font-display) !important;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.sm .sm-foot p {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--body);
+}
+.sm .sm-foot ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sm .sm-foot li {
+  margin: 0;
+  list-style: none;
+}
+.sm .sm-foot li a {
+  font-family: var(--font-mono) !important;
+  font-size: 14px;
+}
+
+/* ── narrower windows ────────────────────────────────────────── */
+
+@media (max-width: 960px) {
+  .sm .sm-bar {
+    top: 0; /* the header is not sticky on tablet and phone */
+  }
+  .sm .sm-bar__row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .sm .sm-search {
+    flex: none;
+  }
+  .sm .sm-bar::before {
+    display: none;
+  }
+  .sm .sm-group {
+    scroll-margin-top: 140px;
+  }
+}
+@media (max-width: 600px) {
+  .sm .sm-lead {
+    font-size: 16px;
+  }
+  .sm .sm-group {
+    padding-top: 32px;
+  }
+  .sm .sm-foot {
+    padding: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sm * {
+    transition: none !important;
+  }
+}
