@@ -16,14 +16,18 @@ const source = document.getElementById('sh-data');
 if (stage && box) {
   // No customer data: the static stage, and the headline's words roll alone.
   const CUSTOMERS = source ? JSON.parse(source.textContent) : null;
-  const DURATION = 4000;
+  // A customer stays four seconds; the headline's word alone, three.
+  const DURATION = CUSTOMERS ? 4000 : 3000;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = id => document.getElementById(id);
   const tabs = [...stage.querySelectorAll('.sh-tab')];
   const bars = tabs.map(tab => tab.querySelector('.sh-bar'));
   const SVGNS = 'http://www.w3.org/2000/svg';
   let current = 0;
-  let started = performance.now();
+  // The headline's first word is timed from when the page was opened, not
+  // from when this script ran (performance.now() counts from navigation), so
+  // it is on screen three seconds, not three plus the page's load.
+  let started = CUSTOMERS ? performance.now() : 0;
   let swapping = false;
 
   const setText = (id, value) => { $(id).textContent = value; };

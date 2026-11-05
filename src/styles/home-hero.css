@@ -17,7 +17,7 @@
 .sh .sh-wrap{max-width:var(--rail-box); margin:0 auto; padding-inline:var(--rail-pad)}
 .sh .sh-btn{display:inline-flex; align-items:center; justify-content:center; border-radius:6px; font-size:15px; font-weight:600; line-height:1.2; padding:15px 22px; transition:background .2s, border-color .2s, color .2s; white-space:nowrap}
 .sh .sh-btn-acc{background:var(--acc); color:#fff}
-.sh .sh-btn-acc:hover{background:var(--acc-dark)}
+.sh .sh-btn-acc:hover{background:var(--acc-dark); color:#fff}
 .sh .sh-btn-line{border:1px solid rgba(15,20,32,.22); font-weight:500; color:var(--ink)}
 .sh .sh-btn-line:hover{border-color:var(--ink); background:var(--surface)}
 .sh .sh-btn-sm{font-size:14px; padding:11px 16px}
