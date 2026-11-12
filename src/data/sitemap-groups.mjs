@@ -35,7 +35,6 @@ export const PAGE_GROUPS = [
     title: 'Plans and pricing',
     blurb: 'Data plans, roaming packs and travel eSIMs.',
     pages: [
-      ['/unlimited-data-plans-pricing/', 'Unlimited data plans and pricing'],
       ['/business-roaming-packs/', 'Business roaming packs'],
       ['/travel-esim/', 'Travel eSIM'],
     ],

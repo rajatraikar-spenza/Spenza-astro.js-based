@@ -18,7 +18,7 @@ const SLUGS = [
   'finance-and-hr-teams', 'iot-solutions', 'mobility-policy', 'mvne',
   'mvno-calculator', 'network-operator-terms-of-service', 'privacy-policy',
   'sitemap', 'sub-processors', 'support', 'telecomhub', 'terms-of-service',
-  'travel-esim', 'unlimited-data-plans-pricing', 'uxhub',
+  'travel-esim', 'uxhub',
   // Not linked from the site's own navigation, but the blog links all five —
   // without them those posts point at 404s.
   'demo', 'device-vendors-demo', 'enterprises-demo', 'mno',

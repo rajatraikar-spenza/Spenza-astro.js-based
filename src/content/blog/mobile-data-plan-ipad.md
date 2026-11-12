@@ -98,119 +98,228 @@ category: "Telecom"
 
 
 
-<p><style>
-  .table-scroll {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .responsive-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    table-layout: auto;
-  }
-
-  .responsive-table thead {
-    background-color: #FCEAD7;
-  }
-
-  .responsive-table th,
-  .responsive-table td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #eeeeee;
-    vertical-align: top;
-    font-size: 14px;
-  }
-
-  .responsive-table th {
-    font-weight: 600;
-  }
-
-  .responsive-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  .responsive-table tbody tr:hover {
-    background-color: #fde7cc;
-  }
-
-  /* Mobile behavior: enable horizontal scroll */
-  @media (max-width: 768px) {
-    .responsive-table {
-      min-width: 800px; /* triggers scroll */
-      font-size: 13px;
-    }
-  }
-</style></p>
-<div class="table-scroll">
-<table class="responsive-table">
-<thead>
-<tr>
-<th>iPad Model</th>
-<th>Release Year</th>
-<th>Cellular Available</th>
-<th>eSIM Support</th>
-<th>5G Support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>iPad Pro (M5)</strong></td>
-<td>2025</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>iPad Pro (M4)</strong></td>
-<td>2024</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>iPad Air (M3)</strong></td>
-<td>2024</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>iPad mini (A17 Pro)</strong></td>
-<td>2024</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>iPad (10th Gen)</strong></td>
-<td>2022</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No (LTE only)</td>
-</tr>
-<tr>
-<td><strong>iPad (9th Gen)</strong></td>
-<td>2021</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
+<p><style>
+
+  .table-scroll {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+  }
+
+
+
+  .responsive-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    table-layout: auto;
+
+  }
+
+
+
+  .responsive-table thead {
+
+    background-color: #FCEAD7;
+
+  }
+
+
+
+  .responsive-table th,
+
+  .responsive-table td {
+
+    padding: 14px 16px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #eeeeee;
+
+    vertical-align: top;
+
+    font-size: 14px;
+
+  }
+
+
+
+  .responsive-table th {
+
+    font-weight: 600;
+
+  }
+
+
+
+  .responsive-table tbody tr:nth-child(even) {
+
+    background-color: #f9f9f9;
+
+  }
+
+
+
+  .responsive-table tbody tr:hover {
+
+    background-color: #fde7cc;
+
+  }
+
+
+
+  /* Mobile behavior: enable horizontal scroll */
+
+  @media (max-width: 768px) {
+
+    .responsive-table {
+
+      min-width: 800px; /* triggers scroll */
+
+      font-size: 13px;
+
+    }
+
+  }
+
+</style></p>
+
+<div class="table-scroll">
+
+<table class="responsive-table">
+
+<thead>
+
+<tr>
+
+<th>iPad Model</th>
+
+<th>Release Year</th>
+
+<th>Cellular Available</th>
+
+<th>eSIM Support</th>
+
+<th>5G Support</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td><strong>iPad Pro (M5)</strong></td>
+
+<td>2025</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td><strong>iPad Pro (M4)</strong></td>
+
+<td>2024</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td><strong>iPad Air (M3)</strong></td>
+
+<td>2024</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td><strong>iPad mini (A17 Pro)</strong></td>
+
+<td>2024</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+</tr>
+
+<tr>
+
+<td><strong>iPad (10th Gen)</strong></td>
+
+<td>2022</td>
+
+<td>Yes</td>
+
+<td>Yes</td>
+
+<td>No (LTE only)</td>
+
+</tr>
+
+<tr>
+
+<td><strong>iPad (9th Gen)</strong></td>
+
+<td>2021</td>
+
+<td>Yes</td>
+
+<td>No</td>
+
+<td>No</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
 </div>
 
 
 
-<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Important Note</div>
-<p style="margin: 0; line-height: 1.6;">Only the <span style="font-weight: bold;">cellular version of an iPad</span> supports <span style="font-weight: bold;">mobile data plans</span>. If you purchased the <span style="font-weight: bold;">Wi-Fi only model</span>, no <span style="font-weight: bold;">carrier plan</span> can add cellular capability. Always <span style="font-weight: bold;">verify your device version</span> before shopping for plans.</p>
+<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+
+<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Important Note</div>
+
+<p style="margin: 0; line-height: 1.6;">Only the <span style="font-weight: bold;">cellular version of an iPad</span> supports <span style="font-weight: bold;">mobile data plans</span>. If you purchased the <span style="font-weight: bold;">Wi-Fi only model</span>, no <span style="font-weight: bold;">carrier plan</span> can add cellular capability. Always <span style="font-weight: bold;">verify your device version</span> before shopping for plans.</p>
+
 </div>
 
 
@@ -395,9 +504,12 @@ category: "Telecom"
 
 
 
-<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Reminder</div>
-<p style="margin: 0; line-height: 1.6;"><span style="font-weight: bold;">500MB of data</span> is typically enough for <span style="font-weight: bold;">light web browsing and emails</span>. If you plan to <span style="font-weight: bold;">stream content</span> or use <span style="font-weight: bold;">navigation apps</span>, aim for at least <span style="font-weight: bold;">3–5GB per month</span>.</p>
+<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+
+<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Reminder</div>
+
+<p style="margin: 0; line-height: 1.6;"><span style="font-weight: bold;">500MB of data</span> is typically enough for <span style="font-weight: bold;">light web browsing and emails</span>. If you plan to <span style="font-weight: bold;">stream content</span> or use <span style="font-weight: bold;">navigation apps</span>, aim for at least <span style="font-weight: bold;">3–5GB per month</span>.</p>
+
 </div>
 
 
@@ -430,13 +542,16 @@ category: "Telecom"
 
 
 
-<p class="wp-block-paragraph">Explore <a href="https://spenza.com/unlimited-data-plans-pricing/" target="_blank" rel="noreferrer noopener"><strong>unlimited iPad data plans</strong></a> from Spenza if you want flexible pricing structures that work for both individuals and businesses.</p>
+<p class="wp-block-paragraph">Explore <a href="https://spenza.com/mvno-calculator/" target="_blank" rel="noreferrer noopener"><strong>unlimited iPad data plans</strong></a> from Spenza if you want flexible pricing structures that work for both individuals and businesses.</p>
 
 
 
-<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Important Note</div>
-<p style="margin: 0; line-height: 1.6;">If you are a <span style="font-weight: bold;">business provisioning multiple iPads</span>, <span style="font-weight: bold;">pooled or shared data plans</span> can significantly <span style="font-weight: bold;">reduce per-device costs</span>. This is where <span style="font-weight: bold;">MVNE platforms</span>, such as <span style="font-weight: bold;">Spenza’s infrastructure</span>, become especially valuable.</p>
+<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+
+<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Important Note</div>
+
+<p style="margin: 0; line-height: 1.6;">If you are a <span style="font-weight: bold;">business provisioning multiple iPads</span>, <span style="font-weight: bold;">pooled or shared data plans</span> can significantly <span style="font-weight: bold;">reduce per-device costs</span>. This is where <span style="font-weight: bold;">MVNE platforms</span>, such as <span style="font-weight: bold;">Spenza’s infrastructure</span>, become especially valuable.</p>
+
 </div>
 
 
@@ -508,9 +623,12 @@ category: "Telecom"
 
 
 
-<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Key Fact</div>
-<p style="margin: 0; line-height: 1.6;">According to <a style="font-weight: bold; color: #ff9800; text-decoration: none;" href="https://www.ericsson.com/en/reports-and-papers/mobility-report" target="_blank" rel="noopener"> Ericsson&#8217;s Mobility Report </a>, <span style="font-weight: bold;">global eSIM connections are expected to reach 8 billion by 2030</span>, driven largely by <span style="font-weight: bold;">tablets</span>, <span style="font-weight: bold;">wearables</span>, and <span style="font-weight: bold;">travel use cases</span>.</p>
+<div style="background-color: #fff4e5; border-left: 5px solid #FF9800; padding: 1.4em 1.6em; margin: 2em 0; border-radius: 6px; font-family: Arial, sans-serif; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+
+<div style="color: #ff9800; font-size: 1.05em; font-weight: bold;">Key Fact</div>
+
+<p style="margin: 0; line-height: 1.6;">According to <a style="font-weight: bold; color: #ff9800; text-decoration: none;" href="https://www.ericsson.com/en/reports-and-papers/mobility-report" target="_blank" rel="noopener"> Ericsson&#8217;s Mobility Report </a>, <span style="font-weight: bold;">global eSIM connections are expected to reach 8 billion by 2030</span>, driven largely by <span style="font-weight: bold;">tablets</span>, <span style="font-weight: bold;">wearables</span>, and <span style="font-weight: bold;">travel use cases</span>.</p>
+
 </div>
 
 
@@ -523,87 +641,168 @@ category: "Telecom"
 
 
 
-<p><style>
-  .table-scroll {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .responsive-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    table-layout: auto;
-  }
-
-  .responsive-table thead {
-    background-color: #FCEAD7;
-  }
-
-  .responsive-table th,
-  .responsive-table td {
-    padding: 14px 16px;
-    text-align: left;
-    border-bottom: 1px solid #eeeeee;
-    vertical-align: top;
-    font-size: 14px;
-  }
-
-  .responsive-table th {
-    font-weight: 600;
-  }
-
-  .responsive-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-
-  .responsive-table tbody tr:hover {
-    background-color: #fde7cc;
-  }
-
-  /* Mobile scroll trigger */
-  @media (max-width: 768px) {
-    .responsive-table {
-      min-width: 600px;
-      font-size: 13px;
-    }
-  }
-</style></p>
-<div class="table-scroll">
-<table class="responsive-table">
-<thead>
-<tr>
-<th>Your Use Case</th>
-<th>Best Fit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Light use (email, maps, occasional browsing)</td>
-<td>Red Pocket or US Mobile budget tier</td>
-</tr>
-<tr>
-<td>Medium use (video calls, occasional streaming)</td>
-<td>Tello 10GB or Mint Mobile</td>
-</tr>
-<tr>
-<td>Heavy use (streaming, always connected)</td>
-<td>Visible Unlimited or Verizon Prepaid</td>
-</tr>
-<tr>
-<td>Frequent traveler</td>
-<td>eSIM-based travel plan via Spenza</td>
-</tr>
-<tr>
-<td>Business with multiple iPads</td>
-<td>An MVNE platform like Spenza</td>
-</tr>
-</tbody>
-</table>
+<p><style>
+
+  .table-scroll {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+  }
+
+
+
+  .responsive-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    table-layout: auto;
+
+  }
+
+
+
+  .responsive-table thead {
+
+    background-color: #FCEAD7;
+
+  }
+
+
+
+  .responsive-table th,
+
+  .responsive-table td {
+
+    padding: 14px 16px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #eeeeee;
+
+    vertical-align: top;
+
+    font-size: 14px;
+
+  }
+
+
+
+  .responsive-table th {
+
+    font-weight: 600;
+
+  }
+
+
+
+  .responsive-table tbody tr:nth-child(even) {
+
+    background-color: #f9f9f9;
+
+  }
+
+
+
+  .responsive-table tbody tr:hover {
+
+    background-color: #fde7cc;
+
+  }
+
+
+
+  /* Mobile scroll trigger */
+
+  @media (max-width: 768px) {
+
+    .responsive-table {
+
+      min-width: 600px;
+
+      font-size: 13px;
+
+    }
+
+  }
+
+</style></p>
+
+<div class="table-scroll">
+
+<table class="responsive-table">
+
+<thead>
+
+<tr>
+
+<th>Your Use Case</th>
+
+<th>Best Fit</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Light use (email, maps, occasional browsing)</td>
+
+<td>Red Pocket or US Mobile budget tier</td>
+
+</tr>
+
+<tr>
+
+<td>Medium use (video calls, occasional streaming)</td>
+
+<td>Tello 10GB or Mint Mobile</td>
+
+</tr>
+
+<tr>
+
+<td>Heavy use (streaming, always connected)</td>
+
+<td>Visible Unlimited or Verizon Prepaid</td>
+
+</tr>
+
+<tr>
+
+<td>Frequent traveler</td>
+
+<td>eSIM-based travel plan via Spenza</td>
+
+</tr>
+
+<tr>
+
+<td>Business with multiple iPads</td>
+
+<td>An MVNE platform like Spenza</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
 </div>
 
 
