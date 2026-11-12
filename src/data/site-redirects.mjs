@@ -461,6 +461,17 @@ export const SITE_REDIRECTS = {
   '/blog/esim-vs-traditional-sims-which-is-right-for-your-business/': '/esim/esim-for-enterprises-business-enabler-2025/',
   '/blog/how-to-perform-telecom-expense-audit-checklist/': '/tem/telecom-compliance-audits/',
   '/blog/telecom-expense-management-tem-outsourcing-enterprise-mobility-policy/': '/tem/what-is-telecom-expense-management-tem/',
+
+  /**
+   * ---- Retired: US business mobile plans page ------------------------------
+   *
+   * The page listed fixed US plan prices. It is removed and permanently
+   * redirected to the MVNO calculator, the nearest live tool for someone
+   * asking what this will cost. Nav, footer, sitemap and in-post links point at
+   * the target directly: a link to this key is a hop, and the CloudFront
+   * function build rejects a chain.
+   */
+  '/unlimited-data-plans-pricing/': '/mvno-calculator/',
 };
 
 /**
