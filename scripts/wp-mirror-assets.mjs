@@ -12,7 +12,7 @@ const CACHE = path.join(PROJECT, '.wp-cache');
 const SLUGS = [
   '', 'about-us', 'ai-phone-number',
   'amazon-delivery-service-partner-dsp-mobile-service', 'blog',
-  'business-roaming-packs', 'careers', 'connected-devices', 'contact-us',
+  'careers', 'connected-devices', 'contact-us',
   'controlhub', 'esim-compatibility-checker', 'esim-phones',
   'exceptional-24-7-support-for-your-business-needs', 'faq',
   'finance-and-hr-teams', 'iot-solutions', 'mobility-policy', 'mvne',
