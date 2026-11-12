@@ -190,7 +190,7 @@ export const SITE_REDIRECTS = {
   '/telecom/mobile-plan-management-simplified/': '/tem/business-mobile-cost-quality/',
   '/telecom/telecom-expense-management-api/': '/tem/what-is-telecom-expense-management-tem/',
   '/telecom/telecom-expense-management/': '/tem/what-is-telecom-expense-management-tem/',
-  '/telecom/why-is-mobile-roaming-expensive/': '/business-roaming-packs/',
+  '/telecom/why-is-mobile-roaming-expensive/': '/mvno-calculator/',
   '/telecom/wireless-telecom-expense-management/': '/tem/wireless-expense-management-challenges/',
   '/tem/hidden-mobile-service-costs/': '/tem/business-mobile-cost-quality/',
   '/tem/telecom-billing-mistakes/': '/tem/telecom-compliance-audits/',
@@ -472,6 +472,15 @@ export const SITE_REDIRECTS = {
    * function build rejects a chain.
    */
   '/unlimited-data-plans-pricing/': '/mvno-calculator/',
+
+  /**
+   * ---- Retired: business roaming packs page --------------------------------
+   *
+   * Removed and permanently redirected to the MVNO calculator, as the US plans
+   * page above. Redirects that used to target this page now point at the
+   * calculator directly, since a chain fails the CloudFront function build.
+   */
+  '/business-roaming-packs/': '/mvno-calculator/',
 };
 
 /**
