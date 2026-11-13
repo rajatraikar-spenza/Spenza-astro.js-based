@@ -57,6 +57,27 @@ const clarity = `(function (w, d) {
 })(window, document);`;
 
 /*
+ * docs.spenza.com is a separate site (Mintlify) that loads the same Clarity
+ * project. Clarity files any click that leaves the host under its built-in
+ * "Outbound click" smart event, which cannot be edited, so a visitor heading
+ * to the docs looked like one leaving the site. This gives those clicks their
+ * own event and a tag, so they can be told apart from real exits, and sends
+ * the same to GA4. Capture phase, because menus stop propagation.
+ */
+const docsLinks = `document.addEventListener("click", function (e) {
+  var a = e.target && e.target.closest && e.target.closest("a[href]");
+  if (!a) return;
+  var u;
+  try { u = new URL(a.href, location.href); } catch (_) { return; }
+  if (u.hostname !== "docs.spenza.com") return;
+  if (window.clarity) {
+    window.clarity("event", "docs_click");
+    window.clarity("set", "destination", "docs.spenza.com");
+  }
+  if (window.gtag) window.gtag("event", "docs_click", { link_url: u.href, source_page: location.pathname });
+}, true);`;
+
+/*
  * OpenAI's Measurement Pixel loader and init, unchanged apart from the id and
  * `debug: true`, which was dropped once Ads Manager showed events — it logs
  * every SDK step to each visitor's console. Add it back to debug locally.
@@ -83,5 +104,7 @@ oaiq("measure","page_viewed",{type:"contents"});`;
 )}
 
 <script is:inline type="text/javascript" set:html={clarity} />
+
+<script is:inline type="text/javascript" set:html={docsLinks} />
 
 {OAI_PIXEL_ID && <script is:inline type="text/javascript" set:html={oaiPixel} />}
