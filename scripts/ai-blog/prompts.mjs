@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const IMAGE_STYLE_GUIDE = fs.readFileSync(path.join(HERE, 'assets', 'image-style-guide.md'), 'utf8');
+/** stop-slop + humanizer, distilled (see assets/writing-rules/README.md). Also drives the post-draft style pass. */
+const WRITING_RULES = fs.readFileSync(path.join(HERE, 'assets', 'writing-rules', 'core.md'), 'utf8');
 
 export const CATEGORY_LABELS = {
   telecom: 'Telecom', iot: 'IoT', esim: 'eSIM', mvno: 'MVNO', byod: 'BYOD', tem: 'TEM', 'spenza-product': 'Spenza Platform',
@@ -22,7 +24,7 @@ export const WRITING_STANDARDS = `
 Spenza is a connectivity management and telecom platform (MVNO enablement, eSIM, IoT connectivity, telecom expense management).
 Voice and standards for every post:
 - Answer-first. The intro states the answer in the first two sentences. No filler openers, no "In this guide", no table of contents.
-- Plain, specific, confident, US spelling. No hype, no em-dash chains, no rhetorical-question openers.
+- Plain, specific, confident, US spelling. No em dashes anywhere. No hype, no rhetorical-question openers.
 - 1,500 to 2,200 words. 6 to 8 H2 sections (sentence case), H3 only when needed. Short paragraphs.
 - 2 to 3 tables with a header row, short cells, no markdown inside cells. A table gets its caption from the heading above it.
 - Every statistic carries its source and year in the sentence. Only tier 1 to 3 sources (government, standards bodies, regulators,
@@ -31,6 +33,15 @@ Voice and standards for every post:
 - Spenza product statements only where the research notes cite a spenza.com or docs.spenza.com page. If unsure, leave it out.
 - Internal links only to URLs listed in the research notes as verified live. At most 3 to 5 internal links, descriptive anchor text.
 - The title is the only H1: the body starts with a paragraph, never a heading.
+
+Claim boundaries for statements about Spenza:
+- Describe only what Spenza does today. Never present a roadmap item, proposal, pilot or something said in a meeting as a live capability.
+- Keep distinctions exact: physical SIM vs eSIM, billing cancellation vs carrier deactivation, authentication vs authorization, demo or staging vs production, planned vs deployed integration.
+- Never generalize one carrier, plan, region or customer outcome to all offerings. No prices, SLAs, coverage, security guarantees or customer endorsements unless a public Spenza page states them.
+- Internal knowledge-base excerpts are context for terminology and positioning. A product claim taken from them may appear only if the excerpt marks it documented or approved, or a public Spenza page confirms it. Never name a customer.
+
+Writing style. An automatic lint and a style editor run after drafting and send back anything that sounds machine-written, so write it right the first time:
+${WRITING_RULES}
 `.trim();
 
 export const researchSystem = `You are a research editor for the Spenza blog. You find current, citable facts and check Spenza's own product claims.

@@ -84,6 +84,19 @@ jobs:
       - run: npm ci
       - run: npm ci --prefix scripts/ai-blog
 
+      # The company knowledge base is internal and this repository is public, so the
+      # notes live in a PRIVATE repository, checked out here for the run only (never
+      # committed: the PR step below stages explicit paths). Set the repository
+      # variable BRAIN_REPO (owner/name) and the secret BRAIN_REPO_TOKEN (read access
+      # to that repo). Without them the run uses public research alone.
+      - name: Load the private brain
+        if: ${{ vars.BRAIN_REPO != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.BRAIN_REPO }}
+          token: ${{ secrets.BRAIN_REPO_TOKEN }}
+          path: .brain-private
+
       # Chrome renders the hero from the cover template. ubuntu-latest ships it;
       # this just proves it before spending model tokens.
       - name: Check Chrome
@@ -104,6 +117,7 @@ jobs:
           AI_IMAGES: ${{ inputs.images }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SPENZA_BRAIN_DIR: ${{ vars.BRAIN_REPO != '' && '.brain-private' || '' }}
           SPENZA_BRAIN_URL: ${{ secrets.SPENZA_BRAIN_URL }}
           SPENZA_BRAIN_TOKEN: ${{ secrets.SPENZA_BRAIN_TOKEN }}
         run: node scripts/ai-blog/run.mjs

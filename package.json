@@ -41,7 +41,7 @@
     "wp:changed": "node scripts/wp-changed.mjs",
     "hs:check": "node scripts/hs-check-forms.mjs",
     "hub:videos": "node scripts/encode-hub-videos.mjs",
-    "test:admin": "node --test scripts/cms-post.test.mjs scripts/ai-blog.test.mjs scripts/admin-oauth.test.mjs",
+    "test:admin": "node --test scripts/cms-post.test.mjs scripts/ai-blog.test.mjs scripts/admin-oauth.test.mjs && node scripts/check-brain-private.mjs",
     "cms:validate": "node scripts/cms-validate.mjs",
     "ai-blog": "node scripts/ai-blog/run.mjs"
   },

@@ -19,6 +19,7 @@ import {
 import { runCouncil, PASS_SCORE } from './council.mjs';
 import { structureProblems, verifyLinks, wordCount } from './checks.mjs';
 import { brainContext } from './brain.mjs';
+import { slopProblems, scoreStyle, rewriteStyle, mergeRewrite, preservesFacts, STYLE_PASS } from './style.mjs';
 import { makeImages, openaiImageGen } from './images.mjs';
 import { slugify, validateInputs, entryMeta, writeEntry, proveBuilds } from './assemble.mjs';
 
@@ -27,7 +28,7 @@ const MAX_ROUNDS = 3;
 
 export async function runPipeline({
   inputs, llm, gen, root = ROOT, siteUrl = 'https://spenza.com', now = new Date(), runUrl = '',
-  fetchImpl = fetch, findExisting = async () => [], compose, log = m => console.log(`[ai-blog] ${m}`),
+  fetchImpl = fetch, findExisting = async () => [], compose, brainDir, log = m => console.log(`[ai-blog] ${m}`),
 }) {
   const bad = validateInputs(inputs);
   if (bad.length) throw new Error(`Cannot start: ${bad.join('; ')}`);
@@ -40,7 +41,7 @@ export async function runPipeline({
   const report = { slug, rounds: [], notes: [], startedAt: now.toISOString() };
 
   // 1. Internal knowledge + research
-  const brain = await brainContext({ query: `${inputs.title} ${inputs.brief}`, dir: path.join(root, 'docs', 'spenza-brain'), fetchImpl, log });
+  const brain = await brainContext({ query: `${inputs.title} ${inputs.brief}`, dir: brainDir ?? path.join(root, 'docs', 'spenza-brain'), fetchImpl, log });
   report.brain = Boolean(brain);
   log('researching');
   const notes = await llm.ask({
@@ -79,8 +80,42 @@ export async function runPipeline({
 
     draft = await llm.ask({ label: 'revise', system: draftSystem, schema: DRAFT_SCHEMA, maxTokens: 24000, user: reviseUser({ draft, mustFix, notes }) });
   }
-  report.passed = verdict.passed;
   report.score = verdict.score;
+
+  // 3b. Style: lint, score, and a rewrite that may change wording but no fact.
+  report.style = { passes: [], ok: false };
+  const beforeStyle = draft;
+  for (let pass = 1; pass <= 3; pass++) {
+    const lint = slopProblems(draft);
+    const score = await scoreStyle({ llm, draft });
+    report.style.passes.push({ pass, lint: lint.length, total: score.total });
+    log(`style pass ${pass}: ${score.total}/50, ${lint.length} lint finding(s)`);
+    if (!lint.length && score.total >= STYLE_PASS) { report.style.ok = true; break; }
+    if (pass === 3) break;
+    const merged = mergeRewrite(draft, await rewriteStyle({ llm, draft, problems: lint, tells: score.tells }));
+    const violations = preservesFacts(draft, merged);
+    if (violations.length) {
+      report.notes.push(`A style rewrite was rejected because it changed facts: ${violations.join('; ')}.`);
+      break;
+    }
+    draft = merged;
+  }
+  if (draft !== beforeStyle) {
+    // The rewrite must not have broken what the gate had approved.
+    const structure = structureProblems(draft, { category: inputs.category, author: inputs.author, slug });
+    const linked = await verifyLinks(draft, { fetchImpl, siteUrl });
+    const fact = await llm.ask({ label: 'factcheck:style', system: factcheckSystem, schema: FACTCHECK_SCHEMA, effort: 'medium', user: factcheckUser({ draft: linked.draft, notes }) });
+    if (structure.length || fact.unsupported.length) {
+      report.notes.push(`The style edit was reverted: ${[...structure, ...fact.unsupported.map(u => `unsupported claim "${u.claim}"`)].join('; ')}.`);
+      draft = beforeStyle;
+      report.style.ok = false;
+      report.style.reverted = true;
+    } else {
+      draft = linked.draft;
+    }
+  }
+  const lastStyle = report.style.passes.at(-1);
+  report.passed = verdict.passed && report.style.ok;
 
   // 4. Images
   let images = null;
@@ -102,7 +137,12 @@ export async function runPipeline({
   const ai = {
     generated: true,
     score: verdict.score,
-    verdict: verdict.passed ? `Passed the council at ${verdict.score}/100.` : `Did NOT pass the council (${verdict.score}/100, need ${PASS_SCORE}). ${verdict.summary}`,
+    verdict: report.passed
+      ? `Passed the council at ${verdict.score}/100 and the style check (${lastStyle.total}/50).`
+      : `Did NOT pass: ${[
+        ...(verdict.passed ? [] : [`council ${verdict.score}/100, need ${PASS_SCORE}`]),
+        ...(report.style.ok ? [] : [`style ${lastStyle.total}/50 or lint findings remain, need ${STYLE_PASS}/50 and none`]),
+      ].join('; ')}. ${verdict.summary}`,
     runUrl: runUrl || undefined,
   };
   const meta = entryMeta({ inputs, draft, slug, now, imagePaths: imagePaths ?? undefined, ai });
@@ -127,8 +167,8 @@ export function reportMarkdown({ slug, report }, { title }) {
     `## AI draft: ${title}`,
     '',
     report.passed
-      ? `**Passed the five-advisor council: ${report.score}/100** (round ${last.round} of ${MAX_ROUNDS}).`
-      : `**Did not pass the council.** Best score ${report.score}/100, ${PASS_SCORE} needed. Read the blockers below before publishing.`,
+      ? `**Passed the five-advisor council: ${report.score}/100** (round ${last.round} of ${MAX_ROUNDS}) **and the style check: ${report.style.passes.at(-1).total}/50.**`
+      : `**Did not pass.** Council ${report.score}/100 (${PASS_SCORE} needed); style ${report.style.passes.at(-1).total}/50 (${STYLE_PASS} needed, no lint findings). Read the notes below before publishing.`,
     '',
     `Words: ${report.words}. Slug: \`/${slug}/\`. Internal knowledge used: ${report.brain ? 'yes' : 'no'}.`,
     '',
@@ -137,6 +177,11 @@ export function reportMarkdown({ slug, report }, { title }) {
     '',
     `**Chairman:** ${last.summary}`,
   ];
+  const v = report.council?.chairman ?? {};
+  if (v.agree?.length) lines.push('', '**Where the council agrees**', ...v.agree.map(x => `- ${x}`));
+  if (v.clash?.length) lines.push('', '**Where it clashes**', ...v.clash.map(x => `- ${x}`));
+  if (v.blindSpots?.length) lines.push('', '**Blind spots the peer review caught**', ...v.blindSpots.map(x => `- ${x}`));
+  if (v.firstFix) lines.push('', `**The one thing to fix first:** ${v.firstFix}`);
   if (last.p0.length) lines.push('', '**Blockers (P0):**', ...last.p0.map(p => `- ${p}`));
   if (last.unsupported.length) lines.push('', '**Unsupported claims still in the draft:**', ...last.unsupported.map(u => `- ${u.claim} (${u.where})`));
   if (last.deadLinks.length) lines.push('', 'Links removed because they did not resolve:', ...last.deadLinks.map(d => `- ${d.url} (${d.status || 'unreachable'})`));
@@ -174,7 +219,7 @@ async function main() {
   } catch { /* duplicate check is best effort */ }
 
   const runUrl = env.GITHUB_SERVER_URL && env.GITHUB_RUN_ID ? `${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}` : '';
-  const result = await runPipeline({ inputs, llm, gen, runUrl, findExisting, siteUrl: env.SITE_URL || 'https://spenza.com' });
+  const result = await runPipeline({ inputs, llm, gen, runUrl, findExisting, siteUrl: env.SITE_URL || 'https://spenza.com', brainDir: env.SPENZA_BRAIN_DIR ? path.resolve(env.SPENZA_BRAIN_DIR) : undefined });
   const md = reportMarkdown(result, { title: inputs.title });
   fs.writeFileSync(path.join(ROOT, 'ai-blog-report.md'), md);
   fs.writeFileSync(path.join(ROOT, 'ai-blog-report.json'), JSON.stringify(result.report, null, 2));
