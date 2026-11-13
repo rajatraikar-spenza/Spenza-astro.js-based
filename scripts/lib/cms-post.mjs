@@ -8,8 +8,7 @@
 // and the existing CSS bundles style both.
 //
 // Entry format (`src/content/cms-blog/<slug>.mdx`): YAML front matter plus a
-// markdown body. The admin (Decap, `public/admin/config.yml`) writes it; the
-// AI pipeline (`scripts/ai-blog/`) writes the same shape. Everything the layout
+// markdown body. The admin (Decap, `public/admin/config.yml`) writes it. Everything the layout
 // needs beyond the prose is structured, so an editor never has to hand-write
 // the cards or the FAQ markup.
 import fs from 'node:fs';
@@ -109,7 +108,7 @@ export function validateEntry(meta, body, { fileExists = () => true, filenameSlu
 
   const d = String(meta.description ?? '');
   if (d && (d.length < 110 || d.length > 165)) {
-    (meta.ai?.generated ? errors : warnings).push(`description is ${d.length} characters; 110-165 shows fully in search results`);
+    warnings.push(`description is ${d.length} characters; 110-165 shows fully in search results`);
   }
 
   const hero = meta.hero ?? {};

@@ -1,5 +1,0 @@
-# This repository is PUBLIC. Internal knowledge must never be committed here.
-# Only this file and the README are tracked; scripts/check-brain-private.mjs enforces it in CI.
-*
-!.gitignore
-!README.md

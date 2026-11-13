@@ -39,9 +39,6 @@ for (const file of files) {
       const p = path.join(publicDir, img.replace(/^\//, ''));
       if (fs.existsSync(p) && fs.statSync(p).size > 400_000) warnings.push(`${img} is ${(fs.statSync(p).size / 1024) | 0} KB; compress it (WebP, under 200 KB is the house standard)`);
     }
-    if (meta.ai?.generated && typeof meta.ai.score === 'number' && meta.ai.score < 91) {
-      warnings.push(`AI council score is ${meta.ai.score}/100 (91 is the bar). Review the blockers in the pull request before publishing.`);
-    }
     if (meta.slug) {
       if (slugs.has(meta.slug)) errors.push(`slug "${meta.slug}" is also used by ${slugs.get(meta.slug)}`);
       slugs.set(meta.slug, rel);

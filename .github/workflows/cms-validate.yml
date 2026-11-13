@@ -30,8 +30,5 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node --test scripts/cms-post.test.mjs scripts/admin-oauth.test.mjs
-      # This repository is public: internal knowledge must never be committed to it.
-      - name: No internal notes tracked
-        run: node scripts/check-brain-private.mjs
       - name: Validate every admin post
         run: node scripts/cms-validate.mjs

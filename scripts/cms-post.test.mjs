@@ -54,11 +54,11 @@ test('a manual post may omit TL;DR and FAQ (warnings, not errors); a partial TL;
   assert.ok(validateEntry({ ...meta, tldr: { summary: 'only a summary' } }, body, { fileExists: exists }).errors.some(e => /exactly 5 cards/.test(e)));
 });
 
-test('description length is a hard error for AI posts and advice for manual ones', () => {
+test('description length is advice, never a blocker', () => {
   const { meta, body } = load();
   const short = { ...meta, description: 'Too short to be a snippet.' };
   assert.equal(validateEntry(short, body, { fileExists: exists }).errors.length, 0);
-  assert.ok(validateEntry({ ...short, ai: { generated: true } }, body, { fileExists: exists }).errors.some(e => /description is/.test(e)));
+  assert.ok(validateEntry(short, body, { fileExists: exists }).warnings.some(e => /description is/.test(e)));
 });
 
 test('renderContent builds the Spenza markup: ids, wrapped tables, figure after section 2, FAQ, schema, button last', async () => {
