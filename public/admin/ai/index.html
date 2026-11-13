@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>Generate a blog post with AI — Spenza admin</title>
+    <link rel="icon" href="/favicon.svg" />
+    <style>
+      :root { --ink:#1b1c1a; --muted:#5b5e57; --line:#e3e0d8; --bg:#faf8f4; --card:#fff; --brand:#ff4500; --brand-dark:#c93600; --ok:#0a7d3c; --bad:#b3261e; }
+      * { box-sizing: border-box; }
+      body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); }
+      header { background:#fff; border-bottom:1px solid var(--line); padding:14px 20px; display:flex; gap:16px; align-items:center; justify-content:space-between; }
+      header a { color:var(--brand-dark); text-decoration:none; font-weight:600; }
+      main { max-width:980px; margin:28px auto; padding:0 20px 60px; display:grid; gap:24px; grid-template-columns:minmax(0,3fr) minmax(0,2fr); }
+      @media (max-width:860px) { main { grid-template-columns:1fr; } }
+      section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; }
+      h1 { font-size:1.5rem; margin:0 0 4px; } h2 { font-size:1.05rem; margin:0 0 12px; }
+      p.lead { color:var(--muted); margin:0 0 18px; }
+      label { display:block; font-weight:600; margin:14px 0 4px; font-size:.92rem; }
+      label small { font-weight:400; color:var(--muted); }
+      input[type=text], textarea, select { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+      textarea { min-height:110px; resize:vertical; }
+      .row { display:grid; grid-template-columns:1fr 1fr; gap:14px; } @media (max-width:520px) { .row { grid-template-columns:1fr; } }
+      .check { display:flex; gap:10px; align-items:flex-start; font-weight:400; margin-top:14px; }
+      .check input { margin-top:5px; }
+      button { margin-top:20px; background:var(--brand); color:#fff; border:0; padding:12px 26px; border-radius:999px; font:600 1rem inherit; cursor:pointer; }
+      button:hover { background:var(--brand-dark); } button:disabled { opacity:.55; cursor:not-allowed; }
+      .note { padding:12px 14px; border-radius:10px; margin:14px 0 0; font-size:.93rem; }
+      .note.ok { background:#e8f6ee; color:var(--ok); } .note.bad { background:#fdecea; color:var(--bad); } .note.info { background:#f2efe8; color:var(--muted); }
+      ul.runs { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+      ul.runs li { border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:.92rem; }
+      .pill { display:inline-block; padding:1px 9px; border-radius:999px; font-size:.78rem; font-weight:600; background:#eee; margin-right:6px; }
+      .pill.success { background:#e8f6ee; color:var(--ok); } .pill.failure { background:#fdecea; color:var(--bad); } .pill.running { background:#fff3d6; color:#8a5a00; }
+      .steps { color:var(--muted); font-size:.9rem; margin:0; padding-left:18px; }
+      [hidden] { display:none !important; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>Spenza admin · Generate with AI</strong>
+      <span><a href="/admin/#/workflow">Editorial workflow</a> · <a href="/admin/#/collections/blog">All posts</a></span>
+    </header>
+
+    <main>
+      <section id="form-card">
+        <h1>New blog post</h1>
+        <p class="lead">Describe the post. The AI researches it, writes it in the Spenza layout, has five advisors review it, makes the images, and opens it as a <b>Draft</b> for you to edit.</p>
+
+        <div id="gate" class="note info">Checking your sign-in…</div>
+
+        <form id="form" hidden>
+          <label for="title">Working title <small>(becomes the headline)</small></label>
+          <input id="title" type="text" required maxlength="140" placeholder="e.g. How to price an eSIM travel bundle for business customers" />
+
+          <label for="brief">Description <small>(angle, audience, anything it must cover, any Spenza product to mention)</small></label>
+          <textarea id="brief" required maxlength="4000" placeholder="Who is this for, what should they walk away knowing, what should the post argue?"></textarea>
+
+          <div class="row">
+            <div>
+              <label for="author">Author</label>
+              <select id="author" required>
+                <option value="isimplexity">Spenza (company)</option>
+                <option value="sivasai">SivaSai</option>
+                <option value="vinay">Vinaychandra Bharadwaj</option>
+              </select>
+            </div>
+            <div>
+              <label for="category">Category <small>(also the URL)</small></label>
+              <select id="category" required>
+                <option value="telecom">Telecom</option><option value="iot">IoT</option><option value="esim">eSIM</option>
+                <option value="mvno">MVNO</option><option value="byod">BYOD</option><option value="tem">TEM</option>
+                <option value="spenza-product">Spenza Platform</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="keyword">Focus keyword <small>(optional)</small></label>
+          <input id="keyword" type="text" maxlength="100" />
+
+          <label for="must">Must-cover points <small>(optional, one per line)</small></label>
+          <textarea id="must" maxlength="2000" style="min-height:80px"></textarea>
+
+          <label for="links">Pages or sources to link <small>(optional, one URL per line)</small></label>
+          <textarea id="links" maxlength="2000" style="min-height:70px" placeholder="https://spenza.com/..."></textarea>
+
+          <label class="check"><input id="images" type="checkbox" checked /><span>Generate the hero and body images in the Spenza style<br /><small style="color:var(--muted)">Untick to upload your own images later in the editor.</small></span></label>
+
+          <button id="go" type="submit">Generate post</button>
+          <div id="result" class="note" hidden></div>
+        </form>
+      </section>
+
+      <section>
+        <h2>What happens</h2>
+        <ol class="steps">
+          <li>Research with the Spenza knowledge base and current sources</li>
+          <li>Draft in the Spenza layout (TL;DR cards, tables, FAQ)</li>
+          <li>Five-advisor review, rewritten until it scores 91+ with no blockers</li>
+          <li>Images in the Spenza theme</li>
+          <li>Opened as a <b>Draft</b>: edit, move to <b>In review</b>, then <b>Ready</b>, then Publish</li>
+        </ol>
+        <p style="color:var(--muted);font-size:.9rem">Takes about 10–15 minutes. You can close this page.</p>
+        <h2 style="margin-top:22px">Recent AI runs</h2>
+        <ul class="runs" id="runs"><li>Loading…</li></ul>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var REPO = 'rajatraikar-spenza/Spenza-astro.js-based';
+        var WORKFLOW = 'ai-blog.yml';
+        var API = 'https://api.github.com';
+        var $ = function (id) { return document.getElementById(id); };
+
+        function token() {
+          try { var u = JSON.parse(localStorage.getItem('decap-cms-user') || 'null'); return u && u.token; } catch (e) { return null; }
+        }
+        function gh(path, opts) {
+          opts = opts || {};
+          return fetch(API + path, {
+            method: opts.method || 'GET',
+            headers: { Authorization: 'Bearer ' + token(), Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+            body: opts.body ? JSON.stringify(opts.body) : undefined,
+          });
+        }
+        function say(el, cls, text) { el.className = 'note ' + cls; el.textContent = text; el.hidden = false; }
+
+        function el(tag, props, children) {
+          var n = document.createElement(tag);
+          Object.keys(props || {}).forEach(function (k) { if (k === 'text') n.textContent = props[k]; else n.setAttribute(k, props[k]); });
+          (children || []).forEach(function (c) { n.appendChild(c); });
+          return n;
+        }
+
+        async function loadRuns() {
+          var list = $('runs');
+          try {
+            var r = await gh('/repos/' + REPO + '/actions/workflows/' + WORKFLOW + '/runs?per_page=8');
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            var runs = (await r.json()).workflow_runs;
+            list.replaceChildren();
+            if (!runs.length) { list.appendChild(el('li', { text: 'No runs yet.' })); return; }
+            runs.forEach(function (run) {
+              var state = run.status === 'completed' ? run.conclusion : 'running';
+              var li = el('li', {}, [
+                el('span', { class: 'pill ' + state, text: state === 'running' ? 'running' : state }),
+                el('a', { href: run.html_url, target: '_blank', rel: 'noopener', text: run.display_title || run.name }),
+                el('div', { style: 'color:var(--muted);font-size:.82rem', text: new Date(run.created_at).toLocaleString() + ' · ' + (run.actor && run.actor.login) }),
+              ]);
+              list.appendChild(li);
+            });
+          } catch (e) {
+            list.replaceChildren(el('li', { text: 'Could not load runs (' + e.message + ').' }));
+          }
+        }
+
+        async function init() {
+          var gate = $('gate');
+          if (!token()) {
+            gate.className = 'note bad';
+            gate.replaceChildren(document.createTextNode('You are not signed in. '), el('a', { href: '/admin/', text: 'Sign in to the admin' }), document.createTextNode(' first, then come back.'));
+            $('runs').replaceChildren(el('li', { text: 'Sign in to see runs.' }));
+            return;
+          }
+          var r = await gh('/repos/' + REPO);
+          var repo = r.ok ? await r.json() : null;
+          if (!repo || !repo.permissions || !repo.permissions.push) {
+            say(gate, 'bad', 'Your GitHub account does not have write access to the Spenza site repository, so you cannot generate posts.');
+            return;
+          }
+          gate.hidden = true;
+          $('form').hidden = false;
+          loadRuns();
+          setInterval(loadRuns, 20000);
+        }
+
+        $('form').addEventListener('submit', async function (e) {
+          e.preventDefault();
+          var go = $('go'), out = $('result');
+          go.disabled = true; out.hidden = true;
+          var inputs = {
+            title: $('title').value.trim(),
+            brief: $('brief').value.trim(),
+            author: $('author').value,
+            category: $('category').value,
+            focus_keyword: $('keyword').value.trim(),
+            must_cover: $('must').value.trim(),
+            links: $('links').value.trim(),
+            images: $('images').checked ? 'generate' : 'skip',
+          };
+          try {
+            var r = await gh('/repos/' + REPO + '/actions/workflows/' + WORKFLOW + '/dispatches', { method: 'POST', body: { ref: 'main', inputs: inputs } });
+            if (r.status !== 204) {
+              var msg = ''; try { msg = (await r.json()).message; } catch (x) {}
+              throw new Error('GitHub answered ' + r.status + (msg ? ': ' + msg : ''));
+            }
+            say(out, 'ok', 'Started. In about 10–15 minutes the post appears under Editorial workflow as a Draft. This page lists the run below.');
+            setTimeout(loadRuns, 4000);
+          } catch (err) {
+            say(out, 'bad', 'Could not start the run. ' + err.message);
+          } finally {
+            go.disabled = false;
+          }
+        });
+
+        init();
+      })();
+    </script>
+  </body>
+</html>

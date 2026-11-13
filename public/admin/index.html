@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>Content Manager — Spenza</title>
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <!--
+      Decap CMS, pinned and integrity-checked. Not vendored: it is 4.8MB, and the
+      hash below makes a tampered CDN copy refuse to run.
+    -->
+    <script
+      src="https://unpkg.com/decap-cms@3.17.3/dist/decap-cms.js"
+      integrity="sha384-RWRzuHfiZSWCt3nEvG7B0v3cMgM1C2UuJmgBSL92GQh4uXmNSkbcthql/mNBqvjr"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // A floating link to the AI generator. Decap 3.17 has no hook for a
+      // sidebar item, so this lives outside its DOM and survives re-renders.
+      (function () {
+        var a = document.createElement('a');
+        a.href = '/admin/ai/';
+        a.textContent = '\u2728 Generate with AI';
+        a.setAttribute('style',
+          'position:fixed;right:20px;bottom:20px;z-index:9999;background:#ff4500;color:#fff;' +
+          'padding:12px 20px;border-radius:999px;font:600 14px system-ui,sans-serif;text-decoration:none;' +
+          'box-shadow:0 6px 18px rgba(0,0,0,.18)');
+        document.body.appendChild(a);
+      })();
+      // The login window is on another origin (the OAuth proxy) and hands the
+      // session back through localStorage when it cannot reach window.opener.
+      window.addEventListener('storage', function (e) {
+        if (e.key === 'decap-cms-user' && e.newValue) location.reload();
+      });
+    </script>
+  </body>
+</html>

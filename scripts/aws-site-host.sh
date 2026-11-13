@@ -422,8 +422,17 @@ step_deploy() {
   aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --size-only --only-show-errors \
     --exclude "*.html" --exclude "wp-assets/_opt/*" --exclude "_astro/*" \
     --exclude "wp-assets/_fonts/*" --exclude "videos/*" \
-    --exclude "_redirects" --exclude "_headers" \
+    --exclude "_redirects" --exclude "_headers" --exclude "admin/*" \
     --cache-control "public, max-age=2592000"
+
+  # The admin's config.yml is read fresh by every editor. It must not sit in a
+  # browser for a month (a fix to a field would not reach anyone), and it is
+  # synced WITHOUT --size-only: a one-character edit keeps the file size, and a
+  # size-only comparison would skip it and leave the old config live.
+  say "Admin config (never cached)"
+  aws s3 sync "$DIST_DIR" "s3://${BUCKET}" --only-show-errors \
+    --exclude "*" --include "admin/*" --exclude "admin/*.html" \
+    --cache-control "no-cache"
 
   # Last, and with --delete, so a page that no longer exists stops being served.
   # HTML only: the earlier passes must not delete an asset an old page still

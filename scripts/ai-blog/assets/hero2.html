@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;width:1280px;height:720px;overflow:hidden;background:#fff}
+#bg{position:absolute;left:0;top:0;width:1280px;height:720px}
+.cover{position:absolute;background:#fff}
+#t{position:absolute;left:72px;top:var(--top,222px);width:600px;font-family:'Rhodium Libre',serif;font-weight:400;text-transform:uppercase;color:#0a0a0a;font-size:var(--fs,38.5px);line-height:1.12;letter-spacing:.05em;white-space:pre-line}
+#ill{position:absolute;border-radius:22px}
+</style></head><body>
+<img id="bg" src="template.png">
+<div class="cover" style="left:60px;top:170px;width:560px;height:250px"></div>
+<div class="cover" style="left:540px;top:30px;width:720px;height:610px"></div>
+<div id="t"></div>
+<img id="ill">
+<script>
+const q=new URLSearchParams(location.search);
+document.getElementById('t').textContent=q.get('t').replace(/\|/g,'\n');
+const i=document.getElementById('ill'); i.src=q.get('img');
+if(q.get('r'))i.style.borderRadius=q.get('r')+'px'; i.style.left=q.get('x')+'px'; i.style.top=q.get('y')+'px'; i.style.width=q.get('w')+'px';
+if(q.get('top')) document.documentElement.style.setProperty('--top',q.get('top')+'px');
+if(q.get('fs')) document.documentElement.style.setProperty('--fs',q.get('fs')+'px');
+</script></body></html>

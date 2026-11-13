@@ -1,0 +1,10 @@
+# Who must review what, once "Require review from Code Owners" is switched on for main.
+#
+# The marketing team publishes posts from /admin, which merges a pull request that
+# only touches the content paths below. Those paths have no owner, so they need no
+# developer review. Everything else (code, workflows, the admin itself) does.
+# The last matching pattern wins, so the content paths go last.
+*                          @rajatraikar-spenza
+/src/content/cms-blog/
+/public/cms-media/
+/docs/spenza-brain/

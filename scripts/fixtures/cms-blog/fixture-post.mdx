@@ -1,0 +1,80 @@
+---
+title: "Fixture Post: How Connectivity Bundles Protect Device Margin"
+slug: fixture-post
+description: "A test fixture that exercises every block of the Spenza post layout: TL;DR cards, themed tables, a body image, an FAQ accordion and the contact button."
+category: iot
+author: isimplexity
+publishedDate: 2026-01-15T09:00:00.000Z
+focusKeyword: connectivity bundle
+tags:
+  - IoT
+  - Fixture
+hero:
+  image: /cms-media/fixture-post/hero.webp
+  alt: Orange line-art illustration of a connected device, a SIM chip and a billing receipt.
+bodyImage:
+  image: /cms-media/fixture-post/body.webp
+  alt: Three paper-cut objects joined by cream ribbons showing a device, a plan and an invoice.
+  caption: One bundle moves the connectivity cost from the device maker to the subscriber.
+  afterSection: 2
+tldr:
+  summary: A connectivity bundle works when the price of data is recovered through the subscription, not the hardware.
+  cards:
+    - { icon: chart-line, title: Price the data, text: Model data cost per device per month before setting the plan price. }
+    - { icon: coins, title: Protect margin, text: Keep a floor margin on every tier so heavy users never turn negative. }
+    - { icon: circle-check, title: Automate billing, text: Bill from usage records so no invoice is raised by hand. }
+    - { icon: clipboard-check, title: Review monthly, text: Re-check tier thresholds against real usage every month. }
+    - { icon: gears, title: Keep it aligned, text: Spenza ties plans, usage and billing together in one platform. }
+faq:
+  - { question: What is a connectivity bundle?, answer: "A plan that packages **data** with a device for one recurring price." }
+  - { question: Why does margin erode?, answer: Heavy users consume more data than the tier price covers. }
+  - { question: How often should tiers change?, answer: Review them monthly and change them quarterly at most. }
+  - { question: Who sets the price?, answer: The device maker sets the price; the operator sets the wholesale rate. }
+  - { question: Can billing be automated?, answer: Yes, from usage records exported by the platform. }
+---
+
+A connectivity bundle protects margin when the recurring price covers the data each device actually uses. Most losses come from the heaviest ten percent of devices.
+
+The fix is arithmetic, not marketing: measure usage, set tiers above cost, and bill automatically.
+
+## Why bundles lose money
+
+Flat pricing hides the spread between light and heavy devices. The table below shows an illustrative spread.
+
+| Tier | Monthly data | Illustrative cost | Margin |
+|---|---|---|---|
+| Light | 100 MB | $0.40 | High |
+| Typical | 1 GB | $2.50 | Medium |
+| Heavy | 10 GB | $18.00 | Negative |
+
+Illustrative numbers only; use your own wholesale rates.
+
+## Setting tiers that hold
+
+Start from cost, add the margin floor, then round to a price that reads cleanly.
+
+### Use real usage data
+
+Pull 90 days of usage, not a forecast.
+
+## Automating the invoice
+
+Usage records feed billing directly, so the invoice always matches the meter.
+
+| Step | Owner | Output |
+|---|---|---|
+| Export usage | Platform | Usage file |
+| Rate usage | Billing | Priced lines |
+| Invoice | Finance | Customer invoice |
+
+## Reviewing monthly
+
+A short monthly review catches tier drift before it costs margin. See [Spenza contact](/contact-us/) for a walkthrough.
+
+## Common mistakes
+
+Do not set one price for every device. Do not forecast usage without data.
+
+## Closing thoughts
+
+Price the data, protect the margin, automate the bill.

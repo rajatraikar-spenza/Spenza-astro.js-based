@@ -1,0 +1,145 @@
+# Decap CMS for spenza.com/admin. Reachable by URL only: not linked from the site,
+# not in the sitemap, llms.txt or robots.txt, and served noindex.
+#
+# Login is GitHub: the OAuth proxy (admin-api/oauth) only issues a token to a
+# person with push access to this repository, so "can log in" means "is on the
+# repo". The editorial workflow gives the three stages the team asked for:
+#   Draft -> In review -> Ready, then Publish (merges the pull request; the
+#   merge to main is what deploys the site).
+backend:
+  name: github
+  repo: rajatraikar-spenza/Spenza-astro.js-based
+  branch: main
+  # GO-LIVE: replace with the OAuth proxy URL printed by
+  # scripts/admin-oauth-deploy.sh (no trailing slash). See docs/admin-platform.
+  base_url: https://REPLACE-WITH-OAUTH-PROXY-URL
+  auth_endpoint: auth
+
+# Only takes effect on localhost with `npm run admin:local` (decap-server).
+local_backend: true
+
+publish_mode: editorial_workflow
+
+media_folder: public/cms-media
+public_folder: /cms-media
+
+site_url: https://spenza.com
+display_url: https://spenza.com
+logo_url: https://spenza.com/favicon.svg
+locale: en
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Blog post
+    folder: src/content/cms-blog
+    extension: mdx
+    format: frontmatter
+    create: true
+    # The file name must equal the slug: the site builds /<category>/<slug>/ from it.
+    slug: "{{fields.slug}}"
+    identifier_field: slug
+    summary: "{{title}} · {{category}} · {{publishedDate | date('YYYY-MM-DD')}}"
+    sortable_fields: [publishedDate, title, category]
+    view_filters:
+      - { label: AI generated, field: ai.generated, pattern: true }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Slug
+        name: slug
+        widget: string
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only."]
+        hint: "The URL ends with this. Permanent once published: changing it breaks links."
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Telecom, value: telecom }
+          - { label: IoT, value: iot }
+          - { label: eSIM, value: esim }
+          - { label: MVNO, value: mvno }
+          - { label: BYOD, value: byod }
+          - { label: TEM, value: tem }
+          - { label: Spenza Platform, value: spenza-product }
+        hint: "Also the URL: /<category>/<slug>/"
+      - label: Author
+        name: author
+        widget: select
+        options:
+          - { label: Spenza (company), value: isimplexity }
+          - { label: SivaSai, value: sivasai }
+          - { label: Vinaychandra Bharadwaj, value: vinay }
+      - label: Description
+        name: description
+        widget: text
+        hint: "110-165 characters. Used as the search snippet, the social description and the card text."
+      - { label: Publish date, name: publishedDate, widget: datetime, hint: "A future date holds the post back until that day." }
+      - { label: Updated date, name: updatedDate, widget: datetime, required: false, hint: "Set only after a substantial edit." }
+      - { label: Focus keyword, name: focusKeyword, widget: string, required: false }
+      - { label: Tags, name: tags, widget: list, required: false, default: [] }
+      - { label: SEO title, name: seoTitle, widget: string, required: false, hint: "Only if it should differ from the title. 70 characters or fewer." }
+
+      - label: Hero image
+        name: hero
+        widget: object
+        hint: "The featured image and social card. 1280x720 WebP, under 200 KB."
+        fields:
+          - { label: Image, name: image, widget: image }
+          - { label: Alt text, name: alt, widget: string, hint: "Describe what the image shows. Never the title." }
+
+      - label: Body image
+        name: bodyImage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, required: false }
+          - { label: Alt text, name: alt, widget: string, required: false }
+          - { label: Caption, name: caption, widget: string, required: false }
+          - { label: Show after section, name: afterSection, widget: number, value_type: int, min: 1, default: 2, hint: "The image appears at the end of this numbered section." }
+
+      - label: TL;DR block
+        name: tldr
+        widget: object
+        required: false
+        hint: "The summary and five cards at the top. Leave empty to skip the block; otherwise it needs exactly 5 cards."
+        fields:
+          - { label: Summary, name: summary, widget: text, required: false, hint: "Two to four sentences that answer the title." }
+          - label: Cards
+            name: cards
+            widget: list
+            required: false
+            min: 5
+            max: 5
+            hint: "Cards 1-4 are key points. Card 5 is the 'how Spenza helps' card."
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Icon, name: icon, widget: string, default: chart-line, hint: "A Font Awesome 6 solid name, e.g. chart-line, coins, circle-check, clipboard-check, gears." }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text, hint: "One sentence, 160 characters or fewer." }
+
+      - label: FAQ
+        name: faq
+        widget: list
+        required: false
+        summary: "{{fields.question}}"
+        hint: "Five questions is the standard. Written as a search query; answered in 2-4 sentences."
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+
+      - label: Body
+        name: body
+        widget: markdown
+        hint: "Markdown. Use ## for sections and ### inside them (the title is already the H1). Tables are supported."
+
+      - label: AI details
+        name: ai
+        widget: object
+        required: false
+        collapsed: true
+        hint: "Filled in by the AI generator. Safe to ignore."
+        fields:
+          - { label: Generated by AI, name: generated, widget: boolean, default: false, required: false }
+          - { label: Council score, name: score, widget: number, required: false }
+          - { label: Council verdict, name: verdict, widget: text, required: false }
+          - { label: Run, name: runUrl, widget: string, required: false }

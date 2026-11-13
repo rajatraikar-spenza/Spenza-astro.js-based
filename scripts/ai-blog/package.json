@@ -1,0 +1,8 @@
+{
+  "name": "spenza-ai-blog",
+  "private": true,
+  "type": "module",
+  "description": "AI blog generation pipeline behind spenza.com/admin. Run by .github/workflows/ai-blog.yml.",
+  "scripts": { "test": "node --test ../ai-blog.test.mjs" },
+  "dependencies": { "@anthropic-ai/sdk": "^1.8.0" }
+}
