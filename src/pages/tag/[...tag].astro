@@ -1,0 +1,54 @@
+---
+/**
+ * Tag archives at /tag/<slug>/ for the tags managed in the admin
+ * (Settings > Tags). A tag with no published post has no page.
+ * Paginated at /tag/<slug>/page/2/, like the category archives.
+ */
+import { getCollection } from 'astro:content';
+import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
+import TAGS from '../../content/cms-meta/tags.json';
+import { generatedArchiveShell, paginate } from '../../lib/generated-archive.ts';
+
+const shells = import.meta.glob<string>('../../partials/archives/archive-category-telecom.html', {
+  query: '?raw', import: 'default', eager: true,
+});
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const paths = [];
+  for (const tag of TAGS.tags) {
+    const list = posts
+      .filter(p => (p.data.tags ?? []).includes(tag.slug))
+      .sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
+    if (!list.length) continue;
+    for (const { page, totalPages, items } of paginate(list)) {
+      paths.push({
+        params: { tag: page === 1 ? tag.slug : `${tag.slug}/page/${page}` },
+        props: { slug: tag.slug, label: tag.label, page, totalPages, posts: items, total: list.length },
+      });
+    }
+  }
+  return paths;
+}
+
+const { slug, label, page, totalPages, posts, total } = Astro.props;
+const shell = generatedArchiveShell(shells['../../partials/archives/archive-category-telecom.html'], {
+  path: `/tag/${slug}/`,
+  pill: 'Topic',
+  pillHref: '/blog/',
+  heading: `Posts tagged ${label}`,
+  intro: `${total} ${total === 1 ? 'article' : 'articles'} tagged ${label} from Spenza.`,
+});
+const title = page === 1 ? `${label} - Spenza` : `${label} - Page ${page} - Spenza`;
+---
+
+<ArchiveLayout
+  shell={shell}
+  slug="archive-category-telecom"
+  posts={posts}
+  base={`/tag/${slug}/`}
+  page={page}
+  totalPages={totalPages}
+  title={title}
+  description={`${total} articles tagged ${label} from Spenza.`}
+/>

@@ -1,0 +1,35 @@
+# Check admin-written posts on every pull request that touches one.
+#
+# The admin (spenza.com/admin) puts each post in its own pull request, and Decap
+# shows a pull request's status checks in the editorial workflow. A post that
+# fails here would not publish (the site build skips an invalid entry rather than
+# failing the whole deploy), so this is where the editor learns why.
+name: Validate admin posts
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/content/cms-blog/**'
+      - 'src/content/cms-meta/**'
+      - 'public/cms-media/**'
+      - 'scripts/lib/cms-post.mjs'
+      - 'docs/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: npm
+      - run: npm ci
+      - run: node --test scripts/cms-post.test.mjs scripts/cms-images.test.mjs scripts/admin-oauth.test.mjs
+      - name: Validate every admin post
+        run: node scripts/cms-validate.mjs

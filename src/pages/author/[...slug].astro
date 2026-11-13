@@ -1,0 +1,61 @@
+---
+/**
+ * Author pages for people added in the admin (Settings > Authors).
+ *
+ * The three original authors keep their mirrored pages (isimplexity.astro,
+ * sivasai.astro, vinay.astro); this route covers everyone else, using the
+ * category archive's chrome with the author's name and bio as the heading.
+ */
+import { getCollection } from 'astro:content';
+import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
+import AUTHORS from '../../content/cms-meta/authors.json';
+import { generatedArchiveShell, paginate } from '../../lib/generated-archive.ts';
+
+const shells = import.meta.glob<string>('../../partials/archives/archive-category-telecom.html', {
+  query: '?raw', import: 'default', eager: true,
+});
+
+export async function getStaticPaths() {
+  // Static pages beat this route, so these slugs are left to them.
+  const own = Object.keys(import.meta.glob('./*.astro'))
+    .map(f => f.replace(/^\.\/|\.astro$/g, ''))
+    .filter(n => !n.startsWith('['));
+  const posts = await getCollection('posts');
+  const paths = [];
+  for (const a of AUTHORS.authors) {
+    if (own.includes(a.slug)) continue;
+    const list = posts
+      .filter(p => p.data.author?.slug === a.slug)
+      .sort((x, y) => y.data.publishedDate.getTime() - x.data.publishedDate.getTime());
+    if (!list.length) continue;
+    for (const { page, totalPages, items } of paginate(list)) {
+      paths.push({
+        params: { slug: page === 1 ? a.slug : `${a.slug}/page/${page}` },
+        props: { author: a, page, totalPages, posts: items, total: list.length },
+      });
+    }
+  }
+  return paths;
+}
+
+const { author, page, totalPages, posts, total } = Astro.props;
+const shell = generatedArchiveShell(shells['../../partials/archives/archive-category-telecom.html'], {
+  path: `/author/${author.slug}/`,
+  pill: author.role || 'Author',
+  pillHref: '/blog/',
+  heading: `Articles by ${author.name}`,
+  intro: author.bio || `${total} ${total === 1 ? 'article' : 'articles'} written by ${author.name} for Spenza.`,
+});
+const title = page === 1 ? `${author.name} - Spenza` : `${author.name} - Page ${page} - Spenza`;
+---
+
+<ArchiveLayout
+  shell={shell}
+  slug="archive-category-telecom"
+  posts={posts}
+  base={`/author/${author.slug}/`}
+  page={page}
+  totalPages={totalPages}
+  title={title}
+  description={`${total} articles by ${author.name} on Spenza.`}
+/>

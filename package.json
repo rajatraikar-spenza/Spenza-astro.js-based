@@ -40,11 +40,20 @@
     "wp:authors": "node scripts/wp-extract-authors.mjs",
     "wp:changed": "node scripts/wp-changed.mjs",
     "hs:check": "node scripts/hs-check-forms.mjs",
-    "hub:videos": "node scripts/encode-hub-videos.mjs"
+    "hub:videos": "node scripts/encode-hub-videos.mjs",
+    "test:admin": "node --test scripts/cms-post.test.mjs scripts/cms-images.test.mjs scripts/admin-oauth.test.mjs",
+    "cms:validate": "node scripts/cms-validate.mjs",
+    "cms:images": "node scripts/cms-optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
-    "astro": "^7.2.0"
+    "astro": "^7.2.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",

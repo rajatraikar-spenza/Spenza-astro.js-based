@@ -1,5 +1,25 @@
 import { defineCollection, z } from 'astro:content';
+import type { Loader } from 'astro/loaders';
 import { wpPosts } from './loaders/wp-posts.mjs';
+import { cmsPosts } from './loaders/cms-posts.mjs';
+
+const wpLoader = wpPosts();
+const cmsLoader = cmsPosts();
+
+/**
+ * WordPress first, then the posts written in the admin (`/admin`, stored under
+ * `src/content/cms-blog/`). One collection, so archives, related cards, search
+ * and the sitemap see both without knowing there are two sources. The admin
+ * loader runs second because the WordPress loader prunes any id it did not
+ * fetch, and runs even when WordPress is unreachable and the store is reused.
+ */
+const mergedLoader: Loader = {
+  name: 'wp-and-admin-posts',
+  async load(ctx) {
+    await wpLoader.load(ctx);
+    await cmsLoader.load(ctx);
+  },
+};
 
 /**
  * Blog posts and case studies, loaded from WordPress via WPGraphQL.
@@ -13,7 +33,7 @@ import { wpPosts } from './loaders/wp-posts.mjs';
  * git-based CMS later, which is the point of building on the Content Layer.
  */
 const posts = defineCollection({
-  loader: wpPosts(),
+  loader: mergedLoader,
   schema: z.object({
     /** WordPress' post id, for the `post-<id>` classes Elementor's loop emits. */
     databaseId: z.number(),

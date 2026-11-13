@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Signing in — Spenza</title>
+    <style>body{font-family:system-ui,sans-serif;padding:2rem;max-width:560px;margin:0 auto;color:#1b1c1a}</style>
+  </head>
+  <body>
+    <p id="msg">Signing you in…</p>
+    <script>
+      // The OAuth proxy sends the browser here with the session in the URL
+      // fragment (never sent to a server). Store it where Decap looks, wipe the
+      // fragment, and return to the editor.
+      (function () {
+        var msg = document.getElementById('msg');
+        try {
+          var p = new URLSearchParams(location.hash.slice(1));
+          var token = p.get('token');
+          if (!token) throw new Error('No session in the link. Start again from /admin/.');
+          var user = { token: token, backendName: 'github', useOpenAuthoring: false, login: p.get('login') || undefined, name: p.get('name') || undefined };
+          localStorage.setItem('decap-cms-user', JSON.stringify(user));
+          history.replaceState(null, '', location.pathname);
+          msg.textContent = 'Signed in. Opening the editor…';
+          setTimeout(function () {
+            // Opened by the editor: the editor tab reloads itself on the storage
+            // event, so just close. Otherwise (opener severed) carry on here.
+            if (window.opener) window.close(); else location.replace('/admin/');
+          }, 400);
+        } catch (e) {
+          msg.textContent = e.message;
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -27,10 +27,21 @@ export function postUrl(category: string | undefined, slug: string): string {
   return `/${categorySlug(category)}/${slug}/`;
 }
 
-/** slug -> display name, for breadcrumbs and category pills. */
-const LABELS: Record<string, string> = Object.fromEntries(
-  Object.entries(CATEGORY_SLUGS).map(([name, slug]) => [slug, name])
-);
+import CMS_CATEGORIES from '../content/cms-meta/categories.json';
+
+/**
+ * slug -> display name, for breadcrumbs and category pills. Categories managed
+ * in the admin (Settings > Categories) are added on top of the WordPress seven,
+ * and win where they name the same slug.
+ */
+const LABELS: Record<string, string> = {
+  ...Object.fromEntries(Object.entries(CATEGORY_SLUGS).map(([name, slug]) => [slug, name])),
+  ...Object.fromEntries(CMS_CATEGORIES.categories.map(c => [c.slug, c.label])),
+};
+
+/** Intro text set for a category in the admin, if any. */
+export const categoryIntro = (slug: string): string =>
+  CMS_CATEGORIES.categories.find(c => c.slug === slug)?.intro ?? '';
 
 /**
  * The display name for a category slug. Falls back to title-casing the slug so
