@@ -97,3 +97,19 @@ test('on AWS the second argument is the Lambda context, and settings come from t
     for (const k of Object.keys(env)) delete process.env[k];
   }
 });
+
+test('on AWS the third argument is a callback, never the fetch to use', async () => {
+  Object.assign(process.env, env);
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = ghFetch({ push: true });
+  try {
+    const { state, cookie } = await startLogin();
+    const callback = () => { throw new Error('AWS callback must not be called as fetch'); };
+    const res = await handler(ev('/callback', { queryStringParameters: { code: 'c', state }, headers: { cookie } }), { awsRequestId: 'abc' }, callback);
+    assert.equal(res.statusCode, 302);
+    assert.match(res.headers.location, /^https:\/\/spenza\.com\/admin\/auth-complete\//);
+  } finally {
+    globalThis.fetch = realFetch;
+    for (const k of Object.keys(env)) delete process.env[k];
+  }
+});
