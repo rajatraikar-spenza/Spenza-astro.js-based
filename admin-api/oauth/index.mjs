@@ -16,7 +16,7 @@
 //
 // Environment:
 //   GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET  the GitHub OAuth App
-//   GITHUB_REPO       owner/name that grants access, e.g. iSimplexityOrg/Spenza-astro.js-based
+//   GITHUB_REPO       owner/name that grants access, e.g. rajatraikar-spenza/Spenza-astro.js-based
 //   ADMIN_ORIGIN      https://spenza.com   (where the token is delivered; nothing else is trusted)
 //   STATE_SECRET      random string; signs the CSRF cookie
 //   OAUTH_SCOPE       default "repo" (what Decap's GitHub backend requires)

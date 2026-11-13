@@ -107,38 +107,9 @@ still marked DRAFT with no named approver. So:
    also lets them push to `main`, turn on branch protection for `main`: require pull requests and
    "Require review from Code Owners". `.github/CODEOWNERS` leaves the content paths ownerless, so a content-
    only PR (what Publish merges) needs no developer, and code changes still do.
-5. **Move the repo to `iSimplexityOrg`** (steps below), so access follows the team and not one person.
-   Create the GitHub OAuth App under the organisation, not a personal account.
+5. **Move the repo to an organisation** if it stays on a personal account (`rajatraikar-spenza/…`): access
+   then follows the team, not one person.
 6. Merge, wait for the deploy, sign in at `https://spenza.com/admin/`.
-
-## Moving the repo to iSimplexityOrg
-
-The code in this branch already points at `iSimplexityOrg/Spenza-astro.js-based` (admin config, AI form,
-OAuth proxy). Do the transfer **before** merging this PR.
-
-1. **Transfer.** Settings → General → Danger Zone → Transfer ownership → `iSimplexityOrg` (same name unless you
-   want to rename). You need admin on the repo and permission to create repositories in the org. Open PRs, issues,
-   stars and the old URL (which redirects) come along. Then locally:
-   `git remote set-url origin https://github.com/iSimplexityOrg/Spenza-astro.js-based.git`
-2. **Check what survived.** Settings → Secrets and variables → Actions: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
-   and the variables `SITE_URL`, `WP_FORMS_ORIGIN` must still be there (re-add any that are missing; a missing AWS
-   key stops every deploy). Then run **Actions → Publish → Run workflow** once and watch it go green.
-3. **Fix the WordPress deploy hook.** `wordpress/mu-plugins/spenza-deploy-hook.php` hard-codes
-   `SPENZA_DEPLOY_REPO` and uses a token tied to the personal account. Create a new fine-grained token with the
-   **iSimplexityOrg** resource owner, access to this repo only, **Contents: read and write** (needed for
-   repository_dispatch), update the constant to `iSimplexityOrg/Spenza-astro.js-based` in the installed plugin
-   and the token in `wp-config.php`. Until then WordPress publishes no longer trigger a deploy; the 30-minute
-   schedule still catches them. (The org may require approval for fine-grained tokens: Org settings → Personal
-   access tokens.)
-4. **Org access.** Add the marketing team as org members, put them in a team (e.g. `marketing`) with **Write** on
-   this repo, and switch `.github/CODEOWNERS` from `@rajatraikar-spenza` to an engineering team.
-5. **Protect main.** Settings → Rules: require a pull request and "Require review from Code Owners". The
-   content paths have no owner, so Publish from the admin still merges without a developer.
-6. **Org Actions policy.** Org settings → Actions: allow Actions for this repo, and under Workflow permissions
-   tick "Allow GitHub Actions to create and approve pull requests" (the AI workflow opens its Draft PR that way).
-7. **OAuth App.** Create it under the org (Org settings → Developer settings → OAuth Apps) so it is not tied to a
-   person; then run `scripts/admin-oauth-deploy.sh`.
-8. Anything else holding the old name: bookmarks, the Slack GitHub app, any other repo that calls this one.
 
 ## Not verified yet, and why
 
