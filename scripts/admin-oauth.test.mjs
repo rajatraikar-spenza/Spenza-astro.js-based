@@ -86,3 +86,14 @@ test('missing configuration fails closed', async () => {
 test('unknown paths are 404', async () => {
   assert.equal((await handler(ev('/nope'), env)).statusCode, 404);
 });
+
+test('on AWS the second argument is the Lambda context, and settings come from the environment', async () => {
+  Object.assign(process.env, env);
+  try {
+    const res = await handler(ev('/auth'), { awsRequestId: 'abc', functionName: 'f' });
+    assert.equal(res.statusCode, 302);
+    assert.match(res.headers.location, /^https:\/\/github\.com\/login\/oauth\/authorize\?/);
+  } finally {
+    for (const k of Object.keys(env)) delete process.env[k];
+  }
+});

@@ -78,6 +78,10 @@ if [ -z "$URL" ] || [ "$URL" = "None" ]; then
   aws lambda add-permission --function-name "$FUNCTION" --region "$REGION" --statement-id public-url \
     --action lambda:InvokeFunctionUrl --principal '*' --function-url-auth-type NONE >/dev/null
 fi
+# Since late 2025 a public Function URL also needs lambda:InvokeFunction (via the URL),
+# or every request is answered 403 "Forbidden". Added idempotently.
+aws lambda add-permission --function-name "$FUNCTION" --region "$REGION" --statement-id public-invoke \
+  --action lambda:InvokeFunction --principal '*' --invoked-via-function-url >/dev/null 2>&1 || true
 URL="${URL%/}"
 echo "    $URL"
 

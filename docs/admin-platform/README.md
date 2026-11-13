@@ -81,7 +81,7 @@ sees the new file after reloading the post. Run it by hand with `npm run cms:ima
 
 ## Go-live: creating the GitHub OAuth App
 
-Nothing here has been done yet. It takes about 15 minutes and needs an AWS login that can create Lambda
+**Status:** step 1 is done (Lambda `spenza-admin-oauth`, us-east-1, URL already set as `base_url`). Steps 2-4 need a GitHub login and are still to do. It takes about 15 minutes and needs an AWS login that can create Lambda
 functions and IAM roles (the CI deploy user cannot) and a GitHub account that owns the repo.
 
 1. **Deploy the sign-in proxy (phase 1).** On your computer, with AWS credentials for account
@@ -101,8 +101,7 @@ functions and IAM roles (the CI deploy user cannot) and a GitHub account that ow
 4. **Give them to the proxy (phase 2).** Run
    `GITHUB_CLIENT_ID=<id> GITHUB_CLIENT_SECRET=<secret> scripts/admin-oauth-deploy.sh`.
    They are stored only as the Lambda's settings.
-5. **Point the admin at it.** In `public/admin/config.yml` replace `https://REPLACE-WITH-OAUTH-PROXY-URL`
-   with the step 1 URL (no trailing slash). Commit it to the PR branch.
+5. **Point the admin at it.** Done: `base_url` in `public/admin/config.yml` is the step 1 URL.
 6. **Add the marketing team to the repo.** GitHub repo > **Settings** > **Collaborators** > **Add people**,
    role **Write**. Each person needs a GitHub account and must accept the invite. The proxy refuses anyone
    without write access, so this is the whole access list. (Moving the repo into the organisation later

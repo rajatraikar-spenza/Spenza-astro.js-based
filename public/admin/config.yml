@@ -12,7 +12,7 @@ backend:
   branch: main
   # GO-LIVE: replace with the OAuth proxy URL printed by
   # scripts/admin-oauth-deploy.sh (no trailing slash). See docs/admin-platform.
-  base_url: https://REPLACE-WITH-OAUTH-PROXY-URL
+  base_url: https://3cet5dp4zfk3hy2gtihlbzlude0fdxkc.lambda-url.us-east-1.on.aws
   auth_endpoint: auth
 
 # Only takes effect on localhost with `npm run admin:local` (decap-server).

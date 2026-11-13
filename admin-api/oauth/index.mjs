@@ -59,7 +59,9 @@ export function config(env) {
   return { missing, scope: env.OAUTH_SCOPE || 'repo' };
 }
 
-export async function handler(event, env = process.env, fetchImpl = fetch) {
+export async function handler(event, envOrContext, fetchImpl = fetch) {
+  // AWS calls handler(event, context). Tests pass their own settings instead.
+  const env = !envOrContext || envOrContext.awsRequestId !== undefined ? process.env : envOrContext;
   const cfg = config(env);
   if (cfg.missing.length) {
     console.error('oauth proxy misconfigured, missing:', cfg.missing.join(','));
