@@ -91,7 +91,7 @@ const ROW_LABELS = ['STARTING POINT', 'WHAT MOVED', 'WHAT CHANGED'];
         </div>
         <div class="sz-car__stage">
           {cases.map((c, i) => (
-            <article class:list={['sz-case', { 'is-active': i === 0 }]} id={`sz-case-${c.id}`} role="tabpanel" aria-labelledby={`sz-tab-${c.id}`}>
+            <div class:list={['sz-case', { 'is-active': i === 0 }]} id={`sz-case-${c.id}`} role="tabpanel" aria-labelledby={`sz-tab-${c.id}`}>
               <div class="sz-case__main">
                 <div class="sz-case__meta"><span class="sz-case__seg">{c.seg}</span><span class="sz-case__kicker">{c.kicker}</span></div>
                 <h3 class="sz-case__name">{c.name}</h3>
@@ -111,7 +111,7 @@ const ROW_LABELS = ['STARTING POINT', 'WHAT MOVED', 'WHAT CHANGED'];
                 <div class="sz-case__runs"><span>RUNS ON</span><ul>{c.hubs.map(h => <li>{h}</li>)}</ul></div>
                 <a class="sz-case__link" href={c.url}>Read the {c.name} story&nbsp; →</a>
               </div>
-            </article>
+            </div>
           ))}
           <span class="sz-car__fade sz-car__fade--l" aria-hidden="true"></span>
           <span class="sz-car__fade sz-car__fade--r" aria-hidden="true"></span>
