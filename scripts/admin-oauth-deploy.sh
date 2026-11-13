@@ -17,7 +17,7 @@ set -euo pipefail
 FUNCTION="${FUNCTION_NAME:-spenza-admin-oauth}"
 ROLE="${ROLE_NAME:-spenza-admin-oauth-role}"
 REGION="${REGION:-us-east-1}"
-REPO="${GITHUB_REPO:-rajatraikar-spenza/Spenza-astro.js-based}"
+REPO="${GITHUB_REPO:-iSimplexityOrg/Spenza-astro.js-based}"
 ADMIN_ORIGIN="${ADMIN_ORIGIN:-https://spenza.com}"
 SRC="$(cd "$(dirname "$0")/.." && pwd)/admin-api/oauth"
 
