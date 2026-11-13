@@ -50,23 +50,22 @@ collections:
         hint: "The URL ends with this. Permanent once published: changing it breaks links."
       - label: Category
         name: category
-        widget: select
-        options:
-          - { label: Telecom, value: telecom }
-          - { label: IoT, value: iot }
-          - { label: eSIM, value: esim }
-          - { label: MVNO, value: mvno }
-          - { label: BYOD, value: byod }
-          - { label: TEM, value: tem }
-          - { label: Spenza Platform, value: spenza-product }
-        hint: "Also the URL: /<category>/<slug>/"
+        widget: relation
+        collection: settings
+        file: categories
+        search_fields: ["categories.*.label"]
+        value_field: "categories.*.slug"
+        display_fields: ["categories.*.label"]
+        hint: "Also the URL: /<category>/<slug>/. Add new ones under Settings > Categories."
       - label: Author
         name: author
-        widget: select
-        options:
-          - { label: Spenza (company), value: isimplexity }
-          - { label: SivaSai, value: sivasai }
-          - { label: Vinaychandra Bharadwaj, value: vinay }
+        widget: relation
+        collection: settings
+        file: authors
+        search_fields: ["authors.*.name"]
+        value_field: "authors.*.slug"
+        display_fields: ["authors.*.name"]
+        hint: "Add people under Settings > Authors."
       - label: Description
         name: description
         widget: text
@@ -74,7 +73,18 @@ collections:
       - { label: Publish date, name: publishedDate, widget: datetime, hint: "A future date holds the post back until that day." }
       - { label: Updated date, name: updatedDate, widget: datetime, required: false, hint: "Set only after a substantial edit." }
       - { label: Focus keyword, name: focusKeyword, widget: string, required: false }
-      - { label: Tags, name: tags, widget: list, required: false, default: [] }
+      - label: Tags
+        name: tags
+        widget: relation
+        collection: settings
+        file: tags
+        multiple: true
+        required: false
+        default: []
+        search_fields: ["tags.*.label"]
+        value_field: "tags.*.slug"
+        display_fields: ["tags.*.label"]
+        hint: "Each tag gets a page at /tag/<tag>/. Add new ones under Settings > Tags."
       - { label: SEO title, name: seoTitle, widget: string, required: false, hint: "Only if it should differ from the title. 70 characters or fewer." }
 
       - label: Hero image
@@ -128,4 +138,64 @@ collections:
       - label: Body
         name: body
         widget: markdown
-        hint: "Markdown. Use ## for sections and ### inside them (the title is already the H1). Tables are supported."
+        modes: [rich_text, raw]
+        buttons: [bold, italic, code, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
+        editor_components: [spenza-image, spenza-embed, spenza-button, spenza-callout]
+        hint: "Use ## for sections and ### inside them (the title is already the H1). The + menu adds an image, a video, a button or a callout. Tables are supported."
+
+  # Lists the posts draw from. Edited here, saved as JSON next to the posts, and
+  # published like a post (Draft > In review > Ready > Publish).
+  - name: settings
+    label: Settings
+    description: "Authors, categories and tags that posts choose from."
+    files:
+      - name: authors
+        label: Authors
+        file: src/content/cms-meta/authors.json
+        fields:
+          - label: Authors
+            name: authors
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - label: URL name
+                name: slug
+                widget: string
+                pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only."]
+                hint: "The author page is /author/<this>/. Do not change it after posts use it."
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string, required: false, hint: "e.g. Head of Product. Shown on the author page." }
+              - { label: Bio, name: bio, widget: text, required: false }
+              - { label: Photo, name: avatar, widget: image, required: false, hint: "Square, 300x300 or larger." }
+              - { label: LinkedIn, name: linkedin, widget: string, required: false }
+      - name: categories
+        label: Categories
+        file: src/content/cms-meta/categories.json
+        fields:
+          - label: Categories
+            name: categories
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - label: URL name
+                name: slug
+                widget: string
+                pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only."]
+                hint: "Posts live at /<this>/<post>/ and the archive at /category/<this>/. Permanent once a post uses it."
+              - { label: Name, name: label, widget: string }
+              - { label: Intro, name: intro, widget: text, required: false, hint: "One or two sentences under the archive heading." }
+      - name: tags
+        label: Tags
+        file: src/content/cms-meta/tags.json
+        fields:
+          - label: Tags
+            name: tags
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - label: URL name
+                name: slug
+                widget: string
+                pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only."]
+                hint: "The tag page is /tag/<this>/."
+              - { label: Name, name: label, widget: string }

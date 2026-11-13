@@ -11,6 +11,7 @@ on:
     branches: [main]
     paths:
       - 'src/content/cms-blog/**'
+      - 'src/content/cms-meta/**'
       - 'public/cms-media/**'
       - 'scripts/lib/cms-post.mjs'
       - 'docs/**'
@@ -29,6 +30,6 @@ jobs:
           node-version: '22.12'
           cache: npm
       - run: npm ci
-      - run: node --test scripts/cms-post.test.mjs scripts/admin-oauth.test.mjs
+      - run: node --test scripts/cms-post.test.mjs scripts/cms-images.test.mjs scripts/admin-oauth.test.mjs
       - name: Validate every admin post
         run: node scripts/cms-validate.mjs

@@ -41,8 +41,9 @@
     "wp:changed": "node scripts/wp-changed.mjs",
     "hs:check": "node scripts/hs-check-forms.mjs",
     "hub:videos": "node scripts/encode-hub-videos.mjs",
-    "test:admin": "node --test scripts/cms-post.test.mjs scripts/admin-oauth.test.mjs",
-    "cms:validate": "node scripts/cms-validate.mjs"
+    "test:admin": "node --test scripts/cms-post.test.mjs scripts/cms-images.test.mjs scripts/admin-oauth.test.mjs",
+    "cms:validate": "node scripts/cms-validate.mjs",
+    "cms:images": "node scripts/cms-optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",

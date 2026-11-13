@@ -1,0 +1,45 @@
+# Shrink images uploaded in the admin before they can be published.
+#
+# The editor uploads whatever file they have (a 4 MB PNG is common). This converts
+# each image on the pull request to WebP, at most 1600px wide and 200 KB, updates
+# the references to it, and commits the result to the same branch. The editor sees
+# the change when they reload the post. Only pull requests from the admin's own
+# branches (cms/...) in this repository are touched.
+name: Optimise admin images
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'public/cms-media/**'
+
+permissions:
+  contents: write
+
+jobs:
+  optimise:
+    if: startsWith(github.head_ref, 'cms/') && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: npm
+      - run: npm ci
+      - name: Optimise
+        run: node scripts/cms-optimize-images.mjs
+      - name: Commit the optimised images
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "spenza-admin"
+            git config user.email "admin@users.noreply.github.com"
+            git add -A public/cms-media src/content
+            git commit -m "Optimise uploaded images (WebP, max 1600px, 200 KB)"
+            git push
+          else
+            echo "Nothing to optimise."
+          fi

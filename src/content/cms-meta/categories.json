@@ -1,0 +1,11 @@
+{
+  "categories": [
+    { "slug": "telecom", "label": "Telecom", "intro": "" },
+    { "slug": "iot", "label": "IoT", "intro": "" },
+    { "slug": "esim", "label": "eSIM", "intro": "" },
+    { "slug": "mvno", "label": "MVNO", "intro": "" },
+    { "slug": "byod", "label": "BYOD", "intro": "" },
+    { "slug": "tem", "label": "TEM", "intro": "" },
+    { "slug": "spenza-product", "label": "Spenza Platform", "intro": "" }
+  ]
+}

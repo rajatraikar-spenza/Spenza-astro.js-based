@@ -209,7 +209,9 @@ async function pruneUnreferencedCss(out, logger) {
     for (const m of text.matchAll(IMPORT_RE)) consider(m[2] ?? m[4]);
   }
 
-  const dead = css.filter(f => !keep.has(f));
+  // The admin (public/admin) is loaded by Decap, not linked from any page.
+  const adminDir = path.join(out, 'admin') + path.sep;
+  const dead = css.filter(f => !keep.has(f) && !f.startsWith(adminDir));
   if (!dead.length) return;
 
   let freed = 0;

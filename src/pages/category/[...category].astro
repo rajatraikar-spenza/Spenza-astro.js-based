@@ -11,7 +11,8 @@
  */
 import { getCollection } from 'astro:content';
 import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
-import { categoryLabel } from '../../data/blog-categories.ts';
+import { categoryLabel, categoryIntro } from '../../data/blog-categories.ts';
+import { generatedArchiveShell } from '../../lib/generated-archive.ts';
 
 const shells = import.meta.glob<string>('../../partials/archives/archive-category-*.html', {
   query: '?raw',
@@ -56,20 +57,22 @@ export async function getStaticPaths() {
 
 const { category, page, totalPages, posts, total } = Astro.props;
 
-const key = `archive-category-${category}`;
-const shell = shells[`../../partials/archives/${key}.html`];
-
-// Without the mirrored chrome there is no page to render. A category added in
-// WordPress after the last mirror run lands here, and should fail loudly rather
-// than emit a bare list with no header or navigation.
-if (!shell) {
-  throw new Error(
-    `No mirrored archive partial for category "${category}". ` +
-    `Run \`npm run wp:archives\` to capture it.`
-  );
-}
-
 const label = categoryLabel(category);
+
+// A category made in the admin has no mirrored archive: borrow Telecom's chrome
+// and rewrite its heading, so the page looks like the others.
+const own = shells[`../../partials/archives/archive-category-${category}.html`];
+const key = own ? `archive-category-${category}` : 'archive-category-telecom';
+const shell = own ?? generatedArchiveShell(
+  shells['../../partials/archives/archive-category-telecom.html'],
+  {
+    path: `/category/${category}/`,
+    pill: label,
+    pillHref: `/category/${category}/`,
+    heading: `Latest ${label} Insights`,
+    intro: categoryIntro(category) || `Articles, guides and updates on ${label} from Spenza.`,
+  },
+);
 const title = page === 1
   ? `${label} Archives - Spenza`
   : `${label} Archives - Page ${page} - Spenza`;

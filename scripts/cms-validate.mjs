@@ -10,15 +10,28 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { listEntries, loadEntry, parseEntry } from './lib/cms-post.mjs';
+import { listEntries, loadEntry, parseEntry, validateSettings, META_DIR } from './lib/cms-post.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const postsDir = process.env.CMS_POSTS_DIR ? path.resolve(process.env.CMS_POSTS_DIR) : path.join(ROOT, 'src', 'content', 'cms-blog');
 const publicDir = process.env.CMS_PUBLIC_DIR ? path.resolve(process.env.CMS_PUBLIC_DIR) : path.join(ROOT, 'public');
 const siteUrl = process.env.SITE_URL || 'https://spenza.com';
 
+// Settings: authors, categories, tags. A category name must not shadow a page.
+const readMeta = (f, k) => { try { return JSON.parse(fs.readFileSync(path.join(META_DIR, f), 'utf8'))[k] ?? []; } catch (e) { console.log(`::error file=${path.relative(ROOT, path.join(META_DIR, f))}::${e.message}`); return []; } };
+const reserved = [
+  'admin', 'category', 'tag', 'author', 'blog', 'page', 'feed', 'wp-content', 'wp-admin', 'wp-json', 'cms-media', 'scripts', 'vendor', 'videos',
+  ...fs.readdirSync(path.join(ROOT, 'src', 'pages')).map(n => n.replace(/\.(astro|ts|js|json|txt)$/, '').replace(/\.[a-z]+$/, '')).filter(n => !/^[\[]/.test(n)),
+  ...(fs.existsSync(publicDir) ? fs.readdirSync(publicDir) : []),
+];
+const settingsErrors = validateSettings(
+  { authors: readMeta('authors.json', 'authors'), categories: readMeta('categories.json', 'categories'), tags: readMeta('tags.json', 'tags') },
+  { reserved, fileExists: p => fs.existsSync(path.join(publicDir, p.replace(/^\//, ''))) },
+);
+for (const e of settingsErrors) console.log(`::error file=src/content/cms-meta::${e}`);
+let failed = settingsErrors.length;
+
 const files = listEntries(postsDir);
-let failed = 0;
 const slugs = new Map();
 
 for (const file of files) {

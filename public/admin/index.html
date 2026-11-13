@@ -18,6 +18,95 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      // The "+" menu in the body. Each block is saved as one line of text,
+      // [[name key="value" ...]], which the site build turns into HTML (see
+      // scripts/lib/cms-post.mjs). Keep the two in step.
+      (function () {
+        var esc = function (v) { return String(v == null ? '' : v).replace(/\r?\n/g, ' ').replace(/"/g, '\\"'); };
+        var html = function (v) { return String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); };
+        var attrs = function (src) {
+          var o = {}, re = /([a-zA-Z]+)="((?:[^"\\]|\\.)*)"/g, m;
+          while ((m = re.exec(src || ''))) o[m[1]] = m[2].replace(/\\"/g, '"');
+          return o;
+        };
+        var line = function (name, o) {
+          return '[[' + name + Object.keys(o).filter(function (k) { return o[k]; })
+            .map(function (k) { return ' ' + k + '="' + esc(o[k]) + '"'; }).join('') + ']]';
+        };
+        var pattern = function (name) { return new RegExp('^\\[\\[' + name + '((?:\\s+[a-zA-Z]+="(?:[^"\\\\]|\\\\.)*")*)\\s*\\]\\]$'); };
+
+        CMS.registerEditorComponent({
+          id: 'spenza-image', label: 'Image', icon: 'image',
+          fields: [
+            { name: 'src', label: 'Image', widget: 'image' },
+            { name: 'alt', label: 'Alt text', widget: 'string', hint: 'Describe what the image shows. Required.' },
+            { name: 'caption', label: 'Caption', widget: 'string', required: false },
+          ],
+          pattern: pattern('image'),
+          fromBlock: function (m) { return attrs(m[1]); },
+          toBlock: function (o) { return line('image', { src: o.src, alt: o.alt, caption: o.caption }); },
+          toPreview: function (o) { return '<figure><img src="' + html(o.src) + '" alt="' + html(o.alt) + '"/>' + (o.caption ? '<figcaption>' + html(o.caption) + '</figcaption>' : '') + '</figure>'; },
+        });
+
+        CMS.registerEditorComponent({
+          id: 'spenza-embed', label: 'Video', icon: 'play_circle',
+          fields: [
+            { name: 'url', label: 'Video link', widget: 'string', hint: 'A YouTube, Vimeo or Loom link.' },
+            { name: 'title', label: 'Title (for screen readers)', widget: 'string', required: false },
+          ],
+          pattern: pattern('embed'),
+          fromBlock: function (m) { return attrs(m[1]); },
+          toBlock: function (o) { return line('embed', { url: o.url, title: o.title }); },
+          toPreview: function (o) { return '<div class="spenza-embed-preview">Video: ' + html(o.url) + '</div>'; },
+        });
+
+        CMS.registerEditorComponent({
+          id: 'spenza-button', label: 'Button', icon: 'smart_button',
+          fields: [
+            { name: 'text', label: 'Button text', widget: 'string' },
+            { name: 'url', label: 'Link', widget: 'string', hint: 'https://... or a path such as /contact-us/' },
+          ],
+          pattern: pattern('button'),
+          fromBlock: function (m) { return attrs(m[1]); },
+          toBlock: function (o) { return line('button', { text: o.text, url: o.url }); },
+          toPreview: function (o) { return '<p><a class="spenza-btn-preview" href="#">' + html(o.text) + '</a></p>'; },
+        });
+
+        CMS.registerEditorComponent({
+          id: 'spenza-callout', label: 'Callout', icon: 'info',
+          fields: [
+            { name: 'type', label: 'Style', widget: 'select', options: ['note', 'tip', 'warning'], default: 'note' },
+            { name: 'title', label: 'Title', widget: 'string', required: false },
+            { name: 'text', label: 'Text', widget: 'text', hint: 'Short. Markdown for bold and links is fine.' },
+          ],
+          pattern: pattern('callout'),
+          fromBlock: function (m) { return attrs(m[1]); },
+          toBlock: function (o) { return line('callout', { type: o.type, title: o.title, text: o.text }); },
+          toPreview: function (o) { return '<aside class="spenza-callout ' + html(o.type) + '"><strong>' + html(o.title) + '</strong> ' + html(o.text) + '</aside>'; },
+        });
+
+        // A readable preview. It is the editor's approximation, not the live page:
+        // the card styling, tables and FAQ only appear on the published post.
+        CMS.registerPreviewStyle('/admin/preview.css');
+        var h = window.h;
+        CMS.registerPreviewTemplate('blog', window.createClass({
+          render: function () {
+            var e = this.props.entry, d = function (k) { return e.getIn(['data'].concat(k)); };
+            var hero = d(['hero', 'image']);
+            var heroUrl = hero ? this.props.getAsset(hero).toString() : '';
+            return h('article', { className: 'post' },
+              h('p', { className: 'kicker' }, [d(['category']) || 'category', ' · ', d(['author']) || 'author'].join('')),
+              h('h1', {}, d(['title']) || 'Untitled'),
+              d(['description']) ? h('p', { className: 'lede' }, d(['description'])) : null,
+              heroUrl ? h('img', { className: 'hero', src: heroUrl, alt: d(['hero', 'alt']) || '' }) : null,
+              d(['tldr', 'summary']) ? h('div', { className: 'tldr' }, h('strong', {}, 'TL;DR '), d(['tldr', 'summary'])) : null,
+              h('div', { className: 'body' }, this.props.widgetFor('body'))
+            );
+          },
+        }));
+      })();
+    </script>
+    <script>
       // The login window is on another origin (the OAuth proxy) and hands the
       // session back through localStorage when it cannot reach window.opener.
       window.addEventListener('storage', function (e) {

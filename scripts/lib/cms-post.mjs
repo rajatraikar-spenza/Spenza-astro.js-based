@@ -24,10 +24,20 @@ import rehypeStringify from 'rehype-stringify';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ASSETS = path.join(HERE, 'cms-post');
-const AUTHORS_FILE = path.join(HERE, '..', '..', 'src', 'data', 'cms-authors.json');
 
-export const CATEGORIES = ['telecom', 'iot', 'esim', 'mvno', 'byod', 'tem', 'spenza-product'];
-export const AUTHORS = JSON.parse(fs.readFileSync(AUTHORS_FILE, 'utf8'));
+// Authors, categories and tags are managed in the admin (Settings) and stored
+// as JSON next to the posts, so adding one needs no code change.
+export const META_DIR = process.env.CMS_META_DIR
+  ? path.resolve(process.env.CMS_META_DIR)
+  : path.join(HERE, '..', '..', 'src', 'content', 'cms-meta');
+const readList = (file, key) => {
+  try { return JSON.parse(fs.readFileSync(path.join(META_DIR, file), 'utf8'))[key] ?? []; } catch { return []; }
+};
+const byslug = list => Object.fromEntries(list.filter(x => x?.slug).map(x => [x.slug, x]));
+export const AUTHORS = byslug(readList('authors.json', 'authors'));
+export const CATEGORY_LIST = byslug(readList('categories.json', 'categories'));
+export const CATEGORIES = Object.keys(CATEGORY_LIST);
+export const TAG_LIST = byslug(readList('tags.json', 'tags'));
 export const TLDR_HEADING = 'TL;DR / At-a-Glance Summary';
 export const DEFAULT_ICONS = ['chart-line', 'coins', 'circle-check', 'clipboard-check', 'gears'];
 
@@ -104,6 +114,7 @@ export function validateEntry(meta, body, { fileExists = () => true, filenameSlu
   if (meta.slug && filenameSlug && meta.slug !== filenameSlug) errors.push(`slug "${meta.slug}" does not match the file name "${filenameSlug}"`);
   if (meta.category && !CATEGORIES.includes(meta.category)) errors.push(`category must be one of ${CATEGORIES.join(', ')}`);
   if (meta.author && !AUTHORS[meta.author]) errors.push(`author must be one of ${Object.keys(AUTHORS).join(', ')}`);
+  for (const t of meta.tags ?? []) if (!TAG_LIST[t]) errors.push(`tag "${t}" is not in Settings > Tags; add it there first`);
   if (meta.publishedDate && Number.isNaN(new Date(meta.publishedDate).getTime())) errors.push('publishedDate is not a valid date');
 
   const d = String(meta.description ?? '');
@@ -139,11 +150,176 @@ export function validateEntry(meta, body, { fileExists = () => true, filenameSlu
   });
   if (!faq.length) warnings.push('no FAQ: the post ships without the accordion and FAQPage schema');
 
+  errors.push(...blockProblems(body, fileExists));
   if (/^\s*#\s/m.test(body)) errors.push('the body contains an H1; the title is the only H1');
   if (/in this guide|table of contents/i.test(body)) warnings.push('remove the "In this guide" / contents block (not used on Spenza posts)');
   if (!body.trim()) errors.push('the body is empty');
   return { errors, warnings };
 }
+
+/**
+ * Rules for the Settings files (authors, categories, tags). A category slug
+ * becomes the first segment of every post URL, so it must not collide with a
+ * page the site already has.
+ */
+export function validateSettings({ authors = [], categories = [], tags = [] }, { reserved = [], fileExists = () => true } = {}) {
+  const errors = [];
+  const taken = new Set(reserved);
+  const check = (kind, list, { label, needsLabel = 'name' } = {}) => {
+    const seen = new Set();
+    list.forEach((x, i) => {
+      const at = `${kind} #${i + 1}${x?.slug ? ` (${x.slug})` : ''}`;
+      if (!x?.slug || !SLUG_RE.test(x.slug)) errors.push(`${at}: the URL name must be lowercase letters, numbers and hyphens`);
+      else if (seen.has(x.slug)) errors.push(`${at}: the URL name is used twice`);
+      else seen.add(x.slug);
+      if (!String(x?.[needsLabel] ?? '').trim()) errors.push(`${at}: needs a ${label ?? 'name'}`);
+    });
+  };
+  check('Author', authors, { label: 'name' });
+  check('Category', categories, { needsLabel: 'label', label: 'name' });
+  check('Tag', tags, { needsLabel: 'label', label: 'name' });
+  for (const c of categories) {
+    if (c?.slug && taken.has(c.slug)) errors.push(`Category (${c.slug}): "${c.slug}" is already a page or section of the site; pick another URL name`);
+  }
+  for (const a of authors) {
+    if (a?.avatar && !fileExists(a.avatar)) errors.push(`Author (${a.slug}): photo not found: ${a.avatar}`);
+  }
+  return errors;
+}
+
+// ---- body blocks (shortcodes) -------------------------------------------------
+//
+// The editor's "+" menu inserts a block as one line of text, so the body stays
+// plain markdown and diffs cleanly in a pull request:
+//   [[image src="/cms-media/x.webp" alt="..." caption="..."]]
+//   [[embed url="https://www.youtube.com/watch?v=..." title="..."]]   (YouTube, Vimeo, Loom)
+//   [[button text="Book a demo" url="https://spenza.com/contact-us/"]]
+//   [[callout type="note|tip|warning" title="..." text="..."]]
+// A quote inside a value is written \" and a line break is a space.
+
+export const BLOCKS = ['image', 'embed', 'button', 'callout'];
+const BLOCK_LINE = /^[ \t]*\[\[([a-z-]+)((?:\s+[a-zA-Z]+="(?:[^"\\]|\\.)*")*)\s*\]\][ \t]*$/;
+const ATTR = /([a-zA-Z]+)="((?:[^"\\]|\\.)*)"/g;
+
+function parseAttrs(src) {
+  const out = {};
+  for (const m of src.matchAll(ATTR)) out[m[1]] = m[2].replace(/\\"/g, '"');
+  return out;
+}
+
+const EMBED_HOSTS = {
+  youtube: u => {
+    const h = u.hostname.replace(/^www\.|^m\./, '');
+    let id = '';
+    if (h === 'youtu.be') id = u.pathname.slice(1);
+    else if (h === 'youtube.com' || h === 'youtube-nocookie.com') id = u.searchParams.get('v') || (/^\/(?:embed|shorts)\/([\w-]+)/.exec(u.pathname) ?? [])[1] || '';
+    return /^[\w-]{6,20}$/.test(id) ? `https://www.youtube-nocookie.com/embed/${id}` : null;
+  },
+  vimeo: u => {
+    const id = /^\/(\d{5,12})/.exec(u.pathname)?.[1];
+    return u.hostname.replace(/^www\./, '') === 'vimeo.com' && id ? `https://player.vimeo.com/video/${id}` : null;
+  },
+  loom: u => {
+    const id = /^\/(?:share|embed)\/([a-f0-9]{20,40})/.exec(u.pathname)?.[1];
+    return u.hostname.replace(/^www\./, '') === 'loom.com' && id ? `https://www.loom.com/embed/${id}` : null;
+  },
+};
+
+/** The player URL for a pasted video link, or null when the host is not allowed. */
+export function embedSrc(url) {
+  let u;
+  try { u = new URL(String(url)); } catch { return null; }
+  if (u.protocol !== 'https:') return null;
+  for (const f of Object.values(EMBED_HOSTS)) {
+    const r = f(u);
+    if (r) return r;
+  }
+  return null;
+}
+
+const safeUrl = u => /^(https?:\/\/|\/|#|mailto:)/i.test(String(u ?? '').trim());
+
+/** Every block line in a body, with its line number, for validation. */
+export function findBlocks(body) {
+  const out = [];
+  String(body).split('\n').forEach((line, i) => {
+    if (!/^\s*\[\[/.test(line)) return;
+    const m = BLOCK_LINE.exec(line);
+    out.push(m ? { line: i + 1, name: m[1], attrs: parseAttrs(m[2]) } : { line: i + 1, name: null, attrs: {} });
+  });
+  return out;
+}
+
+function blockProblems(body, fileExists) {
+  const errors = [];
+  for (const b of findBlocks(body)) {
+    const at = `body line ${b.line}`;
+    if (!b.name) { errors.push(`${at}: a [[block]] is malformed (values go in "double quotes")`); continue; }
+    if (!BLOCKS.includes(b.name)) { errors.push(`${at}: unknown block [[${b.name}]] (use ${BLOCKS.join(', ')})`); continue; }
+    const a = b.attrs;
+    if (b.name === 'image') {
+      if (!a.src) errors.push(`${at}: the image block has no image`);
+      else if (!fileExists(a.src)) errors.push(`${at}: image not found: ${a.src}`);
+      if (a.src && !String(a.alt ?? '').trim()) errors.push(`${at}: the image block needs alt text`);
+    } else if (b.name === 'embed') {
+      if (!embedSrc(a.url)) errors.push(`${at}: the embed link must be an https YouTube, Vimeo or Loom video link`);
+    } else if (b.name === 'button') {
+      if (!String(a.text ?? '').trim()) errors.push(`${at}: the button needs text`);
+      if (!safeUrl(a.url)) errors.push(`${at}: the button link must start with https://, / or #`);
+    } else if (b.name === 'callout') {
+      if (!String(a.text ?? '').trim()) errors.push(`${at}: the callout needs text`);
+    }
+  }
+  return errors;
+}
+
+const inlineButton = (text, url) => {
+  const ext = /^https?:\/\//i.test(url) && !/^https?:\/\/(www\.)?spenza\.com/i.test(url);
+  return BUTTON
+    .replace('href="https://spenza.com/contact-us/"', `href="${escapeHtml(url)}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}`)
+    .replace('Contact Us Today', escapeHtml(text));
+};
+
+/**
+ * Block lines to HTML (each on one line so markdown treats it as a raw block).
+ * Blank lines are added around the result so it is its own block.
+ */
+export async function expandBlocks(body, { imageDims } = {}) {
+  const lines = String(body).split('\n');
+  const out = [];
+  for (const line of lines) {
+    const m = BLOCK_LINE.exec(line);
+    if (!m || !BLOCKS.includes(m[1])) { out.push(line); continue; }
+    const a = parseAttrs(m[2]);
+    let html = '';
+    if (m[1] === 'image') {
+      html = figureHtml({ image: a.src, alt: a.alt, caption: a.caption }, imageDims?.(a.src)).replace(/\n/g, '');
+    } else if (m[1] === 'embed') {
+      const src = embedSrc(a.url);
+      html = `<div class="spenza-embed"><iframe src="${escapeHtml(src)}" title="${escapeHtml(a.title || 'Video')}" loading="lazy" ` +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>';
+    } else if (m[1] === 'button') {
+      html = `<div class="spenza-inline-button">${inlineButton(a.text, a.url)}</div>`;
+    } else if (m[1] === 'callout') {
+      const kind = ['note', 'tip', 'warning'].includes(a.type) ? a.type : 'note';
+      html = `<aside class="spenza-callout spenza-callout-${kind}">` +
+        (a.title ? `<strong>${escapeHtml(a.title)}</strong>` : '') + `<span>${await inlineMd(a.text)}</span></aside>`;
+    }
+    out.push('', html, '');
+  }
+  return out.join('\n');
+}
+
+const BLOCK_CSS = '<style>/* Body blocks inserted from the editor. */\n' +
+  '.spenza-draft-content .spenza-embed{position:relative;width:100%;aspect-ratio:16/9;margin:28px 0;border-radius:12px;overflow:hidden;background:#111}\n' +
+  '.spenza-draft-content .spenza-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}\n' +
+  '.spenza-draft-content .spenza-inline-button{margin:28px 0}\n' +
+  '.spenza-draft-content .spenza-callout{display:block;margin:28px 0;padding:16px 20px;border-left:4px solid #ff4500;border-radius:8px;background:#fff4ee;line-height:1.6}\n' +
+  '.spenza-draft-content .spenza-callout strong{display:block;margin-bottom:4px}\n' +
+  '.spenza-draft-content .spenza-callout-tip{border-color:#0a7d3c;background:#e8f6ee}\n' +
+  '.spenza-draft-content .spenza-callout-warning{border-color:#b3261e;background:#fdecea}\n' +
+  '.spenza-draft-content figure img{max-width:100%;height:auto}</style>\n';
+
 
 // ---- markdown -> themed HTML -----------------------------------------------
 
@@ -275,13 +451,13 @@ async function faqJsonLd(siteUrl, meta, items) {
  * The post body: styles, the `.spenza-draft-content` wrapper, the prose, the
  * FAQ accordion, the attribution and the Contact Us Today button.
  */
-export async function renderContent(meta, body, { siteUrl, bodyImageDims } = {}) {
+export async function renderContent(meta, body, { siteUrl, bodyImageDims, imageDims } = {}) {
   const afterSection = Number(meta.bodyImage?.afterSection ?? 2) || 0;
   const figure = figureHtml(meta.bodyImage, bodyImageDims);
-  const html = String(await mdProcessor(() => rehypeSpenza({ figure, afterSection })).process(body));
+  const html = String(await mdProcessor(() => rehypeSpenza({ figure, afterSection })).process(await expandBlocks(body, { imageDims })));
   const faq = (meta.faq ?? []).filter(f => f?.question && f?.answer);
   return (
-    WRAPPER_HEAD +
+    WRAPPER_HEAD + BLOCK_CSS +
     '<div class="spenza-draft-content">\n' +
     html + '\n' + (await buildFaq(faq)) + '\n<hr/>\n' + ATTRIBUTION + '\n' + BUTTON + '\n</div>\n' +
     WRAPPER_TAIL +
@@ -328,7 +504,7 @@ export function buildHead(meta, { siteUrl, content, hero, authorName }) {
         headline: meta.title, datePublished: published, dateModified: modified,
         mainEntityOfPage: { '@id': url }, wordCount: words, publisher: { '@id': `${siteUrl}/#organization` },
         ...(image ? { image: { '@id': `${url}#primaryimage` }, thumbnailUrl: image } : {}),
-        keywords: meta.tags ?? [], articleSection: [meta.category], inLanguage: 'en-US',
+        keywords: (meta.tags ?? []).map(t => TAG_LIST[t]?.label ?? t), articleSection: [CATEGORY_LIST[meta.category]?.label ?? meta.category], inLanguage: 'en-US',
       },
       {
         '@type': 'WebPage', '@id': url, url, name: meta.seoTitle || meta.title, isPartOf: { '@id': `${siteUrl}/#website` },
@@ -342,7 +518,7 @@ export function buildHead(meta, { siteUrl, content, hero, authorName }) {
         '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
-          { '@type': 'ListItem', position: 2, name: meta.category, item: `${siteUrl}/category/${meta.category}/` },
+          { '@type': 'ListItem', position: 2, name: CATEGORY_LIST[meta.category]?.label ?? meta.category, item: `${siteUrl}/category/${meta.category}/` },
           { '@type': 'ListItem', position: 3, name: meta.title },
         ],
       },
@@ -407,9 +583,15 @@ export async function loadEntry(file, { siteUrl, publicDir, authorsMeta = {}, no
   const published = new Date(meta.publishedDate);
   if (published.getTime() > now.getTime()) return { file, slug: meta.slug, scheduled: published, errors: [], warnings };
 
-  const content = await renderContent(meta, body, { siteUrl, bodyImageDims: bodyDims });
+  const inlineDims = {};
+  for (const b of findBlocks(body)) if (b.name === 'image' && b.attrs.src) inlineDims[b.attrs.src] = await dims(b.attrs.src);
+  const content = await renderContent(meta, body, { siteUrl, bodyImageDims: bodyDims, imageDims: p => inlineDims[p] });
+  const a = AUTHORS[meta.author];
   const authorBase = authorsMeta[meta.author] ?? {};
-  const author = { name: AUTHORS[meta.author].name, slug: meta.author, ...(authorBase.bio ? { bio: authorBase.bio } : {}), ...(authorBase.avatar ? { avatar: authorBase.avatar } : {}) };
+  // A value set in Settings > Authors wins over the WordPress copy.
+  const bio = a.bio || authorBase.bio;
+  const avatar = a.avatar || authorBase.avatar;
+  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}) };
   const featuredImage = { url: meta.hero.image, alt: String(meta.hero.alt), ...heroDims };
   const modified = meta.updatedDate ? new Date(meta.updatedDate) : published;
 

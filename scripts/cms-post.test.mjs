@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseEntry, validateEntry, renderContent, loadEntry, templateBlocks, databaseIdFor } from './lib/cms-post.mjs';
+import { parseEntry, validateEntry, renderContent, loadEntry, templateBlocks, databaseIdFor, embedSrc, findBlocks, validateSettings, AUTHORS, CATEGORIES, TAG_LIST } from './lib/cms-post.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE = path.join(HERE, 'fixtures', 'cms-blog', 'fixture-post.mdx');
@@ -124,4 +124,68 @@ test('loadEntry returns the collection record, holds a future-dated post, and re
   fs.writeFileSync(broken, fs.readFileSync(FIXTURE, 'utf8').replace('category: iot', 'category: bogus').replace('slug: fixture-post', 'slug: broken'));
   const bad = await loadEntry(broken, { siteUrl: 'https://spenza.com', publicDir: PUBLIC });
   assert.ok(bad.errors.some(e => /category must be one of/.test(e)));
+});
+
+test('authors, categories and tags come from the managed Settings files', () => {
+  assert.ok(AUTHORS.vinay && AUTHORS.sivasai && AUTHORS.isimplexity);
+  assert.deepEqual(CATEGORIES.slice(0, 3), ['telecom', 'iot', 'esim']);
+  const { meta, body } = load();
+  const bad = validateEntry({ ...meta, tags: ["connectivity-bundles", "not-a-tag"] }, body, { fileExists: exists });
+  assert.ok(bad.errors.some(e => /tag "not-a-tag" is not in Settings > Tags/.test(e)));
+  assert.ok(TAG_LIST["connectivity-bundles"]);
+});
+
+test('embed links: only https YouTube, Vimeo and Loom videos become players', () => {
+  assert.equal(embedSrc('https://www.youtube.com/watch?v=dQw4w9WgXcQ'), 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ');
+  assert.equal(embedSrc('https://youtu.be/dQw4w9WgXcQ'), 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ');
+  assert.equal(embedSrc('https://vimeo.com/123456789'), 'https://player.vimeo.com/video/123456789');
+  assert.equal(embedSrc('https://www.loom.com/share/0123456789abcdef0123456789abcdef'), 'https://www.loom.com/embed/0123456789abcdef0123456789abcdef');
+  for (const bad of ['http://youtu.be/dQw4w9WgXcQ', 'https://evil.example/watch?v=dQw4w9WgXcQ', 'javascript:alert(1)', 'not a url', 'https://youtube.com.evil.example/watch?v=dQw4w9WgXcQ'])
+    assert.equal(embedSrc(bad), null, bad);
+});
+
+test('body blocks are validated, and each renders as themed HTML', async () => {
+  const { meta, body } = load();
+  const blocks = [
+    '[[image src="/cms-media/fixture-post/body.webp" alt="A diagram" caption="Say \\"hi\\""]]',
+    '[[embed url="https://youtu.be/dQw4w9WgXcQ" title="Demo"]]',
+    '[[button text="Book a demo" url="https://spenza.com/contact-us/"]]',
+    '[[button text="Docs" url="https://docs.spenza.com/"]]',
+    '[[callout type="tip" title="Tip" text="Use **bundles** for margin."]]',
+  ].join('\n\n');
+  const full = `${body}\n\n${blocks}\n`;
+  assert.deepEqual(validateEntry(meta, full, { fileExists: exists }).errors, []);
+  const html = await renderContent(meta, full, { siteUrl: 'https://spenza.com' });
+  assert.match(html, /<figure><img[^>]*alt="A diagram"[^>]*src="\/cms-media\/fixture-post\/body.webp"/);
+  assert.match(html, /<figcaption>Say &quot;hi&quot;<\/figcaption>/);
+  assert.match(html, /<div class="spenza-embed"><iframe src="https:\/\/www.youtube-nocookie.com\/embed\/dQw4w9WgXcQ"[^>]*loading="lazy"/);
+  assert.match(html, /<div class="spenza-inline-button">.*href="https:\/\/spenza.com\/contact-us\/"><span class="uagb-button__link">Book a demo/s);
+  assert.match(html, /href="https:\/\/docs.spenza.com\/" target="_blank" rel="noopener noreferrer"/);
+  assert.match(html, /<aside class="spenza-callout spenza-callout-tip"><strong>Tip<\/strong><span>Use <strong>bundles<\/strong> for margin.<\/span><\/aside>/);
+  assert.equal(findBlocks(full).length, 5);
+});
+
+test('a broken body block is an error the editor can read', () => {
+  const { meta, body } = load();
+  const errs = b => validateEntry(meta, `${body}\n\n${b}\n`, { fileExists: p => p !== '/cms-media/gone.webp' }).errors.join('|');
+  assert.match(errs('[[image src="/cms-media/gone.webp" alt="x"]]'), /image not found/);
+  assert.match(errs('[[image src="/cms-media/a.webp"]]'), /needs alt text/);
+  assert.match(errs('[[embed url="https://example.com/v"]]'), /YouTube, Vimeo or Loom/);
+  assert.match(errs('[[button text="Go" url="javascript:alert(1)"]]'), /must start with https/);
+  assert.match(errs('[[carousel x="1"]]'), /unknown block \[\[carousel\]\]/);
+  assert.match(errs('[[button text=Go]]'), /malformed/);
+});
+
+test('Settings: URL names are checked, and a category cannot shadow an existing page', () => {
+  const ok = { authors: [{ slug: 'a-b', name: 'A B' }], categories: [{ slug: 'field-guides', label: 'Field Guides' }], tags: [{ slug: 'x', label: 'X' }] };
+  assert.deepEqual(validateSettings(ok, { reserved: ['careers'] }), []);
+  const bad = validateSettings({
+    authors: [{ slug: 'Bad Slug', name: 'N' }, { slug: 'a', name: '' }, { slug: 'a', name: 'dup' }],
+    categories: [{ slug: 'careers', label: 'Careers' }, { slug: 'ok', label: '' }],
+    tags: [{ slug: 't', label: 'T' }, { slug: 't', label: 'T2' }],
+  }, { reserved: ['careers'] }).join('|');
+  assert.match(bad, /Bad Slug.*lowercase/);
+  assert.match(bad, /needs a name/);
+  assert.match(bad, /used twice/);
+  assert.match(bad, /"careers" is already a page/);
 });
