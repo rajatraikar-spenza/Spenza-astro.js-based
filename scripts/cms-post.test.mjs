@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseEntry, validateEntry, renderContent, loadEntry, templateBlocks, databaseIdFor, embedSrc, findBlocks, validateSettings, AUTHORS, CATEGORIES, TAG_LIST } from './lib/cms-post.mjs';
+import { parseEntry, validateEntry, renderContent, loadEntry, templateBlocks, databaseIdFor, embedSrc, findBlocks, validateSettings, AUTHORS, CATEGORIES, TAG_LIST, importedRecord, toMediaHost, headToMediaHost } from './lib/cms-post.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE = path.join(HERE, 'fixtures', 'cms-blog', 'fixture-post.mdx');
@@ -254,4 +254,44 @@ test('an imported post is checked for what the site depends on, but not held to 
   const bad = await loadEntry(writeTmp(IMPORTED().replace('wpId: 18379', 'wpId: 9000001').replace('category: "telecom"', 'category: "news"')), { siteUrl: 'https://spenza.com', publicDir: PUBLIC });
   assert.ok(bad.errors.some(e => /wpId must be/.test(e)));
   assert.ok(bad.errors.some(e => /category must be one of/.test(e)));
+});
+
+// ---- imported posts and the media host ---------------------------------------
+// An imported post stores root-relative `/wp-content/uploads/` paths. With a media host the apex no
+// longer carries those files, so a reference left local 404s once media stops being deployed (this
+// failed `wp:verify-dist` with 235 stranded refs and blocked every deploy after the import).
+const MEDIA = 'https://media.spenza.com';
+const imported = {
+  title: 'Old post', slug: 'old-post', category: 'iot', author: 'isimplexity', publishedDate: '2025-07-25T01:33:01.000Z', wpId: 11006,
+  hero: { image: '/wp-content/uploads/2025/07/Butlr.png', alt: 'x', srcSet: '/wp-content/uploads/2025/07/Butlr-300x169.png 300w, /wp-content/uploads/2025/07/Butlr.png 1280w' },
+  ogImage: '/wp-content/uploads/2025/07/Butlr.png',
+  seoHead: '<meta property="og:image" content="https://spenza.com/wp-content/uploads/2025/07/Butlr.png" /><link rel="canonical" href="https://spenza.com/iot/old-post/" />' +
+    '<script>{"url":"https:\\/\\/spenza.com\\/wp-content\\/uploads\\/2025\\/07\\/Butlr.png","@id":"https:\\/\\/spenza.com\\/iot\\/old-post\\/"}</script>',
+};
+const importedBody = '<img src="/wp-content/uploads/2025/07/a.png" srcset="/wp-content/uploads/2025/07/a-300.png 300w, /wp-content/uploads/2025/07/a.png 1024w"><div style="background:url(/wp-content/uploads/2025/07/b.png)"></div>';
+
+test('an imported post points its media at the media host when one is set', () => {
+  const r = importedRecord(imported, importedBody, { siteUrl: 'https://spenza.com', mediaOrigin: MEDIA });
+  assert.equal(r.featuredImage.url, `${MEDIA}/wp-content/uploads/2025/07/Butlr.png`);
+  assert.equal(r.featuredImage.srcSet, `${MEDIA}/wp-content/uploads/2025/07/Butlr-300x169.png 300w, ${MEDIA}/wp-content/uploads/2025/07/Butlr.png 1280w`);
+  assert.equal(r.seo.ogImage, `${MEDIA}/wp-content/uploads/2025/07/Butlr.png`);
+  assert.doesNotMatch(r.content, /(["'(,\s])\/wp-content\/uploads\//, 'no local media path left in the body');
+  assert.equal(r.content.match(/media\.spenza\.com\/wp-content\/uploads\//g).length, 4);
+});
+
+test('the Yoast head moves media (plain and JSON-escaped) but not canonicals or @ids', () => {
+  const head = importedRecord(imported, importedBody, { siteUrl: 'https://spenza.com', mediaOrigin: MEDIA }).seo.fullHead;
+  assert.ok(head.includes(`content="${MEDIA}/wp-content/uploads/2025/07/Butlr.png"`));
+  assert.ok(head.includes('https:\\/\\/media.spenza.com\\/wp-content\\/uploads\\/2025\\/07\\/Butlr.png'));
+  assert.ok(head.includes('href="https://spenza.com/iot/old-post/"'), 'canonical stays on the site');
+  assert.ok(head.includes('https:\\/\\/spenza.com\\/iot\\/old-post\\/'), '@id stays on the site');
+});
+
+test('without a media host an imported post is left exactly as stored', () => {
+  const r = importedRecord(imported, importedBody, { siteUrl: 'https://spenza.com', mediaOrigin: '' });
+  assert.equal(r.featuredImage.url, imported.hero.image);
+  assert.equal(r.content, importedBody);
+  assert.equal(r.seo.fullHead, imported.seoHead);
+  assert.equal(toMediaHost('/wp-content/uploads/a.png', ''), '/wp-content/uploads/a.png');
+  assert.equal(headToMediaHost('x', 'https://spenza.com', ''), 'x');
 });
