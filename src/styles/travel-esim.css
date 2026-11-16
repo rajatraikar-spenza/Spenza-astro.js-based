@@ -79,7 +79,7 @@
 .te .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
 .te .hero h1{margin-bottom:24px}
 .te .hero .lead{margin-bottom:32px}
-.te .capture{display:flex;gap:8px;max-width:520px;margin-bottom:14px}
+.te .capture{display:flex;flex-wrap:wrap;gap:8px;max-width:520px;margin-bottom:14px}
 .te .capture input{flex:1;min-width:0;height:50px;padding:0 16px;border:1px solid var(--line-2);border-radius:var(--radius-btn);background:#fff;color:var(--ink);font-size:15px;outline:none;transition:border-color .2s,box-shadow .2s}
 .te .capture input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,73,4,.14)}
 .te .assure{display:flex;gap:20px;flex-wrap:wrap;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
@@ -298,7 +298,9 @@
   .te .sec-feat-head{padding-bottom:0}
   .te .feat-row--last{padding-bottom:80px}
   .te .hero{padding:48px 0 64px}
-  .te .capture{flex-direction:column}
+  .te .capture{flex-direction:column;flex-wrap:nowrap}
+  .te .capture input{flex:none;width:100%}
+  .te .assure{gap:6px 20px}
   .te .capture .btn{width:100%}
   .te .trio{grid-template-columns:1fr}
   .te .trio > div,.te .trio > div + div{padding:28px 0;border-left:0;border-bottom:1px solid var(--line)}
@@ -344,10 +346,84 @@
 .te [id] { scroll-margin-top: 90px; }
 
 /* The forms in the states hubspot-forms.js puts them in. */
-.te .hs-field-error { margin: 4px 0 0; font-size: 13px; color: #c02b0a; }
+.te .capture .hs-form-error { order: -1; flex: 0 0 100%; margin: 0; }
+/* Stacked on a phone, DOM order already puts the error right under the box. */
+@media (max-width: 720px) {
+  }
+
 .te .hs-form-error { margin: 0 0 8px; font-size: 14px; color: #c02b0a; }
 .wp-mirror .te .hs-confirmation:not(:has(a.download_pdf, .form_title)) {
   display: block; max-width: none; min-height: 0; margin-top: 6px; padding: 18px 20px;
   border: 1px solid var(--line-2); border-radius: 8px; background: #fff; color: var(--ink);
   font-size: 16px; font-weight: 500; line-height: 1.5; text-align: left;
+}
+
+/* The dark CTA card styles every `p` in it for its own lede (pale, 17px). The
+   form's messages are <p>s too, and sit on the white form panel. */
+.te .cta .hs-form-error { max-width: none; font-size: 13px; line-height: 1.4; color: #c02b0a; }
+.te .cta .hs-form-error { margin: 0 0 12px; font-size: 14px; }
+.te .cta .hs-confirmation p { max-width: none; font-size: 16px; color: var(--ink); }
+.wp-mirror .te .form .hs-confirmation:not(:has(a.download_pdf, .form_title)) { margin: 0; padding: 4px 0; border: 0; background: none; }
+
+/* Section headings on a phone: label, heading and description on one centre.
+   The label is a dash then text, so centring the pair leaves the words off
+   to the right by half a dash — a matching dash after balances it. The
+   "Leave the Complexity Behind" heading is left-aligned on desktop; stacked on
+   a phone it joins the others. */
+@media (max-width: 720px) {
+  .te .sec-head { text-align: center; margin-inline: auto; }
+  .te .sec-head .eyebrow { display: flex; justify-content: center; }
+  .te .sec-head .eyebrow::after { content: ""; width: 24px; height: 1px; background: var(--accent); }
+  .te .sec-head p { margin-inline: auto; }
+}
+
+/* ── field errors, drawn on the input's top border ─────────────────
+   The border goes dark red and the message sits on it like a legend: a small
+   label, centred on the border line, whose white background cuts the line
+   behind it. hubspot-forms.js inserts the message right after the input, so:
+   - the hero's email bar (a flex row) anchors it to the form, whose top edge
+     is the input's, with absolute positioning;
+   - the demo form's fields are grids, with the message laid over the input's
+     own cell, so it stays on that input's border whatever the label above it.
+   Both inputs are white, which is what the label's background has to match. */
+.te { --err: #b42318; }
+.te .capture input, .te .field input { background: #fff; }
+
+.te .capture input.hs-invalid,
+.te .field input.hs-invalid,
+.te .capture input.hs-invalid:focus,
+.te .field input.hs-invalid:focus { border-color: var(--err); box-shadow: none; }
+
+.te .hs-field-error {
+  position: absolute; z-index: 2; margin: 0; padding: 0 6px;
+  background: #fff; color: var(--err);
+  font-size: 12px; font-weight: 500; line-height: 1; letter-spacing: 0;
+  white-space: nowrap; pointer-events: none;
+}
+.te .capture { position: relative; }
+.te .capture .hs-field-error { left: 10px; top: 0; transform: translateY(-50%); }
+
+.te .field { display: grid; }
+.te .field > label { grid-area: 1 / 1; }
+.te .field > input { grid-area: 2 / 1; }
+.te .field > .hs-field-error {
+  position: relative; grid-area: 2 / 1; align-self: start; justify-self: start;
+  margin-left: 10px; transform: translateY(-50%);
+}
+.te .cta .hs-field-error { max-width: none; font-size: 12px; line-height: 1; color: var(--err); }
+
+/* The hero once it stacks (the same breakpoint the grid collapses at): the
+   whole text block on one centre line — label, heading, description, the email
+   bar, the reassurance row and the stats — with the phone mock-up below it. */
+@media (max-width: 1100px) {
+  .te .hero-grid > div:first-child { text-align: center; }
+  /* The hero label is long enough to wrap on a phone, and a dash either side
+     of a wrapped line ends up at the screen edges, so here it is plain
+     centred text. */
+  .te .hero .eyebrow { display: block; text-align: center; }
+  .te .hero .eyebrow::before { content: none; }
+  .te .hero .lead { margin-inline: auto; }
+  .te .hero .capture { margin-inline: auto; }
+  .te .hero .assure { justify-content: center; }
+  .te .hero .hero-stats { margin-inline: auto; justify-items: center; }
 }
