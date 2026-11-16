@@ -47,3 +47,6 @@ public/wp-assets/wp-content/webp-express/
 scripts/.cf-site-function.js
 scripts/.cf-redirects.json
 scripts/.cf-kvs-batches/
+
+# Single-file home page snapshot, rebuilt by every build
+/output/home.html
