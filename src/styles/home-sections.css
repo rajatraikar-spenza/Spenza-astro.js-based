@@ -544,16 +544,20 @@
 .hm .hm-how__name b { display: block; margin-bottom: 2px; font: 500 11px/1.4 var(--mono); font-family: var(--mono) !important; letter-spacing: .06em; text-transform: uppercase; color: inherit; }
 .hm .hm-how__text {
   max-height: 0; margin: 0; overflow: hidden; opacity: 0; max-width: 360px;
+  /* Hidden, not just collapsed, so its link is out of the tab order until the step is selected. */
+  visibility: hidden;
   font-size: 14px; line-height: 1.55; color: var(--body);
-  transition: max-height .45s ease, opacity .3s ease, margin .45s ease;
+  transition: max-height .45s ease, opacity .3s ease, margin .45s ease, visibility 0s .45s;
 }
+.hm .hm-how__more { display: block; margin-top: 6px; font-weight: 600; color: var(--acctext); text-decoration: none; }
+.hm .hm-how__more:hover, .hm .hm-how__more:focus-visible { text-decoration: underline; }
 .hm .hm-how__btn:hover { color: var(--ink); }
 .hm .hm-how__step.is-done .hm-how__num { border-color: var(--acc); color: var(--acctext); }
 .hm .hm-how__step[aria-current] .hm-how__btn { color: var(--ink); }
 .hm .hm-how__step[aria-current] .hm-how__name { transform: translateX(4px); }
 .hm .hm-how__step[aria-current] .hm-how__name b { color: var(--acctext); }
 .hm .hm-how__step[aria-current] .hm-how__num { background: var(--acc); border-color: var(--acc); color: #fff; box-shadow: 0 0 0 4px rgba(var(--accrgb), .14); }
-.hm .hm-how__step[aria-current] .hm-how__text { max-height: 120px; margin-top: 8px; opacity: 1; padding-left: 4px; }
+.hm .hm-how__step[aria-current] .hm-how__text { max-height: 120px; margin-top: 8px; opacity: 1; padding-left: 4px; visibility: visible; transition-delay: 0s; }
 
 .hm .hm-how__links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 24px; }
 .hm .hm-how__link {
@@ -788,6 +792,6 @@
   .hm .hm-how__name b { color: var(--acctext); }
   .hm .hm-how__num, .hm .hm-how__step[aria-current] .hm-how__num { background: #fff; border-color: var(--ink); color: var(--ink); box-shadow: none; }
   .hm .hm-how__step:not(:last-child)::after { transform: scaleY(1); }
-  .hm .hm-how__text, .hm .hm-how__step[aria-current] .hm-how__text { max-height: none; margin-top: 6px; opacity: 1; padding-left: 0; }
+  .hm .hm-how__text, .hm .hm-how__step[aria-current] .hm-how__text { max-height: none; margin-top: 6px; opacity: 1; padding-left: 0; visibility: visible; }
   .hm .hm-how__links { justify-content: center; margin-top: 28px; }
 }

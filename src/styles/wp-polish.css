@@ -2260,3 +2260,7 @@ body.wp-mirror.e-off-canvas__no-scroll {
 .wp-mirror a.hero-btn2:not(:hover) {
   background: #ff4500;
 }
+
+/* Careers: a job title opens its role. Looks like the heading it replaces until hovered or focused. */
+.careers-role-link { color: inherit; text-decoration: none; }
+.careers-role-link:hover, .careers-role-link:focus-visible { text-decoration: underline; text-underline-offset: 4px; }

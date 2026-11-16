@@ -18,20 +18,24 @@
 import HubArt from './HubArt.astro';
 import agent from '../../assets/home/agent-live.svg?url';
 
-/** Front to back: the order of the steps, and of the cards in the stack. */
+/**
+ * Front to back: the order of the steps, and of the cards in the stack.
+ * `href` is the hub's own page; AgentHub has none yet, so it has no link.
+ * The selected step shows an "Explore" link, and a second click on the selected card follows it.
+ */
 const hubs = [
   {
-    id: 'telecom', n: '01', tag: 'NETWORK', name: 'TelecomHub',
+    id: 'telecom', href: '/telecomhub/', n: '01', tag: 'NETWORK', name: 'TelecomHub',
     title: 'One API. Global connectivity.',
     text: 'Access operators, provision SIMs and eSIMs, and manage plans via one API.',
   },
   {
-    id: 'control', n: '02', tag: 'CONTROL', name: 'ControlHub',
+    id: 'control', href: '/controlhub/', n: '02', tag: 'CONTROL', name: 'ControlHub',
     title: 'See every dollar. Control every cost.',
     text: 'Track usage, manage subscriptions, and control costs in one place.',
   },
   {
-    id: 'ux', n: '03', tag: 'BRAND', name: 'UXHub',
+    id: 'ux', href: '/uxhub/', n: '03', tag: 'BRAND', name: 'UXHub',
     title: 'Your brand. Your customer experience.',
     text: 'Let customers buy, activate, and manage plans under your brand.',
   },
@@ -62,7 +66,7 @@ const hubs = [
                 <span class="hm-how__num" aria-hidden="true">{i + 1}<svg viewBox="0 0 32 32" focusable="false"><circle cx="16" cy="16" r="15" pathLength="1" /></svg></span>
                 <span class="hm-how__name"><b>{hub.name}</b> {hub.title}</span>
               </button>
-              <p class="hm-how__text">{hub.text}</p>
+              <p class="hm-how__text">{hub.text}{hub.href && <a class="hm-how__more" href={hub.href}>Explore {hub.name} <span aria-hidden="true">→</span></a>}</p>
             </li>
           ))}
         </ol>
@@ -76,7 +80,7 @@ const hubs = [
       <div class="hm-how__art" aria-hidden="true">
         <div class="hm-iso">
           {hubs.map((hub, i) => (
-            <div class="hm-iso-card" data-hub={hub.id} style={`--i:${i}`}>
+            <div class="hm-iso-card" data-hub={hub.id} data-href={hub.href} style={`--i:${i}`}>
               <span class="hm-iso-guide hm-iso-guide--b"></span>
               <span class="hm-iso-guide hm-iso-guide--r"></span>
               <span class="hm-iso-face hm-iso-face--top"></span>

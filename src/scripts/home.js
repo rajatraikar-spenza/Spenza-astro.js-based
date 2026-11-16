@@ -228,7 +228,11 @@ if (how) {
     }
   };
   steps.forEach((step, i) => step.querySelector('button').addEventListener('click', () => pick(i)));
-  cards.forEach((card, i) => card.addEventListener('click', () => pick(i)));
+  // A click on a card selects its hub; a click on the one already selected opens the hub's page.
+  cards.forEach((card, i) => card.addEventListener('click', () => {
+    if (i === active && card.dataset.href) location.assign(card.dataset.href);
+    else pick(i);
+  }));
 
   show(0);
   if ('IntersectionObserver' in window) {
