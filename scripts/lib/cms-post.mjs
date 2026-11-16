@@ -16,6 +16,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
+import { MEDIA_ORIGIN } from './config.mjs';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
@@ -588,7 +589,48 @@ export function validateImported(meta, body, { filenameSlug } = {}) {
   return { errors, warnings };
 }
 
-export function importedRecord(meta, body, { siteUrl, authorsMeta = {} }) {
+/**
+ * Point locally-rooted media at the media host.
+ *
+ * An imported post stores the paths WordPress rendered, `/wp-content/uploads/...`. With a media
+ * host configured the apex no longer carries those files, so a reference left local 404s once
+ * the media trees stop being deployed. The WordPress loader does this rewrite when it fetches a
+ * post; an imported post never passes through it, so it is done here.
+ *
+ * The delimiter is part of the match, as in `toMediaOrigin` (a quote, `url(`, whitespace or the
+ * comma between `srcset` candidates). A leading space is added so a bare value such as a `srcset`
+ * or a hero URL, which starts with the path, matches too.
+ */
+const WEBP_SEGMENT = '/wp-assets/wp-content/webp-express/';
+export function toMediaHost(value, mediaOrigin = MEDIA_ORIGIN) {
+  if (!mediaOrigin || !value) return value;
+  const origin = String(mediaOrigin).replace(/\/+$/, '');
+  return ` ${value}`
+    .replace(/([\s"'(,])\/wp-content\/uploads\//g, `$1${origin}/wp-content/uploads/`)
+    .replace(/([\s"'(,])\/wp-assets\/wp-content\/webp-express\//g, `$1${origin}${WEBP_SEGMENT}`)
+    .slice(1);
+}
+
+/**
+ * The same for Yoast's head, where media is named by absolute URL on the public site, plain
+ * (`https://host/wp-content/...`) and JSON-escaped (`https:\/\/host\/wp-content\/...`) inside the
+ * schema graph. Links and canonicals are left alone: only uploads and their WebP variants move.
+ */
+export function headToMediaHost(head, siteUrl, mediaOrigin = MEDIA_ORIGIN) {
+  if (!mediaOrigin || !head) return head;
+  const origin = String(mediaOrigin).replace(/\/+$/, '');
+  const host = new URL(siteUrl).host.replace(/\./g, '\\.');
+  const esc = u => u.replace(/\//g, '\\/');
+  const uploads = `${origin}/wp-content/uploads/`;
+  const webp = `${origin}${WEBP_SEGMENT}`;
+  return toMediaHost(head, mediaOrigin)
+    .replace(new RegExp(`https?://${host}/wp-content/uploads/`, 'g'), uploads)
+    .replace(new RegExp(`https?://${host}${WEBP_SEGMENT}`, 'g'), webp)
+    .replace(new RegExp(`https?:\\\\/\\\\/${host}\\\\/wp-content\\\\/uploads\\\\/`, 'g'), () => esc(uploads))
+    .replace(new RegExp(`https?:\\\\/\\\\/${host}${esc(WEBP_SEGMENT).replace(/\\/g, '\\\\')}`, 'g'), () => esc(webp));
+}
+
+export function importedRecord(meta, body, { siteUrl, authorsMeta = {}, mediaOrigin = MEDIA_ORIGIN }) {
   const a = AUTHORS[meta.author];
   const base = authorsMeta[meta.author] ?? {};
   // Settings > Authors wins when filled in; otherwise what WordPress had for this post's author.
@@ -599,9 +641,9 @@ export function importedRecord(meta, body, { siteUrl, authorsMeta = {} }) {
   const modified = meta.updatedDate ? new Date(meta.updatedDate) : published;
   const hero = meta.hero?.image
     ? {
-      url: String(meta.hero.image), alt: String(meta.hero.alt ?? ''),
+      url: toMediaHost(String(meta.hero.image), mediaOrigin), alt: String(meta.hero.alt ?? ''),
       ...(meta.hero.width ? { width: Number(meta.hero.width) } : {}), ...(meta.hero.height ? { height: Number(meta.hero.height) } : {}),
-      ...(meta.hero.id ? { id: Number(meta.hero.id) } : {}), ...(meta.hero.srcSet ? { srcSet: String(meta.hero.srcSet) } : {}),
+      ...(meta.hero.id ? { id: Number(meta.hero.id) } : {}), ...(meta.hero.srcSet ? { srcSet: toMediaHost(String(meta.hero.srcSet), mediaOrigin) } : {}),
     }
     : undefined;
   // The description is the editable field; WordPress' own excerpt markup is kept only while it still says the same thing.
@@ -614,7 +656,7 @@ export function importedRecord(meta, body, { siteUrl, authorsMeta = {} }) {
   const entry = { ...meta, category, publishedDate: published, updatedDate: modified, description };
   // Yoast's head is kept verbatim. Clear the field in the admin to rebuild the tags from the fields instead.
   const fullHead = String(meta.seoHead ?? '').trim()
-    ? String(meta.seoHead)
+    ? headToMediaHost(String(meta.seoHead), siteUrl, mediaOrigin)
     : buildHead(entry, { siteUrl: siteUrl.replace(/\/$/, ''), content: body, hero, authorName: author.name });
   return {
     databaseId: Number(meta.wpId), slug: String(meta.slug), title: String(meta.title),
@@ -624,10 +666,10 @@ export function importedRecord(meta, body, { siteUrl, authorsMeta = {} }) {
     ...(hero ? { featuredImage: hero } : {}),
     seo: {
       title: String(meta.seoTitle || meta.title), description: String(meta.seoDescription || description),
-      ...(meta.ogImage ? { ogImage: String(meta.ogImage) } : {}), fullHead,
+      ...(meta.ogImage ? { ogImage: toMediaHost(String(meta.ogImage), mediaOrigin) } : {}), fullHead,
     },
     // The file format trims leading whitespace from the body; WordPress' markup began with some, so it is put back.
-    content: String(meta.bodyLead ?? '') + body, templateBlocks,
+    content: toMediaHost(String(meta.bodyLead ?? '') + body, mediaOrigin), templateBlocks,
   };
 }
 
