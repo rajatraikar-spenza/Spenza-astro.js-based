@@ -17,6 +17,7 @@ import { hostFiles } from './scripts/lib/host-files-integration.mjs';
 import { sitemapMeta } from './scripts/lib/sitemap-meta.mjs';
 import { sitemapAlias } from './scripts/lib/sitemap-alias-integration.mjs';
 import { sitemapPage } from './scripts/lib/sitemap-page-integration.mjs';
+import homeSnapshot from './scripts/lib/home-snapshot-integration.mjs';
 
 /**
  * Every path this site answers with a redirect rather than a page.
@@ -131,6 +132,13 @@ export default defineConfig({
      * same reason it is after `sitemap()`: it reads what the hook before wrote.
      */
     sitemapPage(),
+
+    /**
+     * A single-file copy of the home page (`output/home.html`, or
+     * HOME_SNAPSHOT_OUT), rebuilt from the finished `dist/index.html` on every
+     * build so it cannot go stale. Last, so it sees the final HTML.
+     */
+    homeSnapshot({ out: process.env.HOME_SNAPSHOT_OUT || 'output/home.html' }),
   ],
 
   /**
