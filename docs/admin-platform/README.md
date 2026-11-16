@@ -124,6 +124,21 @@ If sign-in fails: a popup that closes with "not authorised" means the account la
 "redirect_uri mismatch" means the callback URL in step 2 differs from the proxy URL; the Lambda's logs in
 CloudWatch (`/aws/lambda/spenza-admin-oauth`) say which.
 
+## When a published post does not go live
+
+Publishing in the admin merges a pull request into `main`; the merge starts the deploy (`publish.yml`). If the
+deploy's **Verify the build is self-consistent** step fails, nothing is uploaded: the post is on `main` but not on
+the site, and every later deploy fails the same way until it is fixed.
+
+The **Build check** workflow (`.github/workflows/site-build-check.yml`) runs that same build and check on every pull
+request, so the failure shows on the post's card in the Workflow tab *before* Publish. A red **Build check** means
+do not publish yet; the log names the files. The usual causes are a local `/wp-content/uploads/` image path that was
+not pointed at the media host (see `toMediaHost` in `scripts/lib/cms-post.mjs`) or a reference with no file behind it.
+
+The check cannot block a merge by itself: `main` has no branch protection. Requiring **Build check** and
+**Validate admin posts** in Settings > Branches would make Publish refuse a failing post. That is a deliberate
+choice for the repo owner, because the deploy job also pushes the media manifest to `main`.
+
 ## Not verified yet, and why
 
 * **Real GitHub login and the Draft/Review/Ready board:** needs the OAuth App above. Verified instead:
