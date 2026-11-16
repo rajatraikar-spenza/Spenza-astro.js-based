@@ -1,12 +1,14 @@
 ---
 source: "admin"
-title: "Permanent Roaming Rules by Country: A Deployment Guide for Connected Products"
+title: "Permanent Roaming Rules by Country for IoT Devices"
 slug: "permanent-roaming-rules-by-country"
 category: "iot"
 author: "sivasai"
-description: "Which countries restrict permanent roaming for IoT devices, and when do you need a local profile? Rules reported as of 16 Nov 2026."
+description: "Explore IoT permanent roaming rules by country, including restrictions, time limits, and local eSIM requirements. Compare rules and plan global deployments."
 publishedDate: "2026-11-16T08:16:54.000Z"
-focusKeyword: "iot permanent roaming restrictions by country"
+updatedDate: "2026-11-16T10:30:00.000Z"
+focusKeyword: "IoT permanent roaming rules"
+seoTitle: "IoT Permanent Roaming Rules by Country (2026) | Spenza"
 tags: ["iot", "permanent-roaming", "esim"]
 hero:
   image: "/cms-media/permanent-roaming-rules-by-country/hero.webp"
@@ -14,133 +16,162 @@ hero:
 bodyImage:
   image: "/cms-media/permanent-roaming-rules-by-country/body.webp"
   alt: "A charcoal IoT sensor with a SIM chip on orange hills, with a signpost where the path splits toward a roaming cell tower and a local cell tower beside a contract paper, labeled ONE SKU, ROAMING and LOCAL."
-  caption: "One eUICC-based SKU can move between a roaming profile and a local profile as a country's rules require, with a possible limit in Turkey and an open question in China."
-  afterSection: 4
+  caption: "One eUICC-based design can load different operator profiles by country, but legal limits, radio bands and carrier agreements still apply."
+  afterSection: 6
 tldr:
-  summary: "Permanent roaming rules for IoT differ by country, and no single day count applies everywhere. Brazil, Turkey, India and China are reported to prohibit it, while most of Europe and most of the Americas surveyed by Cullen International permit it. Launch on a roaming SIM, move long-lived stationary devices to local profiles where required, and design one hardware SKU around an eUICC with SGP.32 profile switching. Every country detail below comes from law firms, analysts and trade press, some of it years old, so confirm with the regulator or your carrier."
+  summary: "Permanent roaming rules for IoT devices differ by country, and there is no universal 90-day limit. Analysts identify Brazil, India, China and Turkey as restrictive markets, and Saudi Arabia and Oman are reported to allow temporary foreign-SIM use within set limits. Before shipping, confirm each country's rules, operator agreements, SIM registration duties and eUICC capabilities: a local operator profile can support long-lived deployments, but SGP.32 profile switching does not override legal requirements or guarantee hardware compatibility."
   cards:
     - icon: "globe"
       title: "Rules differ by country"
-      text: "Cullen lists Brazil, India and China as prohibiting permanent roaming for IoT, and sources say Turkey does too. Europe and the Americas are mostly permissive."
-    - icon: "sim-card"
-      title: "Roaming first, local later"
-      text: "A roaming SIM is the usual way to launch; stationary, long-lived devices are where local profiles earn their place."
+      text: "Cullen lists Brazil, India and China as restrictive, and 2019-2020 sources say Turkey is too. Saudi Arabia and Oman are reported to set foreign-SIM time limits."
     - icon: "scale-balanced"
-      title: "No universal day threshold"
-      text: "One analyst firm puts the line at roughly 90 to 120 days, but regulators in different countries set their own terms."
+      title: "No universal day limit"
+      text: "Time limits and counting methods vary, so 90 to 120 days is an analyst's range, not a rule you can apply everywhere."
+    - icon: "sim-card"
+      title: "Roaming is not the default"
+      text: "Roaming can work where local rules and operator agreements allow it. In restrictive markets, plan a local profile before shipment."
     - icon: "microchip"
-      title: "One SKU, with limits"
-      text: "An eUICC with SGP.32 profile switching lets one SKU change profiles, but Turkey's eSIM localization rules may limit it, and no source we found settles China."
+      title: "SGP.32 is not a shortcut"
+      text: "SGP.32 standardizes remote profile provisioning. It does not make a deployment lawful or guarantee one SKU works everywhere."
     - icon: "clipboard-check"
       title: "How Spenza helps"
-      text: "Spenza orchestrates eSIM profile changes and records the result, while your team records each country's constraints."
+      text: "Spenza's published case study describes centralized connectivity, eSIM orchestration and provisioning. Your team still verifies each country."
 faq:
-  - question: "Which countries ban permanent roaming for IoT devices?"
-    answer: "Cullen International (2025 to 2026) lists Brazil, India and China as prohibiting it, and Legal 500 (2020) and IAPP (2019) say Turkey does not allow it. Cullen also describes Nigeria's national-ID SIM registration as effectively preventing it, and Belgium as generally prohibiting it with exceptions. Confirm with the regulator or your carrier."
+  - question: "Which countries restrict permanent roaming for IoT devices?"
+    answer: "Regulatory analyses identify Brazil, India and China as restrictive markets, and 2019-2020 legal analyses say the same of Turkey. Belgium generally prohibits permanent IoT roaming with exceptions, while Nigeria's national-ID SIM registration rules effectively prevent permanent roaming on foreign SIMs, as Cullen reports. These classifications are not a substitute for destination-specific legal and carrier checks."
   - question: "How many days of roaming count as permanent?"
-    answer: "There is no universal number. Transforma Insights puts the line at roughly 90 to 120 days, and BEREC's 2024 report states no threshold. Oman's TRA is said to allow no more than 90 days (per a newspaper) and Saudi Arabia's CST up to 120 days for foreign SIMs (per a consultancy). We do not give a threshold for Turkey."
-  - question: "Can one eSIM SKU serve every country?"
-    answer: "One SKU with an eUICC and SGP.32 profile switching can serve many countries, because the profile can change after deployment. It cannot serve all of them. Turkey's localization requirements may limit it, and we found no source that settles China. A local profile also still needs a carrier or provider in each country."
-  - question: "Does Turkey allow permanent roaming for IoT devices?"
-    answer: "The sources we found say no: Legal 500 and IAPP both say permanent roaming is not allowed, and IAPP says foreign profiles can be installed only outside the customs zone. How the 2019 BTK eSIM localization decision applies to M2M was \"not yet clear\" in 2020. Ask the regulator and your carrier before shipping."
-  - question: "How do I confirm a country's rule before I ship?"
-    answer: "Start with the regulator's published text, then ask your carrier or connectivity provider and, for high-stakes markets, local counsel. Use summaries like those cited here to know what to ask. For help comparing providers, see our [IoT eSIM providers guide](https://spenza.com/esim/iot-esim-providers/)."
+    answer: "There is no universal threshold. Saudi Arabia is reported to allow foreign IoT SIMs for up to 120 days and Oman no more than 90, both through secondary sources, and a 2020 law-firm analysis says Turkey gives devices brought in 120 days of international roaming. A 91-in-120 figure circulates for Turkey, but we could not verify the decision text, so we do not treat it as a rule."
+  - question: "Can one eSIM hardware SKU serve every country?"
+    answer: "An eUICC can help one hardware design use different operator profiles, but the design still needs compatible radio bands, certified hardware, permitted local subscriptions and a tested provisioning workflow. SGP.32 cannot override country-specific regulation or guarantee universal coverage."
+  - question: "Does Turkey allow permanent IoT roaming?"
+    answer: "Sources report that Turkey does not allow permanent roaming and that it restricts international data roaming for imported devices and requires eSIM profile localization. How the 2019 eSIM decision applies to IoT/M2M was \"not yet clear\" in 2020. Confirm the current IMEI, local profile and operator requirements before shipment."
+  - question: "How can I verify the rule before shipping?"
+    answer: "Check regulator publications, record their dates and scope, ask the carrier to confirm its agreement and enforcement approach, validate licensing and KYC obligations, and test the device's lawful profile-switch and recovery process. Retain the evidence with the deployment record. For help comparing providers, see our [IoT eSIM providers guide](https://spenza.com/esim/iot-esim-providers/)."
 ---
 
-As of 16 Nov 2026, sources list Brazil, India and China (Cullen International, 2025 to 2026) and Turkey (Legal 500, 2020; IAPP, 2019) as prohibiting permanent roaming for IoT. Saudi Arabia (via a consultancy) and Oman (via a newspaper) are said to cap how long a foreign SIM can stay, and Cullen says Nigeria's national-ID SIM registration effectively blocks it. Much of Europe and most of the Americas allow it. The first table shows what each source says and when.
+The sections below set out what we could verify as of 16 Nov 2026 and the questions to resolve before shipment. This is not legal advice. Each source is dated where it gives a date and labeled by type, and most are law-firm, analyst or trade-press summaries rather than regulator text. Country-by-country guides may follow.
 
-Roaming SIM or local profile? Use roaming to launch and for devices that move. Plan a local profile for stationary devices that will sit in a restrictive country for years. One SKU can cover both if the hardware carries an eUICC and your platform supports SGP.32 profile switching. Turkey's eSIM localization requirements may limit how far that goes, and we found no source that settles China. This post is the hub, and we plan country-by-country guides.
+## What Is Permanent Roaming for IoT Devices?
 
-## Which countries restrict permanent roaming for IoT?
+Permanent roaming usually describes a SIM or device using a visited network on an ongoing rather than temporary basis. There is no global rule that makes every deployment permanent after 90 days. [Transforma Insights](https://transformainsights.com/research/reports/regulations-global-iot-permanent-roaming) (undated report page) says roaming typically becomes "permanent" beyond about 90 to 120 days on a foreign network, drawing on a survey of regulators in over 80 countries. That is an analyst's working range, not a legal definition.
 
-The rules cluster into three groups: countries that prohibit it, countries that cap it, and countries that permit it with conditions. Most of this evidence comes from law-firm, analyst and trade-press summaries rather than regulator text, so treat the table as a starting point for your own check.
+Some countries set a fixed allowance for foreign SIMs, and a rule may count consecutive or cumulative days, or depend on the roaming contract. Document the rule, the counting method, the evidence date and the operator conditions for each destination.
 
-| Country | What sources report | Source and date |
-|---|---|---|
-| Brazil | ANATEL, Brazil's telecom regulator, prohibits permanent roaming for IoT/M2M; rules and transition terms are still moving, see the Brazil section below | [Cullen International](https://www.cullen-international.com/news/2025/01/Brazil-applies-tougher-rules-for-IoT-than-other-countries-in-the-Americas.html), 29 Jan 2025 |
-| Turkey | Permanent roaming not allowed under Law 5809; foreign profiles installable only outside the customs zone | [IAPP](https://iapp.org/news/a/turkeys-btk-imposes-data-localization-requirements-on-e-sim-technologies), 24 Apr 2019 |
-| India | Listed as prohibiting permanent roaming for IoT/M2M | [Cullen International](https://www.cullen-international.com/news/2026/04/Asia-Pacific-sharpens-regulatory-control-of-IoT-connectivity-across-roaming--licensing-and-SIM-registration-frameworks.html), 9 Apr 2026 |
-| China | Listed as prohibiting permanent roaming for IoT/M2M | [Cullen International](https://www.cullen-international.com/news/2026/04/Asia-Pacific-sharpens-regulatory-control-of-IoT-connectivity-across-roaming--licensing-and-SIM-registration-frameworks.html), 9 Apr 2026 |
-| Saudi Arabia | CST (Saudi Arabia's telecom regulator) updated its IoT regulatory framework; foreign SIM cards may be used in devices for up to 120 days, then must be replaced with local cards | [Eleos Compliance](https://www.eleoscompliance.com/en/article/saudi-arabia-new-iot-regulation), 23 Aug 2024 (consultancy summary) |
-| Oman | TRA (Oman's telecom regulator) directive allows international roaming SIMs in IoT devices for no more than 90 days locally; exceptions via TRA | [Oman Observer](https://www.omanobserver.om/article/1135916/oman/community/tra-to-regulate-international-roaming-in-iot-devices), 19 Apr 2023 (newspaper report of a TRA directive) |
-| Nigeria | SIM registration tied to national ID effectively prevents permanent roaming with foreign SIMs | [Cullen International](https://www.cullen-international.com/news/2026/03/Africa-tightens-oversight-of-IoT-connectivity-as-roaming-and-SIM-rules-diverge.html), 16 Mar 2026 |
-| Belgium | Most restrictive in Europe; generally prohibits, with exceptions such as eCall | [Cullen International](https://www.cullen-international.com/news/2025/10/European-regulators-adopt-different-approaches-to-IOT-for-SIM-registration--authorisation--and-roaming.html), Oct 2025 |
+The [BEREC report on M2M and permanent roaming](https://www.berec.europa.eu/en/all-documents/berec/reports/berec-report-on-m2m-and-permanent-roaming) (BoR (24) 165, 5 Dec 2024) notes that some countries restrict permanent M2M roaming, and its summary mentions local profiles as one response. The report page states no day threshold.
 
-Cullen names Costa Rica alongside Brazil as applying a stricter regime, but we did not find Costa Rica's rule. On Turkey, [Legal 500](https://www.legal500.com/intelligence/turkey/media-telecoms-it-entertainment/latest-developments-on-e-sim-and-m2ms-in-turkey) (9 Jan 2020) states that permanent roaming is not allowed and that devices brought into the country get 120 days of international roaming. That is a temporary window, not an IoT permit. Vendors quote other IoT day thresholds for Turkey, but they disagree with each other and cite no regulator text, so this post does not give a number as the rule. The decision of 12 Feb 2019 by the BTK, Turkey's telecom regulator, requires localization of data storage and eSIMs, and [Legal 500](https://www.legal500.com/intelligence/turkey/media-telecoms-it-entertainment/latest-developments-on-e-sim-and-m2ms-in-turkey) said in 2020 that how it applies to M2M was "not yet clear."
+## Which Countries Restrict Permanent IoT Roaming?
 
-On India, according to Khaitan & Co., TRAI (India's telecom regulator) recommended on 21 Mar 2024 that profiles on M2M eSIMs in imported devices be converted within 6 months of activation on an Indian network or an ownership change, whichever comes first ([Khaitan & Co., Mar 2024](https://khaitanco.com/thought-leadership/Developments-in-the-M2M-Space)). That is a recommendation, and we have not confirmed that the Department of Telecommunications (DoT) adopted it. The same firm notes that M2M service providers must follow DoT know-your-customer (KYC) rules ([Khaitan & Co., Feb 2022](https://khaitanco.com/thought-leaderships/DoT-issues-guidelines-for-regulating-M2M-Service-Providers)).
+Analysts sort countries into those that prohibit permanent roaming, those that cap it and those that permit it with conditions. The table gives each country's reported status with the evidence type and date, so you can weigh how much to rely on it.
+
+| Country | Reported status | Key restriction | Evidence and date | Before you ship |
+|---|---|---|---|---|
+| Brazil | Restrictive | ANATEL, Brazil's telecom regulator, was reported to prohibit permanent roaming for IoT/M2M (as of Jan 2025); the rules are under review | Regulatory analysis: [Cullen International](https://www.cullen-international.com/news/2025/01/Brazil-applies-tougher-rules-for-IoT-than-other-countries-in-the-Americas.html), 29 Jan 2025 | Confirm foreign-SIM status with a Brazilian carrier; see the Brazil update below |
+| Turkey | Restrictive | Permanent roaming not allowed under Law 5809; foreign profiles installable only outside the customs zone | Legal analysis: [IAPP](https://iapp.org/news/a/turkeys-btk-imposes-data-localization-requirements-on-e-sim-technologies), 24 Apr 2019 | Confirm IMEI registration and local profile rules with a carrier and counsel |
+| India | Restrictive | Listed as prohibiting permanent roaming for IoT/M2M | Regulatory analysis: [Cullen International](https://www.cullen-international.com/news/2026/04/Asia-Pacific-sharpens-regulatory-control-of-IoT-connectivity-across-roaming--licensing-and-SIM-registration-frameworks.html), 9 Apr 2026 | Verify current DoT instructions, M2M registration and KYC with the licensed provider |
+| China | Restrictive | Listed as prohibiting permanent roaming for IoT/M2M; whether profile switching is accepted is not verified | Regulatory analysis: [Cullen International](https://www.cullen-international.com/news/2026/04/Asia-Pacific-sharpens-regulatory-control-of-IoT-connectivity-across-roaming--licensing-and-SIM-registration-frameworks.html), 9 Apr 2026 | Do not assume a local-profile switch is accepted; confirm with a local carrier |
+| Saudi Arabia | Capped | Foreign SIM cards for up to 120 days, then local cards | Consultancy summary: [Eleos Compliance](https://www.eleoscompliance.com/en/article/saudi-arabia-new-iot-regulation), 23 Aug 2024 | Read the [CST IoT regulations](https://www.cst.gov.sa/en/regulations-and-licenses/regulations/iot-regulations); confirm conditions, equipment approval and operator terms |
+| Oman | Capped | No more than 90 days on local networks; exceptions through TRA, Oman's telecom regulator | Newspaper report of a TRA directive: [Oman Observer](https://www.omanobserver.om/article/1135916/oman/community/tra-to-regulate-international-roaming-in-iot-devices), 19 Apr 2023 | Confirm the current directive with TRA or a carrier |
+| Nigeria | Effectively prevented | National-ID SIM registration requirements effectively prevent permanent roaming on foreign SIMs | Regulatory analysis: [Cullen International](https://www.cullen-international.com/news/2026/03/Africa-tightens-oversight-of-IoT-connectivity-as-roaming-and-SIM-rules-diverge.html), 16 Mar 2026 | Plan local connectivity; confirm with a Nigerian provider |
+| Belgium | Generally restrictive | Most restrictive in Europe; generally prohibits, with exceptions such as eCall | Regulatory analysis: [Cullen International](https://www.cullen-international.com/news/2025/10/European-regulators-adopt-different-approaches-to-IOT-for-SIM-registration--authorisation--and-roaming.html), Oct 2025 | Confirm whether an exception covers your service |
+
+Cullen's Jan 2025 article names Costa Rica alongside Brazil as applying a stricter regime, but we did not find Costa Rica's rule, and its Feb 2026 Americas summary does not mention it.
+
+### Turkey: what the sources do and do not say
+
+[Legal 500](https://www.legal500.com/intelligence/turkey/media-telecoms-it-entertainment/latest-developments-on-e-sim-and-m2ms-in-turkey) (9 Jan 2020) states that permanent roaming is not allowed in Turkey and that devices brought into the country get 120 days of international roaming. That is a temporary window, not an IoT permit. The same article says the BTK decision of 12 Feb 2019 requires localization of data storage and eSIMs, and that how it applies to M2M was "not yet clear." The Turkish law firm [ESIN](https://www.esin.av.tr/2019/04/04/information-technologies-and-communication-board-publishes-decision-on-esim-technologies/) (4 Apr 2019) describes that decision as limiting data services through international roaming to 120 days for devices brought in or imported for use in Turkey, for SIMs and eSIMs alike, and as requiring that Turkish operators have sole control of eSIM profiles.
+
+A BTK decision of 20 September 2019 (2019/DK-BTD/183) is reported to define permanent data roaming as 91 accumulated days or more within a 120-day period. We could not retrieve its text, because the published link returns an error, and vendor pages give conflicting versions (91 in 120 days, or 90 in four months). So we do not treat any of these as a standing limit for IoT deployments. Confirm the current IMEI registration, local profile and operator requirements with a Turkish carrier and local counsel before shipping.
+
+### India: a recommendation is not a deadline
+
+According to [Khaitan & Co.](https://khaitanco.com/thought-leadership/Developments-in-the-M2M-Space), the Telecom Regulatory Authority of India (TRAI) recommended on 21 Mar 2024 that profiles on M2M eSIMs in imported devices be converted within 6 months of activation on an Indian network or an ownership change, whichever comes first. The Department of Telecommunications (DoT) issued [instructions on the usage of embedded SIM for M2M](https://eservices.dot.gov.in/sites/default/files/2026-03/instructions_on_the_usage_of_embedded_sim_for_machine-to-machine_dated_26.06.25.pdf) on 26 Jun 2025 that say the government considered TRAI's recommendations. As far as we could read them, they set no six-month conversion deadline for imported devices. They say licensees must follow instructions on roaming of foreign M2M SIMs as the government notifies them from time to time.
+
+For a live deployment, verify the current DoT instructions, M2M registration and know-your-customer (KYC) requirements ([Khaitan & Co., Feb 2022](https://khaitanco.com/thought-leaderships/DoT-issues-guidelines-for-regulating-M2M-Service-Providers)) and the permitted local provisioning model with the licensed provider.
 
 ### Where permanent roaming is permitted, with conditions
 
-Not every market is restrictive. [Cullen International](https://www.cullen-international.com/news/2026/02/IoT-regulation-in-the-Americas-diverges-on-roaming--authorisation-and-SIM-registration.html) (5 Feb 2026) says that across most of the Americas markets it surveyed, permanent roaming is treated as legally permissible because foreign-issued SIMs may be used absent an explicit prohibition, and Brazil is "a notable exception." In Europe, [Cullen](https://www.cullen-international.com/news/2025/10/European-regulators-adopt-different-approaches-to-IOT-for-SIM-registration--authorisation--and-roaming.html) (Oct 2025) finds that most countries allow permanent roaming for IoT through commercial agreements, and Germany allows it only for services that meet the legal M2M definition.
+Not every market is restrictive, but "permitted" does not mean "automatically deployable." [Cullen International](https://www.cullen-international.com/news/2026/02/IoT-regulation-in-the-Americas-diverges-on-roaming--authorisation-and-SIM-registration.html) (5 Feb 2026) says that across most of the Americas markets it surveyed, permanent roaming is treated as legally permissible because foreign-issued SIMs may be used absent an explicit prohibition, and Brazil is "a notable exception." In Europe, [Cullen](https://www.cullen-international.com/news/2025/10/European-regulators-adopt-different-approaches-to-IOT-for-SIM-registration--authorisation--and-roaming.html) (Oct 2025) finds that most countries allow permanent roaming for IoT through commercial agreements, and Germany allows it only for services that meet the legal M2M definition. Operators may require commercial agreements, and SIM registration, numbering and authorization rules can differ by country and service model, so check each one.
 
 In Africa, the same publisher's [16 Mar 2026 report](https://www.cullen-international.com/news/2026/03/Africa-tightens-oversight-of-IoT-connectivity-as-roaming-and-SIM-rules-diverge.html) says South Africa allows long-term foreign SIMs via bilateral roaming, while Egypt and Kenya permit it with approval and license conditions.
 
 Countries missing from this post, including Indonesia, the UAE, Mexico, Vietnam and Russia, are missing because we could not support a rule with a source we trust. Absence is not permission.
 
-## What "permanent roaming" means and why regulators care
+## Permanent Roaming Time Limits by Country
 
-Permanent roaming means a device stays on a foreign network long enough that it is no longer temporary. [Transforma Insights](https://transformainsights.com/research/reports/regulations-global-iot-permanent-roaming) (undated report page) says roaming typically becomes "permanent" beyond about 90 to 120 days on a foreign network. Its report draws on a survey of regulators in over 80 countries. That is an analyst's working range, not a legal definition.
+No limit applies everywhere. The table lists the day counts and periods reported, with who reported them and what they cover. Treat each as a pointer to the rule, not the rule.
 
-The [BEREC report on M2M and permanent roaming](https://www.berec.europa.eu/en/all-documents/berec/reports/berec-report-on-m2m-and-permanent-roaming) (BoR (24) 165, 5 Dec 2024) notes that some countries restrict permanent M2M roaming, and its summary mentions local profiles as one response. The report page states no day threshold.
+| Country | Time limit or period | What it covers | Evidence and date |
+|---|---|---|---|
+| Turkey | 120 days of international roaming for devices brought in; 91 in 120 not verified | Temporary window for brought-in and imported devices | [Legal 500](https://www.legal500.com/intelligence/turkey/media-telecoms-it-entertainment/latest-developments-on-e-sim-and-m2ms-in-turkey), 9 Jan 2020 |
+| Saudi Arabia | Up to 120 days, then local cards | Foreign SIM cards in IoT devices | [Eleos Compliance](https://www.eleoscompliance.com/en/article/saudi-arabia-new-iot-regulation), 23 Aug 2024 |
+| Oman | No more than 90 days | IoT roaming SIMs on local networks | [Oman Observer](https://www.omanobserver.om/article/1135916/oman/community/tra-to-regulate-international-roaming-in-iot-devices), 19 Apr 2023 |
+| India | 6 months (a TRAI recommendation) | Converting profiles on imported M2M eSIMs; DoT's 2025 instructions set no such deadline as far as we could read | [Khaitan & Co.](https://khaitanco.com/thought-leadership/Developments-in-the-M2M-Space), Mar 2024 |
+| Brazil | No day limit verified for foreign-issued IoT SIMs | Separate: a 12-month minimum termination period for certain national roaming contracts (not a foreign-SIM cap) | [Teletime](https://teletime.com.br/10/11/2026/pgmc-freire-baigorri-iot/), 10 Nov 2026 |
 
-So "90 days" is not a rule you can apply everywhere. Saudi Arabia and Oman each have their own limits, per sources, and Turkey's is unverified. Check each country on its own terms.
+Turkey and Saudi Arabia both show 120 days, but they are different things. Turkey's is a window for devices brought in or imported (Legal 500, 2020), while Saudi Arabia's is reported as an allowance for foreign IoT SIM cards (a consultancy summary).
 
-## Should you use a roaming SIM or a local profile?
+## Brazil's Roaming Rules: November 2026 Update
 
-Use a roaming SIM to launch and for devices that move across borders. Use a local profile for stationary, long-lived devices in a country that restricts permanent roaming. Our [global IoT connectivity guide](https://spenza.com/iot/global-iot-connectivity-2026/) points the same way: roaming to launch, a local arrangement where long-lived stationary devices need one, and a dated record of each country's constraints.
+Brazil raises two different roaming questions, and they should be evaluated separately: use of foreign-issued IoT SIMs on Brazilian networks, and roaming arrangements between Brazilian operators. [Cullen International](https://www.cullen-international.com/news/2025/01/Brazil-applies-tougher-rules-for-IoT-than-other-countries-in-the-Americas.html) (Jan 2025) reports that ANATEL prohibits permanent roaming for IoT/M2M. The 2026 reporting below concerns ANATEL's permanent-roaming rules for M2M/IoT and its market competition plan, the PGMC.
 
-The next table is Spenza's planning view, not a legal reading. It applies that recommendation to the countries above.
+On 6 Aug 2026, according to [Teletime](https://teletime.com.br/06/08/2026/anatel-roaming-permanente-iot-m2m/), the ANATEL board postponed its decision on the rules for permanent roaming on M2M/IoT, sending the matter back for further review with a 90-day deadline to deliberate. Councillor Alexandre Freire said the board should not yet conclude on the sanctions regime. That period would have run to about 4 Nov, and the 10 Nov report below does not mention a decision on the sanctions regime.
+
+On 10 Nov 2026, [Teletime](https://teletime.com.br/10/11/2026/pgmc-freire-baigorri-iot/) says the board approved changes to the PGMC. Certain M2M/IoT national roaming contracts signed by 8 Sep 2025 keep continuity until 31 Dec 2030. The minimum contract-termination period for permanent roaming rose from 9 to 12 months, and termination is not automatic at 12 months. The report adds that the decision does not prevent fines from the 91st day of noncompliance. It gives no day limit for foreign-issued SIMs.
+
+On our reading, these provisions concern roaming contracts between Brazilian operators, and they are not a permission for a foreign-issued IoT SIM to roam permanently. The ANATEL rule for M2M/IoT permanent roaming is the separate item that was still under review. Verify the published ANATEL decision and your contract before changing live devices.
+
+## When Should You Use a Roaming SIM or Local Profile?
+
+A roaming SIM may simplify testing and cross-border movement where roaming is allowed by local rules and the operator agreement. It should not automatically be the default for a first launch in a restrictive country. Our [global IoT connectivity guide](https://spenza.com/iot/global-iot-connectivity-2026/) points the same way: a local arrangement where long-lived stationary devices need one, and a dated record of each country's constraints.
+
+For fixed devices expected to operate for years, determine before shipment whether a local operator profile is required, when any temporary permission expires, whether the eUICC can lawfully load that profile and what recovery process applies if switching fails. Device registration, radio compatibility and network availability must be validated separately. The next table is Spenza's planning view, not a legal reading.
 
 | Situation | Roaming SIM | Local profile |
 |---|---|---|
-| Pilot or first launch in a new market | Usual starting point | Not needed yet |
+| Pilot in a market where local rules and the operator agreement allow roaming | Can fit, within those terms | Not needed yet |
 | Mobile asset crossing borders | Fits the use case | Rarely practical |
-| Stationary device, long life, country on the prohibited list | Risky as a permanent plan | Plan for it from the start |
-| Country that caps foreign SIM time (Saudi Arabia, Oman) | Only within the cap | Needed after the cap |
-| Turkey: ban per sources, plus an open question on how the 2019 eSIM localization decision applies to M2M | Not allowed, per sources | Ask the regulator and carrier first |
+| Stationary, long-life device in a country on the restrictive list | Do not assume it is permitted | Plan it before shipment |
+| Country that caps foreign SIM time (Saudi Arabia, Oman) | Only within the cap and its conditions | Needed before the cap ends |
+| Turkey: permanent roaming not allowed (2019-2020 sources), a 120-day window for brought-in devices, and an open question on how the 2019 eSIM decision applies to M2M | Temporary only; do not plan on it for years | Ask the regulator and carrier first |
 
-Ask three things: where the device will sit, how long it will stay, and whether the country appears in the first table. If the answers are "one place, for years, and yes," plan the local profile before shipment.
+Illustrative example: a water meter will remain in one building for several years. Before shipment, the OEM checks whether the destination country allows temporary roaming for that device and application. If so, it documents the permitted period and a tested switch to a local profile. Otherwise it arranges compliant local connectivity before activation. The device record stores the regulator source, the carrier confirmation, the switch owner and the failure-recovery plan. For the record-keeping side, see our [IoT SIM management guide](https://spenza.com/esim/iot-sim-management-guide/).
 
-Illustrative example: a battery-powered water meter ships to a country on the first table's prohibited list and will sit in one basement for years. The roaming SIM gets it online on day one and can carry it for as long as the country's temporary-roaming terms allow. The local profile is the long-term plan, so the team records the country's rule, the date they checked it and the carrier that will supply the local profile before the device leaves the warehouse.
+## How SGP.32 Supports Multi-Country IoT Deployments
 
+SGP.32 is the GSMA's eSIM IoT technical specification ([GSMA eSIM specifications](https://www.gsma.com/solutions-and-impact/technologies/esim/esim-specification/)), a standard architecture for remote provisioning of compatible IoT eUICC profiles, including devices with network or user-interface constraints. Our [orchestration explainer](https://spenza.com/esim/esim-orchestration-global-iot/) describes the flow: the IoT Profile Assistant (IPA) acts as a proxy between the profile server (SM-DP+) and the IoT remote manager (eIM), and the eIM sends profile operations to the eUICC, for one device or a fleet. It does not guarantee one hardware SKU will work everywhere or make a deployment lawful.
 
-## How one SKU can cover many countries
+Validation still requires suitable radio bands, equipment approvals, local subscriptions, supported eUICC and module combinations, profile-server and eIM interoperability, bootstrap connectivity and recovery testing. Confirm which SGP.32 version your module and eUICC support. Treat "SGP.32 ready" with care: it is not a full compatibility statement for your hardware, carrier and platform combination.
 
-One hardware SKU can work across restrictive and permissive markets if it carries an eUICC and your platform can switch its profile remotely. Our [orchestration explainer](https://spenza.com/esim/esim-orchestration-global-iot/) describes SGP.32 as the remote provisioning architecture for IoT devices with network or user-interface constraints, and sets out the flow: the IoT Profile Assistant (IPA) acts as a proxy between the profile server (SM-DP+) and the IoT remote manager (eIM), and the eIM sends profile operations to the eUICC, for one device or a fleet.
-
-Standards define the mechanism, not the decision. Something still has to choose which profile a device gets and when, verify that service works afterward, and record the result. That is the job of orchestration.
-
-Two limits apply. First, Turkey. IAPP says that foreign profiles can be installed only outside the customs zone, and the 2019 decision covers eSIM localization. In our reading, a switchable profile does not remove that issue, so confirm with the regulator. Second, China. Cullen lists it as prohibiting permanent roaming, and we found no source that settles whether profile switching is accepted there, so we make no claim either way. Also treat "SGP.32 ready" with care: it is not a full compatibility statement for your hardware, carrier and platform combination.
+Two country limits apply. In Turkey, IAPP says foreign profiles can be installed only outside the customs zone, and the 2019 decision covers eSIM localization. If that localization rule applies to IoT at all, which the sources leave open, a switchable profile would not remove the issue, so confirm with the regulator. In China, Cullen lists permanent roaming as prohibited, and we found no source that settles whether profile switching is accepted, so we make no claim either way.
 
 
 
 For the standards background, read our guides on [multi-IMSI versus eUICC](https://spenza.com/esim/multi-imsi-vs-euicc-guide-iot/) and on [SGP.22 versus SGP.32](https://spenza.com/esim/sgp-22-vs-sgp-32-esim-standards-guide/). For the risk of depending on one carrier in the first place, see [single-carrier IoT risks](https://spenza.com/telecom/single-carrier-iot-risks-2025/).
 
-## A country-readiness checklist
+## IoT Country-Readiness Checklist
 
-Before a device ships to a new country, answer five questions and write the answers down. The table shows what to ask, why, and who can answer it.
+Before a device ships to a new country, work through these checks and write the answers down with a date.
 
-| Question | Why it matters | Who answers |
-|---|---|---|
-| Is permanent roaming prohibited, capped or permitted? | Decides roaming SIM or local profile | Regulator, local counsel |
-| Is there a day cap, and what happens after it? | Sets when a switch is due | Regulator, carrier |
-| Are SIM registration or KYC steps required? | Can block activation | Regulator, carrier |
-| Does the country localize eSIM or data storage? | Can limit profile switching | Regulator, counsel |
-| Can your eUICC and platform load a local profile there? | Confirms the plan works in practice | Hardware vendor, connectivity platform |
+| Check | Owner and required evidence |
+|---|---|
+| Status: restricted, capped, conditional or open | Local counsel: the regulator's rule and the applicable service category |
+| Counting method and deadline | Regulator, local counsel and carrier: whether days are accumulated, consecutive or contract-based |
+| Registration, numbering and licensing | Regulator and carrier: KYC and market-entry documents |
+| Local profile and hardware validation | OEM, eUICC and connectivity provider: a lab-tested configuration |
+| Data or eSIM localization | Local adviser: storage, profile loading and backend requirements |
+| Operational recovery plan | IoT operations: bootstrap profile, failed download, rollback and an owner |
+| Governance record | Compliance owner: primary source URL, last-checked date and next review date |
 
-Keep the answers with the device record, with a date. Rules change, as the Brazil section below shows. See also our [IoT SIM management guide](https://spenza.com/esim/iot-sim-management-guide/).
+Rules change, as the Brazil update above shows, so schedule the next review before you ship.
 
-## What a multi-country rollout looks like: Butlr
+**Planning an IoT deployment across multiple countries?** Spenza helps connected-device teams simplify multi-carrier connectivity operations, provisioning workflows and subscription visibility. Discuss your target markets, device design and rollout requirements with the team.
 
-Butlr, a Spenza customer, is one data point on running many countries from one platform. The [published case study](https://spenza.com/spenza-product/butlr-iot-spenza-casestudy/) states that Butlr expanded across the US, UK, France and beyond; that launch time to a new region fell from 60 days to 7; that connectivity management costs dropped 40%; and that financial admin overhead fell by more than 50%.
+[[button text="Discuss Your IoT Connectivity Requirements" url="https://spenza.com/contact-us/"]]
 
-The case study does not break those results down by country, so read them as evidence about the operating model, not about any one regulator. The same page lists what the Spenza platform covers: eSIM orchestration, provisioning, billing, reconciliation and pre-integrated compliance (SOC2, KYC, tax, telecom, privacy). That is a description of platform scope. It is not a guarantee that your device meets a given country's rules, and your team still owns that check.
+## Multi-Country Deployment Example: Butlr
 
-## What changed recently: Brazil
+Butlr illustrates the operational benefits of centralizing multi-country connectivity administration. Spenza's [published case study](https://spenza.com/spenza-product/butlr-iot-spenza-casestudy/) reports that Butlr expanded across the US, UK, France and beyond, that launch time to a new region fell from 60 days to 7, that connectivity management costs dropped 40%, and that financial admin overhead fell by more than 50%.
 
-Brazil moved most recently of the countries we checked: a decision was deferred in Aug 2026 and the PGMC was changed in Nov 2026. ANATEL is the regulator, and the PGMC is its market competition plan. On 6 Aug 2026, according to [Teletime](https://teletime.com.br/06/08/2026/anatel-roaming-permanente-iot-m2m/), the ANATEL board postponed its decision on the rules for permanent roaming on M2M/IoT, sending the matter back for further review with a 90-day deadline to deliberate. Councillor Alexandre Freire said the board should not yet conclude on the sanctions regime.
+These are customer-reported operating outcomes with no year given. They are not evidence that any specific roaming arrangement satisfies a national regulator. The case study does not break the results down by country. It lists what the Spenza platform covers: eSIM orchestration, provisioning, billing, reconciliation and pre-integrated compliance (SOC2, KYC, tax, telecom, privacy). That describes platform scope, not a guarantee that your device meets a given country's rules. Country approval, device compliance and provider agreements still need their own verification.
 
-On 10 Nov 2026, [Teletime](https://teletime.com.br/10/11/2026/pgmc-freire-baigorri-iot/) says the board approved changes to the PGMC. Certain M2M/IoT national roaming contracts signed by 8 Sep 2025 keep continuity until 31 Dec 2030. The minimum contract-termination period for permanent roaming rose from 9 to 12 months, and termination is not automatic at 12 months. Fines can apply from day 91 of noncompliance. The sources do not explain how the prohibition and these transition terms fit together, or whether the sanctions question deferred on 6 Aug has been settled. The 90-day period set on 6 Aug would run to about 4 Nov if counted from that date, and our sources do not say what followed. Ask your carrier.
-
-Both items come from trade press, not ANATEL text. If you have devices in Brazil, ask your carrier how these changes apply to your contract before acting on them.
+[[button text="Read the Butlr case study" url="https://spenza.com/spenza-product/butlr-iot-spenza-casestudy/"]]

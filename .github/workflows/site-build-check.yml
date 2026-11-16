@@ -1,0 +1,79 @@
+# Build the site the way the deploy does, on every pull request that could change it,
+# and run the same self-consistency check the deploy runs.
+#
+# Why: `publish.yml` runs `wp:verify-dist` AFTER a merge. When it fails, the deploy stops and
+# nothing reaches the live site, so a post an editor just published silently does not go live
+# (the 129-post import did exactly that: 235 images left pointing at the apex instead of the
+# media host). The admin's Publish button is a merge, so the first time anyone learned of the
+# problem was after it. Running the same build and check here shows it on the pull request,
+# where the admin's Workflow tab displays the status, before the merge.
+#
+# It builds with the production settings (media host on, redirects as hosts) but NOINDEX=1 and
+# no AWS credentials: it never deploys, uploads or writes anywhere.
+name: Build check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'public/**'
+      - 'astro.config.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/site-build-check.yml'
+
+permissions:
+  contents: read
+
+# A newer push to the same pull request replaces the run in progress.
+concurrency:
+  group: build-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      WP_ORIGIN:     ${{ vars.WP_ORIGIN     || 'https://preprod.spenza.com' }}
+      SITE_URL:      ${{ vars.SITE_URL      || 'https://spenza.com' }}
+      MEDIA_ORIGIN:  ${{ vars.MEDIA_ORIGIN  || 'https://media.spenza.com' }}
+      HOST_REDIRECTS: '1'
+      # A check, not a deploy: keep what it builds out of any index.
+      NOINDEX: '1'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # sitemap lastmod reads the last commit touching each page's source
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: npm
+
+      - run: npm ci
+
+      # Reuse the content store the deploy saved, read-only, so this does not refetch every
+      # post from WordPress on each push (that volume is what got the runners banned by the
+      # host's firewall before). It must come after `npm ci`, which deletes node_modules. The
+      # exact key never matches (it ends in the deploy's run id); the prefix restores the latest.
+      - name: Restore the content store
+        uses: actions/cache/restore@v4
+        with:
+          path: node_modules/.astro
+          key: astro-store-${{ hashFiles('src/loaders/wp-posts.mjs') }}-${{ env.MEDIA_ORIGIN }}-${{ env.SITE_URL }}-check-${{ github.run_id }}
+          restore-keys: |
+            astro-store-${{ hashFiles('src/loaders/wp-posts.mjs') }}-${{ env.MEDIA_ORIGIN }}-${{ env.SITE_URL }}-
+
+      - name: Build
+        run: npm run build
+
+      # The step that failed the deploy after #87. A reference that resolves locally but 404s
+      # once media is served from the media host, or a media path a rewrite missed.
+      - name: Verify the build is self-consistent
+        run: npm run wp:verify-dist -- "$MEDIA_ORIGIN"

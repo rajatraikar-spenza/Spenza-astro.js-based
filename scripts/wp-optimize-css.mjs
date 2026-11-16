@@ -290,9 +290,10 @@ function hoistImports(css, into) {
  * skips them; their entry — the home page's shared bundle plus the hubs'
  * inline tier, the pair that carries the chrome without class rules that
  * collide with the hub design — is carried over the same way. See
- * `pages/uxhub.astro`.
+ * `pages/uxhub.astro`. `travel-esim` is hand-built from a design too and takes
+ * the same pair; see `pages/travel-esim.astro`.
  */
-const PINNED = new Set(['index', 'ai-phone-number', 'uxhub', 'telecomhub', 'controlhub']);
+const PINNED = new Set(['index', 'ai-phone-number', 'uxhub', 'telecomhub', 'controlhub', 'travel-esim']);
 
 /**
  * Pages with no mirrored markup that reuse another page's bundles, since the
