@@ -1,5 +1,20 @@
 {
   "tags": [
-    { "slug": "connectivity-bundles", "label": "Connectivity bundles" }
+    {
+      "slug": "connectivity-bundles",
+      "label": "Connectivity bundles"
+    },
+    {
+      "slug": "iot",
+      "label": "Iot"
+    },
+    {
+      "slug": "permanent-roaming",
+      "label": "Permanent Roaming"
+    },
+    {
+      "slug": "esim",
+      "label": "Esim"
+    }
   ]
 }
