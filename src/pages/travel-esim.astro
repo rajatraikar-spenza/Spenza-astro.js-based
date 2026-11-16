@@ -1,8 +1,66 @@
 ---
+/**
+ * /travel-esim/ — Travel eSIM.
+ *
+ * Built in Astro from the "travel-esim-v2" design: sections are components in
+ * `components/travel-esim/`, styled by `styles/travel-esim.css` (scoped to
+ * `.te`). Copy is the design's, unchanged. It renders through `WpLayout`, so
+ * the header, footer, Analytics, Yoast's captured title and description and
+ * the lead-capture runtime are the site's own — the design's own header and
+ * footer were not carried over.
+ *
+ * Forms: the hero's email bar is Gravity Forms 19 ("Book A Free Demo", the form
+ * this page's hero always carried) and the demo form at the foot is Gravity
+ * Forms 15 (email + phone), the same one the home page and the hubs use. Both
+ * are handled by `public/scripts/hubspot-forms.js`, which posts them to
+ * HubSpot and replays them to WordPress for the notifications. Neither carries
+ * `id="gform_<n>"`: 15's belongs to the demo popup, and a named form needs none.
+ *
+ * WordPress CSS: the home page's shared bundle plus the hubs' inline tier —
+ * pinned in `wp-css-bundles.json` and `scripts/wp-optimize-css.mjs`, as for the
+ * hubs. The Elementor bundles this page used to load were for markup that is
+ * gone, and their generic class rules could land on this design's. The old
+ * mirrored markup and its page script are in git history if ever needed.
+ *
+ * No popup and no carousel; `fit` closes sections up to the window on a desktop.
+ */
 import WpLayout from '../layouts/WpLayout.astro';
-import content from '../partials/travel-esim.html?raw';
+import Hero from '../components/travel-esim/Hero.astro';
+import Features from '../components/travel-esim/Features.astro';
+import Trust from '../components/travel-esim/Trust.astro';
+import Comparison from '../components/travel-esim/Comparison.astro';
+import DemoCta from '../components/travel-esim/DemoCta.astro';
+import '../styles/travel-esim.css';
 ---
 
-<WpLayout slug="travel-esim" fit>
-  <Fragment set:html={content} />
+<WpLayout slug="travel-esim" demoPopup={false} swiper={false} fit>
+  <div class="te" id="travel-esim">
+    <Hero />
+    <Features />
+    <Trust />
+    <Comparison />
+    <DemoCta />
+  </div>
 </WpLayout>
+
+<script>
+  // Fade sections in as they scroll into view. Without IntersectionObserver
+  // everything is shown at once.
+  const els = document.querySelectorAll<HTMLElement>('.te .reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      entries => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.12 },
+    );
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
