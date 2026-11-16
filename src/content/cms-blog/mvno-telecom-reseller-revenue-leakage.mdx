@@ -1,0 +1,995 @@
+---
+source: "wordpress"
+wpId: 22402
+title: "12 Telecom Revenue Leaks in MVNO & Reseller Billing"
+slug: "mvno-telecom-reseller-revenue-leakage"
+category: "mvno"
+categories: ["mvno"]
+author: "vinay"
+description: "Find 12 telecom revenue leaks affecting MVNOs and resellers, from unbilled SIMs to carrier invoice errors, with signals, controls and fixes."
+publishedDate: "2026-09-16T05:38:24.000Z"
+updatedDate: "2026-11-04T01:06:12.000Z"
+tags: ["active-sim-not-billed","carrier-invoice-reconciliation","cdr-reconciliation","connectivity-cost-optimization","gross-margin-leakage","mvno-billing-platform","mvno-revenue-assurance","reseller-margin-erosion","telecom-billing-audit","telecom-billing-leakage"]
+isCaseStudy: false
+hero:
+  image: "/wp-content/uploads/2026/09/BGT.png"
+  alt: "Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage"
+  width: 1672
+  height: 941
+  id: 22403
+  srcSet: "/wp-content/uploads/2026/09/BGT-300x169.png 300w, /wp-content/uploads/2026/09/BGT-1024x576.png 1024w, /wp-content/uploads/2026/09/BGT-768x432.png 768w, /wp-content/uploads/2026/09/BGT-1536x864.png 1536w, /wp-content/uploads/2026/09/BGT.png 1672w"
+excerpt: "<p>Find 12 telecom revenue leaks affecting MVNOs and resellers, from unbilled SIMs to carrier invoice errors, with signals, controls and fixes.</p>\n"
+seoTitle: "12 Telecom Revenue Leaks in MVNO & Reseller Billing - Spenza"
+seoDescription: "Find 12 telecom revenue leaks affecting MVNOs and resellers, from unbilled SIMs to carrier invoice errors, with signals, controls and fixes."
+ogImage: "/wp-content/uploads/2026/09/BGT.png"
+seoHead: "<!-- This site is optimized with the Yoast SEO plugin v28.4 - https://yoast.com/product/yoast-seo-wordpress/ -->\n<title>12 Telecom Revenue Leaks in MVNO &amp; Reseller Billing - Spenza</title>\n<meta name=\"description\" content=\"Find 12 telecom revenue leaks affecting MVNOs and resellers, from unbilled SIMs to carrier invoice errors, with signals, controls and fixes.\" />\n<link rel=\"canonical\" href=\"https://spenza.com/mvno/mvno-telecom-reseller-revenue-leakage/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"12 Telecom Revenue Leaks in MVNO &amp; Reseller Billing - Spenza\" />\n<meta property=\"og:description\" content=\"Find 12 telecom revenue leaks affecting MVNOs and resellers, from unbilled SIMs to carrier invoice errors, with signals, controls and fixes.\" />\n<meta property=\"og:url\" content=\"https://spenza.com/mvno/mvno-telecom-reseller-revenue-leakage/\" />\n<meta property=\"og:site_name\" content=\"Spenza\" />\n<meta property=\"article:published_time\" content=\"2026-09-16T11:08:24+00:00\" />\n<meta property=\"article:modified_time\" content=\"2026-11-04T06:36:12+00:00\" />\n<meta property=\"og:image\" content=\"https://spenza.com/wp-content/uploads/2026/09/BGT.png\" />\n\t<meta property=\"og:image:width\" content=\"1672\" />\n\t<meta property=\"og:image:height\" content=\"941\" />\n\t<meta property=\"og:image:type\" content=\"image/png\" />\n<meta name=\"author\" content=\"Vinaychandra Bharadwaj\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:label1\" content=\"Written by\" />\n\t<meta name=\"twitter:data1\" content=\"Vinaychandra Bharadwaj\" />\n\t<meta name=\"twitter:label2\" content=\"Est. reading time\" />\n\t<meta name=\"twitter:data2\" content=\"15 minutes\" />\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/\"},\"author\":{\"name\":\"Vinaychandra Bharadwaj\",\"@id\":\"https:\\/\\/spenza.com\\/#\\/schema\\/person\\/8af131519fcab7abfd58d31e8c90acf8\"},\"headline\":\"12 Telecom Revenue Leaks in MVNO &#038; Reseller Billing\",\"datePublished\":\"2026-09-16T11:08:24+00:00\",\"dateModified\":\"2026-11-04T06:36:12+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/\"},\"wordCount\":2974,\"publisher\":{\"@id\":\"https:\\/\\/spenza.com\\/#organization\"},\"image\":{\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/spenza.com\\/wp-content\\/uploads\\/2026\\/09\\/BGT.png\",\"keywords\":[\"active SIM not billed\",\"carrier invoice reconciliation\",\"CDR reconciliation\",\"connectivity cost optimization\",\"gross margin leakage\",\"MVNO billing platform\",\"MVNO revenue assurance\",\"reseller margin erosion\",\"telecom billing audit\",\"telecom billing leakage\",\"telecom reseller billing\",\"telecom revenue leakage\",\"unbilled SIM cards\"],\"articleSection\":[\"MVNO\"],\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/\",\"url\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/\",\"name\":\"12 Telecom Revenue Leaks in MVNO & Reseller Billing - Spenza\",\"isPartOf\":{\"@id\":\"https:\\/\\/spenza.com\\/#website\"},\"primaryImageOfPage\":{\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/#primaryimage\"},\"image\":{\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/spenza.com\\/wp-content\\/uploads\\/2026\\/09\\/BGT.png\",\"datePublished\":\"2026-09-16T11:08:24+00:00\",\"dateModified\":\"2026-11-04T06:36:12+00:00\",\"description\":\"Find 12 telecom revenue leaks affecting MVNOs and resellers, from unbilled SIMs to carrier invoice errors, with signals, controls and fixes.\",\"breadcrumb\":{\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/#primaryimage\",\"url\":\"https:\\/\\/spenza.com\\/wp-content\\/uploads\\/2026\\/09\\/BGT.png\",\"contentUrl\":\"https:\\/\\/spenza.com\\/wp-content\\/uploads\\/2026\\/09\\/BGT.png\",\"width\":1672,\"height\":941,\"caption\":\"Where MVNOs and Telecom Resellers Lose Revenue: 12 Sources of Leakage\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/spenza.com\\/mvno\\/mvno-telecom-reseller-revenue-leakage\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/spenza.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"MVNO\",\"item\":\"https:\\/\\/spenza.com\\/category\\/mvno\\/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"12 Telecom Revenue Leaks in MVNO &#038; Reseller Billing\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/spenza.com\\/#website\",\"url\":\"https:\\/\\/spenza.com\\/\",\"name\":\"Spenza\",\"description\":\"Connectivity as a Service | Business Mobile Services | Wireless Spend management\",\"publisher\":{\"@id\":\"https:\\/\\/spenza.com\\/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/spenza.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/spenza.com\\/#organization\",\"name\":\"Spenza\",\"url\":\"https:\\/\\/spenza.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/spenza.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"https:\\/\\/spenza.com\\/wp-content\\/uploads\\/2021\\/04\\/Spenza-logo-Hor.png.webp\",\"contentUrl\":\"https:\\/\\/spenza.com\\/wp-content\\/uploads\\/2021\\/04\\/Spenza-logo-Hor.png.webp\",\"width\":268,\"height\":136,\"caption\":\"Spenza\"},\"image\":{\"@id\":\"https:\\/\\/spenza.com\\/#\\/schema\\/logo\\/image\\/\"}},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/spenza.com\\/#\\/schema\\/person\\/8af131519fcab7abfd58d31e8c90acf8\",\"name\":\"Vinaychandra Bharadwaj\",\"description\":\"Founder and CEO of Spenza, the MVNE platform for branded mobile and IoT connectivity. Two decades in telecom.\",\"sameAs\":[\"https:\\/\\/iSimplexity.com\"],\"url\":\"https:\\/\\/spenza.com\\/author\\/vinay\\/\"}]}</script>\n<!-- / Yoast SEO plugin. -->"
+tldrBlocks: {"tldrHeading":"TL;DR / At-a-Glance Summary","tldrDescription":"Telecom revenue leakage is value lost between service delivery and collected cash. For MVNOs and resellers it takes three forms: revenue leakage, where a delivered service is never billed; cost leakage, where a carrier keeps charging for a service the customer no longer has; and margin leakage, where both sides are recorded but pricing, discounts, taxes or commissions erode the spread.","twoCol":[{"icon":"<i class=\"fa-classic fa-solid fa-magnifying-glass\" aria-hidden=\"true\"></i>","title":"Identify Unbilled Services","text":"Find active SIMs, lines, and devices that are provisioned but missing from customer invoices."},{"icon":"<i class=\"fa-classic fa-solid fa-file-invoice-dollar\" aria-hidden=\"true\"></i>","title":"Reconcile Carrier Billing","text":"Compare carrier invoices with active services, contracted rates, usage, and promotions to uncover cost leakage."},{"icon":"<i class=\"fa-classic fa-solid fa-circle-exclamation\" aria-hidden=\"true\"></i>","title":"Prevent Billing Errors","text":"Monitor plan changes, proration, pooled usage, commissions, taxes, and discounts that can reduce margins."},{"icon":"<i class=\"fa-classic fa-solid fa-chart-gantt\" aria-hidden=\"true\"></i>","title":"Track Revenue Leakage KPIs","text":"Measure active-but-unbilled rates, carrier invoice variance, reconciliation coverage, and commission accuracy."}],"oneCol":[{"icon":"<i class=\"fa-classic fa-solid fa-trowel-bricks\" aria-hidden=\"true\"></i>","title":"Build a Revenue Assurance Process","text":"Reconcile services, carrier charges, customer invoices, and payments every billing cycle to prevent recurring leakage."}]}
+wpAuthor: {"bio":"Founder and CEO of Spenza, the MVNE platform for branded mobile and IoT connectivity. Two decades in telecom.","avatar":"https://secure.gravatar.com/avatar/763082f382b5033eedacfd59310e946118292d5d7a083d7ccc4af973576cc376?s=300&r=g"}
+bodyLead: "\n"
+---
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1672" height="941" src="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_11_59-PM.png" alt="MVNO revenue leakage flow from active services to carrier billing, customer invoices, and payments
+
+" class="wp-image-22416" style="width:888px;height:auto" srcset="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_11_59-PM.png 1672w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_11_59-PM-300x169.png 300w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_11_59-PM-768x432.png 768w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_11_59-PM-1024x576.png 1024w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_11_59-PM-1536x864.png 1536w" sizes="(max-width: 1672px) 100vw, 1672px" /></figure>
+
+
+
+<p class="wp-block-paragraph">Revenue leakage rarely looks like a major financial loss when it starts. It looks like one active SIM that never reached billing, one disconnected line still appearing on a carrier invoice, one expired promotion that was never removed, or one wholesale rate that no longer matches the contract.</p>
+
+
+
+<p class="wp-block-paragraph">For an <a href="/mvno/mvno/" target="_blank" rel="noreferrer noopener">MVNO </a>or telecom reseller, those exceptions can quietly compound across hundreds or thousands of services. You buy connectivity from an upstream carrier, resell it to customers, and depend on multiple systems to keep the two sides aligned. When they do not match, the difference comes out of your margin.</p>
+
+
+
+<p class="wp-block-paragraph">Start with one simple question:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>For every active line, SIM, number, circuit, or device you sell, can you prove who ordered it, when it activated, what the carrier charged you, what you billed the customer, and whether the cash actually arrived?</strong></p>
+
+
+
+<p class="wp-block-paragraph">Most connectivity businesses can answer that for a sample. Far fewer can answer it for every service, every billing cycle.</p>
+
+
+
+<p class="wp-block-paragraph">That is the problem this guide addresses.</p>
+
+
+
+<p class="wp-block-paragraph">This article is written specifically for&nbsp;<strong>MVNOs, <a href="/telecom/telecom-msp-white-label-solutions-2025/" target="_blank" rel="noreferrer noopener">telecom resellers</a>, MSPs, IoT connectivity providers, MVNEs, and other businesses that buy connectivity wholesale and sell it downstream</strong>. It is not written for Tier-1 network operators.</p>
+
+
+
+<p class="wp-block-paragraph">That distinction matters because your business carries risk on both sides of the ledger. You must validate what your upstream carriers charge you while also making sure every billable service reaches the right customer invoice. Traditional telecom revenue assurance focuses heavily on the downstream path from network usage to customer billing. A reseller also has to control the upstream cost side.</p>
+
+
+
+<p class="wp-block-paragraph">That creates three distinct forms of leakage:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Revenue leakage:</strong>&nbsp;a service is delivered but never billed correctly.</li>
+
+
+
+<li><strong>Cost leakage:</strong>&nbsp;a carrier charges you for a service, rate, or usage that should not have been charged.</li>
+
+
+
+<li><strong>Margin leakage:</strong>&nbsp;both sides are recorded, but pricing, discounts, commissions, taxes, pooling, proration, or other billing rules reduce the expected spread.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">The result is more than a billing problem. It is a&nbsp;<strong>margin problem</strong>.</p>
+
+
+
+<p class="wp-block-paragraph">A single missed invoice line may look insignificant. A disconnected service billed by a carrier for several months, hundreds of expired discounts, or a recurring wholesale rate mismatch can become a material drag on gross margin.</p>
+
+
+
+<p class="wp-block-paragraph">The good news is that leakage is measurable.</p>
+
+
+
+<p class="wp-block-paragraph">You do not need to begin with a large revenue assurance team or an enterprise-grade platform. Start by reconciling four things:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>What is active → what the carrier charged → what the customer was billed → what was collected.</strong></p>
+
+
+
+<p class="wp-block-paragraph">This guide identifies the&nbsp;<strong>12 most common leakage sources for MVNOs and telecom resellers</strong>, shows the data signal that can expose each one, explains the control that can prevent it, and assigns an accountable owner.</p>
+
+
+
+<p class="wp-block-paragraph">The goal is not to chase an industry-wide leakage percentage that may not apply to your business. The goal is to identify where your own money is disappearing, quantify the exposure, and put controls around it before the same exception repeats next month.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>What Is Telecom Revenue Leakage for an MVNO or Telecom Reseller?</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Telecom revenue leakage is the gap between the value of connectivity you deliver and the revenue, cost, and margin you actually capture. In practice, it occurs when services, usage, rates, discounts, or payments do not move correctly through the order-to-cash process.</p>
+
+
+
+<p class="wp-block-paragraph">For MVNOs and telecom resellers, the problem is more complex because there are&nbsp;<strong>two sides to reconcile</strong>. You are buying connectivity from an upstream carrier while simultaneously selling that connectivity to downstream customers. A mismatch on either side can reduce profitability.</p>
+
+
+
+<p class="wp-block-paragraph">Revenue leakage generally falls into three categories:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Revenue leakage:</strong>&nbsp;A service or usage is delivered but is never billed, is underbilled, or is billed incorrectly.</li>
+
+
+
+<li><strong>Cost leakage:</strong>&nbsp;Your carrier charges you for a service, usage, or rate that should not have been charged.</li>
+
+
+
+<li><strong>Margin leakage:</strong>&nbsp;The customer is billed and the carrier is paid, but pricing, discounts, commissions, taxes, pooling, or proration reduce the expected margin.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">For a reseller, this means revenue assurance cannot stop at checking whether customer invoices were generated. You also need to verify that&nbsp;<strong>the wholesale cost behind every service is correct</strong>.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>The Four Records You Need to Reconcile</strong></h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1672" height="941" src="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_14_02-PM.png" alt="Four-record reconciliation model connecting active services, carrier charges, customer invoices, and payments
+
+" class="wp-image-22419" style="width:666px;height:auto" srcset="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_14_02-PM.png 1672w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_14_02-PM-300x169.png 300w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_14_02-PM-768x432.png 768w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_14_02-PM-1024x576.png 1024w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_14_02-PM-1536x864.png 1536w" sizes="(max-width: 1672px) 100vw, 1672px" /></figure>
+
+
+
+<p class="wp-block-paragraph">A practical <a href="/mvno/mvno-revenue-models/" target="_blank" rel="noreferrer noopener">MVNO revenue</a> assurance process connects four records:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Active service → Carrier charge → Customer invoice → Payment</strong></p>
+
+
+
+<p class="wp-block-paragraph">For every service, you should be able to answer:</p>
+
+
+
+<ol class="wp-block-list">
+<li>Is the service actually active?</li>
+
+
+
+<li>Is the carrier charging you for it?</li>
+
+
+
+<li>Is the customer being billed for it?</li>
+
+
+
+<li>Was the expected amount collected?</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">If those four records cannot be reconciled, you have an exception worth investigating.</p>
+
+
+
+<p class="wp-block-paragraph">This approach follows the broader revenue-assurance principle of comparing what was contracted and delivered with what was rated, billed, and ultimately collected.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>Why This Matters More for Resellers</strong></h3>
+
+
+
+<p class="wp-block-paragraph">A network operator primarily needs to ensure that network activity becomes accurate customer billing. An MVNO or reseller has an additional responsibility:&nbsp;<strong>the wholesale cost must also match the commercial agreement with the carrier</strong>.</p>
+
+
+
+<p class="wp-block-paragraph">That creates leakage opportunities at both ends.</p>
+
+
+
+<p class="wp-block-paragraph">A customer may have an active SIM that never appears on an invoice. At the same time, another SIM may have been disconnected in your system while the carrier continues charging you. Neither issue necessarily appears in your standard financial reports.</p>
+
+
+
+<p class="wp-block-paragraph">The result is a business that can show healthy subscriber growth while its gross margin quietly deteriorates.</p>
+
+
+
+<p class="wp-block-paragraph">That is why telecom revenue leakage should be treated as a&nbsp;<strong>cross-functional control problem</strong>, not simply a billing problem. Billing, finance, operations, carrier management, provisioning, sales operations, and product teams can all own part of the leakage chain.</p>
+
+
+
+<p class="wp-block-paragraph">The rest of this guide breaks that chain into&nbsp;<strong>12 specific sources of leakage</strong>, with the signal to look for, the control that can prevent it, and the person responsible for fixing it.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>The 12 Sources of Telecom Revenue Leakage, at a Glance</strong></h2>
+
+
+
+<p class="wp-block-paragraph">For MVNOs and telecom resellers, leakage rarely comes from one large failure. It usually comes from small gaps between provisioning, billing, carrier reconciliation, pricing, and collections.</p>
+
+
+
+<p class="wp-block-paragraph">The fastest way to find those gaps is to start with the signal in your data.</p>
+
+
+
+<p class="wp-block-paragraph">The table below organizes the 12 most common sources into three categories:&nbsp;<strong>revenue leakage, cost leakage, and margin leakage</strong>. Each category represents a different way value can disappear from the wholesale-to-retail business model.</p>
+
+
+
+<p><style>
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .table-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .table-scroll::-webkit-scrollbar-track {
+    background: #f3f3f3;
+    border-radius: 20px;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 20px;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #b5b5b5;
+  }
+
+  .responsive-table {
+    width: 100%;
+    min-width: 1050px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .responsive-table thead {
+    background-color: #FCEAD7;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    padding: 11px 13px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #111;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .responsive-table th {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Column sizing */
+  .responsive-table th:nth-child(1),
+  .responsive-table td:nth-child(1) {
+    width: 6%;
+  }
+
+  .responsive-table th:nth-child(2),
+  .responsive-table td:nth-child(2) {
+    width: 40%;
+  }
+
+  .responsive-table th:nth-child(3),
+  .responsive-table td:nth-child(3) {
+    width: 14%;
+  }
+
+  .responsive-table th:nth-child(4),
+  .responsive-table td:nth-child(4) {
+    width: 40%;
+  }
+
+  /* Vertical dividers */
+  .responsive-table th:not(:last-child),
+  .responsive-table td:not(:last-child) {
+    border-right: 1px solid #eee;
+  }
+
+  /* Zebra rows */
+  .responsive-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* Hover effect */
+  .responsive-table tbody tr:hover {
+    background-color: #fde7cc;
+  }
+</style></p>
+<div class="table-scroll">
+<table class="responsive-table">
+<thead>
+<tr>
+<th>#</th>
+<th>Leakage Source</th>
+<th>Type</th>
+<th>First Signal to Investigate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Active lines that never entered billing</td>
+<td>Revenue</td>
+<td>Active or provisioned count exceeds billed count</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>CDR and usage mediation gaps</td>
+<td>Revenue</td>
+<td>Mediated usage trails carrier-reported usage</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Plan and order changes that never reach billing</td>
+<td>Revenue</td>
+<td>CRM or order changes have no matching invoice line</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Test, demo, and temporary lines left live</td>
+<td>Revenue</td>
+<td>Billing-exempt lines remain active past their intended purpose</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Disconnected lines the carrier keeps billing</td>
+<td>Cost</td>
+<td>Carrier-billed lines are inactive in your system</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Expired promotions and discounts still applied</td>
+<td>Cost</td>
+<td>Promotional rate remains active after its end date</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>Carrier rate-card drift</td>
+<td>Cost</td>
+<td>Invoiced rate does not match contracted rate</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>Roaming, interconnect, and IoT charges outside contracted terms</td>
+<td>Cost</td>
+<td>Usage is billed at a default rate instead of the agreed rate</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td>Pooled and shared-plan allocation errors</td>
+<td>Margin</td>
+<td>Independent pool calculation differs from billed allocation</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>Proration errors on mid-cycle changes</td>
+<td>Margin</td>
+<td>Expected proration differs from invoiced proration</td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>Commission calculation errors</td>
+<td>Margin</td>
+<td>Recomputed commission differs from amount paid</td>
+</tr>
+<tr>
+<td><strong>12</strong></td>
+<td>Tax, surcharge, and regulatory fee miscalculation</td>
+<td>Margin</td>
+<td>Applied rate differs from the current applicable rate</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+<h3 class="wp-block-heading"><strong>Revenue Leakage</strong></h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1672" height="941" src="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_17_52-PM.png" alt="Twelve common telecom revenue, cost, and margin leakage sources for MVNOs and resellers
+
+" class="wp-image-22422" style="width:666px;height:auto" srcset="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_17_52-PM.png 1672w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_17_52-PM-300x169.png 300w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_17_52-PM-768x432.png 768w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_17_52-PM-1024x576.png 1024w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_17_52-PM-1536x864.png 1536w" sizes="(max-width: 1672px) 100vw, 1672px" /></figure>
+
+
+
+<h4 class="wp-block-heading"><strong>1. Active Lines That Never Entered Billing</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;A SIM, number, circuit, or <a href="/esim/esim/" target="_blank" rel="noreferrer noopener">eSIM </a>is activated but never becomes a billable subscription.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Provisioning, <a href="/mvno/subscriber-management-system-guide/" target="_blank" rel="noreferrer noopener">subscriber management</a>, CRM, and billing systems do not always stay synchronized. A failed integration, delayed batch job, or missed manual step can leave an active service outside the billing population.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Active or provisioned services exceed billed services for the same period.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Reconcile the active-service roster against customer billing every cycle. Automate the activation-to-billing handoff and flag unmatched services.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Billing operations, with <a href="/esim/what-is-remote-sim-provisioning-rsp-guide-2026/" target="_blank" rel="noreferrer noopener">provisioning </a>or subscriber operations.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;Forty new business lines are activated, but a failed billing sync leaves them unbilled for an entire cycle.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>2. CDR and Usage-Mediation Gaps</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;Voice, data, SMS, or IoT usage is generated but does not reach the rating and billing process correctly.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Carrier files can arrive late, change format, contain incomplete records, or fail during transfer. Without reconciliation, missing usage can remain invisible.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Carrier-reported usage or CDR counts do not match the usage received by your mediation or rating system.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Reconcile carrier usage totals with mediated usage and create an exception whenever the difference exceeds an agreed threshold.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Billing or mediation operations, with technical teams supporting investigation.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A carrier changes a CDR format and several days of usage fail to process, leaving customer invoices understated.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>3. Plan and Order Changes That Never Reach Billing</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;A customer upgrades a plan, adds a service, changes a line, or increases capacity, but billing continues using the old configuration.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Sales, CRM, support, provisioning, and billing may each maintain different versions of the customer&#8217;s service state.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;A completed order or plan-change event has no corresponding billing change.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Connect order and service-change workflows directly to billing. Do not allow an operational change to close without a corresponding billing event.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Operations and billing.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A customer moves to a higher data plan after a support request, but the billing system continues charging the old lower rate for several months.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>4. Test, Demo, and Temporary Lines Left Live</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;A test, trial, demo, or internal line remains active and continues consuming carrier resources without generating customer revenue.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Billing exemptions are often created manually and have no enforced expiry date.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Test, demo, trial, or complimentary accounts remain active beyond their approved end date.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Give every exemption an owner and automatic expiry date. Review the exemption list regularly and require approval for extensions.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Billing operations, with sales or partnerships approving extensions.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A demo SIM created for a prospect remains active for a year after the opportunity has been closed.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>Cost Leakage</strong></h3>
+
+
+
+<figure class="wp-block-image aligncenter size-full is-resized"><img loading="lazy" decoding="async" width="1672" height="941" src="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_50_14-PM.png" alt="Carrier invoice reconciliation comparing wholesale charges with contracted telecom rates
+
+" class="wp-image-22424" style="width:666px;height:auto" srcset="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_50_14-PM.png 1672w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_50_14-PM-300x169.png 300w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_50_14-PM-768x432.png 768w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_50_14-PM-1024x576.png 1024w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_50_14-PM-1536x864.png 1536w" sizes="(max-width: 1672px) 100vw, 1672px" /></figure>
+
+
+
+<h4 class="wp-block-heading"><strong>5. Disconnected Lines the Carrier Keeps Billing</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;You deactivate a customer service, but the upstream carrier continues charging you for it.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Deactivation often requires an action in both your system and the carrier&#8217;s system. A failed API call, missed portal update, or missing confirmation can leave the wholesale service active.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Carrier-billed services are marked inactive in your own service inventory.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Reconcile your active-service roster against every carrier invoice. Require confirmation that carrier-side deactivation has completed.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Carrier or vendor management, with finance validating the invoice.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A customer ports out, but the carrier continues charging the reseller for the number for three additional billing cycles.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>6. Expired Promotions and Discounts Still Applied</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;A promotional rate or discount continues after its agreed end date.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Promotions are frequently maintained through manual configuration, spreadsheets, or reminders rather than enforced expiration rules.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Promotional rates remain attached to accounts after their effective end date.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Store start and end dates with every promotion and make expiry automatic. Review upcoming expirations before each billing cycle.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Billing operations and commercial or pricing teams.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A six-month customer promotion remains active for 14 months because nobody removed the discount code.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>7. Carrier Rate-Card Drift</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;The rate charged by a carrier no longer matches the rate agreed in the contract.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Wholesale contracts change, but rate tables and expected-cost models may not be updated at the same time.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Actual carrier invoice rates differ from the current contracted rates.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Maintain a single source of truth for wholesale rates, including effective dates. Compare every invoice against expected costs before approval.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Finance or carrier management.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A negotiated volume rate becomes effective in January, but the reseller&#8217;s cost model continues using the previous rate until June.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>8. Roaming, Interconnect, and IoT Charges Outside Contracted Terms</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;Roaming, cross-border, interconnect, or IoT usage is charged using a default rate instead of the negotiated commercial rate.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;These usage categories may follow different rating and settlement paths from standard domestic services.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Specific usage categories show unexpected rates, destinations, or surcharges on carrier invoices.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Validate roaming, interconnect, and IoT charges against the specific contract terms for each service, destination, and usage type.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Carrier management, with product or IoT operations where applicable.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;IoT devices operating across a border are charged standard roaming rates even though the contract specifies a dedicated IoT tariff.</p>
+
+
+
+<h3 class="wp-block-heading"><strong>Margin Leakage</strong></h3>
+
+
+
+<h4 class="wp-block-heading"><strong>9. Pooled and Shared-Plan Allocation Errors</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;Usage, overage, or charges are allocated incorrectly across parent and child accounts or shared data pools.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;A line may be assigned to the wrong pool, allocation rules may be misconfigured, or usage may not be distributed according to the intended commercial rules.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;An independent calculation of pool usage or overage does not match the billing allocation.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Periodically recalculate pool allocations independently and compare the result with the billing engine.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Billing operations and product or pricing teams.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A new line is added to a shared pool but is assigned to the wrong billing group, distorting the charges across the entire account.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>10. Proration Errors on Mid-Cycle Changes</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;A customer upgrades, downgrades, or changes services during a billing period, but the prorated charge or credit is incorrect.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Multiple plan changes, partial billing periods, different product rules, and edge cases can produce unexpected results.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;Independently calculated proration differs from the amount shown on the customer invoice.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Test common mid-cycle scenarios and automatically validate proration whenever billing configuration or product rules change.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Billing operations.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A customer upgrades halfway through the month but receives the new plan for the remaining period without the correct partial-period adjustment.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>11. Commission Calculation Errors</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;Sales representatives, agents, or channel partners receive commissions that do not match the agreed commercial terms.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Commission calculations often depend on separate spreadsheets, rate tables, or manually maintained rules.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;An independent commission calculation does not match the amount actually paid.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Calculate commissions from current billing data and approved contract terms. Review changes to commission structures whenever pricing or promotions change.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Finance, with sales operations responsible for commission rules.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A partner moves into a higher volume tier, but the commission spreadsheet is not updated and continues calculating payouts using the old rate.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>12. Tax, Surcharge, and Regulatory Fee Errors</strong></h4>
+
+
+
+<p class="wp-block-paragraph"><strong>What happens:</strong>&nbsp;The wrong tax, surcharge, or regulatory fee is applied to a customer invoice, reducing collected revenue or creating future credits and adjustments.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Why it happens:</strong>&nbsp;Tax and regulatory rules vary by location and can change independently of billing-system releases.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Signal in your data:</strong>&nbsp;The rate configured in the billing system does not match the applicable current rate.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Control:</strong>&nbsp;Maintain dated tax and surcharge rules and review them regularly. For complex jurisdictions, consider using a dedicated tax engine or validated external rate source.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Accountable owner:</strong>&nbsp;Finance, with billing operations handling configuration.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Example:</strong>&nbsp;A regulatory fee changes in one state, but the old rate remains configured for several billing cycles and the reseller must later absorb the difference.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>5 Revenue Assurance KPIs Every MVNO and Telecom Reseller Should Track</strong></h2>
+
+
+
+<p class="wp-block-paragraph">Finding leakage is only the first step. To prevent the same problems from recurring, you need a small set of metrics that shows where value is disappearing and whether your controls are actually working.</p>
+
+
+
+<p class="wp-block-paragraph">You do not need dozens of KPIs to get started. For most MVNOs and telecom resellers, five metrics provide a practical baseline across billing, carrier costs, reconciliation, commissions, and exception resolution.</p>
+
+
+
+<p><style>
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .table-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .table-scroll::-webkit-scrollbar-track {
+    background: #f3f3f3;
+    border-radius: 20px;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 20px;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #b5b5b5;
+  }
+
+  .responsive-table {
+    width: 100%;
+    min-width: 1100px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .responsive-table thead {
+    background-color: #FCEAD7;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    padding: 11px 13px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #111;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .responsive-table th {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Column widths */
+  .responsive-table th:nth-child(1),
+  .responsive-table td:nth-child(1) {
+    width: 25%;
+  }
+
+  .responsive-table th:nth-child(2),
+  .responsive-table td:nth-child(2) {
+    width: 30%;
+  }
+
+  .responsive-table th:nth-child(3),
+  .responsive-table td:nth-child(3) {
+    width: 45%;
+  }
+
+  /* Vertical dividers */
+  .responsive-table th:not(:last-child),
+  .responsive-table td:not(:last-child) {
+    border-right: 1px solid #eee;
+  }
+
+  /* Zebra rows */
+  .responsive-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* Hover effect */
+  .responsive-table tbody tr:hover {
+    background-color: #fde7cc;
+  }
+</style></p>
+<div class="table-scroll">
+<table class="responsive-table">
+<thead>
+<tr>
+<th>KPI</th>
+<th>What It Measures</th>
+<th>How to Calculate It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active-but-unbilled rate</td>
+<td>Potential revenue leakage from active services not appearing on customer invoices</td>
+<td>(Active services not billed ÷ Total active services) × 100</td>
+</tr>
+<tr>
+<td>Carrier invoice variance</td>
+<td>Difference between actual wholesale charges and expected contracted cost</td>
+<td>(Actual carrier cost − Expected cost) ÷ Expected cost × 100</td>
+</tr>
+<tr>
+<td>Reconciliation coverage</td>
+<td>Percentage of services checked against carrier and customer billing records</td>
+<td>Reconciled services ÷ Total active services × 100</td>
+</tr>
+<tr>
+<td>Commission accuracy rate</td>
+<td>Accuracy of partner and sales commission calculations</td>
+<td>Correct commission calculations ÷ Sampled commission calculations × 100</td>
+</tr>
+<tr>
+<td>Days to detect vs. days to recover</td>
+<td>How quickly leakage is identified and resolved</td>
+<td>Median days from leakage occurrence to detection, and from detection to resolution</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+<h2 class="wp-block-heading"><strong>Stop Revenue Leakage Before It Hits Your Margin</strong></h2>
+
+
+
+<figure class="wp-block-image aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_53_34-PM-1024x576.png" alt="Telecom revenue assurance dashboard showing five key leakage and reconciliation KPIs" class="wp-image-22428" style="width:666px;height:auto" srcset="/wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_53_34-PM-1024x576.png 1024w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_53_34-PM-300x169.png 300w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_53_34-PM-768x432.png 768w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_53_34-PM-1536x864.png 1536w, /wp-content/uploads/2026/09/ChatGPT-Image-Sep-4-2026-03_53_34-PM.png 1672w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p class="wp-block-paragraph">For MVNOs and telecom resellers, revenue leakage is not just a billing issue. It can come from unbilled services, carrier invoice errors, outdated rates, expired discounts, proration, commissions, and other gaps between what you deliver, pay, bill, and collect.</p>
+
+
+
+<p class="wp-block-paragraph">The first step is simple: reconcile your active services, carrier charges, customer invoices, and payments. Then track the exceptions, assign ownership, and fix the controls that allow them to repeat.</p>
+
+
+
+<p class="wp-block-paragraph">You do not need a perfect industry benchmark to know whether you are leaking margin. Your own data can show where the gaps are and how much they are costing your business.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Ready to find yours? Start a 30-day connectivity revenue audit with your active-service data, carrier invoices, customer billing records, and wholesale contracts.</strong></p>
+
+
+
+<h2 class="wp-block-heading"><strong>FAQs</strong></h2>
+
+
+<div class="wp-block-uagb-faq uagb-faq__outer-wrap uagb-block-5561fd5b uagb-faq-icon-row uagb-faq-layout-accordion uagb-faq-expand-first-true uagb-faq-inactive-other-true uagb-faq__wrap uagb-buttons-layout-wrap uagb-faq-equal-height     " data-faqtoggle="true" role="tablist"><div class="wp-block-uagb-faq-child uagb-faq-child__outer-wrap uagb-faq-item uagb-block-bf8f8d34 " role="tab" tabindex="0"><div class="uagb-faq-questions-button uagb-faq-questions">			<span class="uagb-icon uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"></path></svg>
+							</span>
+						<span class="uagb-icon-active uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"></path></svg>
+							</span>
+			<span class="uagb-question"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>What is telecom revenue leakage for an MVNO or reseller?</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></span></div><div class="uagb-faq-content"><p>Telecom revenue leakage is value lost between delivering connectivity and collecting the expected revenue or margin. For MVNOs and resellers, it can include unbilled services, incorrect carrier charges, outdated rates, billing errors, discounts, commissions, taxes, and other reconciliation gaps.<br><a href="https://www.gsma.com/solutions-and-impact/technologies/esim/?utm_source=chatgpt.com"></a><a href="https://www.choiceiot.com/blog/why-using-a-multi-carrier-platform-is-important-to-solution-providers/?utm_source=chatgpt.com" target="_blank" rel="noreferrer noopener"></a></p></div></div><div class="wp-block-uagb-faq-child uagb-faq-child__outer-wrap uagb-faq-item uagb-block-1033b9c1 " role="tab" tabindex="0"><div class="uagb-faq-questions-button uagb-faq-questions">			<span class="uagb-icon uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"></path></svg>
+							</span>
+						<span class="uagb-icon-active uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"></path></svg>
+							</span>
+			<span class="uagb-question"><strong><strong><strong><strong><strong><strong>How do I find active SIMs that are not being billed?</strong></strong></strong></strong></strong></strong></span></div><div class="uagb-faq-content"><p>Compare your active or provisioned service records with your customer billing records for the same period. Any active SIM, number, circuit, or device that has no corresponding billable record should be investigated as a potential revenue leak.</p></div></div><div class="wp-block-uagb-faq-child uagb-faq-child__outer-wrap uagb-faq-item uagb-block-d8e3659e " role="tab" tabindex="0"><div class="uagb-faq-questions-button uagb-faq-questions">			<span class="uagb-icon uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"></path></svg>
+							</span>
+						<span class="uagb-icon-active uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"></path></svg>
+							</span>
+			<span class="uagb-question"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>How do you reconcile carrier invoices?</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></span></div><div class="uagb-faq-content"><p>Compare each carrier invoice against your active-service inventory, contracted wholesale rates, usage records, promotions, deactivations, and expected costs. Flag differences such as inactive lines still being billed, incorrect rates, unexpected usage charges, or expired discounts before approving the invoice for payment.<br><a href="https://www.grandviewresearch.com/industry-analysis/managed-services-market?utm_source=chatgpt.com"></a></p></div></div><div class="wp-block-uagb-faq-child uagb-faq-child__outer-wrap uagb-faq-item uagb-block-42faebe2 " role="tab" tabindex="0"><div class="uagb-faq-questions-button uagb-faq-questions">			<span class="uagb-icon uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"></path></svg>
+							</span>
+						<span class="uagb-icon-active uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"></path></svg>
+							</span>
+			<span class="uagb-question"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>What are the most common sources of revenue leakage for MVNOs?</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></span></div><div class="uagb-faq-content"><p>Common sources include active services that never reach billing, missing usage records, plan changes that are not reflected on invoices, disconnected lines that carriers continue billing, expired promotions, wholesale rate mismatches, roaming charges, pooling errors, proration issues, commission errors, and tax or surcharge miscalculations.<br><a href="https://iot-analytics.com/role-of-esim-for-iot-better-security-simplified-roaming-easier-provisioning/?utm_source=chatgpt.com"></a></p></div></div><div class="wp-block-uagb-faq-child uagb-faq-child__outer-wrap uagb-faq-item uagb-block-1145a284 " role="tab" tabindex="0"><div class="uagb-faq-questions-button uagb-faq-questions">			<span class="uagb-icon uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"></path></svg>
+							</span>
+						<span class="uagb-icon-active uagb-faq-icon-wrap">
+								<svg xmlns="https://www.w3.org/2000/svg" viewBox= "0 0 448 512"><path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"></path></svg>
+							</span>
+			<span class="uagb-question"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>How can an MVNO measure telecom revenue leakage?</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></span></div><div class="uagb-faq-content"><p>Start with a small revenue assurance scorecard. Track your active-but-unbilled rate, carrier invoice variance, reconciliation coverage, commission accuracy, and time to detect and resolve exceptions. These metrics provide a clearer picture of your actual leakage than a generic industry benchmark.</p></div></div></div>
+
+
+<p class="wp-block-paragraph"><strong>Find where your connectivity margin is leaking. Start a 30-day revenue audit with Spenza today.</strong></p>
+
+
+
+<div class="wp-block-uagb-buttons uagb-buttons__outer-wrap uagb-btn__default-btn uagb-btn-tablet__default-btn uagb-btn-mobile__default-btn uagb-block-68257511"><div class="uagb-buttons__wrap uagb-buttons-layout-wrap ">
+<div class="wp-block-uagb-buttons-child uagb-buttons__outer-wrap uagb-block-74a16303 wp-block-button"><div class="uagb-button__wrapper"><a class="uagb-buttons-repeater wp-block-button__link" aria-label="" href="/contact-us/" rel="follow noopener" target="_blank" role="button"><div class="uagb-button__link">Contact Us Today</div></a></div></div>
+</div></div>

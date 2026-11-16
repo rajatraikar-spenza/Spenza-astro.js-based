@@ -39,9 +39,12 @@ collections:
     # The file name must equal the slug: the site builds /<category>/<slug>/ from it.
     slug: "{{fields.slug}}"
     identifier_field: slug
+    # Posts imported from WordPress are in the next collection ("Imported posts"); this one is posts written here.
+    filter: { field: source, value: admin }
     summary: "{{title}} · {{category}} · {{publishedDate | date('YYYY-MM-DD')}}"
     sortable_fields: [publishedDate, title, category]
     fields:
+      - { label: Source, name: source, widget: hidden, default: admin }
       - { label: Title, name: title, widget: string }
       - label: Slug
         name: slug
@@ -142,6 +145,95 @@ collections:
         buttons: [bold, italic, code, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
         editor_components: [spenza-image, spenza-embed, spenza-button, spenza-callout]
         hint: "Use ## for sections and ### inside them (the title is already the H1). The + menu adds an image, a video, a button or a callout. Tables are supported."
+
+  # The posts that were on WordPress, moved here as they were. Their body is the HTML WordPress stored
+  # (some posts carry hand-built tables, cards and styles), so it is edited as HTML, not rich text.
+  - name: blog_imported
+    label: Imported posts
+    label_singular: Imported post
+    description: "The posts that were published on WordPress before the admin. Fields, TL;DR cards and the HTML body are all editable here."
+    folder: src/content/cms-blog
+    extension: mdx
+    format: frontmatter
+    create: false
+    delete: false
+    slug: "{{fields.slug}}"
+    identifier_field: slug
+    filter: { field: source, value: wordpress }
+    summary: "{{title}} · {{category}} · {{publishedDate | date('YYYY-MM-DD')}}"
+    sortable_fields: [publishedDate, title, category]
+    fields:
+      - { label: Source, name: source, widget: hidden, default: wordpress }
+      - { label: WordPress id, name: wpId, widget: hidden }
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, hint: "The URL ends with this. Do not change it: that breaks links and the file name." }
+      - label: Category
+        name: category
+        widget: relation
+        collection: settings
+        file: categories
+        search_fields: ["categories.*.label"]
+        value_field: "categories.*.slug"
+        display_fields: ["categories.*.label"]
+        hint: "Also the URL: /<category>/<slug>/. Changing it moves the page and breaks the old link."
+      - { label: Categories (all), name: categories, widget: hidden, required: false }
+      - label: Author
+        name: author
+        widget: relation
+        collection: settings
+        file: authors
+        search_fields: ["authors.*.name"]
+        value_field: "authors.*.slug"
+        display_fields: ["authors.*.name"]
+      - { label: Description, name: description, widget: text, hint: "The search snippet and card text." }
+      - { label: Publish date, name: publishedDate, widget: datetime }
+      - { label: Updated date, name: updatedDate, widget: datetime, required: false }
+      - { label: Tags, name: tags, widget: list, required: false, default: [], hint: "Plain words. Only tags listed under Settings > Tags get a tag page." }
+      - { label: Case study, name: isCaseStudy, widget: boolean, default: false }
+      - label: Featured image
+        name: hero
+        widget: object
+        required: false
+        fields:
+          - { label: Image path, name: image, widget: string, hint: "Where the file lives, e.g. /wp-content/uploads/2026/05/name.png" }
+          - { label: Alt text, name: alt, widget: string, required: false }
+          - { label: Width, name: width, widget: number, required: false }
+          - { label: Height, name: height, widget: number, required: false }
+          - { label: Media id, name: id, widget: hidden, required: false }
+          - { label: Image sizes, name: srcSet, widget: hidden, required: false }
+      - { label: Excerpt (WordPress), name: excerpt, widget: hidden, required: false }
+      - { label: SEO title, name: seoTitle, widget: string, required: false }
+      - { label: SEO description, name: seoDescription, widget: text, required: false }
+      - { label: Social image, name: ogImage, widget: hidden, required: false }
+      - { label: SEO head, name: seoHead, widget: text, required: false, hint: "The page's tags for Google and social sharing, as WordPress made them. Clear this box to rebuild them from the fields above (do that after changing the title, description or image)." }
+      - { label: WordPress author, name: wpAuthor, widget: hidden, required: false }
+      - { label: Body lead, name: bodyLead, widget: hidden, required: false }
+      - label: TL;DR block
+        name: tldrBlocks
+        widget: object
+        required: false
+        fields:
+          - { label: Heading, name: tldrHeading, widget: string, required: false }
+          - { label: Summary, name: tldrDescription, widget: text, required: false }
+          - label: Key points
+            name: twoCol
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Icon (HTML), name: icon, widget: string, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: How Spenza helps
+            name: oneCol
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Icon (HTML), name: icon, widget: string, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+      - { label: HTML body, name: body, widget: code, default_language: html, allow_language_selection: false, output_code_only: true, hint: "The post exactly as WordPress stored it. Edit the text; keep the tags and styles around it." }
 
   # Lists the posts draw from. Edited here, saved as JSON next to the posts, and
   # published like a post (Draft > In review > Ready > Publish).
