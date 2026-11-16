@@ -28,8 +28,14 @@ marketing  ──►  spenza.com/admin  (Decap CMS, static files in public/admin
   sitemap see them with no changes, and they render through `ArticleLayout` with the same markup as live
   posts (`scripts/lib/cms-post.mjs`: TL;DR cards, themed tables, FAQ accordion + FAQPage schema, the
   Contact Us Today button).
-* **The 256 existing posts are still in WordPress** until they are migrated; this platform creates and
-  edits admin posts only.
+* **The live posts are imported.** The 129 posts that were published on WordPress live in
+  `src/content/cms-blog/` too (`source: wordpress`), under **Imported posts** in the admin. Their body is
+  the HTML WordPress stored, kept verbatim so the page renders exactly as before; the TL;DR cards, the
+  Yoast SEO head and the featured image are front-matter fields. An imported entry replaces the WordPress
+  record of the same slug at build time (`src/loaders/cms-posts.mjs`), so deleting the file puts the
+  WordPress version back. Posts written in the admin are under **Blog**. Re-running
+  `node scripts/cms-import-wp.mjs` rewrites every imported file from WordPress: only before cut-over,
+  never after someone has edited one in the admin.
 * **An invalid post never breaks the deploy.** The build skips it with an error; the
   `cms-validate` workflow reports the same problems on the pull request first.
 * A post dated in the future is held back until that day.

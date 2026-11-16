@@ -189,3 +189,69 @@ test('Settings: URL names are checked, and a category cannot shadow an existing 
   assert.match(bad, /used twice/);
   assert.match(bad, /"careers" is already a page/);
 });
+
+// ---- posts imported from WordPress ------------------------------------------------
+
+const IMPORTED = (extra = '') => `---
+source: "wordpress"
+wpId: 18379
+title: "Imported &amp; kept"
+slug: "imported-post"
+category: "telecom"
+categories: ["telecom"]
+author: "sivasai"
+description: "Fish &amp; chips explained."
+publishedDate: "2026-05-29T00:01:23.000Z"
+updatedDate: "2026-11-04T01:06:40.000Z"
+tags: ["a-tag"]
+hero:
+  image: "/wp-content/uploads/2026/05/x.png"
+  alt: "Alt"
+  width: 1280
+  height: 720
+excerpt: "<p>Fish &amp;amp; chips explained.</p>\\n"
+seoTitle: "Imported - Spenza"
+seoHead: "<title>Imported - Spenza</title>"
+tldrBlocks: {"tldrHeading":"TL;DR","tldrDescription":"d","twoCol":[{"icon":"<i></i>","title":"t","text":"x"}],"oneCol":[]}
+${extra}---
+<style>.x{color:red}</style>
+<p class="wp-block-paragraph">Body <strong>as stored</strong>.</p>
+`;
+
+const writeTmp = text => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'imp-'));
+  const file = path.join(dir, 'imported-post.mdx');
+  fs.writeFileSync(file, text);
+  return file;
+};
+
+test('an imported post keeps its WordPress body, head and TL;DR verbatim', async () => {
+  const r = await loadEntry(writeTmp(IMPORTED()), { siteUrl: 'https://spenza.com', publicDir: PUBLIC });
+  assert.deepEqual(r.errors, []);
+  assert.equal(r.imported, true);
+  const d = r.data;
+  assert.equal(d.databaseId, 18379, 'keeps the WordPress id, so post-<id> classes still match');
+  assert.equal(d.content, '<style>.x{color:red}</style>\n<p class="wp-block-paragraph">Body <strong>as stored</strong>.</p>\n');
+  assert.equal(d.seo.fullHead, '<title>Imported - Spenza</title>');
+  assert.equal(d.templateBlocks.twoCol[0].icon, '<i></i>');
+  assert.equal(d.featuredImage.url, '/wp-content/uploads/2026/05/x.png');
+  assert.equal(d.excerpt, '<p>Fish &amp;amp; chips explained.</p>\n', 'the stored excerpt is reused while the description still matches it');
+  assert.equal(d.author.slug, 'sivasai');
+});
+
+test('editing the description of an imported post rebuilds the excerpt, and clearing seoHead rebuilds the head', async () => {
+  const text = IMPORTED().replace('Fish &amp; chips explained.', 'A new description.').replace('seoHead: "<title>Imported - Spenza</title>"', 'seoHead: ""');
+  const r = await loadEntry(writeTmp(text), { siteUrl: 'https://spenza.com', publicDir: PUBLIC });
+  assert.deepEqual(r.errors, []);
+  assert.match(r.data.excerpt, /^<p>A new description\.<\/p>/);
+  assert.match(r.data.seo.fullHead, /<link rel="canonical" href="https:\/\/spenza\.com\/telecom\/imported-post\/"/);
+});
+
+test('an imported post is checked for what the site depends on, but not held to the new-post rules', async () => {
+  // no TL;DR cards of 5, no FAQ, a remote featured image, tags not in Settings: all fine here.
+  const ok = await loadEntry(writeTmp(IMPORTED()), { siteUrl: 'https://spenza.com', publicDir: PUBLIC });
+  assert.deepEqual(ok.errors, []);
+  const bad = await loadEntry(writeTmp(IMPORTED().replace('wpId: 18379', 'wpId: 9000001').replace('category: "telecom"', 'category: "news"')), { siteUrl: 'https://spenza.com', publicDir: PUBLIC });
+  assert.ok(bad.errors.some(e => /wpId must be/.test(e)));
+  assert.ok(bad.errors.some(e => /category must be one of/.test(e)));
+});

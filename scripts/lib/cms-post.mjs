@@ -556,6 +556,81 @@ export function buildHead(meta, { siteUrl, content, hero, authorName }) {
 export const databaseIdFor = slug =>
   9_000_000 + (parseInt(createHash('sha1').update(String(slug)).digest('hex').slice(0, 6), 16) % 999_999);
 
+// ---- posts imported from WordPress -------------------------------------------
+//
+// `source: wordpress` marks a post that was imported from WordPress into the admin. Its body is the
+// HTML WordPress stored (Gutenberg blocks, some with their own <style>/<script>), kept verbatim so it
+// renders exactly as it did; the TL;DR cards, the Yoast <head> and the featured image travel as
+// front-matter fields. The admin edits the fields and the HTML as they are; nothing is re-rendered
+// from markdown, because converting 250 hand-built posts to markdown would change them.
+
+export const decodeEntities = s => String(s ?? '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
+  .replace(/&#0?39;/g, "'").replace(/&#8217;/g, '\u2019').replace(/&#8216;/g, '\u2018').replace(/&#8220;/g, '\u201c').replace(/&#8221;/g, '\u201d')
+  .replace(/&#8211;/g, '\u2013').replace(/&#8212;/g, '\u2014').replace(/&#8230;/g, '\u2026').replace(/&nbsp;/g, ' ');
+
+export const isImported = meta => meta?.source === 'wordpress';
+
+export function validateImported(meta, body, { filenameSlug } = {}) {
+  const errors = [];
+  const warnings = [];
+  for (const k of ['title', 'slug', 'category', 'author', 'publishedDate', 'wpId']) {
+    if (meta[k] === undefined || meta[k] === null || String(meta[k]).trim() === '') errors.push(`${k} is required`);
+  }
+  if (meta.slug && filenameSlug && meta.slug !== filenameSlug) errors.push(`slug "${meta.slug}" does not match the file name "${filenameSlug}"`);
+  if (meta.slug && !SLUG_RE.test(String(meta.slug))) errors.push('slug must be lowercase letters, numbers and hyphens');
+  if (meta.wpId !== undefined && !(Number(meta.wpId) > 0 && Number(meta.wpId) < 9_000_000)) errors.push('wpId must be the WordPress post id (a number below 9000000)');
+  if (meta.category && !CATEGORIES.includes(meta.category)) errors.push(`category must be one of ${CATEGORIES.join(', ')}`);
+  if (meta.author && !AUTHORS[meta.author]) errors.push(`author must be one of ${Object.keys(AUTHORS).join(', ')}`);
+  if (meta.publishedDate && Number.isNaN(new Date(meta.publishedDate).getTime())) errors.push('publishedDate is not a valid date');
+  if (meta.hero?.image && !String(meta.hero.alt ?? '').trim()) warnings.push('the featured image has no alt text');
+  if (!String(body ?? '').trim()) errors.push('the HTML body is empty');
+  if (/<h1[\s>]/i.test(body ?? '')) warnings.push('the body contains an H1; the title is the only H1');
+  return { errors, warnings };
+}
+
+export function importedRecord(meta, body, { siteUrl, authorsMeta = {} }) {
+  const a = AUTHORS[meta.author];
+  const base = authorsMeta[meta.author] ?? {};
+  // Settings > Authors wins when filled in; otherwise what WordPress had for this post's author.
+  const bio = a.bio || meta.wpAuthor?.bio || base.bio;
+  const avatar = a.avatar || meta.wpAuthor?.avatar || base.avatar;
+  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}) };
+  const published = new Date(meta.publishedDate);
+  const modified = meta.updatedDate ? new Date(meta.updatedDate) : published;
+  const hero = meta.hero?.image
+    ? {
+      url: String(meta.hero.image), alt: String(meta.hero.alt ?? ''),
+      ...(meta.hero.width ? { width: Number(meta.hero.width) } : {}), ...(meta.hero.height ? { height: Number(meta.hero.height) } : {}),
+      ...(meta.hero.id ? { id: Number(meta.hero.id) } : {}), ...(meta.hero.srcSet ? { srcSet: String(meta.hero.srcSet) } : {}),
+    }
+    : undefined;
+  // The description is the editable field; WordPress' own excerpt markup is kept only while it still says the same thing.
+  const description = String(meta.description ?? '');
+  const excerpt = meta.excerpt && decodeEntities(plain(meta.excerpt)) === description ? String(meta.excerpt) : `<p>${escapeHtml(description)}</p>\n`;
+  const tl = meta.tldrBlocks ?? {};
+  const rows = list => (Array.isArray(list) ? list : []).map(c => ({ icon: String(c?.icon ?? ''), title: String(c?.title ?? ''), text: String(c?.text ?? '') }));
+  const templateBlocks = { tldrHeading: String(tl.tldrHeading ?? ''), tldrDescription: String(tl.tldrDescription ?? ''), twoCol: rows(tl.twoCol), oneCol: rows(tl.oneCol) };
+  const category = String(meta.category);
+  const entry = { ...meta, category, publishedDate: published, updatedDate: modified, description };
+  // Yoast's head is kept verbatim. Clear the field in the admin to rebuild the tags from the fields instead.
+  const fullHead = String(meta.seoHead ?? '').trim()
+    ? String(meta.seoHead)
+    : buildHead(entry, { siteUrl: siteUrl.replace(/\/$/, ''), content: body, hero, authorName: author.name });
+  return {
+    databaseId: Number(meta.wpId), slug: String(meta.slug), title: String(meta.title),
+    category, categories: meta.categories?.length ? meta.categories.map(String) : [category],
+    tags: (meta.tags ?? []).map(String), isCaseStudy: Boolean(meta.isCaseStudy),
+    excerpt, publishedDate: published, updatedDate: modified, author,
+    ...(hero ? { featuredImage: hero } : {}),
+    seo: {
+      title: String(meta.seoTitle || meta.title), description: String(meta.seoDescription || description),
+      ...(meta.ogImage ? { ogImage: String(meta.ogImage) } : {}), fullHead,
+    },
+    // The file format trims leading whitespace from the body; WordPress' markup began with some, so it is put back.
+    content: String(meta.bodyLead ?? '') + body, templateBlocks,
+  };
+}
+
 /**
  * Entry file -> the record shape of the `posts` collection, or the problems that
  * stop it being one.
@@ -564,6 +639,11 @@ export async function loadEntry(file, { siteUrl, publicDir, authorsMeta = {}, no
   const text = fs.readFileSync(file, 'utf8');
   const filenameSlug = path.basename(file).replace(/\.mdx?$/, '');
   const { meta, body } = parseEntry(text, path.basename(file));
+  if (isImported(meta)) {
+    const { errors, warnings } = validateImported(meta, body, { filenameSlug });
+    if (errors.length) return { file, slug: meta.slug ?? filenameSlug, errors, warnings };
+    return { file, slug: meta.slug, warnings, errors: [], imported: true, data: importedRecord(meta, body, { siteUrl, authorsMeta }) };
+  }
   const onDisk = p => (p ? fs.existsSync(path.join(publicDir, p.replace(/^\//, ''))) : false);
   const { errors, warnings } = validateEntry(meta, body, { fileExists: onDisk, filenameSlug });
   if (errors.length) return { file, slug: meta.slug ?? filenameSlug, errors, warnings };

@@ -66,7 +66,8 @@ export function cmsPosts() {
 
         const { slug, data } = result;
         const existing = store.get(slug);
-        if (existing && !isCmsRecord(existing)) {
+        // An imported post IS the WordPress post, moved: it replaces that record. A new admin post never may.
+        if (existing && !isCmsRecord(existing) && !result.imported) {
           const msg = `${rel}: slug "${slug}" is already a WordPress post; this entry is NOT published. Pick another slug.`;
           logger.error(msg);
           if (process.env.GITHUB_ACTIONS) console.log(`::error file=${rel}::${msg}`);
