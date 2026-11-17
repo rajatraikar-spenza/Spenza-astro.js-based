@@ -17,6 +17,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
 import { MEDIA_ORIGIN } from './config.mjs';
+import { cmsPair } from './cms-picture.mjs';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
@@ -404,9 +405,12 @@ function figureHtml(bodyImage, dims) {
   const w = dims?.width ? ` width="${dims.width}"` : '';
   const h = dims?.height ? ` height="${dims.height}"` : '';
   const caption = String(bodyImage.caption ?? '').trim();
+  // WebP first, the upload's own format as the fallback, when the pair is on disk.
+  const pair = cmsPair(bodyImage.image);
+  const src = pair ? pair.fallback : bodyImage.image;
+  const img = `<img loading="lazy" decoding="async" alt="${escapeHtml(bodyImage.alt)}"${h} src="${escapeHtml(src)}"${w}/>`;
   return (
-    `<figure>\n<img loading="lazy" decoding="async" alt="${escapeHtml(bodyImage.alt)}"${h} ` +
-    `src="${escapeHtml(bodyImage.image)}"${w}/>\n` +
+    `<figure>\n${pair ? `<picture><source srcset="${escapeHtml(pair.webp)}" type="image/webp">${img}</picture>` : img}\n` +
     (caption ? `<figcaption>${escapeHtml(caption)}</figcaption>\n` : '') +
     '</figure>'
   );

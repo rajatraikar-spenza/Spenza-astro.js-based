@@ -72,6 +72,7 @@ jobs:
       # confirmation and the sales alert. No default: leaving it unset ships
       # the behaviour this repo had before, which is HubSpot only and no mail.
       WP_FORMS_ORIGIN: ${{ vars.WP_FORMS_ORIGIN }}
+      LEAD_ENDPOINT:  ${{ vars.LEAD_ENDPOINT }}
       HOST_REDIRECTS: '1'
       # Empty by default, so this workflow publishes an indexable production
       # site. It used to default to '1' from when the only thing it deployed
@@ -195,6 +196,19 @@ jobs:
       - name: Smoke-test what was deployed
         if: steps.changed.outputs.skip != 'true'
         run: bash scripts/aws-site-host.sh verify
+
+      # A copy of everything an editor writes, kept outside git: the posts, the
+      # Settings files and the uploaded images. The repo stays the source of truth
+      # (the admin edits through pull requests); this is the safety net if the repo
+      # or the GitHub account is ever lost. The bucket is versioned, so an edit or a
+      # delete can be undone, and each run also leaves a copy named by commit.
+      # Never blocks a deploy: a backup that fails is reported, not fatal.
+      - name: Back up the content to S3
+        continue-on-error: true
+        run: |
+          tar -czf content.tar.gz src/content/cms-blog src/content/cms-meta public/cms-media
+          aws s3 cp content.tar.gz s3://spenza-content-backup/latest/content.tar.gz
+          aws s3 cp content.tar.gz "s3://spenza-content-backup/by-commit/${GITHUB_SHA}.tar.gz"
 
       # Recorded only after everything above succeeded, so a failed run does not
       # mark this content as published and let the next schedule skip it.
