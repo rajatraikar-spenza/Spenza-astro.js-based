@@ -13,3 +13,15 @@ h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 10px; }
 .spenza-btn-preview { display: inline-block; background: #ff4500; color: #fff !important; padding: 12px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; }
 .spenza-callout { display: block; border-left: 4px solid #ff4500; background: #fff4ee; border-radius: 8px; padding: 14px 18px; margin: 24px 0; }
 .spenza-callout.tip { border-color: #0a7d3c; background: #e8f6ee; } .spenza-callout.warning { border-color: #b3261e; background: #fdecea; }
+
+/* Imported posts: the WordPress markup, drawn close to the published page. */
+.body .wp-block-image, .body figure.wp-block-image { margin: 24px 0; text-align: center; }
+.body .aligncenter { margin-left: auto; margin-right: auto; display: block; }
+.body p { margin: 0 0 1em; } .body ul, .body ol { padding-left: 1.3em; }
+.body iframe, .body video { max-width: 100%; }
+.tldr-block { background: #fff4ee; border-left: 4px solid #ff4500; border-radius: 8px; padding: 16px 20px; margin: 0 0 24px; }
+.tldr-block h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.tldr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 12px; }
+.tldr-grid.one { grid-template-columns: 1fr; }
+.tldr-card { background: #fff; border: 1px solid #f0d9cc; border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; font-size: .95rem; }
+.tldr-card.one { border-color: #ff4500; }
