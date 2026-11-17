@@ -104,6 +104,40 @@
             );
           },
         }));
+
+        // Imported posts keep the HTML WordPress stored, edited in a code box. The preview
+        // draws that HTML as the reader sees it, instead of showing the markup as text.
+        // Media paths point at the media host, as the published page does.
+        var MEDIA = 'https://media.spenza.com';
+        var media = function (v) {
+          return String(v == null ? '' : v).replace(/([\s"'(,]|^)\/(wp-content\/uploads\/|wp-assets\/wp-content\/webp-express\/)/g, '$1' + MEDIA + '/$2');
+        };
+        var cards = function (list, cls) {
+          return (list && list.toJS ? list.toJS() : []).map(function (c) {
+            return h('div', { className: 'tldr-card ' + cls }, h('strong', {}, c.title || ''), h('span', {}, c.text || ''));
+          });
+        };
+        CMS.registerPreviewTemplate('blog_imported', window.createClass({
+          render: function () {
+            var e = this.props.entry, d = function (k) { return e.getIn(['data'].concat(k)); };
+            var hero = d(['hero', 'image']);
+            var tl = d(['tldrBlocks']);
+            var has = tl && tl.get && ((tl.get('twoCol') && tl.get('twoCol').size) || (tl.get('oneCol') && tl.get('oneCol').size) || tl.get('tldrDescription'));
+            return h('article', { className: 'post' },
+              h('p', { className: 'kicker' }, [d(['category']) || 'category', ' \u00b7 ', d(['author']) || 'author'].join('')),
+              h('h1', {}, d(['title']) || 'Untitled'),
+              d(['description']) ? h('p', { className: 'lede' }, d(['description'])) : null,
+              hero ? h('img', { className: 'hero', src: media(hero), alt: d(['hero', 'alt']) || '' }) : null,
+              has ? h('div', { className: 'tldr-block' },
+                h('h2', {}, tl.get('tldrHeading') || 'TL;DR'),
+                tl.get('tldrDescription') ? h('p', {}, tl.get('tldrDescription')) : null,
+                h('div', { className: 'tldr-grid' }, cards(tl.get('twoCol'), 'two')),
+                h('div', { className: 'tldr-grid one' }, cards(tl.get('oneCol'), 'one'))
+              ) : null,
+              h('div', { className: 'body', dangerouslySetInnerHTML: { __html: media(d(['body']) || '') } })
+            );
+          },
+        }));
       })();
     </script>
     <script>
