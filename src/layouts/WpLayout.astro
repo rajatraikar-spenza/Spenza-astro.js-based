@@ -18,7 +18,7 @@ import footerHtml from '../partials/chrome/footer.html?raw';
 import demoPopupHtml from '../partials/chrome/demo-popup.html?raw';
 import Analytics from '../components/Analytics.astro';
 import FontPreload from '../components/FontPreload.astro';
-import { MEDIA_ORIGIN, NOINDEX, WP_FORMS_ORIGIN } from '../../scripts/lib/config.mjs';
+import { MEDIA_ORIGIN, NOINDEX, WP_FORMS_ORIGIN, LEAD_ENDPOINT } from '../../scripts/lib/config.mjs';
 import { rewriteHead, withoutTitle, titleFrom } from '../../scripts/lib/wp-head.mjs';
 import '../styles/fonts.css';
 import '../styles/wp-polish.css';
@@ -217,7 +217,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
       `WP_FORMS_ORIGIN` in scripts/lib/config.mjs. Empty when unset, and the
       script then behaves exactly as it did before: HubSpot only, no mail.
     */}
-    <script src="/scripts/hubspot-forms.js" data-wp-forms-origin={WP_FORMS_ORIGIN} defer></script>
+    <script src="/scripts/hubspot-forms.js" data-wp-forms-origin={WP_FORMS_ORIGIN} data-lead-endpoint={LEAD_ENDPOINT} defer></script>
     <script src="/scripts/preferred-source.js" defer></script>
     {pageScripts?.script && <script src={pageScripts.script} defer></script>}
 

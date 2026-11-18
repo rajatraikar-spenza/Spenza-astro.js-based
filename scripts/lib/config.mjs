@@ -49,6 +49,15 @@ export const WP_HOST = new URL(WP_ORIGIN).hostname;
 export const WP_FORMS_ORIGIN = (process.env.WP_FORMS_ORIGIN || '').replace(/\/+$/, '');
 
 /**
+ * The lead endpoint (admin-api/lead, an AWS Lambda): sends the sales alert and the
+ * client reply, archives each lead in S3 and reports the conversion to OpenAI. It
+ * replaces the WordPress replay above, so with it set WordPress is not needed to
+ * handle a form. Empty means "do not post", like WP_FORMS_ORIGIN. Both can be set
+ * at once for a parallel run; the browser then posts to each.
+ */
+export const LEAD_ENDPOINT = (process.env.LEAD_ENDPOINT || '').replace(/\/+$/, '');
+
+/**
  * Where blog/case-study media is served from in the built site.
  *
  * Empty means "serve from this repo", which is the state until

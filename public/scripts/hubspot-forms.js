@@ -71,6 +71,13 @@
   const WP_ORIGIN = (document.currentScript?.dataset.wpFormsOrigin || '')
     .replace(/\/+$/, '');
 
+  /**
+   * The lead endpoint (AWS Lambda). When set, every lead is posted here and this
+   * is what sends the emails and records the entry; WordPress is not needed.
+   */
+  const LEAD_ENDPOINT = (document.currentScript?.dataset.leadEndpoint || '')
+    .replace(/\/+$/, '');
+
   const ENDPOINT = `https://api-${REGION}.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/`;
 
   /** Shown when the network fails, so a lead has somewhere else to go. */
@@ -847,8 +854,8 @@
    * CORS headers — so unlike the replay, this one can say whether the entry
    * was actually written.
    */
-  async function notifyViaEndpoint(form, id) {
-    const url = `${WP_ORIGIN}/wp-admin/admin-ajax.php?action=spenza_lead`;
+  async function notifyViaEndpoint(form, id, url = `${WP_ORIGIN}/wp-admin/admin-ajax.php?action=spenza_lead`) {
+    const target = url === LEAD_ENDPOINT ? 'lead endpoint' : 'WordPress';
 
     try {
       const res = await fetch(url, {
@@ -864,9 +871,9 @@
 
       if (!res.ok || !result?.ok) {
         console.error(
-          `[hubspot-forms] form ${id}: WordPress rejected the lead ` +
+          `[hubspot-forms] form ${id}: ${target} rejected the lead ` +
           `(${res.status} ${result?.error ?? 'unreadable response'}). ` +
-          'The contact reached HubSpot; the notification emails did not.',
+          'The contact reached HubSpot; the notification emails may not have.',
           result?.validation ?? ''
         );
       }
@@ -884,13 +891,18 @@
       // Logged rather than shown either way: the lead is already in HubSpot
       // and only the mail is at risk, so there is nothing for the visitor to
       // act on.
-      console.error(`[hubspot-forms] form ${id}: lead endpoint unreachable:`, err);
+      console.error(`[hubspot-forms] form ${id}: ${target} unreachable:`, err);
     }
   }
 
   function notifyWordPress(form, id, spec) {
-    if (!WP_ORIGIN || notified.has(form)) return;
+    if ((!WP_ORIGIN && !LEAD_ENDPOINT) || notified.has(form)) return;
     notified.add(form);
+
+    // The lead endpoint takes every form. If WordPress is still set as well (a
+    // parallel run while the two are compared), it gets the lead too.
+    if (LEAD_ENDPOINT) notifyViaEndpoint(form, id, LEAD_ENDPOINT);
+    if (!WP_ORIGIN) return;
 
     if (spec?.replay === 'ajax') return notifyViaEndpoint(form, id);
 

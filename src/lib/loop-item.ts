@@ -19,6 +19,7 @@ import { existsSync } from 'node:fs';
 import { hasMedia } from './media-manifest.ts';
 import path from 'node:path';
 import { MEDIA_ORIGIN } from '../../scripts/lib/config.mjs';
+import { cmsPair } from '../../scripts/lib/cms-picture.mjs';
 import { categoryLabel } from '../data/blog-categories.ts';
 
 /**
@@ -203,12 +204,15 @@ export function featuredImage(
   // lone candidate would describe the `src` the browser already has.
   const candidates = img.srcSet ? localSrcSet(img.srcSet) : [];
   const srcSet = candidates.length > 1 ? candidates.join(', ') : '';
-  const webp = srcSet ? webpSrcSet(candidates) : webpFor(img.url);
+  // Images uploaded in the admin: the post references the WebP, the upload's own format sits beside it.
+  const pair = cmsPair(img.url);
+  const webp = pair ? pair.webp : srcSet ? webpSrcSet(candidates) : webpFor(img.url);
+  const imgSrc = pair ? pair.fallback : img.url;
 
   const attrs = [
     width ? `width="${width}"` : '',
     height ? `height="${height}"` : '',
-    `src="${esc(img.url)}"`,
+    `src="${esc(imgSrc)}"`,
     `class="attachment-full size-full${img.id ? ` wp-image-${img.id}` : ''}${webp ? ' webpexpress-processed' : ''}"`,
     `alt="${alt}"`,
     srcSet ? `srcset="${esc(srcSet)}"` : '',

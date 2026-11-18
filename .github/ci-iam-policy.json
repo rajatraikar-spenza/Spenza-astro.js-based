@@ -42,6 +42,13 @@
         "cloudfront-keyvaluestore:GetKey"
       ],
       "Resource": "*"
+    },
+    {
+      "Sid": "BackUpTheContent",
+      "Comment": "Write-only copy of the posts and uploads to the versioned spenza-content-backup bucket. CI can add backups; it cannot read or delete them.",
+      "Effect": "Allow",
+      "Action": ["s3:PutObject"],
+      "Resource": "arn:aws:s3:::spenza-content-backup/*"
     }
   ]
 }
