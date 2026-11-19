@@ -16,6 +16,7 @@
  * captured page always wins over a generated one.
  */
 import { getCollection } from 'astro:content';
+import { blogPosts } from '../../../lib/posts.ts';
 import ArchiveLayout from '../../../layouts/ArchiveLayout.astro';
 
 /** The mirrored day archives, any one of which supplies the page chrome. */
@@ -43,7 +44,7 @@ export async function getStaticPaths() {
       .map(f => f.replace(/^(\.\.\/)+/, '').replace(/\.astro$/, ''))
   );
 
-  const posts = await getCollection('posts');
+  const posts = await blogPosts();
 
   const byDay = new Map<string, typeof posts>();
   for (const p of posts) {

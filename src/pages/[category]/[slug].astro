@@ -37,7 +37,7 @@ export async function getStaticPaths() {
    * confirm: a post in every one of the seven categories shows the same three
    * newest articles, and the newest post of all shows the next three down.
    */
-  const newest = [...posts].sort(
+  const newest = posts.filter(p => p.data.category !== 'guest-blogs').sort(
     (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
   );
   const relatedFor = (slug: string) =>

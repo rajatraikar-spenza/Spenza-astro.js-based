@@ -310,6 +310,25 @@
         '<p>A Spenza telecom specialist will review your setup and be in touch shortly.</p>',
     },
 
+    // Guest Postings — the "Get in touch" popup on the guest blogs pages, for
+    // people who want to write for us. A real HubSpot form (its fields are ours),
+    // so nothing is dropped. Hand-built: `data-hs-form="guest-postings"` selects
+    // this entry, and a hidden `gform_submit=23` is what the lead endpoint reads
+    // to route the lead (alert to the two reviewers, thank-you to the writer).
+    'guest-postings': {
+      guid: 'GUEST_POSTINGS_FORM_GUID',
+      fields: { input_1: 'name', input_2: 'email' },
+      // The topic has no contact property of its own; `message` is standard and
+      // readable on the contact, the same compromise the 'ai-agent' form makes.
+      summary: { property: 'message', parts: [['Guest article topic', 'input_3']] },
+      unsent: [],
+      required: ['input_2', 'input_3'],
+      email: ['input_2'],
+      success:
+        '<h3 class="hs-confirmation-title">Thank you for your interest</h3>' +
+        '<p>We have your topic. If our team likes it, we will be in touch soon. A confirmation is on its way to your inbox.</p>',
+    },
+
     // Analysis Report Mail — the MVNO calculator's "send me the report" gate.
     // The page script waits on Gravity Forms' `gform_confirmation_loaded` to
     // start the download, so a success here has to announce itself; see
@@ -354,6 +373,7 @@
     5:  ['download', 'Mobility policy pack'],
     16: ['download', 'Gated PDF popup'],
     21: ['download', 'MVNO calculator report'],
+    'guest-postings': ['lead', 'Guest Postings'],
   };
 
   /**
@@ -402,7 +422,7 @@
    * measuring one thing against itself.
    */
   function placementOf(form) {
-    if (form.closest('.popup-overlay, .popup-container')) return 'popup';
+    if (form.closest('.popup-overlay, .popup-container, .gp-modal')) return 'popup';
     if (form.closest('footer, .site-footer')) return 'footer';
     return 'inline';
   }

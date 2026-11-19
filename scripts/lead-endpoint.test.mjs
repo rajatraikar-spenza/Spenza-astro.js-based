@@ -118,3 +118,23 @@ test('validate: form 5 accepts the dotted multi-input names', () => {
   const ok = validate('5', { 'input_1.3': 'A', 'input_8.6': 'B', input_2: 'a@b.co', input_3: 'C', input_4: 'D', input_6: '10' });
   assert.deepEqual(ok, {});
 });
+
+test('form 23 (Guest Postings): alert only to the two reviewers, thank-you sent even with SEND_CLIENT_REPLY off', async () => {
+  const c = harness();
+  const res = await handler(post({ gform_submit: '23', input_1: 'Sam Writer', input_2: 'sam@acme.io', input_3: 'Why eSIM changes IoT roaming',
+    spenza_source_url: 'https://spenza.com/blog/guest-blogs/' }), null, { ...env, SEND_CLIENT_REPLY: '0' });
+  assert.equal(res.statusCode, 200);
+  const alert = c.mail.find(m => m.FromEmailAddress.includes('website@'));
+  assert.deepEqual(alert.Destination.ToAddresses, ['siva.sai@spenza.com', 'om.satyam@spenza.com']);
+  assert.match(alert.Content.Simple.Subject.Data, /New submission from Guest Postings — sam@acme.io/);
+  assert.match(alert.Content.Simple.Body.Html.Data, /Topic they want to write about/);
+  const reply = c.mail.find(m => m.Destination.ToAddresses[0] === 'sam@acme.io');
+  assert.match(reply.Content.Simple.Subject.Data, /writing for Spenza/);
+});
+
+test('form 23 needs an email and a topic', () => {
+  assert.deepEqual(validate('23', { input_2: 'a@b.co', input_3: 'x' }), {});
+  assert.equal(validate('23', { input_2: 'a@b.co' }).error, 'validation_failed');
+  assert.equal(validate('23', { input_3: 'topic' }).error, 'validation_failed');
+  assert.equal(validate('23', { input_2: 'nope', input_3: 'topic' }).error, 'validation_failed');
+});

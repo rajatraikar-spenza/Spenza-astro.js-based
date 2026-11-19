@@ -204,3 +204,49 @@
 .gb .gb-head h1 { max-width: none; width: 100%; text-wrap: pretty; }
 .gb .gb-byline__role { color: var(--ink); font-weight: 600; }
 .gb .gb-byline > * { vertical-align: baseline; }
+.gb .gb-byline__name { color: var(--acctext); font-weight: 600; }
+.gb .gb-topics li .gb-topic { display: inline-block; padding: 5px 12px; border: 1px solid var(--rule); border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--body); }
+.gb .gb-topics li .gb-topic small { color: var(--muted); font-weight: 500; margin-left: 4px; }
+.gb .gb-author__links:empty { display: none; }
+
+/* ── "Get in touch" popup (Guest Postings) ───────────────────── */
+.gp-modal {
+  width: min(450px, calc(100vw - 32px)); max-height: calc(100vh - 32px);
+  padding: 0; border: 0; border-radius: 12px; background: #fff; color: #0f1420; overflow: visible;
+}
+.gp-modal::backdrop { background: rgba(13, 17, 23, 0.7); }
+.gp-modal *, .gp-modal *::before, .gp-modal *::after { box-sizing: border-box; }
+.gp-modal :is(h3, p, label, input, textarea, button, span) { font-family: var(--font-sans, inherit) !important; }
+.gp-card { position: relative; padding: 37px; max-height: calc(100vh - 32px); overflow-y: auto; border-radius: 12px; }
+.gp-close {
+  position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; padding: 0;
+  display: grid; place-items: center; background: transparent !important; border: 0 !important;
+  border-radius: 50%; color: #3d4656; cursor: pointer;
+}
+.gp-close:hover { background: #f3f4f6 !important; }
+.gp-title { margin: 14px 0 0 !important; font: 700 28px/1.2 var(--font-display, inherit) !important; letter-spacing: -0.02em; color: #0f1420; }
+.gp-desc { margin: 12px 0 18px !important; font-size: 16px; line-height: 1.5; color: #3d4656; }
+.gp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.gp-input {
+  display: block; width: 100%; margin: 0 0 14px; padding: 13px 14px;
+  background: #fff; color: #0f1420; border: 1px solid #1f2430 !important; border-radius: 6px !important;
+  font-size: 16px; line-height: 1.4; box-shadow: none !important; outline: 0; -webkit-appearance: none; appearance: none;
+}
+.gp-input::placeholder { color: #7a8190; opacity: 1; }
+.gp-input:focus { border-color: #ff4904 !important; box-shadow: 0 0 0 3px rgba(255, 73, 4, .15) !important; }
+.gp-input.hs-invalid { border-color: #c4201f !important; }
+.gp-topic { min-height: 96px; resize: vertical; }
+.gp-submit {
+  display: block; width: 100%; margin: 6px 0 0; padding: 14px 18px; cursor: pointer;
+  background: #ff4904 !important; color: #fff !important; border: 0 !important; border-radius: 12px !important;
+  font-size: 16px; font-weight: 700; line-height: 1.2;
+}
+.gp-submit:hover { background: #d63a00 !important; }
+.gp-submit[disabled] { opacity: .65; cursor: progress; }
+.gp-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.gp-modal .hs-field-error { margin: -8px 0 12px; font-size: 13.5px; color: #c4201f; }
+.gp-modal .hs-form-error { margin: 0 0 12px; padding: 10px 12px; border-radius: 8px; background: #fdecea; color: #8a1c1b; font-size: 14px; }
+.gp-modal .hs-confirmation { padding: 18px 0 6px; }
+.gp-modal .hs-confirmation-title { margin: 0 0 10px; font: 700 24px/1.2 var(--font-display, inherit) !important; color: #0f1420; }
+.gp-modal .hs-confirmation p { margin: 0; font-size: 16px; line-height: 1.55; color: #3d4656; }
+@media (max-width: 480px) { .gp-card { padding: 28px 20px 24px; } .gp-title { font-size: 24px !important; } }

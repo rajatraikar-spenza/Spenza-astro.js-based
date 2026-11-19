@@ -7,6 +7,7 @@
  * category archive's chrome with the author's name and bio as the heading.
  */
 import { getCollection } from 'astro:content';
+import { blogPosts } from '../../lib/posts.ts';
 import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
 import AUTHORS from '../../content/cms-meta/authors.json';
 import { generatedArchiveShell, paginate } from '../../lib/generated-archive.ts';
@@ -20,7 +21,7 @@ export async function getStaticPaths() {
   const own = Object.keys(import.meta.glob('./*.astro'))
     .map(f => f.replace(/^\.\/|\.astro$/g, ''))
     .filter(n => !n.startsWith('['));
-  const posts = await getCollection('posts');
+  const posts = await blogPosts();
   const paths = [];
   for (const a of AUTHORS.authors) {
     if (own.includes(a.slug)) continue;

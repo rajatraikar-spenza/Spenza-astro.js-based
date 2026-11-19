@@ -1,0 +1,61 @@
+---
+/**
+ * "Get in touch" popup for people who want to write a guest article.
+ *
+ * Looks like the site's "Get Started with Spenza" popup, asking instead for an
+ * email and the topic they would like to write about (both required) and,
+ * optionally, a name. The form is the HubSpot form "Guest Postings": the browser
+ * posts it to HubSpot (public/scripts/hubspot-forms.js, entry `guest-postings`)
+ * and to the lead endpoint, which emails the two reviewers and sends the person
+ * a thank-you (admin-api/lead, form 23).
+ *
+ * A native <dialog>: Escape closes it, focus stays inside while it is open and
+ * returns to the button afterwards. Anything with `data-gp-open` opens it.
+ */
+---
+
+<dialog class="gp-modal" id="guest-posting-modal" aria-labelledby="gp-title">
+  <div class="gp-card">
+    <button class="gp-close" type="button" aria-label="Close" data-gp-close>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <form data-hs-form="guest-postings" action="/blog/guest-blogs/" novalidate>
+      <h3 class="gp-title" id="gp-title">Write for Spenza</h3>
+      <p class="gp-desc">Share your email and the topic you would like to write about. If our team likes it, we will get in touch to take it forward.</p>
+
+      <label class="gp-sr" for="gp-name">Name</label>
+      <input class="gp-input" id="gp-name" name="input_1" type="text" placeholder="Your name (optional)" autocomplete="name" maxlength="120">
+
+      <label class="gp-sr" for="gp-email">Email</label>
+      <input class="gp-input" id="gp-email" name="input_2" type="email" placeholder="Your email *" autocomplete="email" required aria-required="true" maxlength="200">
+
+      <label class="gp-sr" for="gp-topic">Topic</label>
+      <textarea class="gp-input gp-topic" id="gp-topic" name="input_3" rows="3" placeholder="The topic you would like to write about *" required aria-required="true" maxlength="1500"></textarea>
+
+      <input type="hidden" name="gform_submit" value="23">
+      <p class="gp-trap" aria-hidden="true"><label>Leave this empty<textarea name="ak_hp_textarea" tabindex="-1" autocomplete="off"></textarea></label></p>
+      <button class="gp-submit" type="submit">Submit</button>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const dlg = document.getElementById('guest-posting-modal') as HTMLDialogElement | null;
+  if (dlg) {
+    let opener: HTMLElement | null = null;
+    document.addEventListener('click', e => {
+      const t = e.target as HTMLElement;
+      const open = t.closest<HTMLElement>('[data-gp-open]');
+      if (open) {
+        e.preventDefault();
+        opener = open;
+        if (!dlg.open) dlg.showModal();
+        dlg.querySelector<HTMLInputElement>('#gp-email')?.focus();
+        return;
+      }
+      // the close button, or a click on the dimmed backdrop (the dialog element itself)
+      if (t.closest('[data-gp-close]') || t === dlg) dlg.close();
+    });
+    dlg.addEventListener('close', () => opener?.focus());
+  }
+</script>

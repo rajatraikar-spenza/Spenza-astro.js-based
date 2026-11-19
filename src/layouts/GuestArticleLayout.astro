@@ -11,6 +11,7 @@
  */
 import type { CollectionEntry } from 'astro:content';
 import WpLayout from './WpLayout.astro';
+import GuestPostingModal from '../components/guest-blogs/GuestPostingModal.astro';
 import GuestSidebar from '../components/guest-blogs/GuestSidebar.astro';
 import { categoryLabel } from '../data/blog-categories.ts';
 import { guestPosts, topicsOf, tagLabels, plainText } from '../lib/guest-blogs.ts';
@@ -71,14 +72,14 @@ const share = {
 
         <header class="gb-head">
           {a && (
-            <a class="gb-avatar gb-avatar--lg" href={`/author/${a.slug}/`} aria-label={`Articles by ${a.name}`}>
+            <span class="gb-avatar gb-avatar--lg">
               {a.avatar ? <img src={a.avatar} alt="" width="88" height="88" /> : <span aria-hidden="true">{initials(a.name)}</span>}
-            </a>
+            </span>
           )}
           <div>
             <h1>{d.title}</h1>
             <p class="gb-byline">
-              {a && <>by <a href={`/author/${a.slug}/`}>{a.name}</a></>}
+              {a && <>by <b class="gb-byline__name">{a.name}</b></>}
               {(a?.role || a?.company) && <><i>|</i><span class="gb-byline__role">{[a?.role, a?.company].filter(Boolean).join(', ')}</span></>}
               <i>|</i><time datetime={d.publishedDate.toISOString()}>{DATE.format(d.publishedDate)}</time>
             </p>
@@ -101,7 +102,6 @@ const share = {
               {a.bio && <p class="gb-author__bio">{a.bio}</p>}
               <p class="gb-author__links">
                 {a.linkedin && <a href={a.linkedin} target="_blank" rel="noopener">LinkedIn →</a>}
-                <a href={`/author/${a.slug}/`}>All {mine.length} {mine.length === 1 ? 'article' : 'articles'} →</a>
               </p>
             </div>
           </section>
@@ -111,7 +111,6 @@ const share = {
           <section class="gb-more-by" aria-label={`Latest from ${a.name}`}>
             <div class="gb-more-by__head">
               <h2>Latest from {a.name}</h2>
-              <a href={`/author/${a.slug}/`}>View all →</a>
             </div>
             <div class="gb-more-by__grid">
               {more.map(p => (
@@ -129,4 +128,5 @@ const share = {
       <GuestSidebar recent={recent} topics={topics} tagLabels={tagLabels} />
     </div>
   </div>
+  <GuestPostingModal />
 </WpLayout>

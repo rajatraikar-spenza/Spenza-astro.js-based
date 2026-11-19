@@ -59,7 +59,7 @@ collections:
         search_fields: ["categories.*.label"]
         value_field: "categories.*.slug"
         display_fields: ["categories.*.label"]
-        hint: "Also the URL: /<category>/<slug>/. Choose Guest Blogs for a guest author's article: it is listed at /blog/guest-blogs/. Add new ones under Settings > Categories."
+        hint: "Also the URL: /<category>/<slug>/. Add new ones under Settings > Categories."
       - label: Author
         name: author
         widget: relation
@@ -235,6 +235,115 @@ collections:
               - { label: Text, name: text, widget: text }
       - { label: HTML body, name: body, widget: code, default_language: html, allow_language_selection: false, output_code_only: true, hint: "The post exactly as WordPress stored it. Edit the text; keep the tags and styles around it." }
 
+  - name: guest_blog
+    label: Guest blogs
+    label_singular: Guest blog
+    folder: src/content/cms-blog
+    extension: mdx
+    format: frontmatter
+    create: true
+    # The file name must equal the slug: the site builds /<category>/<slug>/ from it.
+    slug: "{{fields.slug}}"
+    identifier_field: slug
+    # Posts imported from WordPress are in the next collection ("Imported posts"); this one is posts written here.
+    filter: { field: source, value: guest }
+    summary: "{{title}} · {{guestName}} · {{publishedDate | date('YYYY-MM-DD')}}"
+    sortable_fields: [publishedDate, title, guestName]
+    fields:
+      - { label: Source, name: source, widget: hidden, default: guest }
+      - { label: Title, name: title, widget: string }
+      - label: Slug
+        name: slug
+        widget: string
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only."]
+        hint: "The URL ends with this. Permanent once published: changing it breaks links."
+      - { label: Category, name: category, widget: hidden, default: guest-blogs }
+      # The guest is typed in here and stored on the post itself. Nothing is added to
+      # Settings > Authors, because most guests write once.
+      - { label: Guest name, name: guestName, widget: string, hint: "The author's full name, as it should appear on the post." }
+      - { label: Designation, name: guestRole, widget: string, required: false, hint: "Job title, e.g. Head of Marketing. Shown beside the date and in the author box." }
+      - { label: Company, name: guestCompany, widget: string, required: false, hint: "Employer, e.g. Acme Telecom." }
+      - { label: Profile photo, name: guestPhoto, widget: image, required: false, hint: "Square, 300x300 or larger. Without one the post shows the guest's initials." }
+      - { label: LinkedIn, name: guestLinkedin, widget: string, required: false, hint: "Full profile URL. Shown in the author box." }
+      - label: Description
+        name: description
+        widget: text
+        hint: "110-165 characters. Used as the search snippet, the social description and the card text."
+      - { label: Publish date, name: publishedDate, widget: datetime, hint: "A future date holds the post back until that day." }
+      - { label: Updated date, name: updatedDate, widget: datetime, required: false, hint: "Set only after a substantial edit." }
+      - { label: Focus keyword, name: focusKeyword, widget: string, required: false }
+      - label: Tags
+        name: tags
+        widget: relation
+        collection: settings
+        file: tags
+        multiple: true
+        required: false
+        default: []
+        search_fields: ["tags.*.label"]
+        value_field: "tags.*.slug"
+        display_fields: ["tags.*.label"]
+        hint: "Each tag gets a page at /tag/<tag>/. Add new ones under Settings > Tags."
+      - { label: SEO title, name: seoTitle, widget: string, required: false, hint: "Only if it should differ from the title. 70 characters or fewer." }
+
+      - label: Hero image
+        name: hero
+        widget: object
+        hint: "The featured image and social card. 1280x720 WebP, under 200 KB."
+        fields:
+          - { label: Image, name: image, widget: image }
+          - { label: Alt text, name: alt, widget: string, hint: "Describe what the image shows. Never the title." }
+
+      - label: Body image
+        name: bodyImage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, required: false }
+          - { label: Alt text, name: alt, widget: string, required: false }
+          - { label: Caption, name: caption, widget: string, required: false }
+          - { label: Show after section, name: afterSection, widget: number, value_type: int, min: 1, default: 2, hint: "The image appears at the end of this numbered section." }
+
+      - label: TL;DR block
+        name: tldr
+        widget: object
+        required: false
+        hint: "The summary and five cards at the top. Leave empty to skip the block; otherwise it needs exactly 5 cards."
+        fields:
+          - { label: Summary, name: summary, widget: text, required: false, hint: "Two to four sentences that answer the title." }
+          - label: Cards
+            name: cards
+            widget: list
+            required: false
+            min: 5
+            max: 5
+            hint: "Cards 1-4 are key points. Card 5 is the 'how Spenza helps' card."
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Icon, name: icon, widget: string, default: chart-line, hint: "A Font Awesome 6 solid name, e.g. chart-line, coins, circle-check, clipboard-check, gears." }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text, hint: "One sentence, 160 characters or fewer." }
+
+      - label: FAQ
+        name: faq
+        widget: list
+        required: false
+        summary: "{{fields.question}}"
+        hint: "Five questions is the standard. Written as a search query; answered in 2-4 sentences."
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+
+      - label: Body
+        name: body
+        widget: markdown
+        modes: [rich_text, raw]
+        buttons: [bold, italic, code, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
+        editor_components: [spenza-image, spenza-embed, spenza-button, spenza-callout]
+        hint: "Use ## for sections and ### inside them (the title is already the H1). The + menu adds an image, a video, a button or a callout. Tables are supported."
+
+  # The posts that were on WordPress, moved here as they were. Their body is the HTML WordPress stored
+  # (some posts carry hand-built tables, cards and styles), so it is edited as HTML, not rich text.
   # Lists the posts draw from. Edited here, saved as JSON next to the posts, and
   # published like a post (Draft > In review > Ready > Publish).
   - name: settings
@@ -256,10 +365,9 @@ collections:
                 pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only."]
                 hint: "The author page is /author/<this>/. Do not change it after posts use it."
               - { label: Name, name: name, widget: string }
-              - { label: Role, name: role, widget: string, required: false, hint: "Designation, e.g. Head of Product. Shown under the name on guest blog cards and on the post." }
-              - { label: Company, name: company, widget: string, required: false, hint: "Employer, e.g. Acme Telecom. Shown beside the role. For guest authors." }
+              - { label: Role, name: role, widget: string, required: false, hint: "e.g. Head of Product. Shown on the author page." }
               - { label: Bio, name: bio, widget: text, required: false }
-              - { label: Photo, name: avatar, widget: image, required: false, hint: "Profile picture, square, 300x300 or larger. Shown on guest blog cards and the post." }
+              - { label: Photo, name: avatar, widget: image, required: false, hint: "Square, 300x300 or larger." }
               - { label: LinkedIn, name: linkedin, widget: string, required: false }
       - name: categories
         label: Categories

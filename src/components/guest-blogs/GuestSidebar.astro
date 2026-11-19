@@ -21,13 +21,13 @@ const { recent, topics, tagLabels } = Astro.props;
     <section class="gb-box">
       <h2>Topics</h2>
       <ul class="gb-topics">
-        {topics.map(([slug, n]) => <li><a href={`/tag/${slug}/`}>{tagLabels[slug] ?? slug} <small>{n}</small></a></li>)}
+        {topics.map(([slug, n]) => <li><span class="gb-topic">{tagLabels[slug] ?? slug} <small>{n}</small></span></li>)}
       </ul>
     </section>
   )}
   <section class="gb-box gb-cta">
     <h2>Write for Spenza</h2>
     <p>Work in telecom, IoT or connectivity and have something to say? We publish guest articles from practitioners.</p>
-    <a class="gb-btn" href="/contact-us/">Get in touch</a>
+    <button class="gb-btn" type="button" data-gp-open>Get in touch</button>
   </section>
 </aside>

@@ -31,14 +31,14 @@ const tags = d.tags.slice(0, 3).map(t => ({ slug: t, label: tagLabels[t] ?? t })
 <article class="gb-card">
   <header class="gb-by">
     {a && (
-      <a class="gb-avatar" href={`/author/${a.slug}/`} aria-label={`Articles by ${a.name}`}>
+      <span class="gb-avatar">
         {a.avatar
           ? <img src={a.avatar} alt="" width="64" height="64" loading="lazy" decoding="async" />
           : <span aria-hidden="true">{initials}</span>}
-      </a>
+      </span>
     )}
     <div class="gb-who">
-      <p class="gb-name">{a ? <a href={`/author/${a.slug}/`}>{a.name}</a> : 'Guest author'}</p>
+      <p class="gb-name">{a ? a.name : 'Guest author'}</p>
       {(a?.role || a?.company) && (
         <p class="gb-role">{[a?.role, a?.company].filter(Boolean).join(' · ')}</p>
       )}

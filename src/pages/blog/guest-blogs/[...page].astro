@@ -12,6 +12,7 @@
  */
 import WpLayout from '../../../layouts/WpLayout.astro';
 import GuestCard from '../../../components/guest-blogs/GuestCard.astro';
+import GuestPostingModal from '../../../components/guest-blogs/GuestPostingModal.astro';
 import GuestSidebar from '../../../components/guest-blogs/GuestSidebar.astro';
 import { replaceWidgetInner } from '../../../../scripts/lib/widget-html.mjs';
 import { setActiveChip } from '../../../../scripts/lib/filter-bar.mjs';
@@ -77,4 +78,5 @@ const description = 'Guest articles on MVNOs, IoT, eSIM and telecom, written by 
     </div>
   </div>
   <Fragment set:html={after} />
+  <GuestPostingModal />
 </WpLayout>
