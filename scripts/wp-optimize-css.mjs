@@ -293,7 +293,7 @@ function hoistImports(css, into) {
  * `pages/uxhub.astro`. `travel-esim` is hand-built from a design too and takes
  * the same pair; see `pages/travel-esim.astro`.
  */
-const PINNED = new Set(['index', 'ai-phone-number', 'uxhub', 'telecomhub', 'controlhub', 'travel-esim']);
+const PINNED = new Set(['index', 'ai-phone-number', 'uxhub', 'telecomhub', 'controlhub', 'travel-esim', 'guest-blogs']);
 
 /**
  * Pages with no mirrored markup that reuse another page's bundles, since the

@@ -1,0 +1,208 @@
+/* /blog/guest-blogs/ — guest article list.
+   Rides on the hub tokens (.ux) for colour, type and the resets that answer the
+   Elementor/Astra bundle; everything else is scoped to .gb. Content sits on the
+   site rail (rail.css); the list is one column of equal cards beside a sidebar,
+   which drops below the list under 1000px. */
+
+.gb { background: var(--bg); color: var(--ink); }
+.gb :is(p, a, span, li, small, time, b) { font-family: var(--sans) !important; }
+.gb :is(h1, h2, h3) { font-family: var(--display) !important; letter-spacing: -0.02em; }
+
+.gb .gb-wrap {
+  max-width: var(--rail-box);
+  margin-inline: auto;
+  padding-inline: var(--rail-pad);
+}
+
+/* ── hero ─────────────────────────────────────────────────────── */
+.gb .gb-hero {
+  padding-block: clamp(48px, 7vw, 88px) clamp(32px, 4vw, 48px);
+  text-align: center;
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(var(--accrgb), .09), transparent 70%),
+    var(--bg);
+  border-bottom: 1px solid var(--rule2);
+}
+.gb .gb-eyebrow {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 7px 18px;
+  border: 1px solid var(--peachline);
+  border-radius: 999px;
+  background: var(--peach);
+  color: var(--acctext);
+  font-size: 14px; font-weight: 600; line-height: 1.2;
+}
+.gb .gb-hero h1 {
+  margin: 0 auto;
+  max-width: 18ch;
+  font-size: clamp(34px, 5.2vw, 60px);
+  line-height: 1.06;
+  font-weight: 700;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.gb .gb-hero h1 em {
+  font-family: var(--serif) !important;
+  font-style: italic; font-weight: 500;
+  color: var(--acc);
+}
+.gb .gb-lede {
+  margin: 20px auto 0;
+  max-width: 60ch;
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+.gb .gb-stats {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px;
+  margin: 24px 0 0;
+  font-size: 15px; color: var(--muted);
+}
+.gb .gb-stats b { color: var(--ink); font-weight: 700; }
+
+/* ── layout ───────────────────────────────────────────────────── */
+.gb .gb-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding-block: clamp(32px, 5vw, 64px) clamp(56px, 7vw, 96px);
+}
+.gb .gb-list { display: grid; gap: 20px; min-width: 0; }
+
+/* ── card ─────────────────────────────────────────────────────── */
+.gb .gb-card {
+  display: flex; flex-direction: column;
+  padding: clamp(20px, 2.6vw, 32px);
+  background: #fff;
+  border: 1px solid var(--rule2);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(15, 20, 32, .04);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.gb .gb-card:hover {
+  border-color: var(--peachline);
+  box-shadow: 0 14px 34px -18px rgba(15, 20, 32, .22);
+  transform: translateY(-2px);
+}
+.gb .gb-by {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+.gb .gb-avatar {
+  display: grid; place-items: center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--peach);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--peachline);
+  color: var(--acctext); font-weight: 700; font-size: 18px;
+  text-decoration: none;
+}
+.gb .gb-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gb .gb-who { min-width: 0; }
+.gb .gb-name { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.gb .gb-name a { color: inherit; text-decoration: none; }
+.gb .gb-name a:hover { color: var(--acctext); }
+.gb .gb-role { margin: 2px 0 0; font-size: 14px; line-height: 1.4; color: var(--muted); }
+.gb .gb-date {
+  align-self: start;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--bg2);
+  font-size: 13px; font-weight: 600; color: var(--body);
+  white-space: nowrap;
+}
+.gb .gb-title {
+  margin: 20px 0 0;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.2; font-weight: 700;
+  text-wrap: balance;
+}
+.gb .gb-title a { color: var(--ink); text-decoration: none; }
+.gb .gb-title a:hover { color: var(--acctext); }
+.gb .gb-teaser {
+  margin: 12px 0 0;
+  font-size: 16px; line-height: 1.65; color: var(--body);
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.gb .gb-foot {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 20px;
+  margin-top: 20px; padding-top: 18px;
+  border-top: 1px solid var(--rule2);
+}
+.gb .gb-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.gb .gb-tags li {
+  margin: 0; padding: 4px 11px;
+  border-radius: 999px; border: 1px solid var(--rule);
+  font-size: 12.5px; font-weight: 600; color: var(--muted);
+}
+.gb .gb-more {
+  font-size: 15px; font-weight: 700; color: var(--acctext); text-decoration: none; white-space: nowrap;
+}
+.gb .gb-more:hover { color: var(--accdark); text-decoration: underline; text-underline-offset: 3px; }
+.gb .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.gb a:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 4px; }
+
+/* ── sidebar ──────────────────────────────────────────────────── */
+.gb .gb-side { display: grid; gap: 20px; position: sticky; top: 88px; }
+.gb .gb-box {
+  padding: 24px;
+  background: #fff; border: 1px solid var(--rule2); border-radius: 20px;
+}
+.gb .gb-box h2 { margin: 0 0 14px; font-size: 18px; font-weight: 700; color: var(--ink); }
+.gb .gb-box ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.gb .gb-box li { margin: 0; display: grid; gap: 2px; }
+.gb .gb-box li a { color: var(--ink); font-weight: 600; font-size: 15px; line-height: 1.4; text-decoration: none; }
+.gb .gb-box li a:hover { color: var(--acctext); }
+.gb .gb-box li span { font-size: 13px; color: var(--muted); }
+.gb .gb-box .gb-topics { display: flex; flex-wrap: wrap; gap: 8px; }
+.gb .gb-topics li a {
+  display: inline-block; padding: 5px 12px;
+  border: 1px solid var(--rule); border-radius: 999px;
+  font-size: 13.5px; font-weight: 600; color: var(--body);
+}
+.gb .gb-topics li a small { color: var(--muted); font-weight: 500; margin-left: 4px; }
+.gb .gb-cta { background: var(--peach); border-color: var(--peachline); }
+.gb .gb-cta p { margin: 0 0 16px; font-size: 15px; line-height: 1.55; color: var(--body); }
+.gb .gb-btn {
+  display: inline-block; padding: 11px 22px;
+  background: var(--acc); color: #fff; border-radius: 999px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+}
+.gb .gb-btn:hover { background: var(--accdark); color: #fff; }
+
+/* ── pagination / empty ───────────────────────────────────────── */
+.gb .gb-pages { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.gb .gb-pages :is(a, span) {
+  min-width: 40px; padding: 9px 14px; text-align: center;
+  border: 1px solid var(--rule); border-radius: 999px; background: #fff;
+  font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none;
+}
+.gb .gb-pages a:hover { border-color: var(--acc); color: var(--acctext); }
+.gb .gb-pages span[aria-current] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.gb .gb-empty { padding: 48px 0; text-align: center; color: var(--muted); }
+
+/* ── narrower windows ─────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .gb .gb-layout { grid-template-columns: minmax(0, 1fr); }
+  .gb .gb-side { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gb .gb-cta { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .gb .gb-by { grid-template-columns: auto minmax(0, 1fr); }
+  .gb .gb-date { grid-column: 1 / -1; justify-self: start; }
+  .gb .gb-side { grid-template-columns: minmax(0, 1fr); }
+  .gb .gb-foot { flex-direction: column; align-items: flex-start; }
+  .gb .gb-teaser { -webkit-line-clamp: 5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gb .gb-card { transition: none; }
+  .gb .gb-card:hover { transform: none; }
+}

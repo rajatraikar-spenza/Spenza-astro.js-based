@@ -59,7 +59,7 @@ collections:
         search_fields: ["categories.*.label"]
         value_field: "categories.*.slug"
         display_fields: ["categories.*.label"]
-        hint: "Also the URL: /<category>/<slug>/. Add new ones under Settings > Categories."
+        hint: "Also the URL: /<category>/<slug>/. Choose Guest Blogs for a guest author's article: it is listed at /blog/guest-blogs/. Add new ones under Settings > Categories."
       - label: Author
         name: author
         widget: relation
@@ -256,9 +256,10 @@ collections:
                 pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Lowercase letters, numbers and hyphens only."]
                 hint: "The author page is /author/<this>/. Do not change it after posts use it."
               - { label: Name, name: name, widget: string }
-              - { label: Role, name: role, widget: string, required: false, hint: "e.g. Head of Product. Shown on the author page." }
+              - { label: Role, name: role, widget: string, required: false, hint: "Designation, e.g. Head of Product. Shown under the name on guest blog cards and on the post." }
+              - { label: Company, name: company, widget: string, required: false, hint: "Employer, e.g. Acme Telecom. Shown beside the role. For guest authors." }
               - { label: Bio, name: bio, widget: text, required: false }
-              - { label: Photo, name: avatar, widget: image, required: false, hint: "Square, 300x300 or larger." }
+              - { label: Photo, name: avatar, widget: image, required: false, hint: "Profile picture, square, 300x300 or larger. Shown on guest blog cards and the post." }
               - { label: LinkedIn, name: linkedin, widget: string, required: false }
       - name: categories
         label: Categories

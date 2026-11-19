@@ -464,7 +464,9 @@ export async function renderContent(meta, body, { siteUrl, bodyImageDims, imageD
   return (
     WRAPPER_HEAD + BLOCK_CSS +
     '<div class="spenza-draft-content">\n' +
-    html + '\n' + (await buildFaq(faq)) + '\n<hr/>\n' + ATTRIBUTION + '\n' + BUTTON + '\n</div>\n' +
+    html + '\n' + (await buildFaq(faq)) +
+    // A guest's article is the guest's: no "Prepared by Spenza" line or sales button under it.
+    (meta.category === 'guest-blogs' ? '' : '\n<hr/>\n' + ATTRIBUTION + '\n' + BUTTON) + '\n</div>\n' +
     WRAPPER_TAIL +
     (await faqJsonLd(siteUrl ?? 'https://spenza.com', meta, faq))
   );
@@ -523,7 +525,7 @@ export function buildHead(meta, { siteUrl, content, hero, authorName }) {
         '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
-          { '@type': 'ListItem', position: 2, name: CATEGORY_LIST[meta.category]?.label ?? meta.category, item: `${siteUrl}/category/${meta.category}/` },
+          { '@type': 'ListItem', position: 2, name: CATEGORY_LIST[meta.category]?.label ?? meta.category, item: `${siteUrl}${meta.category === 'guest-blogs' ? '/blog/guest-blogs/' : `/category/${meta.category}/`}` },
           { '@type': 'ListItem', position: 3, name: meta.title },
         ],
       },
@@ -640,7 +642,7 @@ export function importedRecord(meta, body, { siteUrl, authorsMeta = {}, mediaOri
   // Settings > Authors wins when filled in; otherwise what WordPress had for this post's author.
   const bio = a.bio || meta.wpAuthor?.bio || base.bio;
   const avatar = a.avatar || meta.wpAuthor?.avatar || base.avatar;
-  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}) };
+  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}), ...(a.role ? { role: a.role } : {}), ...(a.company ? { company: a.company } : {}), ...(a.linkedin ? { linkedin: a.linkedin } : {}) };
   const published = new Date(meta.publishedDate);
   const modified = meta.updatedDate ? new Date(meta.updatedDate) : published;
   const hero = meta.hero?.image
@@ -717,7 +719,7 @@ export async function loadEntry(file, { siteUrl, publicDir, authorsMeta = {}, no
   // A value set in Settings > Authors wins over the WordPress copy.
   const bio = a.bio || authorBase.bio;
   const avatar = a.avatar || authorBase.avatar;
-  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}) };
+  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}), ...(a.role ? { role: a.role } : {}), ...(a.company ? { company: a.company } : {}), ...(a.linkedin ? { linkedin: a.linkedin } : {}) };
   const featuredImage = { url: meta.hero.image, alt: String(meta.hero.alt), ...heroDims };
   const modified = meta.updatedDate ? new Date(meta.updatedDate) : published;
 

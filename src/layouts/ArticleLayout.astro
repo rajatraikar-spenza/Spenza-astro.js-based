@@ -78,6 +78,8 @@ const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const label = categoryLabel(d.category) ?? d.category;
+// Guest posts are listed at /blog/guest-blogs/, not in a /category/ archive.
+const catHref = d.category === 'guest-blogs' ? '/blog/guest-blogs/' : `/category/${esc(d.category)}/`;
 
 /**
  * Reproduces Essential Addons' breadcrumb markup exactly, including the
@@ -93,7 +95,7 @@ const sep =
 
 const breadcrumbs = `
   <div class="eael-breadcrumbs">
-    <div class="eael-breadcrumbs__content"><a href="/">Home</a> ${sep} <a href="/category/${esc(d.category)}/">${esc(label)}</a> ${sep} <span class="eael-current">${esc(d.title)}</span></div>
+    <div class="eael-breadcrumbs__content"><a href="/">Home</a> ${sep} <a href="${catHref}">${esc(label)}</a> ${sep} <span class="eael-current">${esc(d.title)}</span></div>
   </div>`;
 
 const title = `<h1 class="elementor-heading-title elementor-size-default">${esc(d.title)}</h1>`;
@@ -181,6 +183,7 @@ const POST_INFO_ID = 'ed87dda';
 
 const authorHref = d.author?.slug ? `/author/${esc(d.author.slug)}/` : '';
 const authorName = esc(d.author?.name ?? 'Spenza');
+const authorTitle = esc([d.author?.role, d.author?.company].filter(Boolean).join(', '));
 
 /**
  * Elementor omits the avatar anchor entirely when there is no picture, rather
@@ -195,6 +198,8 @@ const authorBoxHtml =
       : '') +
     '<div class="elementor-author-box__text">' +
       `<a href="${authorHref}"><h4 class="elementor-author-box__name">${authorName}</h4></a>` +
+      // Guest authors: designation and company, from Settings > Authors.
+      (authorTitle ? `<p class="author-box-role" style="margin:0 0 6px;font-weight:600;color:#c93600">${authorTitle}</p>` : '') +
       // The bio arrives as HTML, so `SEO &amp; AI` reaches us pre-encoded and a
       // second pass through `esc` would render the entity itself.
       `<div class="elementor-author-box__bio">${d.author?.bio ? esc(decodeEntities(d.author.bio)) : ''}</div>` +
@@ -260,7 +265,7 @@ const postInfoHtml =
     '<li class="elementor-icon-list-item elementor-repeater-item-41a4991 elementor-inline-item" itemprop="about">' +
       '<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-terms">' +
         '<span class="elementor-post-info__terms-list">' +
-          `<a href="/category/${esc(d.category)}/" class="elementor-post-info__terms-list-item">${esc(label)}</a>` +
+          `<a href="${catHref}" class="elementor-post-info__terms-list-item">${esc(label)}</a>` +
         '</span></span></li>' +
     '<li class="elementor-icon-list-item elementor-repeater-item-093b699 elementor-inline-item" itemprop="datePublished">' +
       `<a href="${dayHref}">${dateInner}</a>` +

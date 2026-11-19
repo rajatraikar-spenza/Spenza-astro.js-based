@@ -889,6 +889,33 @@ body.wp-mirror.e-off-canvas__no-scroll {
 }
 
 /*
+ * The blog filter bar between a phone and a wide laptop.
+ *
+ * The category chips and the search field share one row only when the card is
+ * wide enough for both. From 961px to about 1365px they do not fit, so the
+ * field dropped under the chips as a short box hanging off the left edge, with
+ * the rest of the row empty. Below the chips it now takes the whole width, so
+ * the card reads as two tidy rows; the chips wrap inside their own row rather
+ * than pushing the field around. Phones and tablets use the collapsed menu and
+ * are untouched.
+ */
+@media (min-width: 961px) and (max-width: 1365px) {
+  .wp-mirror .e-con:has(> .elementor-widget-nav-menu):has(> .elementor-widget-search) {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-nav-menu {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-search {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/*
  * Elementor's clear button. Only its runtime gives the icon a hit area and a
  * position; ours reveals the widget without it, so the glyph appeared over the
  * text mid-typing. The magnifier in the label is the affordance that stays.
