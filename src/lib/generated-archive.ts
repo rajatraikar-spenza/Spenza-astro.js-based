@@ -6,6 +6,7 @@
  * existing ones and is filled from the `posts` collection like them.
  */
 import { replaceWidgetInner } from '../../scripts/lib/widget-html.mjs';
+import { setActiveChip } from '../../scripts/lib/filter-bar.mjs';
 
 /** Elementor ids of the category archive's pill, H1 and intro widgets. */
 const PILL = '1b9f4ad';
@@ -37,6 +38,8 @@ export function generatedArchiveShell(shell: string, o: Opts): string {
   out = out.split('/category/telecom/#gf_19').join(`${o.path}#gf_19`);
   // The category nav highlights Telecom on the telecom page only.
   out = out.replace(/\saria-current="page"/g, '').replace(/\selementor-item-active\b/g, '');
+  // A page that is none of the categories starts on "All".
+  out = setActiveChip(out, '/blog/');
   return out;
 }
 

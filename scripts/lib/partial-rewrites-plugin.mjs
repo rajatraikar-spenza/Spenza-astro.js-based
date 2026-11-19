@@ -9,6 +9,7 @@ import fs from 'node:fs/promises';
 import { toMediaOrigin } from './config.mjs';
 import { normalizeLinks } from './normalize-links.mjs';
 import { applyHtmlPerf, brandWordmark } from './html-perf.mjs';
+import { replaceFilterBar } from './filter-bar.mjs';
 
 /** One entry of the Resources mega-menu, matched by the page it links to. */
 const resourcesItem = path =>
@@ -124,6 +125,8 @@ export function partialRewrites() {
       const html = await fs.readFile(file, 'utf8');
       let out = normalizeLinks(html);
       if (/chrome[/\\]header\.html$/.test(file)) out = plainHamburgerIcon(editResourcesMenu(out));
+      // The blog and archive filter bar (category chips + search) is ours, not Elementor's.
+      if (/partials[/\\](blog|archives[/\\][^/\\]+)\.html$/.test(file)) out = replaceFilterBar(out);
       out = toMediaOrigin(applyHtmlPerf(out));
       // The Spenza wordmark in headings is for the site's pages, not the blog:
       // posts, their template, the archives and the blog index keep the word.

@@ -889,54 +889,108 @@ body.wp-mirror.e-off-canvas__no-scroll {
 }
 
 /*
- * The blog filter bar: category chips above a full-width search field.
+ * The filter bar (category chips + article search), ours since the mirror's
+ * two Elementor widgets could not agree about space. See
+ * scripts/lib/filter-bar.mjs and public/scripts/filter-bar.js.
  *
- * Nine chips (with Guest Blogs) and a 350px field no longer share one row at
- * any desktop width, so the field used to drop under the chips as a short box
- * hanging off the left edge, differently at every window width. From 961px up
- * the bar is now always two rows: the chips (wrapping onto a second line inside
- * their own row if the window is narrow) and the field across the full width
- * beneath. Phones and tablets use the collapsed menu and are untouched.
+ * One row at every width. The search box is always on it. The chips sit beside
+ * it while they fit; when the script measures that they do not, it adds
+ * .is-collapsed and they fold into the button, whose list opens beneath the bar.
  */
-/* Up to 1024px the menu is collapsed to a button: one row, the
-   field taking the row and the menu button right beside it. */
-@media (max-width: 1024px) {
-  .wp-mirror .e-con:has(> .elementor-widget-nav-menu):has(> .elementor-widget-search) {
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 12px;
-  }
-  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-nav-menu {
-    flex: 0 0 auto;
-    width: auto;
-    order: 2;
-  }
-  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-search {
-    flex: 1 1 0;
-    min-width: 0;
-    width: auto;
-    order: 1;
-  }
+.wp-mirror .fb {
+  --fb-ink: #1f2430;
+  --fb-line: #d9dce2;
+  --fb-acc: #ff4904;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 14px 20px;
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 10px 40px rgba(15, 20, 32, 0.08), 0 1px 3px rgba(15, 20, 32, 0.06);
+  box-sizing: border-box;
 }
-@media (min-width: 1025px) {
-  .wp-mirror .e-con:has(> .elementor-widget-nav-menu):has(> .elementor-widget-search) {
-    flex-wrap: wrap;
-    row-gap: 14px;
-  }
-  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-nav-menu {
-    flex: 1 1 100%;
-    width: 100%;
-    max-width: 100%;
-  }
-  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-nav-menu .elementor-nav-menu {
-    flex-wrap: wrap;
-    row-gap: 6px;
-  }
-  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-search {
-    flex: 1 1 100%;
-    width: 100%;
-    max-width: 100%;
-  }
+.wp-mirror .fb *, .wp-mirror .fb *::before, .wp-mirror .fb *::after { box-sizing: border-box; }
+.wp-mirror .fb :is(a, button, input, label, span) { font-family: var(--font-sans, inherit) !important; }
+
+.wp-mirror .fb-cats { flex: 0 1 auto; min-width: 0; }
+.wp-mirror .fb:not(.is-ready) .fb-cats { overflow: hidden; }
+.wp-mirror .fb-list {
+  display: flex; flex-wrap: nowrap; align-items: center; gap: 4px;
+  margin: 0 !important; padding: 0 !important; list-style: none !important;
+}
+.wp-mirror .fb-list li { margin: 0 !important; padding: 0 !important; list-style: none !important; flex: none; }
+.wp-mirror .fb-chip {
+  display: block; padding: 9px 20px; border-radius: 999px;
+  font-size: 16px; line-height: 1.2; font-weight: 400; color: var(--fb-ink) !important;
+  text-decoration: none !important; white-space: nowrap;
+  transition: background-color .15s, color .15s;
+}
+.wp-mirror .fb-chip:hover { background: #f3f4f6; }
+.wp-mirror .fb-chip.is-active,
+.wp-mirror .fb-chip.is-active:hover { background: #2a2a2a; color: #fff !important; }
+.wp-mirror .fb-chip:focus-visible, .wp-mirror .fb-toggle:focus-visible, .wp-mirror .fb-go:focus-visible {
+  outline: 2px solid var(--fb-acc); outline-offset: 2px;
+}
+
+.wp-mirror .fb-toggle { display: none; }
+
+.wp-mirror .fb-search {
+  position: relative; flex: 1 1 240px; min-width: 0; max-width: 420px; margin: 0 0 0 auto;
+}
+.wp-mirror .fb-label {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.wp-mirror .fb-input {
+  display: block; width: 100%; height: 48px; margin: 0;
+  padding: 0 52px 0 20px;
+  background: #f6f6f7; color: var(--fb-ink);
+  border: 1px solid var(--fb-line) !important; border-radius: 999px !important;
+  font-size: 16px; line-height: 1.2; box-shadow: none !important; outline: 0;
+  -webkit-appearance: none; appearance: none;
+}
+.wp-mirror .fb-input::placeholder { color: #9aa0ab; opacity: 1; }
+.wp-mirror .fb-input:focus { border-color: var(--fb-acc) !important; background: #fff; }
+.wp-mirror .fb-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.wp-mirror .fb-go {
+  position: absolute; top: 0; right: 0; width: 48px; height: 48px; padding: 0; margin: 0;
+  display: grid; place-items: center;
+  background: transparent !important; border: 0 !important; border-radius: 999px; color: #4b5563; cursor: pointer;
+}
+.wp-mirror .fb-go:hover { color: var(--fb-acc); }
+
+/* too many chips for the row: they fold into a button, the search stays put */
+.wp-mirror .fb.is-collapsed .fb-search { max-width: none; }
+.wp-mirror .fb.is-collapsed .fb-toggle {
+  display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px;
+  background: #fff !important; color: var(--fb-ink) !important;
+  border: 1px solid var(--fb-line) !important; border-radius: 999px !important;
+  font-size: 16px; line-height: 1; cursor: pointer; white-space: nowrap;
+}
+.wp-mirror .fb.is-collapsed .fb-toggle svg { transition: transform .2s; flex: none; }
+.wp-mirror .fb.is-open .fb-toggle svg { transform: rotate(180deg); }
+.wp-mirror .fb.is-collapsed .fb-list {
+  display: none;
+  position: absolute; top: calc(100% + 10px); left: 0; z-index: 30;
+  flex-direction: column; align-items: stretch; gap: 2px;
+  width: min(280px, 100%); padding: 8px !important;
+  background: #fff; border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(15, 20, 32, 0.18), 0 1px 3px rgba(15, 20, 32, 0.08);
+}
+.wp-mirror .fb.is-collapsed.is-open .fb-list { display: flex; }
+.wp-mirror .fb.is-collapsed .fb-chip { border-radius: 12px; padding: 11px 14px; }
+
+@media (max-width: 420px) {
+  .wp-mirror .fb-current { max-width: 84px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+@media (max-width: 600px) {
+  .wp-mirror .fb { gap: 10px; padding: 10px; }
+  .wp-mirror .fb-search { flex-basis: 0; }
+  .wp-mirror .fb-input { height: 44px; padding-left: 16px; }
+  .wp-mirror .fb-go { width: 44px; height: 44px; }
+  .wp-mirror .fb.is-collapsed .fb-toggle { height: 44px; padding: 0 14px; }
 }
 
 /*

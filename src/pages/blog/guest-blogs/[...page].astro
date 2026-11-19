@@ -14,6 +14,7 @@ import WpLayout from '../../../layouts/WpLayout.astro';
 import GuestCard from '../../../components/guest-blogs/GuestCard.astro';
 import GuestSidebar from '../../../components/guest-blogs/GuestSidebar.astro';
 import { replaceWidgetInner } from '../../../../scripts/lib/widget-html.mjs';
+import { setActiveChip } from '../../../../scripts/lib/filter-bar.mjs';
 import { generatedArchiveShell } from '../../../lib/generated-archive.ts';
 import { categoryIntro } from '../../../data/blog-categories.ts';
 import { guestPosts, topicsOf, tagLabels } from '../../../lib/guest-blogs.ts';
@@ -44,10 +45,7 @@ let shell = generatedArchiveShell(telecomShell, {
   intro: categoryIntro('guest-blogs') || 'Independent perspectives on MVNOs, IoT, eSIM and telecom from the people who work in them.',
 });
 // "Guest Blogs" is the current chip; nothing else is.
-shell = shell.replace(
-  /(<li class="menu-item[^"]*menu-item-guest-blogs)("><a href="\/blog\/guest-blogs\/")( class="elementor-item)( menu-link")/g,
-  '$1 current-menu-item$2 aria-current="page"$3 elementor-item-active$4',
-);
+shell = setActiveChip(shell, BASE);
 const MARK = '<!--GUEST-LIST-->';
 const [before, after] = replaceWidgetInner(shell, '68b5a8e', MARK).split(MARK);
 
