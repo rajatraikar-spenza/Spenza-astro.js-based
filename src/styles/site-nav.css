@@ -1106,3 +1106,10 @@ html {
 .sn .sn-bl {
   text-wrap: balance;
 }
+
+/* Resources: every option's description is a single line. */
+.sn .sn-res .sn-mi .sn-d {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
