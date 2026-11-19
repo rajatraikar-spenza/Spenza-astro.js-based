@@ -889,17 +889,36 @@ body.wp-mirror.e-off-canvas__no-scroll {
 }
 
 /*
- * The blog filter bar between a phone and a wide laptop.
+ * The blog filter bar: category chips above a full-width search field.
  *
- * The category chips and the search field share one row only when the card is
- * wide enough for both. From 961px to about 1365px they do not fit, so the
- * field dropped under the chips as a short box hanging off the left edge, with
- * the rest of the row empty. Below the chips it now takes the whole width, so
- * the card reads as two tidy rows; the chips wrap inside their own row rather
- * than pushing the field around. Phones and tablets use the collapsed menu and
- * are untouched.
+ * Nine chips (with Guest Blogs) and a 350px field no longer share one row at
+ * any desktop width, so the field used to drop under the chips as a short box
+ * hanging off the left edge, differently at every window width. From 961px up
+ * the bar is now always two rows: the chips (wrapping onto a second line inside
+ * their own row if the window is narrow) and the field across the full width
+ * beneath. Phones and tablets use the collapsed menu and are untouched.
  */
-@media (min-width: 961px) and (max-width: 1365px) {
+/* Up to 1024px the menu is collapsed to a button: one row, the
+   field taking the row and the menu button right beside it. */
+@media (max-width: 1024px) {
+  .wp-mirror .e-con:has(> .elementor-widget-nav-menu):has(> .elementor-widget-search) {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+  }
+  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-nav-menu {
+    flex: 0 0 auto;
+    width: auto;
+    order: 2;
+  }
+  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-search {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    order: 1;
+  }
+}
+@media (min-width: 1025px) {
   .wp-mirror .e-con:has(> .elementor-widget-nav-menu):has(> .elementor-widget-search) {
     flex-wrap: wrap;
     row-gap: 14px;
@@ -907,6 +926,11 @@ body.wp-mirror.e-off-canvas__no-scroll {
   .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-nav-menu {
     flex: 1 1 100%;
     width: 100%;
+    max-width: 100%;
+  }
+  .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-nav-menu .elementor-nav-menu {
+    flex-wrap: wrap;
+    row-gap: 6px;
   }
   .wp-mirror .e-con:has(> .elementor-widget-nav-menu) > .elementor-widget-search {
     flex: 1 1 100%;

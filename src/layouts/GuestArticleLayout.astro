@@ -1,0 +1,132 @@
+---
+/**
+ * A guest article at /guest-blogs/<slug>/.
+ *
+ * Laid out like the reference guest-blog sites do: a reading strip (time, words,
+ * share), the title with the author's photo beside it and a byline of name, date
+ * and category, then the article, then an "About the author" card (designation,
+ * company, LinkedIn, all their articles) and the author's latest pieces. The
+ * sidebar matches the guest list. Header, footer and the head (title, meta,
+ * schema) are the site's, via WpLayout.
+ */
+import type { CollectionEntry } from 'astro:content';
+import WpLayout from './WpLayout.astro';
+import GuestSidebar from '../components/guest-blogs/GuestSidebar.astro';
+import { categoryLabel } from '../data/blog-categories.ts';
+import { guestPosts, topicsOf, tagLabels, plainText } from '../lib/guest-blogs.ts';
+import '../styles/guest-blogs.css';
+
+interface Props { post: CollectionEntry<'posts'> }
+const { post } = Astro.props;
+const d = post.data;
+const a = d.author;
+
+const all = await guestPosts();
+const recent = all.slice(0, 5);
+const topics = topicsOf(all);
+const mine = a ? all.filter(p => p.data.author?.slug === a.slug) : [];
+const more = mine.filter(p => p.data.slug !== d.slug).slice(0, 3);
+
+const words = plainText(d.content).split(/\s+/).filter(Boolean).length;
+const minutes = Math.max(1, Math.ceil(words / 200));
+const DATE = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const DATE_LONG = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const initials = (n: string) => n.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+const teaser = (p: CollectionEntry<'posts'>) => {
+  const t = plainText(p.data.content);
+  const src = t.length > 80 ? t : plainText(p.data.excerpt);
+  return src.length <= 130 ? src : src.slice(0, src.lastIndexOf(' ', 130)).trimEnd() + '…';
+};
+
+const url = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const enc = encodeURIComponent;
+const share = {
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`,
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`,
+  x: `https://x.com/intent/post?url=${enc(url)}&text=${enc(d.title)}`,
+  mail: `mailto:?subject=${enc(d.title)}&body=${enc(url)}`,
+};
+---
+
+<WpLayout slug="archive-category-telecom" title={d.seo.title} description={d.seo.description} headHtml={d.seo.fullHead || undefined}>
+  <div class="gb gb-article">
+    <nav class="gb-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">›</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">›</span>
+      <a href="/blog/guest-blogs/">Guest Blogs</a>
+    </nav>
+
+    <div class="gb-layout">
+      <article class="gb-main">
+        <div class="gb-strip">
+          <span>{minutes} min read</span>
+          <span>{words.toLocaleString('en-US')} words</span>
+          <span class="gb-share">Share
+            <a href={share.linkedin} target="_blank" rel="noopener" aria-label="Share on LinkedIn">LinkedIn</a>
+            <a href={share.facebook} target="_blank" rel="noopener" aria-label="Share on Facebook">Facebook</a>
+            <a href={share.x} target="_blank" rel="noopener" aria-label="Share on X">X</a>
+            <a href={share.mail} aria-label="Share by email">Email</a>
+          </span>
+        </div>
+
+        <header class="gb-head">
+          {a && (
+            <a class="gb-avatar gb-avatar--lg" href={`/author/${a.slug}/`} aria-label={`Articles by ${a.name}`}>
+              {a.avatar ? <img src={a.avatar} alt="" width="88" height="88" /> : <span aria-hidden="true">{initials(a.name)}</span>}
+            </a>
+          )}
+          <div>
+            <h1>{d.title}</h1>
+            <p class="gb-byline">
+              {a && <>by <a href={`/author/${a.slug}/`}>{a.name}</a> <i>|</i> </>}
+              <time datetime={d.publishedDate.toISOString()}>{DATE.format(d.publishedDate)}</time> <i>|</i>
+              <a href="/blog/guest-blogs/">{categoryLabel(d.category)}</a>
+            </p>
+          </div>
+        </header>
+
+        <div class="gb-prose" set:html={d.content} />
+
+        {a && (
+          <section class="gb-author" aria-label="About the author">
+            {a.avatar
+              ? <img class="gb-author__photo" src={a.avatar} alt={`Picture of ${a.name}`} width="96" height="96" loading="lazy" />
+              : <span class="gb-author__photo gb-author__photo--init" aria-hidden="true">{initials(a.name)}</span>}
+            <div>
+              <p class="gb-eyebrow">About the author</p>
+              <h2>{a.name}</h2>
+              {(a.role || a.company) && (
+                <p class="gb-author__role">{a.role && <b>{a.role}</b>}{a.role && a.company && ' · '}{a.company}</p>
+              )}
+              {a.bio && <p class="gb-author__bio">{a.bio}</p>}
+              <p class="gb-author__links">
+                {a.linkedin && <a href={a.linkedin} target="_blank" rel="noopener">LinkedIn →</a>}
+                <a href={`/author/${a.slug}/`}>All {mine.length} {mine.length === 1 ? 'article' : 'articles'} →</a>
+              </p>
+            </div>
+          </section>
+        )}
+
+        {a && more.length > 0 && (
+          <section class="gb-more-by" aria-label={`Latest from ${a.name}`}>
+            <div class="gb-more-by__head">
+              <h2>Latest from {a.name}</h2>
+              <a href={`/author/${a.slug}/`}>View all →</a>
+            </div>
+            <div class="gb-more-by__grid">
+              {more.map(p => (
+                <a class="gb-mini" href={`/${p.data.category}/${p.data.slug}/`}>
+                  <time datetime={p.data.publishedDate.toISOString()}>{DATE_LONG.format(p.data.publishedDate)}</time>
+                  <b>{p.data.title}</b>
+                  <span>{teaser(p)}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+      </article>
+
+      <GuestSidebar recent={recent} topics={topics} tagLabels={tagLabels} />
+    </div>
+  </div>
+</WpLayout>

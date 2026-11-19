@@ -6,6 +6,7 @@
  */
 import { categoryLabel } from '../../data/blog-categories.ts';
 import type { CollectionEntry } from 'astro:content';
+import { plainText } from '../../lib/guest-blogs.ts';
 
 interface Props { post: CollectionEntry<'posts'>; tagLabels: Record<string, string> }
 const { post, tagLabels } = Astro.props;
@@ -18,13 +19,9 @@ const initials = (a?.name ?? 'G').split(/\s+/).filter(Boolean).slice(0, 2).map(w
 
 // The opening of the article itself, not the SEO description: styles, scripts
 // and tags are dropped, so what is left is the words a reader would see first.
-const text = (d.content || '')
-  .replace(/<(style|script)[\s\S]*?<\/\1>/gi, ' ')
-  .replace(/<[^>]+>/g, ' ')
-  .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#8217;|&rsquo;/g, '’').replace(/&quot;/g, '"')
-  .replace(/\s+/g, ' ').trim();
+const text = plainText(d.content);
 const teaser = (() => {
-  const src = text.length > 80 ? text : (d.excerpt || '').replace(/<[^>]+>/g, ' ').trim();
+  const src = text.length > 80 ? text : plainText(d.excerpt);
   if (src.length <= 300) return src;
   return src.slice(0, src.lastIndexOf(' ', 300)).trimEnd() + '…';
 })();

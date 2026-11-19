@@ -52,9 +52,15 @@ interface Props {
    * it fits. For pages whose CSS does not size sections to the window itself.
    */
   fit?: boolean;
+  /**
+   * A complete, already-repointed `<head>` block (title, meta, canonical, Open
+   * Graph, JSON-LD) for a page that has no Yoast capture of its own: a guest
+   * article carries the head the loader built for it.
+   */
+  headHtml?: string;
 }
 
-const { slug, title, description, indexable = true, demoPopup, swiper, fit } = Astro.props;
+const { slug, title, description, indexable = true, demoPopup, swiper, fit, headHtml } = Astro.props;
 
 type PageMeta = { id?: string; title: string; description: string; bodyClass: string };
 
@@ -135,7 +141,7 @@ const bodyClass = ['wp-mirror', meta?.bodyClass ?? 'elementor-default elementor-
  * than losing its description and canonical entirely.
  */
 const captured = indexable ? (wpSeo as Record<string, string>)[slug] : undefined;
-const seoHead: string | undefined = captured ? rewriteHead(captured) : undefined;
+const seoHead: string | undefined = headHtml ?? (captured ? rewriteHead(captured) : undefined);
 
 const pageTitle = title ?? titleFrom(seoHead) ?? meta?.title ?? 'Spenza';
 const pageDescription = description ?? meta?.description ?? '';

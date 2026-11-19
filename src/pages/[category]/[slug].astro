@@ -13,6 +13,7 @@
 import { getCollection } from 'astro:content';
 import WpLayout from '../../layouts/WpLayout.astro';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import GuestArticleLayout from '../../layouts/GuestArticleLayout.astro';
 import wpPosts from '../../data/wp-posts.json';
 import { isHeadless } from '../../data/headless-slugs.ts';
 
@@ -74,7 +75,9 @@ if (!post && !content) {
 }
 ---
 
-{post
+{post && post.data.category === 'guest-blogs'
+  ? <GuestArticleLayout post={post} />
+  : post
   ? <ArticleLayout post={post} related={related} />
   : (
     <WpLayout slug={entry?.key ?? '__post__'}>
