@@ -1,7 +1,55 @@
 {
   "authors": [
-    { "slug": "isimplexity", "name": "Spenza", "role": "", "bio": "", "avatar": "", "linkedin": "" },
-    { "slug": "sivasai", "name": "SivaSai", "role": "", "bio": "", "avatar": "", "linkedin": "" },
-    { "slug": "vinay", "name": "Vinaychandra Bharadwaj", "role": "", "bio": "", "avatar": "", "linkedin": "" }
+    {
+      "slug": "isimplexity",
+      "name": "Spenza",
+      "role": "",
+      "bio": "",
+      "avatar": "",
+      "linkedin": ""
+    },
+    {
+      "slug": "sivasai",
+      "name": "SivaSai",
+      "role": "",
+      "bio": "",
+      "avatar": "",
+      "linkedin": ""
+    },
+    {
+      "slug": "vinay",
+      "name": "Vinaychandra Bharadwaj",
+      "role": "",
+      "bio": "",
+      "avatar": "",
+      "linkedin": ""
+    },
+    {
+      "slug": "tanya-hyams-young",
+      "name": "Tanya Hyams-Young",
+      "role": "Head of Marketing",
+      "company": "Sample Telecom Co",
+      "bio": "",
+      "avatar": "/cms-media/guest-blogs/tanya-hyams-young.svg",
+      "linkedin": ""
+    },
+    {
+      "slug": "mahdi-gheinaghi",
+      "name": "Mahdi Gheinaghi",
+      "role": "Chief Strategy Officer",
+      "company": "Sample Industrial Networks",
+      "bio": "",
+      "avatar": "/cms-media/guest-blogs/mahdi-gheinaghi.svg",
+      "linkedin": ""
+    },
+    {
+      "slug": "joaquin-molina",
+      "name": "Joaquin Molina",
+      "role": "VP, AI & Analytics",
+      "company": "Sample MVNE",
+      "bio": "",
+      "avatar": "/cms-media/guest-blogs/joaquin-molina.svg",
+      "linkedin": ""
+    }
   ]
 }
