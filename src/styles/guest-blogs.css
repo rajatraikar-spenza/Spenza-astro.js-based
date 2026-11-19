@@ -202,3 +202,5 @@
 .gb .gb-box li, .gb .gb-tags li { list-style: none !important; }
 .gb .gb-head > div { flex: 1 1 auto; }
 .gb .gb-head h1 { max-width: none; width: 100%; text-wrap: pretty; }
+.gb .gb-byline__role { color: var(--ink); font-weight: 600; }
+.gb .gb-byline > * { vertical-align: baseline; }

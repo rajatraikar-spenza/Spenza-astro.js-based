@@ -78,9 +78,9 @@ const share = {
           <div>
             <h1>{d.title}</h1>
             <p class="gb-byline">
-              {a && <>by <a href={`/author/${a.slug}/`}>{a.name}</a> <i>|</i> </>}
-              <time datetime={d.publishedDate.toISOString()}>{DATE.format(d.publishedDate)}</time> <i>|</i>
-              <a href="/blog/guest-blogs/">{categoryLabel(d.category)}</a>
+              {a && <>by <a href={`/author/${a.slug}/`}>{a.name}</a></>}
+              {(a?.role || a?.company) && <><i>|</i><span class="gb-byline__role">{[a?.role, a?.company].filter(Boolean).join(', ')}</span></>}
+              <i>|</i><time datetime={d.publishedDate.toISOString()}>{DATE.format(d.publishedDate)}</time>
             </p>
           </div>
         </header>
