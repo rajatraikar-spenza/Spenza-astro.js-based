@@ -15,6 +15,18 @@
     {
       "slug": "esim",
       "label": "Esim"
+    },
+    {
+      "slug": "telecom-billing",
+      "label": "Telecom Billing"
+    },
+    {
+      "slug": "reseller-billing",
+      "label": "Reseller Billing"
+    },
+    {
+      "slug": "mvno",
+      "label": "Mvno"
     }
   ]
 }

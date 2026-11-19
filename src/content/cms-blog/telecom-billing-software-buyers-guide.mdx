@@ -1,0 +1,205 @@
+---
+source: "admin"
+title: "Telecom Billing Software: Buyer's Guide for MVNOs and MSPs"
+slug: "telecom-billing-software-buyers-guide"
+category: "telecom"
+author: "vinay"
+description: "Compare telecom billing software for MVNOs, MSPs and IoT resellers: rating, usage-based billing, taxes, carrier reconciliation and vendor questions."
+publishedDate: "2026-11-19T11:24:51.000Z"
+focusKeyword: "telecom billing software"
+tags: ["telecom-billing", "reseller-billing", "mvno"]
+hero:
+  image: "/cms-media/telecom-billing-software-buyers-guide/hero.webp"
+  alt: "Line illustration of an invoice with a checkmark, a SIM card, a cell tower, a calculator and a stack of coins on a warm cream panel."
+bodyImage:
+  image: "/cms-media/telecom-billing-software-buyers-guide/body.webp"
+  alt: "Cell tower, carrier invoice and customer invoice on a balance scale, with a coin stack labelled Margin."
+  caption: "A reseller weighs the carrier's bill against its own billed lines, and the gap is what moves margin."
+  afterSection: 1
+tldr:
+  summary: "Telecom billing software turns carrier usage into rated charges, invoices and taxes, and for a reseller it also checks your customer bills against the carrier's bill. Pick the type that matches what you operate, score vendors on your own usage files, and test reconciliation before you sign."
+  cards:
+    - icon: "chart-line"
+      title: "What sets telecom billing apart"
+      text: "Telecom billing adds carrier usage rating, telecom taxes and a wholesale cost side that must reconcile with what you bill."
+    - icon: "coins"
+      title: "Five types, one fits you"
+      text: "Carrier suites, service provider platforms, reseller billing, usage-based billers and MVNE platforms each suit a different operating model."
+    - icon: "circle-check"
+      title: "Score with your own data"
+      text: "Rate a month of your real carrier files and compare line by line. A demo on sample data proves little."
+    - icon: "clipboard-check"
+      title: "Price three years, not one"
+      text: "Per-line, flat and percentage pricing cross over at different volumes, and one pricing guide puts implementation at one to two times the licence."
+    - icon: "gears"
+      title: "Ask for a reconciliation test"
+      text: "Send one cycle of carrier invoices and your billed lines to every vendor you shortlist, and see where they disagree."
+faq:
+  - question: "What is telecom billing software and how is it different from a BSS?"
+    answer: "Telecom billing software rates carrier usage against each customer's plan, builds invoices with the right taxes and fees, collects payment and, for resellers, reconciles customer billing with the carrier's wholesale invoice. A business support system covers the wider customer-facing stack: product catalog, orders, accounts, billing and payments. Billing is one part of it."
+  - question: "Which features do MVNOs, MSPs and IoT resellers need?"
+    answer: "MVNOs need real-time charging for prepaid plans and number porting support. MSPs and wireless resellers need multi-level accounts, markups, commissions and carrier reconciliation. IoT resellers need pooled plans, per-device pricing and billing that starts and stops with each line's activation state."
+  - question: "How does carrier invoice reconciliation work?"
+    answer: "The system loads the carrier's invoice and usage detail and matches each charge to a line, plan and customer in your records. It then compares three counts for the cycle: lines active, lines billed and lines charged. Lines that appear in one list but not another, or that carry the wrong rate, are flagged so you can correct your invoices or dispute the carrier's charge."
+  - question: "How are telecom taxes handled?"
+    answer: "Telecom taxes are handled either by a tax module inside the billing system or by a connection to a communications tax engine that calculates federal, state and local taxes and fees by service and location. Rates change often, and the US federal USF factor was proposed at 42.0% for the fourth quarter of 2026, up from 38.8% for the third. Which taxes you owe depends on your services, so confirm with a telecom tax adviser."
+  - question: "How much does telecom billing software cost?"
+    answer: "Telecom billing software cost depends on platform type, implementation complexity, minimum commitments and included services. Vendors price per line, as a flat licence or platform fee, or as a percentage of billed revenue. Licence is only part of the total, since implementation, integrations, tax engine fees and payment processing add to it. Compare quotes over three years at your current line count, at 2x and at 5x. ## Next step: test reconciliation before you buy Before you buy anything, measure the gap. [Request a billing reconciliation audit](/contact-us/): send one cycle of carrier invoices and your export of billed lines, and see every line where the two disagree."
+---
+
+Telecom billing software collects usage records from carriers, rates them against each customer's plan, and produces invoices with the right taxes and fees. For a reseller it has a second job: comparing what you bill customers with what the carrier bills you, so margin does not drain away between the two.
+
+This guide is for MSPs, wireless resellers, MVNOs and IoT resellers that buy connectivity wholesale and sell it under their own name.
+
+## What telecom billing software does
+
+Telecom billing software is the system that turns carrier usage into rated charges, invoices and taxes. It runs six jobs in sequence, and a general subscription biller covers only some of them. Vendors also say telecom billing platform, telecom billing system or telecom billing solutions for the same thing. In operator language, billing is one part of the business support system (BSS).
+
+1. **Collect usage.** It ingests call detail records (CDRs) and data usage files in each carrier's format and removes duplicates. This step is called mediation.
+2. **Rate usage.** It applies each customer's plan, allowance, pool and overage price. This is usage-based billing in its original telecom form: charges follow metered use.
+3. **Build invoices.** It combines recurring fees, rated usage and one-time charges, one invoice per account.
+4. **Add taxes and fees.** It calculates telecom taxes and regulatory fees by service type and location.
+5. **Collect payment.** It charges cards or bank accounts, retries failures and applies a suspension policy.
+6. **Reconcile.** It compares what was billed with what the carrier charged and with what is active in provisioning.
+
+A subscription biller handles steps 3 and 5 well. Steps 1, 2, 4 and 6 are what make telecom a separate category.
+
+### How a reseller sits between two bills
+
+Customers pay you on your plans and prices. The carrier bills you on its wholesale rates. Billing software has to produce the first bill, check the second and show the margin between them.
+
+Reconciliation compares three counts for the same cycle: lines active in provisioning, lines billed to customers and lines charged by the carrier. A line that appears in one list and not the others is either revenue you did not bill or cost you should not have paid.
+
+
+
+## Types of telecom billing software for MVNOs, MSPs and IoT resellers
+
+There are five types, and the right one depends on what you operate. The names are examples and the order is not a ranking. Several vendors fit more than one type, so check each vendor's current positioning.
+
+| Type | Example vendors | Choose this type if |
+|---|---|---|
+| Carrier-grade BSS suite | Amdocs, Netcracker, CSG, Oracle BRM | You run a network or a multi-million subscriber base and have an integration team |
+| Service provider billing platform | PortaOne and similar platforms | You want to own and operate the billing stack and integrate carriers yourself |
+| Reseller and MSP billing | OneBill, Rev.io, Datagate | You resell carrier or UCaaS (unified communications as a service) services and need CDR rating, tax and accounting sync |
+| Usage-based subscription billing | Stripe Billing, Orb | Connectivity is one metered line inside a software or device subscription |
+| MVNE (mobile virtual network enabler) or connectivity platform with billing | Spenza and other MVNE platforms | You also need carrier integration, line provisioning and reseller tiers in one system |
+
+Check whether a general usage-based biller ingests carrier usage records, calculates telecom taxes and reconciles wholesale invoices. If it does not, you add those parts yourself.
+
+### What each buyer should look at first
+
+- **MVNO.** MVNO billing software needs real-time prepaid charging, number porting and regulatory reporting first. Look at service provider platforms and MVNE platforms. Our [MVNO billing platform guide](/mvno/mvno-billing-platforms/) and [subscriber management guide](/mvno/subscriber-management-system-guide/) go deeper.
+- **MSP or wireless reseller.** Multi-level accounts, markups, commissions and carrier reconciliation matter most. A wireless reseller billing platform must show margin per customer and carrier, not only invoices.
+- **IoT reseller.** Pooled plans, per-device pricing and multi-country invoices decide the fit. See how the [device subscription lifecycle](/iot/iot-device-subscription-lifecycle/) ties billing to each line.
+
+## Core capabilities: reconciliation, taxes and integrations
+
+Carrier-side reconciliation in telecom billing software is the capability that separates reseller billing from everything else, so test it first. The system loads the carrier's invoice and usage detail, matches every charge to a line, plan and customer in your records, and flags lines that are active but unbilled, billed but inactive, or charged at the wrong rate. Margin reporting then shows revenue less wholesale cost by customer and carrier.
+
+### Reconciliation example (illustrative, assumed prices)
+
+Illustrative example, not a specific customer. An MSP reseller has 1,000 lines active in provisioning. For the same cycle, 982 lines are billed to customers and the carrier charges for 1,013. The prices below are assumed for illustration.
+
+- 18 active lines were never billed, for example activated mid-cycle and missed by the invoice run. At an assumed $15 per month retail price, that is $270 per month of revenue not billed.
+- 13 lines the carrier still charged were already cancelled in billing, because the cancellation never reached the carrier. At an assumed $6 per month wholesale cost, that is $78 per month of avoidable cost.
+- Total: $270 + $78 = $348 per month, or $4,176 per year, on 1,000 lines.
+
+### Where reconciliation breaks
+
+Two mechanical failures occur often. First, a cancel or suspend is recorded in one system, billing or the CRM, but is never passed to the carrier, so the carrier keeps charging for a line nobody pays for.
+
+Second, a mid-cycle activation falls between invoice runs and the line is never billed until someone notices.
+
+Both happen when billing, provisioning and the carrier each keep their own line list, which is why a three-way comparison catches them and a spot check does not. For the wider pattern, see our breakdown of [telecom revenue leaks](/mvno/mvno-telecom-reseller-revenue-leakage/). Enterprises run the same check from the buyer's side, which is the job of telecom expense management.
+
+### Integrations to confirm
+
+Ask three questions. Does a plan change or cancellation in billing change the line at the carrier, and the reverse (provisioning)? Are there documented APIs and webhooks for your CRM or PSA (professional services automation) tool? Do invoices and payments post cleanly to your accounting system?
+
+### Taxes and Truth-in-Billing
+
+Telecom services carry taxes and fees that ordinary software does not, and they change on their own schedule. The rules in this section are US rules; other countries have their own. The federal Universal Service Fund contribution factor was proposed at 42.0% for the fourth quarter of 2026 (FCC notice DA 26-946), up from 38.8% proposed for the third (DA 26-546), according to [USAC's announcements](https://www.usac.org/service-providers/resources/announcements). Which taxes apply to you depends on your services and carrier-of-record status, so confirm with a telecom tax adviser.
+
+Billing systems handle tax through a built-in module or an integration with a communications tax engine. Ask which one, how quickly a rate change reaches invoices, and who files and remits.
+
+On the invoice itself, [47 CFR 64.2401](https://www.law.cornell.edu/cfr/text/47/64.2401) sets the US Truth-in-Billing standard: each charge needs a "brief, clear, non-misleading, plain language description" and the bill must identify the provider. Whether it binds you depends on your carrier status, so ask your adviser. Check each vendor's sample invoice against it either way.
+
+## Vendor scorecard: 12 weighted criteria
+
+Score each vendor from 1 to 5 on every row, multiply by the weight and add up. The weights sum to 100, so the maximum is 500. These are suggested weights, based on our judgment rather than an industry standard, for an MSP or wireless reseller. An MVNO with prepaid plans should shift weight toward real-time charging, and an IoT reseller toward pooling.
+
+| Criterion | Weight | What to test or ask |
+|---|---|---|
+| Rating accuracy | 15 | Give the vendor one month of your real carrier usage files and compare its rated output with your current bills, line by line |
+| Carrier reconciliation and margin | 12 | Can it load carrier invoices and show billed versus charged per line, with margin by customer and carrier? |
+| Reseller hierarchy | 10 | How many account levels? Are markups, commissions and payouts calculated, or exported to a spreadsheet? |
+| Catalog and plan flexibility | 10 | Prepaid, postpaid, pooled, bundled and promotional plans without vendor development work |
+| Taxes and regulatory fees | 10 | Which tax engine, which jurisdictions, how fast rate changes reach invoices, and who files |
+| Payments and dunning | 8 | Retry rules, with suspension and restoration tied to the line, not only the account |
+| Provisioning integration | 8 | Does a change in billing change the line at the carrier, and the reverse? |
+| APIs and integrations | 7 | Documented API, webhooks, and connectors for CRM, PSA and accounting |
+| Invoice quality | 6 | Clear charge descriptions, your branding, consolidated or per-site invoices |
+| Total cost and contract | 6 | Pricing metric, minimums, setup fees, price at 2x and 5x your lines, data export on exit |
+| Reporting and audit trail | 4 | Who changed a rate or exemption, and when; revenue, usage and aging reports |
+| Security and compliance | 4 | SOC 2 report, card data scope under PCI DSS, and data location |
+
+Send the same test pack to each of at most three vendors: a month of carrier usage files, your plan catalog and ten awkward accounts such as mid-cycle changes, pooled plans and a suspended line. Score what the system produced, not what the demo showed. If you are evaluating a full MVNE platform, add the acceptance tests in our [OSS/BSS checklist](/telecom/oss-bss-checklist/).
+
+## Pricing models and total cost of telecom billing software
+
+The pricing metric matters more than the headline number. Four things change the cost: platform type, implementation complexity, minimum commitments and included services. Three structures are common.
+
+| Pricing structure | How it scales | Public reference point |
+|---|---|---|
+| Per subscriber or line, per month | In step with line count | An illustrative example of $0.50 to $2.00 per subscriber per month for a mid-sized operator on SaaS (Monetizely, December 2025) |
+| Flat licence or platform fee | Fixed until you outgrow capacity | [PortaOne](https://www.portaone.com/telecom-products/portaswitch/) prices a perpetual licence per installation by server count, and its SaaS option by CDR volume |
+| Percentage of billed revenue | Rises with price and volume | [Stripe Billing](https://stripe.com/billing/pricing) charges 0.7% of billing volume pay-as-you-go, excluding one-off invoices |
+
+The $0.50 to $2.00 range comes from a [Monetizely procurement guide](https://www.getmonetizely.com/articles/procurement-guide-how-telecom-bss-billing-amp-crm-platforms-are-priced-for-operators) (4 December 2025). The guide offers it as an unsourced, illustrative example for a mid-sized operator on SaaS. It is not a market benchmark, so treat it as a sanity check for quotes, not a target.
+
+Per-line pricing costs less below break-even and more above it. With an assumed flat fee of $10,000 a month, break-even is 5,000 lines at $2.00 per line and 20,000 lines at $0.50. To price three years, multiply each quote's monthly cost by 36 at your current line count, at 2x and at 5x, then add one-off implementation and migration costs.
+
+Licence is not the whole cost. The same guide says implementation often runs one to two times the licence, and that maintenance on a perpetual licence runs 15% to 25% of the licence a year. Add carrier integrations, data migration, tax engine fees, payment processing and the staff time to run each bill cycle. A minimum commitment above your current line count charges you for growth you have not made.
+
+## Migration risks and when to replace your billing system
+
+Replace the system when the system itself makes bills late or wrong. These signs mean it is the problem:
+
+- Every bill run needs a spreadsheet to finish.
+- A new plan or promotion needs a development ticket.
+- You cannot state margin per customer for last month, so you cannot tell which accounts cover their carrier cost.
+- Carrier invoices are checked by sample, not in full.
+- Adding a carrier or a country takes months.
+- Tax and fee changes are entered by hand.
+
+Data is where billing migrations go wrong. Give each of these an owner:
+
+- **Account and line mapping.** Every line must land on the right account, plan and price.
+- **Balances in flight.** Open invoices, credits, deposits and prepaid balances must carry over to the cent.
+- **Proration at cutover.** A mid-cycle switch double-bills or under-bills unless both systems agree on the date.
+- **Payment details.** Stored cards and bank mandates must move through a compliant token transfer, not a file export.
+- **History.** Prior usage and invoices must stay readable for disputes and audits.
+
+Do three things before cutover. Freeze plan changes during the move, migrate one customer segment first, and run both systems in parallel for a full bill cycle, comparing invoice totals and tax lines before the old system goes read-only. Also confirm a documented data export before you sign: without one, leaving costs more than joining.
+
+## Choose another vendor, or choose Spenza
+
+Spenza is an MVNE platform, so it fits only one of the five types. If your need sits in another row, a vendor from that row will serve you better.
+
+- **A carrier-grade BSS suite** if you operate a network, or need real-time charging at multi-million subscriber scale.
+- **A reseller billing tool such as OneBill, Rev.io or Datagate** if your carrier relationships and provisioning already work, and you need rating, tax and accounting sync on top.
+- **A usage-based biller such as Stripe Billing** if connectivity is a small metered line inside a software subscription.
+- **Spenza** if you want carriers, lines, reseller tiers and billing in one platform with carrier integration and provisioning included.
+
+### What Spenza covers
+
+In [ControlHub](/controlhub/), each level of a reseller network, from MSP to distributor, sub-distributor and enterprise or retail, gets its own plans, prices and prepaid or postpaid terms. Usage is rated, every level is billed, and markups, commissions and payouts are tracked in one place. Plans are built without code on wholesale operator plans, with automatic step-up when a line runs out of allowance. Parent-child billing puts child accounts on one invoice across countries, as described in [parent-child billing and plan bundling](/spenza-product/taas-billing-plan-bundling/).
+
+Two customers show how it works. MSP-A's resellers mark up plans and earn commissions, and its case study reports reseller onboarding going from weeks to a few days, per its [MSP-A case study](/spenza-product/proxy-reseller-growth-spenza/). RocketPhone runs rating, billing, subscriber management and multi-tier reseller control through APIs, per its [RocketPhone case study](/spenza-product/rocketphone-case-study/).
+
+### What Spenza does not do
+
+- It is not a charging system for a network operator's own core network.
+- It is not a general ledger or ERP.
+- It does not bill services unrelated to connectivity.
+- Automated operator-invoice reconciliation (Finance Ops Agent) and automated telecom tax calculation and remittance (Compliance Ops Agent) are early access, not general release.
