@@ -316,7 +316,7 @@
     // this entry, and a hidden `gform_submit=23` is what the lead endpoint reads
     // to route the lead (alert to the two reviewers, thank-you to the writer).
     'guest-postings': {
-      guid: 'GUEST_POSTINGS_FORM_GUID',
+      guid: '4aa03a0c-8b44-47a4-8fac-c31b70754813',
       fields: { input_1: 'name', input_2: 'email' },
       // The topic has no contact property of its own; `message` is standard and
       // readable on the contact, the same compromise the 'ai-agent' form makes.
