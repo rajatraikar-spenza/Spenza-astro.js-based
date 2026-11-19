@@ -250,3 +250,9 @@
 .gp-modal .hs-confirmation-title { margin: 0 0 10px; font: 700 24px/1.2 var(--font-display, inherit) !important; color: #0f1420; }
 .gp-modal .hs-confirmation p { margin: 0; font-size: 16px; line-height: 1.55; color: #3d4656; }
 @media (max-width: 480px) { .gp-card { padding: 28px 20px 24px; } .gp-title { font-size: 24px !important; } }
+
+/* Topics and categories on guest pages are set in capitals. */
+.gb .gb-topics .gb-topic,
+.gb .gb-tags li { text-transform: uppercase; letter-spacing: .04em; }
+.gb .gb-topics .gb-topic { font-size: 12.5px; }
+.gb .gb-tags li { font-size: 11.5px; }
