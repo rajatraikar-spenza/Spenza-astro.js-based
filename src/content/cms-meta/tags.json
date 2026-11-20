@@ -27,6 +27,18 @@
     {
       "slug": "mvno",
       "label": "Mvno"
+    },
+    {
+      "slug": "multi-carrier-sim",
+      "label": "Multi Carrier Sim"
+    },
+    {
+      "slug": "multi-imsi",
+      "label": "Multi Imsi"
+    },
+    {
+      "slug": "euicc",
+      "label": "Euicc"
     }
   ]
 }
