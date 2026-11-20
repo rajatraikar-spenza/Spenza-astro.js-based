@@ -39,6 +39,8 @@ collections:
     # The file name must equal the slug: the site builds /<category>/<slug>/ from it.
     slug: "{{fields.slug}}"
     identifier_field: slug
+    # "View live" in the editor opens site_url + this. Without it the link goes to the home page.
+    preview_path: "{{category}}/{{slug}}"
     # Posts imported from WordPress are in the next collection ("Imported posts"); this one is posts written here.
     filter: { field: source, value: admin }
     summary: "{{title}} · {{category}} · {{publishedDate | date('YYYY-MM-DD')}}"
@@ -159,6 +161,8 @@ collections:
     delete: false
     slug: "{{fields.slug}}"
     identifier_field: slug
+    # "View live" in the editor opens site_url + this. Without it the link goes to the home page.
+    preview_path: "{{category}}/{{slug}}"
     filter: { field: source, value: wordpress }
     summary: "{{title}} · {{category}} · {{publishedDate | date('YYYY-MM-DD')}}"
     sortable_fields: [publishedDate, title, category]
@@ -245,6 +249,8 @@ collections:
     # The file name must equal the slug: the site builds /<category>/<slug>/ from it.
     slug: "{{fields.slug}}"
     identifier_field: slug
+    # "View live" in the editor opens site_url + this. Without it the link goes to the home page.
+    preview_path: "{{category}}/{{slug}}"
     # Posts imported from WordPress are in the next collection ("Imported posts"); this one is posts written here.
     filter: { field: source, value: guest }
     summary: "{{title}} · {{guestName}} · {{publishedDate | date('YYYY-MM-DD')}}"
