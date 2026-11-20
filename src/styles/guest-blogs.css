@@ -92,9 +92,11 @@
   padding: 0 0 16px; margin: 0 0 clamp(20px, 3vw, 32px);
   font-size: 14px; color: var(--muted);
 }
-.gb .gb-share { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-left: auto; }
+.gb .gb-share { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-left: auto; }
 .gb .gb-share a { color: var(--acctext); font-weight: 600; text-decoration: none; }
-.gb .gb-share a:hover { text-decoration: underline; }
+.gb .gb-share a { display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; border-radius: 50%; }
+.gb .gb-share a svg { width: 16px; height: 16px; fill: currentColor; }
+.gb .gb-share a:hover { background: var(--acctint, rgba(255,69,0,.1)); }
 .gb .gb-head { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 28px); padding-bottom: 20px; border-bottom: 2px solid var(--acc); }
 .gb .gb-head > div { min-width: 0; }
 .gb .gb-head h1 { margin: 0; font-size: clamp(28px, 3.8vw, 44px); line-height: 1.12; font-weight: 700; color: var(--ink); text-wrap: balance; overflow-wrap: anywhere; }
