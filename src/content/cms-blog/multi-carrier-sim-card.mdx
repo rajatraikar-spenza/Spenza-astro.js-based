@@ -1,0 +1,199 @@
+---
+source: "admin"
+title: "Multi-Carrier SIM Cards: How They Work and How to Choose"
+slug: "multi-carrier-sim-card"
+category: "esim"
+author: "vinay"
+description: "Multi-carrier SIM cards explained: multi-IMSI, eUICC and roaming SIMs, steered vs non-steered networks, failover behavior and a checklist for IoT buyers."
+publishedDate: "2026-11-20T06:22:17.000Z"
+focusKeyword: "multi carrier sim card"
+tags: ["multi-carrier-sim", "multi-imsi", "euicc"]
+hero:
+  image: "/cms-media/multi-carrier-sim-card/hero.webp"
+  alt: "Orange line art of three cell towers, a SIM card and a small sensor device linked by curved signal lines on a cream panel."
+bodyImage:
+  image: "/cms-media/multi-carrier-sim-card/body.webp"
+  alt: "Sensor connected to a SIM card, with three ribbons leading to three cell towers, labelled Device, SIM and Networks."
+  caption: "A SIM can list several networks, but steering and the modem decide which one the device uses."
+  afterSection: 3
+tldr:
+  summary: "A multi-carrier SIM gives one device access to several mobile networks through roaming, stored identities or downloadable profiles. The right type depends on where devices sit, how they move and whether you must change operators after shipping. We found no standard switching time, and vendors quote very different ones, so measure it yourself."
+  cards:
+    - icon: "sim-card"
+      title: "Three ways to reach networks"
+      text: "Roaming SIMs, multi-IMSI SIMs and eUICC all reach several networks, but they decide and switch differently."
+    - icon: "tower-cell"
+      title: "Available is not selected"
+      text: "Signal strength is only one input. The modem tries the home network and the SIM's lists first, and steering can pull a device off the best local network."
+    - icon: "route"
+      title: "Redundancy needs a test"
+      text: "Only times you measure on your own devices show how well failover works, and the backup network must be independent."
+    - icon: "coins"
+      title: "Price the whole fleet"
+      text: "Per-MB, pooled and per-profile pricing compare differently. Model your usage and site visits first."
+    - icon: "circle-check"
+      title: "How Spenza helps"
+      text: "Spenza offers access to 180+ carriers through one API, with failover and routing rules."
+faq:
+  - question: "What counts as a multi-carrier SIM?"
+    answer: "A multi-carrier SIM card is one SIM that can connect a device to more than one mobile network, by roaming, by using several stored identities or by downloading operator profiles. Multi-network and global IoT SIM name the same idea."
+  - question: "Does the strongest signal decide which network a SIM uses?"
+    answer: "No, not by signal alone. Selection starts with the home network, then the lists on the SIM, then other networks by signal quality (3GPP TS 23.122), and steering and modem support change the result."
+  - question: "What is steering of roaming and why does a non-steered SIM matter?"
+    answer: "Steering is a home operator directing roaming devices toward preferred partner networks. It can keep a device off the best local network, which is why a non-steered SIM matters most for fixed devices in marginal coverage."
+  - question: "Will a second network keep my devices online?"
+    answer: "It can, if the device detects the failure and the second network is independent of the first. Measure detection, switch and traffic recovery times on your own devices."
+  - question: "Which multi-network SIM is best for IoT?"
+    answer: "It depends on the devices. Single-carrier fits one country with good coverage, a non-steered roaming SIM fits simple devices, multi-IMSI fits moving assets, and eUICC with SGP.32 fits long-lived devices. Engineering should confirm modem, band and country support before you commit."
+---
+
+A multi-carrier SIM card is a SIM that lets one device connect to more than one mobile network under a single commercial arrangement. Vendors also call it a multi-network SIM or a global IoT SIM, and the networks, switching and limits differ by type.
+
+## What is a multi-carrier SIM card?
+
+An ordinary SIM belongs to one operator. A multi-carrier SIM reaches further in one of three ways:
+
+- **Roaming SIM:** one operator profile that roams on partner networks.
+- **Multi-IMSI SIM:** one SIM that stores several subscriber identities (IMSIs).
+- **eUICC (eSIM):** a reprogrammable SIM that downloads and swaps operator profiles over the air.
+
+Two products sold as multi-carrier can behave very differently, so the type matters more than the label.
+
+| | Roaming SIM | Multi-IMSI SIM | eUICC |
+|---|---|---|---|
+| How it reaches several networks | One home profile roams on partners | Several identities stored on the SIM | Profiles downloaded over the air |
+| Who decides the network | The device, within home-operator steering | The SIM, within the provider's rules | Your platform, by enabling a profile |
+| Switching behavior | Normal network reselection, shaped by modem and steering | Set by the SIM applet, the carrier and radio conditions | Set by the platform, the download and the modem |
+| Add an operator after shipping | Usually not | Only among identities already loaded | Yes, where standard and carrier support it |
+| Standard | 3GPP roaming | Vendor-specific | GSMA SGP.22 and SGP.32 |
+| Permanent-roaming exposure | Higher, every session roams | Lower where a local identity exists | Lower where a local profile can be installed |
+| Usually best fit | Low-cost devices crossing borders | Moving assets needing quick failover | Long-lived devices, restrictive markets |
+
+Our [multi-IMSI vs eUICC guide](/esim/multi-imsi-vs-euicc-guide-iot/) compares the last two columns in depth, and the [SGP.22 vs SGP.32 guide](/esim/sgp-22-vs-sgp-32-esim-standards-guide/) covers the standards.
+
+## How does a multi-network SIM choose a network?
+
+Not by signal alone. Under 3GPP TS 23.122, automatic selection tries the home network first, then the user-controlled and operator-controlled network lists on the SIM, then other networks by signal quality, with lower-priority lists after that. Your engineers should read clause 4.4.3.1.1 for the release your modem follows ([3GPP TS 23.122](https://www.3gpp.org/dynareport/23122.htm)).
+
+The networks a SIM can use are not the network the device selects. "Available" means a network is on the SIM's list and in coverage. "Selected" is the one the modem registers on. Modem band support, roaming agreements and permissions, steering and radio conditions all shape that result, so a network can sit on the SIM's list and never be chosen.
+
+## Steering of roaming and non-steered SIMs
+
+Steering of roaming is a home operator directing its roaming devices toward preferred partner networks, usually for commercial reasons. GSMA IR.73 describes it, covering commercial guidelines, technical requirements and a 5G control-plane solution ([GSMA IR.73 page](https://www.gsma.com/newsroom/?p=20192)).
+
+For a device in marginal coverage, a steered SIM can be sent away from a network that works locally, or kept on one that is not the best there. The preferred network reflects the home operator's agreements, not necessarily the site.
+
+"Non-steered" is a vendor term with no standard definition. It usually means the provider says it does not push devices toward preferred partners, so the standard selection order and local conditions decide. Get the definition in writing. That matters most for fixed devices in weak spots, though bands, agreements and permissions still apply.
+
+Ask every vendor two questions:
+
+1. Is the SIM steered?
+2. Can steering be turned off per device or per country?
+
+
+
+## Which multi-carrier SIM do you need?
+
+Three questions settle most cases:
+
+1. **Can every device stay in one country with good coverage?**
+2. **Do devices move, or sit where one network is weak, so they need fast failover?**
+3. **Will devices live many years or enter markets that restrict permanent roaming, so you must change operators after shipping?**
+
+Map your answers to a starting recommendation:
+
+- **Question 1 yes, 2 no, 3 no:** single-carrier SIM.
+- **Question 1 no, 2 no, 3 no:** non-steered roaming SIM.
+- **Question 2 yes, 3 no:** multi-IMSI.
+- **Question 3 yes, 2 no:** eUICC with SGP.32.
+- **Questions 2 and 3 both yes:** eUICC plus multi-IMSI.
+
+Treat this as a starting point: engineering must confirm modem, band and country support.
+
+### Limits that can override the answer
+
+**Permanent roaming:** a roaming SIM that stays in one foreign country can breach local rules or operator policy. Rules differ and change, so check [permanent roaming rules by country](/iot/permanent-roaming-rules-by-country/). A local eUICC profile is a common answer, but it does not override local law.
+
+**Data routing:** home-routed roaming typically adds a round trip, because traffic returns to the home network first. Ask where data exits.
+
+**Carrier certification:** some carriers require their own device approval. Ask before counting a network as usable.
+
+## Does a multi-carrier SIM improve uptime?
+
+It can, but only if the device detects the failure and the second network is independent of the first. The 2024 AT&T outage shows why. On 22 February 2024, an AT&T Mobility outage lasted at least 12 hours. Per information AT&T provided, it affected more than 125 million registered devices, including customers of MVNOs with access to AT&T's network and of other brands on it. The cause was a network change with an equipment configuration error ([FCC report](https://docs.fcc.gov/public/attachments/DOC-404150A1.pdf)). The report does not mention IoT.
+
+Two lessons follow. First, an outage shows why you want a second network, not how fast a multi-carrier SIM recovers. Second, MVNO customers were hit too, so a second identity on the same host network gives no redundancy. Ask whether your backup networks have independent radio and core infrastructure. Our [single-carrier risks analysis](/telecom/single-carrier-iot-risks-2025/) covers more ways one network can fail a fleet.
+
+### What to measure
+
+We found no standard switching time, and vendors quote very different figures. Kore's documentation says a switch can take up to 10 minutes ([Kore](https://docs.korewireless.com/en-us/omnisim/esim-switch/esim-switch-process)), and Spenza's own [multi-IMSI vs eUICC guide](/esim/multi-imsi-vs-euicc-guide-iot/) cites under 60 seconds for a multi-IMSI border crossing. Both are vendor statements for one setup, not benchmarks. Real time varies with the implementation, carrier, modem and radio conditions. Ask each vendor for measured numbers, then measure it yourself. A failover test records three intervals:
+
+1. **Detection time:** from the primary path failing until the device or platform marks it failed.
+2. **Switch time:** from that decision until the device is registered and has a data session on the second network.
+3. **Traffic recovery time:** until the application's own traffic flows again, meaning a device message the backend acknowledges.
+
+### A short test protocol
+
+1. Pick a pilot cohort with your real modules and sites.
+2. Cut the primary path in a way that matches your risk: loss of radio signal, a blocked data session, or a registered network that passes no data. Test each separately, at a known time.
+3. Log timestamps device-side and backend-side.
+4. Repeat enough times to see the spread: 10 per network pair and location is a practical minimum, not a standard. Vary the time of day. Set a pass limit first, such as traffic recovery inside your application's timeout.
+5. Record every failure, and test the return to the primary network too.
+
+Spenza has no published failover test log yet. The numbers to trust are the ones you measure on your own devices.
+
+## What does a multi-carrier fleet cost?
+
+In the illustrative model below, a 1,000-device fleet costs $13,800 to $16,350 in year one, or $1.15 to $1.36 per device per month. The cheapest multi-network option costs $750 more than single-carrier. Three charging structures cover most offers: **per MB** (usage at a rate that can vary by zone), **pooled** (one allowance shared across SIMs), and **per network or profile** (a fee per active operator profile, plus usage).
+
+Public list prices show how different the units are. They are vendor list prices, not comparable to each other and not a benchmark:
+
+- Hologram: $0.03 per MB, plus $1 per SIM per month and $3 per SIM card ([Hologram](https://www.hologram.io/pricing/), checked 20 November 2026).
+- 1NCE (EU page): EUR 12 one-time for 10 years and 500 MB ([1NCE](https://www.1nce.com/en-eu/1nce-connect/pricing), checked 20 November 2026).
+- Telenor IoT Complete: EUR 0.76 per subscription per month and EUR 0.024 per MB under 25 MB a month, excluding a EUR 2.52 setup fee and a EUR 95 monthly basic service plan (the page lists 3 months free), via the [IoT connectivity cost guide](/telecom/iot-connectivity-cost-guide-2025/) (checked 2 November 2026).
+
+### An illustrative 1,000-device model
+
+**Illustrative assumptions, not quotes.** The fleet is 1,000 devices for 12 months, using 20,000 MB a month in total (20 MB per device). A site visit, meaning a technician trip to swap a SIM, move a device or fix a coverage gap, costs $150. Single-carrier visits run at 2% a year (20 visits), and 0.5% (5 visits) with a working second network. The visit rates are assumptions. Every rate is a placeholder for your own quotes, and the per-MB rates sit below Hologram's $0.03 list price. One-time SIM or eUICC card fees are excluded from all four options; at Hologram's $3 a card they would add $3,000 to each.
+
+| Option | Assumed rates | Subscription + usage a year | Profile fees + visits | Year-1 total | Per device per month |
+|---|---|---|---|---|---|
+| A Single-carrier, per MB | $0.60/SIM/mo + $0.015/MB | $10,800 | $3,000 | $13,800 | $1.15 |
+| B Multi-network, per MB | $0.90/SIM/mo + $0.02/MB | $15,600 | $750 | $16,350 | $1.36 |
+| C Multi-network, pooled | $1.15/SIM/mo incl. 20,000 MB pool | $13,800 | $750 | $14,550 | $1.21 |
+| D eUICC, $1.00 one-time per profile | $0.70/SIM/mo + $0.02/MB + $1.00 per profile (1,000 first + 200 second profiles: $1,200 in fees, plus $750 in visits) | $13,200 | $1,950 | $15,150 | $1.26 |
+
+Option C costs $3,000 a year more than A. The 15 visits avoided save $2,250, so C still costs $750 more under these inputs. C breaks even at $200 a visit ($3,000 divided by 15 visits avoided). The premium pays back only in some fleets: it needs more visits avoided, a higher visit cost, or downtime cost counted, which this model excludes. A lifetime-flat plan such as 1NCE's 500 MB would last about 25 months at 20 MB a month, so check what happens when an allowance runs out. Pools add overage risk: if usage runs 15% over the pool (3,000 MB) at an assumed $0.03/MB, that adds $90 a month ($1,080 a year). These are not market prices.
+
+## Ten questions to ask every vendor
+
+Ask these before you sign:
+
+1. Is the SIM steered, and can steering be turned off?
+2. Which networks does it use in each of my countries, by name?
+3. Is the global IoT SIM delivered by roaming, multi-IMSI or eUICC?
+4. How is switching triggered, and what do you measure?
+5. Can I add an operator after devices ship?
+6. Where does data exit to the internet?
+7. Which countries limit permanent roaming on this SIM?
+8. Which bands and technologies are covered, including LTE-M and NB-IoT? (See [NB-IoT vs LTE-M vs 5G RedCap](/esim/nb-iot-vs-lte-m-vs-5g-redcap/).)
+9. What is the pricing unit, and what are the overage rates?
+10. Can I see every SIM on every network in one portal and one API?
+
+## When single-carrier is the better choice
+
+A single-carrier SIM is the better choice when every device sits in one country, one carrier covers every site, device life is short and an outage costs little. It is simpler to certify, and may cost less per MB, so compare quotes. Multi-carrier earns its cost where devices move, cross borders, sit in marginal coverage or cannot be reached for a SIM swap.
+
+## Where Spenza fits
+
+Spenza is a multi-operator connectivity platform, not a single-network SIM vendor. [TelecomHub](/telecomhub/) gives access to 180+ carriers through one API, using Spenza's network or your own contracts, with automatic failover and routing. It also lists SIM and eSIM provisioning. Its SIMs ship with pre-loaded multi-IMSI profiles, as the multi-IMSI guide describes. Our [RSP aggregation guide](/esim/deploy-multi-network-esim-rsp-aggregation/) explains how several carriers' eSIM profiles sit under one control layer. Butlr, a smart-building sensor maker, cut regional launch time from 60 days to 7 on Spenza, according to its [case study](/spenza-product/butlr-iot-spenza-casestudy/). That case study covers plans and billing, not failover.
+
+What Spenza does not do: it does not build modules or devices, and it does not remove local permanent-roaming law or carrier certification. This post makes no SLA or failover-timing claim for Spenza, so ask for both in writing.
+
+| Choose | If |
+|---|---|
+| A single-carrier plan | Devices stay in one country with good coverage and have a short life. |
+| One operator's roaming SIM | Devices cross borders briefly, volumes are small and you accept that operator's steering. |
+| Spenza | You need several carriers in more than one country and one place to manage every line. |
+
+To discuss your countries, send them with your device type and module through [our contact page](/contact-us/).
