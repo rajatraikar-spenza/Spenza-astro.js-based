@@ -224,10 +224,10 @@ export async function handler(event, _ctx, envOrCallback) {
     }).then(() => { result.archive = 'ok'; }).catch(err => { result.archive = 'failed'; console.error('[lead] archive failed', err.name, err.message); }));
   }
   const alert = alertEmail(form, fields, meta, entryKey, when);
-  jobs.push(sendMail(env, { from: env.ALERT_FROM, to: env.ALERT_TO, ...alert })
+  jobs.push(sendMail(env, { from: env.ALERT_FROM, to: FORMS[form].alertTo ?? env.ALERT_TO, ...alert })
     .then(() => { result.alert = 'ok'; }).catch(err => { result.alert = 'failed'; console.error('[lead] alert failed', err.name, err.message); }));
 
-  const reply = env.SEND_CLIENT_REPLY === '1' ? replyFor(form, fields) : null;
+  const reply = env.SEND_CLIENT_REPLY === '1' || FORMS[form].alwaysReply ? replyFor(form, fields) : null;
   const to = emailOf(form, fields);
   if (reply && EMAIL_RE.test(to)) {
     jobs.push(sendMail(env, { from: env.REPLY_FROM, to, replyTo: 'sales@spenza.com', subject: reply.subject, html: reply.html })

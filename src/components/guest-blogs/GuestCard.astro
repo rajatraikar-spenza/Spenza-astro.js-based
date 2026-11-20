@@ -1,0 +1,59 @@
+---
+/**
+ * One guest article in the /blog/guest-blogs/ list: who wrote it (photo, name,
+ * designation, company), when, the headline and the opening of the piece. Read
+ * more opens the whole article in a new tab.
+ */
+import { categoryLabel } from '../../data/blog-categories.ts';
+import type { CollectionEntry } from 'astro:content';
+import { plainText } from '../../lib/guest-blogs.ts';
+
+interface Props { post: CollectionEntry<'posts'>; tagLabels: Record<string, string> }
+const { post, tagLabels } = Astro.props;
+const d = post.data;
+
+const DATE = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const href = `/${d.category}/${d.slug}/`;
+const a = d.author;
+const initials = (a?.name ?? 'G').split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+
+// The opening of the article itself, not the SEO description: styles, scripts
+// and tags are dropped, so what is left is the words a reader would see first.
+const text = plainText(d.content);
+const teaser = (() => {
+  const src = text.length > 80 ? text : plainText(d.excerpt);
+  if (src.length <= 300) return src;
+  return src.slice(0, src.lastIndexOf(' ', 300)).trimEnd() + '…';
+})();
+const tags = d.tags.slice(0, 3).map(t => ({ slug: t, label: tagLabels[t] ?? t }));
+---
+
+<article class="gb-card">
+  <header class="gb-by">
+    {a && (
+      <span class="gb-avatar">
+        {a.avatar
+          ? <img src={a.avatar} alt="" width="64" height="64" loading="lazy" decoding="async" />
+          : <span aria-hidden="true">{initials}</span>}
+      </span>
+    )}
+    <div class="gb-who">
+      <p class="gb-name">{a ? a.name : 'Guest author'}</p>
+      {(a?.role || a?.company) && (
+        <p class="gb-role">{[a?.role, a?.company].filter(Boolean).join(' · ')}</p>
+      )}
+    </div>
+    <time class="gb-date" datetime={d.publishedDate.toISOString()}>{DATE.format(d.publishedDate)}</time>
+  </header>
+
+  <h2 class="gb-title"><a href={href} target="_blank" rel="noopener">{d.title}</a></h2>
+  <p class="gb-teaser">{teaser}</p>
+
+  <footer class="gb-foot">
+    <ul class="gb-tags" aria-label="Topics">
+      <li>{categoryLabel(d.category)}</li>
+      {tags.map(t => <li>{t.label}</li>)}
+    </ul>
+    <a class="gb-more" href={href} target="_blank" rel="noopener">Read more<span class="sr"> about {d.title}</span> <span aria-hidden="true">→</span></a>
+  </footer>
+</article>

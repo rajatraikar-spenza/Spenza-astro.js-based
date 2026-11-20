@@ -61,6 +61,10 @@ const posts = defineCollection({
         slug: z.string(),
         bio: z.string().optional(),
         avatar: z.string().optional(),
+        /** Designation and employer, for guest authors. */
+        role: z.string().optional(),
+        company: z.string().optional(),
+        linkedin: z.string().optional(),
       })
       .optional(),
 

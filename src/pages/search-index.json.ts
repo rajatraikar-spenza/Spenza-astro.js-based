@@ -15,6 +15,7 @@
  */
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { blogPosts } from '../lib/posts.ts';
 import { cardData, decodeEntities } from '../lib/post-card';
 
 /** Search text kept per post, in characters: the excerpt, then the outline. */
@@ -26,7 +27,7 @@ const text = (html: string) =>
     .trim();
 
 export const GET: APIRoute = async () => {
-  const posts = (await getCollection('posts')).sort(
+  const posts = (await blogPosts()).sort(
     (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
   );
 

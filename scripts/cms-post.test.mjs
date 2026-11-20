@@ -295,3 +295,14 @@ test('without a media host an imported post is left exactly as stored', () => {
   assert.equal(toMediaHost('/wp-content/uploads/a.png', ''), '/wp-content/uploads/a.png');
   assert.equal(headToMediaHost('x', 'https://spenza.com', ''), 'x');
 });
+
+test('guest posts: the guest is typed on the post, never an Authors entry', async () => {
+  const { validateEntry, guestAuthor } = await import('./lib/cms-post.mjs');
+  const base = { title: 'T', slug: 't', description: 'd'.repeat(120), category: 'guest-blogs', publishedDate: '2026-11-01', source: 'guest', hero: { image: '/x.webp', alt: 'a' } };
+  const ok = validateEntry({ ...base, guestName: 'Sam Writer', guestRole: 'CTO' }, '## A\n\ntext', {});
+  assert.deepEqual(ok.errors, []);
+  assert.ok(validateEntry({ ...base }, '## A\n\ntext', {}).errors.some(e => /guest name/.test(e)));
+  assert.ok(validateEntry({ ...base, category: 'iot', guestName: 'S' }, '## A\n\ntext', {}).errors.some(e => /category must be/.test(e)));
+  assert.ok(validateEntry({ ...base, source: 'admin', author: 'vinay' }, '## A\n\ntext', {}).errors.some(e => /Guest blogs section/.test(e)));
+  assert.deepEqual(guestAuthor({ guestName: 'Sam Writer', guestRole: 'CTO', guestCompany: 'Acme' }), { name: 'Sam Writer', slug: 'sam-writer', role: 'CTO', company: 'Acme' });
+});

@@ -1,0 +1,33 @@
+---
+/** Sidebar shared by the guest list and the guest article: recent posts, topics, and the call for writers. */
+import type { CollectionEntry } from 'astro:content';
+interface Props { recent: CollectionEntry<'posts'>[]; topics: [string, number][]; tagLabels: Record<string, string> }
+const { recent, topics, tagLabels } = Astro.props;
+---
+
+<aside class="gb-side" aria-label="Guest blog sidebar">
+  {recent.length > 0 && (
+    <section class="gb-box">
+      <h2>Recent posts</h2>
+      <ul>
+        {recent.map(p => (
+          <li><a href={`/${p.data.category}/${p.data.slug}/`}>{p.data.title}</a>
+            {p.data.author && <span>{p.data.author.name}</span>}</li>
+        ))}
+      </ul>
+    </section>
+  )}
+  {topics.length > 0 && (
+    <section class="gb-box">
+      <h2>Topics</h2>
+      <ul class="gb-topics">
+        {topics.map(([slug, n]) => <li><span class="gb-topic">{tagLabels[slug] ?? slug} <small>{n}</small></span></li>)}
+      </ul>
+    </section>
+  )}
+  <section class="gb-box gb-cta">
+    <h2>Write for Spenza</h2>
+    <p>Work in telecom, IoT or connectivity and have something to say? We publish guest articles from practitioners.</p>
+    <button class="gb-btn" type="button" data-gp-open>Get in touch</button>
+  </section>
+</aside>

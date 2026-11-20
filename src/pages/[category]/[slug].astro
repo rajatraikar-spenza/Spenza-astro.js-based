@@ -13,6 +13,7 @@
 import { getCollection } from 'astro:content';
 import WpLayout from '../../layouts/WpLayout.astro';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import GuestArticleLayout from '../../layouts/GuestArticleLayout.astro';
 import wpPosts from '../../data/wp-posts.json';
 import { isHeadless } from '../../data/headless-slugs.ts';
 
@@ -36,7 +37,7 @@ export async function getStaticPaths() {
    * confirm: a post in every one of the seven categories shows the same three
    * newest articles, and the newest post of all shows the next three down.
    */
-  const newest = [...posts].sort(
+  const newest = posts.filter(p => p.data.category !== 'guest-blogs').sort(
     (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
   );
   const relatedFor = (slug: string) =>
@@ -74,7 +75,9 @@ if (!post && !content) {
 }
 ---
 
-{post
+{post && post.data.category === 'guest-blogs'
+  ? <GuestArticleLayout post={post} />
+  : post
   ? <ArticleLayout post={post} related={related} />
   : (
     <WpLayout slug={entry?.key ?? '__post__'}>

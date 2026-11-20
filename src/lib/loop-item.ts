@@ -267,7 +267,7 @@ export function renderLoopItem(post: LoopPost): string {
 <li class="elementor-icon-list-item elementor-repeater-item-99896a0 elementor-inline-item" itemprop="about">
 <span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-terms">
 <span class="elementor-post-info__terms-list">
-<a href="/category/${esc(post.category)}/" class="elementor-post-info__terms-list-item">${esc(label)}</a>				</span>
+<a href="${post.category === 'guest-blogs' ? '/blog/guest-blogs/' : `/category/${esc(post.category)}/`}" class="elementor-post-info__terms-list-item">${esc(label)}</a>				</span>
 </span>
 </li>
 </ul>

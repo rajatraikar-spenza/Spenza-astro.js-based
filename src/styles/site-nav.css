@@ -1098,3 +1098,18 @@
 html {
   scroll-padding-top: 90px;
 }
+
+/* Menu descriptions run to one or two lines, balanced, never a single word
+   left hanging on a line of its own. */
+.sn .sn-mi .sn-d,
+.sn .sn-colhead .sn-d,
+.sn .sn-bl {
+  text-wrap: balance;
+}
+
+/* Resources: every option's description is a single line. */
+.sn .sn-res .sn-mi .sn-d {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

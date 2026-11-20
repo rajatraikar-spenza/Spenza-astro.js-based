@@ -10,6 +10,7 @@
  * Paginated at /category/<slug>/page/2/, matching WordPress.
  */
 import { getCollection } from 'astro:content';
+import { blogPosts } from '../../lib/posts.ts';
 import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
 import { categoryLabel, categoryIntro } from '../../data/blog-categories.ts';
 import { generatedArchiveShell } from '../../lib/generated-archive.ts';
@@ -25,7 +26,7 @@ export async function getStaticPaths() {
   // own build chunk, where component-scope constants are not defined.
   const PER_PAGE = 10;
 
-  const posts = await getCollection('posts');
+  const posts = await blogPosts();
 
   const byCategory = new Map<string, typeof posts>();
   for (const p of posts) {
@@ -36,6 +37,8 @@ export async function getStaticPaths() {
 
   const paths = [];
   for (const [category, list] of byCategory) {
+    // Guest posts are listed at /blog/guest-blogs/, with their own layout.
+    if (category === 'guest-blogs') continue;
     list.sort((a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime());
     const totalPages = Math.max(1, Math.ceil(list.length / PER_PAGE));
 

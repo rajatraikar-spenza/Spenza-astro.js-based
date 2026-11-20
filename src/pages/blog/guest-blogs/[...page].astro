@@ -1,0 +1,82 @@
+---
+/**
+ * /blog/guest-blogs/ — articles by guest authors (category "guest-blogs").
+ *
+ * Sits inside the same page chrome as the blog index and the category archives
+ * (hero, subscribe form, category chips and search box), so the filter bar is
+ * still there when you move from /blog/ to Guest Blogs. Only the loop grid is
+ * replaced, with one card per guest article beside a sidebar. "Read more" opens
+ * the full article, at /guest-blogs/<slug>/, in a new tab.
+ *
+ * Paginated at /blog/guest-blogs/page/2/.
+ */
+import WpLayout from '../../../layouts/WpLayout.astro';
+import GuestCard from '../../../components/guest-blogs/GuestCard.astro';
+import GuestPostingModal from '../../../components/guest-blogs/GuestPostingModal.astro';
+import GuestSidebar from '../../../components/guest-blogs/GuestSidebar.astro';
+import { replaceWidgetInner } from '../../../../scripts/lib/widget-html.mjs';
+import { setActiveChip } from '../../../../scripts/lib/filter-bar.mjs';
+import { generatedArchiveShell } from '../../../lib/generated-archive.ts';
+import { categoryIntro } from '../../../data/blog-categories.ts';
+import { guestPosts, topicsOf, tagLabels } from '../../../lib/guest-blogs.ts';
+import telecomShell from '../../../partials/archives/archive-category-telecom.html?raw';
+import '../../../styles/guest-blogs.css';
+
+export async function getStaticPaths() {
+  const PER_PAGE = 10;
+  const all = await guestPosts();
+  const totalPages = Math.max(1, Math.ceil(all.length / PER_PAGE));
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: i === 0 ? undefined : `page/${i + 1}` },
+    props: { page: i + 1, totalPages, posts: all.slice(i * PER_PAGE, (i + 1) * PER_PAGE), recent: all.slice(0, 5), topics: topicsOf(all) },
+  }));
+}
+
+const { page, totalPages, posts, recent, topics } = Astro.props;
+const BASE = '/blog/guest-blogs/';
+const pageHref = (n: number) => (n === 1 ? BASE : `${BASE}page/${n}/`);
+
+// Chrome from the category archive, retitled; the loop grid becomes a marker we
+// split on so the cards (Astro components) can sit exactly where the grid was.
+let shell = generatedArchiveShell(telecomShell, {
+  path: BASE,
+  pill: 'Guest Blogs',
+  pillHref: BASE,
+  heading: 'Insights from Industry Voices',
+  intro: categoryIntro('guest-blogs') || 'Independent perspectives on MVNOs, IoT, eSIM and telecom from the people who work in them.',
+});
+// "Guest Blogs" is the current chip; nothing else is.
+shell = setActiveChip(shell, BASE);
+const MARK = '<!--GUEST-LIST-->';
+const [before, after] = replaceWidgetInner(shell, '68b5a8e', MARK).split(MARK);
+
+const title = page === 1 ? 'Guest Blogs - Spenza' : `Guest Blogs - Page ${page} - Spenza`;
+const description = 'Guest articles on MVNOs, IoT, eSIM and telecom, written by the operators, vendors and analysts who work in the industry.';
+---
+
+<WpLayout slug="archive-category-telecom" title={title} description={description}>
+  <Fragment set:html={before} />
+  <div class="gb">
+    <div class="gb-layout">
+      <div class="gb-list">
+        {posts.length
+          ? posts.map(p => <GuestCard post={p} tagLabels={tagLabels} />)
+          : <p class="gb-empty">No guest articles yet. Check back soon.</p>}
+
+        {totalPages > 1 && (
+          <nav class="gb-pages" aria-label="Guest blog pages">
+            {page > 1 && <a href={pageHref(page - 1)} rel="prev">← Newer</a>}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(n =>
+              n === page
+                ? <span aria-current="page">{n}</span>
+                : <a href={pageHref(n)}>{n}</a>)}
+            {page < totalPages && <a href={pageHref(page + 1)} rel="next">Older →</a>}
+          </nav>
+        )}
+      </div>
+      <GuestSidebar recent={recent} topics={topics} tagLabels={tagLabels} />
+    </div>
+  </div>
+  <Fragment set:html={after} />
+  <GuestPostingModal />
+</WpLayout>

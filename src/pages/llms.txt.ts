@@ -23,6 +23,7 @@
  */
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { blogPosts } from '../lib/posts.ts';
 import { SITE_URL } from '../../scripts/lib/config.mjs';
 import { postUrl } from '../data/blog-categories';
 import wpPages from '../data/wp-pages.json';
@@ -129,7 +130,7 @@ export const GET: APIRoute = async () => {
       return entry(title, `/${slug}/`, meta?.description ?? '');
     });
 
-  const posts = await getCollection('posts');
+  const posts = await blogPosts();
   const byNewest = [...posts].sort(
     (a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
   );

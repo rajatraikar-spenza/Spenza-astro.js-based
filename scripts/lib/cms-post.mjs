@@ -109,13 +109,22 @@ export function validateEntry(meta, body, { fileExists = () => true, filenameSlu
   const need = (k, label = k) => {
     if (meta[k] === undefined || meta[k] === null || String(meta[k]).trim() === '') errors.push(`${label} is required`);
   };
-  ['title', 'slug', 'description', 'category', 'author', 'publishedDate'].forEach(k => need(k));
+  const guest = isGuest(meta);
+  ['title', 'slug', 'description', 'category', 'publishedDate'].forEach(k => need(k));
+  if (guest) {
+    // A guest is typed in on the post, never kept in Settings > Authors.
+    need('guestName', 'guest name');
+    if (meta.category && meta.category !== GUEST_CATEGORY) errors.push(`a guest post's category must be ${GUEST_CATEGORY}`);
+  } else {
+    need('author');
+    if (meta.category === GUEST_CATEGORY) errors.push('the Guest Blogs category is for posts made in the Guest blogs section of the admin');
+  }
 
   if (meta.slug && !SLUG_RE.test(String(meta.slug))) errors.push('slug must be lowercase letters, numbers and hyphens');
   if (meta.slug && String(meta.slug).length > 80) warnings.push('slug is longer than 80 characters');
   if (meta.slug && filenameSlug && meta.slug !== filenameSlug) errors.push(`slug "${meta.slug}" does not match the file name "${filenameSlug}"`);
   if (meta.category && !CATEGORIES.includes(meta.category)) errors.push(`category must be one of ${CATEGORIES.join(', ')}`);
-  if (meta.author && !AUTHORS[meta.author]) errors.push(`author must be one of ${Object.keys(AUTHORS).join(', ')}`);
+  if (!guest && meta.author && !AUTHORS[meta.author]) errors.push(`author must be one of ${Object.keys(AUTHORS).join(', ')}`);
   for (const t of meta.tags ?? []) if (!TAG_LIST[t]) errors.push(`tag "${t}" is not in Settings > Tags; add it there first`);
   if (meta.publishedDate && Number.isNaN(new Date(meta.publishedDate).getTime())) errors.push('publishedDate is not a valid date');
 
@@ -128,6 +137,8 @@ export function validateEntry(meta, body, { fileExists = () => true, filenameSlu
   if (!hero.image) errors.push('hero.image is required (it is the featured image and the social card)');
   else if (!fileExists(hero.image)) errors.push(`hero image not found: ${hero.image}`);
   if (hero.image && !String(hero.alt ?? '').trim()) errors.push('hero.alt is required: describe what the image shows');
+
+  if (guest && meta.guestPhoto && !fileExists(meta.guestPhoto)) errors.push(`guest photo not found: ${meta.guestPhoto}`);
 
   const bi = meta.bodyImage;
   if (bi?.image) {
@@ -464,7 +475,9 @@ export async function renderContent(meta, body, { siteUrl, bodyImageDims, imageD
   return (
     WRAPPER_HEAD + BLOCK_CSS +
     '<div class="spenza-draft-content">\n' +
-    html + '\n' + (await buildFaq(faq)) + '\n<hr/>\n' + ATTRIBUTION + '\n' + BUTTON + '\n</div>\n' +
+    html + '\n' + (await buildFaq(faq)) +
+    // A guest's article is the guest's: no "Prepared by Spenza" line or sales button under it.
+    (meta.category === 'guest-blogs' ? '' : '\n<hr/>\n' + ATTRIBUTION + '\n' + BUTTON) + '\n</div>\n' +
     WRAPPER_TAIL +
     (await faqJsonLd(siteUrl ?? 'https://spenza.com', meta, faq))
   );
@@ -523,7 +536,7 @@ export function buildHead(meta, { siteUrl, content, hero, authorName }) {
         '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
-          { '@type': 'ListItem', position: 2, name: CATEGORY_LIST[meta.category]?.label ?? meta.category, item: `${siteUrl}/category/${meta.category}/` },
+          { '@type': 'ListItem', position: 2, name: CATEGORY_LIST[meta.category]?.label ?? meta.category, item: `${siteUrl}${meta.category === 'guest-blogs' ? '/blog/guest-blogs/' : `/category/${meta.category}/`}` },
           { '@type': 'ListItem', position: 3, name: meta.title },
         ],
       },
@@ -574,6 +587,28 @@ export const decodeEntities = s => String(s ?? '').replace(/&amp;/g, '&').replac
   .replace(/&#8211;/g, '\u2013').replace(/&#8212;/g, '\u2014').replace(/&#8230;/g, '\u2026').replace(/&nbsp;/g, ' ');
 
 export const isImported = meta => meta?.source === 'wordpress';
+
+/** Guest posts: written in the admin's Guest blogs section, where the author is typed in. */
+export const GUEST_CATEGORY = 'guest-blogs';
+export const isGuest = meta => meta?.source === 'guest';
+const slugify = s => String(s ?? '').toLowerCase().normalize('NFKD').replace(/[^\x00-\x7f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+/**
+ * The byline of a guest post, from the fields on the post itself. Nothing is stored in
+ * Settings > Authors: the slug is only an identity for grouping a guest's own articles.
+ */
+export function guestAuthor(meta) {
+  const name = String(meta.guestName ?? '').trim();
+  const role = String(meta.guestRole ?? '').trim();
+  const company = String(meta.guestCompany ?? '').trim();
+  const avatar = String(meta.guestPhoto ?? '').trim();
+  const linkedin = String(meta.guestLinkedin ?? '').trim();
+  return {
+    name, slug: slugify(name) || 'guest',
+    ...(role ? { role } : {}), ...(company ? { company } : {}),
+    ...(avatar ? { avatar } : {}), ...(linkedin ? { linkedin } : {}),
+  };
+}
 
 export function validateImported(meta, body, { filenameSlug } = {}) {
   const errors = [];
@@ -640,7 +675,7 @@ export function importedRecord(meta, body, { siteUrl, authorsMeta = {}, mediaOri
   // Settings > Authors wins when filled in; otherwise what WordPress had for this post's author.
   const bio = a.bio || meta.wpAuthor?.bio || base.bio;
   const avatar = a.avatar || meta.wpAuthor?.avatar || base.avatar;
-  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}) };
+  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}), ...(a.role ? { role: a.role } : {}), ...(a.company ? { company: a.company } : {}), ...(a.linkedin ? { linkedin: a.linkedin } : {}) };
   const published = new Date(meta.publishedDate);
   const modified = meta.updatedDate ? new Date(meta.updatedDate) : published;
   const hero = meta.hero?.image
@@ -712,12 +747,16 @@ export async function loadEntry(file, { siteUrl, publicDir, authorsMeta = {}, no
   const inlineDims = {};
   for (const b of findBlocks(body)) if (b.name === 'image' && b.attrs.src) inlineDims[b.attrs.src] = await dims(b.attrs.src);
   const content = await renderContent(meta, body, { siteUrl, bodyImageDims: bodyDims, imageDims: p => inlineDims[p] });
-  const a = AUTHORS[meta.author];
-  const authorBase = authorsMeta[meta.author] ?? {};
-  // A value set in Settings > Authors wins over the WordPress copy.
-  const bio = a.bio || authorBase.bio;
-  const avatar = a.avatar || authorBase.avatar;
-  const author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}) };
+  let author;
+  if (isGuest(meta)) author = guestAuthor(meta);
+  else {
+    const a = AUTHORS[meta.author];
+    const authorBase = authorsMeta[meta.author] ?? {};
+    // A value set in Settings > Authors wins over the WordPress copy.
+    const bio = a.bio || authorBase.bio;
+    const avatar = a.avatar || authorBase.avatar;
+    author = { name: a.name, slug: meta.author, ...(bio ? { bio } : {}), ...(avatar ? { avatar } : {}), ...(a.role ? { role: a.role } : {}), ...(a.company ? { company: a.company } : {}), ...(a.linkedin ? { linkedin: a.linkedin } : {}) };
+  }
   const featuredImage = { url: meta.hero.image, alt: String(meta.hero.alt), ...heroDims };
   const modified = meta.updatedDate ? new Date(meta.updatedDate) : published;
 
