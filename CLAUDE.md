@@ -403,6 +403,12 @@ on request. Nothing about what is measured changed with it.
   lowercase, SHA-256 hex — identical on both sides). The raw address never goes
   to OpenAI. Like the pixel itself this is ungated: if a consent gate ever comes
   back, `oaiq("consent", false)` before `init` belongs in the same change.
+- **Attribution (UTM) lives in the same component.** `Analytics.astro` tags the
+  Login / Start-free-trial links, keeps first/last-touch UTMs in `.spenza.com`
+  cookies, and fires `cta_click`; `hubspot-forms.js` posts each lead's
+  attribution to the companion HubSpot form (the collected lead forms would
+  silently drop the fields). Naming convention, the app team's half and the
+  GA4 setup are in `docs/utm-attribution.md`.
 - WordPress preprod carries its own Google stack (three GTM containers,
   `G-001C6D3F2C` and `G-MC7V4KNGD`), and the mirror strips all of it — see the
   `/dataLayer|gtag\(/` rule in `scripts/lib/inline-scripts.mjs`. The tags this

@@ -80,6 +80,21 @@
 
   const ENDPOINT = `https://api-${REGION}.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/`;
 
+  /**
+   * The companion "Website attribution" HubSpot form.
+   *
+   * The forms below are *collected* forms, whose field list is an allowlist
+   * HubSpot will not widen, so `utm_source` and friends sent to them are
+   * dropped without an error. This is a regular HubSpot form that declares
+   * email plus the five attribution contact properties; a lead's attribution
+   * is posted to it after the lead itself, and HubSpot matches it to the
+   * contact by email. The lead forms are left exactly as they were.
+   *
+   * Empty means "do not send", and is safe: nothing else depends on it.
+   */
+  const ATTRIBUTION_GUID = '5aeefb3a-fd66-47a3-9767-6c22abe188ea';
+  const ATTRIBUTION_FIELDS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'first_touch_source'];
+
   /** Shown when the network fails, so a lead has somewhere else to go. */
   const FALLBACK_EMAIL = 'sales@spenza.com';
 
@@ -1041,6 +1056,48 @@
     };
   }
 
+  /**
+   * What to tell HubSpot about where this lead came from, read before the
+   * confirmation replaces the form. `null` when there is no email to match on,
+   * no guid yet, or `attribution` did not load (the 367 redirect stand-ins).
+   */
+  function attributionOf(form, spec) {
+    try {
+      const attr = window.spAttribution?.forForm(form);
+      const emailInput = Object.entries(spec.fields).find(([, p]) => p === 'email')?.[0];
+      const email = emailInput && value(form, emailInput);
+      if (!attr || !email) return null;
+
+      const hutk = cookie('hubspotutk');
+      return {
+        attr,
+        body: {
+          fields: [
+            { objectTypeId: '0-1', name: 'email', value: email },
+            ...ATTRIBUTION_FIELDS.filter(k => attr[k]).map(k => ({ objectTypeId: '0-1', name: k, value: attr[k] })),
+          ],
+          context: { ...(hutk ? { hutk } : {}), pageUri: location.href, pageName: document.title },
+        },
+      };
+    } catch (err) {
+      console.warn('[hubspot-forms] attribution failed:', err);
+      return null;
+    }
+  }
+
+  /** After the lead is in. Never awaited, never shown: attribution must not cost a lead. */
+  function sendAttribution(found) {
+    if (!ATTRIBUTION_GUID || !found) return;
+    fetch(ENDPOINT + ATTRIBUTION_GUID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(found.body),
+      keepalive: true,
+    }).then(res => {
+      if (!res.ok) res.text().then(t => console.warn('[hubspot-forms] attribution rejected:', res.status, t));
+    }).catch(err => console.warn('[hubspot-forms] attribution request failed:', err));
+  }
+
   async function send(spec, body) {
     // Ten seconds, then give up and offer the mailto. A submit button that
     // spins forever is the one failure mode worse than an error message.
@@ -1094,6 +1151,7 @@
     form.dataset.hsSending = '1';
 
     // Read now: the confirmation replaces the form, and its fields with it.
+    const attribution = attributionOf(form, spec);
     let leadEmailHash;
     if (kindOf(form, id)[0] === 'lead') {
       conversionIds.set(form, newEventId());
@@ -1136,7 +1194,13 @@
      * became impossible to interpret in the first place.
      */
     const ev = formEvent(form, id);
-    track(SUBMIT_EVENT[ev.form_kind] || 'lead_form_submit', ev);
+    // The same page/CTA the click was counted under, so a report can set
+    // `cta_click` against the submit for it: clicks vs completions per page.
+    track(SUBMIT_EVENT[ev.form_kind] || 'lead_form_submit', {
+      ...ev,
+      ...(attribution ? { cta: attribution.attr.utm_campaign, cta_page: attribution.attr.utm_source } : {}),
+    });
+    sendAttribution(attribution);
 
     // The ChatGPT Ads conversion, browser side; the server sends the same
     // event id (see `conversionIds`). `oaiq` comes from `Analytics.astro` and
