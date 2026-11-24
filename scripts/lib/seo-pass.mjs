@@ -15,6 +15,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import wpRedirects from '../../src/data/wp-redirects.json' with { type: 'json' };
 import { SITE_REDIRECTS, SITE_GONE } from '../../src/data/site-redirects.mjs';
+import authors from '../../src/content/cms-meta/authors.json' with { type: 'json' };
 import { SITE_URL } from './config.mjs';
 
 const SOCIAL = [
@@ -72,6 +73,32 @@ export function fixGraph(data, { pagePath, siteUrl }) {
     changed = true;
   }
 
+  // 2b. One @id per author. Yoast hashed one per post; the admin's posts use /author/<slug>/#person.
+  // The same human under two ids is two entities to a search engine. Merge them under the stable one.
+  const idMap = new Map();
+  for (const n of graph) {
+    const m = typeOf(n).includes('Person') ? String(n.url ?? '').match(/\/author\/([^/]+)\/?$/) : null;
+    if (m && n['@id'] !== `${siteUrl}/author/${m[1]}/#person`) idMap.set(n['@id'], `${siteUrl}/author/${m[1]}/#person`);
+  }
+  if (idMap.size) {
+    const rewrite = v => {
+      if (Array.isArray(v)) v.forEach(rewrite);
+      else if (v && typeof v === 'object') {
+        if (idMap.has(v['@id'])) v['@id'] = idMap.get(v['@id']);
+        Object.values(v).forEach(rewrite);
+      }
+    };
+    graph.forEach(rewrite);
+    const seen = new Map();
+    for (let i = 0; i < graph.length; i++) {
+      const n = graph[i];
+      if (!typeOf(n).includes('Person')) continue;
+      if (seen.has(n['@id'])) { Object.assign(graph[seen.get(n['@id'])], { ...n, ...graph[seen.get(n['@id'])] }); graph.splice(i--, 1); }
+      else seen.set(n['@id'], i);
+    }
+    changed = true;
+  }
+
   // 3. A Person's `sameAs` must be somewhere else; Yoast filled one with the site's own address.
   for (const n of graph) {
     if (typeOf(n).includes('Person') && Array.isArray(n.sameAs)) {
@@ -102,6 +129,44 @@ export function fixGraph(data, { pagePath, siteUrl }) {
     }
   }
   return changed;
+}
+
+const escapeLd = o => JSON.stringify(o).replace(/<\//g, '<\\/');
+const textOf = (html, re) => (html.match(re)?.[1] ?? '').replace(/&amp;/g, '&').replace(/&#0?39;/g, "'").replace(/&quot;/g, '"').trim();
+
+/**
+ * Listing and author pages carried no structured data at all. They get a CollectionPage (or a
+ * ProfilePage for a person) and a breadcrumb, built from what the page already says about itself.
+ * Returns the <script> tag, or null for any other page or one that already has JSON-LD.
+ */
+export function listingSchema(pagePath, html, siteUrl) {
+  if (/application\/ld\+json/.test(html)) return null;
+  const m = pagePath.match(/^\/(blog|category|tag|author)\/(?:([^/]+)\/)?/) ;
+  if (!m && pagePath !== '/blog/') return null;
+  const name = textOf(html, /<title>([^<]*)/).replace(/\s*[-|–—]\s*Spenza\s*$/, '') || 'Spenza';
+  const description = textOf(html, /name="description" content="([^"]*)/);
+  const url = siteUrl + pagePath;
+  const org = `${siteUrl}/#organization`;
+  const trail = [{ name: 'Home', item: `${siteUrl}/` }];
+  if (pagePath !== '/blog/') trail.push({ name: 'Blog', item: `${siteUrl}/blog/` });
+  trail.push({ name });
+  const breadcrumb = {
+    '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`,
+    itemListElement: trail.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, ...(t.item ? { item: t.item } : {}) })),
+  };
+  const author = m?.[1] === 'author' ? authors.authors?.find(a => a.slug === m[2]) : null;
+  const graph = [];
+  if (author && author.slug !== 'isimplexity') {
+    const pid = `${siteUrl}/author/${author.slug}/#person`;
+    graph.push({ '@type': 'ProfilePage', '@id': `${url}#profilepage`, url, name, ...(description ? { description } : {}), mainEntity: { '@id': pid }, breadcrumb: { '@id': breadcrumb['@id'] }, inLanguage: 'en-US' });
+    graph.push({ '@type': 'Person', '@id': pid, name: author.name, url, worksFor: { '@id': org },
+      ...(author.role ? { jobTitle: author.role } : {}), ...(author.linkedin ? { sameAs: [author.linkedin] } : {}) });
+    graph.push({ '@type': 'Organization', '@id': org, name: 'Spenza', url: `${siteUrl}/` });
+  } else {
+    graph.push({ '@type': 'CollectionPage', '@id': `${url}#webpage`, url, name, ...(description ? { description } : {}), isPartOf: { '@type': 'WebSite', name: 'Spenza', url: `${siteUrl}/` }, breadcrumb: { '@id': breadcrumb['@id'] }, inLanguage: 'en-US' });
+  }
+  graph.push(breadcrumb);
+  return `<script type="application/ld+json">${escapeLd({ '@context': 'https://schema.org', '@graph': graph })}</script>`;
 }
 
 /** `/a/b/` for `dist/a/b/index.html`. */
@@ -154,7 +219,7 @@ export async function seoPass(out, logger) {
     return null;
   };
 
-  let graphs = 0, links = 0, linkPages = 0, popups = 0;
+  let graphs = 0, links = 0, linkPages = 0, popups = 0, listings = 0, tagsNoindexed = 0;
   const preprod = [];
   const hrefRe = /(<a\b[^>]*?\shref=")((?:https:\/\/(?:www\.)?spenza\.com)?\/[^"#?]*)([?#][^"]*)?(")/g;
   const ldRe = /(<script type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/g;
@@ -182,6 +247,14 @@ export async function seoPass(out, logger) {
     });
     if (n) { links += n; linkPages++; }
 
+    const ld = listingSchema(pagePath, html, siteUrl);
+    if (ld && html.includes('</head>')) { html = html.replace('</head>', ld + '</head>'); listings++; }
+    // Tag archives stay reachable but are thin lists of posts already indexed under their category.
+    if (pagePath.startsWith('/tag/') && !/name="robots"/i.test(html) && html.includes('</head>')) {
+      html = html.replace('</head>', '<meta name="robots" content="noindex, follow"></head>');
+      tagsNoindexed++;
+    }
+
     html = html.replace(/<h2 class="gform_title">([^<]*)<\/h2>/g, (_, t) => { popups++; return `<div class="gform_title">${t}</div>`; });
 
     for (const m of html.matchAll(/(?:href|src|action)="((?:https?:)?\/\/[^"]*preprod[^"]*\.spenza\.com[^"]*)"/g)) preprod.push(`${pagePath} -> ${m[1]}`);
@@ -189,7 +262,7 @@ export async function seoPass(out, logger) {
     if (html !== html0) await fs.writeFile(file, html, 'utf8');
   }
 
-  logger.info(`seo: ${graphs} JSON-LD graphs fixed, ${links} redirected links repointed on ${linkPages} pages, ${popups} popup titles demoted`);
+  logger.info(`seo: ${graphs} JSON-LD graphs fixed, ${links} redirected links repointed on ${linkPages} pages, ${popups} popup titles demoted, ${listings} listing pages given schema, ${tagsNoindexed} tag pages noindexed`);
   if (preprod.length) {
     throw new Error(`seo: ${preprod.length} link(s) to a preprod host would be published:\n  ` + preprod.slice(0, 20).join('\n  '));
   }

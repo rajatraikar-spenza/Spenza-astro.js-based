@@ -89,5 +89,5 @@ const title = page === 1
   page={page}
   totalPages={totalPages}
   title={title}
-  description={`${total} articles on ${label} from Spenza.`}
+  description={`${total} articles on ${label} from Spenza.` + (page > 1 ? ` Page ${page} of ${totalPages}.` : '')}
 />
