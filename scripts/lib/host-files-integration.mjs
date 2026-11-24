@@ -22,6 +22,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { NOINDEX, IS_DEFAULT_SITE, MEDIA_ORIGIN, WEBP_PATH, toMediaOrigin } from './config.mjs';
 import wpRedirects from '../../src/data/wp-redirects.json' with { type: 'json' };
+import { seoPass } from './seo-pass.mjs';
 
 /**
  * Long enough to be worth setting, short enough to survive a mistake.
@@ -723,6 +724,8 @@ export function hostFiles() {
         await rewriteAssetMedia(out, logger);
         // Before the digest, which must hash the bytes that are actually served.
         await minifyOwnScripts(out, logger);
+        // Before the digest only so it runs on the markup that ships; it touches no script or style.
+        await seoPass(out, logger);
         await versionScripts(out, logger);
         // Last: everything above reads the output, and this removes part of it.
         await dropMediaTrees(out, logger);

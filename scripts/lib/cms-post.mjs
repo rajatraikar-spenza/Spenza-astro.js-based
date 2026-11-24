@@ -504,7 +504,30 @@ const iso = d => new Date(d).toISOString().replace(/\.\d{3}Z$/, '+00:00');
 const jsonLdEscape = s => s.replace(/\//g, '\\/');
 
 /** The `<head>` Yoast gives a WordPress post, rebuilt from the entry's own fields. */
-export function buildHead(meta, { siteUrl, content, hero, authorName }) {
+/**
+ * Who wrote it, in schema terms. The company is the Organization; a person is a Person with their own
+ * `@id`. It used to emit every author as an `Organization` carrying the company's `@id`, which told
+ * search engines that "Spenza" and "Vinaychandra Bharadwaj" are the same entity.
+ */
+export function authorNode(siteUrl, author, fallbackName = '') {
+  const orgId = `${siteUrl}/#organization`;
+  const name = author?.name ?? fallbackName;
+  if (!author?.slug || author.slug === 'isimplexity' || name === 'Spenza') return { ref: { '@id': orgId }, nodes: [] };
+  const id = `${siteUrl}/author/${author.slug}/#person`;
+  return {
+    ref: { '@id': id },
+    nodes: [{
+      '@type': 'Person', '@id': id, name, url: `${siteUrl}/author/${author.slug}/`,
+      ...(author.role ? { jobTitle: author.role } : {}),
+      worksFor: { '@id': orgId },
+      ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
+    }],
+  };
+}
+
+export function buildHead(meta, { siteUrl, content, hero, authorName, author }) {
+  const authorOf = authorNode(siteUrl, author, authorName);
+  authorName = author?.name ?? authorName;
   const url = canonicalUrl(siteUrl, meta);
   const title = escapeHtml(meta.seoTitle || meta.title);
   const desc = escapeHtml(meta.description);
@@ -518,7 +541,7 @@ export function buildHead(meta, { siteUrl, content, hero, authorName }) {
     '@graph': [
       {
         '@type': 'Article', '@id': `${url}#article`, isPartOf: { '@id': url },
-        author: { '@type': 'Organization', name: authorName, '@id': `${siteUrl}/#organization` },
+        author: authorOf.ref,
         headline: meta.title, datePublished: published, dateModified: modified,
         mainEntityOfPage: { '@id': url }, wordCount: words, publisher: { '@id': `${siteUrl}/#organization` },
         ...(image ? { image: { '@id': `${url}#primaryimage` }, thumbnailUrl: image } : {}),
@@ -532,6 +555,7 @@ export function buildHead(meta, { siteUrl, content, hero, authorName }) {
         potentialAction: [{ '@type': 'ReadAction', target: [url] }],
       },
       ...(image ? [{ '@type': 'ImageObject', inLanguage: 'en-US', '@id': `${url}#primaryimage`, url: image, contentUrl: image, ...(hero.width ? { width: hero.width, height: hero.height } : {}), caption: meta.hero?.alt }] : []),
+      ...authorOf.nodes,
       {
         '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`,
         itemListElement: [
@@ -696,7 +720,7 @@ export function importedRecord(meta, body, { siteUrl, authorsMeta = {}, mediaOri
   // Yoast's head is kept verbatim. Clear the field in the admin to rebuild the tags from the fields instead.
   const fullHead = String(meta.seoHead ?? '').trim()
     ? headToMediaHost(String(meta.seoHead), siteUrl, mediaOrigin)
-    : buildHead(entry, { siteUrl: siteUrl.replace(/\/$/, ''), content: body, hero, authorName: author.name });
+    : buildHead(entry, { siteUrl: siteUrl.replace(/\/$/, ''), content: body, hero, authorName: author.name, author });
   return {
     databaseId: Number(meta.wpId), slug: String(meta.slug), title: String(meta.title),
     category, categories: meta.categories?.length ? meta.categories.map(String) : [category],
@@ -782,7 +806,7 @@ export async function loadEntry(file, { siteUrl, publicDir, authorsMeta = {}, no
         title: String(meta.seoTitle || meta.title),
         description: String(meta.description),
         ogImage: new URL(meta.hero.image, siteUrl).href,
-        fullHead: buildHead(meta, { siteUrl: siteUrl.replace(/\/$/, ''), content, hero: featuredImage, authorName: author.name }),
+        fullHead: buildHead(meta, { siteUrl: siteUrl.replace(/\/$/, ''), content, hero: featuredImage, authorName: author.name, author }),
       },
       content,
       templateBlocks: templateBlocks(meta),

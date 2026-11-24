@@ -33,6 +33,16 @@ import { SITE_URL, NOINDEX } from '../../scripts/lib/config.mjs';
 const INDEXABLE = `User-agent: *
 Allow: /
 
+# The crawlers behind AI search and assistants, named so that letting them in is a stated choice and
+# not just the absence of a rule. They fetch pages to answer a question that cites this site.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
 # A machine-readable index of this site: /llms.txt
 
 Sitemap: ${SITE_URL}/sitemap.xml
