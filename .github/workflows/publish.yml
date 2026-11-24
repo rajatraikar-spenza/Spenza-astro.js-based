@@ -1,30 +1,14 @@
-# Rebuild the site from WordPress and deploy it, on a schedule.
+# Build the site from this repo and deploy it.
 #
-# The site is static HTML in S3, so nothing a WordPress editor does reaches a
-# reader until a build runs. This is that build. It is a poll rather than a
-# webhook because it needs nothing installed on preprod — a webhook is strictly
-# better and can replace the `schedule` trigger below without changing any step.
-#
-# What it does NOT pick up: the marketing pages, the header/footer and the
-# archives. Those are not WordPress' any more — they live in this repo and are
-# changed by committing to it, which is what triggers this workflow anyway.
-# WordPress is a headless CMS for blog posts and case studies, and nothing else.
+# The site is static HTML in S3. Everything it shows lives in this repo: the
+# marketing pages, the header and footer, and the blog posts written in the admin
+# (spenza.com/admin, which edits through pull requests). Merging to main is what
+# publishes. WordPress is not read at build time any more.
 name: Publish
 
-# Name the run after whatever caused it, so the Actions list reads as a
-# publishing log rather than a column of identical rows.
-run-name: >-
-  Publish${{ github.event.client_payload.reason && format(' - {0}', github.event.client_payload.reason) || '' }}
+run-name: Publish
 
 on:
-  # Fired by wordpress/mu-plugins/spenza-deploy-hook.php the moment a post or
-  # case study is published, edited, unpublished, trashed or deleted. The
-  # schedule below stays as a backstop: if the hook fails, is throttled, or
-  # WordPress cannot reach GitHub, the change is still picked up within 30
-  # minutes rather than waiting for someone to notice.
-  repository_dispatch:
-    types: [wordpress-content]
-
   # A merge to main deploys itself. Without this every code change sat
   # unpublished until someone ran the workflow by hand — which is what
   # happened for every merge before it was added. The bot's own manifest
@@ -36,16 +20,10 @@ on:
       - '**/*.md'
       - 'wordpress/**'
 
-  schedule:
-    # Twice an hour, as a backstop for the webhook above. Best-effort: GitHub
-    # delays and drops scheduled runs when it is busy, and it is busiest at
-    # the top and bottom of the hour. On `*/30` this ran every 3-5 hours in
-    # practice, so it sits on :13 and :43 instead.
-    - cron: '13,43 * * * *'
   workflow_dispatch:
     inputs:
       force:
-        description: 'Deploy even if WordPress reports no changes'
+        description: 'Deploy even if the build matches what is live'
         type: boolean
         default: false
 
@@ -71,7 +49,6 @@ jobs:
       # Where a lead form replays its submission so Gravity Forms sends the
       # confirmation and the sales alert. No default: leaving it unset ships
       # the behaviour this repo had before, which is HubSpot only and no mail.
-      WP_FORMS_ORIGIN: ${{ vars.WP_FORMS_ORIGIN }}
       LEAD_ENDPOINT:  ${{ vars.LEAD_ENDPOINT }}
       HOST_REDIRECTS: '1'
       # Empty by default, so this workflow publishes an indexable production
@@ -105,73 +82,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      # The loader is incremental, but its store is gitignored, so without this
-      # every run refetches all 259 posts from preprod — 1.5 minutes and 26
-      # queries, every 30 minutes, forever. With it, an unchanged site costs one
-      # index query and 3 seconds.
-      #
-      # The path is `node_modules/.astro`, not `.astro`. Astro keeps the content
-      # store under node_modules; `.astro/` holds only generated types. Caching
-      # the wrong one looks like it works and silently refetches everything.
-      #
-      # This step must stay AFTER `npm ci`, which deletes node_modules outright
-      # and would take the restored store with it.
-      - name: Cache the content store
-        uses: actions/cache@v4
-        with:
-          path: node_modules/.astro
-          key: astro-store-${{ hashFiles('src/loaders/wp-posts.mjs') }}-${{ env.MEDIA_ORIGIN }}-${{ env.SITE_URL }}-${{ github.run_id }}
-          restore-keys: |
-            astro-store-${{ hashFiles('src/loaders/wp-posts.mjs') }}-${{ env.MEDIA_ORIGIN }}-${{ env.SITE_URL }}-
-
-      # A scheduled run that finds nothing new used to cost ~32 GraphQL
-      # requests anyway — the media sync re-read every post looking for images
-      # and the loader ran its index pass. Every 30 minutes, that volume is
-      # what got the runners temporarily banned by the host's firewall.
-      #
-      # This asks one question instead: what is the newest `modified` stamp?
-      # Only `schedule` is gated on the answer. A manual run is a human asking
-      # for a deploy, a push is the code changing rather than the content, and
-      # a repository_dispatch is WordPress saying something already has.
-      - name: Has anything changed?
-        id: changed
-        if: github.event_name == 'schedule'
-        run: |
-          set +e
-          npm run --silent wp:changed
-          case $? in
-            10) echo "skip=true"  >> "$GITHUB_OUTPUT" ;;
-             0) echo "skip=false" >> "$GITHUB_OUTPUT" ;;
-             *) echo "skip=false" >> "$GITHUB_OUTPUT" ;;
-          esac
-
-      # The WordPress hook drops a second dispatch within 90 seconds of the
-      # first (see spenza-deploy-hook.php), so a publish followed a minute
-      # later by a typo fix fires one run. Fetching straight away could build
-      # the version before the fix and leave it for the schedule. Waiting out
-      # that window first means this run reads whatever the editor ended on;
-      # anything later dispatches again and queues behind it.
-      - name: Let a burst of edits settle
-        if: github.event_name == 'repository_dispatch'
-        run: sleep 95
-
-      # New posts bring new images, which are on WordPress and not in the
-      # bucket. Without this the build succeeds and the post renders with a
-      # broken hero — the failure is silent, which is what makes it worth a
-      # dedicated step. Diffs against the bucket, so a fresh runner does not
-      # re-download 2.2GB.
-      - name: Sync new media to S3
-        if: steps.changed.outputs.skip != 'true'
-        run: npm run wp:media-sync-s3
-
       - name: Build
-        if: steps.changed.outputs.skip != 'true'
         run: npm run build
 
       # Catches a reference that resolves locally but 404s once media is served
       # from elsewhere — the class of bug the two crawl-based audits cannot see.
       - name: Verify the build is self-consistent
-        if: steps.changed.outputs.skip != 'true'
         run: npm run wp:verify-dist -- "$MEDIA_ORIGIN"
 
       # The redirect table lives in the CloudFront Function, not in the bucket,
@@ -182,19 +98,16 @@ jobs:
       # pages that were actually emitted, and idempotent: an unchanged function
       # republishes to the same behaviour.
       - name: Publish the router function
-        if: steps.changed.outputs.skip != 'true'
         run: bash scripts/aws-site-host.sh function
 
       # Skips itself when the build hashes identical to what is already live,
       # which is the common case on a schedule.
       - name: Deploy
-        if: steps.changed.outputs.skip != 'true'
         env:
           FORCE_DEPLOY: ${{ inputs.force && '1' || '' }}
         run: bash scripts/aws-site-host.sh deploy
 
       - name: Smoke-test what was deployed
-        if: steps.changed.outputs.skip != 'true'
         run: bash scripts/aws-site-host.sh verify
 
       # A copy of everything an editor writes, kept outside git: the posts, the
@@ -209,24 +122,3 @@ jobs:
           tar -czf content.tar.gz src/content/cms-blog src/content/cms-meta public/cms-media
           aws s3 cp content.tar.gz s3://spenza-content-backup/latest/content.tar.gz
           aws s3 cp content.tar.gz "s3://spenza-content-backup/by-commit/${GITHUB_SHA}.tar.gz"
-
-      # Recorded only after everything above succeeded, so a failed run does not
-      # mark this content as published and let the next schedule skip it.
-      - name: Record what was published
-        if: steps.changed.outputs.skip != 'true'
-        run: npm run --silent wp:changed -- --commit
-
-      # The manifest is regenerated from the bucket above. Committing it back
-      # keeps a local `npm run build` — which has no bucket access — able to
-      # offer srcset and WebP for images added since the last commit.
-      - name: Commit the media manifest if it changed
-        run: |
-          if git diff --quiet -- src/data/wp-media-manifest.json; then
-            echo "manifest unchanged"
-            exit 0
-          fi
-          git config user.name  "spenza-publish[bot]"
-          git config user.email "spenza-publish[bot]@users.noreply.github.com"
-          git add src/data/wp-media-manifest.json
-          git commit -m "Refresh media manifest from the bucket [skip ci]"
-          git push
