@@ -481,6 +481,33 @@ export const SITE_REDIRECTS = {
    * calculator directly, since a chain fails the CloudFront function build.
    */
   '/business-roaming-packs/': '/mvno-calculator/',
+  /**
+   * ---- Rules that lived only in WordPress' Redirection plugin ----------------
+   *
+   * Found when WordPress was being retired: 598 of its 776 rules were not in this
+   * table. Most are drafts and renamed Elementor pages that nobody ever requested.
+   * These are the ones it had actually served (5 or more hits), whose source
+   * answers 404 here. Each points at the final page, never at another redirect.
+   * The two /mvno/mvne-mvna-mno-* rules pointed at each other in WordPress (a
+   * loop), so they go to the roles guide the article is about.
+   */
+  '/mvno/': '/mvne/',
+  '/mvno/mvne-mvna-mno-mvno-launch/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/mvno/mvne-mvna-mno-choose-mvno-launch/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/mvne-mvna-mno-choose-mvno-launch-2025/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/blog/mvno-vs-mvne-comparison/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/reseller-v2/': '/mvno/mno-mvno-mvne-mvna-roles/',
+  '/home/': '/',
+  '/enterprise/': '/',
+  '/ddd/': '/',
+  '/elementor-10320/': '/',
+  '/connected-devices-2/': '/connected-devices/',
+  '/business-mobile-plans/': '/finance-and-hr/',
+  '/spenza-product/proxidize-reseller-growth-spenza/': '/spenza-product/proxy-reseller-growth-spenza/',
+  '/spenza-product/msp-a-reseller-growth-spenza/': '/spenza-product/proxy-reseller-growth-spenza/',
+  '/about/': '/about-us/',
+  '/controlhubs/': '/controlhub/',
+  '/contact-the-telecom-expense-management-experts-isimplexity/': '/contact-us/',
 };
 
 /**
