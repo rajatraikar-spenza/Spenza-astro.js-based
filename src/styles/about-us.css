@@ -831,6 +831,22 @@ body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-image {
 
 /* `<picture>` is inline by default, and an inline box leaves a baseline gap
    under the image — a 20px strip of the panel below every avatar. */
+/* Every tile's own Elementor rules zero the row gap, put 20px under the image,
+   keep 20px under the tile and pad the name. A tile added in the editor-less repo carries none of those ids, so
+   state them for the grid: a new person then lines up with the rest. */
+body.page-id-11226 .elementor-element-4e9d299 > .e-con-inner > .e-con {
+  row-gap: 0 !important;
+  margin-bottom: 20px !important;
+}
+
+body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-image > .elementor-widget-container {
+  margin: 0 0 20px !important;
+}
+
+body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-heading > .elementor-widget-container {
+  padding: 12px 0 15px 12px;
+}
+
 body.page-id-11226 .elementor-element-4e9d299 .elementor-widget-image picture {
   display: block;
 }
