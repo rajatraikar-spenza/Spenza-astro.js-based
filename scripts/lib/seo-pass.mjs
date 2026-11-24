@@ -99,6 +99,13 @@ export function fixGraph(data, { pagePath, siteUrl }) {
     changed = true;
   }
 
+  // 2c. Where else a person is found online comes from Settings > Authors, whichever head the post has.
+  for (const n of graph) {
+    const slug = typeOf(n).includes('Person') ? String(n['@id'] ?? '').match(/\/author\/([^/]+)\/#person$/)?.[1] : null;
+    const link = slug ? authors.authors?.find(a => a.slug === slug)?.linkedin : '';
+    if (link && !(n.sameAs ?? []).includes(link)) { n.sameAs = [...(n.sameAs ?? []), link]; changed = true; }
+  }
+
   // 3. A Person's `sameAs` must be somewhere else; Yoast filled one with the site's own address.
   for (const n of graph) {
     if (typeOf(n).includes('Person') && Array.isArray(n.sameAs)) {

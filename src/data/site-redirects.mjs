@@ -508,6 +508,12 @@ export const SITE_REDIRECTS = {
   '/about/': '/about-us/',
   '/controlhubs/': '/controlhub/',
   '/contact-the-telecom-expense-management-experts-isimplexity/': '/contact-us/',
+  /** Old pages that redirected to the home page (read as soft 404s); now each goes to its topic. */
+  '/telecom-expense-management-services/': '/tem/what-is-telecom-expense-management-tem/',
+  '/telecom-expense-management-tem-system/': '/tem/what-is-telecom-expense-management-tem/',
+  '/connectivity-management-api/': '/iot-solutions/',
+  '/mobile-plans-for-business-marketplace/': '/finance-and-hr/',
+
 };
 
 /**
