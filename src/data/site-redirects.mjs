@@ -502,7 +502,7 @@ export const SITE_REDIRECTS = {
   '/ddd/': '/',
   '/elementor-10320/': '/',
   '/connected-devices-2/': '/connected-devices/',
-  '/business-mobile-plans/': '/finance-and-hr/',
+  '/business-mobile-plans/': '/voice-observability-solution/',
   '/spenza-product/proxidize-reseller-growth-spenza/': '/spenza-product/proxy-reseller-growth-spenza/',
   '/spenza-product/msp-a-reseller-growth-spenza/': '/spenza-product/proxy-reseller-growth-spenza/',
   '/about/': '/about-us/',
@@ -512,7 +512,7 @@ export const SITE_REDIRECTS = {
   '/telecom-expense-management-services/': '/tem/what-is-telecom-expense-management-tem/',
   '/telecom-expense-management-tem-system/': '/tem/what-is-telecom-expense-management-tem/',
   '/connectivity-management-api/': '/iot-solutions/',
-  '/mobile-plans-for-business-marketplace/': '/finance-and-hr/',
+  '/mobile-plans-for-business-marketplace/': '/voice-observability-solution/',
 
 };
 
