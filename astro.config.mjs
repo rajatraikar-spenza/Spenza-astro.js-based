@@ -110,6 +110,8 @@ export default defineConfig({
           path !== '/search/' &&
           // The HTML sitemap is a navigation page, and the generic account's author page adds nothing.
           path !== '/sitemap/' && path !== '/author/isimplexity/' &&
+          // Tag archives are thin lists of the same posts; they stay reachable but are not submitted.
+          !path.startsWith('/tag/') &&
           // Page 2 onwards of a category or tag lists the same posts again, thinner each time.
           !/^\/(category|tag)\/.+\/page\/\d+\/$/.test(path) &&
           // Nothing that only redirects. Half of what this sitemap listed was

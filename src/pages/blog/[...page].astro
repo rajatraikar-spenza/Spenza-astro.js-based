@@ -56,5 +56,5 @@ const title = page === 1
   title={title}
   loopGridId="a9c42f2"
   cardTemplate="blog"
-  description={`${total} articles on MVNO, eSIM, IoT and telecom expense management from Spenza.`}
+  description={`${total} articles on MVNO, eSIM, IoT and telecom expense management from Spenza.` + (page > 1 ? ` Page ${page} of ${totalPages}.` : '')}
 />
