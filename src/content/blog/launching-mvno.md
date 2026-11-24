@@ -120,7 +120,7 @@ category: "MVNO"
 
 
 
-<p class="wp-block-paragraph">For more information on how Spenza can assist in launching your MVNO, visit our website or contact us at <strong>johnny@preprod.spenza.com</strong>.To learn more about reselling mobile plans on Shopify, check out this detailed <a href="/blog/reselling-mobile-plans-on-shopify-store/">guide</a>. This guide explains how to link a Spenza account with a Shopify store, add custom products, and resell mobile plans globally.</p>
+<p class="wp-block-paragraph">For more information on how Spenza can assist in launching your MVNO, visit our website or contact us at <strong>ask@spenza.com</strong>.To learn more about reselling mobile plans on Shopify, check out this detailed <a href="/blog/reselling-mobile-plans-on-shopify-store/">guide</a>. This guide explains how to link a Spenza account with a Shopify store, add custom products, and resell mobile plans globally.</p>
 
 
 <div class="wp-block-uagb-faq uagb-faq__outer-wrap uagb-block-1dcc0b0e uagb-faq-icon-row uagb-faq-layout-accordion uagb-faq-expand-first-true uagb-faq-inactive-other-true uagb-faq__wrap uagb-buttons-layout-wrap uagb-faq-equal-height     " data-faqtoggle="true" role="tablist"><div class="wp-block-uagb-faq-child uagb-faq-child__outer-wrap uagb-faq-item uagb-block-9410da1f " role="tab" tabindex="0"><div class="uagb-faq-questions-button uagb-faq-questions">			<span class="uagb-icon uagb-faq-icon-wrap">

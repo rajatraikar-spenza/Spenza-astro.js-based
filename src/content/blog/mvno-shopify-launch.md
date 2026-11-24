@@ -287,7 +287,7 @@ category: "MVNO"
 
 
 
-<li><strong>Partner with Spenza:</strong> Contact Spenza (sales@preprod.spenza.com ) to discuss your MVNO goals. Their team will guide you through the onboarding process for their MVNE platform.</li>
+<li><strong>Partner with Spenza:</strong> Contact Spenza (sales@spenza.com ) to discuss your MVNO goals. Their team will guide you through the onboarding process for their MVNE platform.</li>
 
 
 
