@@ -90,3 +90,9 @@ test('listing pages get a CollectionPage and breadcrumb; authors a ProfilePage; 
   assert.equal(listingSchema('/esim/multi-carrier-sim-card/', page, SITE), null);
   assert.equal(listingSchema('/blog/', page.replace('<head>', '<head><script type="application/ld+json">{}</script>'), SITE), null);
 });
+
+test('a person with a LinkedIn in Settings gets it as sameAs', () => {
+  const d = { '@graph': [{ '@type': 'Person', '@id': `${SITE}/author/vinay/#person`, name: 'Vinay', url: `${SITE}/author/vinay/` }] };
+  fixGraph(d, { pagePath: '/a/b/', siteUrl: SITE });
+  assert.deepEqual(d['@graph'][0].sameAs, ['https://www.linkedin.com/in/vinayc/']);
+});
