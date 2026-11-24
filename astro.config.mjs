@@ -108,6 +108,10 @@ export default defineConfig({
           !/\/preview\//.test(page) &&
           // Blog search results: `noindex`, and a thin copy of indexed pages.
           path !== '/search/' &&
+          // The HTML sitemap is a navigation page, and the generic account's author page adds nothing.
+          path !== '/sitemap/' && path !== '/author/isimplexity/' &&
+          // Page 2 onwards of a category or tag lists the same posts again, thinner each time.
+          !/^\/(category|tag)\/.+\/page\/\d+\/$/.test(path) &&
           // Nothing that only redirects. Half of what this sitemap listed was
           // the legacy /blog/<slug>/ aliases and WordPress' own 301s — pages
           // that carry `noindex, follow` and bounce to the canonical URL, which

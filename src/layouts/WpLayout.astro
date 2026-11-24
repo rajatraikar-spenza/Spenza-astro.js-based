@@ -187,6 +187,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
         </>
       )}
 
+    {/* A captured head can lack a description (the page had none in WordPress); the page's own fills it. */}
+    {seoHead && description && !/name=["']description["']/i.test(seoHead) && (
+      <>
+        <meta name="description" content={description} />
+        {!/og:description/i.test(seoHead) && <meta property="og:description" content={description} />}
+      </>
+    )}
+
     {/* Yoast emits index,follow; a staging build and a 404 must override it. */}
     {(NOINDEX || !indexable) && <meta name="robots" content="noindex, nofollow" />}
 
