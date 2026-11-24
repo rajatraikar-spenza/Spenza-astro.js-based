@@ -57,9 +57,9 @@ Set a secret with the deploy script's environment, for example
 
 ## Before WordPress is terminated
 
-- [ ] The lead endpoint has run in parallel and its archive matches WordPress entries.
-- [ ] `SEND_CLIENT_REPLY` and `SEND_OAI` are on, and `WP_FORMS_ORIGIN` is removed.
-- [ ] The WordPress loader, the schedule and `repository_dispatch` triggers and `wp:media-sync-s3` are removed from the build.
+- [x] The lead endpoint ran in parallel for six days (17-24 Nov 2026); its archive matched every WordPress entry and held 7 leads WordPress had silently dropped.
+- [x] `SEND_CLIENT_REPLY` and `SEND_OAI` are on, and `WP_FORMS_ORIGIN` is removed (24 Nov 2026).
+- [x] The WordPress loader, the schedule and `repository_dispatch` triggers and `wp:media-sync-s3` are removed from the build. Every live post is an admin post under `src/content/cms-blog`; the 141 older WordPress-only slugs are redirects in `src/data/site-redirects.mjs`.
 - [ ] Gravity Forms entries are exported (CSV) and the full WordPress uploads folder is copied to S3.
 - [ ] A final Hostinger backup of the WordPress files and database is stored.
 - [ ] The Privacy Policy and other pages no longer name `@preprod.spenza.com`.
