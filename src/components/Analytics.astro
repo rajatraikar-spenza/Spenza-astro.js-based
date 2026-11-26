@@ -78,6 +78,137 @@ const docsLinks = `document.addEventListener("click", function (e) {
 }, true);`;
 
 /*
+ * Where a conversion came from. Three jobs, all in the visitor's browser:
+ *
+ *   1. Arrival. `utm_*` on the landing URL is kept in two first-party cookies
+ *      on `.spenza.com` — `sp_ft` (first touch, written once) and `sp_lt`
+ *      (last touch) — so `web.spenza.com` can read them too: browser storage
+ *      is per host, and the sign-up page is a different one from this site.
+ *   2. Links. Every Login / Start-free-trial link to web.spenza.com gets
+ *      `utm_source=<page it was clicked on>`, `utm_medium=website`,
+ *      `utm_campaign=<login|start_free_trial>`, `utm_content=<nav|footer|body>`,
+ *      plus `ft_source=<first-touch channel>` when there is one, so the channel
+ *      that brought the visitor is not lost under the page name. A link that
+ *      already carries its own `utm_*` (a sales email) is left alone.
+ *   3. Counting. `cta_click` (GA4 + Clarity) for those links, the Contact Us
+ *      links and the demo pop-up buttons; the form submit counterpart is in
+ *      `hubspot-forms.js`, which reads `window.spAttribution` to stamp the
+ *      same values on the HubSpot contact.
+ *
+ * UTM values are campaign labels, not personal data. Like the tags above, none
+ * of this waits for a consent decision (see the note at the top of the file).
+ * `is:inline` for the same reason as the others: it must run before the DOM.
+ */
+const attribution = `(function (w, d) {
+  var DOMAIN = /(^|\\.)spenza\\.com$/.test(location.hostname) ? "; domain=.spenza.com" : "";
+  var SECURE = location.protocol === "https:" ? "; secure" : "";
+  var UTM = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+
+  function slug(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 60); }
+  function val(s) { return String(s || "").trim().toLowerCase().slice(0, 100); }
+  function parse(h) { try { return new URL(h, location.href); } catch (_) { return null; } }
+  function read(n) {
+    var m = d.cookie.match(new RegExp("(?:^|;\\\\s*)" + n + "=([^;]*)"));
+    if (!m) return null;
+    try { return JSON.parse(decodeURIComponent(m[1])); } catch (_) { return null; }
+  }
+  function write(n, o, days) {
+    try { d.cookie = n + "=" + encodeURIComponent(JSON.stringify(o)) + "; path=/; max-age=" + days * 86400 + "; samesite=lax" + DOMAIN + SECURE; } catch (_) {}
+  }
+  function store(n, o) {
+    try {
+      if (o === undefined) return JSON.parse(sessionStorage.getItem(n));
+      sessionStorage.setItem(n, JSON.stringify(o));
+    } catch (_) { return null; }
+  }
+  function pageKey() {
+    var p = location.pathname.replace(/^\\/+|\\/+$/g, "");
+    return p ? slug(p) : "homepage";
+  }
+  function placement(el) {
+    return el.closest(".sn") ? "nav" : el.closest("footer") ? "footer" : "body";
+  }
+
+  /* 1. Arrival */
+  var q = new URLSearchParams(location.search), seen = {}, any = false;
+  UTM.forEach(function (k) { var v = val(q.get(k)); if (v) { seen[k] = v; any = true; } });
+  if (any) {
+    seen.t = Date.now();
+    if (!read("sp_ft")) write("sp_ft", seen, 90);
+    write("sp_lt", seen, 90);
+  }
+
+  /* 2. Links */
+  function decorate(a) {
+    var u = parse(a.href);
+    if (!u || u.hostname !== "web.spenza.com") return;
+    var m = u.pathname.match(/^\\/auth\\/(login|signup)/);
+    if (!m || u.searchParams.has("utm_source")) return;
+    var ft = read("sp_ft");
+    u.searchParams.set("utm_source", pageKey());
+    u.searchParams.set("utm_medium", "website");
+    u.searchParams.set("utm_campaign", m[1] === "signup" ? "start_free_trial" : "login");
+    u.searchParams.set("utm_content", placement(a));
+    if (ft && ft.utm_source) u.searchParams.set("ft_source", ft.utm_source);
+    a.href = u.toString();
+  }
+  function decorateAll() {
+    var all = d.querySelectorAll('a[href*="web.spenza.com/auth/"]');
+    for (var i = 0; i < all.length; i++) decorate(all[i]);
+  }
+  if (d.readyState === "loading") d.addEventListener("DOMContentLoaded", decorateAll); else decorateAll();
+
+  /* 3. Counting */
+  function classify(t) {
+    if (!t || !t.closest) return null;
+    var a = t.closest("a[href]");
+    if (a) {
+      var u = parse(a.href);
+      if (u && u.hostname === "web.spenza.com" && /^\\/auth\\/signup/.test(u.pathname)) return { cta: "start_free_trial", a: a };
+      if (u && u.hostname === "web.spenza.com" && /^\\/auth\\/login/.test(u.pathname)) return { cta: "login", a: a };
+      if (u && u.hostname === location.hostname && /^\\/contact-us\\/?$/.test(u.pathname)) return { cta: "contact", a: a };
+    }
+    if (t.closest(".get-started")) return { cta: "popup_open" };
+    return null;
+  }
+  function onClick(e) {
+    if (e.type === "auxclick" && e.button !== 1) return;
+    var hit = classify(e.target);
+    if (!hit) return;
+    if (hit.a) decorate(hit.a);
+    var page = pageKey(), where = placement(e.target);
+    store("sp_cta", { cta: hit.cta, page: page, placement: where, t: Date.now() });
+    try { if (w.gtag) w.gtag("event", "cta_click", { cta: hit.cta, cta_page: page, cta_placement: where }); } catch (_) {}
+    try { if (w.clarity) { w.clarity("event", "cta_click_" + hit.cta); w.clarity("set", "cta_page", page); } } catch (_) {}
+  }
+  d.addEventListener("click", onClick, true);
+  d.addEventListener("auxclick", onClick, true);
+  // Right-click > copy link, and cmd-click, read href before any click event.
+  d.addEventListener("pointerdown", function (e) { var h = classify(e.target); if (h && h.a) decorate(h.a); }, true);
+
+  /* What a form should record: the page the visitor converted on (or, for the
+     Contact Us page, the page whose link brought them), the CTA, and the
+     channel that first brought them here. */
+  w.spAttribution = {
+    forForm: function (form) {
+      var last = store("sp_cta"), ft = read("sp_ft");
+      var fresh = last && Date.now() - last.t < 30 * 60 * 1000;
+      var page = pageKey(), cta = "inline_form", where = placement(form);
+      if (form.closest(".popup-overlay, .popup-container, .gp-modal")) {
+        cta = "popup_open";
+        where = fresh && last.cta === "popup_open" ? last.placement : "popup";
+      } else if (/^\\/contact-us\\/?$/.test(location.pathname)) {
+        cta = "contact";
+        if (fresh && last.cta === "contact") { page = last.page; where = last.placement; }
+      }
+      var out = { utm_source: page, utm_medium: "website", utm_campaign: cta, utm_content: where };
+      if (ft && ft.utm_source) out.first_touch_source = ft.utm_source;
+      return out;
+    }
+  };
+})(window, document);`;
+
+/*
  * OpenAI's Measurement Pixel loader and init, unchanged apart from the id and
  * `debug: true`, which was dropped once Ads Manager showed events — it logs
  * every SDK step to each visitor's console. Add it back to debug locally.
@@ -106,5 +237,7 @@ oaiq("measure","page_viewed",{type:"contents"});`;
 <script is:inline type="text/javascript" set:html={clarity} />
 
 <script is:inline type="text/javascript" set:html={docsLinks} />
+
+<script is:inline type="text/javascript" set:html={attribution} />
 
 {OAI_PIXEL_ID && <script is:inline type="text/javascript" set:html={oaiPixel} />}
