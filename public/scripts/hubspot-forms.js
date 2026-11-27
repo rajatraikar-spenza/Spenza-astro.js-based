@@ -853,6 +853,11 @@
     body.set('spenza_source_url', location.href);
     body.set('spenza_page_title', document.title);
 
+    // How long this page has been open. A person needs seconds to read and fill
+    // a form; a script posting it needs none. The endpoint holds back a lead sent
+    // sooner than that, and (once enabled) one that carries no stamp at all.
+    if (forEndpoint) body.set('spenza_elapsed_ms', String(Math.round(performance.now())));
+
     // What the Conversions API needs to attribute the lead to a ChatGPT ad:
     // the event id shared with the pixel, the ad-click id the pixel stored
     // from `?oppref=`, and its browser id. Read back by

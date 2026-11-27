@@ -242,3 +242,58 @@ test('random-text rule spares real names and companies, and one odd answer is ne
   await handler(post({ gform_submit: '20', input_1: 'McDonaldVanDerBerg', input_4: 'a@b.co', input_6: 'Acme', input_10: 'Others' }), null, env);
   assert.equal(c.mail.length, 2);
 });
+
+// ---- honeypot and fill time: catches a script that posts straight to the endpoint ----
+
+test('parseBody reads the hidden trap field and nothing else from it', () => {
+  assert.equal(parseBody({ body: new URLSearchParams({ gform_submit: '15', input_2: 'a@b.co', ak_hp_textarea: 'buy now' }).toString() }).trap.hp, 'buy now');
+  assert.equal(parseBody({ body: new URLSearchParams({ gform_submit: '15', input_2: 'a@b.co' }).toString() }).trap.hp, '');
+});
+
+test('a filled honeypot is quarantined, even from an ordinary IP and with a human-looking timer', async () => {
+  const c = harness();
+  await assertQuarantined(c, await handler(post({ ...popup, ak_hp_textarea: 'http://spam.example', spenza_elapsed_ms: '9000' }), null, env), ['honeypot']);
+});
+
+test('a form submitted under three seconds after load is quarantined', async () => {
+  const c = harness();
+  await assertQuarantined(c, await handler(post({ ...popup, spenza_elapsed_ms: '1200' }), null, env), ['too_fast']);
+});
+
+test('signals add up: Tor, honeypot and speed are all reported', async () => {
+  const c = harness();
+  await assertQuarantined(c, await handler(post({ ...popup, ak_hp_textarea: 'x', spenza_elapsed_ms: '50' }, { ip: TOR_IP }), null, env), ['honeypot', 'too_fast', 'tor']);
+});
+
+test('a person who took a normal time is untouched, and an empty honeypot means nothing', async () => {
+  const c = harness();
+  await handler(post({ ...popup, ak_hp_textarea: '', spenza_elapsed_ms: '8000' }), null, env);
+  assert.equal(c.mail.length, 2);
+  assert.equal(c.oai.length, 1);
+  assert.deepEqual(JSON.parse(c.put[0].Body).spam, { quarantined: false, reasons: [] });
+});
+
+test('no timer is fine by default (an old cached page), and quarantined once SPAM_REQUIRE_TIMER=1', async () => {
+  let c = harness();
+  await handler(post(popup), null, env);
+  assert.equal(c.mail.length, 2);
+  c = harness();
+  await assertQuarantined(c, await handler(post(popup), null, { ...env, SPAM_REQUIRE_TIMER: '1' }), ['no_timer']);
+  c = harness();
+  await handler(post({ ...popup, spenza_elapsed_ms: '6000' }), null, { ...env, SPAM_REQUIRE_TIMER: '1' });
+  assert.equal(c.mail.length, 2);
+});
+
+test('a garbled timer counts as no timer, never as a fast one', async () => {
+  for (const bad of ['abc', '-5', '', '1e3', '12.5']) {
+    const c = harness();
+    await handler(post({ ...popup, spenza_elapsed_ms: bad }), null, env);
+    assert.equal(c.mail.length, 2, bad);
+  }
+});
+
+test('SPAM_FILTER=0 switches the honeypot and timer off with the rest', async () => {
+  const c = harness();
+  await handler(post({ ...popup, ak_hp_textarea: 'x', spenza_elapsed_ms: '10' }), null, { ...env, SPAM_FILTER: '0' });
+  assert.equal(c.mail.length, 2);
+});
