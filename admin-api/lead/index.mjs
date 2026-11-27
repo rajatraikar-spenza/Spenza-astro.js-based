@@ -25,6 +25,7 @@
 //   ALLOWED_ORIGINS     comma list, default the spenza.com origins
 //   SPAM_ALERT_TO       comma list for suspected-spam alerts; unset sends them to the usual recipients
 //   SPAM_FILTER         "0" turns the quarantine off
+//   SPAM_REQUIRE_TIMER  "1" also quarantines a lead that arrives without the page's fill-time stamp
 import { createHash, randomUUID } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { FORMS, labelFor } from './forms.mjs';
@@ -74,11 +75,12 @@ function respond(status, body, origin, env) {
 export function parseBody(event) {
   const raw = event.isBase64Encoded ? Buffer.from(event.body || '', 'base64').toString('utf8') : event.body || '';
   const params = new URLSearchParams(raw);
-  const out = { fields: {}, meta: {}, form: null };
+  const out = { fields: {}, meta: {}, form: null, trap: { hp: '' } };
   let keys = 0;
   for (const [k, v] of params) {
     if (++keys > 400) break;
     if (k === 'gform_submit') out.form = String(v).trim();
+    else if (k === 'ak_hp_textarea') out.trap.hp = String(v).slice(0, 200);
     else if (FIELD_KEY.test(k)) {
       if (!(k in out.fields)) out.fields[k] = String(v).slice(0, MAX_VALUE);
     } else if (/^spenza_[a-z_]+$/.test(k)) out.meta[k] = String(v).slice(0, 1024);
@@ -131,7 +133,11 @@ function sourceUrl(meta) {
   return 'https://spenza.com/';
 }
 
-const SPAM_REASONS = { tor: 'sent through Tor', random_text: 'random text in the answers' };
+const SPAM_REASONS = {
+  tor: 'sent through Tor', random_text: 'random text in the answers',
+  honeypot: 'a hidden field no visitor can see was filled in', too_fast: 'submitted faster than a person could read the form',
+  no_timer: 'sent without the page timer a real visit carries',
+};
 
 export function alertEmail(formId, fields, meta, entryKey, when, spam = []) {
   const spec = FORMS[formId];
@@ -213,7 +219,7 @@ export async function handler(event, _ctx, envOrCallback) {
   const ip = event.requestContext?.http?.sourceIp || '';
   if (await throttled(ip, env)) return respond(429, { ok: false, error: 'rate_limited' }, origin, env);
 
-  const { form, fields, meta } = parseBody(event);
+  const { form, fields, meta, trap } = parseBody(event);
   const check = validate(form, fields);
   if (check.error) return respond(check.error === 'unknown_form' || check.error === 'no_fields' ? 400 : 422, { ok: false, ...check }, origin, env);
 
@@ -222,7 +228,7 @@ export async function handler(event, _ctx, envOrCallback) {
   const id = `${when}-${randomUUID().slice(0, 8)}`;
   const entryKey = `leads/${d.toISOString().slice(0, 10).replace(/-/g, '/')}/form-${form}-${id}.json`;
   const agent = event.headers?.['user-agent'] || '';
-  const spam = await spamReasons({ formId: form, fields, ip }, env, deps);
+  const spam = await spamReasons({ formId: form, fields, ip, trap, meta }, env, deps);
   const quarantined = spam.length > 0;
   const result = { archive: 'skipped', alert: 'skipped', reply: 'skipped', oai: 'skipped', ...(quarantined && { spam: spam.join('+') }) };
 

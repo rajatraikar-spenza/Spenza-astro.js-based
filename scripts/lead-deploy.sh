@@ -59,13 +59,13 @@ TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
 A_TO="${ALERT_TO:-$(cur ALERT_TO)}"
 [ -n "$A_TO" ] || { echo "ALERT_TO is required on the first run" >&2; exit 1; }
 ENV_JSON="$(node -e '
-  const k = ["ALERT_TO","ALERT_FROM","REPLY_FROM","ARCHIVE_BUCKET","RATE_TABLE","SEND_CLIENT_REPLY","SEND_OAI","OAI_CAPI_KEY","OAI_PIXEL_ID","OAI_VALIDATE_ONLY","SPAM_ALERT_TO","SPAM_FILTER"];
+  const k = ["ALERT_TO","ALERT_FROM","REPLY_FROM","ARCHIVE_BUCKET","RATE_TABLE","SEND_CLIENT_REPLY","SEND_OAI","OAI_CAPI_KEY","OAI_PIXEL_ID","OAI_VALIDATE_ONLY","SPAM_ALERT_TO","SPAM_FILTER","SPAM_REQUIRE_TIMER"];
   const v = process.argv.slice(1);
   process.stdout.write(JSON.stringify({ Variables: Object.fromEntries(k.map((n, i) => [n, v[i]]).filter(([, x]) => x)) }));' \
   "$A_TO" "${ALERT_FROM:-Spenza Website <website@spenza.com>}" "${REPLY_FROM:-Spenza <sales@spenza.com>}" "$BUCKET" "$TABLE" \
   "${SEND_CLIENT_REPLY:-$(cur SEND_CLIENT_REPLY)}" "${SEND_OAI:-$(cur SEND_OAI)}" "${OAI_CAPI_KEY:-$(cur OAI_CAPI_KEY)}" \
   "${OAI_PIXEL_ID:-$(cur OAI_PIXEL_ID)}" "${OAI_VALIDATE_ONLY:-$(cur OAI_VALIDATE_ONLY)}" \
-  "${SPAM_ALERT_TO-$(cur SPAM_ALERT_TO)}" "${SPAM_FILTER-$(cur SPAM_FILTER)}")"
+  "${SPAM_ALERT_TO-$(cur SPAM_ALERT_TO)}" "${SPAM_FILTER-$(cur SPAM_FILTER)}" "${SPAM_REQUIRE_TIMER-$(cur SPAM_REQUIRE_TIMER)}")"
 
 say "Function $FUNCTION"
 if aws lambda get-function --function-name "$FUNCTION" --region "$REGION" >/dev/null 2>&1; then
