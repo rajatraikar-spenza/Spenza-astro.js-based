@@ -3,6 +3,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { handler, deps, parseBody, validate, replyFor, alertEmail } from '../admin-api/lead/index.mjs';
+import { looksRandom, resetTorCache } from '../admin-api/lead/spam.mjs';
+
+const TOR_IP = '185.220.101.20';
+const TOR_LIST = [TOR_IP, ...Array.from({ length: 150 }, (_, i) => `198.51.100.${i}`)].join('\n');
 
 const env = {
   ALERT_TO: 'sales@spenza.com,siva.sai@spenza.com,vinay@spenza.com', ALERT_FROM: 'Spenza Website <website@spenza.com>',
@@ -12,16 +16,24 @@ const env = {
 const UUID = '123e4567-e89b-42d3-a456-426614174000';
 
 function harness(over = {}) {
-  const calls = { mail: [], put: [], oai: [] };
+  const calls = { mail: [], put: [], oai: [], tor: 0 };
+  resetTorCache();
   deps.now = () => Date.UTC(2026, 10, 17, 9, 30);
   deps.sendEmail = async p => { if (over.mailFails) throw new Error('ses down'); calls.mail.push(p); };
   deps.putObject = async p => { if (over.putFails) throw new Error('s3 down'); calls.put.push(p); };
   deps.bump = async () => ({ Attributes: { hits: { N: String(over.hits ?? 1) } } });
-  deps.fetch = async (url, init) => { calls.oai.push({ url, body: JSON.parse(init.body), auth: init.headers.authorization }); return { ok: true, text: async () => '' }; };
+  deps.fetch = async (url, init) => {
+    if (url.includes('torproject.org')) {
+      calls.tor++;
+      if (over.torFails) throw new Error('timeout');
+      return { ok: true, status: 200, text: async () => over.torList ?? TOR_LIST };
+    }
+    calls.oai.push({ url, body: JSON.parse(init.body), auth: init.headers.authorization }); return { ok: true, text: async () => '' };
+  };
   return calls;
 }
-const post = (body, { origin = 'https://spenza.com', method = 'POST' } = {}) => ({
-  body: new URLSearchParams(body).toString(), headers: { origin, 'user-agent': 'UA' }, requestContext: { http: { method, sourceIp: '203.0.113.9' } },
+const post = (body, { origin = 'https://spenza.com', method = 'POST', ip = '203.0.113.9' } = {}) => ({
+  body: new URLSearchParams(body).toString(), headers: { origin, 'user-agent': 'UA' }, requestContext: { http: { method, sourceIp: ip } },
 });
 
 test('form 20: alert to all three recipients, reply chosen by the dropdown, archived', async () => {
@@ -137,4 +149,96 @@ test('form 23 needs an email and a topic', () => {
   assert.equal(validate('23', { input_2: 'a@b.co' }).error, 'validation_failed');
   assert.equal(validate('23', { input_3: 'topic' }).error, 'validation_failed');
   assert.equal(validate('23', { input_2: 'nope', input_3: 'topic' }).error, 'validation_failed');
+});
+
+// ---- spam quarantine: a suspected lead is held back from replies and ads, never dropped ----
+
+const popup = { gform_submit: '15', input_2: 'a@b.co', input_5: '9280985505', spenza_oai_event_id: UUID };
+const agentForm = { gform_submit: '22', input_1: 'eTeOqVRPHSXWgEMrtR', input_2: 'a@b.co', input_3: 'nEPnjZEASAnjHrvdeETVN', input_6: 'CVPnFpMbZEuDwaOO', spenza_oai_event_id: UUID };
+
+/** What must hold for every quarantined lead: accepted, archived, alerted, but silent to outsiders. */
+async function assertQuarantined(c, res, reasons) {
+  assert.equal(res.statusCode, 200);
+  assert.equal(JSON.parse(res.body).ok, true);
+  assert.ok(!res.body.includes('spam'), 'the sender must not learn it was flagged');
+  assert.equal(c.put.length, 1);
+  assert.deepEqual(JSON.parse(c.put[0].Body).spam, { quarantined: true, reasons });
+  assert.equal(c.mail.length, 1, 'the alert only, no client reply');
+  assert.match(c.mail[0].Content.Simple.Subject.Data, /^\[Suspected spam\] New submission from /);
+  assert.match(c.mail[0].Content.Simple.Body.Text.Data, /^Suspected spam: /);
+  assert.equal(c.oai.length, 0);
+}
+
+test('Tor lead: archived and alerted to the usual recipients, no reply, no conversion', async () => {
+  const c = harness();
+  const res = await handler(post(popup, { ip: TOR_IP }), null, env);
+  await assertQuarantined(c, res, ['tor']);
+  assert.deepEqual(c.mail[0].Destination.ToAddresses, env.ALERT_TO.split(','));
+});
+
+test('random text from an ordinary IP is quarantined too', async () => {
+  const c = harness();
+  await assertQuarantined(c, await handler(post(agentForm), null, env), ['random_text']);
+});
+
+test('an ordinary lead is untouched: untagged alert, reply and conversion both sent', async () => {
+  const c = harness();
+  await handler(post(popup), null, env);
+  assert.equal(c.mail.length, 2);
+  assert.ok(c.mail.every(m => !/spam/i.test(m.Content.Simple.Subject.Data + m.Content.Simple.Body.Html.Data)));
+  assert.equal(c.oai.length, 1);
+  assert.deepEqual(JSON.parse(c.put[0].Body).spam, { quarantined: false, reasons: [] });
+});
+
+test('Tor list down, or not a real list: the lead goes through as normal', async () => {
+  for (const over of [{ torFails: true }, { torList: TOR_IP }, { torList: '<html>Just a moment...</html>' }]) {
+    const c = harness(over);
+    assert.equal((await handler(post(popup, { ip: TOR_IP }), null, env)).statusCode, 200);
+    assert.equal(c.mail.length, 2);
+    assert.equal(c.oai.length, 1);
+  }
+});
+
+test('the Tor list is fetched once and reused; a failed refresh keeps the last good copy', async () => {
+  const c = harness();
+  await handler(post(popup, { ip: TOR_IP }), null, env);
+  await handler(post(popup, { ip: TOR_IP }), null, env);
+  assert.equal(c.tor, 1);
+  const later = deps.now() + 2 * 60 * 60 * 1000;
+  deps.now = () => later;
+  deps.fetch = async () => { throw new Error('down'); };
+  await handler(post(popup, { ip: TOR_IP }), null, env);
+  assert.match(c.mail.at(-1).Content.Simple.Subject.Data, /Suspected spam/);
+});
+
+test('SPAM_ALERT_TO reroutes only suspected alerts; SPAM_FILTER=0 turns the quarantine off', async () => {
+  let c = harness();
+  const routed = { ...env, SPAM_ALERT_TO: 'review@spenza.com' };
+  await handler(post(popup, { ip: TOR_IP }), null, routed);
+  await handler(post({ gform_submit: '19', input_3: 'a@b.co' }), null, routed);
+  assert.deepEqual(c.mail[0].Destination.ToAddresses, ['review@spenza.com']);
+  assert.deepEqual(c.mail[1].Destination.ToAddresses, env.ALERT_TO.split(','));
+  c = harness();
+  await handler(post(popup, { ip: TOR_IP }), null, { ...env, SPAM_FILTER: '0' });
+  assert.equal(c.mail.length, 2);
+  assert.equal(c.tor, 0);
+});
+
+test('a quarantined lead that could be neither alerted nor archived still reports the failure', async () => {
+  harness({ mailFails: true, putFails: true });
+  assert.equal((await handler(post(popup, { ip: TOR_IP }), null, env)).statusCode, 502);
+});
+
+test('Guest Postings from Tor: no automatic thank-you', async () => {
+  const c = harness();
+  await handler(post({ gform_submit: '23', input_2: 'a@b.co', input_3: 'A topic' }, { ip: TOR_IP }), null, env);
+  assert.equal(c.mail.length, 1);
+});
+
+test('random-text rule spares real names and companies, and one odd answer is never enough', async () => {
+  for (const v of ['Jordan Rivers', 'Christopherson', 'CHRISTOPHERSON', 'examplestudio', 'TelecomExpenseManagement', 'AB Digital Marketing Team', 'McDonald', ''])
+    assert.equal(looksRandom(v), false, v);
+  const c = harness();
+  await handler(post({ gform_submit: '20', input_1: 'McDonaldVanDerBerg', input_4: 'a@b.co', input_6: 'Acme', input_10: 'Others' }), null, env);
+  assert.equal(c.mail.length, 2);
 });
