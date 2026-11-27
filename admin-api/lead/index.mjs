@@ -8,6 +8,9 @@
 //   3. emails the sales alert, and the client reply where the form has one (Amazon SES, DKIM-signed)
 //   4. sends the lead_created event to OpenAI's Conversions API
 //
+// Suspected spam (see spam.mjs) is quarantined, never dropped: steps 1-2 as normal, a tagged
+// alert in step 3, and no client reply or conversion event.
+//
 // An AWS Lambda behind a Function URL; Node 22; the AWS SDK v3 ships in the runtime, nothing to bundle.
 //
 // Environment:
@@ -20,9 +23,12 @@
 //   SEND_OAI            "1" to send the conversion event (needs OAI_CAPI_KEY)
 //   OAI_CAPI_KEY, OAI_PIXEL_ID, OAI_VALIDATE_ONLY
 //   ALLOWED_ORIGINS     comma list, default the spenza.com origins
+//   SPAM_ALERT_TO       comma list for suspected-spam alerts; unset sends them to the usual recipients
+//   SPAM_FILTER         "0" turns the quarantine off
 import { createHash, randomUUID } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { FORMS, labelFor } from './forms.mjs';
+import { spamReasons } from './spam.mjs';
 
 const REPLIES = JSON.parse(readFileSync(new URL('./replies.json', import.meta.url), 'utf8'));
 
@@ -125,7 +131,9 @@ function sourceUrl(meta) {
   return 'https://spenza.com/';
 }
 
-export function alertEmail(formId, fields, meta, entryKey, when) {
+const SPAM_REASONS = { tor: 'sent through Tor', random_text: 'random text in the answers' };
+
+export function alertEmail(formId, fields, meta, entryKey, when, spam = []) {
   const spec = FORMS[formId];
   const rows = Object.entries(fields).filter(([, v]) => String(v).trim() !== '')
     .map(([k, v]) => `<tr><td style="padding:6px 14px 6px 0;color:#6b7280;vertical-align:top;white-space:nowrap">${esc(labelFor(formId, k))}</td>` +
@@ -133,7 +141,12 @@ export function alertEmail(formId, fields, meta, entryKey, when) {
   const email = emailOf(formId, fields);
   const page = sourceUrl(meta);
   const hs = `https://app.hubspot.com/contacts/${HUBSPOT_PORTAL}/objects/0-1/views/all/list?query=${encodeURIComponent(email)}`;
+  const warning = spam.length
+    ? `Suspected spam: ${spam.map(r => SPAM_REASONS[r] ?? r).join(', ')}. No automatic reply was sent and the lead service reported no ad conversion. ` +
+      'Check it before contacting this address: it may belong to someone who never visited the site.'
+    : '';
   const html = `<div style="font:14px/1.6 -apple-system,'Segoe UI',Helvetica,Arial,sans-serif;color:#111827;max-width:620px">` +
+    (warning ? `<p style="margin:0 0 16px;padding:10px 12px;background:#fef3c7;border:1px solid #f59e0b">${esc(warning)}</p>` : '') +
     `<p style="margin:0 0 16px">New lead from <strong>${esc(spec.title)}</strong>.</p>` +
     `<table cellpadding="0" cellspacing="0" border="0" style="font-size:14px">${rows}</table>` +
     `<table cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;font:12px/1.7 sans-serif;color:#6b7280">` +
@@ -141,9 +154,9 @@ export function alertEmail(formId, fields, meta, entryKey, when) {
     `<tr><td style="padding:2px 14px 2px 0">Submitted</td><td style="color:#111827">${esc(new Date(when).toUTCString())}</td></tr>` +
     `<tr><td style="padding:2px 14px 2px 0">Look up</td><td><a href="${esc(hs)}" style="color:#1d4ed8">Find in HubSpot</a></td></tr>` +
     `<tr><td style="padding:2px 14px 2px 0">Archive</td><td>${esc(entryKey)}</td></tr></table></div>`;
-  const text = `New lead from ${spec.title}\n\n` + Object.entries(fields).filter(([, v]) => String(v).trim())
+  const text = (warning ? `${warning}\n\n` : '') + `New lead from ${spec.title}\n\n` + Object.entries(fields).filter(([, v]) => String(v).trim())
     .map(([k, v]) => `${labelFor(formId, k)}: ${v}`).join('\n') + `\n\nPage: ${page}\nSubmitted: ${new Date(when).toUTCString()}\nHubSpot: ${hs}\nArchive: ${entryKey}\n`;
-  return { subject: `New submission from ${spec.title} — ${email}`, html, text, replyTo: email };
+  return { subject: `${spam.length ? '[Suspected spam] ' : ''}New submission from ${spec.title} — ${email}`, html, text, replyTo: email };
 }
 
 export function replyFor(formId, fields) {
@@ -209,12 +222,15 @@ export async function handler(event, _ctx, envOrCallback) {
   const id = `${when}-${randomUUID().slice(0, 8)}`;
   const entryKey = `leads/${d.toISOString().slice(0, 10).replace(/-/g, '/')}/form-${form}-${id}.json`;
   const agent = event.headers?.['user-agent'] || '';
-  const result = { archive: 'skipped', alert: 'skipped', reply: 'skipped', oai: 'skipped' };
+  const spam = await spamReasons({ formId: form, fields, ip }, env, deps);
+  const quarantined = spam.length > 0;
+  const result = { archive: 'skipped', alert: 'skipped', reply: 'skipped', oai: 'skipped', ...(quarantined && { spam: spam.join('+') }) };
 
   const record = {
     id, form: Number(form), formTitle: FORMS[form].title, receivedAt: d.toISOString(),
     fields: Object.fromEntries(Object.entries(fields).map(([k, v]) => [k, { label: labelFor(form, k), value: v }])),
     sourceUrl: sourceUrl(meta), pageTitle: meta.spenza_page_title || '', ip, userAgent: agent.slice(0, 512),
+    spam: { quarantined, reasons: spam },
   };
 
   const jobs = [];
@@ -223,17 +239,18 @@ export async function handler(event, _ctx, envOrCallback) {
       Bucket: env.ARCHIVE_BUCKET, Key: entryKey, Body: JSON.stringify(record, null, 1), ContentType: 'application/json', ServerSideEncryption: 'AES256',
     }).then(() => { result.archive = 'ok'; }).catch(err => { result.archive = 'failed'; console.error('[lead] archive failed', err.name, err.message); }));
   }
-  const alert = alertEmail(form, fields, meta, entryKey, when);
-  jobs.push(sendMail(env, { from: env.ALERT_FROM, to: FORMS[form].alertTo ?? env.ALERT_TO, ...alert })
+  const alert = alertEmail(form, fields, meta, entryKey, when, spam);
+  const alertTo = (quarantined && list(env.SPAM_ALERT_TO).length ? env.SPAM_ALERT_TO : null) ?? FORMS[form].alertTo ?? env.ALERT_TO;
+  jobs.push(sendMail(env, { from: env.ALERT_FROM, to: alertTo, ...alert })
     .then(() => { result.alert = 'ok'; }).catch(err => { result.alert = 'failed'; console.error('[lead] alert failed', err.name, err.message); }));
 
-  const reply = env.SEND_CLIENT_REPLY === '1' || FORMS[form].alwaysReply ? replyFor(form, fields) : null;
+  const reply = !quarantined && (env.SEND_CLIENT_REPLY === '1' || FORMS[form].alwaysReply) ? replyFor(form, fields) : null;
   const to = emailOf(form, fields);
   if (reply && EMAIL_RE.test(to)) {
     jobs.push(sendMail(env, { from: env.REPLY_FROM, to, replyTo: 'sales@spenza.com', subject: reply.subject, html: reply.html })
       .then(() => { result.reply = 'ok'; }).catch(err => { result.reply = 'failed'; console.error('[lead] reply failed', err.name, err.message); }));
   }
-  if (env.SEND_OAI === '1' && env.OAI_CAPI_KEY) {
+  if (!quarantined && env.SEND_OAI === '1' && env.OAI_CAPI_KEY) {
     jobs.push(sendOai(env, { formId: form, fields, meta, ip, agent, when })
       .then(r => { result.oai = r; }).catch(err => { result.oai = 'failed'; console.error('[lead] oai failed', err.message); }));
   }
